@@ -1,24 +1,36 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBrush = @import("libqt6").QBrush;
+const QColor = @import("libqt6").QColor;
+const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qpalette_enums = enums;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html)
-pub const qpalette = struct {
+pub const QPalette = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QPalette,
+
+    pub const _is_QPalette = {};
+
     /// New constructs a new QPalette object.
     ///
-    pub fn New() QtC.QPalette {
-        return qtc.QPalette_new();
+    pub fn New() QPalette {
+        return .{ .ptr = qtc.QPalette_new() };
     }
 
     /// New2 constructs a new QPalette object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` button: QtC.QColor `
+    /// ` button: QColor `
     ///
-    pub fn New2(button: ?*anyopaque) QtC.QPalette {
-        return qtc.QPalette_new2(@ptrCast(button));
+    pub fn New2(button: anytype) QPalette {
+        comptime _ = @TypeOf(button)._is_QColor;
+        return .{ .ptr = qtc.QPalette_new2(@ptrCast(button.ptr)) };
     }
 
     /// New3 constructs a new QPalette object.
@@ -27,598 +39,636 @@ pub const qpalette = struct {
     ///
     /// ` button: qnamespace_enums.GlobalColor `
     ///
-    pub fn New3(button: i32) QtC.QPalette {
-        return qtc.QPalette_new3(@bitCast(button));
+    pub fn New3(button: i32) QPalette {
+        return .{ .ptr = qtc.QPalette_new3(@bitCast(button)) };
     }
 
     /// New4 constructs a new QPalette object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` button: QtC.QColor `
+    /// ` button: QColor `
     ///
-    /// ` window: QtC.QColor `
+    /// ` window: QColor `
     ///
-    pub fn New4(button: ?*anyopaque, window: ?*anyopaque) QtC.QPalette {
-        return qtc.QPalette_new4(@ptrCast(button), @ptrCast(window));
+    pub fn New4(button: anytype, window: anytype) QPalette {
+        comptime _ = @TypeOf(button)._is_QColor;
+        comptime _ = @TypeOf(window)._is_QColor;
+        return .{ .ptr = qtc.QPalette_new4(@ptrCast(button.ptr), @ptrCast(window.ptr)) };
     }
 
     /// New5 constructs a new QPalette object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` windowText: QtC.QBrush `
+    /// ` windowText: QBrush `
     ///
-    /// ` button: QtC.QBrush `
+    /// ` button: QBrush `
     ///
-    /// ` light: QtC.QBrush `
+    /// ` light: QBrush `
     ///
-    /// ` dark: QtC.QBrush `
+    /// ` dark: QBrush `
     ///
-    /// ` mid: QtC.QBrush `
+    /// ` mid: QBrush `
     ///
-    /// ` text: QtC.QBrush `
+    /// ` text: QBrush `
     ///
-    /// ` bright_text: QtC.QBrush `
+    /// ` bright_text: QBrush `
     ///
-    /// ` base: QtC.QBrush `
+    /// ` base: QBrush `
     ///
-    /// ` window: QtC.QBrush `
+    /// ` window: QBrush `
     ///
-    pub fn New5(windowText: ?*anyopaque, button: ?*anyopaque, light: ?*anyopaque, dark: ?*anyopaque, mid: ?*anyopaque, text: ?*anyopaque, bright_text: ?*anyopaque, base: ?*anyopaque, window: ?*anyopaque) QtC.QPalette {
-        return qtc.QPalette_new5(@ptrCast(windowText), @ptrCast(button), @ptrCast(light), @ptrCast(dark), @ptrCast(mid), @ptrCast(text), @ptrCast(bright_text), @ptrCast(base), @ptrCast(window));
+    pub fn New5(windowText: anytype, button: anytype, light: anytype, dark: anytype, mid: anytype, text: anytype, bright_text: anytype, base: anytype, window: anytype) QPalette {
+        comptime _ = @TypeOf(windowText)._is_QBrush;
+        comptime _ = @TypeOf(button)._is_QBrush;
+        comptime _ = @TypeOf(light)._is_QBrush;
+        comptime _ = @TypeOf(dark)._is_QBrush;
+        comptime _ = @TypeOf(mid)._is_QBrush;
+        comptime _ = @TypeOf(text)._is_QBrush;
+        comptime _ = @TypeOf(bright_text)._is_QBrush;
+        comptime _ = @TypeOf(base)._is_QBrush;
+        comptime _ = @TypeOf(window)._is_QBrush;
+        return .{ .ptr = qtc.QPalette_new5(@ptrCast(windowText.ptr), @ptrCast(button.ptr), @ptrCast(light.ptr), @ptrCast(dark.ptr), @ptrCast(mid.ptr), @ptrCast(text.ptr), @ptrCast(bright_text.ptr), @ptrCast(base.ptr), @ptrCast(window.ptr)) };
     }
 
     /// New6 constructs a new QPalette object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` windowText: QtC.QColor `
+    /// ` windowText: QColor `
     ///
-    /// ` window: QtC.QColor `
+    /// ` window: QColor `
     ///
-    /// ` light: QtC.QColor `
+    /// ` light: QColor `
     ///
-    /// ` dark: QtC.QColor `
+    /// ` dark: QColor `
     ///
-    /// ` mid: QtC.QColor `
+    /// ` mid: QColor `
     ///
-    /// ` text: QtC.QColor `
+    /// ` text: QColor `
     ///
-    /// ` base: QtC.QColor `
+    /// ` base: QColor `
     ///
-    pub fn New6(windowText: ?*anyopaque, window: ?*anyopaque, light: ?*anyopaque, dark: ?*anyopaque, mid: ?*anyopaque, text: ?*anyopaque, base: ?*anyopaque) QtC.QPalette {
-        return qtc.QPalette_new6(@ptrCast(windowText), @ptrCast(window), @ptrCast(light), @ptrCast(dark), @ptrCast(mid), @ptrCast(text), @ptrCast(base));
+    pub fn New6(windowText: anytype, window: anytype, light: anytype, dark: anytype, mid: anytype, text: anytype, base: anytype) QPalette {
+        comptime _ = @TypeOf(windowText)._is_QColor;
+        comptime _ = @TypeOf(window)._is_QColor;
+        comptime _ = @TypeOf(light)._is_QColor;
+        comptime _ = @TypeOf(dark)._is_QColor;
+        comptime _ = @TypeOf(mid)._is_QColor;
+        comptime _ = @TypeOf(text)._is_QColor;
+        comptime _ = @TypeOf(base)._is_QColor;
+        return .{ .ptr = qtc.QPalette_new6(@ptrCast(windowText.ptr), @ptrCast(window.ptr), @ptrCast(light.ptr), @ptrCast(dark.ptr), @ptrCast(mid.ptr), @ptrCast(text.ptr), @ptrCast(base.ptr)) };
     }
 
     /// New7 constructs a new QPalette object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn New7(palette: ?*anyopaque) QtC.QPalette {
-        return qtc.QPalette_new7(@ptrCast(palette));
+    pub fn New7(palette: anytype) QPalette {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        return .{ .ptr = qtc.QPalette_new7(@ptrCast(palette.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QPalette_OperatorAssign(@ptrCast(self), @ptrCast(palette));
+    pub fn OperatorAssign(self: QPalette, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QPalette_OperatorAssign(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    /// ` other: QtC.QPalette `
+    /// ` other: QPalette `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QPalette_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QPalette, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QPalette;
+        qtc.QPalette_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#operator)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
-        return qtc.QPalette_ToQVariant(@ptrCast(self));
+    pub fn ToQVariant(self: QPalette) QVariant {
+        return .{ .ptr = qtc.QPalette_ToQVariant(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#currentColorGroup)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorGroup `
     ///
-    pub fn CurrentColorGroup(self: ?*anyopaque) i32 {
-        return qtc.QPalette_CurrentColorGroup(@ptrCast(self));
+    pub fn CurrentColorGroup(self: QPalette) i32 {
+        return qtc.QPalette_CurrentColorGroup(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#setCurrentColorGroup)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
     /// ` cg: qpalette_enums.ColorGroup `
     ///
-    pub fn SetCurrentColorGroup(self: ?*anyopaque, cg: i32) void {
-        qtc.QPalette_SetCurrentColorGroup(@ptrCast(self), @bitCast(cg));
+    pub fn SetCurrentColorGroup(self: QPalette, cg: i32) void {
+        qtc.QPalette_SetCurrentColorGroup(@ptrCast(self.ptr), @bitCast(cg));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#color)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
     /// ` cg: qpalette_enums.ColorGroup `
     ///
     /// ` cr: qpalette_enums.ColorRole `
     ///
-    pub fn Color(self: ?*anyopaque, cg: i32, cr: i32) QtC.QColor {
-        return qtc.QPalette_Color(@ptrCast(self), @bitCast(cg), @bitCast(cr));
+    pub fn Color(self: QPalette, cg: i32, cr: i32) QColor {
+        return .{ .ptr = qtc.QPalette_Color(@ptrCast(self.ptr), @bitCast(cg), @bitCast(cr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#brush)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
     /// ` cg: qpalette_enums.ColorGroup `
     ///
     /// ` cr: qpalette_enums.ColorRole `
     ///
-    pub fn Brush(self: ?*anyopaque, cg: i32, cr: i32) QtC.QBrush {
-        return qtc.QPalette_Brush(@ptrCast(self), @bitCast(cg), @bitCast(cr));
+    pub fn Brush(self: QPalette, cg: i32, cr: i32) QBrush {
+        return .{ .ptr = qtc.QPalette_Brush(@ptrCast(self.ptr), @bitCast(cg), @bitCast(cr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#setColor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
     /// ` cg: qpalette_enums.ColorGroup `
     ///
     /// ` cr: qpalette_enums.ColorRole `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn SetColor(self: ?*anyopaque, cg: i32, cr: i32, color: ?*anyopaque) void {
-        qtc.QPalette_SetColor(@ptrCast(self), @bitCast(cg), @bitCast(cr), @ptrCast(color));
+    pub fn SetColor(self: QPalette, cg: i32, cr: i32, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.QPalette_SetColor(@ptrCast(self.ptr), @bitCast(cg), @bitCast(cr), @ptrCast(color.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#setColor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
     /// ` cr: qpalette_enums.ColorRole `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn SetColor2(self: ?*anyopaque, cr: i32, color: ?*anyopaque) void {
-        qtc.QPalette_SetColor2(@ptrCast(self), @bitCast(cr), @ptrCast(color));
+    pub fn SetColor2(self: QPalette, cr: i32, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.QPalette_SetColor2(@ptrCast(self.ptr), @bitCast(cr), @ptrCast(color.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#setBrush)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
     /// ` cr: qpalette_enums.ColorRole `
     ///
-    /// ` brush: QtC.QBrush `
+    /// ` brush: QBrush `
     ///
-    pub fn SetBrush(self: ?*anyopaque, cr: i32, brush: ?*anyopaque) void {
-        qtc.QPalette_SetBrush(@ptrCast(self), @bitCast(cr), @ptrCast(brush));
+    pub fn SetBrush(self: QPalette, cr: i32, brush: anytype) void {
+        comptime _ = @TypeOf(brush)._is_QBrush;
+        qtc.QPalette_SetBrush(@ptrCast(self.ptr), @bitCast(cr), @ptrCast(brush.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#isBrushSet)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
     /// ` cg: qpalette_enums.ColorGroup `
     ///
     /// ` cr: qpalette_enums.ColorRole `
     ///
-    pub fn IsBrushSet(self: ?*anyopaque, cg: i32, cr: i32) bool {
-        return qtc.QPalette_IsBrushSet(@ptrCast(self), @bitCast(cg), @bitCast(cr));
+    pub fn IsBrushSet(self: QPalette, cg: i32, cr: i32) bool {
+        return qtc.QPalette_IsBrushSet(@ptrCast(self.ptr), @bitCast(cg), @bitCast(cr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#setBrush)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
     /// ` cg: qpalette_enums.ColorGroup `
     ///
     /// ` cr: qpalette_enums.ColorRole `
     ///
-    /// ` brush: QtC.QBrush `
+    /// ` brush: QBrush `
     ///
-    pub fn SetBrush2(self: ?*anyopaque, cg: i32, cr: i32, brush: ?*anyopaque) void {
-        qtc.QPalette_SetBrush2(@ptrCast(self), @bitCast(cg), @bitCast(cr), @ptrCast(brush));
+    pub fn SetBrush2(self: QPalette, cg: i32, cr: i32, brush: anytype) void {
+        comptime _ = @TypeOf(brush)._is_QBrush;
+        qtc.QPalette_SetBrush2(@ptrCast(self.ptr), @bitCast(cg), @bitCast(cr), @ptrCast(brush.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#setColorGroup)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
     /// ` cr: qpalette_enums.ColorGroup `
     ///
-    /// ` windowText: QtC.QBrush `
+    /// ` windowText: QBrush `
     ///
-    /// ` button: QtC.QBrush `
+    /// ` button: QBrush `
     ///
-    /// ` light: QtC.QBrush `
+    /// ` light: QBrush `
     ///
-    /// ` dark: QtC.QBrush `
+    /// ` dark: QBrush `
     ///
-    /// ` mid: QtC.QBrush `
+    /// ` mid: QBrush `
     ///
-    /// ` text: QtC.QBrush `
+    /// ` text: QBrush `
     ///
-    /// ` bright_text: QtC.QBrush `
+    /// ` bright_text: QBrush `
     ///
-    /// ` base: QtC.QBrush `
+    /// ` base: QBrush `
     ///
-    /// ` window: QtC.QBrush `
+    /// ` window: QBrush `
     ///
-    pub fn SetColorGroup(self: ?*anyopaque, cr: i32, windowText: ?*anyopaque, button: ?*anyopaque, light: ?*anyopaque, dark: ?*anyopaque, mid: ?*anyopaque, text: ?*anyopaque, bright_text: ?*anyopaque, base: ?*anyopaque, window: ?*anyopaque) void {
-        qtc.QPalette_SetColorGroup(@ptrCast(self), @bitCast(cr), @ptrCast(windowText), @ptrCast(button), @ptrCast(light), @ptrCast(dark), @ptrCast(mid), @ptrCast(text), @ptrCast(bright_text), @ptrCast(base), @ptrCast(window));
+    pub fn SetColorGroup(self: QPalette, cr: i32, windowText: anytype, button: anytype, light: anytype, dark: anytype, mid: anytype, text: anytype, bright_text: anytype, base: anytype, window: anytype) void {
+        comptime _ = @TypeOf(windowText)._is_QBrush;
+        comptime _ = @TypeOf(button)._is_QBrush;
+        comptime _ = @TypeOf(light)._is_QBrush;
+        comptime _ = @TypeOf(dark)._is_QBrush;
+        comptime _ = @TypeOf(mid)._is_QBrush;
+        comptime _ = @TypeOf(text)._is_QBrush;
+        comptime _ = @TypeOf(bright_text)._is_QBrush;
+        comptime _ = @TypeOf(base)._is_QBrush;
+        comptime _ = @TypeOf(window)._is_QBrush;
+        qtc.QPalette_SetColorGroup(@ptrCast(self.ptr), @bitCast(cr), @ptrCast(windowText.ptr), @ptrCast(button.ptr), @ptrCast(light.ptr), @ptrCast(dark.ptr), @ptrCast(mid.ptr), @ptrCast(text.ptr), @ptrCast(bright_text.ptr), @ptrCast(base.ptr), @ptrCast(window.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#isEqual)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
     /// ` cr1: qpalette_enums.ColorGroup `
     ///
     /// ` cr2: qpalette_enums.ColorGroup `
     ///
-    pub fn IsEqual(self: ?*anyopaque, cr1: i32, cr2: i32) bool {
-        return qtc.QPalette_IsEqual(@ptrCast(self), @bitCast(cr1), @bitCast(cr2));
+    pub fn IsEqual(self: QPalette, cr1: i32, cr2: i32) bool {
+        return qtc.QPalette_IsEqual(@ptrCast(self.ptr), @bitCast(cr1), @bitCast(cr2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#color)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
     /// ` cr: qpalette_enums.ColorRole `
     ///
-    pub fn Color2(self: ?*anyopaque, cr: i32) QtC.QColor {
-        return qtc.QPalette_Color2(@ptrCast(self), @bitCast(cr));
+    pub fn Color2(self: QPalette, cr: i32) QColor {
+        return .{ .ptr = qtc.QPalette_Color2(@ptrCast(self.ptr), @bitCast(cr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#brush)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
     /// ` cr: qpalette_enums.ColorRole `
     ///
-    pub fn Brush2(self: ?*anyopaque, cr: i32) QtC.QBrush {
-        return qtc.QPalette_Brush2(@ptrCast(self), @bitCast(cr));
+    pub fn Brush2(self: QPalette, cr: i32) QBrush {
+        return .{ .ptr = qtc.QPalette_Brush2(@ptrCast(self.ptr), @bitCast(cr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#windowText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn WindowText(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QPalette_WindowText(@ptrCast(self));
+    pub fn WindowText(self: QPalette) QBrush {
+        return .{ .ptr = qtc.QPalette_WindowText(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#button)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn Button(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QPalette_Button(@ptrCast(self));
+    pub fn Button(self: QPalette) QBrush {
+        return .{ .ptr = qtc.QPalette_Button(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#light)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn Light(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QPalette_Light(@ptrCast(self));
+    pub fn Light(self: QPalette) QBrush {
+        return .{ .ptr = qtc.QPalette_Light(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#dark)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn Dark(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QPalette_Dark(@ptrCast(self));
+    pub fn Dark(self: QPalette) QBrush {
+        return .{ .ptr = qtc.QPalette_Dark(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#mid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn Mid(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QPalette_Mid(@ptrCast(self));
+    pub fn Mid(self: QPalette) QBrush {
+        return .{ .ptr = qtc.QPalette_Mid(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#text)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn Text(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QPalette_Text(@ptrCast(self));
+    pub fn Text(self: QPalette) QBrush {
+        return .{ .ptr = qtc.QPalette_Text(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#base)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn Base(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QPalette_Base(@ptrCast(self));
+    pub fn Base(self: QPalette) QBrush {
+        return .{ .ptr = qtc.QPalette_Base(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#alternateBase)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn AlternateBase(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QPalette_AlternateBase(@ptrCast(self));
+    pub fn AlternateBase(self: QPalette) QBrush {
+        return .{ .ptr = qtc.QPalette_AlternateBase(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#toolTipBase)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn ToolTipBase(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QPalette_ToolTipBase(@ptrCast(self));
+    pub fn ToolTipBase(self: QPalette) QBrush {
+        return .{ .ptr = qtc.QPalette_ToolTipBase(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#toolTipText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn ToolTipText(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QPalette_ToolTipText(@ptrCast(self));
+    pub fn ToolTipText(self: QPalette) QBrush {
+        return .{ .ptr = qtc.QPalette_ToolTipText(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#window)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QPalette_Window(@ptrCast(self));
+    pub fn Window(self: QPalette) QBrush {
+        return .{ .ptr = qtc.QPalette_Window(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#midlight)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn Midlight(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QPalette_Midlight(@ptrCast(self));
+    pub fn Midlight(self: QPalette) QBrush {
+        return .{ .ptr = qtc.QPalette_Midlight(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#brightText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn BrightText(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QPalette_BrightText(@ptrCast(self));
+    pub fn BrightText(self: QPalette) QBrush {
+        return .{ .ptr = qtc.QPalette_BrightText(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#buttonText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn ButtonText(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QPalette_ButtonText(@ptrCast(self));
+    pub fn ButtonText(self: QPalette) QBrush {
+        return .{ .ptr = qtc.QPalette_ButtonText(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#shadow)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn Shadow(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QPalette_Shadow(@ptrCast(self));
+    pub fn Shadow(self: QPalette) QBrush {
+        return .{ .ptr = qtc.QPalette_Shadow(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#highlight)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn Highlight(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QPalette_Highlight(@ptrCast(self));
+    pub fn Highlight(self: QPalette) QBrush {
+        return .{ .ptr = qtc.QPalette_Highlight(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#highlightedText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn HighlightedText(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QPalette_HighlightedText(@ptrCast(self));
+    pub fn HighlightedText(self: QPalette) QBrush {
+        return .{ .ptr = qtc.QPalette_HighlightedText(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#link)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn Link(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QPalette_Link(@ptrCast(self));
+    pub fn Link(self: QPalette) QBrush {
+        return .{ .ptr = qtc.QPalette_Link(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#linkVisited)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn LinkVisited(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QPalette_LinkVisited(@ptrCast(self));
+    pub fn LinkVisited(self: QPalette) QBrush {
+        return .{ .ptr = qtc.QPalette_LinkVisited(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#placeholderText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn PlaceholderText(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QPalette_PlaceholderText(@ptrCast(self));
+    pub fn PlaceholderText(self: QPalette) QBrush {
+        return .{ .ptr = qtc.QPalette_PlaceholderText(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#accent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn Accent(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QPalette_Accent(@ptrCast(self));
+    pub fn Accent(self: QPalette) QBrush {
+        return .{ .ptr = qtc.QPalette_Accent(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#operator-eq-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    /// ` p: QtC.QPalette `
+    /// ` p: QPalette `
     ///
-    pub fn OperatorEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
-        return qtc.QPalette_OperatorEqual(@ptrCast(self), @ptrCast(p));
+    pub fn OperatorEqual(self: QPalette, p: anytype) bool {
+        comptime _ = @TypeOf(p)._is_QPalette;
+        return qtc.QPalette_OperatorEqual(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#operator-not-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    /// ` p: QtC.QPalette `
+    /// ` p: QPalette `
     ///
-    pub fn OperatorNotEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
-        return qtc.QPalette_OperatorNotEqual(@ptrCast(self), @ptrCast(p));
+    pub fn OperatorNotEqual(self: QPalette, p: anytype) bool {
+        comptime _ = @TypeOf(p)._is_QPalette;
+        return qtc.QPalette_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#isCopyOf)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    /// ` p: QtC.QPalette `
+    /// ` p: QPalette `
     ///
-    pub fn IsCopyOf(self: ?*anyopaque, p: ?*anyopaque) bool {
-        return qtc.QPalette_IsCopyOf(@ptrCast(self), @ptrCast(p));
+    pub fn IsCopyOf(self: QPalette, p: anytype) bool {
+        comptime _ = @TypeOf(p)._is_QPalette;
+        return qtc.QPalette_IsCopyOf(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#cacheKey)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn CacheKey(self: ?*anyopaque) i64 {
-        return qtc.QPalette_CacheKey(@ptrCast(self));
+    pub fn CacheKey(self: QPalette) i64 {
+        return qtc.QPalette_CacheKey(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#resolve)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    /// ` other: QtC.QPalette `
+    /// ` other: QPalette `
     ///
-    pub fn Resolve(self: ?*anyopaque, other: ?*anyopaque) QtC.QPalette {
-        return qtc.QPalette_Resolve(@ptrCast(self), @ptrCast(other));
+    pub fn Resolve(self: QPalette, other: anytype) QPalette {
+        comptime _ = @TypeOf(other)._is_QPalette;
+        return .{ .ptr = qtc.QPalette_Resolve(@ptrCast(self.ptr), @ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#resolveMask)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn ResolveMask(self: ?*anyopaque) usize {
-        return qtc.QPalette_ResolveMask(@ptrCast(self));
+    pub fn ResolveMask(self: QPalette) usize {
+        return qtc.QPalette_ResolveMask(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpalette.html#setResolveMask)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
     /// ` mask: usize `
     ///
-    pub fn SetResolveMask(self: ?*anyopaque, mask: usize) void {
-        qtc.QPalette_SetResolveMask(@ptrCast(self), @bitCast(mask));
+    pub fn SetResolveMask(self: QPalette, mask: usize) void {
+        qtc.QPalette_SetResolveMask(@ptrCast(self.ptr), @bitCast(mask));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -631,10 +681,10 @@ pub const qpalette = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QPalette `
+    /// ` self: QPalette `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QPalette_Delete(@ptrCast(self));
+    pub fn Delete(self: QPalette) void {
+        qtc.QPalette_Delete(@ptrCast(self.ptr));
     }
 };
 

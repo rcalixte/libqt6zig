@@ -3,175 +3,186 @@ const qtc = @import("qt6c");
 const qgeosatelliteinfo_enums = enums;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html)
-pub const qgeosatelliteinfo = struct {
+pub const QGeoSatelliteInfo = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QGeoSatelliteInfo,
+
+    pub const _is_QGeoSatelliteInfo = {};
+
     /// New constructs a new QGeoSatelliteInfo object.
     ///
-    pub fn New() QtC.QGeoSatelliteInfo {
-        return qtc.QGeoSatelliteInfo_new();
+    pub fn New() QGeoSatelliteInfo {
+        return .{ .ptr = qtc.QGeoSatelliteInfo_new() };
     }
 
     /// New2 constructs a new QGeoSatelliteInfo object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QGeoSatelliteInfo `
+    /// ` other: QGeoSatelliteInfo `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QGeoSatelliteInfo {
-        return qtc.QGeoSatelliteInfo_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QGeoSatelliteInfo {
+        comptime _ = @TypeOf(other)._is_QGeoSatelliteInfo;
+        return .{ .ptr = qtc.QGeoSatelliteInfo_new2(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoSatelliteInfo `
+    /// ` self: QGeoSatelliteInfo `
     ///
-    /// ` other: QtC.QGeoSatelliteInfo `
+    /// ` other: QGeoSatelliteInfo `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QGeoSatelliteInfo_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QGeoSatelliteInfo, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QGeoSatelliteInfo;
+        qtc.QGeoSatelliteInfo_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoSatelliteInfo `
+    /// ` self: QGeoSatelliteInfo `
     ///
-    /// ` other: QtC.QGeoSatelliteInfo `
+    /// ` other: QGeoSatelliteInfo `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QGeoSatelliteInfo_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QGeoSatelliteInfo, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QGeoSatelliteInfo;
+        qtc.QGeoSatelliteInfo_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#setSatelliteSystem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoSatelliteInfo `
+    /// ` self: QGeoSatelliteInfo `
     ///
     /// ` system: qgeosatelliteinfo_enums.SatelliteSystem `
     ///
-    pub fn SetSatelliteSystem(self: ?*anyopaque, system: i32) void {
-        qtc.QGeoSatelliteInfo_SetSatelliteSystem(@ptrCast(self), @bitCast(system));
+    pub fn SetSatelliteSystem(self: QGeoSatelliteInfo, system: i32) void {
+        qtc.QGeoSatelliteInfo_SetSatelliteSystem(@ptrCast(self.ptr), @bitCast(system));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#satelliteSystem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoSatelliteInfo `
+    /// ` self: QGeoSatelliteInfo `
     ///
     /// ## Returns:
     ///
     /// ` qgeosatelliteinfo_enums.SatelliteSystem `
     ///
-    pub fn SatelliteSystem(self: ?*anyopaque) i32 {
-        return qtc.QGeoSatelliteInfo_SatelliteSystem(@ptrCast(self));
+    pub fn SatelliteSystem(self: QGeoSatelliteInfo) i32 {
+        return qtc.QGeoSatelliteInfo_SatelliteSystem(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#setSatelliteIdentifier)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoSatelliteInfo `
+    /// ` self: QGeoSatelliteInfo `
     ///
     /// ` satId: i32 `
     ///
-    pub fn SetSatelliteIdentifier(self: ?*anyopaque, satId: i32) void {
-        qtc.QGeoSatelliteInfo_SetSatelliteIdentifier(@ptrCast(self), @bitCast(satId));
+    pub fn SetSatelliteIdentifier(self: QGeoSatelliteInfo, satId: i32) void {
+        qtc.QGeoSatelliteInfo_SetSatelliteIdentifier(@ptrCast(self.ptr), @bitCast(satId));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#satelliteIdentifier)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoSatelliteInfo `
+    /// ` self: QGeoSatelliteInfo `
     ///
-    pub fn SatelliteIdentifier(self: ?*anyopaque) i32 {
-        return qtc.QGeoSatelliteInfo_SatelliteIdentifier(@ptrCast(self));
+    pub fn SatelliteIdentifier(self: QGeoSatelliteInfo) i32 {
+        return qtc.QGeoSatelliteInfo_SatelliteIdentifier(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#setSignalStrength)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoSatelliteInfo `
+    /// ` self: QGeoSatelliteInfo `
     ///
     /// ` signalStrength: i32 `
     ///
-    pub fn SetSignalStrength(self: ?*anyopaque, signalStrength: i32) void {
-        qtc.QGeoSatelliteInfo_SetSignalStrength(@ptrCast(self), @bitCast(signalStrength));
+    pub fn SetSignalStrength(self: QGeoSatelliteInfo, signalStrength: i32) void {
+        qtc.QGeoSatelliteInfo_SetSignalStrength(@ptrCast(self.ptr), @bitCast(signalStrength));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#signalStrength)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoSatelliteInfo `
+    /// ` self: QGeoSatelliteInfo `
     ///
-    pub fn SignalStrength(self: ?*anyopaque) i32 {
-        return qtc.QGeoSatelliteInfo_SignalStrength(@ptrCast(self));
+    pub fn SignalStrength(self: QGeoSatelliteInfo) i32 {
+        return qtc.QGeoSatelliteInfo_SignalStrength(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#setAttribute)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoSatelliteInfo `
+    /// ` self: QGeoSatelliteInfo `
     ///
     /// ` attribute: qgeosatelliteinfo_enums.Attribute `
     ///
     /// ` value: f64 `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, attribute: i32, value: f64) void {
-        qtc.QGeoSatelliteInfo_SetAttribute(@ptrCast(self), @bitCast(attribute), @bitCast(value));
+    pub fn SetAttribute(self: QGeoSatelliteInfo, attribute: i32, value: f64) void {
+        qtc.QGeoSatelliteInfo_SetAttribute(@ptrCast(self.ptr), @bitCast(attribute), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#attribute)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoSatelliteInfo `
+    /// ` self: QGeoSatelliteInfo `
     ///
     /// ` attribute: qgeosatelliteinfo_enums.Attribute `
     ///
-    pub fn Attribute(self: ?*anyopaque, attribute: i32) f64 {
-        return qtc.QGeoSatelliteInfo_Attribute(@ptrCast(self), @bitCast(attribute));
+    pub fn Attribute(self: QGeoSatelliteInfo, attribute: i32) f64 {
+        return qtc.QGeoSatelliteInfo_Attribute(@ptrCast(self.ptr), @bitCast(attribute));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#removeAttribute)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoSatelliteInfo `
+    /// ` self: QGeoSatelliteInfo `
     ///
     /// ` attribute: qgeosatelliteinfo_enums.Attribute `
     ///
-    pub fn RemoveAttribute(self: ?*anyopaque, attribute: i32) void {
-        qtc.QGeoSatelliteInfo_RemoveAttribute(@ptrCast(self), @bitCast(attribute));
+    pub fn RemoveAttribute(self: QGeoSatelliteInfo, attribute: i32) void {
+        qtc.QGeoSatelliteInfo_RemoveAttribute(@ptrCast(self.ptr), @bitCast(attribute));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#hasAttribute)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoSatelliteInfo `
+    /// ` self: QGeoSatelliteInfo `
     ///
     /// ` attribute: qgeosatelliteinfo_enums.Attribute `
     ///
-    pub fn HasAttribute(self: ?*anyopaque, attribute: i32) bool {
-        return qtc.QGeoSatelliteInfo_HasAttribute(@ptrCast(self), @bitCast(attribute));
+    pub fn HasAttribute(self: QGeoSatelliteInfo, attribute: i32) bool {
+        return qtc.QGeoSatelliteInfo_HasAttribute(@ptrCast(self.ptr), @bitCast(attribute));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfo.html#detach)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoSatelliteInfo `
+    /// ` self: QGeoSatelliteInfo `
     ///
-    pub fn Detach(self: ?*anyopaque) void {
-        qtc.QGeoSatelliteInfo_Detach(@ptrCast(self));
+    pub fn Detach(self: QGeoSatelliteInfo) void {
+        qtc.QGeoSatelliteInfo_Detach(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -184,10 +195,10 @@ pub const qgeosatelliteinfo = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QGeoSatelliteInfo `
+    /// ` self: QGeoSatelliteInfo `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QGeoSatelliteInfo_Delete(@ptrCast(self));
+    pub fn Delete(self: QGeoSatelliteInfo) void {
+        qtc.QGeoSatelliteInfo_Delete(@ptrCast(self.ptr));
     }
 };
 

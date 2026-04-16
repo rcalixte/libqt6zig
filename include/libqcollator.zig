@@ -1,53 +1,67 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QChar = @import("libqt6").QChar;
+const QLocale = @import("libqt6").QLocale;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollatorsortkey.html)
-pub const qcollatorsortkey = struct {
+pub const QCollatorSortKey = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollatorsortkey.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QCollatorSortKey,
+
+    pub const _is_QCollatorSortKey = {};
+
     /// New constructs a new QCollatorSortKey object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QCollatorSortKey `
+    /// ` other: QCollatorSortKey `
     ///
-    pub fn New(other: ?*anyopaque) QtC.QCollatorSortKey {
-        return qtc.QCollatorSortKey_new(@ptrCast(other));
+    pub fn New(other: anytype) QCollatorSortKey {
+        comptime _ = @TypeOf(other)._is_QCollatorSortKey;
+        return .{ .ptr = qtc.QCollatorSortKey_new(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollatorsortkey.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCollatorSortKey `
+    /// ` self: QCollatorSortKey `
     ///
-    /// ` other: QtC.QCollatorSortKey `
+    /// ` other: QCollatorSortKey `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QCollatorSortKey_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QCollatorSortKey, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QCollatorSortKey;
+        qtc.QCollatorSortKey_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollatorsortkey.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCollatorSortKey `
+    /// ` self: QCollatorSortKey `
     ///
-    /// ` other: QtC.QCollatorSortKey `
+    /// ` other: QCollatorSortKey `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QCollatorSortKey_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QCollatorSortKey, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QCollatorSortKey;
+        qtc.QCollatorSortKey_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollatorsortkey.html#compare)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCollatorSortKey `
+    /// ` self: QCollatorSortKey `
     ///
-    /// ` key: QtC.QCollatorSortKey `
+    /// ` key: QCollatorSortKey `
     ///
-    pub fn Compare(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QCollatorSortKey_Compare(@ptrCast(self), @ptrCast(key));
+    pub fn Compare(self: QCollatorSortKey, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QCollatorSortKey;
+        return qtc.QCollatorSortKey_Compare(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -60,168 +74,181 @@ pub const qcollatorsortkey = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QCollatorSortKey `
+    /// ` self: QCollatorSortKey `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QCollatorSortKey_Delete(@ptrCast(self));
+    pub fn Delete(self: QCollatorSortKey) void {
+        qtc.QCollatorSortKey_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html)
-pub const qcollator = struct {
+pub const QCollator = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QCollator,
+
+    pub const _is_QCollator = {};
+
     /// New constructs a new QCollator object.
     ///
-    pub fn New() QtC.QCollator {
-        return qtc.QCollator_new();
+    pub fn New() QCollator {
+        return .{ .ptr = qtc.QCollator_new() };
     }
 
     /// New2 constructs a new QCollator object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn New2(locale: ?*anyopaque) QtC.QCollator {
-        return qtc.QCollator_new2(@ptrCast(locale));
+    pub fn New2(locale: anytype) QCollator {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        return .{ .ptr = qtc.QCollator_new2(@ptrCast(locale.ptr)) };
     }
 
     /// New3 constructs a new QCollator object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QCollator `
+    /// ` param1: QCollator `
     ///
-    pub fn New3(param1: ?*anyopaque) QtC.QCollator {
-        return qtc.QCollator_new3(@ptrCast(param1));
+    pub fn New3(param1: anytype) QCollator {
+        comptime _ = @TypeOf(param1)._is_QCollator;
+        return .{ .ptr = qtc.QCollator_new3(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCollator `
+    /// ` self: QCollator `
     ///
-    /// ` param1: QtC.QCollator `
+    /// ` param1: QCollator `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QCollator_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    pub fn OperatorAssign(self: QCollator, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCollator;
+        qtc.QCollator_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCollator `
+    /// ` self: QCollator `
     ///
-    /// ` other: QtC.QCollator `
+    /// ` other: QCollator `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QCollator_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QCollator, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QCollator;
+        qtc.QCollator_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#setLocale)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCollator `
+    /// ` self: QCollator `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QCollator_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: QCollator, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QCollator_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#locale)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCollator `
+    /// ` self: QCollator `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QCollator_Locale(@ptrCast(self));
+    pub fn Locale(self: QCollator) QLocale {
+        return .{ .ptr = qtc.QCollator_Locale(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#caseSensitivity)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCollator `
+    /// ` self: QCollator `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.CaseSensitivity `
     ///
-    pub fn CaseSensitivity(self: ?*anyopaque) i32 {
-        return qtc.QCollator_CaseSensitivity(@ptrCast(self));
+    pub fn CaseSensitivity(self: QCollator) i32 {
+        return qtc.QCollator_CaseSensitivity(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#setCaseSensitivity)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCollator `
+    /// ` self: QCollator `
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn SetCaseSensitivity(self: ?*anyopaque, cs: i32) void {
-        qtc.QCollator_SetCaseSensitivity(@ptrCast(self), @bitCast(cs));
+    pub fn SetCaseSensitivity(self: QCollator, cs: i32) void {
+        qtc.QCollator_SetCaseSensitivity(@ptrCast(self.ptr), @bitCast(cs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#setNumericMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCollator `
+    /// ` self: QCollator `
     ///
     /// ` on: bool `
     ///
-    pub fn SetNumericMode(self: ?*anyopaque, on: bool) void {
-        qtc.QCollator_SetNumericMode(@ptrCast(self), on);
+    pub fn SetNumericMode(self: QCollator, on: bool) void {
+        qtc.QCollator_SetNumericMode(@ptrCast(self.ptr), on);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#numericMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCollator `
+    /// ` self: QCollator `
     ///
-    pub fn NumericMode(self: ?*anyopaque) bool {
-        return qtc.QCollator_NumericMode(@ptrCast(self));
+    pub fn NumericMode(self: QCollator) bool {
+        return qtc.QCollator_NumericMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#setIgnorePunctuation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCollator `
+    /// ` self: QCollator `
     ///
     /// ` on: bool `
     ///
-    pub fn SetIgnorePunctuation(self: ?*anyopaque, on: bool) void {
-        qtc.QCollator_SetIgnorePunctuation(@ptrCast(self), on);
+    pub fn SetIgnorePunctuation(self: QCollator, on: bool) void {
+        qtc.QCollator_SetIgnorePunctuation(@ptrCast(self.ptr), on);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#ignorePunctuation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCollator `
+    /// ` self: QCollator `
     ///
-    pub fn IgnorePunctuation(self: ?*anyopaque) bool {
-        return qtc.QCollator_IgnorePunctuation(@ptrCast(self));
+    pub fn IgnorePunctuation(self: QCollator) bool {
+        return qtc.QCollator_IgnorePunctuation(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#compare)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCollator `
+    /// ` self: QCollator `
     ///
     /// ` s1: []const u8 `
     ///
     /// ` s2: []const u8 `
     ///
-    pub fn Compare(self: ?*anyopaque, s1: []const u8, s2: []const u8) i32 {
+    pub fn Compare(self: QCollator, s1: []const u8, s2: []const u8) i32 {
         const s1_str = qtc.libqt_string{
             .len = s1.len,
             .data = s1.ptr,
@@ -230,38 +257,40 @@ pub const qcollator = struct {
             .len = s2.len,
             .data = s2.ptr,
         };
-        return qtc.QCollator_Compare(@ptrCast(self), s1_str, s2_str);
+        return qtc.QCollator_Compare(@ptrCast(self.ptr), s1_str, s2_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#compare)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCollator `
+    /// ` self: QCollator `
     ///
-    /// ` s1: QtC.QChar `
+    /// ` s1: QChar `
     ///
     /// ` len1: isize `
     ///
-    /// ` s2: QtC.QChar `
+    /// ` s2: QChar `
     ///
     /// ` len2: isize `
     ///
-    pub fn Compare2(self: ?*anyopaque, s1: ?*anyopaque, len1: isize, s2: ?*anyopaque, len2: isize) i32 {
-        return qtc.QCollator_Compare2(@ptrCast(self), @ptrCast(s1), @bitCast(len1), @ptrCast(s2), @bitCast(len2));
+    pub fn Compare2(self: QCollator, s1: anytype, len1: isize, s2: anytype, len2: isize) i32 {
+        comptime _ = @TypeOf(s1)._is_QChar;
+        comptime _ = @TypeOf(s2)._is_QChar;
+        return qtc.QCollator_Compare2(@ptrCast(self.ptr), @ptrCast(s1.ptr), @bitCast(len1), @ptrCast(s2.ptr), @bitCast(len2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#operator-28-29)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCollator `
+    /// ` self: QCollator `
     ///
     /// ` s1: []const u8 `
     ///
     /// ` s2: []const u8 `
     ///
-    pub fn OperatorCall(self: ?*anyopaque, s1: []const u8, s2: []const u8) bool {
+    pub fn OperatorCall(self: QCollator, s1: []const u8, s2: []const u8) bool {
         const s1_str = qtc.libqt_string{
             .len = s1.len,
             .data = s1.ptr,
@@ -270,23 +299,23 @@ pub const qcollator = struct {
             .len = s2.len,
             .data = s2.ptr,
         };
-        return qtc.QCollator_OperatorCall(@ptrCast(self), s1_str, s2_str);
+        return qtc.QCollator_OperatorCall(@ptrCast(self.ptr), s1_str, s2_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#sortKey)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCollator `
+    /// ` self: QCollator `
     ///
     /// ` stringVal: []const u8 `
     ///
-    pub fn SortKey(self: ?*anyopaque, stringVal: []const u8) QtC.QCollatorSortKey {
+    pub fn SortKey(self: QCollator, stringVal: []const u8) QCollatorSortKey {
         const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        return qtc.QCollator_SortKey(@ptrCast(self), stringVal_str);
+        return .{ .ptr = qtc.QCollator_SortKey(@ptrCast(self.ptr), stringVal_str) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -299,9 +328,9 @@ pub const qcollator = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QCollator `
+    /// ` self: QCollator `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QCollator_Delete(@ptrCast(self));
+    pub fn Delete(self: QCollator) void {
+        qtc.QCollator_Delete(@ptrCast(self.ptr));
     }
 };

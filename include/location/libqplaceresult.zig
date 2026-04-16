@@ -1,100 +1,115 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QPlace = @import("libqt6").QPlace;
+const QPlaceIcon = @import("libqt6").QPlaceIcon;
+const QPlaceSearchResult = @import("libqt6").QPlaceSearchResult;
 const qplacesearchresult_enums = @import("libqplacesearchresult.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceresult.html)
-pub const qplaceresult = struct {
+pub const QPlaceResult = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceresult.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QPlaceResult,
+
+    pub const _is_QPlaceResult = {};
+    pub const _is_QPlaceSearchResult = {};
+
     /// New constructs a new QPlaceResult object.
     ///
-    pub fn New() QtC.QPlaceResult {
-        return qtc.QPlaceResult_new();
+    pub fn New() QPlaceResult {
+        return .{ .ptr = qtc.QPlaceResult_new() };
     }
 
     /// New2 constructs a new QPlaceResult object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QPlaceSearchResult `
+    /// ` other: QPlaceSearchResult `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QPlaceResult {
-        return qtc.QPlaceResult_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QPlaceResult {
+        comptime _ = @TypeOf(other)._is_QPlaceSearchResult;
+        return .{ .ptr = qtc.QPlaceResult_new2(@ptrCast(other.ptr)) };
     }
 
     /// New3 constructs a new QPlaceResult object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QPlaceResult `
+    /// ` param1: QPlaceResult `
     ///
-    pub fn New3(param1: ?*anyopaque) QtC.QPlaceResult {
-        return qtc.QPlaceResult_new3(@ptrCast(param1));
+    pub fn New3(param1: anytype) QPlaceResult {
+        comptime _ = @TypeOf(param1)._is_QPlaceResult;
+        return .{ .ptr = qtc.QPlaceResult_new3(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceresult.html#distance)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceResult `
+    /// ` self: QPlaceResult `
     ///
-    pub fn Distance(self: ?*anyopaque) f64 {
-        return qtc.QPlaceResult_Distance(@ptrCast(self));
+    pub fn Distance(self: QPlaceResult) f64 {
+        return qtc.QPlaceResult_Distance(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceresult.html#setDistance)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceResult `
+    /// ` self: QPlaceResult `
     ///
     /// ` distance: f64 `
     ///
-    pub fn SetDistance(self: ?*anyopaque, distance: f64) void {
-        qtc.QPlaceResult_SetDistance(@ptrCast(self), @bitCast(distance));
+    pub fn SetDistance(self: QPlaceResult, distance: f64) void {
+        qtc.QPlaceResult_SetDistance(@ptrCast(self.ptr), @bitCast(distance));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceresult.html#place)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceResult `
+    /// ` self: QPlaceResult `
     ///
-    pub fn Place(self: ?*anyopaque) QtC.QPlace {
-        return qtc.QPlaceResult_Place(@ptrCast(self));
+    pub fn Place(self: QPlaceResult) QPlace {
+        return .{ .ptr = qtc.QPlaceResult_Place(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceresult.html#setPlace)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceResult `
+    /// ` self: QPlaceResult `
     ///
-    /// ` place: QtC.QPlace `
+    /// ` place: QPlace `
     ///
-    pub fn SetPlace(self: ?*anyopaque, place: ?*anyopaque) void {
-        qtc.QPlaceResult_SetPlace(@ptrCast(self), @ptrCast(place));
+    pub fn SetPlace(self: QPlaceResult, place: anytype) void {
+        comptime _ = @TypeOf(place)._is_QPlace;
+        qtc.QPlaceResult_SetPlace(@ptrCast(self.ptr), @ptrCast(place.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceresult.html#isSponsored)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceResult `
+    /// ` self: QPlaceResult `
     ///
-    pub fn IsSponsored(self: ?*anyopaque) bool {
-        return qtc.QPlaceResult_IsSponsored(@ptrCast(self));
+    pub fn IsSponsored(self: QPlaceResult) bool {
+        return qtc.QPlaceResult_IsSponsored(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceresult.html#setSponsored)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceResult `
+    /// ` self: QPlaceResult `
     ///
     /// ` sponsored: bool `
     ///
-    pub fn SetSponsored(self: ?*anyopaque, sponsored: bool) void {
-        qtc.QPlaceResult_SetSponsored(@ptrCast(self), sponsored);
+    pub fn SetSponsored(self: QPlaceResult, sponsored: bool) void {
+        qtc.QPlaceResult_SetSponsored(@ptrCast(self.ptr), sponsored);
     }
 
     /// Inherited from QPlaceSearchResult
@@ -103,12 +118,13 @@ pub const qplaceresult = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceResult `
+    /// ` self: QPlaceResult `
     ///
-    /// ` other: QtC.QPlaceSearchResult `
+    /// ` other: QPlaceSearchResult `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QPlaceSearchResult_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QPlaceResult, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QPlaceSearchResult;
+        qtc.QPlaceSearchResult_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// Inherited from QPlaceSearchResult
@@ -117,12 +133,13 @@ pub const qplaceresult = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceResult `
+    /// ` self: QPlaceResult `
     ///
-    /// ` other: QtC.QPlaceSearchResult `
+    /// ` other: QPlaceSearchResult `
     ///
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QPlaceSearchResult_OperatorEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorEqual(self: QPlaceResult, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QPlaceSearchResult;
+        return qtc.QPlaceSearchResult_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// Inherited from QPlaceSearchResult
@@ -131,12 +148,13 @@ pub const qplaceresult = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceResult `
+    /// ` self: QPlaceResult `
     ///
-    /// ` other: QtC.QPlaceSearchResult `
+    /// ` other: QPlaceSearchResult `
     ///
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QPlaceSearchResult_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorNotEqual(self: QPlaceResult, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QPlaceSearchResult;
+        return qtc.QPlaceSearchResult_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// Inherited from QPlaceSearchResult
@@ -145,14 +163,14 @@ pub const qplaceresult = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceResult `
+    /// ` self: QPlaceResult `
     ///
     /// ## Returns:
     ///
     /// ` qplacesearchresult_enums.SearchResultType `
     ///
-    pub fn Type(self: ?*anyopaque) i32 {
-        return qtc.QPlaceSearchResult_Type(@ptrCast(self));
+    pub fn Type(self: QPlaceResult) i32 {
+        return qtc.QPlaceSearchResult_Type(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPlaceSearchResult
@@ -161,12 +179,12 @@ pub const qplaceresult = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceResult `
+    /// ` self: QPlaceResult `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Title(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QPlaceSearchResult_Title(@ptrCast(self));
+    pub fn Title(self: QPlaceResult, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QPlaceSearchResult_Title(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qplaceresult.Title: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -179,16 +197,16 @@ pub const qplaceresult = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceResult `
+    /// ` self: QPlaceResult `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn SetTitle(self: ?*anyopaque, title: []const u8) void {
+    pub fn SetTitle(self: QPlaceResult, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QPlaceSearchResult_SetTitle(@ptrCast(self), title_str);
+        qtc.QPlaceSearchResult_SetTitle(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QPlaceSearchResult
@@ -197,10 +215,10 @@ pub const qplaceresult = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceResult `
+    /// ` self: QPlaceResult `
     ///
-    pub fn Icon(self: ?*anyopaque) QtC.QPlaceIcon {
-        return qtc.QPlaceSearchResult_Icon(@ptrCast(self));
+    pub fn Icon(self: QPlaceResult) QPlaceIcon {
+        return .{ .ptr = qtc.QPlaceSearchResult_Icon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QPlaceSearchResult
@@ -209,12 +227,13 @@ pub const qplaceresult = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceResult `
+    /// ` self: QPlaceResult `
     ///
-    /// ` icon: QtC.QPlaceIcon `
+    /// ` icon: QPlaceIcon `
     ///
-    pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QPlaceSearchResult_SetIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetIcon(self: QPlaceResult, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QPlaceIcon;
+        qtc.QPlaceSearchResult_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -227,9 +246,9 @@ pub const qplaceresult = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QPlaceResult `
+    /// ` self: QPlaceResult `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QPlaceResult_Delete(@ptrCast(self));
+    pub fn Delete(self: QPlaceResult) void {
+        qtc.QPlaceResult_Delete(@ptrCast(self.ptr));
     }
 };

@@ -4,7 +4,15 @@ const kfilesystemtype_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kfilesystemtype.html)
-pub const kfilesystemtype = struct {
+pub const KFileSystemType = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kfilesystemtype.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KFileSystemType,
+
+    pub const _is_KFileSystemType = {};
+
     /// ### [Upstream resources](https://api.kde.org/kfilesystemtype.html#fileSystemType)
     ///
     /// ## Parameter(s):
@@ -27,11 +35,11 @@ pub const kfilesystemtype = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: kfilesystemtype_enums.Type `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FileSystemName(param1: i32, allocator: std.mem.Allocator) []const u8 {
+    /// ` param1: kfilesystemtype_enums.Type `
+    ///
+    pub fn FileSystemName(allocator: std.mem.Allocator, param1: i32) []const u8 {
         var _str = qtc.KFileSystemType_FileSystemName(@bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilesystemtype.FileSystemName: Memory allocation failed");

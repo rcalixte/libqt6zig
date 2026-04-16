@@ -1,42 +1,76 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAbstractTextDocumentLayout = @import("libqt6").QAbstractTextDocumentLayout;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChar = @import("libqt6").QChar;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QFont = @import("libqt6").QFont;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QPagedPaintDevice = @import("libqt6").QPagedPaintDevice;
+const QPainter = @import("libqt6").QPainter;
+const QRectF = @import("libqt6").QRectF;
+const QRegularExpression = @import("libqt6").QRegularExpression;
+const QSizeF = @import("libqt6").QSizeF;
+const QTextBlock = @import("libqt6").QTextBlock;
+const QTextCursor = @import("libqt6").QTextCursor;
+const QTextFormat = @import("libqt6").QTextFormat;
+const QTextFrame = @import("libqt6").QTextFrame;
+const QTextObject = @import("libqt6").QTextObject;
+const QTextOption = @import("libqt6").QTextOption;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QUrl = @import("libqt6").QUrl;
+const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const qtextdocument_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractundoitem.html)
-pub const qabstractundoitem = struct {
+pub const QAbstractUndoItem = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractundoitem.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QAbstractUndoItem,
+
+    pub const _is_QAbstractUndoItem = {};
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractundoitem.html#undo)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractUndoItem `
+    /// ` self: QAbstractUndoItem `
     ///
-    pub fn Undo(self: ?*anyopaque) void {
-        qtc.QAbstractUndoItem_Undo(@ptrCast(self));
+    pub fn Undo(self: QAbstractUndoItem) void {
+        qtc.QAbstractUndoItem_Undo(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractundoitem.html#redo)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractUndoItem `
+    /// ` self: QAbstractUndoItem `
     ///
-    pub fn Redo(self: ?*anyopaque) void {
-        qtc.QAbstractUndoItem_Redo(@ptrCast(self));
+    pub fn Redo(self: QAbstractUndoItem) void {
+        qtc.QAbstractUndoItem_Redo(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractundoitem.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractUndoItem `
+    /// ` self: QAbstractUndoItem `
     ///
-    /// ` param1: QtC.QAbstractUndoItem `
+    /// ` param1: QAbstractUndoItem `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QAbstractUndoItem_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    pub fn OperatorAssign(self: QAbstractUndoItem, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QAbstractUndoItem;
+        qtc.QAbstractUndoItem_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -49,19 +83,28 @@ pub const qabstractundoitem = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QAbstractUndoItem `
+    /// ` self: QAbstractUndoItem `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QAbstractUndoItem_Delete(@ptrCast(self));
+    pub fn Delete(self: QAbstractUndoItem) void {
+        qtc.QAbstractUndoItem_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html)
-pub const qtextdocument = struct {
+pub const QTextDocument = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QTextDocument,
+
+    pub const _is_QTextDocument = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QTextDocument object.
     ///
-    pub fn New() QtC.QTextDocument {
-        return qtc.QTextDocument_new();
+    pub fn New() QTextDocument {
+        return .{ .ptr = qtc.QTextDocument_new() };
     }
 
     /// New2 constructs a new QTextDocument object.
@@ -70,23 +113,23 @@ pub const qtextdocument = struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn New2(text: []const u8) QtC.QTextDocument {
+    pub fn New2(text: []const u8) QTextDocument {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-
-        return qtc.QTextDocument_new2(text_str);
+        return .{ .ptr = qtc.QTextDocument_new2(text_str) };
     }
 
     /// New3 constructs a new QTextDocument object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New3(parent: ?*anyopaque) QtC.QTextDocument {
-        return qtc.QTextDocument_new3(@ptrCast(parent));
+    pub fn New3(parent: anytype) QTextDocument {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QTextDocument_new3(@ptrCast(parent.ptr)) };
     }
 
     /// New4 constructs a new QTextDocument object.
@@ -95,25 +138,25 @@ pub const qtextdocument = struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New4(text: []const u8, parent: ?*anyopaque) QtC.QTextDocument {
+    pub fn New4(text: []const u8, parent: anytype) QTextDocument {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-
-        return qtc.QTextDocument_new4(text_str, @ptrCast(parent));
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QTextDocument_new4(text_str, @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QTextDocument_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QTextDocument) QMetaObject {
+        return .{ .ptr = qtc.QTextDocument_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -122,12 +165,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QTextDocument_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QTextDocument, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QTextDocument_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -140,33 +183,33 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QTextDocument_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QTextDocument) QMetaObject {
+        return .{ .ptr = qtc.QTextDocument_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QTextDocument, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QTextDocument_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QTextDocument_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QTextDocument, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QTextDocument_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QTextDocument, callback: *const fn (QTextDocument, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QTextDocument_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -177,18 +220,18 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QTextDocument, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QTextDocument_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QTextDocument_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -196,20 +239,20 @@ pub const qtextdocument = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTextDocument_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QTextDocument, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QTextDocument_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTextDocument, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QTextDocument_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QTextDocument, callback: *const fn (QTextDocument, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QTextDocument_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -220,7 +263,7 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -228,19 +271,19 @@ pub const qtextdocument = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTextDocument_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QTextDocument, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QTextDocument_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -253,30 +296,30 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn Clone(self: ?*anyopaque) QtC.QTextDocument {
-        return qtc.QTextDocument_Clone(@ptrCast(self));
+    pub fn Clone(self: QTextDocument) QTextDocument {
+        return .{ .ptr = qtc.QTextDocument_Clone(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#isEmpty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn IsEmpty(self: ?*anyopaque) bool {
-        return qtc.QTextDocument_IsEmpty(@ptrCast(self));
+    pub fn IsEmpty(self: QTextDocument) bool {
+        return qtc.QTextDocument_IsEmpty(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#clear)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn Clear(self: ?*anyopaque) void {
-        qtc.QTextDocument_Clear(@ptrCast(self));
+    pub fn Clear(self: QTextDocument) void {
+        qtc.QTextDocument_Clear(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#clear)
@@ -285,12 +328,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnClear(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTextDocument_OnClear(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClear(self: QTextDocument, callback: *const fn () callconv(.c) void) void {
+        qtc.QTextDocument_OnClear(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperClear` instead
@@ -303,136 +346,137 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn SuperClear(self: ?*anyopaque) void {
-        qtc.QTextDocument_SuperClear(@ptrCast(self));
+    pub fn SuperClear(self: QTextDocument) void {
+        qtc.QTextDocument_SuperClear(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setUndoRedoEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUndoRedoEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QTextDocument_SetUndoRedoEnabled(@ptrCast(self), enable);
+    pub fn SetUndoRedoEnabled(self: QTextDocument, enable: bool) void {
+        qtc.QTextDocument_SetUndoRedoEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#isUndoRedoEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn IsUndoRedoEnabled(self: ?*anyopaque) bool {
-        return qtc.QTextDocument_IsUndoRedoEnabled(@ptrCast(self));
+    pub fn IsUndoRedoEnabled(self: QTextDocument) bool {
+        return qtc.QTextDocument_IsUndoRedoEnabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#isUndoAvailable)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn IsUndoAvailable(self: ?*anyopaque) bool {
-        return qtc.QTextDocument_IsUndoAvailable(@ptrCast(self));
+    pub fn IsUndoAvailable(self: QTextDocument) bool {
+        return qtc.QTextDocument_IsUndoAvailable(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#isRedoAvailable)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn IsRedoAvailable(self: ?*anyopaque) bool {
-        return qtc.QTextDocument_IsRedoAvailable(@ptrCast(self));
+    pub fn IsRedoAvailable(self: QTextDocument) bool {
+        return qtc.QTextDocument_IsRedoAvailable(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#availableUndoSteps)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn AvailableUndoSteps(self: ?*anyopaque) i32 {
-        return qtc.QTextDocument_AvailableUndoSteps(@ptrCast(self));
+    pub fn AvailableUndoSteps(self: QTextDocument) i32 {
+        return qtc.QTextDocument_AvailableUndoSteps(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#availableRedoSteps)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn AvailableRedoSteps(self: ?*anyopaque) i32 {
-        return qtc.QTextDocument_AvailableRedoSteps(@ptrCast(self));
+    pub fn AvailableRedoSteps(self: QTextDocument) i32 {
+        return qtc.QTextDocument_AvailableRedoSteps(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#revision)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn Revision(self: ?*anyopaque) i32 {
-        return qtc.QTextDocument_Revision(@ptrCast(self));
+    pub fn Revision(self: QTextDocument) i32 {
+        return qtc.QTextDocument_Revision(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setDocumentLayout)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` layout: QtC.QAbstractTextDocumentLayout `
+    /// ` layout: QAbstractTextDocumentLayout `
     ///
-    pub fn SetDocumentLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QTextDocument_SetDocumentLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetDocumentLayout(self: QTextDocument, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QAbstractTextDocumentLayout;
+        qtc.QTextDocument_SetDocumentLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#documentLayout)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn DocumentLayout(self: ?*anyopaque) QtC.QAbstractTextDocumentLayout {
-        return qtc.QTextDocument_DocumentLayout(@ptrCast(self));
+    pub fn DocumentLayout(self: QTextDocument) QAbstractTextDocumentLayout {
+        return .{ .ptr = qtc.QTextDocument_DocumentLayout(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setMetaInformation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` info: qtextdocument_enums.MetaInformation `
     ///
     /// ` param2: []const u8 `
     ///
-    pub fn SetMetaInformation(self: ?*anyopaque, info: i32, param2: []const u8) void {
+    pub fn SetMetaInformation(self: QTextDocument, info: i32, param2: []const u8) void {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
             .data = param2.ptr,
         };
-        qtc.QTextDocument_SetMetaInformation(@ptrCast(self), @bitCast(info), param2_str);
+        qtc.QTextDocument_SetMetaInformation(@ptrCast(self.ptr), @bitCast(info), param2_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#metaInformation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
-    ///
-    /// ` info: qtextdocument_enums.MetaInformation `
+    /// ` self: QTextDocument `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MetaInformation(self: ?*anyopaque, info: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextDocument_MetaInformation(@ptrCast(self), @bitCast(info));
+    /// ` info: qtextdocument_enums.MetaInformation `
+    ///
+    pub fn MetaInformation(self: QTextDocument, allocator: std.mem.Allocator, info: i32) []const u8 {
+        var _str = qtc.QTextDocument_MetaInformation(@ptrCast(self.ptr), @bitCast(info));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.MetaInformation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -443,12 +487,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToHtml(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextDocument_ToHtml(@ptrCast(self));
+    pub fn ToHtml(self: QTextDocument, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTextDocument_ToHtml(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.ToHtml: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -459,28 +503,28 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` html: []const u8 `
     ///
-    pub fn SetHtml(self: ?*anyopaque, html: []const u8) void {
+    pub fn SetHtml(self: QTextDocument, html: []const u8) void {
         const html_str = qtc.libqt_string{
             .len = html.len,
             .data = html.ptr,
         };
-        qtc.QTextDocument_SetHtml(@ptrCast(self), html_str);
+        qtc.QTextDocument_SetHtml(@ptrCast(self.ptr), html_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#toMarkdown)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToMarkdown(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextDocument_ToMarkdown(@ptrCast(self));
+    pub fn ToMarkdown(self: QTextDocument, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTextDocument_ToMarkdown(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.ToMarkdown: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -491,28 +535,28 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` markdown: []const u8 `
     ///
-    pub fn SetMarkdown(self: ?*anyopaque, markdown: []const u8) void {
+    pub fn SetMarkdown(self: QTextDocument, markdown: []const u8) void {
         const markdown_str = qtc.libqt_string{
             .len = markdown.len,
             .data = markdown.ptr,
         };
-        qtc.QTextDocument_SetMarkdown(@ptrCast(self), markdown_str);
+        qtc.QTextDocument_SetMarkdown(@ptrCast(self.ptr), markdown_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#toRawText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToRawText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextDocument_ToRawText(@ptrCast(self));
+    pub fn ToRawText(self: QTextDocument, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTextDocument_ToRawText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.ToRawText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -523,12 +567,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToPlainText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextDocument_ToPlainText(@ptrCast(self));
+    pub fn ToPlainText(self: QTextDocument, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTextDocument_ToPlainText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.ToPlainText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -539,403 +583,414 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetPlainText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SetPlainText(self: QTextDocument, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QTextDocument_SetPlainText(@ptrCast(self), text_str);
+        qtc.QTextDocument_SetPlainText(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#characterAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` pos: i32 `
     ///
-    pub fn CharacterAt(self: ?*anyopaque, pos: i32) QtC.QChar {
-        return qtc.QTextDocument_CharacterAt(@ptrCast(self), @bitCast(pos));
+    pub fn CharacterAt(self: QTextDocument, pos: i32) QChar {
+        return .{ .ptr = qtc.QTextDocument_CharacterAt(@ptrCast(self.ptr), @bitCast(pos)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#find)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` subString: []const u8 `
     ///
-    pub fn Find(self: ?*anyopaque, subString: []const u8) QtC.QTextCursor {
+    pub fn Find(self: QTextDocument, subString: []const u8) QTextCursor {
         const subString_str = qtc.libqt_string{
             .len = subString.len,
             .data = subString.ptr,
         };
-        return qtc.QTextDocument_Find(@ptrCast(self), subString_str);
+        return .{ .ptr = qtc.QTextDocument_Find(@ptrCast(self.ptr), subString_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#find)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` subString: []const u8 `
     ///
-    /// ` cursor: QtC.QTextCursor `
+    /// ` cursor: QTextCursor `
     ///
-    pub fn Find2(self: ?*anyopaque, subString: []const u8, cursor: ?*anyopaque) QtC.QTextCursor {
+    pub fn Find2(self: QTextDocument, subString: []const u8, cursor: anytype) QTextCursor {
         const subString_str = qtc.libqt_string{
             .len = subString.len,
             .data = subString.ptr,
         };
-        return qtc.QTextDocument_Find2(@ptrCast(self), subString_str, @ptrCast(cursor));
+        comptime _ = @TypeOf(cursor)._is_QTextCursor;
+        return .{ .ptr = qtc.QTextDocument_Find2(@ptrCast(self.ptr), subString_str, @ptrCast(cursor.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#find)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` expr: QtC.QRegularExpression `
+    /// ` expr: QRegularExpression `
     ///
-    pub fn Find3(self: ?*anyopaque, expr: ?*anyopaque) QtC.QTextCursor {
-        return qtc.QTextDocument_Find3(@ptrCast(self), @ptrCast(expr));
+    pub fn Find3(self: QTextDocument, expr: anytype) QTextCursor {
+        comptime _ = @TypeOf(expr)._is_QRegularExpression;
+        return .{ .ptr = qtc.QTextDocument_Find3(@ptrCast(self.ptr), @ptrCast(expr.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#find)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` expr: QtC.QRegularExpression `
+    /// ` expr: QRegularExpression `
     ///
-    /// ` cursor: QtC.QTextCursor `
+    /// ` cursor: QTextCursor `
     ///
-    pub fn Find4(self: ?*anyopaque, expr: ?*anyopaque, cursor: ?*anyopaque) QtC.QTextCursor {
-        return qtc.QTextDocument_Find4(@ptrCast(self), @ptrCast(expr), @ptrCast(cursor));
+    pub fn Find4(self: QTextDocument, expr: anytype, cursor: anytype) QTextCursor {
+        comptime _ = @TypeOf(expr)._is_QRegularExpression;
+        comptime _ = @TypeOf(cursor)._is_QTextCursor;
+        return .{ .ptr = qtc.QTextDocument_Find4(@ptrCast(self.ptr), @ptrCast(expr.ptr), @ptrCast(cursor.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#frameAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` pos: i32 `
     ///
-    pub fn FrameAt(self: ?*anyopaque, pos: i32) QtC.QTextFrame {
-        return qtc.QTextDocument_FrameAt(@ptrCast(self), @bitCast(pos));
+    pub fn FrameAt(self: QTextDocument, pos: i32) QTextFrame {
+        return .{ .ptr = qtc.QTextDocument_FrameAt(@ptrCast(self.ptr), @bitCast(pos)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#rootFrame)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn RootFrame(self: ?*anyopaque) QtC.QTextFrame {
-        return qtc.QTextDocument_RootFrame(@ptrCast(self));
+    pub fn RootFrame(self: QTextDocument) QTextFrame {
+        return .{ .ptr = qtc.QTextDocument_RootFrame(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#object)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` objectIndex: i32 `
     ///
-    pub fn Object(self: ?*anyopaque, objectIndex: i32) QtC.QTextObject {
-        return qtc.QTextDocument_Object(@ptrCast(self), @bitCast(objectIndex));
+    pub fn Object(self: QTextDocument, objectIndex: i32) QTextObject {
+        return .{ .ptr = qtc.QTextDocument_Object(@ptrCast(self.ptr), @bitCast(objectIndex)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#objectForFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` param1: QtC.QTextFormat `
+    /// ` param1: QTextFormat `
     ///
-    pub fn ObjectForFormat(self: ?*anyopaque, param1: ?*anyopaque) QtC.QTextObject {
-        return qtc.QTextDocument_ObjectForFormat(@ptrCast(self), @ptrCast(param1));
+    pub fn ObjectForFormat(self: QTextDocument, param1: anytype) QTextObject {
+        comptime _ = @TypeOf(param1)._is_QTextFormat;
+        return .{ .ptr = qtc.QTextDocument_ObjectForFormat(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#findBlock)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` pos: i32 `
     ///
-    pub fn FindBlock(self: ?*anyopaque, pos: i32) QtC.QTextBlock {
-        return qtc.QTextDocument_FindBlock(@ptrCast(self), @bitCast(pos));
+    pub fn FindBlock(self: QTextDocument, pos: i32) QTextBlock {
+        return .{ .ptr = qtc.QTextDocument_FindBlock(@ptrCast(self.ptr), @bitCast(pos)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#findBlockByNumber)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` blockNumber: i32 `
     ///
-    pub fn FindBlockByNumber(self: ?*anyopaque, blockNumber: i32) QtC.QTextBlock {
-        return qtc.QTextDocument_FindBlockByNumber(@ptrCast(self), @bitCast(blockNumber));
+    pub fn FindBlockByNumber(self: QTextDocument, blockNumber: i32) QTextBlock {
+        return .{ .ptr = qtc.QTextDocument_FindBlockByNumber(@ptrCast(self.ptr), @bitCast(blockNumber)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#findBlockByLineNumber)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` blockNumber: i32 `
     ///
-    pub fn FindBlockByLineNumber(self: ?*anyopaque, blockNumber: i32) QtC.QTextBlock {
-        return qtc.QTextDocument_FindBlockByLineNumber(@ptrCast(self), @bitCast(blockNumber));
+    pub fn FindBlockByLineNumber(self: QTextDocument, blockNumber: i32) QTextBlock {
+        return .{ .ptr = qtc.QTextDocument_FindBlockByLineNumber(@ptrCast(self.ptr), @bitCast(blockNumber)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#begin)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn Begin(self: ?*anyopaque) QtC.QTextBlock {
-        return qtc.QTextDocument_Begin(@ptrCast(self));
+    pub fn Begin(self: QTextDocument) QTextBlock {
+        return .{ .ptr = qtc.QTextDocument_Begin(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#end)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn End(self: ?*anyopaque) QtC.QTextBlock {
-        return qtc.QTextDocument_End(@ptrCast(self));
+    pub fn End(self: QTextDocument) QTextBlock {
+        return .{ .ptr = qtc.QTextDocument_End(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#firstBlock)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn FirstBlock(self: ?*anyopaque) QtC.QTextBlock {
-        return qtc.QTextDocument_FirstBlock(@ptrCast(self));
+    pub fn FirstBlock(self: QTextDocument) QTextBlock {
+        return .{ .ptr = qtc.QTextDocument_FirstBlock(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#lastBlock)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn LastBlock(self: ?*anyopaque) QtC.QTextBlock {
-        return qtc.QTextDocument_LastBlock(@ptrCast(self));
+    pub fn LastBlock(self: QTextDocument) QTextBlock {
+        return .{ .ptr = qtc.QTextDocument_LastBlock(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setPageSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` size: QtC.QSizeF `
+    /// ` size: QSizeF `
     ///
-    pub fn SetPageSize(self: ?*anyopaque, size: ?*anyopaque) void {
-        qtc.QTextDocument_SetPageSize(@ptrCast(self), @ptrCast(size));
+    pub fn SetPageSize(self: QTextDocument, size: anytype) void {
+        comptime _ = @TypeOf(size)._is_QSizeF;
+        qtc.QTextDocument_SetPageSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#pageSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn PageSize(self: ?*anyopaque) QtC.QSizeF {
-        return qtc.QTextDocument_PageSize(@ptrCast(self));
+    pub fn PageSize(self: QTextDocument) QSizeF {
+        return .{ .ptr = qtc.QTextDocument_PageSize(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setDefaultFont)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetDefaultFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QTextDocument_SetDefaultFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetDefaultFont(self: QTextDocument, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QTextDocument_SetDefaultFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#defaultFont)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn DefaultFont(self: ?*anyopaque) QtC.QFont {
-        return qtc.QTextDocument_DefaultFont(@ptrCast(self));
+    pub fn DefaultFont(self: QTextDocument) QFont {
+        return .{ .ptr = qtc.QTextDocument_DefaultFont(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setSuperScriptBaseline)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` baseline: f64 `
     ///
-    pub fn SetSuperScriptBaseline(self: ?*anyopaque, baseline: f64) void {
-        qtc.QTextDocument_SetSuperScriptBaseline(@ptrCast(self), @bitCast(baseline));
+    pub fn SetSuperScriptBaseline(self: QTextDocument, baseline: f64) void {
+        qtc.QTextDocument_SetSuperScriptBaseline(@ptrCast(self.ptr), @bitCast(baseline));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#superScriptBaseline)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn SuperScriptBaseline(self: ?*anyopaque) f64 {
-        return qtc.QTextDocument_SuperScriptBaseline(@ptrCast(self));
+    pub fn SuperScriptBaseline(self: QTextDocument) f64 {
+        return qtc.QTextDocument_SuperScriptBaseline(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setSubScriptBaseline)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` baseline: f64 `
     ///
-    pub fn SetSubScriptBaseline(self: ?*anyopaque, baseline: f64) void {
-        qtc.QTextDocument_SetSubScriptBaseline(@ptrCast(self), @bitCast(baseline));
+    pub fn SetSubScriptBaseline(self: QTextDocument, baseline: f64) void {
+        qtc.QTextDocument_SetSubScriptBaseline(@ptrCast(self.ptr), @bitCast(baseline));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#subScriptBaseline)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn SubScriptBaseline(self: ?*anyopaque) f64 {
-        return qtc.QTextDocument_SubScriptBaseline(@ptrCast(self));
+    pub fn SubScriptBaseline(self: QTextDocument) f64 {
+        return qtc.QTextDocument_SubScriptBaseline(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setBaselineOffset)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` baseline: f64 `
     ///
-    pub fn SetBaselineOffset(self: ?*anyopaque, baseline: f64) void {
-        qtc.QTextDocument_SetBaselineOffset(@ptrCast(self), @bitCast(baseline));
+    pub fn SetBaselineOffset(self: QTextDocument, baseline: f64) void {
+        qtc.QTextDocument_SetBaselineOffset(@ptrCast(self.ptr), @bitCast(baseline));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#baselineOffset)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn BaselineOffset(self: ?*anyopaque) f64 {
-        return qtc.QTextDocument_BaselineOffset(@ptrCast(self));
+    pub fn BaselineOffset(self: QTextDocument) f64 {
+        return qtc.QTextDocument_BaselineOffset(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#pageCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn PageCount(self: ?*anyopaque) i32 {
-        return qtc.QTextDocument_PageCount(@ptrCast(self));
+    pub fn PageCount(self: QTextDocument) i32 {
+        return qtc.QTextDocument_PageCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#isModified)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn IsModified(self: ?*anyopaque) bool {
-        return qtc.QTextDocument_IsModified(@ptrCast(self));
+    pub fn IsModified(self: QTextDocument) bool {
+        return qtc.QTextDocument_IsModified(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#print)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` printer: QtC.QPagedPaintDevice `
+    /// ` printer: QPagedPaintDevice `
     ///
-    pub fn Print(self: ?*anyopaque, printer: ?*anyopaque) void {
-        qtc.QTextDocument_Print(@ptrCast(self), @ptrCast(printer));
+    pub fn Print(self: QTextDocument, printer: anytype) void {
+        comptime _ = @TypeOf(printer)._is_QPagedPaintDevice;
+        qtc.QTextDocument_Print(@ptrCast(self.ptr), @ptrCast(printer.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#resource)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` typeVal: i32 `
     ///
-    /// ` name: QtC.QUrl `
+    /// ` name: QUrl `
     ///
-    pub fn Resource(self: ?*anyopaque, typeVal: i32, name: ?*anyopaque) QtC.QVariant {
-        return qtc.QTextDocument_Resource(@ptrCast(self), @bitCast(typeVal), @ptrCast(name));
+    pub fn Resource(self: QTextDocument, typeVal: i32, name: anytype) QVariant {
+        comptime _ = @TypeOf(name)._is_QUrl;
+        return .{ .ptr = qtc.QTextDocument_Resource(@ptrCast(self.ptr), @bitCast(typeVal), @ptrCast(name.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#addResource)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` typeVal: i32 `
     ///
-    /// ` name: QtC.QUrl `
+    /// ` name: QUrl `
     ///
-    /// ` resource: QtC.QVariant `
+    /// ` resource: QVariant `
     ///
-    pub fn AddResource(self: ?*anyopaque, typeVal: i32, name: ?*anyopaque, resource: ?*anyopaque) void {
-        qtc.QTextDocument_AddResource(@ptrCast(self), @bitCast(typeVal), @ptrCast(name), @ptrCast(resource));
+    pub fn AddResource(self: QTextDocument, typeVal: i32, name: anytype, resource: anytype) void {
+        comptime _ = @TypeOf(name)._is_QUrl;
+        comptime _ = @TypeOf(resource)._is_QVariant;
+        qtc.QTextDocument_AddResource(@ptrCast(self.ptr), @bitCast(typeVal), @ptrCast(name.ptr), @ptrCast(resource.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setResourceProvider)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` provider: *const fn (funcparam1: QtC.QUrl) callconv(.c) QtC.QVariant `
+    /// ` provider: *const fn (funcparam1: QUrl) callconv(.c) QVariant `
     ///
-    pub fn SetResourceProvider(self: ?*anyopaque, provider: *const fn (?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QTextDocument_SetResourceProvider(@ptrCast(self), @bitCast(@intFromPtr(provider)));
+    pub fn SetResourceProvider(self: QTextDocument, provider: *const fn (QUrl) callconv(.c) QVariant) void {
+        qtc.QTextDocument_SetResourceProvider(@ptrCast(self.ptr), @bitCast(@intFromPtr(provider)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setDefaultResourceProvider)
     ///
     /// ## Parameter(s):
     ///
-    /// ` provider: *const fn (funcparam1: QtC.QUrl) callconv(.c) QtC.QVariant `
+    /// ` provider: *const fn (funcparam1: QUrl) callconv(.c) QVariant `
     ///
-    pub fn SetDefaultResourceProvider(provider: *const fn (?*anyopaque) callconv(.c) QtC.QVariant) void {
+    pub fn SetDefaultResourceProvider(provider: *const fn (QUrl) callconv(.c) QVariant) void {
         qtc.QTextDocument_SetDefaultResourceProvider(@bitCast(@intFromPtr(provider)));
     }
 
@@ -943,16 +998,17 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllFormats(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTextFormat {
-        const _arr: qtc.libqt_list = qtc.QTextDocument_AllFormats(@ptrCast(self));
+    pub fn AllFormats(self: QTextDocument, allocator: std.mem.Allocator) []QTextFormat {
+        const _arr: qtc.libqt_list = qtc.QTextDocument_AllFormats(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QTextFormat, _arr.len) catch @panic("qtextdocument.AllFormats: Memory allocation failed");
+        const _ret = allocator.alloc(QTextFormat, _arr.len) catch @panic("qtextdocument.AllFormats: Memory allocation failed");
         const _data: [*]QtC.QTextFormat = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -960,224 +1016,225 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` from: i32 `
     ///
     /// ` length: i32 `
     ///
-    pub fn MarkContentsDirty(self: ?*anyopaque, from: i32, length: i32) void {
-        qtc.QTextDocument_MarkContentsDirty(@ptrCast(self), @bitCast(from), @bitCast(length));
+    pub fn MarkContentsDirty(self: QTextDocument, from: i32, length: i32) void {
+        qtc.QTextDocument_MarkContentsDirty(@ptrCast(self.ptr), @bitCast(from), @bitCast(length));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setUseDesignMetrics)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` b: bool `
     ///
-    pub fn SetUseDesignMetrics(self: ?*anyopaque, b: bool) void {
-        qtc.QTextDocument_SetUseDesignMetrics(@ptrCast(self), b);
+    pub fn SetUseDesignMetrics(self: QTextDocument, b: bool) void {
+        qtc.QTextDocument_SetUseDesignMetrics(@ptrCast(self.ptr), b);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#useDesignMetrics)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn UseDesignMetrics(self: ?*anyopaque) bool {
-        return qtc.QTextDocument_UseDesignMetrics(@ptrCast(self));
+    pub fn UseDesignMetrics(self: QTextDocument) bool {
+        return qtc.QTextDocument_UseDesignMetrics(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setLayoutEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` b: bool `
     ///
-    pub fn SetLayoutEnabled(self: ?*anyopaque, b: bool) void {
-        qtc.QTextDocument_SetLayoutEnabled(@ptrCast(self), b);
+    pub fn SetLayoutEnabled(self: QTextDocument, b: bool) void {
+        qtc.QTextDocument_SetLayoutEnabled(@ptrCast(self.ptr), b);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#isLayoutEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn IsLayoutEnabled(self: ?*anyopaque) bool {
-        return qtc.QTextDocument_IsLayoutEnabled(@ptrCast(self));
+    pub fn IsLayoutEnabled(self: QTextDocument) bool {
+        return qtc.QTextDocument_IsLayoutEnabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#drawContents)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn DrawContents(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QTextDocument_DrawContents(@ptrCast(self), @ptrCast(painter));
+    pub fn DrawContents(self: QTextDocument, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QTextDocument_DrawContents(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setTextWidth)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` width: f64 `
     ///
-    pub fn SetTextWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QTextDocument_SetTextWidth(@ptrCast(self), @bitCast(width));
+    pub fn SetTextWidth(self: QTextDocument, width: f64) void {
+        qtc.QTextDocument_SetTextWidth(@ptrCast(self.ptr), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#textWidth)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn TextWidth(self: ?*anyopaque) f64 {
-        return qtc.QTextDocument_TextWidth(@ptrCast(self));
+    pub fn TextWidth(self: QTextDocument) f64 {
+        return qtc.QTextDocument_TextWidth(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#idealWidth)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn IdealWidth(self: ?*anyopaque) f64 {
-        return qtc.QTextDocument_IdealWidth(@ptrCast(self));
+    pub fn IdealWidth(self: QTextDocument) f64 {
+        return qtc.QTextDocument_IdealWidth(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#indentWidth)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn IndentWidth(self: ?*anyopaque) f64 {
-        return qtc.QTextDocument_IndentWidth(@ptrCast(self));
+    pub fn IndentWidth(self: QTextDocument) f64 {
+        return qtc.QTextDocument_IndentWidth(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setIndentWidth)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` width: f64 `
     ///
-    pub fn SetIndentWidth(self: ?*anyopaque, width: f64) void {
-        qtc.QTextDocument_SetIndentWidth(@ptrCast(self), @bitCast(width));
+    pub fn SetIndentWidth(self: QTextDocument, width: f64) void {
+        qtc.QTextDocument_SetIndentWidth(@ptrCast(self.ptr), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#documentMargin)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn DocumentMargin(self: ?*anyopaque) f64 {
-        return qtc.QTextDocument_DocumentMargin(@ptrCast(self));
+    pub fn DocumentMargin(self: QTextDocument) f64 {
+        return qtc.QTextDocument_DocumentMargin(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setDocumentMargin)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` margin: f64 `
     ///
-    pub fn SetDocumentMargin(self: ?*anyopaque, margin: f64) void {
-        qtc.QTextDocument_SetDocumentMargin(@ptrCast(self), @bitCast(margin));
+    pub fn SetDocumentMargin(self: QTextDocument, margin: f64) void {
+        qtc.QTextDocument_SetDocumentMargin(@ptrCast(self.ptr), @bitCast(margin));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#adjustSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QTextDocument_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: QTextDocument) void {
+        qtc.QTextDocument_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#size)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSizeF {
-        return qtc.QTextDocument_Size(@ptrCast(self));
+    pub fn Size(self: QTextDocument) QSizeF {
+        return .{ .ptr = qtc.QTextDocument_Size(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#blockCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn BlockCount(self: ?*anyopaque) i32 {
-        return qtc.QTextDocument_BlockCount(@ptrCast(self));
+    pub fn BlockCount(self: QTextDocument) i32 {
+        return qtc.QTextDocument_BlockCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#lineCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn LineCount(self: ?*anyopaque) i32 {
-        return qtc.QTextDocument_LineCount(@ptrCast(self));
+    pub fn LineCount(self: QTextDocument) i32 {
+        return qtc.QTextDocument_LineCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#characterCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn CharacterCount(self: ?*anyopaque) i32 {
-        return qtc.QTextDocument_CharacterCount(@ptrCast(self));
+    pub fn CharacterCount(self: QTextDocument) i32 {
+        return qtc.QTextDocument_CharacterCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setDefaultStyleSheet)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` sheet: []const u8 `
     ///
-    pub fn SetDefaultStyleSheet(self: ?*anyopaque, sheet: []const u8) void {
+    pub fn SetDefaultStyleSheet(self: QTextDocument, sheet: []const u8) void {
         const sheet_str = qtc.libqt_string{
             .len = sheet.len,
             .data = sheet.ptr,
         };
-        qtc.QTextDocument_SetDefaultStyleSheet(@ptrCast(self), sheet_str);
+        qtc.QTextDocument_SetDefaultStyleSheet(@ptrCast(self.ptr), sheet_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#defaultStyleSheet)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultStyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextDocument_DefaultStyleSheet(@ptrCast(self));
+    pub fn DefaultStyleSheet(self: QTextDocument, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTextDocument_DefaultStyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.DefaultStyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1188,133 +1245,137 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` cursor: QtC.QTextCursor `
+    /// ` cursor: QTextCursor `
     ///
-    pub fn Undo(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QTextDocument_Undo(@ptrCast(self), @ptrCast(cursor));
+    pub fn Undo(self: QTextDocument, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QTextCursor;
+        qtc.QTextDocument_Undo(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#redo)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` cursor: QtC.QTextCursor `
+    /// ` cursor: QTextCursor `
     ///
-    pub fn Redo(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QTextDocument_Redo(@ptrCast(self), @ptrCast(cursor));
+    pub fn Redo(self: QTextDocument, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QTextCursor;
+        qtc.QTextDocument_Redo(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#clearUndoRedoStacks)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn ClearUndoRedoStacks(self: ?*anyopaque) void {
-        qtc.QTextDocument_ClearUndoRedoStacks(@ptrCast(self));
+    pub fn ClearUndoRedoStacks(self: QTextDocument) void {
+        qtc.QTextDocument_ClearUndoRedoStacks(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#maximumBlockCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn MaximumBlockCount(self: ?*anyopaque) i32 {
-        return qtc.QTextDocument_MaximumBlockCount(@ptrCast(self));
+    pub fn MaximumBlockCount(self: QTextDocument) i32 {
+        return qtc.QTextDocument_MaximumBlockCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setMaximumBlockCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` maximum: i32 `
     ///
-    pub fn SetMaximumBlockCount(self: ?*anyopaque, maximum: i32) void {
-        qtc.QTextDocument_SetMaximumBlockCount(@ptrCast(self), @bitCast(maximum));
+    pub fn SetMaximumBlockCount(self: QTextDocument, maximum: i32) void {
+        qtc.QTextDocument_SetMaximumBlockCount(@ptrCast(self.ptr), @bitCast(maximum));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#defaultTextOption)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn DefaultTextOption(self: ?*anyopaque) QtC.QTextOption {
-        return qtc.QTextDocument_DefaultTextOption(@ptrCast(self));
+    pub fn DefaultTextOption(self: QTextDocument) QTextOption {
+        return .{ .ptr = qtc.QTextDocument_DefaultTextOption(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setDefaultTextOption)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` option: QtC.QTextOption `
+    /// ` option: QTextOption `
     ///
-    pub fn SetDefaultTextOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QTextDocument_SetDefaultTextOption(@ptrCast(self), @ptrCast(option));
+    pub fn SetDefaultTextOption(self: QTextDocument, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QTextOption;
+        qtc.QTextDocument_SetDefaultTextOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#baseUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn BaseUrl(self: ?*anyopaque) QtC.QUrl {
-        return qtc.QTextDocument_BaseUrl(@ptrCast(self));
+    pub fn BaseUrl(self: QTextDocument) QUrl {
+        return .{ .ptr = qtc.QTextDocument_BaseUrl(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setBaseUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` url: QtC.QUrl `
+    /// ` url: QUrl `
     ///
-    pub fn SetBaseUrl(self: ?*anyopaque, url: ?*anyopaque) void {
-        qtc.QTextDocument_SetBaseUrl(@ptrCast(self), @ptrCast(url));
+    pub fn SetBaseUrl(self: QTextDocument, url: anytype) void {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        qtc.QTextDocument_SetBaseUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#defaultCursorMoveStyle)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.CursorMoveStyle `
     ///
-    pub fn DefaultCursorMoveStyle(self: ?*anyopaque) i32 {
-        return qtc.QTextDocument_DefaultCursorMoveStyle(@ptrCast(self));
+    pub fn DefaultCursorMoveStyle(self: QTextDocument) i32 {
+        return qtc.QTextDocument_DefaultCursorMoveStyle(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setDefaultCursorMoveStyle)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` style: qnamespace_enums.CursorMoveStyle `
     ///
-    pub fn SetDefaultCursorMoveStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QTextDocument_SetDefaultCursorMoveStyle(@ptrCast(self), @bitCast(style));
+    pub fn SetDefaultCursorMoveStyle(self: QTextDocument, style: i32) void {
+        qtc.QTextDocument_SetDefaultCursorMoveStyle(@ptrCast(self.ptr), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#contentsChange)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` from: i32 `
     ///
@@ -1322,284 +1383,288 @@ pub const qtextdocument = struct {
     ///
     /// ` charsAdded: i32 `
     ///
-    pub fn ContentsChange(self: ?*anyopaque, from: i32, charsRemoved: i32, charsAdded: i32) void {
-        qtc.QTextDocument_ContentsChange(@ptrCast(self), @bitCast(from), @bitCast(charsRemoved), @bitCast(charsAdded));
+    pub fn ContentsChange(self: QTextDocument, from: i32, charsRemoved: i32, charsAdded: i32) void {
+        qtc.QTextDocument_ContentsChange(@ptrCast(self.ptr), @bitCast(from), @bitCast(charsRemoved), @bitCast(charsAdded));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#contentsChange)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument, from: i32, charsRemoved: i32, charsAdded: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextDocument, from: i32, charsRemoved: i32, charsAdded: i32) callconv(.c) void `
     ///
-    pub fn OnContentsChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QTextDocument_Connect_ContentsChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContentsChange(self: QTextDocument, callback: *const fn (QTextDocument, i32, i32, i32) callconv(.c) void) void {
+        qtc.QTextDocument_Connect_ContentsChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#contentsChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn ContentsChanged(self: ?*anyopaque) void {
-        qtc.QTextDocument_ContentsChanged(@ptrCast(self));
+    pub fn ContentsChanged(self: QTextDocument) void {
+        qtc.QTextDocument_ContentsChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#contentsChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextDocument) callconv(.c) void `
     ///
-    pub fn OnContentsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTextDocument_Connect_ContentsChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContentsChanged(self: QTextDocument, callback: *const fn (QTextDocument) callconv(.c) void) void {
+        qtc.QTextDocument_Connect_ContentsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#undoAvailable)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` param1: bool `
     ///
-    pub fn UndoAvailable(self: ?*anyopaque, param1: bool) void {
-        qtc.QTextDocument_UndoAvailable(@ptrCast(self), param1);
+    pub fn UndoAvailable(self: QTextDocument, param1: bool) void {
+        qtc.QTextDocument_UndoAvailable(@ptrCast(self.ptr), param1);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#undoAvailable)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument, param1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextDocument, param1: bool) callconv(.c) void `
     ///
-    pub fn OnUndoAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTextDocument_Connect_UndoAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUndoAvailable(self: QTextDocument, callback: *const fn (QTextDocument, bool) callconv(.c) void) void {
+        qtc.QTextDocument_Connect_UndoAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#redoAvailable)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` param1: bool `
     ///
-    pub fn RedoAvailable(self: ?*anyopaque, param1: bool) void {
-        qtc.QTextDocument_RedoAvailable(@ptrCast(self), param1);
+    pub fn RedoAvailable(self: QTextDocument, param1: bool) void {
+        qtc.QTextDocument_RedoAvailable(@ptrCast(self.ptr), param1);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#redoAvailable)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument, param1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextDocument, param1: bool) callconv(.c) void `
     ///
-    pub fn OnRedoAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTextDocument_Connect_RedoAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedoAvailable(self: QTextDocument, callback: *const fn (QTextDocument, bool) callconv(.c) void) void {
+        qtc.QTextDocument_Connect_RedoAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#undoCommandAdded)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn UndoCommandAdded(self: ?*anyopaque) void {
-        qtc.QTextDocument_UndoCommandAdded(@ptrCast(self));
+    pub fn UndoCommandAdded(self: QTextDocument) void {
+        qtc.QTextDocument_UndoCommandAdded(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#undoCommandAdded)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextDocument) callconv(.c) void `
     ///
-    pub fn OnUndoCommandAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTextDocument_Connect_UndoCommandAdded(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUndoCommandAdded(self: QTextDocument, callback: *const fn (QTextDocument) callconv(.c) void) void {
+        qtc.QTextDocument_Connect_UndoCommandAdded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#modificationChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` m: bool `
     ///
-    pub fn ModificationChanged(self: ?*anyopaque, m: bool) void {
-        qtc.QTextDocument_ModificationChanged(@ptrCast(self), m);
+    pub fn ModificationChanged(self: QTextDocument, m: bool) void {
+        qtc.QTextDocument_ModificationChanged(@ptrCast(self.ptr), m);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#modificationChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument, m: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextDocument, m: bool) callconv(.c) void `
     ///
-    pub fn OnModificationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTextDocument_Connect_ModificationChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnModificationChanged(self: QTextDocument, callback: *const fn (QTextDocument, bool) callconv(.c) void) void {
+        qtc.QTextDocument_Connect_ModificationChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#cursorPositionChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` cursor: QtC.QTextCursor `
+    /// ` cursor: QTextCursor `
     ///
-    pub fn CursorPositionChanged(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QTextDocument_CursorPositionChanged(@ptrCast(self), @ptrCast(cursor));
+    pub fn CursorPositionChanged(self: QTextDocument, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QTextCursor;
+        qtc.QTextDocument_CursorPositionChanged(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#cursorPositionChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument, cursor: QtC.QTextCursor) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextDocument, cursor: QTextCursor) callconv(.c) void `
     ///
-    pub fn OnCursorPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextDocument_Connect_CursorPositionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCursorPositionChanged(self: QTextDocument, callback: *const fn (QTextDocument, QTextCursor) callconv(.c) void) void {
+        qtc.QTextDocument_Connect_CursorPositionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#blockCountChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` newBlockCount: i32 `
     ///
-    pub fn BlockCountChanged(self: ?*anyopaque, newBlockCount: i32) void {
-        qtc.QTextDocument_BlockCountChanged(@ptrCast(self), @bitCast(newBlockCount));
+    pub fn BlockCountChanged(self: QTextDocument, newBlockCount: i32) void {
+        qtc.QTextDocument_BlockCountChanged(@ptrCast(self.ptr), @bitCast(newBlockCount));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#blockCountChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument, newBlockCount: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextDocument, newBlockCount: i32) callconv(.c) void `
     ///
-    pub fn OnBlockCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTextDocument_Connect_BlockCountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBlockCountChanged(self: QTextDocument, callback: *const fn (QTextDocument, i32) callconv(.c) void) void {
+        qtc.QTextDocument_Connect_BlockCountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#baseUrlChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` url: QtC.QUrl `
+    /// ` url: QUrl `
     ///
-    pub fn BaseUrlChanged(self: ?*anyopaque, url: ?*anyopaque) void {
-        qtc.QTextDocument_BaseUrlChanged(@ptrCast(self), @ptrCast(url));
+    pub fn BaseUrlChanged(self: QTextDocument, url: anytype) void {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        qtc.QTextDocument_BaseUrlChanged(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#baseUrlChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument, url: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextDocument, url: QUrl) callconv(.c) void `
     ///
-    pub fn OnBaseUrlChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextDocument_Connect_BaseUrlChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBaseUrlChanged(self: QTextDocument, callback: *const fn (QTextDocument, QUrl) callconv(.c) void) void {
+        qtc.QTextDocument_Connect_BaseUrlChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#documentLayoutChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn DocumentLayoutChanged(self: ?*anyopaque) void {
-        qtc.QTextDocument_DocumentLayoutChanged(@ptrCast(self));
+    pub fn DocumentLayoutChanged(self: QTextDocument) void {
+        qtc.QTextDocument_DocumentLayoutChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#documentLayoutChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextDocument) callconv(.c) void `
     ///
-    pub fn OnDocumentLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTextDocument_Connect_DocumentLayoutChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDocumentLayoutChanged(self: QTextDocument, callback: *const fn (QTextDocument) callconv(.c) void) void {
+        qtc.QTextDocument_Connect_DocumentLayoutChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#undo)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn Undo2(self: ?*anyopaque) void {
-        qtc.QTextDocument_Undo2(@ptrCast(self));
+    pub fn Undo2(self: QTextDocument) void {
+        qtc.QTextDocument_Undo2(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#redo)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn Redo2(self: ?*anyopaque) void {
-        qtc.QTextDocument_Redo2(@ptrCast(self));
+    pub fn Redo2(self: QTextDocument) void {
+        qtc.QTextDocument_Redo2(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#appendUndoItem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` param1: QtC.QAbstractUndoItem `
+    /// ` param1: QAbstractUndoItem `
     ///
-    pub fn AppendUndoItem(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTextDocument_AppendUndoItem(@ptrCast(self), @ptrCast(param1));
+    pub fn AppendUndoItem(self: QTextDocument, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QAbstractUndoItem;
+        qtc.QTextDocument_AppendUndoItem(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setModified)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn SetModified(self: ?*anyopaque) void {
-        qtc.QTextDocument_SetModified(@ptrCast(self));
+    pub fn SetModified(self: QTextDocument) void {
+        qtc.QTextDocument_SetModified(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#createObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` f: QtC.QTextFormat `
+    /// ` f: QTextFormat `
     ///
-    pub fn CreateObject(self: ?*anyopaque, f: ?*anyopaque) QtC.QTextObject {
-        return qtc.QTextDocument_CreateObject(@ptrCast(self), @ptrCast(f));
+    pub fn CreateObject(self: QTextDocument, f: anytype) QTextObject {
+        comptime _ = @TypeOf(f)._is_QTextFormat;
+        return .{ .ptr = qtc.QTextDocument_CreateObject(@ptrCast(self.ptr), @ptrCast(f.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#createObject)
@@ -1608,12 +1673,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument, f: QtC.QTextFormat) callconv(.c) QtC.QTextObject `
+    /// ` callback: *const fn (self: QTextDocument, f: QTextFormat) callconv(.c) QTextObject `
     ///
-    pub fn OnCreateObject(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QTextObject) void {
-        qtc.QTextDocument_OnCreateObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreateObject(self: QTextDocument, callback: *const fn (QTextDocument, QTextFormat) callconv(.c) QTextObject) void {
+        qtc.QTextDocument_OnCreateObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCreateObject` instead
@@ -1626,26 +1691,28 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` f: QtC.QTextFormat `
+    /// ` f: QTextFormat `
     ///
-    pub fn SuperCreateObject(self: ?*anyopaque, f: ?*anyopaque) QtC.QTextObject {
-        return qtc.QTextDocument_SuperCreateObject(@ptrCast(self), @ptrCast(f));
+    pub fn SuperCreateObject(self: QTextDocument, f: anytype) QTextObject {
+        comptime _ = @TypeOf(f)._is_QTextFormat;
+        return .{ .ptr = qtc.QTextDocument_SuperCreateObject(@ptrCast(self.ptr), @ptrCast(f.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#loadResource)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` typeVal: i32 `
     ///
-    /// ` name: QtC.QUrl `
+    /// ` name: QUrl `
     ///
-    pub fn LoadResource(self: ?*anyopaque, typeVal: i32, name: ?*anyopaque) QtC.QVariant {
-        return qtc.QTextDocument_LoadResource(@ptrCast(self), @bitCast(typeVal), @ptrCast(name));
+    pub fn LoadResource(self: QTextDocument, typeVal: i32, name: anytype) QVariant {
+        comptime _ = @TypeOf(name)._is_QUrl;
+        return .{ .ptr = qtc.QTextDocument_LoadResource(@ptrCast(self.ptr), @bitCast(typeVal), @ptrCast(name.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#loadResource)
@@ -1654,12 +1721,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument, typeVal: i32, name: QtC.QUrl) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QTextDocument, typeVal: i32, name: QUrl) callconv(.c) QVariant `
     ///
-    pub fn OnLoadResource(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QTextDocument_OnLoadResource(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLoadResource(self: QTextDocument, callback: *const fn (QTextDocument, i32, QUrl) callconv(.c) QVariant) void {
+        qtc.QTextDocument_OnLoadResource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperLoadResource` instead
@@ -1672,27 +1739,28 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` typeVal: i32 `
     ///
-    /// ` name: QtC.QUrl `
+    /// ` name: QUrl `
     ///
-    pub fn SuperLoadResource(self: ?*anyopaque, typeVal: i32, name: ?*anyopaque) QtC.QVariant {
-        return qtc.QTextDocument_SuperLoadResource(@ptrCast(self), @bitCast(typeVal), @ptrCast(name));
+    pub fn SuperLoadResource(self: QTextDocument, typeVal: i32, name: anytype) QVariant {
+        comptime _ = @TypeOf(name)._is_QUrl;
+        return .{ .ptr = qtc.QTextDocument_SuperLoadResource(@ptrCast(self.ptr), @bitCast(typeVal), @ptrCast(name.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -1706,15 +1774,15 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -1728,26 +1796,27 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn Clone1(self: ?*anyopaque, parent: ?*anyopaque) QtC.QTextDocument {
-        return qtc.QTextDocument_Clone1(@ptrCast(self), @ptrCast(parent));
+    pub fn Clone1(self: QTextDocument, parent: anytype) QTextDocument {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QTextDocument_Clone1(@ptrCast(self.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#toMarkdown)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
-    ///
-    /// ` features: flag of qtextdocument_enums.MarkdownFeature `
+    /// ` self: QTextDocument `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToMarkdown1(self: ?*anyopaque, features: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextDocument_ToMarkdown1(@ptrCast(self), @bitCast(features));
+    /// ` features: flag of qtextdocument_enums.MarkdownFeature `
+    ///
+    pub fn ToMarkdown1(self: QTextDocument, allocator: std.mem.Allocator, features: i32) []const u8 {
+        var _str = qtc.QTextDocument_ToMarkdown1(@ptrCast(self.ptr), @bitCast(features));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.ToMarkdown1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1758,43 +1827,43 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` markdown: []const u8 `
     ///
     /// ` features: flag of qtextdocument_enums.MarkdownFeature `
     ///
-    pub fn SetMarkdown2(self: ?*anyopaque, markdown: []const u8, features: i32) void {
+    pub fn SetMarkdown2(self: QTextDocument, markdown: []const u8, features: i32) void {
         const markdown_str = qtc.libqt_string{
             .len = markdown.len,
             .data = markdown.ptr,
         };
-        qtc.QTextDocument_SetMarkdown2(@ptrCast(self), markdown_str, @bitCast(features));
+        qtc.QTextDocument_SetMarkdown2(@ptrCast(self.ptr), markdown_str, @bitCast(features));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#find)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` subString: []const u8 `
     ///
     /// ` from: i32 `
     ///
-    pub fn Find22(self: ?*anyopaque, subString: []const u8, from: i32) QtC.QTextCursor {
+    pub fn Find22(self: QTextDocument, subString: []const u8, from: i32) QTextCursor {
         const subString_str = qtc.libqt_string{
             .len = subString.len,
             .data = subString.ptr,
         };
-        return qtc.QTextDocument_Find22(@ptrCast(self), subString_str, @bitCast(from));
+        return .{ .ptr = qtc.QTextDocument_Find22(@ptrCast(self.ptr), subString_str, @bitCast(from)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#find)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` subString: []const u8 `
     ///
@@ -1802,116 +1871,123 @@ pub const qtextdocument = struct {
     ///
     /// ` options: flag of qtextdocument_enums.FindFlag `
     ///
-    pub fn Find32(self: ?*anyopaque, subString: []const u8, from: i32, options: i32) QtC.QTextCursor {
+    pub fn Find32(self: QTextDocument, subString: []const u8, from: i32, options: i32) QTextCursor {
         const subString_str = qtc.libqt_string{
             .len = subString.len,
             .data = subString.ptr,
         };
-        return qtc.QTextDocument_Find32(@ptrCast(self), subString_str, @bitCast(from), @bitCast(options));
+        return .{ .ptr = qtc.QTextDocument_Find32(@ptrCast(self.ptr), subString_str, @bitCast(from), @bitCast(options)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#find)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` subString: []const u8 `
     ///
-    /// ` cursor: QtC.QTextCursor `
+    /// ` cursor: QTextCursor `
     ///
     /// ` options: flag of qtextdocument_enums.FindFlag `
     ///
-    pub fn Find33(self: ?*anyopaque, subString: []const u8, cursor: ?*anyopaque, options: i32) QtC.QTextCursor {
+    pub fn Find33(self: QTextDocument, subString: []const u8, cursor: anytype, options: i32) QTextCursor {
         const subString_str = qtc.libqt_string{
             .len = subString.len,
             .data = subString.ptr,
         };
-        return qtc.QTextDocument_Find33(@ptrCast(self), subString_str, @ptrCast(cursor), @bitCast(options));
+        comptime _ = @TypeOf(cursor)._is_QTextCursor;
+        return .{ .ptr = qtc.QTextDocument_Find33(@ptrCast(self.ptr), subString_str, @ptrCast(cursor.ptr), @bitCast(options)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#find)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` expr: QtC.QRegularExpression `
+    /// ` expr: QRegularExpression `
     ///
     /// ` from: i32 `
     ///
-    pub fn Find23(self: ?*anyopaque, expr: ?*anyopaque, from: i32) QtC.QTextCursor {
-        return qtc.QTextDocument_Find23(@ptrCast(self), @ptrCast(expr), @bitCast(from));
+    pub fn Find23(self: QTextDocument, expr: anytype, from: i32) QTextCursor {
+        comptime _ = @TypeOf(expr)._is_QRegularExpression;
+        return .{ .ptr = qtc.QTextDocument_Find23(@ptrCast(self.ptr), @ptrCast(expr.ptr), @bitCast(from)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#find)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` expr: QtC.QRegularExpression `
+    /// ` expr: QRegularExpression `
     ///
     /// ` from: i32 `
     ///
     /// ` options: flag of qtextdocument_enums.FindFlag `
     ///
-    pub fn Find34(self: ?*anyopaque, expr: ?*anyopaque, from: i32, options: i32) QtC.QTextCursor {
-        return qtc.QTextDocument_Find34(@ptrCast(self), @ptrCast(expr), @bitCast(from), @bitCast(options));
+    pub fn Find34(self: QTextDocument, expr: anytype, from: i32, options: i32) QTextCursor {
+        comptime _ = @TypeOf(expr)._is_QRegularExpression;
+        return .{ .ptr = qtc.QTextDocument_Find34(@ptrCast(self.ptr), @ptrCast(expr.ptr), @bitCast(from), @bitCast(options)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#find)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` expr: QtC.QRegularExpression `
+    /// ` expr: QRegularExpression `
     ///
-    /// ` cursor: QtC.QTextCursor `
+    /// ` cursor: QTextCursor `
     ///
     /// ` options: flag of qtextdocument_enums.FindFlag `
     ///
-    pub fn Find35(self: ?*anyopaque, expr: ?*anyopaque, cursor: ?*anyopaque, options: i32) QtC.QTextCursor {
-        return qtc.QTextDocument_Find35(@ptrCast(self), @ptrCast(expr), @ptrCast(cursor), @bitCast(options));
+    pub fn Find35(self: QTextDocument, expr: anytype, cursor: anytype, options: i32) QTextCursor {
+        comptime _ = @TypeOf(expr)._is_QRegularExpression;
+        comptime _ = @TypeOf(cursor)._is_QTextCursor;
+        return .{ .ptr = qtc.QTextDocument_Find35(@ptrCast(self.ptr), @ptrCast(expr.ptr), @ptrCast(cursor.ptr), @bitCast(options)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#drawContents)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` rect: QtC.QRectF `
+    /// ` rect: QRectF `
     ///
-    pub fn DrawContents2(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque) void {
-        qtc.QTextDocument_DrawContents2(@ptrCast(self), @ptrCast(painter), @ptrCast(rect));
+    pub fn DrawContents2(self: QTextDocument, painter: anytype, rect: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(rect)._is_QRectF;
+        qtc.QTextDocument_DrawContents2(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#clearUndoRedoStacks)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` historyToClear: qtextdocument_enums.Stacks `
     ///
-    pub fn ClearUndoRedoStacks1(self: ?*anyopaque, historyToClear: i32) void {
-        qtc.QTextDocument_ClearUndoRedoStacks1(@ptrCast(self), @bitCast(historyToClear));
+    pub fn ClearUndoRedoStacks1(self: QTextDocument, historyToClear: i32) void {
+        qtc.QTextDocument_ClearUndoRedoStacks1(@ptrCast(self.ptr), @bitCast(historyToClear));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextdocument.html#setModified)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` m: bool `
     ///
-    pub fn SetModified1(self: ?*anyopaque, m: bool) void {
-        qtc.QTextDocument_SetModified1(@ptrCast(self), m);
+    pub fn SetModified1(self: QTextDocument, m: bool) void {
+        qtc.QTextDocument_SetModified1(@ptrCast(self.ptr), m);
     }
 
     /// Inherited from QObject
@@ -1920,12 +1996,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QTextDocument, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1938,12 +2014,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QTextDocument, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1952,10 +2028,10 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QTextDocument) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1964,10 +2040,10 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QTextDocument) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1976,10 +2052,10 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QTextDocument) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1988,10 +2064,10 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QTextDocument) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2000,12 +2076,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QTextDocument, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -2014,10 +2090,10 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QTextDocument) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2026,12 +2102,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QTextDocument, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -2040,12 +2117,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QTextDocument, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -2054,12 +2131,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QTextDocument, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -2068,12 +2145,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QTextDocument, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2082,12 +2159,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QTextDocument, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2096,16 +2173,17 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QTextDocument, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qtextdocument.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qtextdocument.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2115,12 +2193,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QTextDocument, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -2129,12 +2208,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QTextDocument, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -2143,12 +2223,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QTextDocument, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -2157,18 +2238,20 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -2177,16 +2260,20 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2195,18 +2282,19 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QTextDocument, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -2215,18 +2303,20 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2235,16 +2325,20 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -2253,10 +2347,10 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QTextDocument) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2265,12 +2359,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QTextDocument, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -2279,10 +2374,11 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -2291,10 +2387,10 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QTextDocument) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2303,10 +2399,10 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QTextDocument) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2315,15 +2411,16 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QTextDocument, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -2332,13 +2429,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QTextDocument, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -2347,17 +2444,16 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QTextDocument, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qtextdocument.DynamicPropertyNames: Memory allocation failed");
@@ -2376,10 +2472,10 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QTextDocument) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2388,10 +2484,10 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QTextDocument) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2400,10 +2496,10 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QTextDocument) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2412,12 +2508,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextDocument) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QTextDocument, callback: *const fn (QTextDocument) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2426,10 +2522,10 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QTextDocument) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2438,13 +2534,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QTextDocument, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -2453,10 +2549,10 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QTextDocument) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2465,14 +2561,14 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QTextDocument, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2481,14 +2577,14 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QTextDocument, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2497,20 +2593,22 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -2519,18 +2617,22 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2539,9 +2641,9 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2549,10 +2651,11 @@ pub const qtextdocument = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QTextDocument, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2561,13 +2664,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QTextDocument, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2576,15 +2679,16 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QTextDocument, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -2593,18 +2697,19 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QTextDocument, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2613,15 +2718,16 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QTextDocument, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2630,12 +2736,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QTextDocument, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -2644,12 +2751,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextDocument, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QTextDocument, callback: *const fn (QTextDocument, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2660,12 +2767,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTextDocument_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QTextDocument, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTextDocument_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -2680,12 +2788,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTextDocument_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QTextDocument, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTextDocument_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2696,12 +2805,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument`
+    /// ` self: QTextDocument`
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTextDocument, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTextDocument_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QTextDocument, callback: *const fn (QTextDocument, QEvent) callconv(.c) bool) void {
+        qtc.QTextDocument_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2712,14 +2821,16 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTextDocument_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QTextDocument, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTextDocument_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -2734,14 +2845,16 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTextDocument_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QTextDocument, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTextDocument_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2752,12 +2865,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument`
+    /// ` self: QTextDocument`
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTextDocument, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTextDocument_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QTextDocument, callback: *const fn (QTextDocument, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QTextDocument_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2768,12 +2881,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextDocument_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QTextDocument, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QTextDocument_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -2788,12 +2902,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextDocument_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QTextDocument, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QTextDocument_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2804,12 +2919,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument`
+    /// ` self: QTextDocument`
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextDocument, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextDocument_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QTextDocument, callback: *const fn (QTextDocument, QTimerEvent) callconv(.c) void) void {
+        qtc.QTextDocument_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2820,12 +2935,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextDocument_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QTextDocument, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QTextDocument_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -2840,12 +2956,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextDocument_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QTextDocument, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QTextDocument_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2856,12 +2973,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument`
+    /// ` self: QTextDocument`
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextDocument, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextDocument_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QTextDocument, callback: *const fn (QTextDocument, QChildEvent) callconv(.c) void) void {
+        qtc.QTextDocument_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2872,12 +2989,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextDocument_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QTextDocument, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QTextDocument_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -2892,12 +3010,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextDocument_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QTextDocument, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QTextDocument_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2908,12 +3027,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument`
+    /// ` self: QTextDocument`
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextDocument, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextDocument_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QTextDocument, callback: *const fn (QTextDocument, QEvent) callconv(.c) void) void {
+        qtc.QTextDocument_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2924,12 +3043,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTextDocument_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QTextDocument, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QTextDocument_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -2944,12 +3064,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTextDocument_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QTextDocument, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QTextDocument_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2960,12 +3081,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument`
+    /// ` self: QTextDocument`
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextDocument, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextDocument_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QTextDocument, callback: *const fn (QTextDocument, QMetaMethod) callconv(.c) void) void {
+        qtc.QTextDocument_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2976,12 +3097,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTextDocument_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QTextDocument, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QTextDocument_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -2996,12 +3118,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTextDocument_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QTextDocument, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QTextDocument_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3012,12 +3135,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument`
+    /// ` self: QTextDocument`
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextDocument, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextDocument_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QTextDocument, callback: *const fn (QTextDocument, QMetaMethod) callconv(.c) void) void {
+        qtc.QTextDocument_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3028,10 +3151,10 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QTextDocument_Sender(@ptrCast(self));
+    pub fn Sender(self: QTextDocument) QObject {
+        return .{ .ptr = qtc.QTextDocument_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -3046,10 +3169,10 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QTextDocument_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QTextDocument) QObject {
+        return .{ .ptr = qtc.QTextDocument_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3060,12 +3183,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument`
+    /// ` self: QTextDocument`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QTextDocument_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QTextDocument, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QTextDocument_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3076,10 +3199,10 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QTextDocument_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QTextDocument) i32 {
+        return qtc.QTextDocument_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -3094,10 +3217,10 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QTextDocument_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QTextDocument) i32 {
+        return qtc.QTextDocument_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3108,12 +3231,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument`
+    /// ` self: QTextDocument`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTextDocument_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QTextDocument, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTextDocument_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3124,13 +3247,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QTextDocument, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QTextDocument_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QTextDocument_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -3145,13 +3268,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QTextDocument, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QTextDocument_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QTextDocument_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3162,12 +3285,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument`
+    /// ` self: QTextDocument`
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTextDocument, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QTextDocument_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QTextDocument, callback: *const fn (QTextDocument, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QTextDocument_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3178,12 +3301,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QTextDocument_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QTextDocument, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QTextDocument_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -3198,12 +3322,13 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QTextDocument_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QTextDocument, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QTextDocument_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3214,12 +3339,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument`
+    /// ` self: QTextDocument`
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTextDocument, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTextDocument_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QTextDocument, callback: *const fn (QTextDocument, QMetaMethod) callconv(.c) bool) void {
+        qtc.QTextDocument_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3230,12 +3355,12 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    /// ` callback: *const fn (self: QtC.QTextDocument, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextDocument, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QTextDocument, callback: *const fn (QTextDocument, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -3248,10 +3373,10 @@ pub const qtextdocument = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QTextDocument `
+    /// ` self: QTextDocument `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QTextDocument_Delete(@ptrCast(self));
+    pub fn Delete(self: QTextDocument) void {
+        qtc.QTextDocument_Delete(@ptrCast(self.ptr));
     }
 };
 

@@ -1,80 +1,94 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QFileInfo = @import("libqt6").QFileInfo;
+const QIODevice = @import("libqt6").QIODevice;
+const QMimeType = @import("libqt6").QMimeType;
+const QUrl = @import("libqt6").QUrl;
 const qmimedatabase_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedatabase.html)
-pub const qmimedatabase = struct {
+pub const QMimeDatabase = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedatabase.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QMimeDatabase,
+
+    pub const _is_QMimeDatabase = {};
+
     /// New constructs a new QMimeDatabase object.
     ///
-    pub fn New() QtC.QMimeDatabase {
-        return qtc.QMimeDatabase_new();
+    pub fn New() QMimeDatabase {
+        return .{ .ptr = qtc.QMimeDatabase_new() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedatabase.html#mimeTypeForName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeDatabase `
+    /// ` self: QMimeDatabase `
     ///
     /// ` nameOrAlias: []const u8 `
     ///
-    pub fn MimeTypeForName(self: ?*anyopaque, nameOrAlias: []const u8) QtC.QMimeType {
+    pub fn MimeTypeForName(self: QMimeDatabase, nameOrAlias: []const u8) QMimeType {
         const nameOrAlias_str = qtc.libqt_string{
             .len = nameOrAlias.len,
             .data = nameOrAlias.ptr,
         };
-        return qtc.QMimeDatabase_MimeTypeForName(@ptrCast(self), nameOrAlias_str);
+        return .{ .ptr = qtc.QMimeDatabase_MimeTypeForName(@ptrCast(self.ptr), nameOrAlias_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedatabase.html#mimeTypeForFile)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeDatabase `
+    /// ` self: QMimeDatabase `
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn MimeTypeForFile(self: ?*anyopaque, fileName: []const u8) QtC.QMimeType {
+    pub fn MimeTypeForFile(self: QMimeDatabase, fileName: []const u8) QMimeType {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        return qtc.QMimeDatabase_MimeTypeForFile(@ptrCast(self), fileName_str);
+        return .{ .ptr = qtc.QMimeDatabase_MimeTypeForFile(@ptrCast(self.ptr), fileName_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedatabase.html#mimeTypeForFile)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeDatabase `
+    /// ` self: QMimeDatabase `
     ///
-    /// ` fileInfo: QtC.QFileInfo `
+    /// ` fileInfo: QFileInfo `
     ///
-    pub fn MimeTypeForFile2(self: ?*anyopaque, fileInfo: ?*anyopaque) QtC.QMimeType {
-        return qtc.QMimeDatabase_MimeTypeForFile2(@ptrCast(self), @ptrCast(fileInfo));
+    pub fn MimeTypeForFile2(self: QMimeDatabase, fileInfo: anytype) QMimeType {
+        comptime _ = @TypeOf(fileInfo)._is_QFileInfo;
+        return .{ .ptr = qtc.QMimeDatabase_MimeTypeForFile2(@ptrCast(self.ptr), @ptrCast(fileInfo.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedatabase.html#mimeTypesForFileName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeDatabase `
-    ///
-    /// ` fileName: []const u8 `
+    /// ` self: QMimeDatabase `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypesForFileName(self: ?*anyopaque, fileName: []const u8, allocator: std.mem.Allocator) []QtC.QMimeType {
+    /// ` fileName: []const u8 `
+    ///
+    pub fn MimeTypesForFileName(self: QMimeDatabase, allocator: std.mem.Allocator, fileName: []const u8) []QMimeType {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QMimeDatabase_MimeTypesForFileName(@ptrCast(self), fileName_str);
+        const _arr: qtc.libqt_list = qtc.QMimeDatabase_MimeTypesForFileName(@ptrCast(self.ptr), fileName_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QMimeType, _arr.len) catch @panic("qmimedatabase.MimeTypesForFileName: Memory allocation failed");
+        const _ret = allocator.alloc(QMimeType, _arr.len) catch @panic("qmimedatabase.MimeTypesForFileName: Memory allocation failed");
         const _data: [*]QtC.QMimeType = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -82,71 +96,74 @@ pub const qmimedatabase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeDatabase `
+    /// ` self: QMimeDatabase `
     ///
     /// ` data: []u8 `
     ///
-    pub fn MimeTypeForData(self: ?*anyopaque, data: []u8) QtC.QMimeType {
+    pub fn MimeTypeForData(self: QMimeDatabase, data: []u8) QMimeType {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.QMimeDatabase_MimeTypeForData(@ptrCast(self), data_str);
+        return .{ .ptr = qtc.QMimeDatabase_MimeTypeForData(@ptrCast(self.ptr), data_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedatabase.html#mimeTypeForData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeDatabase `
+    /// ` self: QMimeDatabase `
     ///
-    /// ` device: QtC.QIODevice `
+    /// ` device: QIODevice `
     ///
-    pub fn MimeTypeForData2(self: ?*anyopaque, device: ?*anyopaque) QtC.QMimeType {
-        return qtc.QMimeDatabase_MimeTypeForData2(@ptrCast(self), @ptrCast(device));
+    pub fn MimeTypeForData2(self: QMimeDatabase, device: anytype) QMimeType {
+        comptime _ = @TypeOf(device)._is_QIODevice;
+        return .{ .ptr = qtc.QMimeDatabase_MimeTypeForData2(@ptrCast(self.ptr), @ptrCast(device.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedatabase.html#mimeTypeForUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeDatabase `
+    /// ` self: QMimeDatabase `
     ///
-    /// ` url: QtC.QUrl `
+    /// ` url: QUrl `
     ///
-    pub fn MimeTypeForUrl(self: ?*anyopaque, url: ?*anyopaque) QtC.QMimeType {
-        return qtc.QMimeDatabase_MimeTypeForUrl(@ptrCast(self), @ptrCast(url));
+    pub fn MimeTypeForUrl(self: QMimeDatabase, url: anytype) QMimeType {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return .{ .ptr = qtc.QMimeDatabase_MimeTypeForUrl(@ptrCast(self.ptr), @ptrCast(url.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedatabase.html#mimeTypeForFileNameAndData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeDatabase `
+    /// ` self: QMimeDatabase `
     ///
     /// ` fileName: []const u8 `
     ///
-    /// ` device: QtC.QIODevice `
+    /// ` device: QIODevice `
     ///
-    pub fn MimeTypeForFileNameAndData(self: ?*anyopaque, fileName: []const u8, device: ?*anyopaque) QtC.QMimeType {
+    pub fn MimeTypeForFileNameAndData(self: QMimeDatabase, fileName: []const u8, device: anytype) QMimeType {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        return qtc.QMimeDatabase_MimeTypeForFileNameAndData(@ptrCast(self), fileName_str, @ptrCast(device));
+        comptime _ = @TypeOf(device)._is_QIODevice;
+        return .{ .ptr = qtc.QMimeDatabase_MimeTypeForFileNameAndData(@ptrCast(self.ptr), fileName_str, @ptrCast(device.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedatabase.html#mimeTypeForFileNameAndData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeDatabase `
+    /// ` self: QMimeDatabase `
     ///
     /// ` fileName: []const u8 `
     ///
     /// ` data: []u8 `
     ///
-    pub fn MimeTypeForFileNameAndData2(self: ?*anyopaque, fileName: []const u8, data: []u8) QtC.QMimeType {
+    pub fn MimeTypeForFileNameAndData2(self: QMimeDatabase, fileName: []const u8, data: []u8) QMimeType {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -155,25 +172,25 @@ pub const qmimedatabase = struct {
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.QMimeDatabase_MimeTypeForFileNameAndData2(@ptrCast(self), fileName_str, data_str);
+        return .{ .ptr = qtc.QMimeDatabase_MimeTypeForFileNameAndData2(@ptrCast(self.ptr), fileName_str, data_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedatabase.html#suffixForFileName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeDatabase `
-    ///
-    /// ` fileName: []const u8 `
+    /// ` self: QMimeDatabase `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuffixForFileName(self: ?*anyopaque, fileName: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` fileName: []const u8 `
+    ///
+    pub fn SuffixForFileName(self: QMimeDatabase, allocator: std.mem.Allocator, fileName: []const u8) []const u8 {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        var _str = qtc.QMimeDatabase_SuffixForFileName(@ptrCast(self), fileName_str);
+        var _str = qtc.QMimeDatabase_SuffixForFileName(@ptrCast(self.ptr), fileName_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qmimedatabase.SuffixForFileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -184,16 +201,17 @@ pub const qmimedatabase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeDatabase `
+    /// ` self: QMimeDatabase `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QMimeType {
-        const _arr: qtc.libqt_list = qtc.QMimeDatabase_AllMimeTypes(@ptrCast(self));
+    pub fn AllMimeTypes(self: QMimeDatabase, allocator: std.mem.Allocator) []QMimeType {
+        const _arr: qtc.libqt_list = qtc.QMimeDatabase_AllMimeTypes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QMimeType, _arr.len) catch @panic("qmimedatabase.AllMimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc(QMimeType, _arr.len) catch @panic("qmimedatabase.AllMimeTypes: Memory allocation failed");
         const _data: [*]QtC.QMimeType = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -201,32 +219,33 @@ pub const qmimedatabase = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeDatabase `
+    /// ` self: QMimeDatabase `
     ///
     /// ` fileName: []const u8 `
     ///
     /// ` mode: qmimedatabase_enums.MatchMode `
     ///
-    pub fn MimeTypeForFile22(self: ?*anyopaque, fileName: []const u8, mode: i32) QtC.QMimeType {
+    pub fn MimeTypeForFile22(self: QMimeDatabase, fileName: []const u8, mode: i32) QMimeType {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        return qtc.QMimeDatabase_MimeTypeForFile22(@ptrCast(self), fileName_str, @bitCast(mode));
+        return .{ .ptr = qtc.QMimeDatabase_MimeTypeForFile22(@ptrCast(self.ptr), fileName_str, @bitCast(mode)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmimedatabase.html#mimeTypeForFile)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QMimeDatabase `
+    /// ` self: QMimeDatabase `
     ///
-    /// ` fileInfo: QtC.QFileInfo `
+    /// ` fileInfo: QFileInfo `
     ///
     /// ` mode: qmimedatabase_enums.MatchMode `
     ///
-    pub fn MimeTypeForFile23(self: ?*anyopaque, fileInfo: ?*anyopaque, mode: i32) QtC.QMimeType {
-        return qtc.QMimeDatabase_MimeTypeForFile23(@ptrCast(self), @ptrCast(fileInfo), @bitCast(mode));
+    pub fn MimeTypeForFile23(self: QMimeDatabase, fileInfo: anytype, mode: i32) QMimeType {
+        comptime _ = @TypeOf(fileInfo)._is_QFileInfo;
+        return .{ .ptr = qtc.QMimeDatabase_MimeTypeForFile23(@ptrCast(self.ptr), @ptrCast(fileInfo.ptr), @bitCast(mode)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -239,10 +258,10 @@ pub const qmimedatabase = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QMimeDatabase `
+    /// ` self: QMimeDatabase `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QMimeDatabase_Delete(@ptrCast(self));
+    pub fn Delete(self: QMimeDatabase) void {
+        qtc.QMimeDatabase_Delete(@ptrCast(self.ptr));
     }
 };
 

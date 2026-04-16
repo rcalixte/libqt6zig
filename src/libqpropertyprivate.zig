@@ -2,49 +2,59 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/quntypedpropertydata.html)
-pub const quntypedpropertydata = struct {
+pub const QUntypedPropertyData = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/quntypedpropertydata.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QUntypedPropertyData,
+
+    pub const _is_QUntypedPropertyData = {};
+
     /// New constructs a new QUntypedPropertyData object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QUntypedPropertyData `
+    /// ` other: QUntypedPropertyData `
     ///
-    pub fn New(other: ?*anyopaque) QtC.QUntypedPropertyData {
-        return qtc.QUntypedPropertyData_new(@ptrCast(other));
+    pub fn New(other: anytype) QUntypedPropertyData {
+        comptime _ = @TypeOf(other)._is_QUntypedPropertyData;
+        return .{ .ptr = qtc.QUntypedPropertyData_new(@ptrCast(other.ptr)) };
     }
 
     /// New2 constructs a new QUntypedPropertyData object and invalidates the source QUntypedPropertyData object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QUntypedPropertyData `
+    /// ` other: QUntypedPropertyData `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QUntypedPropertyData {
-        return qtc.QUntypedPropertyData_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QUntypedPropertyData {
+        comptime _ = @TypeOf(other)._is_QUntypedPropertyData;
+        return .{ .ptr = qtc.QUntypedPropertyData_new2(@ptrCast(other.ptr)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QUntypedPropertyData `
+    /// ` self: QUntypedPropertyData `
     ///
-    /// ` other: QtC.QUntypedPropertyData `
+    /// ` other: QUntypedPropertyData `
     ///
-    pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QUntypedPropertyData_CopyAssign(@ptrCast(self), @ptrCast(other));
+    pub fn CopyAssign(self: QUntypedPropertyData, other: QUntypedPropertyData) void {
+        qtc.QUntypedPropertyData_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QUntypedPropertyData `
+    /// ` self: QUntypedPropertyData `
     ///
-    /// ` other: QtC.QUntypedPropertyData `
+    /// ` other: QUntypedPropertyData `
     ///
-    pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QUntypedPropertyData_MoveAssign(@ptrCast(self), @ptrCast(other));
+    pub fn MoveAssign(self: QUntypedPropertyData, other: QUntypedPropertyData) void {
+        qtc.QUntypedPropertyData_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -57,9 +67,9 @@ pub const quntypedpropertydata = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QUntypedPropertyData `
+    /// ` self: QUntypedPropertyData `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QUntypedPropertyData_Delete(@ptrCast(self));
+    pub fn Delete(self: QUntypedPropertyData) void {
+        qtc.QUntypedPropertyData_Delete(@ptrCast(self.ptr));
     }
 };

@@ -1,36 +1,57 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qplacereply_enums = @import("libqplacereply.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchsuggestionreply.html)
-pub const qplacesearchsuggestionreply = struct {
+pub const QPlaceSearchSuggestionReply = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchsuggestionreply.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QPlaceSearchSuggestionReply,
+
+    pub const _is_QPlaceSearchSuggestionReply = {};
+    pub const _is_QPlaceReply = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QPlaceSearchSuggestionReply object.
     ///
-    pub fn New() QtC.QPlaceSearchSuggestionReply {
-        return qtc.QPlaceSearchSuggestionReply_new();
+    pub fn New() QPlaceSearchSuggestionReply {
+        return .{ .ptr = qtc.QPlaceSearchSuggestionReply_new() };
     }
 
     /// New2 constructs a new QPlaceSearchSuggestionReply object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.QPlaceSearchSuggestionReply {
-        return qtc.QPlaceSearchSuggestionReply_new2(@ptrCast(parent));
+    pub fn New2(parent: anytype) QPlaceSearchSuggestionReply {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QPlaceSearchSuggestionReply_new2(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QPlaceSearchSuggestionReply_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QPlaceSearchSuggestionReply) QMetaObject {
+        return .{ .ptr = qtc.QPlaceSearchSuggestionReply_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -39,12 +60,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QPlaceSearchSuggestionReply_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QPlaceSearchSuggestionReply, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QPlaceSearchSuggestionReply_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -57,33 +78,33 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QPlaceSearchSuggestionReply_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QPlaceSearchSuggestionReply) QMetaObject {
+        return .{ .ptr = qtc.QPlaceSearchSuggestionReply_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QPlaceSearchSuggestionReply, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QPlaceSearchSuggestionReply_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QPlaceSearchSuggestionReply_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceSearchSuggestionReply, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QPlaceSearchSuggestionReply, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QPlaceSearchSuggestionReply_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QPlaceSearchSuggestionReply, callback: *const fn (QPlaceSearchSuggestionReply, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QPlaceSearchSuggestionReply_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -94,18 +115,18 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QPlaceSearchSuggestionReply, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QPlaceSearchSuggestionReply_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QPlaceSearchSuggestionReply_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -113,20 +134,20 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QPlaceSearchSuggestionReply_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QPlaceSearchSuggestionReply, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QPlaceSearchSuggestionReply_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceSearchSuggestionReply, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QPlaceSearchSuggestionReply, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QPlaceSearchSuggestionReply_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QPlaceSearchSuggestionReply, callback: *const fn (QPlaceSearchSuggestionReply, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QPlaceSearchSuggestionReply_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -137,7 +158,7 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -145,19 +166,19 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QPlaceSearchSuggestionReply_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QPlaceSearchSuggestionReply, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QPlaceSearchSuggestionReply_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -170,17 +191,16 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Suggestions(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QPlaceSearchSuggestionReply_Suggestions(@ptrCast(self));
+    pub fn Suggestions(self: QPlaceSearchSuggestionReply, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QPlaceSearchSuggestionReply_Suggestions(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qplacesearchsuggestionreply.Suggestions: Memory allocation failed");
@@ -197,14 +217,14 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ## Returns:
     ///
     /// ` qplacereply_enums.Type `
     ///
-    pub fn Type(self: ?*anyopaque) i32 {
-        return qtc.QPlaceSearchSuggestionReply_Type(@ptrCast(self));
+    pub fn Type(self: QPlaceSearchSuggestionReply) i32 {
+        return qtc.QPlaceSearchSuggestionReply_Type(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchsuggestionreply.html#type)
@@ -213,12 +233,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPlaceSearchSuggestionReply_OnType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnType(self: QPlaceSearchSuggestionReply, callback: *const fn () callconv(.c) i32) void {
+        qtc.QPlaceSearchSuggestionReply_OnType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperType` instead
@@ -231,40 +251,39 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ## Returns:
     ///
     /// ` qplacereply_enums.Type `
     ///
-    pub fn SuperType(self: ?*anyopaque) i32 {
-        return qtc.QPlaceSearchSuggestionReply_SuperType(@ptrCast(self));
+    pub fn SuperType(self: QPlaceSearchSuggestionReply) i32 {
+        return qtc.QPlaceSearchSuggestionReply_SuperType(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchsuggestionreply.html#setSuggestions)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
-    ///
-    /// ` suggestions: []const []const u8 `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetSuggestions(self: ?*anyopaque, suggestions: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` suggestions: []const []const u8 `
+    ///
+    pub fn SetSuggestions(self: QPlaceSearchSuggestionReply, allocator: std.mem.Allocator, suggestions: []const []const u8) void {
         const suggestions_arr = allocator.alloc(qtc.libqt_string, suggestions.len) catch @panic("qplacesearchsuggestionreply.SetSuggestions: Memory allocation failed");
         defer allocator.free(suggestions_arr);
-        for (suggestions, 0..suggestions.len) |item, i| {
+        for (suggestions, 0..suggestions.len) |item, i|
             suggestions_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const suggestions_list = qtc.libqt_list{
             .len = suggestions.len,
             .data = suggestions_arr.ptr,
         };
-        qtc.QPlaceSearchSuggestionReply_SetSuggestions(@ptrCast(self), suggestions_list);
+        qtc.QPlaceSearchSuggestionReply_SetSuggestions(@ptrCast(self.ptr), suggestions_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchsuggestionreply.html#setSuggestions)
@@ -273,12 +292,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceSearchSuggestionReply, suggestions: ?[*:null]?[*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QPlaceSearchSuggestionReply, suggestions: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetSuggestions(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
-        qtc.QPlaceSearchSuggestionReply_OnSetSuggestions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetSuggestions(self: QPlaceSearchSuggestionReply, callback: *const fn (QPlaceSearchSuggestionReply, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
+        qtc.QPlaceSearchSuggestionReply_OnSetSuggestions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetSuggestions` instead
@@ -291,39 +310,38 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
-    ///
-    /// ` suggestions: []const []const u8 `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperSetSuggestions(self: ?*anyopaque, suggestions: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` suggestions: []const []const u8 `
+    ///
+    pub fn SuperSetSuggestions(self: QPlaceSearchSuggestionReply, allocator: std.mem.Allocator, suggestions: []const []const u8) void {
         const suggestions_arr = allocator.alloc(qtc.libqt_string, suggestions.len) catch @panic("qplacesearchsuggestionreply.SetSuggestions: Memory allocation failed");
         defer allocator.free(suggestions_arr);
-        for (suggestions, 0..suggestions.len) |item, i| {
+        for (suggestions, 0..suggestions.len) |item, i|
             suggestions_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const suggestions_list = qtc.libqt_list{
             .len = suggestions.len,
             .data = suggestions_arr.ptr,
         };
-        qtc.QPlaceSearchSuggestionReply_SuperSetSuggestions(@ptrCast(self), suggestions_list);
+        qtc.QPlaceSearchSuggestionReply_SuperSetSuggestions(@ptrCast(self.ptr), suggestions_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -337,15 +355,15 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -361,10 +379,10 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn IsFinished(self: ?*anyopaque) bool {
-        return qtc.QPlaceReply_IsFinished(@ptrCast(self));
+    pub fn IsFinished(self: QPlaceSearchSuggestionReply) bool {
+        return qtc.QPlaceReply_IsFinished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPlaceReply
@@ -373,12 +391,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QPlaceReply_ErrorString(@ptrCast(self));
+    pub fn ErrorString(self: QPlaceSearchSuggestionReply, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QPlaceReply_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qplacesearchsuggestionreply.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -391,14 +409,14 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ## Returns:
     ///
     /// ` qplacereply_enums.Error `
     ///
-    pub fn Error(self: ?*anyopaque) i32 {
-        return qtc.QPlaceReply_Error(@ptrCast(self));
+    pub fn Error(self: QPlaceSearchSuggestionReply) i32 {
+        return qtc.QPlaceReply_Error(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPlaceReply
@@ -407,10 +425,10 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn Finished(self: ?*anyopaque) void {
-        qtc.QPlaceReply_Finished(@ptrCast(self));
+    pub fn Finished(self: QPlaceSearchSuggestionReply) void {
+        qtc.QPlaceReply_Finished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPlaceReply
@@ -419,12 +437,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceSearchSuggestionReply) callconv(.c) void `
+    /// ` callback: *const fn (self: QPlaceSearchSuggestionReply) callconv(.c) void `
     ///
-    pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceReply_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFinished(self: QPlaceSearchSuggestionReply, callback: *const fn (QPlaceSearchSuggestionReply) callconv(.c) void) void {
+        qtc.QPlaceReply_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPlaceReply
@@ -433,10 +451,10 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn ContentUpdated(self: ?*anyopaque) void {
-        qtc.QPlaceReply_ContentUpdated(@ptrCast(self));
+    pub fn ContentUpdated(self: QPlaceSearchSuggestionReply) void {
+        qtc.QPlaceReply_ContentUpdated(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPlaceReply
@@ -445,12 +463,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceSearchSuggestionReply) callconv(.c) void `
+    /// ` callback: *const fn (self: QPlaceSearchSuggestionReply) callconv(.c) void `
     ///
-    pub fn OnContentUpdated(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceReply_Connect_ContentUpdated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContentUpdated(self: QPlaceSearchSuggestionReply, callback: *const fn (QPlaceSearchSuggestionReply) callconv(.c) void) void {
+        qtc.QPlaceReply_Connect_ContentUpdated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPlaceReply
@@ -459,10 +477,10 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn Aborted(self: ?*anyopaque) void {
-        qtc.QPlaceReply_Aborted(@ptrCast(self));
+    pub fn Aborted(self: QPlaceSearchSuggestionReply) void {
+        qtc.QPlaceReply_Aborted(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPlaceReply
@@ -471,12 +489,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceSearchSuggestionReply) callconv(.c) void `
+    /// ` callback: *const fn (self: QPlaceSearchSuggestionReply) callconv(.c) void `
     ///
-    pub fn OnAborted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceReply_Connect_Aborted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAborted(self: QPlaceSearchSuggestionReply, callback: *const fn (QPlaceSearchSuggestionReply) callconv(.c) void) void {
+        qtc.QPlaceReply_Connect_Aborted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPlaceReply
@@ -485,12 +503,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` errorVal: qplacereply_enums.Error `
     ///
-    pub fn ErrorOccurred(self: ?*anyopaque, errorVal: i32) void {
-        qtc.QPlaceReply_ErrorOccurred(@ptrCast(self), @bitCast(errorVal));
+    pub fn ErrorOccurred(self: QPlaceSearchSuggestionReply, errorVal: i32) void {
+        qtc.QPlaceReply_ErrorOccurred(@ptrCast(self.ptr), @bitCast(errorVal));
     }
 
     /// Inherited from QPlaceReply
@@ -499,12 +517,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceSearchSuggestionReply, errorVal: qplacereply_enums.Error) callconv(.c) void `
+    /// ` callback: *const fn (self: QPlaceSearchSuggestionReply, errorVal: qplacereply_enums.Error) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QPlaceReply_Connect_ErrorOccurred(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnErrorOccurred(self: QPlaceSearchSuggestionReply, callback: *const fn (QPlaceSearchSuggestionReply, i32) callconv(.c) void) void {
+        qtc.QPlaceReply_Connect_ErrorOccurred(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPlaceReply
@@ -513,18 +531,18 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` errorVal: qplacereply_enums.Error `
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn ErrorOccurred2(self: ?*anyopaque, errorVal: i32, errorString: []const u8) void {
+    pub fn ErrorOccurred2(self: QPlaceSearchSuggestionReply, errorVal: i32, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QPlaceReply_ErrorOccurred2(@ptrCast(self), @bitCast(errorVal), errorString_str);
+        qtc.QPlaceReply_ErrorOccurred2(@ptrCast(self.ptr), @bitCast(errorVal), errorString_str);
     }
 
     /// Inherited from QPlaceReply
@@ -533,12 +551,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceSearchSuggestionReply, errorVal: qplacereply_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QPlaceSearchSuggestionReply, errorVal: qplacereply_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QPlaceReply_Connect_ErrorOccurred2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnErrorOccurred2(self: QPlaceSearchSuggestionReply, callback: *const fn (QPlaceSearchSuggestionReply, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.QPlaceReply_Connect_ErrorOccurred2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -547,12 +565,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QPlaceSearchSuggestionReply, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qplacesearchsuggestionreply.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -565,12 +583,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QPlaceSearchSuggestionReply, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -579,10 +597,10 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QPlaceSearchSuggestionReply) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -591,10 +609,10 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QPlaceSearchSuggestionReply) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -603,10 +621,10 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QPlaceSearchSuggestionReply) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -615,10 +633,10 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QPlaceSearchSuggestionReply) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -627,12 +645,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QPlaceSearchSuggestionReply, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -641,10 +659,10 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QPlaceSearchSuggestionReply) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -653,12 +671,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QPlaceSearchSuggestionReply, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -667,12 +686,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QPlaceSearchSuggestionReply, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -681,12 +700,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QPlaceSearchSuggestionReply, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -695,12 +714,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QPlaceSearchSuggestionReply, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -709,12 +728,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QPlaceSearchSuggestionReply, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -723,16 +742,17 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QPlaceSearchSuggestionReply, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qplacesearchsuggestionreply.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qplacesearchsuggestionreply.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -742,12 +762,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QPlaceSearchSuggestionReply, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -756,12 +777,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QPlaceSearchSuggestionReply, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -770,12 +792,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QPlaceSearchSuggestionReply, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -784,18 +807,20 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -804,16 +829,20 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -822,18 +851,19 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QPlaceSearchSuggestionReply, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -842,18 +872,20 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -862,16 +894,20 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -880,10 +916,10 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QPlaceSearchSuggestionReply) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -892,12 +928,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QPlaceSearchSuggestionReply, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -906,10 +943,11 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -918,10 +956,10 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QPlaceSearchSuggestionReply) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -930,10 +968,10 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QPlaceSearchSuggestionReply) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -942,15 +980,16 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QPlaceSearchSuggestionReply, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -959,13 +998,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QPlaceSearchSuggestionReply, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -974,17 +1013,16 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QPlaceSearchSuggestionReply, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qplacesearchsuggestionreply.DynamicPropertyNames: Memory allocation failed");
@@ -1003,10 +1041,10 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QPlaceSearchSuggestionReply) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1015,10 +1053,10 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QPlaceSearchSuggestionReply) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1027,10 +1065,10 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QPlaceSearchSuggestionReply) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1039,12 +1077,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceSearchSuggestionReply) callconv(.c) void `
+    /// ` callback: *const fn (self: QPlaceSearchSuggestionReply) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QPlaceSearchSuggestionReply, callback: *const fn (QPlaceSearchSuggestionReply) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1053,10 +1091,10 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QPlaceSearchSuggestionReply) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1065,13 +1103,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QPlaceSearchSuggestionReply, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1080,10 +1118,10 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QPlaceSearchSuggestionReply) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1092,14 +1130,14 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QPlaceSearchSuggestionReply, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1108,14 +1146,14 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QPlaceSearchSuggestionReply, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1124,20 +1162,22 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1146,18 +1186,22 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1166,9 +1210,9 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1176,10 +1220,11 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QPlaceSearchSuggestionReply, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1188,13 +1233,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QPlaceSearchSuggestionReply, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1203,15 +1248,16 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QPlaceSearchSuggestionReply, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1220,18 +1266,19 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QPlaceSearchSuggestionReply, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1240,15 +1287,16 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QPlaceSearchSuggestionReply, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1257,12 +1305,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QPlaceSearchSuggestionReply, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1271,12 +1320,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceSearchSuggestionReply, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QPlaceSearchSuggestionReply, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QPlaceSearchSuggestionReply, callback: *const fn (QPlaceSearchSuggestionReply, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPlaceReply
@@ -1287,10 +1336,10 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn Abort(self: ?*anyopaque) void {
-        qtc.QPlaceSearchSuggestionReply_Abort(@ptrCast(self));
+    pub fn Abort(self: QPlaceSearchSuggestionReply) void {
+        qtc.QPlaceSearchSuggestionReply_Abort(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperAbort` instead
@@ -1305,10 +1354,10 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn SuperAbort(self: ?*anyopaque) void {
-        qtc.QPlaceSearchSuggestionReply_SuperAbort(@ptrCast(self));
+    pub fn SuperAbort(self: QPlaceSearchSuggestionReply) void {
+        qtc.QPlaceSearchSuggestionReply_SuperAbort(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPlaceReply
@@ -1319,12 +1368,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply`
+    /// ` self: QPlaceSearchSuggestionReply`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAbort(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QPlaceSearchSuggestionReply_OnAbort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAbort(self: QPlaceSearchSuggestionReply, callback: *const fn () callconv(.c) void) void {
+        qtc.QPlaceSearchSuggestionReply_OnAbort(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1335,12 +1384,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QPlaceSearchSuggestionReply_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QPlaceSearchSuggestionReply, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QPlaceSearchSuggestionReply_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1355,12 +1405,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QPlaceSearchSuggestionReply_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QPlaceSearchSuggestionReply, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QPlaceSearchSuggestionReply_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1371,12 +1422,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply`
+    /// ` self: QPlaceSearchSuggestionReply`
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceSearchSuggestionReply, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QPlaceSearchSuggestionReply, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPlaceSearchSuggestionReply_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QPlaceSearchSuggestionReply, callback: *const fn (QPlaceSearchSuggestionReply, QEvent) callconv(.c) bool) void {
+        qtc.QPlaceSearchSuggestionReply_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1387,14 +1438,16 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QPlaceSearchSuggestionReply_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QPlaceSearchSuggestionReply, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QPlaceSearchSuggestionReply_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1409,14 +1462,16 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QPlaceSearchSuggestionReply_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QPlaceSearchSuggestionReply, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QPlaceSearchSuggestionReply_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1427,12 +1482,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply`
+    /// ` self: QPlaceSearchSuggestionReply`
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceSearchSuggestionReply, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QPlaceSearchSuggestionReply, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPlaceSearchSuggestionReply_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QPlaceSearchSuggestionReply, callback: *const fn (QPlaceSearchSuggestionReply, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QPlaceSearchSuggestionReply_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1443,12 +1498,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPlaceSearchSuggestionReply_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QPlaceSearchSuggestionReply, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QPlaceSearchSuggestionReply_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1463,12 +1519,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPlaceSearchSuggestionReply_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QPlaceSearchSuggestionReply, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QPlaceSearchSuggestionReply_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1479,12 +1536,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply`
+    /// ` self: QPlaceSearchSuggestionReply`
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceSearchSuggestionReply, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QPlaceSearchSuggestionReply, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceSearchSuggestionReply_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QPlaceSearchSuggestionReply, callback: *const fn (QPlaceSearchSuggestionReply, QTimerEvent) callconv(.c) void) void {
+        qtc.QPlaceSearchSuggestionReply_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1495,12 +1552,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPlaceSearchSuggestionReply_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QPlaceSearchSuggestionReply, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QPlaceSearchSuggestionReply_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1515,12 +1573,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPlaceSearchSuggestionReply_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QPlaceSearchSuggestionReply, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QPlaceSearchSuggestionReply_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1531,12 +1590,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply`
+    /// ` self: QPlaceSearchSuggestionReply`
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceSearchSuggestionReply, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QPlaceSearchSuggestionReply, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceSearchSuggestionReply_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QPlaceSearchSuggestionReply, callback: *const fn (QPlaceSearchSuggestionReply, QChildEvent) callconv(.c) void) void {
+        qtc.QPlaceSearchSuggestionReply_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1547,12 +1606,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPlaceSearchSuggestionReply_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QPlaceSearchSuggestionReply, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QPlaceSearchSuggestionReply_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1567,12 +1627,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QPlaceSearchSuggestionReply_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QPlaceSearchSuggestionReply, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QPlaceSearchSuggestionReply_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1583,12 +1644,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply`
+    /// ` self: QPlaceSearchSuggestionReply`
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceSearchSuggestionReply, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QPlaceSearchSuggestionReply, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceSearchSuggestionReply_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QPlaceSearchSuggestionReply, callback: *const fn (QPlaceSearchSuggestionReply, QEvent) callconv(.c) void) void {
+        qtc.QPlaceSearchSuggestionReply_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1599,12 +1660,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QPlaceSearchSuggestionReply_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QPlaceSearchSuggestionReply, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QPlaceSearchSuggestionReply_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1619,12 +1681,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QPlaceSearchSuggestionReply_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QPlaceSearchSuggestionReply, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QPlaceSearchSuggestionReply_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1635,12 +1698,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply`
+    /// ` self: QPlaceSearchSuggestionReply`
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceSearchSuggestionReply, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QPlaceSearchSuggestionReply, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceSearchSuggestionReply_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QPlaceSearchSuggestionReply, callback: *const fn (QPlaceSearchSuggestionReply, QMetaMethod) callconv(.c) void) void {
+        qtc.QPlaceSearchSuggestionReply_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1651,12 +1714,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QPlaceSearchSuggestionReply_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QPlaceSearchSuggestionReply, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QPlaceSearchSuggestionReply_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1671,12 +1735,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QPlaceSearchSuggestionReply_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QPlaceSearchSuggestionReply, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QPlaceSearchSuggestionReply_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1687,12 +1752,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply`
+    /// ` self: QPlaceSearchSuggestionReply`
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceSearchSuggestionReply, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QPlaceSearchSuggestionReply, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPlaceSearchSuggestionReply_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QPlaceSearchSuggestionReply, callback: *const fn (QPlaceSearchSuggestionReply, QMetaMethod) callconv(.c) void) void {
+        qtc.QPlaceSearchSuggestionReply_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPlaceReply
@@ -1703,12 +1768,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` finished: bool `
     ///
-    pub fn SetFinished(self: ?*anyopaque, finished: bool) void {
-        qtc.QPlaceSearchSuggestionReply_SetFinished(@ptrCast(self), finished);
+    pub fn SetFinished(self: QPlaceSearchSuggestionReply, finished: bool) void {
+        qtc.QPlaceSearchSuggestionReply_SetFinished(@ptrCast(self.ptr), finished);
     }
 
     /// ### DEPRECATED: Use `SuperSetFinished` instead
@@ -1723,12 +1788,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` finished: bool `
     ///
-    pub fn SuperSetFinished(self: ?*anyopaque, finished: bool) void {
-        qtc.QPlaceSearchSuggestionReply_SuperSetFinished(@ptrCast(self), finished);
+    pub fn SuperSetFinished(self: QPlaceSearchSuggestionReply, finished: bool) void {
+        qtc.QPlaceSearchSuggestionReply_SuperSetFinished(@ptrCast(self.ptr), finished);
     }
 
     /// Inherited from QPlaceReply
@@ -1739,12 +1804,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply`
+    /// ` self: QPlaceSearchSuggestionReply`
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceSearchSuggestionReply, finished: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QPlaceSearchSuggestionReply, finished: bool) callconv(.c) void `
     ///
-    pub fn OnSetFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QPlaceSearchSuggestionReply_OnSetFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetFinished(self: QPlaceSearchSuggestionReply, callback: *const fn (QPlaceSearchSuggestionReply, bool) callconv(.c) void) void {
+        qtc.QPlaceSearchSuggestionReply_OnSetFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPlaceReply
@@ -1755,18 +1820,18 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` errorVal: qplacereply_enums.Error `
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn SetError(self: ?*anyopaque, errorVal: i32, errorString: []const u8) void {
+    pub fn SetError(self: QPlaceSearchSuggestionReply, errorVal: i32, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QPlaceSearchSuggestionReply_SetError(@ptrCast(self), @bitCast(errorVal), errorString_str);
+        qtc.QPlaceSearchSuggestionReply_SetError(@ptrCast(self.ptr), @bitCast(errorVal), errorString_str);
     }
 
     /// ### DEPRECATED: Use `SuperSetError` instead
@@ -1781,18 +1846,18 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` errorVal: qplacereply_enums.Error `
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn SuperSetError(self: ?*anyopaque, errorVal: i32, errorString: []const u8) void {
+    pub fn SuperSetError(self: QPlaceSearchSuggestionReply, errorVal: i32, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QPlaceSearchSuggestionReply_SuperSetError(@ptrCast(self), @bitCast(errorVal), errorString_str);
+        qtc.QPlaceSearchSuggestionReply_SuperSetError(@ptrCast(self.ptr), @bitCast(errorVal), errorString_str);
     }
 
     /// Inherited from QPlaceReply
@@ -1803,12 +1868,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply`
+    /// ` self: QPlaceSearchSuggestionReply`
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceSearchSuggestionReply, errorVal: qplacereply_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QPlaceSearchSuggestionReply, errorVal: qplacereply_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetError(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QPlaceSearchSuggestionReply_OnSetError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetError(self: QPlaceSearchSuggestionReply, callback: *const fn (QPlaceSearchSuggestionReply, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.QPlaceSearchSuggestionReply_OnSetError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1819,10 +1884,10 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QPlaceSearchSuggestionReply_Sender(@ptrCast(self));
+    pub fn Sender(self: QPlaceSearchSuggestionReply) QObject {
+        return .{ .ptr = qtc.QPlaceSearchSuggestionReply_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -1837,10 +1902,10 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QPlaceSearchSuggestionReply_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QPlaceSearchSuggestionReply) QObject {
+        return .{ .ptr = qtc.QPlaceSearchSuggestionReply_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1851,12 +1916,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply`
+    /// ` self: QPlaceSearchSuggestionReply`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QPlaceSearchSuggestionReply_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QPlaceSearchSuggestionReply, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QPlaceSearchSuggestionReply_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1867,10 +1932,10 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QPlaceSearchSuggestionReply_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QPlaceSearchSuggestionReply) i32 {
+        return qtc.QPlaceSearchSuggestionReply_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -1885,10 +1950,10 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QPlaceSearchSuggestionReply_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QPlaceSearchSuggestionReply) i32 {
+        return qtc.QPlaceSearchSuggestionReply_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1899,12 +1964,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply`
+    /// ` self: QPlaceSearchSuggestionReply`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QPlaceSearchSuggestionReply_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QPlaceSearchSuggestionReply, callback: *const fn () callconv(.c) i32) void {
+        qtc.QPlaceSearchSuggestionReply_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1915,13 +1980,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QPlaceSearchSuggestionReply, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QPlaceSearchSuggestionReply_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QPlaceSearchSuggestionReply_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -1936,13 +2001,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QPlaceSearchSuggestionReply, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QPlaceSearchSuggestionReply_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QPlaceSearchSuggestionReply_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1953,12 +2018,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply`
+    /// ` self: QPlaceSearchSuggestionReply`
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceSearchSuggestionReply, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QPlaceSearchSuggestionReply, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QPlaceSearchSuggestionReply_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QPlaceSearchSuggestionReply, callback: *const fn (QPlaceSearchSuggestionReply, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QPlaceSearchSuggestionReply_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1969,12 +2034,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QPlaceSearchSuggestionReply_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QPlaceSearchSuggestionReply, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QPlaceSearchSuggestionReply_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -1989,12 +2055,13 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QPlaceSearchSuggestionReply_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QPlaceSearchSuggestionReply, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QPlaceSearchSuggestionReply_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2005,12 +2072,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply`
+    /// ` self: QPlaceSearchSuggestionReply`
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceSearchSuggestionReply, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QPlaceSearchSuggestionReply, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPlaceSearchSuggestionReply_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QPlaceSearchSuggestionReply, callback: *const fn (QPlaceSearchSuggestionReply, QMetaMethod) callconv(.c) bool) void {
+        qtc.QPlaceSearchSuggestionReply_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2021,12 +2088,12 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    /// ` callback: *const fn (self: QtC.QPlaceSearchSuggestionReply, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QPlaceSearchSuggestionReply, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QPlaceSearchSuggestionReply, callback: *const fn (QPlaceSearchSuggestionReply, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -2039,9 +2106,9 @@ pub const qplacesearchsuggestionreply = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QPlaceSearchSuggestionReply `
+    /// ` self: QPlaceSearchSuggestionReply `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QPlaceSearchSuggestionReply_Delete(@ptrCast(self));
+    pub fn Delete(self: QPlaceSearchSuggestionReply) void {
+        qtc.QPlaceSearchSuggestionReply_Delete(@ptrCast(self.ptr));
     }
 };

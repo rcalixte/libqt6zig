@@ -1,13 +1,22 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QHostAddress = @import("libqt6").QHostAddress;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html)
-pub const qnetworkdatagram = struct {
+pub const QNetworkDatagram = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QNetworkDatagram,
+
+    pub const _is_QNetworkDatagram = {};
+
     /// New constructs a new QNetworkDatagram object.
     ///
-    pub fn New() QtC.QNetworkDatagram {
-        return qtc.QNetworkDatagram_new();
+    pub fn New() QNetworkDatagram {
+        return .{ .ptr = qtc.QNetworkDatagram_new() };
     }
 
     /// New2 constructs a new QNetworkDatagram object.
@@ -16,23 +25,23 @@ pub const qnetworkdatagram = struct {
     ///
     /// ` data: []u8 `
     ///
-    pub fn New2(data: []u8) QtC.QNetworkDatagram {
+    pub fn New2(data: []u8) QNetworkDatagram {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-
-        return qtc.QNetworkDatagram_new2(data_str);
+        return .{ .ptr = qtc.QNetworkDatagram_new2(data_str) };
     }
 
     /// New3 constructs a new QNetworkDatagram object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QNetworkDatagram `
+    /// ` other: QNetworkDatagram `
     ///
-    pub fn New3(other: ?*anyopaque) QtC.QNetworkDatagram {
-        return qtc.QNetworkDatagram_new3(@ptrCast(other));
+    pub fn New3(other: anytype) QNetworkDatagram {
+        comptime _ = @TypeOf(other)._is_QNetworkDatagram;
+        return .{ .ptr = qtc.QNetworkDatagram_new3(@ptrCast(other.ptr)) };
     }
 
     /// New4 constructs a new QNetworkDatagram object.
@@ -41,15 +50,15 @@ pub const qnetworkdatagram = struct {
     ///
     /// ` data: []u8 `
     ///
-    /// ` destinationAddress: QtC.QHostAddress `
+    /// ` destinationAddress: QHostAddress `
     ///
-    pub fn New4(data: []u8, destinationAddress: ?*anyopaque) QtC.QNetworkDatagram {
+    pub fn New4(data: []u8, destinationAddress: anytype) QNetworkDatagram {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-
-        return qtc.QNetworkDatagram_new4(data_str, @ptrCast(destinationAddress));
+        comptime _ = @TypeOf(destinationAddress)._is_QHostAddress;
+        return .{ .ptr = qtc.QNetworkDatagram_new4(data_str, @ptrCast(destinationAddress.ptr)) };
     }
 
     /// New5 constructs a new QNetworkDatagram object.
@@ -58,193 +67,197 @@ pub const qnetworkdatagram = struct {
     ///
     /// ` data: []u8 `
     ///
-    /// ` destinationAddress: QtC.QHostAddress `
+    /// ` destinationAddress: QHostAddress `
     ///
     /// ` port: u16 `
     ///
-    pub fn New5(data: []u8, destinationAddress: ?*anyopaque, port: u16) QtC.QNetworkDatagram {
+    pub fn New5(data: []u8, destinationAddress: anytype, port: u16) QNetworkDatagram {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-
-        return qtc.QNetworkDatagram_new5(data_str, @ptrCast(destinationAddress), @bitCast(port));
+        comptime _ = @TypeOf(destinationAddress)._is_QHostAddress;
+        return .{ .ptr = qtc.QNetworkDatagram_new5(data_str, @ptrCast(destinationAddress.ptr), @bitCast(port)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkDatagram `
+    /// ` self: QNetworkDatagram `
     ///
-    /// ` other: QtC.QNetworkDatagram `
+    /// ` other: QNetworkDatagram `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QNetworkDatagram_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QNetworkDatagram, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QNetworkDatagram;
+        qtc.QNetworkDatagram_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkDatagram `
+    /// ` self: QNetworkDatagram `
     ///
-    /// ` other: QtC.QNetworkDatagram `
+    /// ` other: QNetworkDatagram `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QNetworkDatagram_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QNetworkDatagram, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QNetworkDatagram;
+        qtc.QNetworkDatagram_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#clear)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkDatagram `
+    /// ` self: QNetworkDatagram `
     ///
-    pub fn Clear(self: ?*anyopaque) void {
-        qtc.QNetworkDatagram_Clear(@ptrCast(self));
+    pub fn Clear(self: QNetworkDatagram) void {
+        qtc.QNetworkDatagram_Clear(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#isValid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkDatagram `
+    /// ` self: QNetworkDatagram `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.QNetworkDatagram_IsValid(@ptrCast(self));
+    pub fn IsValid(self: QNetworkDatagram) bool {
+        return qtc.QNetworkDatagram_IsValid(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#isNull)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkDatagram `
+    /// ` self: QNetworkDatagram `
     ///
-    pub fn IsNull(self: ?*anyopaque) bool {
-        return qtc.QNetworkDatagram_IsNull(@ptrCast(self));
+    pub fn IsNull(self: QNetworkDatagram) bool {
+        return qtc.QNetworkDatagram_IsNull(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#interfaceIndex)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkDatagram `
+    /// ` self: QNetworkDatagram `
     ///
-    pub fn InterfaceIndex(self: ?*anyopaque) u32 {
-        return qtc.QNetworkDatagram_InterfaceIndex(@ptrCast(self));
+    pub fn InterfaceIndex(self: QNetworkDatagram) u32 {
+        return qtc.QNetworkDatagram_InterfaceIndex(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#setInterfaceIndex)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkDatagram `
+    /// ` self: QNetworkDatagram `
     ///
     /// ` index: u32 `
     ///
-    pub fn SetInterfaceIndex(self: ?*anyopaque, index: u32) void {
-        qtc.QNetworkDatagram_SetInterfaceIndex(@ptrCast(self), @bitCast(index));
+    pub fn SetInterfaceIndex(self: QNetworkDatagram, index: u32) void {
+        qtc.QNetworkDatagram_SetInterfaceIndex(@ptrCast(self.ptr), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#senderAddress)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkDatagram `
+    /// ` self: QNetworkDatagram `
     ///
-    pub fn SenderAddress(self: ?*anyopaque) QtC.QHostAddress {
-        return qtc.QNetworkDatagram_SenderAddress(@ptrCast(self));
+    pub fn SenderAddress(self: QNetworkDatagram) QHostAddress {
+        return .{ .ptr = qtc.QNetworkDatagram_SenderAddress(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#destinationAddress)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkDatagram `
+    /// ` self: QNetworkDatagram `
     ///
-    pub fn DestinationAddress(self: ?*anyopaque) QtC.QHostAddress {
-        return qtc.QNetworkDatagram_DestinationAddress(@ptrCast(self));
+    pub fn DestinationAddress(self: QNetworkDatagram) QHostAddress {
+        return .{ .ptr = qtc.QNetworkDatagram_DestinationAddress(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#senderPort)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkDatagram `
+    /// ` self: QNetworkDatagram `
     ///
-    pub fn SenderPort(self: ?*anyopaque) i32 {
-        return qtc.QNetworkDatagram_SenderPort(@ptrCast(self));
+    pub fn SenderPort(self: QNetworkDatagram) i32 {
+        return qtc.QNetworkDatagram_SenderPort(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#destinationPort)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkDatagram `
+    /// ` self: QNetworkDatagram `
     ///
-    pub fn DestinationPort(self: ?*anyopaque) i32 {
-        return qtc.QNetworkDatagram_DestinationPort(@ptrCast(self));
+    pub fn DestinationPort(self: QNetworkDatagram) i32 {
+        return qtc.QNetworkDatagram_DestinationPort(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#setSender)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkDatagram `
+    /// ` self: QNetworkDatagram `
     ///
-    /// ` address: QtC.QHostAddress `
+    /// ` address: QHostAddress `
     ///
-    pub fn SetSender(self: ?*anyopaque, address: ?*anyopaque) void {
-        qtc.QNetworkDatagram_SetSender(@ptrCast(self), @ptrCast(address));
+    pub fn SetSender(self: QNetworkDatagram, address: anytype) void {
+        comptime _ = @TypeOf(address)._is_QHostAddress;
+        qtc.QNetworkDatagram_SetSender(@ptrCast(self.ptr), @ptrCast(address.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#setDestination)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkDatagram `
+    /// ` self: QNetworkDatagram `
     ///
-    /// ` address: QtC.QHostAddress `
+    /// ` address: QHostAddress `
     ///
     /// ` port: u16 `
     ///
-    pub fn SetDestination(self: ?*anyopaque, address: ?*anyopaque, port: u16) void {
-        qtc.QNetworkDatagram_SetDestination(@ptrCast(self), @ptrCast(address), @bitCast(port));
+    pub fn SetDestination(self: QNetworkDatagram, address: anytype, port: u16) void {
+        comptime _ = @TypeOf(address)._is_QHostAddress;
+        qtc.QNetworkDatagram_SetDestination(@ptrCast(self.ptr), @ptrCast(address.ptr), @bitCast(port));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#hopLimit)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkDatagram `
+    /// ` self: QNetworkDatagram `
     ///
-    pub fn HopLimit(self: ?*anyopaque) i32 {
-        return qtc.QNetworkDatagram_HopLimit(@ptrCast(self));
+    pub fn HopLimit(self: QNetworkDatagram) i32 {
+        return qtc.QNetworkDatagram_HopLimit(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#setHopLimit)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkDatagram `
+    /// ` self: QNetworkDatagram `
     ///
     /// ` count: i32 `
     ///
-    pub fn SetHopLimit(self: ?*anyopaque, count: i32) void {
-        qtc.QNetworkDatagram_SetHopLimit(@ptrCast(self), @bitCast(count));
+    pub fn SetHopLimit(self: QNetworkDatagram, count: i32) void {
+        qtc.QNetworkDatagram_SetHopLimit(@ptrCast(self.ptr), @bitCast(count));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#data)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkDatagram `
+    /// ` self: QNetworkDatagram `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Data(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QNetworkDatagram_Data(@ptrCast(self));
+    pub fn Data(self: QNetworkDatagram, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QNetworkDatagram_Data(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkdatagram.Data: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -255,46 +268,47 @@ pub const qnetworkdatagram = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkDatagram `
+    /// ` self: QNetworkDatagram `
     ///
     /// ` data: []u8 `
     ///
-    pub fn SetData(self: ?*anyopaque, data: []u8) void {
+    pub fn SetData(self: QNetworkDatagram, data: []u8) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        qtc.QNetworkDatagram_SetData(@ptrCast(self), data_str);
+        qtc.QNetworkDatagram_SetData(@ptrCast(self.ptr), data_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#makeReply)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkDatagram `
+    /// ` self: QNetworkDatagram `
     ///
     /// ` payload: []u8 `
     ///
-    pub fn MakeReply(self: ?*anyopaque, payload: []u8) QtC.QNetworkDatagram {
+    pub fn MakeReply(self: QNetworkDatagram, payload: []u8) QNetworkDatagram {
         const payload_str = qtc.libqt_string{
             .len = payload.len,
             .data = payload.ptr,
         };
-        return qtc.QNetworkDatagram_MakeReply(@ptrCast(self), payload_str);
+        return .{ .ptr = qtc.QNetworkDatagram_MakeReply(@ptrCast(self.ptr), payload_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkdatagram.html#setSender)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkDatagram `
+    /// ` self: QNetworkDatagram `
     ///
-    /// ` address: QtC.QHostAddress `
+    /// ` address: QHostAddress `
     ///
     /// ` port: u16 `
     ///
-    pub fn SetSender2(self: ?*anyopaque, address: ?*anyopaque, port: u16) void {
-        qtc.QNetworkDatagram_SetSender2(@ptrCast(self), @ptrCast(address), @bitCast(port));
+    pub fn SetSender2(self: QNetworkDatagram, address: anytype, port: u16) void {
+        comptime _ = @TypeOf(address)._is_QHostAddress;
+        qtc.QNetworkDatagram_SetSender2(@ptrCast(self.ptr), @ptrCast(address.ptr), @bitCast(port));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -307,9 +321,9 @@ pub const qnetworkdatagram = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QNetworkDatagram `
+    /// ` self: QNetworkDatagram `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QNetworkDatagram_Delete(@ptrCast(self));
+    pub fn Delete(self: QNetworkDatagram) void {
+        qtc.QNetworkDatagram_Delete(@ptrCast(self.ptr));
     }
 };

@@ -1,5 +1,29 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QApplication = @import("libqt6").QApplication;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QIcon = @import("libqt6").QIcon;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QPainter = @import("libqt6").QPainter;
+const QPalette = @import("libqt6").QPalette;
+const QPixmap = @import("libqt6").QPixmap;
+const QPoint = @import("libqt6").QPoint;
+const QRect = @import("libqt6").QRect;
+const QSize = @import("libqt6").QSize;
+const QStyle = @import("libqt6").QStyle;
+const QStyleHintReturn = @import("libqt6").QStyleHintReturn;
+const QStyleOption = @import("libqt6").QStyleOption;
+const QStyleOptionComplex = @import("libqt6").QStyleOptionComplex;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
+const QWidget = @import("libqt6").QWidget;
 const qicon_enums = @import("libqicon.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
@@ -9,11 +33,22 @@ const qstyle_enums = @import("libqstyle.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html)
-pub const qproxystyle = struct {
+pub const QProxyStyle = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QProxyStyle,
+
+    pub const _is_QProxyStyle = {};
+    pub const _is_QCommonStyle = {};
+    pub const _is_QStyle = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QProxyStyle object.
     ///
-    pub fn New() QtC.QProxyStyle {
-        return qtc.QProxyStyle_new();
+    pub fn New() QProxyStyle {
+        return .{ .ptr = qtc.QProxyStyle_new() };
     }
 
     /// New2 constructs a new QProxyStyle object.
@@ -22,33 +57,33 @@ pub const qproxystyle = struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn New2(key: []const u8) QtC.QProxyStyle {
+    pub fn New2(key: []const u8) QProxyStyle {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-
-        return qtc.QProxyStyle_new2(key_str);
+        return .{ .ptr = qtc.QProxyStyle_new2(key_str) };
     }
 
     /// New3 constructs a new QProxyStyle object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn New3(style: ?*anyopaque) QtC.QProxyStyle {
-        return qtc.QProxyStyle_new3(@ptrCast(style));
+    pub fn New3(style: anytype) QProxyStyle {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        return .{ .ptr = qtc.QProxyStyle_new3(@ptrCast(style.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QProxyStyle_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QProxyStyle) QMetaObject {
+        return .{ .ptr = qtc.QProxyStyle_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -57,12 +92,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QProxyStyle_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QProxyStyle, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QProxyStyle_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -75,33 +110,33 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QProxyStyle_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QProxyStyle) QMetaObject {
+        return .{ .ptr = qtc.QProxyStyle_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QProxyStyle, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QProxyStyle_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QProxyStyle_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QProxyStyle, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QProxyStyle_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QProxyStyle, callback: *const fn (QProxyStyle, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QProxyStyle_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -112,18 +147,18 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QProxyStyle, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QProxyStyle_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QProxyStyle_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -131,20 +166,20 @@ pub const qproxystyle = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QProxyStyle_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QProxyStyle, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QProxyStyle_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QProxyStyle, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QProxyStyle_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QProxyStyle, callback: *const fn (QProxyStyle, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QProxyStyle_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -155,7 +190,7 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -163,19 +198,19 @@ pub const qproxystyle = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QProxyStyle_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QProxyStyle, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QProxyStyle_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -188,40 +223,44 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn BaseStyle(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QProxyStyle_BaseStyle(@ptrCast(self));
+    pub fn BaseStyle(self: QProxyStyle) QStyle {
+        return .{ .ptr = qtc.QProxyStyle_BaseStyle(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#setBaseStyle)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetBaseStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QProxyStyle_SetBaseStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetBaseStyle(self: QProxyStyle, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QProxyStyle_SetBaseStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#drawPrimitive)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` element: qstyle_enums.PrimitiveElement `
     ///
-    /// ` option: QtC.QStyleOption `
+    /// ` option: QStyleOption `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn DrawPrimitive(self: ?*anyopaque, element: i32, option: ?*anyopaque, painter: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QProxyStyle_DrawPrimitive(@ptrCast(self), @bitCast(element), @ptrCast(option), @ptrCast(painter), @ptrCast(widget));
+    pub fn DrawPrimitive(self: QProxyStyle, element: i32, option: anytype, painter: anytype, widget: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOption;
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QProxyStyle_DrawPrimitive(@ptrCast(self.ptr), @bitCast(element), @ptrCast(option.ptr), @ptrCast(painter.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#drawPrimitive)
@@ -230,12 +269,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, element: qstyle_enums.PrimitiveElement, option: QtC.QStyleOption, painter: QtC.QPainter, widget: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QProxyStyle, element: qstyle_enums.PrimitiveElement, option: QStyleOption, painter: QPainter, widget: QWidget) callconv(.c) void `
     ///
-    pub fn OnDrawPrimitive(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProxyStyle_OnDrawPrimitive(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDrawPrimitive(self: QProxyStyle, callback: *const fn (QProxyStyle, i32, QStyleOption, QPainter, QWidget) callconv(.c) void) void {
+        qtc.QProxyStyle_OnDrawPrimitive(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDrawPrimitive` instead
@@ -248,36 +287,42 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` element: qstyle_enums.PrimitiveElement `
     ///
-    /// ` option: QtC.QStyleOption `
+    /// ` option: QStyleOption `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SuperDrawPrimitive(self: ?*anyopaque, element: i32, option: ?*anyopaque, painter: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QProxyStyle_SuperDrawPrimitive(@ptrCast(self), @bitCast(element), @ptrCast(option), @ptrCast(painter), @ptrCast(widget));
+    pub fn SuperDrawPrimitive(self: QProxyStyle, element: i32, option: anytype, painter: anytype, widget: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOption;
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QProxyStyle_SuperDrawPrimitive(@ptrCast(self.ptr), @bitCast(element), @ptrCast(option.ptr), @ptrCast(painter.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#drawControl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` element: qstyle_enums.ControlElement `
     ///
-    /// ` option: QtC.QStyleOption `
+    /// ` option: QStyleOption `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn DrawControl(self: ?*anyopaque, element: i32, option: ?*anyopaque, painter: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QProxyStyle_DrawControl(@ptrCast(self), @bitCast(element), @ptrCast(option), @ptrCast(painter), @ptrCast(widget));
+    pub fn DrawControl(self: QProxyStyle, element: i32, option: anytype, painter: anytype, widget: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOption;
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QProxyStyle_DrawControl(@ptrCast(self.ptr), @bitCast(element), @ptrCast(option.ptr), @ptrCast(painter.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#drawControl)
@@ -286,12 +331,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, element: qstyle_enums.ControlElement, option: QtC.QStyleOption, painter: QtC.QPainter, widget: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QProxyStyle, element: qstyle_enums.ControlElement, option: QStyleOption, painter: QPainter, widget: QWidget) callconv(.c) void `
     ///
-    pub fn OnDrawControl(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProxyStyle_OnDrawControl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDrawControl(self: QProxyStyle, callback: *const fn (QProxyStyle, i32, QStyleOption, QPainter, QWidget) callconv(.c) void) void {
+        qtc.QProxyStyle_OnDrawControl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDrawControl` instead
@@ -304,36 +349,42 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` element: qstyle_enums.ControlElement `
     ///
-    /// ` option: QtC.QStyleOption `
+    /// ` option: QStyleOption `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SuperDrawControl(self: ?*anyopaque, element: i32, option: ?*anyopaque, painter: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QProxyStyle_SuperDrawControl(@ptrCast(self), @bitCast(element), @ptrCast(option), @ptrCast(painter), @ptrCast(widget));
+    pub fn SuperDrawControl(self: QProxyStyle, element: i32, option: anytype, painter: anytype, widget: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOption;
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QProxyStyle_SuperDrawControl(@ptrCast(self.ptr), @bitCast(element), @ptrCast(option.ptr), @ptrCast(painter.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#drawComplexControl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` control: qstyle_enums.ComplexControl `
     ///
-    /// ` option: QtC.QStyleOptionComplex `
+    /// ` option: QStyleOptionComplex `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn DrawComplexControl(self: ?*anyopaque, control: i32, option: ?*anyopaque, painter: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QProxyStyle_DrawComplexControl(@ptrCast(self), @bitCast(control), @ptrCast(option), @ptrCast(painter), @ptrCast(widget));
+    pub fn DrawComplexControl(self: QProxyStyle, control: i32, option: anytype, painter: anytype, widget: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionComplex;
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QProxyStyle_DrawComplexControl(@ptrCast(self.ptr), @bitCast(control), @ptrCast(option.ptr), @ptrCast(painter.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#drawComplexControl)
@@ -342,12 +393,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, control: qstyle_enums.ComplexControl, option: QtC.QStyleOptionComplex, painter: QtC.QPainter, widget: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QProxyStyle, control: qstyle_enums.ComplexControl, option: QStyleOptionComplex, painter: QPainter, widget: QWidget) callconv(.c) void `
     ///
-    pub fn OnDrawComplexControl(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProxyStyle_OnDrawComplexControl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDrawComplexControl(self: QProxyStyle, callback: *const fn (QProxyStyle, i32, QStyleOptionComplex, QPainter, QWidget) callconv(.c) void) void {
+        qtc.QProxyStyle_OnDrawComplexControl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDrawComplexControl` instead
@@ -360,33 +411,36 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` control: qstyle_enums.ComplexControl `
     ///
-    /// ` option: QtC.QStyleOptionComplex `
+    /// ` option: QStyleOptionComplex `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SuperDrawComplexControl(self: ?*anyopaque, control: i32, option: ?*anyopaque, painter: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QProxyStyle_SuperDrawComplexControl(@ptrCast(self), @bitCast(control), @ptrCast(option), @ptrCast(painter), @ptrCast(widget));
+    pub fn SuperDrawComplexControl(self: QProxyStyle, control: i32, option: anytype, painter: anytype, widget: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionComplex;
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QProxyStyle_SuperDrawComplexControl(@ptrCast(self.ptr), @bitCast(control), @ptrCast(option.ptr), @ptrCast(painter.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#drawItemText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` rect: QtC.QRect `
+    /// ` rect: QRect `
     ///
     /// ` flags: i32 `
     ///
-    /// ` pal: QtC.QPalette `
+    /// ` pal: QPalette `
     ///
     /// ` enabled: bool `
     ///
@@ -394,12 +448,15 @@ pub const qproxystyle = struct {
     ///
     /// ` textRole: qpalette_enums.ColorRole `
     ///
-    pub fn DrawItemText(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, flags: i32, pal: ?*anyopaque, enabled: bool, text: []const u8, textRole: i32) void {
+    pub fn DrawItemText(self: QProxyStyle, painter: anytype, rect: anytype, flags: i32, pal: anytype, enabled: bool, text: []const u8, textRole: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(rect)._is_QRect;
+        comptime _ = @TypeOf(pal)._is_QPalette;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QProxyStyle_DrawItemText(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @bitCast(flags), @ptrCast(pal), enabled, text_str, @bitCast(textRole));
+        qtc.QProxyStyle_DrawItemText(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @bitCast(flags), @ptrCast(pal.ptr), enabled, text_str, @bitCast(textRole));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#drawItemText)
@@ -408,12 +465,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, painter: QtC.QPainter, rect: QtC.QRect, flags: i32, pal: QtC.QPalette, enabled: bool, text: [*:0]const u8, textRole: qpalette_enums.ColorRole) callconv(.c) void `
+    /// ` callback: *const fn (self: QProxyStyle, painter: QPainter, rect: QRect, flags: i32, pal: QPalette, enabled: bool, text: [*:0]const u8, textRole: qpalette_enums.ColorRole) callconv(.c) void `
     ///
-    pub fn OnDrawItemText(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, ?*anyopaque, bool, [*:0]const u8, i32) callconv(.c) void) void {
-        qtc.QProxyStyle_OnDrawItemText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDrawItemText(self: QProxyStyle, callback: *const fn (QProxyStyle, QPainter, QRect, i32, QPalette, bool, [*:0]const u8, i32) callconv(.c) void) void {
+        qtc.QProxyStyle_OnDrawItemText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDrawItemText` instead
@@ -426,15 +483,15 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` rect: QtC.QRect `
+    /// ` rect: QRect `
     ///
     /// ` flags: i32 `
     ///
-    /// ` pal: QtC.QPalette `
+    /// ` pal: QPalette `
     ///
     /// ` enabled: bool `
     ///
@@ -442,30 +499,36 @@ pub const qproxystyle = struct {
     ///
     /// ` textRole: qpalette_enums.ColorRole `
     ///
-    pub fn SuperDrawItemText(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, flags: i32, pal: ?*anyopaque, enabled: bool, text: []const u8, textRole: i32) void {
+    pub fn SuperDrawItemText(self: QProxyStyle, painter: anytype, rect: anytype, flags: i32, pal: anytype, enabled: bool, text: []const u8, textRole: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(rect)._is_QRect;
+        comptime _ = @TypeOf(pal)._is_QPalette;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QProxyStyle_SuperDrawItemText(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @bitCast(flags), @ptrCast(pal), enabled, text_str, @bitCast(textRole));
+        qtc.QProxyStyle_SuperDrawItemText(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @bitCast(flags), @ptrCast(pal.ptr), enabled, text_str, @bitCast(textRole));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#drawItemPixmap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` rect: QtC.QRect `
+    /// ` rect: QRect `
     ///
     /// ` alignment: i32 `
     ///
-    /// ` pixmap: QtC.QPixmap `
+    /// ` pixmap: QPixmap `
     ///
-    pub fn DrawItemPixmap(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, alignment: i32, pixmap: ?*anyopaque) void {
-        qtc.QProxyStyle_DrawItemPixmap(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @bitCast(alignment), @ptrCast(pixmap));
+    pub fn DrawItemPixmap(self: QProxyStyle, painter: anytype, rect: anytype, alignment: i32, pixmap: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(rect)._is_QRect;
+        comptime _ = @TypeOf(pixmap)._is_QPixmap;
+        qtc.QProxyStyle_DrawItemPixmap(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @bitCast(alignment), @ptrCast(pixmap.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#drawItemPixmap)
@@ -474,12 +537,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, painter: QtC.QPainter, rect: QtC.QRect, alignment: i32, pixmap: QtC.QPixmap) callconv(.c) void `
+    /// ` callback: *const fn (self: QProxyStyle, painter: QPainter, rect: QRect, alignment: i32, pixmap: QPixmap) callconv(.c) void `
     ///
-    pub fn OnDrawItemPixmap(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProxyStyle_OnDrawItemPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDrawItemPixmap(self: QProxyStyle, callback: *const fn (QProxyStyle, QPainter, QRect, i32, QPixmap) callconv(.c) void) void {
+        qtc.QProxyStyle_OnDrawItemPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDrawItemPixmap` instead
@@ -492,36 +555,42 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` rect: QtC.QRect `
+    /// ` rect: QRect `
     ///
     /// ` alignment: i32 `
     ///
-    /// ` pixmap: QtC.QPixmap `
+    /// ` pixmap: QPixmap `
     ///
-    pub fn SuperDrawItemPixmap(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, alignment: i32, pixmap: ?*anyopaque) void {
-        qtc.QProxyStyle_SuperDrawItemPixmap(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @bitCast(alignment), @ptrCast(pixmap));
+    pub fn SuperDrawItemPixmap(self: QProxyStyle, painter: anytype, rect: anytype, alignment: i32, pixmap: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(rect)._is_QRect;
+        comptime _ = @TypeOf(pixmap)._is_QPixmap;
+        qtc.QProxyStyle_SuperDrawItemPixmap(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @bitCast(alignment), @ptrCast(pixmap.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#sizeFromContents)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` typeVal: qstyle_enums.ContentsType `
     ///
-    /// ` option: QtC.QStyleOption `
+    /// ` option: QStyleOption `
     ///
-    /// ` size: QtC.QSize `
+    /// ` size: QSize `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SizeFromContents(self: ?*anyopaque, typeVal: i32, option: ?*anyopaque, size: ?*anyopaque, widget: ?*anyopaque) QtC.QSize {
-        return qtc.QProxyStyle_SizeFromContents(@ptrCast(self), @bitCast(typeVal), @ptrCast(option), @ptrCast(size), @ptrCast(widget));
+    pub fn SizeFromContents(self: QProxyStyle, typeVal: i32, option: anytype, size: anytype, widget: anytype) QSize {
+        comptime _ = @TypeOf(option)._is_QStyleOption;
+        comptime _ = @TypeOf(size)._is_QSize;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return .{ .ptr = qtc.QProxyStyle_SizeFromContents(@ptrCast(self.ptr), @bitCast(typeVal), @ptrCast(option.ptr), @ptrCast(size.ptr), @ptrCast(widget.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#sizeFromContents)
@@ -530,12 +599,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, typeVal: qstyle_enums.ContentsType, option: QtC.QStyleOption, size: QtC.QSize, widget: QtC.QWidget) callconv(.c) QtC.QSize `
+    /// ` callback: *const fn (self: QProxyStyle, typeVal: qstyle_enums.ContentsType, option: QStyleOption, size: QSize, widget: QWidget) callconv(.c) QSize `
     ///
-    pub fn OnSizeFromContents(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QSize) void {
-        qtc.QProxyStyle_OnSizeFromContents(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeFromContents(self: QProxyStyle, callback: *const fn (QProxyStyle, i32, QStyleOption, QSize, QWidget) callconv(.c) QSize) void {
+        qtc.QProxyStyle_OnSizeFromContents(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSizeFromContents` instead
@@ -548,34 +617,39 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` typeVal: qstyle_enums.ContentsType `
     ///
-    /// ` option: QtC.QStyleOption `
+    /// ` option: QStyleOption `
     ///
-    /// ` size: QtC.QSize `
+    /// ` size: QSize `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SuperSizeFromContents(self: ?*anyopaque, typeVal: i32, option: ?*anyopaque, size: ?*anyopaque, widget: ?*anyopaque) QtC.QSize {
-        return qtc.QProxyStyle_SuperSizeFromContents(@ptrCast(self), @bitCast(typeVal), @ptrCast(option), @ptrCast(size), @ptrCast(widget));
+    pub fn SuperSizeFromContents(self: QProxyStyle, typeVal: i32, option: anytype, size: anytype, widget: anytype) QSize {
+        comptime _ = @TypeOf(option)._is_QStyleOption;
+        comptime _ = @TypeOf(size)._is_QSize;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return .{ .ptr = qtc.QProxyStyle_SuperSizeFromContents(@ptrCast(self.ptr), @bitCast(typeVal), @ptrCast(option.ptr), @ptrCast(size.ptr), @ptrCast(widget.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#subElementRect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` element: qstyle_enums.SubElement `
     ///
-    /// ` option: QtC.QStyleOption `
+    /// ` option: QStyleOption `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SubElementRect(self: ?*anyopaque, element: i32, option: ?*anyopaque, widget: ?*anyopaque) QtC.QRect {
-        return qtc.QProxyStyle_SubElementRect(@ptrCast(self), @bitCast(element), @ptrCast(option), @ptrCast(widget));
+    pub fn SubElementRect(self: QProxyStyle, element: i32, option: anytype, widget: anytype) QRect {
+        comptime _ = @TypeOf(option)._is_QStyleOption;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return .{ .ptr = qtc.QProxyStyle_SubElementRect(@ptrCast(self.ptr), @bitCast(element), @ptrCast(option.ptr), @ptrCast(widget.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#subElementRect)
@@ -584,12 +658,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, element: qstyle_enums.SubElement, option: QtC.QStyleOption, widget: QtC.QWidget) callconv(.c) QtC.QRect `
+    /// ` callback: *const fn (self: QProxyStyle, element: qstyle_enums.SubElement, option: QStyleOption, widget: QWidget) callconv(.c) QRect `
     ///
-    pub fn OnSubElementRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.QProxyStyle_OnSubElementRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSubElementRect(self: QProxyStyle, callback: *const fn (QProxyStyle, i32, QStyleOption, QWidget) callconv(.c) QRect) void {
+        qtc.QProxyStyle_OnSubElementRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSubElementRect` instead
@@ -602,34 +676,38 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` element: qstyle_enums.SubElement `
     ///
-    /// ` option: QtC.QStyleOption `
+    /// ` option: QStyleOption `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SuperSubElementRect(self: ?*anyopaque, element: i32, option: ?*anyopaque, widget: ?*anyopaque) QtC.QRect {
-        return qtc.QProxyStyle_SuperSubElementRect(@ptrCast(self), @bitCast(element), @ptrCast(option), @ptrCast(widget));
+    pub fn SuperSubElementRect(self: QProxyStyle, element: i32, option: anytype, widget: anytype) QRect {
+        comptime _ = @TypeOf(option)._is_QStyleOption;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return .{ .ptr = qtc.QProxyStyle_SuperSubElementRect(@ptrCast(self.ptr), @bitCast(element), @ptrCast(option.ptr), @ptrCast(widget.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#subControlRect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` cc: qstyle_enums.ComplexControl `
     ///
-    /// ` opt: QtC.QStyleOptionComplex `
+    /// ` opt: QStyleOptionComplex `
     ///
     /// ` sc: qstyle_enums.SubControl `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SubControlRect(self: ?*anyopaque, cc: i32, opt: ?*anyopaque, sc: i32, widget: ?*anyopaque) QtC.QRect {
-        return qtc.QProxyStyle_SubControlRect(@ptrCast(self), @bitCast(cc), @ptrCast(opt), @bitCast(sc), @ptrCast(widget));
+    pub fn SubControlRect(self: QProxyStyle, cc: i32, opt: anytype, sc: i32, widget: anytype) QRect {
+        comptime _ = @TypeOf(opt)._is_QStyleOptionComplex;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return .{ .ptr = qtc.QProxyStyle_SubControlRect(@ptrCast(self.ptr), @bitCast(cc), @ptrCast(opt.ptr), @bitCast(sc), @ptrCast(widget.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#subControlRect)
@@ -638,12 +716,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, cc: qstyle_enums.ComplexControl, opt: QtC.QStyleOptionComplex, sc: qstyle_enums.SubControl, widget: QtC.QWidget) callconv(.c) QtC.QRect `
+    /// ` callback: *const fn (self: QProxyStyle, cc: qstyle_enums.ComplexControl, opt: QStyleOptionComplex, sc: qstyle_enums.SubControl, widget: QWidget) callconv(.c) QRect `
     ///
-    pub fn OnSubControlRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.QProxyStyle_OnSubControlRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSubControlRect(self: QProxyStyle, callback: *const fn (QProxyStyle, i32, QStyleOptionComplex, i32, QWidget) callconv(.c) QRect) void {
+        qtc.QProxyStyle_OnSubControlRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSubControlRect` instead
@@ -656,29 +734,31 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` cc: qstyle_enums.ComplexControl `
     ///
-    /// ` opt: QtC.QStyleOptionComplex `
+    /// ` opt: QStyleOptionComplex `
     ///
     /// ` sc: qstyle_enums.SubControl `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SuperSubControlRect(self: ?*anyopaque, cc: i32, opt: ?*anyopaque, sc: i32, widget: ?*anyopaque) QtC.QRect {
-        return qtc.QProxyStyle_SuperSubControlRect(@ptrCast(self), @bitCast(cc), @ptrCast(opt), @bitCast(sc), @ptrCast(widget));
+    pub fn SuperSubControlRect(self: QProxyStyle, cc: i32, opt: anytype, sc: i32, widget: anytype) QRect {
+        comptime _ = @TypeOf(opt)._is_QStyleOptionComplex;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return .{ .ptr = qtc.QProxyStyle_SuperSubControlRect(@ptrCast(self.ptr), @bitCast(cc), @ptrCast(opt.ptr), @bitCast(sc), @ptrCast(widget.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#itemTextRect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` fm: QtC.QFontMetrics `
+    /// ` fm: QFontMetrics `
     ///
-    /// ` r: QtC.QRect `
+    /// ` r: QRect `
     ///
     /// ` flags: i32 `
     ///
@@ -686,12 +766,14 @@ pub const qproxystyle = struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn ItemTextRect(self: ?*anyopaque, fm: ?*anyopaque, r: ?*anyopaque, flags: i32, enabled: bool, text: []const u8) QtC.QRect {
+    pub fn ItemTextRect(self: QProxyStyle, fm: anytype, r: anytype, flags: i32, enabled: bool, text: []const u8) QRect {
+        comptime _ = @TypeOf(fm)._is_QFontMetrics;
+        comptime _ = @TypeOf(r)._is_QRect;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QProxyStyle_ItemTextRect(@ptrCast(self), @ptrCast(fm), @ptrCast(r), @bitCast(flags), enabled, text_str);
+        return .{ .ptr = qtc.QProxyStyle_ItemTextRect(@ptrCast(self.ptr), @ptrCast(fm.ptr), @ptrCast(r.ptr), @bitCast(flags), enabled, text_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#itemTextRect)
@@ -700,12 +782,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, fm: QtC.QFontMetrics, r: QtC.QRect, flags: i32, enabled: bool, text: [*:0]const u8) callconv(.c) QtC.QRect `
+    /// ` callback: *const fn (self: QProxyStyle, fm: QFontMetrics, r: QRect, flags: i32, enabled: bool, text: [*:0]const u8) callconv(.c) QRect `
     ///
-    pub fn OnItemTextRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, bool, [*:0]const u8) callconv(.c) QtC.QRect) void {
-        qtc.QProxyStyle_OnItemTextRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemTextRect(self: QProxyStyle, callback: *const fn (QProxyStyle, QFontMetrics, QRect, i32, bool, [*:0]const u8) callconv(.c) QRect) void {
+        qtc.QProxyStyle_OnItemTextRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperItemTextRect` instead
@@ -718,11 +800,11 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` fm: QtC.QFontMetrics `
+    /// ` fm: QFontMetrics `
     ///
-    /// ` r: QtC.QRect `
+    /// ` r: QRect `
     ///
     /// ` flags: i32 `
     ///
@@ -730,28 +812,32 @@ pub const qproxystyle = struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SuperItemTextRect(self: ?*anyopaque, fm: ?*anyopaque, r: ?*anyopaque, flags: i32, enabled: bool, text: []const u8) QtC.QRect {
+    pub fn SuperItemTextRect(self: QProxyStyle, fm: anytype, r: anytype, flags: i32, enabled: bool, text: []const u8) QRect {
+        comptime _ = @TypeOf(fm)._is_QFontMetrics;
+        comptime _ = @TypeOf(r)._is_QRect;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QProxyStyle_SuperItemTextRect(@ptrCast(self), @ptrCast(fm), @ptrCast(r), @bitCast(flags), enabled, text_str);
+        return .{ .ptr = qtc.QProxyStyle_SuperItemTextRect(@ptrCast(self.ptr), @ptrCast(fm.ptr), @ptrCast(r.ptr), @bitCast(flags), enabled, text_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#itemPixmapRect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` r: QtC.QRect `
+    /// ` r: QRect `
     ///
     /// ` flags: i32 `
     ///
-    /// ` pixmap: QtC.QPixmap `
+    /// ` pixmap: QPixmap `
     ///
-    pub fn ItemPixmapRect(self: ?*anyopaque, r: ?*anyopaque, flags: i32, pixmap: ?*anyopaque) QtC.QRect {
-        return qtc.QProxyStyle_ItemPixmapRect(@ptrCast(self), @ptrCast(r), @bitCast(flags), @ptrCast(pixmap));
+    pub fn ItemPixmapRect(self: QProxyStyle, r: anytype, flags: i32, pixmap: anytype) QRect {
+        comptime _ = @TypeOf(r)._is_QRect;
+        comptime _ = @TypeOf(pixmap)._is_QPixmap;
+        return .{ .ptr = qtc.QProxyStyle_ItemPixmapRect(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(flags), @ptrCast(pixmap.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#itemPixmapRect)
@@ -760,12 +846,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, r: QtC.QRect, flags: i32, pixmap: QtC.QPixmap) callconv(.c) QtC.QRect `
+    /// ` callback: *const fn (self: QProxyStyle, r: QRect, flags: i32, pixmap: QPixmap) callconv(.c) QRect `
     ///
-    pub fn OnItemPixmapRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.QProxyStyle_OnItemPixmapRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemPixmapRect(self: QProxyStyle, callback: *const fn (QProxyStyle, QRect, i32, QPixmap) callconv(.c) QRect) void {
+        qtc.QProxyStyle_OnItemPixmapRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperItemPixmapRect` instead
@@ -778,38 +864,43 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` r: QtC.QRect `
+    /// ` r: QRect `
     ///
     /// ` flags: i32 `
     ///
-    /// ` pixmap: QtC.QPixmap `
+    /// ` pixmap: QPixmap `
     ///
-    pub fn SuperItemPixmapRect(self: ?*anyopaque, r: ?*anyopaque, flags: i32, pixmap: ?*anyopaque) QtC.QRect {
-        return qtc.QProxyStyle_SuperItemPixmapRect(@ptrCast(self), @ptrCast(r), @bitCast(flags), @ptrCast(pixmap));
+    pub fn SuperItemPixmapRect(self: QProxyStyle, r: anytype, flags: i32, pixmap: anytype) QRect {
+        comptime _ = @TypeOf(r)._is_QRect;
+        comptime _ = @TypeOf(pixmap)._is_QPixmap;
+        return .{ .ptr = qtc.QProxyStyle_SuperItemPixmapRect(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(flags), @ptrCast(pixmap.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#hitTestComplexControl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` control: qstyle_enums.ComplexControl `
     ///
-    /// ` option: QtC.QStyleOptionComplex `
+    /// ` option: QStyleOptionComplex `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
     /// ## Returns:
     ///
     /// ` qstyle_enums.SubControl `
     ///
-    pub fn HitTestComplexControl(self: ?*anyopaque, control: i32, option: ?*anyopaque, pos: ?*anyopaque, widget: ?*anyopaque) i32 {
-        return qtc.QProxyStyle_HitTestComplexControl(@ptrCast(self), @bitCast(control), @ptrCast(option), @ptrCast(pos), @ptrCast(widget));
+    pub fn HitTestComplexControl(self: QProxyStyle, control: i32, option: anytype, pos: anytype, widget: anytype) i32 {
+        comptime _ = @TypeOf(option)._is_QStyleOptionComplex;
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return qtc.QProxyStyle_HitTestComplexControl(@ptrCast(self.ptr), @bitCast(control), @ptrCast(option.ptr), @ptrCast(pos.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#hitTestComplexControl)
@@ -818,12 +909,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, control: qstyle_enums.ComplexControl, option: QtC.QStyleOptionComplex, pos: QtC.QPoint, widget: QtC.QWidget) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QProxyStyle, control: qstyle_enums.ComplexControl, option: QStyleOptionComplex, pos: QPoint, widget: QWidget) callconv(.c) i32 `
     ///
-    pub fn OnHitTestComplexControl(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QProxyStyle_OnHitTestComplexControl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHitTestComplexControl(self: QProxyStyle, callback: *const fn (QProxyStyle, i32, QStyleOptionComplex, QPoint, QWidget) callconv(.c) i32) void {
+        qtc.QProxyStyle_OnHitTestComplexControl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperHitTestComplexControl` instead
@@ -836,40 +927,46 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` control: qstyle_enums.ComplexControl `
     ///
-    /// ` option: QtC.QStyleOptionComplex `
+    /// ` option: QStyleOptionComplex `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
     /// ## Returns:
     ///
     /// ` qstyle_enums.SubControl `
     ///
-    pub fn SuperHitTestComplexControl(self: ?*anyopaque, control: i32, option: ?*anyopaque, pos: ?*anyopaque, widget: ?*anyopaque) i32 {
-        return qtc.QProxyStyle_SuperHitTestComplexControl(@ptrCast(self), @bitCast(control), @ptrCast(option), @ptrCast(pos), @ptrCast(widget));
+    pub fn SuperHitTestComplexControl(self: QProxyStyle, control: i32, option: anytype, pos: anytype, widget: anytype) i32 {
+        comptime _ = @TypeOf(option)._is_QStyleOptionComplex;
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return qtc.QProxyStyle_SuperHitTestComplexControl(@ptrCast(self.ptr), @bitCast(control), @ptrCast(option.ptr), @ptrCast(pos.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#styleHint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` hint: qstyle_enums.StyleHint `
     ///
-    /// ` option: QtC.QStyleOption `
+    /// ` option: QStyleOption `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    /// ` returnData: QtC.QStyleHintReturn `
+    /// ` returnData: QStyleHintReturn `
     ///
-    pub fn StyleHint(self: ?*anyopaque, hint: i32, option: ?*anyopaque, widget: ?*anyopaque, returnData: ?*anyopaque) i32 {
-        return qtc.QProxyStyle_StyleHint(@ptrCast(self), @bitCast(hint), @ptrCast(option), @ptrCast(widget), @ptrCast(returnData));
+    pub fn StyleHint(self: QProxyStyle, hint: i32, option: anytype, widget: anytype, returnData: anytype) i32 {
+        comptime _ = @TypeOf(option)._is_QStyleOption;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        comptime _ = @TypeOf(returnData)._is_QStyleHintReturn;
+        return qtc.QProxyStyle_StyleHint(@ptrCast(self.ptr), @bitCast(hint), @ptrCast(option.ptr), @ptrCast(widget.ptr), @ptrCast(returnData.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#styleHint)
@@ -878,12 +975,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, hint: qstyle_enums.StyleHint, option: QtC.QStyleOption, widget: QtC.QWidget, returnData: QtC.QStyleHintReturn) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QProxyStyle, hint: qstyle_enums.StyleHint, option: QStyleOption, widget: QWidget, returnData: QStyleHintReturn) callconv(.c) i32 `
     ///
-    pub fn OnStyleHint(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QProxyStyle_OnStyleHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStyleHint(self: QProxyStyle, callback: *const fn (QProxyStyle, i32, QStyleOption, QWidget, QStyleHintReturn) callconv(.c) i32) void {
+        qtc.QProxyStyle_OnStyleHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperStyleHint` instead
@@ -896,34 +993,39 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` hint: qstyle_enums.StyleHint `
     ///
-    /// ` option: QtC.QStyleOption `
+    /// ` option: QStyleOption `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    /// ` returnData: QtC.QStyleHintReturn `
+    /// ` returnData: QStyleHintReturn `
     ///
-    pub fn SuperStyleHint(self: ?*anyopaque, hint: i32, option: ?*anyopaque, widget: ?*anyopaque, returnData: ?*anyopaque) i32 {
-        return qtc.QProxyStyle_SuperStyleHint(@ptrCast(self), @bitCast(hint), @ptrCast(option), @ptrCast(widget), @ptrCast(returnData));
+    pub fn SuperStyleHint(self: QProxyStyle, hint: i32, option: anytype, widget: anytype, returnData: anytype) i32 {
+        comptime _ = @TypeOf(option)._is_QStyleOption;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        comptime _ = @TypeOf(returnData)._is_QStyleHintReturn;
+        return qtc.QProxyStyle_SuperStyleHint(@ptrCast(self.ptr), @bitCast(hint), @ptrCast(option.ptr), @ptrCast(widget.ptr), @ptrCast(returnData.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#pixelMetric)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` metric: qstyle_enums.PixelMetric `
     ///
-    /// ` option: QtC.QStyleOption `
+    /// ` option: QStyleOption `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn PixelMetric(self: ?*anyopaque, metric: i32, option: ?*anyopaque, widget: ?*anyopaque) i32 {
-        return qtc.QProxyStyle_PixelMetric(@ptrCast(self), @bitCast(metric), @ptrCast(option), @ptrCast(widget));
+    pub fn PixelMetric(self: QProxyStyle, metric: i32, option: anytype, widget: anytype) i32 {
+        comptime _ = @TypeOf(option)._is_QStyleOption;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return qtc.QProxyStyle_PixelMetric(@ptrCast(self.ptr), @bitCast(metric), @ptrCast(option.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#pixelMetric)
@@ -932,12 +1034,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, metric: qstyle_enums.PixelMetric, option: QtC.QStyleOption, widget: QtC.QWidget) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QProxyStyle, metric: qstyle_enums.PixelMetric, option: QStyleOption, widget: QWidget) callconv(.c) i32 `
     ///
-    pub fn OnPixelMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QProxyStyle_OnPixelMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPixelMetric(self: QProxyStyle, callback: *const fn (QProxyStyle, i32, QStyleOption, QWidget) callconv(.c) i32) void {
+        qtc.QProxyStyle_OnPixelMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperPixelMetric` instead
@@ -950,23 +1052,25 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` metric: qstyle_enums.PixelMetric `
     ///
-    /// ` option: QtC.QStyleOption `
+    /// ` option: QStyleOption `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SuperPixelMetric(self: ?*anyopaque, metric: i32, option: ?*anyopaque, widget: ?*anyopaque) i32 {
-        return qtc.QProxyStyle_SuperPixelMetric(@ptrCast(self), @bitCast(metric), @ptrCast(option), @ptrCast(widget));
+    pub fn SuperPixelMetric(self: QProxyStyle, metric: i32, option: anytype, widget: anytype) i32 {
+        comptime _ = @TypeOf(option)._is_QStyleOption;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return qtc.QProxyStyle_SuperPixelMetric(@ptrCast(self.ptr), @bitCast(metric), @ptrCast(option.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#layoutSpacing)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` control1: qsizepolicy_enums.ControlType `
     ///
@@ -974,12 +1078,14 @@ pub const qproxystyle = struct {
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    /// ` option: QtC.QStyleOption `
+    /// ` option: QStyleOption `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn LayoutSpacing(self: ?*anyopaque, control1: i32, control2: i32, orientation: i32, option: ?*anyopaque, widget: ?*anyopaque) i32 {
-        return qtc.QProxyStyle_LayoutSpacing(@ptrCast(self), @bitCast(control1), @bitCast(control2), @bitCast(orientation), @ptrCast(option), @ptrCast(widget));
+    pub fn LayoutSpacing(self: QProxyStyle, control1: i32, control2: i32, orientation: i32, option: anytype, widget: anytype) i32 {
+        comptime _ = @TypeOf(option)._is_QStyleOption;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return qtc.QProxyStyle_LayoutSpacing(@ptrCast(self.ptr), @bitCast(control1), @bitCast(control2), @bitCast(orientation), @ptrCast(option.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#layoutSpacing)
@@ -988,12 +1094,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, control1: qsizepolicy_enums.ControlType, control2: qsizepolicy_enums.ControlType, orientation: qnamespace_enums.Orientation, option: QtC.QStyleOption, widget: QtC.QWidget) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QProxyStyle, control1: qsizepolicy_enums.ControlType, control2: qsizepolicy_enums.ControlType, orientation: qnamespace_enums.Orientation, option: QStyleOption, widget: QWidget) callconv(.c) i32 `
     ///
-    pub fn OnLayoutSpacing(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QProxyStyle_OnLayoutSpacing(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutSpacing(self: QProxyStyle, callback: *const fn (QProxyStyle, i32, i32, i32, QStyleOption, QWidget) callconv(.c) i32) void {
+        qtc.QProxyStyle_OnLayoutSpacing(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperLayoutSpacing` instead
@@ -1006,7 +1112,7 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` control1: qsizepolicy_enums.ControlType `
     ///
@@ -1014,28 +1120,32 @@ pub const qproxystyle = struct {
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    /// ` option: QtC.QStyleOption `
+    /// ` option: QStyleOption `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SuperLayoutSpacing(self: ?*anyopaque, control1: i32, control2: i32, orientation: i32, option: ?*anyopaque, widget: ?*anyopaque) i32 {
-        return qtc.QProxyStyle_SuperLayoutSpacing(@ptrCast(self), @bitCast(control1), @bitCast(control2), @bitCast(orientation), @ptrCast(option), @ptrCast(widget));
+    pub fn SuperLayoutSpacing(self: QProxyStyle, control1: i32, control2: i32, orientation: i32, option: anytype, widget: anytype) i32 {
+        comptime _ = @TypeOf(option)._is_QStyleOption;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return qtc.QProxyStyle_SuperLayoutSpacing(@ptrCast(self.ptr), @bitCast(control1), @bitCast(control2), @bitCast(orientation), @ptrCast(option.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#standardIcon)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` standardIcon: qstyle_enums.StandardPixmap `
     ///
-    /// ` option: QtC.QStyleOption `
+    /// ` option: QStyleOption `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn StandardIcon(self: ?*anyopaque, standardIcon: i32, option: ?*anyopaque, widget: ?*anyopaque) QtC.QIcon {
-        return qtc.QProxyStyle_StandardIcon(@ptrCast(self), @bitCast(standardIcon), @ptrCast(option), @ptrCast(widget));
+    pub fn StandardIcon(self: QProxyStyle, standardIcon: i32, option: anytype, widget: anytype) QIcon {
+        comptime _ = @TypeOf(option)._is_QStyleOption;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return .{ .ptr = qtc.QProxyStyle_StandardIcon(@ptrCast(self.ptr), @bitCast(standardIcon), @ptrCast(option.ptr), @ptrCast(widget.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#standardIcon)
@@ -1044,12 +1154,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, standardIcon: qstyle_enums.StandardPixmap, option: QtC.QStyleOption, widget: QtC.QWidget) callconv(.c) QtC.QIcon `
+    /// ` callback: *const fn (self: QProxyStyle, standardIcon: qstyle_enums.StandardPixmap, option: QStyleOption, widget: QWidget) callconv(.c) QIcon `
     ///
-    pub fn OnStandardIcon(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QIcon) void {
-        qtc.QProxyStyle_OnStandardIcon(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStandardIcon(self: QProxyStyle, callback: *const fn (QProxyStyle, i32, QStyleOption, QWidget) callconv(.c) QIcon) void {
+        qtc.QProxyStyle_OnStandardIcon(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperStandardIcon` instead
@@ -1062,32 +1172,36 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` standardIcon: qstyle_enums.StandardPixmap `
     ///
-    /// ` option: QtC.QStyleOption `
+    /// ` option: QStyleOption `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SuperStandardIcon(self: ?*anyopaque, standardIcon: i32, option: ?*anyopaque, widget: ?*anyopaque) QtC.QIcon {
-        return qtc.QProxyStyle_SuperStandardIcon(@ptrCast(self), @bitCast(standardIcon), @ptrCast(option), @ptrCast(widget));
+    pub fn SuperStandardIcon(self: QProxyStyle, standardIcon: i32, option: anytype, widget: anytype) QIcon {
+        comptime _ = @TypeOf(option)._is_QStyleOption;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return .{ .ptr = qtc.QProxyStyle_SuperStandardIcon(@ptrCast(self.ptr), @bitCast(standardIcon), @ptrCast(option.ptr), @ptrCast(widget.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#standardPixmap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` standardPixmap: qstyle_enums.StandardPixmap `
     ///
-    /// ` opt: QtC.QStyleOption `
+    /// ` opt: QStyleOption `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn StandardPixmap(self: ?*anyopaque, standardPixmap: i32, opt: ?*anyopaque, widget: ?*anyopaque) QtC.QPixmap {
-        return qtc.QProxyStyle_StandardPixmap(@ptrCast(self), @bitCast(standardPixmap), @ptrCast(opt), @ptrCast(widget));
+    pub fn StandardPixmap(self: QProxyStyle, standardPixmap: i32, opt: anytype, widget: anytype) QPixmap {
+        comptime _ = @TypeOf(opt)._is_QStyleOption;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return .{ .ptr = qtc.QProxyStyle_StandardPixmap(@ptrCast(self.ptr), @bitCast(standardPixmap), @ptrCast(opt.ptr), @ptrCast(widget.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#standardPixmap)
@@ -1096,12 +1210,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, standardPixmap: qstyle_enums.StandardPixmap, opt: QtC.QStyleOption, widget: QtC.QWidget) callconv(.c) QtC.QPixmap `
+    /// ` callback: *const fn (self: QProxyStyle, standardPixmap: qstyle_enums.StandardPixmap, opt: QStyleOption, widget: QWidget) callconv(.c) QPixmap `
     ///
-    pub fn OnStandardPixmap(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPixmap) void {
-        qtc.QProxyStyle_OnStandardPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStandardPixmap(self: QProxyStyle, callback: *const fn (QProxyStyle, i32, QStyleOption, QWidget) callconv(.c) QPixmap) void {
+        qtc.QProxyStyle_OnStandardPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperStandardPixmap` instead
@@ -1114,32 +1228,36 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` standardPixmap: qstyle_enums.StandardPixmap `
     ///
-    /// ` opt: QtC.QStyleOption `
+    /// ` opt: QStyleOption `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SuperStandardPixmap(self: ?*anyopaque, standardPixmap: i32, opt: ?*anyopaque, widget: ?*anyopaque) QtC.QPixmap {
-        return qtc.QProxyStyle_SuperStandardPixmap(@ptrCast(self), @bitCast(standardPixmap), @ptrCast(opt), @ptrCast(widget));
+    pub fn SuperStandardPixmap(self: QProxyStyle, standardPixmap: i32, opt: anytype, widget: anytype) QPixmap {
+        comptime _ = @TypeOf(opt)._is_QStyleOption;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return .{ .ptr = qtc.QProxyStyle_SuperStandardPixmap(@ptrCast(self.ptr), @bitCast(standardPixmap), @ptrCast(opt.ptr), @ptrCast(widget.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#generatedIconPixmap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` iconMode: qicon_enums.Mode `
     ///
-    /// ` pixmap: QtC.QPixmap `
+    /// ` pixmap: QPixmap `
     ///
-    /// ` opt: QtC.QStyleOption `
+    /// ` opt: QStyleOption `
     ///
-    pub fn GeneratedIconPixmap(self: ?*anyopaque, iconMode: i32, pixmap: ?*anyopaque, opt: ?*anyopaque) QtC.QPixmap {
-        return qtc.QProxyStyle_GeneratedIconPixmap(@ptrCast(self), @bitCast(iconMode), @ptrCast(pixmap), @ptrCast(opt));
+    pub fn GeneratedIconPixmap(self: QProxyStyle, iconMode: i32, pixmap: anytype, opt: anytype) QPixmap {
+        comptime _ = @TypeOf(pixmap)._is_QPixmap;
+        comptime _ = @TypeOf(opt)._is_QStyleOption;
+        return .{ .ptr = qtc.QProxyStyle_GeneratedIconPixmap(@ptrCast(self.ptr), @bitCast(iconMode), @ptrCast(pixmap.ptr), @ptrCast(opt.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#generatedIconPixmap)
@@ -1148,12 +1266,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, iconMode: qicon_enums.Mode, pixmap: QtC.QPixmap, opt: QtC.QStyleOption) callconv(.c) QtC.QPixmap `
+    /// ` callback: *const fn (self: QProxyStyle, iconMode: qicon_enums.Mode, pixmap: QPixmap, opt: QStyleOption) callconv(.c) QPixmap `
     ///
-    pub fn OnGeneratedIconPixmap(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPixmap) void {
-        qtc.QProxyStyle_OnGeneratedIconPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGeneratedIconPixmap(self: QProxyStyle, callback: *const fn (QProxyStyle, i32, QPixmap, QStyleOption) callconv(.c) QPixmap) void {
+        qtc.QProxyStyle_OnGeneratedIconPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperGeneratedIconPixmap` instead
@@ -1166,26 +1284,28 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` iconMode: qicon_enums.Mode `
     ///
-    /// ` pixmap: QtC.QPixmap `
+    /// ` pixmap: QPixmap `
     ///
-    /// ` opt: QtC.QStyleOption `
+    /// ` opt: QStyleOption `
     ///
-    pub fn SuperGeneratedIconPixmap(self: ?*anyopaque, iconMode: i32, pixmap: ?*anyopaque, opt: ?*anyopaque) QtC.QPixmap {
-        return qtc.QProxyStyle_SuperGeneratedIconPixmap(@ptrCast(self), @bitCast(iconMode), @ptrCast(pixmap), @ptrCast(opt));
+    pub fn SuperGeneratedIconPixmap(self: QProxyStyle, iconMode: i32, pixmap: anytype, opt: anytype) QPixmap {
+        comptime _ = @TypeOf(pixmap)._is_QPixmap;
+        comptime _ = @TypeOf(opt)._is_QStyleOption;
+        return .{ .ptr = qtc.QProxyStyle_SuperGeneratedIconPixmap(@ptrCast(self.ptr), @bitCast(iconMode), @ptrCast(pixmap.ptr), @ptrCast(opt.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#standardPalette)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn StandardPalette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QProxyStyle_StandardPalette(@ptrCast(self));
+    pub fn StandardPalette(self: QProxyStyle) QPalette {
+        return .{ .ptr = qtc.QProxyStyle_StandardPalette(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#standardPalette)
@@ -1194,12 +1314,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPalette `
+    /// ` callback: *const fn () callconv(.c) QPalette `
     ///
-    pub fn OnStandardPalette(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPalette) void {
-        qtc.QProxyStyle_OnStandardPalette(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStandardPalette(self: QProxyStyle, callback: *const fn () callconv(.c) QPalette) void {
+        qtc.QProxyStyle_OnStandardPalette(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperStandardPalette` instead
@@ -1212,22 +1332,23 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn SuperStandardPalette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QProxyStyle_SuperStandardPalette(@ptrCast(self));
+    pub fn SuperStandardPalette(self: QProxyStyle) QPalette {
+        return .{ .ptr = qtc.QProxyStyle_SuperStandardPalette(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#polish)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn Polish(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QProxyStyle_Polish(@ptrCast(self), @ptrCast(widget));
+    pub fn Polish(self: QProxyStyle, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QProxyStyle_Polish(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#polish)
@@ -1236,12 +1357,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, widget: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QProxyStyle, widget: QWidget) callconv(.c) void `
     ///
-    pub fn OnPolish(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProxyStyle_OnPolish(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPolish(self: QProxyStyle, callback: *const fn (QProxyStyle, QWidget) callconv(.c) void) void {
+        qtc.QProxyStyle_OnPolish(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperPolish` instead
@@ -1254,24 +1375,26 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SuperPolish(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QProxyStyle_SuperPolish(@ptrCast(self), @ptrCast(widget));
+    pub fn SuperPolish(self: QProxyStyle, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QProxyStyle_SuperPolish(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#polish)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` pal: QtC.QPalette `
+    /// ` pal: QPalette `
     ///
-    pub fn Polish2(self: ?*anyopaque, pal: ?*anyopaque) void {
-        qtc.QProxyStyle_Polish2(@ptrCast(self), @ptrCast(pal));
+    pub fn Polish2(self: QProxyStyle, pal: anytype) void {
+        comptime _ = @TypeOf(pal)._is_QPalette;
+        qtc.QProxyStyle_Polish2(@ptrCast(self.ptr), @ptrCast(pal.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#polish)
@@ -1280,12 +1403,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, pal: QtC.QPalette) callconv(.c) void `
+    /// ` callback: *const fn (self: QProxyStyle, pal: QPalette) callconv(.c) void `
     ///
-    pub fn OnPolish2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProxyStyle_OnPolish2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPolish2(self: QProxyStyle, callback: *const fn (QProxyStyle, QPalette) callconv(.c) void) void {
+        qtc.QProxyStyle_OnPolish2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperPolish2` instead
@@ -1298,24 +1421,26 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` pal: QtC.QPalette `
+    /// ` pal: QPalette `
     ///
-    pub fn SuperPolish2(self: ?*anyopaque, pal: ?*anyopaque) void {
-        qtc.QProxyStyle_SuperPolish2(@ptrCast(self), @ptrCast(pal));
+    pub fn SuperPolish2(self: QProxyStyle, pal: anytype) void {
+        comptime _ = @TypeOf(pal)._is_QPalette;
+        qtc.QProxyStyle_SuperPolish2(@ptrCast(self.ptr), @ptrCast(pal.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#polish)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` app: QtC.QApplication `
+    /// ` app: QApplication `
     ///
-    pub fn Polish3(self: ?*anyopaque, app: ?*anyopaque) void {
-        qtc.QProxyStyle_Polish3(@ptrCast(self), @ptrCast(app));
+    pub fn Polish3(self: QProxyStyle, app: anytype) void {
+        comptime _ = @TypeOf(app)._is_QApplication;
+        qtc.QProxyStyle_Polish3(@ptrCast(self.ptr), @ptrCast(app.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#polish)
@@ -1324,12 +1449,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, app: QtC.QApplication) callconv(.c) void `
+    /// ` callback: *const fn (self: QProxyStyle, app: QApplication) callconv(.c) void `
     ///
-    pub fn OnPolish3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProxyStyle_OnPolish3(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPolish3(self: QProxyStyle, callback: *const fn (QProxyStyle, QApplication) callconv(.c) void) void {
+        qtc.QProxyStyle_OnPolish3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperPolish3` instead
@@ -1342,24 +1467,26 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` app: QtC.QApplication `
+    /// ` app: QApplication `
     ///
-    pub fn SuperPolish3(self: ?*anyopaque, app: ?*anyopaque) void {
-        qtc.QProxyStyle_SuperPolish3(@ptrCast(self), @ptrCast(app));
+    pub fn SuperPolish3(self: QProxyStyle, app: anytype) void {
+        comptime _ = @TypeOf(app)._is_QApplication;
+        qtc.QProxyStyle_SuperPolish3(@ptrCast(self.ptr), @ptrCast(app.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#unpolish)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn Unpolish(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QProxyStyle_Unpolish(@ptrCast(self), @ptrCast(widget));
+    pub fn Unpolish(self: QProxyStyle, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QProxyStyle_Unpolish(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#unpolish)
@@ -1368,12 +1495,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, widget: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QProxyStyle, widget: QWidget) callconv(.c) void `
     ///
-    pub fn OnUnpolish(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProxyStyle_OnUnpolish(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUnpolish(self: QProxyStyle, callback: *const fn (QProxyStyle, QWidget) callconv(.c) void) void {
+        qtc.QProxyStyle_OnUnpolish(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperUnpolish` instead
@@ -1386,24 +1513,26 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SuperUnpolish(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QProxyStyle_SuperUnpolish(@ptrCast(self), @ptrCast(widget));
+    pub fn SuperUnpolish(self: QProxyStyle, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QProxyStyle_SuperUnpolish(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#unpolish)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` app: QtC.QApplication `
+    /// ` app: QApplication `
     ///
-    pub fn Unpolish2(self: ?*anyopaque, app: ?*anyopaque) void {
-        qtc.QProxyStyle_Unpolish2(@ptrCast(self), @ptrCast(app));
+    pub fn Unpolish2(self: QProxyStyle, app: anytype) void {
+        comptime _ = @TypeOf(app)._is_QApplication;
+        qtc.QProxyStyle_Unpolish2(@ptrCast(self.ptr), @ptrCast(app.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#unpolish)
@@ -1412,12 +1541,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, app: QtC.QApplication) callconv(.c) void `
+    /// ` callback: *const fn (self: QProxyStyle, app: QApplication) callconv(.c) void `
     ///
-    pub fn OnUnpolish2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProxyStyle_OnUnpolish2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUnpolish2(self: QProxyStyle, callback: *const fn (QProxyStyle, QApplication) callconv(.c) void) void {
+        qtc.QProxyStyle_OnUnpolish2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperUnpolish2` instead
@@ -1430,24 +1559,26 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` app: QtC.QApplication `
+    /// ` app: QApplication `
     ///
-    pub fn SuperUnpolish2(self: ?*anyopaque, app: ?*anyopaque) void {
-        qtc.QProxyStyle_SuperUnpolish2(@ptrCast(self), @ptrCast(app));
+    pub fn SuperUnpolish2(self: QProxyStyle, app: anytype) void {
+        comptime _ = @TypeOf(app)._is_QApplication;
+        qtc.QProxyStyle_SuperUnpolish2(@ptrCast(self.ptr), @ptrCast(app.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#event)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QProxyStyle_Event(@ptrCast(self), @ptrCast(e));
+    pub fn Event(self: QProxyStyle, e: anytype) bool {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        return qtc.QProxyStyle_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qproxystyle.html#event)
@@ -1456,12 +1587,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, e: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QProxyStyle, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QProxyStyle_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QProxyStyle, callback: *const fn (QProxyStyle, QEvent) callconv(.c) bool) void {
+        qtc.QProxyStyle_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1474,25 +1605,26 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QProxyStyle_SuperEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperEvent(self: QProxyStyle, e: anytype) bool {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        return qtc.QProxyStyle_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -1506,15 +1638,15 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -1530,12 +1662,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QStyle_Name(@ptrCast(self));
+    pub fn Name(self: QProxyStyle, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QStyle_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qproxystyle.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1550,12 +1682,14 @@ pub const qproxystyle = struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    /// ` boundingRect: QtC.QRect `
+    /// ` boundingRect: QRect `
     ///
-    /// ` logicalRect: QtC.QRect `
+    /// ` logicalRect: QRect `
     ///
-    pub fn VisualRect(direction: i32, boundingRect: ?*anyopaque, logicalRect: ?*anyopaque) QtC.QRect {
-        return qtc.QStyle_VisualRect(@bitCast(direction), @ptrCast(boundingRect), @ptrCast(logicalRect));
+    pub fn VisualRect(direction: i32, boundingRect: anytype, logicalRect: anytype) QRect {
+        comptime _ = @TypeOf(boundingRect)._is_QRect;
+        comptime _ = @TypeOf(logicalRect)._is_QRect;
+        return .{ .ptr = qtc.QStyle_VisualRect(@bitCast(direction), @ptrCast(boundingRect.ptr), @ptrCast(logicalRect.ptr)) };
     }
 
     /// Inherited from QStyle
@@ -1566,12 +1700,14 @@ pub const qproxystyle = struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    /// ` boundingRect: QtC.QRect `
+    /// ` boundingRect: QRect `
     ///
-    /// ` logicalPos: QtC.QPoint `
+    /// ` logicalPos: QPoint `
     ///
-    pub fn VisualPos(direction: i32, boundingRect: ?*anyopaque, logicalPos: ?*anyopaque) QtC.QPoint {
-        return qtc.QStyle_VisualPos(@bitCast(direction), @ptrCast(boundingRect), @ptrCast(logicalPos));
+    pub fn VisualPos(direction: i32, boundingRect: anytype, logicalPos: anytype) QPoint {
+        comptime _ = @TypeOf(boundingRect)._is_QRect;
+        comptime _ = @TypeOf(logicalPos)._is_QPoint;
+        return .{ .ptr = qtc.QStyle_VisualPos(@bitCast(direction), @ptrCast(boundingRect.ptr), @ptrCast(logicalPos.ptr)) };
     }
 
     /// Inherited from QStyle
@@ -1638,12 +1774,14 @@ pub const qproxystyle = struct {
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    /// ` size: QtC.QSize `
+    /// ` size: QSize `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn AlignedRect(direction: i32, alignment: i32, size: ?*anyopaque, rectangle: ?*anyopaque) QtC.QRect {
-        return qtc.QStyle_AlignedRect(@bitCast(direction), @bitCast(alignment), @ptrCast(size), @ptrCast(rectangle));
+    pub fn AlignedRect(direction: i32, alignment: i32, size: anytype, rectangle: anytype) QRect {
+        comptime _ = @TypeOf(size)._is_QSize;
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QStyle_AlignedRect(@bitCast(direction), @bitCast(alignment), @ptrCast(size.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QStyle
@@ -1652,7 +1790,7 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` controls1: flag of qsizepolicy_enums.ControlType `
     ///
@@ -1660,8 +1798,8 @@ pub const qproxystyle = struct {
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    pub fn CombinedLayoutSpacing(self: ?*anyopaque, controls1: i32, controls2: i32, orientation: i32) i32 {
-        return qtc.QStyle_CombinedLayoutSpacing(@ptrCast(self), @bitCast(controls1), @bitCast(controls2), @bitCast(orientation));
+    pub fn CombinedLayoutSpacing(self: QProxyStyle, controls1: i32, controls2: i32, orientation: i32) i32 {
+        return qtc.QStyle_CombinedLayoutSpacing(@ptrCast(self.ptr), @bitCast(controls1), @bitCast(controls2), @bitCast(orientation));
     }
 
     /// Inherited from QStyle
@@ -1670,10 +1808,10 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn Proxy(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QStyle_Proxy(@ptrCast(self));
+    pub fn Proxy(self: QProxyStyle) QStyle {
+        return .{ .ptr = qtc.QStyle_Proxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QStyle
@@ -1722,7 +1860,7 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` controls1: flag of qsizepolicy_enums.ControlType `
     ///
@@ -1730,10 +1868,11 @@ pub const qproxystyle = struct {
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    /// ` option: QtC.QStyleOption `
+    /// ` option: QStyleOption `
     ///
-    pub fn CombinedLayoutSpacing4(self: ?*anyopaque, controls1: i32, controls2: i32, orientation: i32, option: ?*anyopaque) i32 {
-        return qtc.QStyle_CombinedLayoutSpacing4(@ptrCast(self), @bitCast(controls1), @bitCast(controls2), @bitCast(orientation), @ptrCast(option));
+    pub fn CombinedLayoutSpacing4(self: QProxyStyle, controls1: i32, controls2: i32, orientation: i32, option: anytype) i32 {
+        comptime _ = @TypeOf(option)._is_QStyleOption;
+        return qtc.QStyle_CombinedLayoutSpacing4(@ptrCast(self.ptr), @bitCast(controls1), @bitCast(controls2), @bitCast(orientation), @ptrCast(option.ptr));
     }
 
     /// Inherited from QStyle
@@ -1742,7 +1881,7 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` controls1: flag of qsizepolicy_enums.ControlType `
     ///
@@ -1750,12 +1889,14 @@ pub const qproxystyle = struct {
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    /// ` option: QtC.QStyleOption `
+    /// ` option: QStyleOption `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn CombinedLayoutSpacing5(self: ?*anyopaque, controls1: i32, controls2: i32, orientation: i32, option: ?*anyopaque, widget: ?*anyopaque) i32 {
-        return qtc.QStyle_CombinedLayoutSpacing5(@ptrCast(self), @bitCast(controls1), @bitCast(controls2), @bitCast(orientation), @ptrCast(option), @ptrCast(widget));
+    pub fn CombinedLayoutSpacing5(self: QProxyStyle, controls1: i32, controls2: i32, orientation: i32, option: anytype, widget: anytype) i32 {
+        comptime _ = @TypeOf(option)._is_QStyleOption;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return qtc.QStyle_CombinedLayoutSpacing5(@ptrCast(self.ptr), @bitCast(controls1), @bitCast(controls2), @bitCast(orientation), @ptrCast(option.ptr), @ptrCast(widget.ptr));
     }
 
     /// Inherited from QObject
@@ -1764,12 +1905,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QProxyStyle, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qproxystyle.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1782,12 +1923,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QProxyStyle, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1796,10 +1937,10 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QProxyStyle) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1808,10 +1949,10 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QProxyStyle) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1820,10 +1961,10 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QProxyStyle) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1832,10 +1973,10 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QProxyStyle) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1844,12 +1985,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QProxyStyle, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -1858,10 +1999,10 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QProxyStyle) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1870,12 +2011,13 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QProxyStyle, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1884,12 +2026,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QProxyStyle, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1898,12 +2040,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QProxyStyle, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1912,12 +2054,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QProxyStyle, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1926,12 +2068,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QProxyStyle, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1940,16 +2082,17 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QProxyStyle, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qproxystyle.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qproxystyle.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1959,12 +2102,13 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QProxyStyle, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1973,12 +2117,13 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QProxyStyle, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1987,12 +2132,13 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QProxyStyle, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -2001,18 +2147,20 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -2021,16 +2169,20 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2039,18 +2191,19 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QProxyStyle, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -2059,18 +2212,20 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2079,16 +2234,20 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -2097,10 +2256,10 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QProxyStyle) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2109,12 +2268,13 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QProxyStyle, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -2123,10 +2283,11 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -2135,10 +2296,10 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QProxyStyle) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2147,10 +2308,10 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QProxyStyle) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2159,15 +2320,16 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QProxyStyle, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -2176,13 +2338,13 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QProxyStyle, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -2191,17 +2353,16 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QProxyStyle, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qproxystyle.DynamicPropertyNames: Memory allocation failed");
@@ -2220,10 +2381,10 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QProxyStyle) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2232,10 +2393,10 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QProxyStyle) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2244,10 +2405,10 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QProxyStyle) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2256,12 +2417,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle) callconv(.c) void `
+    /// ` callback: *const fn (self: QProxyStyle) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QProxyStyle, callback: *const fn (QProxyStyle) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2270,10 +2431,10 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QProxyStyle) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2282,13 +2443,13 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QProxyStyle, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -2297,10 +2458,10 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QProxyStyle) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2309,14 +2470,14 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QProxyStyle, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2325,14 +2486,14 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QProxyStyle, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2341,20 +2502,22 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -2363,18 +2526,22 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2383,9 +2550,9 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2393,10 +2560,11 @@ pub const qproxystyle = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QProxyStyle, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2405,13 +2573,13 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QProxyStyle, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2420,15 +2588,16 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QProxyStyle, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -2437,18 +2606,19 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QProxyStyle, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2457,15 +2627,16 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QProxyStyle, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2474,12 +2645,13 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QProxyStyle, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -2488,12 +2660,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QProxyStyle, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QProxyStyle, callback: *const fn (QProxyStyle, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2504,14 +2676,16 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QProxyStyle_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QProxyStyle, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QProxyStyle_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -2526,14 +2700,16 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QProxyStyle_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QProxyStyle, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QProxyStyle_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2544,12 +2720,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle`
+    /// ` self: QProxyStyle`
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QProxyStyle, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QProxyStyle_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QProxyStyle, callback: *const fn (QProxyStyle, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QProxyStyle_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2560,12 +2736,13 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProxyStyle_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QProxyStyle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QProxyStyle_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -2580,12 +2757,13 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProxyStyle_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QProxyStyle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QProxyStyle_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2596,12 +2774,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle`
+    /// ` self: QProxyStyle`
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProxyStyle, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProxyStyle_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QProxyStyle, callback: *const fn (QProxyStyle, QTimerEvent) callconv(.c) void) void {
+        qtc.QProxyStyle_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2612,12 +2790,13 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProxyStyle_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QProxyStyle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QProxyStyle_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -2632,12 +2811,13 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProxyStyle_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QProxyStyle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QProxyStyle_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2648,12 +2828,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle`
+    /// ` self: QProxyStyle`
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProxyStyle, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProxyStyle_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QProxyStyle, callback: *const fn (QProxyStyle, QChildEvent) callconv(.c) void) void {
+        qtc.QProxyStyle_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2664,12 +2844,13 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProxyStyle_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QProxyStyle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QProxyStyle_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -2684,12 +2865,13 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QProxyStyle_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QProxyStyle, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QProxyStyle_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2700,12 +2882,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle`
+    /// ` self: QProxyStyle`
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QProxyStyle, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProxyStyle_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QProxyStyle, callback: *const fn (QProxyStyle, QEvent) callconv(.c) void) void {
+        qtc.QProxyStyle_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2716,12 +2898,13 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QProxyStyle_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QProxyStyle, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QProxyStyle_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -2736,12 +2919,13 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QProxyStyle_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QProxyStyle, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QProxyStyle_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2752,12 +2936,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle`
+    /// ` self: QProxyStyle`
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QProxyStyle, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProxyStyle_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QProxyStyle, callback: *const fn (QProxyStyle, QMetaMethod) callconv(.c) void) void {
+        qtc.QProxyStyle_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2768,12 +2952,13 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QProxyStyle_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QProxyStyle, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QProxyStyle_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -2788,12 +2973,13 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QProxyStyle_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QProxyStyle, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QProxyStyle_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2804,12 +2990,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle`
+    /// ` self: QProxyStyle`
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QProxyStyle, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProxyStyle_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QProxyStyle, callback: *const fn (QProxyStyle, QMetaMethod) callconv(.c) void) void {
+        qtc.QProxyStyle_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2820,10 +3006,10 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QProxyStyle_Sender(@ptrCast(self));
+    pub fn Sender(self: QProxyStyle) QObject {
+        return .{ .ptr = qtc.QProxyStyle_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -2838,10 +3024,10 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QProxyStyle_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QProxyStyle) QObject {
+        return .{ .ptr = qtc.QProxyStyle_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2852,12 +3038,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle`
+    /// ` self: QProxyStyle`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QProxyStyle_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QProxyStyle, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QProxyStyle_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2868,10 +3054,10 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QProxyStyle_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QProxyStyle) i32 {
+        return qtc.QProxyStyle_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -2886,10 +3072,10 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QProxyStyle_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QProxyStyle) i32 {
+        return qtc.QProxyStyle_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2900,12 +3086,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle`
+    /// ` self: QProxyStyle`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QProxyStyle_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QProxyStyle, callback: *const fn () callconv(.c) i32) void {
+        qtc.QProxyStyle_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2916,13 +3102,13 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QProxyStyle, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QProxyStyle_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QProxyStyle_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -2937,13 +3123,13 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QProxyStyle, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QProxyStyle_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QProxyStyle_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2954,12 +3140,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle`
+    /// ` self: QProxyStyle`
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QProxyStyle, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QProxyStyle_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QProxyStyle, callback: *const fn (QProxyStyle, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QProxyStyle_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2970,12 +3156,13 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QProxyStyle_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QProxyStyle, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QProxyStyle_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -2990,12 +3177,13 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QProxyStyle_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QProxyStyle, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QProxyStyle_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3006,12 +3194,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle`
+    /// ` self: QProxyStyle`
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QProxyStyle, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QProxyStyle_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QProxyStyle, callback: *const fn (QProxyStyle, QMetaMethod) callconv(.c) bool) void {
+        qtc.QProxyStyle_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3022,12 +3210,12 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    /// ` callback: *const fn (self: QtC.QProxyStyle, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QProxyStyle, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QProxyStyle, callback: *const fn (QProxyStyle, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -3040,9 +3228,9 @@ pub const qproxystyle = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QProxyStyle `
+    /// ` self: QProxyStyle `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QProxyStyle_Delete(@ptrCast(self));
+    pub fn Delete(self: QProxyStyle) void {
+        qtc.QProxyStyle_Delete(@ptrCast(self.ptr));
     }
 };

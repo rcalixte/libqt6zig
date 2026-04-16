@@ -1,36 +1,45 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KFileMetaData__WriteData = @import("libqt6").KFileMetaData__WriteData;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kfilemetadata-writer.html)
-pub const kfilemetadata__writer = struct {
+pub const KFileMetaData__Writer = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kfilemetadata-writer.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KFileMetaData__Writer,
+
+    pub const _is_KFileMetaData__Writer = {};
+
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-writer.html#write)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__Writer `
+    /// ` self: KFileMetaData__Writer `
     ///
-    /// ` data: QtC.KFileMetaData__WriteData `
+    /// ` data: KFileMetaData__WriteData `
     ///
-    pub fn Write(self: ?*anyopaque, data: ?*anyopaque) void {
-        qtc.KFileMetaData__Writer_Write(@ptrCast(self), @ptrCast(data));
+    pub fn Write(self: KFileMetaData__Writer, data: anytype) void {
+        comptime _ = @TypeOf(data)._is_KFileMetaData__WriteData;
+        qtc.KFileMetaData__Writer_Write(@ptrCast(self.ptr), @ptrCast(data.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-writer.html#mimetypes)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__Writer `
+    /// ` self: KFileMetaData__Writer `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Mimetypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KFileMetaData__Writer_Mimetypes(@ptrCast(self));
+    pub fn Mimetypes(self: KFileMetaData__Writer, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KFileMetaData__Writer_Mimetypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kfilemetadata__writer.Mimetypes: Memory allocation failed");
@@ -51,9 +60,9 @@ pub const kfilemetadata__writer = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KFileMetaData__Writer `
+    /// ` self: KFileMetaData__Writer `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KFileMetaData__Writer_Delete(@ptrCast(self));
+    pub fn Delete(self: KFileMetaData__Writer) void {
+        qtc.KFileMetaData__Writer_Delete(@ptrCast(self.ptr));
     }
 };

@@ -1,58 +1,84 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QIcon = @import("libqt6").QIcon;
+const QMenu = @import("libqt6").QMenu;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QRect = @import("libqt6").QRect;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const qsystemtrayicon_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html)
-pub const qsystemtrayicon = struct {
+pub const QSystemTrayIcon = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QSystemTrayIcon,
+
+    pub const _is_QSystemTrayIcon = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QSystemTrayIcon object.
     ///
-    pub fn New() QtC.QSystemTrayIcon {
-        return qtc.QSystemTrayIcon_new();
+    pub fn New() QSystemTrayIcon {
+        return .{ .ptr = qtc.QSystemTrayIcon_new() };
     }
 
     /// New2 constructs a new QSystemTrayIcon object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn New2(icon: ?*anyopaque) QtC.QSystemTrayIcon {
-        return qtc.QSystemTrayIcon_new2(@ptrCast(icon));
+    pub fn New2(icon: anytype) QSystemTrayIcon {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        return .{ .ptr = qtc.QSystemTrayIcon_new2(@ptrCast(icon.ptr)) };
     }
 
     /// New3 constructs a new QSystemTrayIcon object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New3(parent: ?*anyopaque) QtC.QSystemTrayIcon {
-        return qtc.QSystemTrayIcon_new3(@ptrCast(parent));
+    pub fn New3(parent: anytype) QSystemTrayIcon {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QSystemTrayIcon_new3(@ptrCast(parent.ptr)) };
     }
 
     /// New4 constructs a new QSystemTrayIcon object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New4(icon: ?*anyopaque, parent: ?*anyopaque) QtC.QSystemTrayIcon {
-        return qtc.QSystemTrayIcon_new4(@ptrCast(icon), @ptrCast(parent));
+    pub fn New4(icon: anytype, parent: anytype) QSystemTrayIcon {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QSystemTrayIcon_new4(@ptrCast(icon.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QSystemTrayIcon_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QSystemTrayIcon) QMetaObject {
+        return .{ .ptr = qtc.QSystemTrayIcon_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -61,12 +87,12 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QSystemTrayIcon_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QSystemTrayIcon, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QSystemTrayIcon_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -79,33 +105,33 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QSystemTrayIcon_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QSystemTrayIcon) QMetaObject {
+        return .{ .ptr = qtc.QSystemTrayIcon_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QSystemTrayIcon, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QSystemTrayIcon_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QSystemTrayIcon_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` callback: *const fn (self: QtC.QSystemTrayIcon, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QSystemTrayIcon, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QSystemTrayIcon_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QSystemTrayIcon, callback: *const fn (QSystemTrayIcon, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QSystemTrayIcon_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -116,18 +142,18 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QSystemTrayIcon, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QSystemTrayIcon_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QSystemTrayIcon_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -135,20 +161,20 @@ pub const qsystemtrayicon = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QSystemTrayIcon_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QSystemTrayIcon, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QSystemTrayIcon_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` callback: *const fn (self: QtC.QSystemTrayIcon, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSystemTrayIcon, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QSystemTrayIcon_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QSystemTrayIcon, callback: *const fn (QSystemTrayIcon, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QSystemTrayIcon_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -159,7 +185,7 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -167,19 +193,19 @@ pub const qsystemtrayicon = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QSystemTrayIcon_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QSystemTrayIcon, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QSystemTrayIcon_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -192,56 +218,58 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` menu: QtC.QMenu `
+    /// ` menu: QMenu `
     ///
-    pub fn SetContextMenu(self: ?*anyopaque, menu: ?*anyopaque) void {
-        qtc.QSystemTrayIcon_SetContextMenu(@ptrCast(self), @ptrCast(menu));
+    pub fn SetContextMenu(self: QSystemTrayIcon, menu: anytype) void {
+        comptime _ = @TypeOf(menu)._is_QMenu;
+        qtc.QSystemTrayIcon_SetContextMenu(@ptrCast(self.ptr), @ptrCast(menu.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#contextMenu)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn ContextMenu(self: ?*anyopaque) QtC.QMenu {
-        return qtc.QSystemTrayIcon_ContextMenu(@ptrCast(self));
+    pub fn ContextMenu(self: QSystemTrayIcon) QMenu {
+        return .{ .ptr = qtc.QSystemTrayIcon_ContextMenu(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#icon)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn Icon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QSystemTrayIcon_Icon(@ptrCast(self));
+    pub fn Icon(self: QSystemTrayIcon) QIcon {
+        return .{ .ptr = qtc.QSystemTrayIcon_Icon(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#setIcon)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QSystemTrayIcon_SetIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetIcon(self: QSystemTrayIcon, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QSystemTrayIcon_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#toolTip)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QSystemTrayIcon_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: QSystemTrayIcon, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QSystemTrayIcon_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsystemtrayicon.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -252,16 +280,16 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` tip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, tip: []const u8) void {
+    pub fn SetToolTip(self: QSystemTrayIcon, tip: []const u8) void {
         const tip_str = qtc.libqt_string{
             .len = tip.len,
             .data = tip.ptr,
         };
-        qtc.QSystemTrayIcon_SetToolTip(@ptrCast(self), tip_str);
+        qtc.QSystemTrayIcon_SetToolTip(@ptrCast(self.ptr), tip_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#isSystemTrayAvailable)
@@ -280,67 +308,67 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QSystemTrayIcon_Geometry(@ptrCast(self));
+    pub fn Geometry(self: QSystemTrayIcon) QRect {
+        return .{ .ptr = qtc.QSystemTrayIcon_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#isVisible)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QSystemTrayIcon_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: QSystemTrayIcon) bool {
+        return qtc.QSystemTrayIcon_IsVisible(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#setVisible)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QSystemTrayIcon_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: QSystemTrayIcon, visible: bool) void {
+        qtc.QSystemTrayIcon_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#show)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QSystemTrayIcon_Show(@ptrCast(self));
+    pub fn Show(self: QSystemTrayIcon) void {
+        qtc.QSystemTrayIcon_Show(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#hide)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QSystemTrayIcon_Hide(@ptrCast(self));
+    pub fn Hide(self: QSystemTrayIcon) void {
+        qtc.QSystemTrayIcon_Hide(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#showMessage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` title: []const u8 `
     ///
     /// ` msg: []const u8 `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn ShowMessage(self: ?*anyopaque, title: []const u8, msg: []const u8, icon: ?*anyopaque) void {
+    pub fn ShowMessage(self: QSystemTrayIcon, title: []const u8, msg: []const u8, icon: anytype) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -349,20 +377,21 @@ pub const qsystemtrayicon = struct {
             .len = msg.len,
             .data = msg.ptr,
         };
-        qtc.QSystemTrayIcon_ShowMessage(@ptrCast(self), title_str, msg_str, @ptrCast(icon));
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QSystemTrayIcon_ShowMessage(@ptrCast(self.ptr), title_str, msg_str, @ptrCast(icon.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#showMessage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` title: []const u8 `
     ///
     /// ` msg: []const u8 `
     ///
-    pub fn ShowMessage2(self: ?*anyopaque, title: []const u8, msg: []const u8) void {
+    pub fn ShowMessage2(self: QSystemTrayIcon, title: []const u8, msg: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -371,65 +400,66 @@ pub const qsystemtrayicon = struct {
             .len = msg.len,
             .data = msg.ptr,
         };
-        qtc.QSystemTrayIcon_ShowMessage2(@ptrCast(self), title_str, msg_str);
+        qtc.QSystemTrayIcon_ShowMessage2(@ptrCast(self.ptr), title_str, msg_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#activated)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` reason: qsystemtrayicon_enums.ActivationReason `
     ///
-    pub fn Activated(self: ?*anyopaque, reason: i32) void {
-        qtc.QSystemTrayIcon_Activated(@ptrCast(self), @bitCast(reason));
+    pub fn Activated(self: QSystemTrayIcon, reason: i32) void {
+        qtc.QSystemTrayIcon_Activated(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#activated)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` callback: *const fn (self: QtC.QSystemTrayIcon, reason: qsystemtrayicon_enums.ActivationReason) callconv(.c) void `
+    /// ` callback: *const fn (self: QSystemTrayIcon, reason: qsystemtrayicon_enums.ActivationReason) callconv(.c) void `
     ///
-    pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QSystemTrayIcon_Connect_Activated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActivated(self: QSystemTrayIcon, callback: *const fn (QSystemTrayIcon, i32) callconv(.c) void) void {
+        qtc.QSystemTrayIcon_Connect_Activated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#messageClicked)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn MessageClicked(self: ?*anyopaque) void {
-        qtc.QSystemTrayIcon_MessageClicked(@ptrCast(self));
+    pub fn MessageClicked(self: QSystemTrayIcon) void {
+        qtc.QSystemTrayIcon_MessageClicked(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#messageClicked)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` callback: *const fn (self: QtC.QSystemTrayIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QSystemTrayIcon) callconv(.c) void `
     ///
-    pub fn OnMessageClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSystemTrayIcon_Connect_MessageClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMessageClicked(self: QSystemTrayIcon, callback: *const fn (QSystemTrayIcon) callconv(.c) void) void {
+        qtc.QSystemTrayIcon_Connect_MessageClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#event)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSystemTrayIcon_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QSystemTrayIcon, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QSystemTrayIcon_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#event)
@@ -438,12 +468,12 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` callback: *const fn (self: QtC.QSystemTrayIcon, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSystemTrayIcon, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSystemTrayIcon_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QSystemTrayIcon, callback: *const fn (QSystemTrayIcon, QEvent) callconv(.c) bool) void {
+        qtc.QSystemTrayIcon_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -456,25 +486,26 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSystemTrayIcon_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QSystemTrayIcon, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QSystemTrayIcon_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -488,15 +519,15 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -510,17 +541,17 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` title: []const u8 `
     ///
     /// ` msg: []const u8 `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn ShowMessage4(self: ?*anyopaque, title: []const u8, msg: []const u8, icon: ?*anyopaque, msecs: i32) void {
+    pub fn ShowMessage4(self: QSystemTrayIcon, title: []const u8, msg: []const u8, icon: anytype, msecs: i32) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -529,14 +560,15 @@ pub const qsystemtrayicon = struct {
             .len = msg.len,
             .data = msg.ptr,
         };
-        qtc.QSystemTrayIcon_ShowMessage4(@ptrCast(self), title_str, msg_str, @ptrCast(icon), @bitCast(msecs));
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QSystemTrayIcon_ShowMessage4(@ptrCast(self.ptr), title_str, msg_str, @ptrCast(icon.ptr), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#showMessage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` title: []const u8 `
     ///
@@ -544,7 +576,7 @@ pub const qsystemtrayicon = struct {
     ///
     /// ` icon: qsystemtrayicon_enums.MessageIcon `
     ///
-    pub fn ShowMessage3(self: ?*anyopaque, title: []const u8, msg: []const u8, icon: i32) void {
+    pub fn ShowMessage3(self: QSystemTrayIcon, title: []const u8, msg: []const u8, icon: i32) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -553,14 +585,14 @@ pub const qsystemtrayicon = struct {
             .len = msg.len,
             .data = msg.ptr,
         };
-        qtc.QSystemTrayIcon_ShowMessage3(@ptrCast(self), title_str, msg_str, @bitCast(icon));
+        qtc.QSystemTrayIcon_ShowMessage3(@ptrCast(self.ptr), title_str, msg_str, @bitCast(icon));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsystemtrayicon.html#showMessage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` title: []const u8 `
     ///
@@ -570,7 +602,7 @@ pub const qsystemtrayicon = struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn ShowMessage42(self: ?*anyopaque, title: []const u8, msg: []const u8, icon: i32, msecs: i32) void {
+    pub fn ShowMessage42(self: QSystemTrayIcon, title: []const u8, msg: []const u8, icon: i32, msecs: i32) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -579,7 +611,7 @@ pub const qsystemtrayicon = struct {
             .len = msg.len,
             .data = msg.ptr,
         };
-        qtc.QSystemTrayIcon_ShowMessage42(@ptrCast(self), title_str, msg_str, @bitCast(icon), @bitCast(msecs));
+        qtc.QSystemTrayIcon_ShowMessage42(@ptrCast(self.ptr), title_str, msg_str, @bitCast(icon), @bitCast(msecs));
     }
 
     /// Inherited from QObject
@@ -588,12 +620,12 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QSystemTrayIcon, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsystemtrayicon.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -606,12 +638,12 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QSystemTrayIcon, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -620,10 +652,10 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QSystemTrayIcon) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -632,10 +664,10 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QSystemTrayIcon) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -644,10 +676,10 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QSystemTrayIcon) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -656,10 +688,10 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QSystemTrayIcon) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -668,12 +700,12 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QSystemTrayIcon, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -682,10 +714,10 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QSystemTrayIcon) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -694,12 +726,13 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QSystemTrayIcon, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -708,12 +741,12 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QSystemTrayIcon, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -722,12 +755,12 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QSystemTrayIcon, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -736,12 +769,12 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QSystemTrayIcon, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -750,12 +783,12 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QSystemTrayIcon, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -764,16 +797,17 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QSystemTrayIcon, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qsystemtrayicon.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qsystemtrayicon.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -783,12 +817,13 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QSystemTrayIcon, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -797,12 +832,13 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QSystemTrayIcon, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -811,12 +847,13 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QSystemTrayIcon, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -825,18 +862,20 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -845,16 +884,20 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -863,18 +906,19 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QSystemTrayIcon, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -883,18 +927,20 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -903,16 +949,20 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -921,10 +971,10 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QSystemTrayIcon) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -933,12 +983,13 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QSystemTrayIcon, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -947,10 +998,11 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -959,10 +1011,10 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QSystemTrayIcon) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -971,10 +1023,10 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QSystemTrayIcon) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -983,15 +1035,16 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QSystemTrayIcon, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1000,13 +1053,13 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QSystemTrayIcon, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1015,17 +1068,16 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QSystemTrayIcon, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qsystemtrayicon.DynamicPropertyNames: Memory allocation failed");
@@ -1044,10 +1096,10 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QSystemTrayIcon) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1056,10 +1108,10 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QSystemTrayIcon) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1068,10 +1120,10 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QSystemTrayIcon) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1080,12 +1132,12 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` callback: *const fn (self: QtC.QSystemTrayIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QSystemTrayIcon) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QSystemTrayIcon, callback: *const fn (QSystemTrayIcon) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1094,10 +1146,10 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QSystemTrayIcon) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1106,13 +1158,13 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QSystemTrayIcon, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1121,10 +1173,10 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QSystemTrayIcon) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1133,14 +1185,14 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QSystemTrayIcon, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1149,14 +1201,14 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QSystemTrayIcon, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1165,20 +1217,22 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1187,18 +1241,22 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1207,9 +1265,9 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1217,10 +1275,11 @@ pub const qsystemtrayicon = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QSystemTrayIcon, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1229,13 +1288,13 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QSystemTrayIcon, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1244,15 +1303,16 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QSystemTrayIcon, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1261,18 +1321,19 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QSystemTrayIcon, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1281,15 +1342,16 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QSystemTrayIcon, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1298,12 +1360,13 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QSystemTrayIcon, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1312,12 +1375,12 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` callback: *const fn (self: QtC.QSystemTrayIcon, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QSystemTrayIcon, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QSystemTrayIcon, callback: *const fn (QSystemTrayIcon, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1328,14 +1391,16 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSystemTrayIcon_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QSystemTrayIcon, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QSystemTrayIcon_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1350,14 +1415,16 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSystemTrayIcon_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QSystemTrayIcon, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QSystemTrayIcon_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1368,12 +1435,12 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSystemTrayIcon`
+    /// ` self: QSystemTrayIcon`
     ///
-    /// ` callback: *const fn (self: QtC.QSystemTrayIcon, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSystemTrayIcon, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSystemTrayIcon_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QSystemTrayIcon, callback: *const fn (QSystemTrayIcon, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QSystemTrayIcon_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1384,12 +1451,13 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSystemTrayIcon_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QSystemTrayIcon, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QSystemTrayIcon_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1404,12 +1472,13 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSystemTrayIcon_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QSystemTrayIcon, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QSystemTrayIcon_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1420,12 +1489,12 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSystemTrayIcon`
+    /// ` self: QSystemTrayIcon`
     ///
-    /// ` callback: *const fn (self: QtC.QSystemTrayIcon, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSystemTrayIcon, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSystemTrayIcon_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QSystemTrayIcon, callback: *const fn (QSystemTrayIcon, QTimerEvent) callconv(.c) void) void {
+        qtc.QSystemTrayIcon_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1436,12 +1505,13 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSystemTrayIcon_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QSystemTrayIcon, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QSystemTrayIcon_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1456,12 +1526,13 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSystemTrayIcon_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QSystemTrayIcon, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QSystemTrayIcon_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1472,12 +1543,12 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSystemTrayIcon`
+    /// ` self: QSystemTrayIcon`
     ///
-    /// ` callback: *const fn (self: QtC.QSystemTrayIcon, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSystemTrayIcon, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSystemTrayIcon_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QSystemTrayIcon, callback: *const fn (QSystemTrayIcon, QChildEvent) callconv(.c) void) void {
+        qtc.QSystemTrayIcon_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1488,12 +1559,13 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSystemTrayIcon_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QSystemTrayIcon, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QSystemTrayIcon_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1508,12 +1580,13 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSystemTrayIcon_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QSystemTrayIcon, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QSystemTrayIcon_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1524,12 +1597,12 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSystemTrayIcon`
+    /// ` self: QSystemTrayIcon`
     ///
-    /// ` callback: *const fn (self: QtC.QSystemTrayIcon, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSystemTrayIcon, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSystemTrayIcon_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QSystemTrayIcon, callback: *const fn (QSystemTrayIcon, QEvent) callconv(.c) void) void {
+        qtc.QSystemTrayIcon_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1540,12 +1613,13 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSystemTrayIcon_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QSystemTrayIcon, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSystemTrayIcon_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1560,12 +1634,13 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSystemTrayIcon_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QSystemTrayIcon, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSystemTrayIcon_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1576,12 +1651,12 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSystemTrayIcon`
+    /// ` self: QSystemTrayIcon`
     ///
-    /// ` callback: *const fn (self: QtC.QSystemTrayIcon, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QSystemTrayIcon, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSystemTrayIcon_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QSystemTrayIcon, callback: *const fn (QSystemTrayIcon, QMetaMethod) callconv(.c) void) void {
+        qtc.QSystemTrayIcon_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1592,12 +1667,13 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSystemTrayIcon_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QSystemTrayIcon, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSystemTrayIcon_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1612,12 +1688,13 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSystemTrayIcon_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QSystemTrayIcon, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSystemTrayIcon_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1628,12 +1705,12 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSystemTrayIcon`
+    /// ` self: QSystemTrayIcon`
     ///
-    /// ` callback: *const fn (self: QtC.QSystemTrayIcon, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QSystemTrayIcon, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSystemTrayIcon_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QSystemTrayIcon, callback: *const fn (QSystemTrayIcon, QMetaMethod) callconv(.c) void) void {
+        qtc.QSystemTrayIcon_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1644,10 +1721,10 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QSystemTrayIcon_Sender(@ptrCast(self));
+    pub fn Sender(self: QSystemTrayIcon) QObject {
+        return .{ .ptr = qtc.QSystemTrayIcon_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -1662,10 +1739,10 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QSystemTrayIcon_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QSystemTrayIcon) QObject {
+        return .{ .ptr = qtc.QSystemTrayIcon_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1676,12 +1753,12 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSystemTrayIcon`
+    /// ` self: QSystemTrayIcon`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QSystemTrayIcon_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QSystemTrayIcon, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QSystemTrayIcon_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1692,10 +1769,10 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QSystemTrayIcon_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QSystemTrayIcon) i32 {
+        return qtc.QSystemTrayIcon_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -1710,10 +1787,10 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QSystemTrayIcon_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QSystemTrayIcon) i32 {
+        return qtc.QSystemTrayIcon_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1724,12 +1801,12 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSystemTrayIcon`
+    /// ` self: QSystemTrayIcon`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QSystemTrayIcon_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QSystemTrayIcon, callback: *const fn () callconv(.c) i32) void {
+        qtc.QSystemTrayIcon_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1740,13 +1817,13 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QSystemTrayIcon, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QSystemTrayIcon_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QSystemTrayIcon_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -1761,13 +1838,13 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QSystemTrayIcon, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QSystemTrayIcon_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QSystemTrayIcon_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1778,12 +1855,12 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSystemTrayIcon`
+    /// ` self: QSystemTrayIcon`
     ///
-    /// ` callback: *const fn (self: QtC.QSystemTrayIcon, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSystemTrayIcon, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QSystemTrayIcon_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QSystemTrayIcon, callback: *const fn (QSystemTrayIcon, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QSystemTrayIcon_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1794,12 +1871,13 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QSystemTrayIcon_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QSystemTrayIcon, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QSystemTrayIcon_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -1814,12 +1892,13 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QSystemTrayIcon_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QSystemTrayIcon, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QSystemTrayIcon_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1830,12 +1909,12 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSystemTrayIcon`
+    /// ` self: QSystemTrayIcon`
     ///
-    /// ` callback: *const fn (self: QtC.QSystemTrayIcon, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSystemTrayIcon, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSystemTrayIcon_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QSystemTrayIcon, callback: *const fn (QSystemTrayIcon, QMetaMethod) callconv(.c) bool) void {
+        qtc.QSystemTrayIcon_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1846,12 +1925,12 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    /// ` callback: *const fn (self: QtC.QSystemTrayIcon, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QSystemTrayIcon, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QSystemTrayIcon, callback: *const fn (QSystemTrayIcon, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1864,10 +1943,10 @@ pub const qsystemtrayicon = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QSystemTrayIcon `
+    /// ` self: QSystemTrayIcon `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QSystemTrayIcon_Delete(@ptrCast(self));
+    pub fn Delete(self: QSystemTrayIcon) void {
+        qtc.QSystemTrayIcon_Delete(@ptrCast(self.ptr));
     }
 };
 

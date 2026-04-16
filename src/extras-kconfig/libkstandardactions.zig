@@ -1,32 +1,43 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAction = @import("libqt6").QAction;
+const QObject = @import("libqt6").QObject;
 const kstandardactions_enums = enums;
 const kstandardshortcut_enums = @import("libkstandardshortcut.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kstandardactions.html)
-pub const kstandardactions = struct {
+pub const KStandardActions = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kstandardactions.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KStandardActions,
+
+    pub const _is_KStandardActions = {};
+
     /// ### [Upstream resources](https://api.kde.org/kstandardactions.html#_kgui_createInternal)
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: kstandardactions_enums.StandardAction `
     ///
-    /// ` param2: QtC.QObject `
+    /// ` param2: QObject `
     ///
-    pub fn KguiCreateInternal(param1: i32, param2: ?*anyopaque) QtC.QAction {
-        return qtc.KStandardActions_KguiCreateInternal(@bitCast(param1), @ptrCast(param2));
+    pub fn KguiCreateInternal(param1: i32, param2: anytype) QAction {
+        comptime _ = @TypeOf(param2)._is_QObject;
+        return .{ .ptr = qtc.KStandardActions_KguiCreateInternal(@bitCast(param1), @ptrCast(param2.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardactions.html#name)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: kstandardactions_enums.StandardAction `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(param1: i32, allocator: std.mem.Allocator) []const u8 {
+    /// ` param1: kstandardactions_enums.StandardAction `
+    ///
+    pub fn Name(allocator: std.mem.Allocator, param1: i32) []const u8 {
         var _str = qtc.KStandardActions_Name(@bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstandardactions.Name: Memory allocation failed");

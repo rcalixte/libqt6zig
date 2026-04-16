@@ -1,5 +1,68 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAction = @import("libqt6").QAction;
+const QActionEvent = @import("libqt6").QActionEvent;
+const QBackingStore = @import("libqt6").QBackingStore;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBitmap = @import("libqt6").QBitmap;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QCloseEvent = @import("libqt6").QCloseEvent;
+const QColor = @import("libqt6").QColor;
+const QContextMenuEvent = @import("libqt6").QContextMenuEvent;
+const QCursor = @import("libqt6").QCursor;
+const QDragEnterEvent = @import("libqt6").QDragEnterEvent;
+const QDragLeaveEvent = @import("libqt6").QDragLeaveEvent;
+const QDragMoveEvent = @import("libqt6").QDragMoveEvent;
+const QDropEvent = @import("libqt6").QDropEvent;
+const QEnterEvent = @import("libqt6").QEnterEvent;
+const QEvent = @import("libqt6").QEvent;
+const QFocusEvent = @import("libqt6").QFocusEvent;
+const QFont = @import("libqt6").QFont;
+const QFontInfo = @import("libqt6").QFontInfo;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QGraphicsEffect = @import("libqt6").QGraphicsEffect;
+const QGraphicsProxyWidget = @import("libqt6").QGraphicsProxyWidget;
+const QHideEvent = @import("libqt6").QHideEvent;
+const QIcon = @import("libqt6").QIcon;
+const QInputMethodEvent = @import("libqt6").QInputMethodEvent;
+const QKeyEvent = @import("libqt6").QKeyEvent;
+const QKeySequence = @import("libqt6").QKeySequence;
+const QLayout = @import("libqt6").QLayout;
+const QLocale = @import("libqt6").QLocale;
+const QMargins = @import("libqt6").QMargins;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMouseEvent = @import("libqt6").QMouseEvent;
+const QMoveEvent = @import("libqt6").QMoveEvent;
+const QMovie = @import("libqt6").QMovie;
+const QObject = @import("libqt6").QObject;
+const QPaintDevice = @import("libqt6").QPaintDevice;
+const QPaintEngine = @import("libqt6").QPaintEngine;
+const QPaintEvent = @import("libqt6").QPaintEvent;
+const QPainter = @import("libqt6").QPainter;
+const QPalette = @import("libqt6").QPalette;
+const QPicture = @import("libqt6").QPicture;
+const QPixmap = @import("libqt6").QPixmap;
+const QPoint = @import("libqt6").QPoint;
+const QPointF = @import("libqt6").QPointF;
+const QRect = @import("libqt6").QRect;
+const QRegion = @import("libqt6").QRegion;
+const QResizeEvent = @import("libqt6").QResizeEvent;
+const QScreen = @import("libqt6").QScreen;
+const QShowEvent = @import("libqt6").QShowEvent;
+const QSize = @import("libqt6").QSize;
+const QSizePolicy = @import("libqt6").QSizePolicy;
+const QStyle = @import("libqt6").QStyle;
+const QStyleOptionFrame = @import("libqt6").QStyleOptionFrame;
+const QTabletEvent = @import("libqt6").QTabletEvent;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QUrl = @import("libqt6").QUrl;
+const QVariant = @import("libqt6").QVariant;
+const QWheelEvent = @import("libqt6").QWheelEvent;
+const QWidget = @import("libqt6").QWidget;
+const QWindow = @import("libqt6").QWindow;
 const qframe_enums = @import("../libqframe.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
@@ -10,21 +73,35 @@ const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kurllabel.html)
-pub const kurllabel = struct {
+pub const KUrlLabel = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kurllabel.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KUrlLabel,
+
+    pub const _is_KUrlLabel = {};
+    pub const _is_QLabel = {};
+    pub const _is_QFrame = {};
+    pub const _is_QWidget = {};
+    pub const _is_QObject = {};
+    pub const _is_QPaintDevice = {};
+
     /// New constructs a new KUrlLabel object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.KUrlLabel {
-        return qtc.KUrlLabel_new(@ptrCast(parent));
+    pub fn New(parent: anytype) KUrlLabel {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.KUrlLabel_new(@ptrCast(parent.ptr)) };
     }
 
     /// New2 constructs a new KUrlLabel object.
     ///
-    pub fn New2() QtC.KUrlLabel {
-        return qtc.KUrlLabel_new2();
+    pub fn New2() KUrlLabel {
+        return .{ .ptr = qtc.KUrlLabel_new2() };
     }
 
     /// New3 constructs a new KUrlLabel object.
@@ -33,13 +110,12 @@ pub const kurllabel = struct {
     ///
     /// ` url: []const u8 `
     ///
-    pub fn New3(url: []const u8) QtC.KUrlLabel {
+    pub fn New3(url: []const u8) KUrlLabel {
         const url_str = qtc.libqt_string{
             .len = url.len,
             .data = url.ptr,
         };
-
-        return qtc.KUrlLabel_new3(url_str);
+        return .{ .ptr = qtc.KUrlLabel_new3(url_str) };
     }
 
     /// New4 constructs a new KUrlLabel object.
@@ -50,7 +126,7 @@ pub const kurllabel = struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn New4(url: []const u8, text: []const u8) QtC.KUrlLabel {
+    pub fn New4(url: []const u8, text: []const u8) KUrlLabel {
         const url_str = qtc.libqt_string{
             .len = url.len,
             .data = url.ptr,
@@ -59,8 +135,7 @@ pub const kurllabel = struct {
             .len = text.len,
             .data = text.ptr,
         };
-
-        return qtc.KUrlLabel_new4(url_str, text_str);
+        return .{ .ptr = qtc.KUrlLabel_new4(url_str, text_str) };
     }
 
     /// New5 constructs a new KUrlLabel object.
@@ -71,9 +146,9 @@ pub const kurllabel = struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New5(url: []const u8, text: []const u8, parent: ?*anyopaque) QtC.KUrlLabel {
+    pub fn New5(url: []const u8, text: []const u8, parent: anytype) KUrlLabel {
         const url_str = qtc.libqt_string{
             .len = url.len,
             .data = url.ptr,
@@ -82,18 +157,18 @@ pub const kurllabel = struct {
             .len = text.len,
             .data = text.ptr,
         };
-
-        return qtc.KUrlLabel_new5(url_str, text_str, @ptrCast(parent));
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.KUrlLabel_new5(url_str, text_str, @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KUrlLabel_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KUrlLabel) QMetaObject {
+        return .{ .ptr = qtc.KUrlLabel_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -102,12 +177,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KUrlLabel_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KUrlLabel, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KUrlLabel_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -120,33 +195,33 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KUrlLabel_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KUrlLabel) QMetaObject {
+        return .{ .ptr = qtc.KUrlLabel_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KUrlLabel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KUrlLabel_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KUrlLabel_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KUrlLabel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KUrlLabel_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KUrlLabel, callback: *const fn (KUrlLabel, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KUrlLabel_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -157,18 +232,18 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KUrlLabel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KUrlLabel_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KUrlLabel_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -176,20 +251,20 @@ pub const kurllabel = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KUrlLabel_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KUrlLabel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KUrlLabel_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KUrlLabel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KUrlLabel_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KUrlLabel, callback: *const fn (KUrlLabel, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KUrlLabel_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -200,7 +275,7 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -208,19 +283,19 @@ pub const kurllabel = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KUrlLabel_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KUrlLabel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KUrlLabel_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -233,12 +308,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Url(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KUrlLabel_Url(@ptrCast(self));
+    pub fn Url(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KUrlLabel_Url(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurllabel.Url: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -249,12 +324,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TipText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KUrlLabel_TipText(@ptrCast(self));
+    pub fn TipText(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KUrlLabel_TipText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurllabel.TipText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -265,88 +340,89 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn UseTips(self: ?*anyopaque) bool {
-        return qtc.KUrlLabel_UseTips(@ptrCast(self));
+    pub fn UseTips(self: KUrlLabel) bool {
+        return qtc.KUrlLabel_UseTips(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#useCursor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn UseCursor(self: ?*anyopaque) bool {
-        return qtc.KUrlLabel_UseCursor(@ptrCast(self));
+    pub fn UseCursor(self: KUrlLabel) bool {
+        return qtc.KUrlLabel_UseCursor(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#isGlowEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn IsGlowEnabled(self: ?*anyopaque) bool {
-        return qtc.KUrlLabel_IsGlowEnabled(@ptrCast(self));
+    pub fn IsGlowEnabled(self: KUrlLabel) bool {
+        return qtc.KUrlLabel_IsGlowEnabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#isFloatEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn IsFloatEnabled(self: ?*anyopaque) bool {
-        return qtc.KUrlLabel_IsFloatEnabled(@ptrCast(self));
+    pub fn IsFloatEnabled(self: KUrlLabel) bool {
+        return qtc.KUrlLabel_IsFloatEnabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#alternatePixmap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn AlternatePixmap(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.KUrlLabel_AlternatePixmap(@ptrCast(self));
+    pub fn AlternatePixmap(self: KUrlLabel) QPixmap {
+        return .{ .ptr = qtc.KUrlLabel_AlternatePixmap(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setUnderline)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SetUnderline(self: ?*anyopaque) void {
-        qtc.KUrlLabel_SetUnderline(@ptrCast(self));
+    pub fn SetUnderline(self: KUrlLabel) void {
+        qtc.KUrlLabel_SetUnderline(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` url: []const u8 `
     ///
-    pub fn SetUrl(self: ?*anyopaque, url: []const u8) void {
+    pub fn SetUrl(self: KUrlLabel, url: []const u8) void {
         const url_str = qtc.libqt_string{
             .len = url.len,
             .data = url.ptr,
         };
-        qtc.KUrlLabel_SetUrl(@ptrCast(self), url_str);
+        qtc.KUrlLabel_SetUrl(@ptrCast(self.ptr), url_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setFont)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.KUrlLabel_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: KUrlLabel, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.KUrlLabel_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setFont)
@@ -355,12 +431,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, font: QtC.QFont) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, font: QFont) callconv(.c) void `
     ///
-    pub fn OnSetFont(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnSetFont(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetFont(self: KUrlLabel, callback: *const fn (KUrlLabel, QFont) callconv(.c) void) void {
+        qtc.KUrlLabel_OnSetFont(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetFont` instead
@@ -373,260 +449,265 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SuperSetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperSetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SuperSetFont(self: KUrlLabel, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.KUrlLabel_SuperSetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setUseTips)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SetUseTips(self: ?*anyopaque) void {
-        qtc.KUrlLabel_SetUseTips(@ptrCast(self));
+    pub fn SetUseTips(self: KUrlLabel) void {
+        qtc.KUrlLabel_SetUseTips(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setTipText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` tip: []const u8 `
     ///
-    pub fn SetTipText(self: ?*anyopaque, tip: []const u8) void {
+    pub fn SetTipText(self: KUrlLabel, tip: []const u8) void {
         const tip_str = qtc.libqt_string{
             .len = tip.len,
             .data = tip.ptr,
         };
-        qtc.KUrlLabel_SetTipText(@ptrCast(self), tip_str);
+        qtc.KUrlLabel_SetTipText(@ptrCast(self.ptr), tip_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setHighlightedColor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` highcolor: QtC.QColor `
+    /// ` highcolor: QColor `
     ///
-    pub fn SetHighlightedColor(self: ?*anyopaque, highcolor: ?*anyopaque) void {
-        qtc.KUrlLabel_SetHighlightedColor(@ptrCast(self), @ptrCast(highcolor));
+    pub fn SetHighlightedColor(self: KUrlLabel, highcolor: anytype) void {
+        comptime _ = @TypeOf(highcolor)._is_QColor;
+        qtc.KUrlLabel_SetHighlightedColor(@ptrCast(self.ptr), @ptrCast(highcolor.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setHighlightedColor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` highcolor: []const u8 `
     ///
-    pub fn SetHighlightedColor2(self: ?*anyopaque, highcolor: []const u8) void {
+    pub fn SetHighlightedColor2(self: KUrlLabel, highcolor: []const u8) void {
         const highcolor_str = qtc.libqt_string{
             .len = highcolor.len,
             .data = highcolor.ptr,
         };
-        qtc.KUrlLabel_SetHighlightedColor2(@ptrCast(self), highcolor_str);
+        qtc.KUrlLabel_SetHighlightedColor2(@ptrCast(self.ptr), highcolor_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setSelectedColor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn SetSelectedColor(self: ?*anyopaque, color: ?*anyopaque) void {
-        qtc.KUrlLabel_SetSelectedColor(@ptrCast(self), @ptrCast(color));
+    pub fn SetSelectedColor(self: KUrlLabel, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.KUrlLabel_SetSelectedColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setSelectedColor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` color: []const u8 `
     ///
-    pub fn SetSelectedColor2(self: ?*anyopaque, color: []const u8) void {
+    pub fn SetSelectedColor2(self: KUrlLabel, color: []const u8) void {
         const color_str = qtc.libqt_string{
             .len = color.len,
             .data = color.ptr,
         };
-        qtc.KUrlLabel_SetSelectedColor2(@ptrCast(self), color_str);
+        qtc.KUrlLabel_SetSelectedColor2(@ptrCast(self.ptr), color_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setUseCursor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` on: bool `
     ///
-    pub fn SetUseCursor(self: ?*anyopaque, on: bool) void {
-        qtc.KUrlLabel_SetUseCursor(@ptrCast(self), on);
+    pub fn SetUseCursor(self: KUrlLabel, on: bool) void {
+        qtc.KUrlLabel_SetUseCursor(@ptrCast(self.ptr), on);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setGlowEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SetGlowEnabled(self: ?*anyopaque) void {
-        qtc.KUrlLabel_SetGlowEnabled(@ptrCast(self));
+    pub fn SetGlowEnabled(self: KUrlLabel) void {
+        qtc.KUrlLabel_SetGlowEnabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setFloatEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SetFloatEnabled(self: ?*anyopaque) void {
-        qtc.KUrlLabel_SetFloatEnabled(@ptrCast(self));
+    pub fn SetFloatEnabled(self: KUrlLabel) void {
+        qtc.KUrlLabel_SetFloatEnabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setAlternatePixmap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` pixmap: QtC.QPixmap `
+    /// ` pixmap: QPixmap `
     ///
-    pub fn SetAlternatePixmap(self: ?*anyopaque, pixmap: ?*anyopaque) void {
-        qtc.KUrlLabel_SetAlternatePixmap(@ptrCast(self), @ptrCast(pixmap));
+    pub fn SetAlternatePixmap(self: KUrlLabel, pixmap: anytype) void {
+        comptime _ = @TypeOf(pixmap)._is_QPixmap;
+        qtc.KUrlLabel_SetAlternatePixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#enteredUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn EnteredUrl(self: ?*anyopaque) void {
-        qtc.KUrlLabel_EnteredUrl(@ptrCast(self));
+    pub fn EnteredUrl(self: KUrlLabel) void {
+        qtc.KUrlLabel_EnteredUrl(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#enteredUrl)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel) callconv(.c) void `
     ///
-    pub fn OnEnteredUrl(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_Connect_EnteredUrl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnteredUrl(self: KUrlLabel, callback: *const fn (KUrlLabel) callconv(.c) void) void {
+        qtc.KUrlLabel_Connect_EnteredUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#leftUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn LeftUrl(self: ?*anyopaque) void {
-        qtc.KUrlLabel_LeftUrl(@ptrCast(self));
+    pub fn LeftUrl(self: KUrlLabel) void {
+        qtc.KUrlLabel_LeftUrl(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#leftUrl)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel) callconv(.c) void `
     ///
-    pub fn OnLeftUrl(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_Connect_LeftUrl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeftUrl(self: KUrlLabel, callback: *const fn (KUrlLabel) callconv(.c) void) void {
+        qtc.KUrlLabel_Connect_LeftUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#leftClickedUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn LeftClickedUrl(self: ?*anyopaque) void {
-        qtc.KUrlLabel_LeftClickedUrl(@ptrCast(self));
+    pub fn LeftClickedUrl(self: KUrlLabel) void {
+        qtc.KUrlLabel_LeftClickedUrl(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#leftClickedUrl)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel) callconv(.c) void `
     ///
-    pub fn OnLeftClickedUrl(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_Connect_LeftClickedUrl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeftClickedUrl(self: KUrlLabel, callback: *const fn (KUrlLabel) callconv(.c) void) void {
+        qtc.KUrlLabel_Connect_LeftClickedUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#rightClickedUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn RightClickedUrl(self: ?*anyopaque) void {
-        qtc.KUrlLabel_RightClickedUrl(@ptrCast(self));
+    pub fn RightClickedUrl(self: KUrlLabel) void {
+        qtc.KUrlLabel_RightClickedUrl(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#rightClickedUrl)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel) callconv(.c) void `
     ///
-    pub fn OnRightClickedUrl(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_Connect_RightClickedUrl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRightClickedUrl(self: KUrlLabel, callback: *const fn (KUrlLabel) callconv(.c) void) void {
+        qtc.KUrlLabel_Connect_RightClickedUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#middleClickedUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn MiddleClickedUrl(self: ?*anyopaque) void {
-        qtc.KUrlLabel_MiddleClickedUrl(@ptrCast(self));
+    pub fn MiddleClickedUrl(self: KUrlLabel) void {
+        qtc.KUrlLabel_MiddleClickedUrl(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#middleClickedUrl)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel) callconv(.c) void `
     ///
-    pub fn OnMiddleClickedUrl(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_Connect_MiddleClickedUrl(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMiddleClickedUrl(self: KUrlLabel, callback: *const fn (KUrlLabel) callconv(.c) void) void {
+        qtc.KUrlLabel_Connect_MiddleClickedUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#mouseReleaseEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QMouseEvent `
+    /// ` param1: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KUrlLabel_MouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn MouseReleaseEvent(self: KUrlLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QMouseEvent;
+        qtc.KUrlLabel_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#mouseReleaseEvent)
@@ -635,12 +716,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, param1: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseReleaseEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QMouseEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
@@ -653,24 +734,26 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QMouseEvent `
+    /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMouseReleaseEvent(self: KUrlLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QMouseEvent;
+        qtc.KUrlLabel_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#enterEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_EnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn EnterEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.KUrlLabel_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#enterEvent)
@@ -679,12 +762,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, event: QtC.QEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnterEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QEnterEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEnterEvent` instead
@@ -697,24 +780,26 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.KUrlLabel_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#leaveEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn LeaveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KUrlLabel_LeaveEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn LeaveEvent(self: KUrlLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.KUrlLabel_LeaveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#leaveEvent)
@@ -723,12 +808,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, param1: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeaveEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperLeaveEvent` instead
@@ -741,24 +826,26 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperLeaveEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperLeaveEvent(self: KUrlLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.KUrlLabel_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#event)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.KUrlLabel_Event(@ptrCast(self), @ptrCast(param1));
+    pub fn Event(self: KUrlLabel, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        return qtc.KUrlLabel_Event(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#event)
@@ -767,12 +854,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, param1: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KUrlLabel, param1: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KUrlLabel_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QEvent) callconv(.c) bool) void {
+        qtc.KUrlLabel_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -785,25 +872,26 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.KUrlLabel_SuperEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperEvent(self: KUrlLabel, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        return qtc.KUrlLabel_SuperEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -817,15 +905,15 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -839,62 +927,63 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` on: bool `
     ///
-    pub fn SetUnderline1(self: ?*anyopaque, on: bool) void {
-        qtc.KUrlLabel_SetUnderline1(@ptrCast(self), on);
+    pub fn SetUnderline1(self: KUrlLabel, on: bool) void {
+        qtc.KUrlLabel_SetUnderline1(@ptrCast(self.ptr), on);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setUseTips)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` on: bool `
     ///
-    pub fn SetUseTips1(self: ?*anyopaque, on: bool) void {
-        qtc.KUrlLabel_SetUseTips1(@ptrCast(self), on);
+    pub fn SetUseTips1(self: KUrlLabel, on: bool) void {
+        qtc.KUrlLabel_SetUseTips1(@ptrCast(self.ptr), on);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setUseCursor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` on: bool `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetUseCursor2(self: ?*anyopaque, on: bool, cursor: ?*anyopaque) void {
-        qtc.KUrlLabel_SetUseCursor2(@ptrCast(self), on, @ptrCast(cursor));
+    pub fn SetUseCursor2(self: KUrlLabel, on: bool, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.KUrlLabel_SetUseCursor2(@ptrCast(self.ptr), on, @ptrCast(cursor.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setGlowEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` glow: bool `
     ///
-    pub fn SetGlowEnabled1(self: ?*anyopaque, glow: bool) void {
-        qtc.KUrlLabel_SetGlowEnabled1(@ptrCast(self), glow);
+    pub fn SetGlowEnabled1(self: KUrlLabel, glow: bool) void {
+        qtc.KUrlLabel_SetGlowEnabled1(@ptrCast(self.ptr), glow);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurllabel.html#setFloatEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` do_float: bool `
     ///
-    pub fn SetFloatEnabled1(self: ?*anyopaque, do_float: bool) void {
-        qtc.KUrlLabel_SetFloatEnabled1(@ptrCast(self), do_float);
+    pub fn SetFloatEnabled1(self: KUrlLabel, do_float: bool) void {
+        qtc.KUrlLabel_SetFloatEnabled1(@ptrCast(self.ptr), do_float);
     }
 
     /// Inherited from QLabel
@@ -903,12 +992,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLabel_Text(@ptrCast(self));
+    pub fn Text(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QLabel_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurllabel.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -921,12 +1010,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` param1: qnamespace_enums.ReturnByValueConstant `
     ///
-    pub fn Pixmap(self: ?*anyopaque, param1: i32) QtC.QPixmap {
-        return qtc.QLabel_Pixmap(@ptrCast(self), @bitCast(param1));
+    pub fn Pixmap(self: KUrlLabel, param1: i32) QPixmap {
+        return .{ .ptr = qtc.QLabel_Pixmap(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// Inherited from QLabel
@@ -935,10 +1024,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Pixmap2(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QLabel_Pixmap2(@ptrCast(self));
+    pub fn Pixmap2(self: KUrlLabel) QPixmap {
+        return .{ .ptr = qtc.QLabel_Pixmap2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QLabel
@@ -947,12 +1036,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` param1: qnamespace_enums.ReturnByValueConstant `
     ///
-    pub fn Picture(self: ?*anyopaque, param1: i32) QtC.QPicture {
-        return qtc.QLabel_Picture(@ptrCast(self), @bitCast(param1));
+    pub fn Picture(self: KUrlLabel, param1: i32) QPicture {
+        return .{ .ptr = qtc.QLabel_Picture(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// Inherited from QLabel
@@ -961,10 +1050,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Picture2(self: ?*anyopaque) QtC.QPicture {
-        return qtc.QLabel_Picture2(@ptrCast(self));
+    pub fn Picture2(self: KUrlLabel) QPicture {
+        return .{ .ptr = qtc.QLabel_Picture2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QLabel
@@ -973,10 +1062,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Movie(self: ?*anyopaque) QtC.QMovie {
-        return qtc.QLabel_Movie(@ptrCast(self));
+    pub fn Movie(self: KUrlLabel) QMovie {
+        return .{ .ptr = qtc.QLabel_Movie(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QLabel
@@ -985,14 +1074,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.TextFormat `
     ///
-    pub fn TextFormat(self: ?*anyopaque) i32 {
-        return qtc.QLabel_TextFormat(@ptrCast(self));
+    pub fn TextFormat(self: KUrlLabel) i32 {
+        return qtc.QLabel_TextFormat(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLabel
@@ -1001,12 +1090,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` textFormat: qnamespace_enums.TextFormat `
     ///
-    pub fn SetTextFormat(self: ?*anyopaque, textFormat: i32) void {
-        qtc.QLabel_SetTextFormat(@ptrCast(self), @bitCast(textFormat));
+    pub fn SetTextFormat(self: KUrlLabel, textFormat: i32) void {
+        qtc.QLabel_SetTextFormat(@ptrCast(self.ptr), @bitCast(textFormat));
     }
 
     /// Inherited from QLabel
@@ -1015,12 +1104,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` provider: *const fn (funcparam1: QtC.QUrl) callconv(.c) QtC.QVariant `
+    /// ` provider: *const fn (funcparam1: QUrl) callconv(.c) QVariant `
     ///
-    pub fn SetResourceProvider(self: ?*anyopaque, provider: *const fn (?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QLabel_SetResourceProvider(@ptrCast(self), @bitCast(@intFromPtr(provider)));
+    pub fn SetResourceProvider(self: KUrlLabel, provider: *const fn (QUrl) callconv(.c) QVariant) void {
+        qtc.QLabel_SetResourceProvider(@ptrCast(self.ptr), @bitCast(@intFromPtr(provider)));
     }
 
     /// Inherited from QLabel
@@ -1029,14 +1118,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: ?*anyopaque) i32 {
-        return qtc.QLabel_Alignment(@ptrCast(self));
+    pub fn Alignment(self: KUrlLabel) i32 {
+        return qtc.QLabel_Alignment(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLabel
@@ -1045,12 +1134,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment(self: ?*anyopaque, alignment: i32) void {
-        qtc.QLabel_SetAlignment(@ptrCast(self), @bitCast(alignment));
+    pub fn SetAlignment(self: KUrlLabel, alignment: i32) void {
+        qtc.QLabel_SetAlignment(@ptrCast(self.ptr), @bitCast(alignment));
     }
 
     /// Inherited from QLabel
@@ -1059,12 +1148,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWordWrap(self: ?*anyopaque, on: bool) void {
-        qtc.QLabel_SetWordWrap(@ptrCast(self), on);
+    pub fn SetWordWrap(self: KUrlLabel, on: bool) void {
+        qtc.QLabel_SetWordWrap(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QLabel
@@ -1073,10 +1162,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn WordWrap(self: ?*anyopaque) bool {
-        return qtc.QLabel_WordWrap(@ptrCast(self));
+    pub fn WordWrap(self: KUrlLabel) bool {
+        return qtc.QLabel_WordWrap(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLabel
@@ -1085,10 +1174,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Indent(self: ?*anyopaque) i32 {
-        return qtc.QLabel_Indent(@ptrCast(self));
+    pub fn Indent(self: KUrlLabel) i32 {
+        return qtc.QLabel_Indent(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLabel
@@ -1097,12 +1186,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` indent: i32 `
     ///
-    pub fn SetIndent(self: ?*anyopaque, indent: i32) void {
-        qtc.QLabel_SetIndent(@ptrCast(self), @bitCast(indent));
+    pub fn SetIndent(self: KUrlLabel, indent: i32) void {
+        qtc.QLabel_SetIndent(@ptrCast(self.ptr), @bitCast(indent));
     }
 
     /// Inherited from QLabel
@@ -1111,10 +1200,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Margin(self: ?*anyopaque) i32 {
-        return qtc.QLabel_Margin(@ptrCast(self));
+    pub fn Margin(self: KUrlLabel) i32 {
+        return qtc.QLabel_Margin(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLabel
@@ -1123,12 +1212,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` margin: i32 `
     ///
-    pub fn SetMargin(self: ?*anyopaque, margin: i32) void {
-        qtc.QLabel_SetMargin(@ptrCast(self), @bitCast(margin));
+    pub fn SetMargin(self: KUrlLabel, margin: i32) void {
+        qtc.QLabel_SetMargin(@ptrCast(self.ptr), @bitCast(margin));
     }
 
     /// Inherited from QLabel
@@ -1137,10 +1226,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn HasScaledContents(self: ?*anyopaque) bool {
-        return qtc.QLabel_HasScaledContents(@ptrCast(self));
+    pub fn HasScaledContents(self: KUrlLabel) bool {
+        return qtc.QLabel_HasScaledContents(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLabel
@@ -1149,12 +1238,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` scaledContents: bool `
     ///
-    pub fn SetScaledContents(self: ?*anyopaque, scaledContents: bool) void {
-        qtc.QLabel_SetScaledContents(@ptrCast(self), scaledContents);
+    pub fn SetScaledContents(self: KUrlLabel, scaledContents: bool) void {
+        qtc.QLabel_SetScaledContents(@ptrCast(self.ptr), scaledContents);
     }
 
     /// Inherited from QLabel
@@ -1163,12 +1252,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` buddy: QtC.QWidget `
+    /// ` buddy: QWidget `
     ///
-    pub fn SetBuddy(self: ?*anyopaque, buddy: ?*anyopaque) void {
-        qtc.QLabel_SetBuddy(@ptrCast(self), @ptrCast(buddy));
+    pub fn SetBuddy(self: KUrlLabel, buddy: anytype) void {
+        comptime _ = @TypeOf(buddy)._is_QWidget;
+        qtc.QLabel_SetBuddy(@ptrCast(self.ptr), @ptrCast(buddy.ptr));
     }
 
     /// Inherited from QLabel
@@ -1177,10 +1267,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Buddy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QLabel_Buddy(@ptrCast(self));
+    pub fn Buddy(self: KUrlLabel) QWidget {
+        return .{ .ptr = qtc.QLabel_Buddy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QLabel
@@ -1189,10 +1279,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn OpenExternalLinks(self: ?*anyopaque) bool {
-        return qtc.QLabel_OpenExternalLinks(@ptrCast(self));
+    pub fn OpenExternalLinks(self: KUrlLabel) bool {
+        return qtc.QLabel_OpenExternalLinks(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLabel
@@ -1201,12 +1291,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` open: bool `
     ///
-    pub fn SetOpenExternalLinks(self: ?*anyopaque, open: bool) void {
-        qtc.QLabel_SetOpenExternalLinks(@ptrCast(self), open);
+    pub fn SetOpenExternalLinks(self: KUrlLabel, open: bool) void {
+        qtc.QLabel_SetOpenExternalLinks(@ptrCast(self.ptr), open);
     }
 
     /// Inherited from QLabel
@@ -1215,12 +1305,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` flags: flag of qnamespace_enums.TextInteractionFlag `
     ///
-    pub fn SetTextInteractionFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QLabel_SetTextInteractionFlags(@ptrCast(self), @bitCast(flags));
+    pub fn SetTextInteractionFlags(self: KUrlLabel, flags: i32) void {
+        qtc.QLabel_SetTextInteractionFlags(@ptrCast(self.ptr), @bitCast(flags));
     }
 
     /// Inherited from QLabel
@@ -1229,14 +1319,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.TextInteractionFlag `
     ///
-    pub fn TextInteractionFlags(self: ?*anyopaque) i32 {
-        return qtc.QLabel_TextInteractionFlags(@ptrCast(self));
+    pub fn TextInteractionFlags(self: KUrlLabel) i32 {
+        return qtc.QLabel_TextInteractionFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLabel
@@ -1245,14 +1335,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` param1: i32 `
     ///
     /// ` param2: i32 `
     ///
-    pub fn SetSelection(self: ?*anyopaque, param1: i32, param2: i32) void {
-        qtc.QLabel_SetSelection(@ptrCast(self), @bitCast(param1), @bitCast(param2));
+    pub fn SetSelection(self: KUrlLabel, param1: i32, param2: i32) void {
+        qtc.QLabel_SetSelection(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2));
     }
 
     /// Inherited from QLabel
@@ -1261,10 +1351,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn HasSelectedText(self: ?*anyopaque) bool {
-        return qtc.QLabel_HasSelectedText(@ptrCast(self));
+    pub fn HasSelectedText(self: KUrlLabel) bool {
+        return qtc.QLabel_HasSelectedText(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLabel
@@ -1273,12 +1363,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLabel_SelectedText(@ptrCast(self));
+    pub fn SelectedText(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QLabel_SelectedText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurllabel.SelectedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1291,10 +1381,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SelectionStart(self: ?*anyopaque) i32 {
-        return qtc.QLabel_SelectionStart(@ptrCast(self));
+    pub fn SelectionStart(self: KUrlLabel) i32 {
+        return qtc.QLabel_SelectionStart(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLabel
@@ -1303,16 +1393,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SetText(self: KUrlLabel, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QLabel_SetText(@ptrCast(self), text_str);
+        qtc.QLabel_SetText(@ptrCast(self.ptr), text_str);
     }
 
     /// Inherited from QLabel
@@ -1321,12 +1411,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` pixmap: QtC.QPixmap `
+    /// ` pixmap: QPixmap `
     ///
-    pub fn SetPixmap(self: ?*anyopaque, pixmap: ?*anyopaque) void {
-        qtc.QLabel_SetPixmap(@ptrCast(self), @ptrCast(pixmap));
+    pub fn SetPixmap(self: KUrlLabel, pixmap: anytype) void {
+        comptime _ = @TypeOf(pixmap)._is_QPixmap;
+        qtc.QLabel_SetPixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr));
     }
 
     /// Inherited from QLabel
@@ -1335,12 +1426,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` picture: QtC.QPicture `
+    /// ` picture: QPicture `
     ///
-    pub fn SetPicture(self: ?*anyopaque, picture: ?*anyopaque) void {
-        qtc.QLabel_SetPicture(@ptrCast(self), @ptrCast(picture));
+    pub fn SetPicture(self: KUrlLabel, picture: anytype) void {
+        comptime _ = @TypeOf(picture)._is_QPicture;
+        qtc.QLabel_SetPicture(@ptrCast(self.ptr), @ptrCast(picture.ptr));
     }
 
     /// Inherited from QLabel
@@ -1349,12 +1441,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` movie: QtC.QMovie `
+    /// ` movie: QMovie `
     ///
-    pub fn SetMovie(self: ?*anyopaque, movie: ?*anyopaque) void {
-        qtc.QLabel_SetMovie(@ptrCast(self), @ptrCast(movie));
+    pub fn SetMovie(self: KUrlLabel, movie: anytype) void {
+        comptime _ = @TypeOf(movie)._is_QMovie;
+        qtc.QLabel_SetMovie(@ptrCast(self.ptr), @ptrCast(movie.ptr));
     }
 
     /// Inherited from QLabel
@@ -1363,12 +1456,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` num: i32 `
     ///
-    pub fn SetNum(self: ?*anyopaque, num: i32) void {
-        qtc.QLabel_SetNum(@ptrCast(self), @bitCast(num));
+    pub fn SetNum(self: KUrlLabel, num: i32) void {
+        qtc.QLabel_SetNum(@ptrCast(self.ptr), @bitCast(num));
     }
 
     /// Inherited from QLabel
@@ -1377,12 +1470,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` num: f64 `
     ///
-    pub fn SetNum2(self: ?*anyopaque, num: f64) void {
-        qtc.QLabel_SetNum2(@ptrCast(self), @bitCast(num));
+    pub fn SetNum2(self: KUrlLabel, num: f64) void {
+        qtc.QLabel_SetNum2(@ptrCast(self.ptr), @bitCast(num));
     }
 
     /// Inherited from QLabel
@@ -1391,10 +1484,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Clear(self: ?*anyopaque) void {
-        qtc.QLabel_Clear(@ptrCast(self));
+    pub fn Clear(self: KUrlLabel) void {
+        qtc.QLabel_Clear(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLabel
@@ -1403,16 +1496,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` link: []const u8 `
     ///
-    pub fn LinkActivated(self: ?*anyopaque, link: []const u8) void {
+    pub fn LinkActivated(self: KUrlLabel, link: []const u8) void {
         const link_str = qtc.libqt_string{
             .len = link.len,
             .data = link.ptr,
         };
-        qtc.QLabel_LinkActivated(@ptrCast(self), link_str);
+        qtc.QLabel_LinkActivated(@ptrCast(self.ptr), link_str);
     }
 
     /// Inherited from QLabel
@@ -1421,12 +1514,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, link: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, link: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnLinkActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QLabel_Connect_LinkActivated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLinkActivated(self: KUrlLabel, callback: *const fn (KUrlLabel, [*:0]const u8) callconv(.c) void) void {
+        qtc.QLabel_Connect_LinkActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLabel
@@ -1435,16 +1528,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` link: []const u8 `
     ///
-    pub fn LinkHovered(self: ?*anyopaque, link: []const u8) void {
+    pub fn LinkHovered(self: KUrlLabel, link: []const u8) void {
         const link_str = qtc.libqt_string{
             .len = link.len,
             .data = link.ptr,
         };
-        qtc.QLabel_LinkHovered(@ptrCast(self), link_str);
+        qtc.QLabel_LinkHovered(@ptrCast(self.ptr), link_str);
     }
 
     /// Inherited from QLabel
@@ -1453,12 +1546,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, link: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, link: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnLinkHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QLabel_Connect_LinkHovered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLinkHovered(self: KUrlLabel, callback: *const fn (KUrlLabel, [*:0]const u8) callconv(.c) void) void {
+        qtc.QLabel_Connect_LinkHovered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -1467,10 +1560,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn FrameStyle(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameStyle(@ptrCast(self));
+    pub fn FrameStyle(self: KUrlLabel) i32 {
+        return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -1479,12 +1572,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self), @bitCast(frameStyle));
+    pub fn SetFrameStyle(self: KUrlLabel, frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
     }
 
     /// Inherited from QFrame
@@ -1493,10 +1586,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn FrameWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameWidth(@ptrCast(self));
+    pub fn FrameWidth(self: KUrlLabel) i32 {
+        return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -1505,14 +1598,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ## Returns:
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameShape(@ptrCast(self));
+    pub fn FrameShape(self: KUrlLabel) i32 {
+        return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -1521,12 +1614,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self), @bitCast(frameShape));
+    pub fn SetFrameShape(self: KUrlLabel, frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
     }
 
     /// Inherited from QFrame
@@ -1535,14 +1628,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ## Returns:
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameShadow(@ptrCast(self));
+    pub fn FrameShadow(self: KUrlLabel) i32 {
+        return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -1551,12 +1644,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self), @bitCast(frameShadow));
+    pub fn SetFrameShadow(self: KUrlLabel, frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
     }
 
     /// Inherited from QFrame
@@ -1565,10 +1658,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn LineWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_LineWidth(@ptrCast(self));
+    pub fn LineWidth(self: KUrlLabel) i32 {
+        return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -1577,12 +1670,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self), @bitCast(lineWidth));
+    pub fn SetLineWidth(self: KUrlLabel, lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
     }
 
     /// Inherited from QFrame
@@ -1591,10 +1684,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn MidLineWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_MidLineWidth(@ptrCast(self));
+    pub fn MidLineWidth(self: KUrlLabel) i32 {
+        return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -1603,12 +1696,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self), @bitCast(midLineWidth));
+    pub fn SetMidLineWidth(self: KUrlLabel, midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
     }
 
     /// Inherited from QFrame
@@ -1617,10 +1710,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn FrameRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QFrame_FrameRect(@ptrCast(self));
+    pub fn FrameRect(self: KUrlLabel) QRect {
+        return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QFrame
@@ -1629,12 +1722,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` frameRect: QtC.QRect `
+    /// ` frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: ?*anyopaque, frameRect: ?*anyopaque) void {
-        qtc.QFrame_SetFrameRect(@ptrCast(self), @ptrCast(frameRect));
+    pub fn SetFrameRect(self: KUrlLabel, frameRect: anytype) void {
+        comptime _ = @TypeOf(frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
     }
 
     /// Inherited from QWidget
@@ -1643,10 +1737,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn WinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_WinId(@ptrCast(self));
+    pub fn WinId(self: KUrlLabel) usize {
+        return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1655,10 +1749,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn CreateWinId(self: ?*anyopaque) void {
-        qtc.QWidget_CreateWinId(@ptrCast(self));
+    pub fn CreateWinId(self: KUrlLabel) void {
+        qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1667,10 +1761,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn InternalWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_InternalWinId(@ptrCast(self));
+    pub fn InternalWinId(self: KUrlLabel) usize {
+        return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1679,10 +1773,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
+    pub fn EffectiveWinId(self: KUrlLabel) usize {
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1691,10 +1785,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QWidget_Style(@ptrCast(self));
+    pub fn Style(self: KUrlLabel) QStyle {
+        return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1703,12 +1797,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetStyle(self: KUrlLabel, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// Inherited from QWidget
@@ -1717,10 +1812,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsTopLevel(@ptrCast(self));
+    pub fn IsTopLevel(self: KUrlLabel) bool {
+        return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1729,10 +1824,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn IsWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindow(@ptrCast(self));
+    pub fn IsWindow(self: KUrlLabel) bool {
+        return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1741,10 +1836,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn IsModal(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsModal(@ptrCast(self));
+    pub fn IsModal(self: KUrlLabel) bool {
+        return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1753,14 +1848,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowModality(@ptrCast(self));
+    pub fn WindowModality(self: KUrlLabel) i32 {
+        return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1769,12 +1864,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
+    pub fn SetWindowModality(self: KUrlLabel, windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -1783,10 +1878,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: KUrlLabel) bool {
+        return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1795,12 +1890,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsEnabledTo(self: KUrlLabel, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -1809,12 +1905,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: KUrlLabel, enabled: bool) void {
+        qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -1823,12 +1919,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
+    pub fn SetDisabled(self: KUrlLabel, disabled: bool) void {
+        qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
 
     /// Inherited from QWidget
@@ -1837,12 +1933,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+    pub fn SetWindowModified(self: KUrlLabel, windowModified: bool) void {
+        qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
 
     /// Inherited from QWidget
@@ -1851,10 +1947,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_FrameGeometry(@ptrCast(self));
+    pub fn FrameGeometry(self: KUrlLabel) QRect {
+        return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1863,10 +1959,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Geometry(@ptrCast(self));
+    pub fn Geometry(self: KUrlLabel) QRect {
+        return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1875,10 +1971,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_NormalGeometry(@ptrCast(self));
+    pub fn NormalGeometry(self: KUrlLabel) QRect {
+        return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1887,10 +1983,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn X(self: ?*anyopaque) i32 {
-        return qtc.QWidget_X(@ptrCast(self));
+    pub fn X(self: KUrlLabel) i32 {
+        return qtc.QWidget_X(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1899,10 +1995,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Y(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Y(@ptrCast(self));
+    pub fn Y(self: KUrlLabel) i32 {
+        return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1911,10 +2007,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_Pos(@ptrCast(self));
+    pub fn Pos(self: KUrlLabel) QPoint {
+        return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1923,10 +2019,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: KUrlLabel) QSize {
+        return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1935,10 +2031,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_Size(@ptrCast(self));
+    pub fn Size(self: KUrlLabel) QSize {
+        return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1947,10 +2043,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Width(@ptrCast(self));
+    pub fn Width(self: KUrlLabel) i32 {
+        return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1959,10 +2055,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Height(@ptrCast(self));
+    pub fn Height(self: KUrlLabel) i32 {
+        return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1971,10 +2067,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: KUrlLabel) QRect {
+        return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1983,10 +2079,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ChildrenRect(@ptrCast(self));
+    pub fn ChildrenRect(self: KUrlLabel) QRect {
+        return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1995,10 +2091,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
+    pub fn ChildrenRegion(self: KUrlLabel) QRegion {
+        return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2007,10 +2103,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: KUrlLabel) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2019,10 +2115,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: KUrlLabel) QSize {
+        return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2031,10 +2127,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: KUrlLabel) i32 {
+        return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2043,10 +2139,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: KUrlLabel) i32 {
+        return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2055,10 +2151,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: KUrlLabel) i32 {
+        return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2067,10 +2163,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: KUrlLabel) i32 {
+        return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2079,12 +2175,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` minimumSize: QtC.QSize `
+    /// ` minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+    pub fn SetMinimumSize(self: KUrlLabel, minimumSize: anytype) void {
+        comptime _ = @TypeOf(minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -2093,14 +2190,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` minw: i32 `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
+    pub fn SetMinimumSize2(self: KUrlLabel, minw: i32, minh: i32) void {
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -2109,12 +2206,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` maximumSize: QtC.QSize `
+    /// ` maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+    pub fn SetMaximumSize(self: KUrlLabel, maximumSize: anytype) void {
+        comptime _ = @TypeOf(maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -2123,14 +2221,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` maxw: i32 `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
+    pub fn SetMaximumSize2(self: KUrlLabel, maxw: i32, maxh: i32) void {
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -2139,12 +2237,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
+    pub fn SetMinimumWidth(self: KUrlLabel, minw: i32) void {
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -2153,12 +2251,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
+    pub fn SetMinimumHeight(self: KUrlLabel, minh: i32) void {
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -2167,12 +2265,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
+    pub fn SetMaximumWidth(self: KUrlLabel, maxw: i32) void {
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -2181,12 +2279,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
+    pub fn SetMaximumHeight(self: KUrlLabel, maxh: i32) void {
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -2195,10 +2293,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeIncrement(@ptrCast(self));
+    pub fn SizeIncrement(self: KUrlLabel) QSize {
+        return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2207,12 +2305,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` sizeIncrement: QtC.QSize `
+    /// ` sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+    pub fn SetSizeIncrement(self: KUrlLabel, sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
     }
 
     /// Inherited from QWidget
@@ -2221,14 +2320,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetSizeIncrement2(self: KUrlLabel, w: i32, h: i32) void {
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2237,10 +2336,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_BaseSize(@ptrCast(self));
+    pub fn BaseSize(self: KUrlLabel) QSize {
+        return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2249,12 +2348,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` baseSize: QtC.QSize `
+    /// ` baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+    pub fn SetBaseSize(self: KUrlLabel, baseSize: anytype) void {
+        comptime _ = @TypeOf(baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -2263,14 +2363,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` basew: i32 `
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
+    pub fn SetBaseSize2(self: KUrlLabel, basew: i32, baseh: i32) void {
+        qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -2279,12 +2379,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` fixedSize: QtC.QSize `
+    /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+    pub fn SetFixedSize(self: KUrlLabel, fixedSize: anytype) void {
+        comptime _ = @TypeOf(fixedSize)._is_QSize;
+        qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -2293,14 +2394,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetFixedSize2(self: KUrlLabel, w: i32, h: i32) void {
+        qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2309,12 +2410,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetFixedWidth(self: KUrlLabel, w: i32) void {
+        qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -2323,12 +2424,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
+    pub fn SetFixedHeight(self: KUrlLabel, h: i32) void {
+        qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2337,12 +2438,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal(self: KUrlLabel, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2351,12 +2453,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: KUrlLabel, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2365,12 +2468,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal(self: KUrlLabel, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2379,12 +2483,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: KUrlLabel, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2393,12 +2498,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent(self: KUrlLabel, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2407,12 +2513,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: KUrlLabel, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2421,12 +2528,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent(self: KUrlLabel, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2435,12 +2543,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: KUrlLabel, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2449,14 +2558,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo(self: KUrlLabel, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2465,14 +2576,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo2(self: KUrlLabel, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2481,14 +2594,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom(self: KUrlLabel, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2497,14 +2612,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom2(self: KUrlLabel, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2513,10 +2630,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_Window(@ptrCast(self));
+    pub fn Window(self: KUrlLabel) QWidget {
+        return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2525,10 +2642,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
+    pub fn NativeParentWidget(self: KUrlLabel) QWidget {
+        return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2537,10 +2654,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
+    pub fn TopLevelWidget(self: KUrlLabel) QWidget {
+        return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2549,10 +2666,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QWidget_Palette(@ptrCast(self));
+    pub fn Palette(self: KUrlLabel) QPalette {
+        return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2561,12 +2678,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn SetPalette(self: KUrlLabel, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// Inherited from QWidget
@@ -2575,12 +2693,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
+    pub fn SetBackgroundRole(self: KUrlLabel, backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -2589,14 +2707,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_BackgroundRole(@ptrCast(self));
+    pub fn BackgroundRole(self: KUrlLabel) i32 {
+        return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2605,12 +2723,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
+    pub fn SetForegroundRole(self: KUrlLabel, foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -2619,14 +2737,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ForegroundRole(@ptrCast(self));
+    pub fn ForegroundRole(self: KUrlLabel) i32 {
+        return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2635,10 +2753,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QWidget_Font(@ptrCast(self));
+    pub fn Font(self: KUrlLabel) QFont {
+        return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2647,10 +2765,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QWidget_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: KUrlLabel) QFontMetrics {
+        return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2659,10 +2777,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QWidget_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: KUrlLabel) QFontInfo {
+        return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2671,10 +2789,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
-        return qtc.QWidget_Cursor(@ptrCast(self));
+    pub fn Cursor(self: KUrlLabel) QCursor {
+        return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2683,12 +2801,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetCursor(self: KUrlLabel, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QWidget
@@ -2697,10 +2816,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn UnsetCursor(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetCursor(@ptrCast(self));
+    pub fn UnsetCursor(self: KUrlLabel) void {
+        qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2709,12 +2828,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
+    pub fn SetMouseTracking(self: KUrlLabel, enable: bool) void {
+        qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -2723,10 +2842,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
+    pub fn HasMouseTracking(self: KUrlLabel) bool {
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2735,10 +2854,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.QWidget_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: KUrlLabel) bool {
+        return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2747,12 +2866,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
+    pub fn SetTabletTracking(self: KUrlLabel, enable: bool) void {
+        qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -2761,10 +2880,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
+    pub fn HasTabletTracking(self: KUrlLabel) bool {
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2773,12 +2892,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` mask: QtC.QBitmap `
+    /// ` mask: QBitmap `
     ///
-    pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask(self: KUrlLabel, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -2787,12 +2907,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` mask: QtC.QRegion `
+    /// ` mask: QRegion `
     ///
-    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: KUrlLabel, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -2801,10 +2922,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_Mask(@ptrCast(self));
+    pub fn Mask(self: KUrlLabel) QRegion {
+        return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2813,10 +2934,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn ClearMask(self: ?*anyopaque) void {
-        qtc.QWidget_ClearMask(@ptrCast(self));
+    pub fn ClearMask(self: KUrlLabel) void {
+        qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2825,12 +2946,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
+    pub fn Render(self: KUrlLabel, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QWidget
@@ -2839,12 +2961,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: KUrlLabel, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -2853,10 +2976,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab(@ptrCast(self));
+    pub fn Grab(self: KUrlLabel) QPixmap {
+        return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2865,10 +2988,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
-        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
+    pub fn GraphicsEffect(self: KUrlLabel) QGraphicsEffect {
+        return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2877,12 +3000,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` effect: QtC.QGraphicsEffect `
+    /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+    pub fn SetGraphicsEffect(self: KUrlLabel, effect: anytype) void {
+        comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
 
     /// Inherited from QWidget
@@ -2891,12 +3015,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn GrabGesture(self: KUrlLabel, typeVal: i32) void {
+        qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -2905,12 +3029,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn UngrabGesture(self: KUrlLabel, typeVal: i32) void {
+        qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -2919,16 +3043,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
+    pub fn SetWindowTitle(self: KUrlLabel, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
-        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
 
     /// Inherited from QWidget
@@ -2937,16 +3061,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
+    pub fn SetStyleSheet(self: KUrlLabel, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
-        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
 
     /// Inherited from QWidget
@@ -2955,12 +3079,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurllabel.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2973,12 +3097,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+    pub fn WindowTitle(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurllabel.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2991,12 +3115,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetWindowIcon(self: KUrlLabel, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -3005,10 +3130,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QWidget_WindowIcon(@ptrCast(self));
+    pub fn WindowIcon(self: KUrlLabel) QIcon {
+        return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3017,16 +3142,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
+    pub fn SetWindowIconText(self: KUrlLabel, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
-        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
 
     /// Inherited from QWidget
@@ -3035,12 +3160,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+    pub fn WindowIconText(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurllabel.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3053,16 +3178,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
+    pub fn SetWindowRole(self: KUrlLabel, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
-        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
 
     /// Inherited from QWidget
@@ -3071,12 +3196,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
+    pub fn WindowRole(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurllabel.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3089,16 +3214,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
+    pub fn SetWindowFilePath(self: KUrlLabel, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
 
     /// Inherited from QWidget
@@ -3107,12 +3232,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+    pub fn WindowFilePath(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurllabel.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3125,12 +3250,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetWindowOpacity(self: KUrlLabel, level: f64) void {
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -3139,10 +3264,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return qtc.QWidget_WindowOpacity(@ptrCast(self));
+    pub fn WindowOpacity(self: KUrlLabel) f64 {
+        return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3151,10 +3276,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindowModified(@ptrCast(self));
+    pub fn IsWindowModified(self: KUrlLabel) bool {
+        return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3163,16 +3288,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: KUrlLabel, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// Inherited from QWidget
@@ -3181,12 +3306,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurllabel.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3199,12 +3324,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
+    pub fn SetToolTipDuration(self: KUrlLabel, msec: i32) void {
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -3213,10 +3338,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
+    pub fn ToolTipDuration(self: KUrlLabel) i32 {
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3225,16 +3350,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: KUrlLabel, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QWidget
@@ -3243,12 +3368,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurllabel.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3261,16 +3386,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: KUrlLabel, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// Inherited from QWidget
@@ -3279,12 +3404,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurllabel.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3297,12 +3422,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+    pub fn AccessibleName(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurllabel.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3315,16 +3440,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetAccessibleName(self: KUrlLabel, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QWidget
@@ -3333,12 +3458,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+    pub fn AccessibleDescription(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurllabel.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3351,16 +3476,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetAccessibleDescription(self: KUrlLabel, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// Inherited from QWidget
@@ -3369,12 +3494,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: KUrlLabel, direction: i32) void {
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -3383,14 +3508,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QWidget_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: KUrlLabel) i32 {
+        return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3399,10 +3524,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
+    pub fn UnsetLayoutDirection(self: KUrlLabel) void {
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3411,12 +3536,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: KUrlLabel, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// Inherited from QWidget
@@ -3425,10 +3551,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QWidget_Locale(@ptrCast(self));
+    pub fn Locale(self: KUrlLabel) QLocale {
+        return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3437,10 +3563,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn UnsetLocale(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLocale(@ptrCast(self));
+    pub fn UnsetLocale(self: KUrlLabel) void {
+        qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3449,10 +3575,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
+    pub fn IsRightToLeft(self: KUrlLabel) bool {
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3461,10 +3587,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
+    pub fn IsLeftToRight(self: KUrlLabel) bool {
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3473,10 +3599,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SetFocus(self: ?*anyopaque) void {
-        qtc.QWidget_SetFocus(@ptrCast(self));
+    pub fn SetFocus(self: KUrlLabel) void {
+        qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3485,10 +3611,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
+    pub fn IsActiveWindow(self: KUrlLabel) bool {
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3497,10 +3623,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn ActivateWindow(self: ?*anyopaque) void {
-        qtc.QWidget_ActivateWindow(@ptrCast(self));
+    pub fn ActivateWindow(self: KUrlLabel) void {
+        qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3509,10 +3635,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn ClearFocus(self: ?*anyopaque) void {
-        qtc.QWidget_ClearFocus(@ptrCast(self));
+    pub fn ClearFocus(self: KUrlLabel) void {
+        qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3521,12 +3647,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
+    pub fn SetFocus2(self: KUrlLabel, reason: i32) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -3535,14 +3661,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_FocusPolicy(@ptrCast(self));
+    pub fn FocusPolicy(self: KUrlLabel) i32 {
+        return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3551,12 +3677,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetFocusPolicy(self: KUrlLabel, policy: i32) void {
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -3565,10 +3691,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn HasFocus(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasFocus(@ptrCast(self));
+    pub fn HasFocus(self: KUrlLabel) bool {
+        return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3577,12 +3703,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QWidget `
+    /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QWidget;
+        qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidget
@@ -3591,12 +3719,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` focusProxy: QtC.QWidget `
+    /// ` focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+    pub fn SetFocusProxy(self: KUrlLabel, focusProxy: anytype) void {
+        comptime _ = @TypeOf(focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
     }
 
     /// Inherited from QWidget
@@ -3605,10 +3734,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusProxy(@ptrCast(self));
+    pub fn FocusProxy(self: KUrlLabel) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3617,14 +3746,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
+    pub fn ContextMenuPolicy(self: KUrlLabel) i32 {
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3633,12 +3762,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetContextMenuPolicy(self: KUrlLabel, policy: i32) void {
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -3647,10 +3776,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn GrabMouse(self: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse(@ptrCast(self));
+    pub fn GrabMouse(self: KUrlLabel) void {
+        qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3659,12 +3788,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: KUrlLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3673,10 +3803,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn ReleaseMouse(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseMouse(@ptrCast(self));
+    pub fn ReleaseMouse(self: KUrlLabel) void {
+        qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3685,10 +3815,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn GrabKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_GrabKeyboard(@ptrCast(self));
+    pub fn GrabKeyboard(self: KUrlLabel) void {
+        qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3697,10 +3827,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
+    pub fn ReleaseKeyboard(self: KUrlLabel) void {
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3709,12 +3839,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+    pub fn GrabShortcut(self: KUrlLabel, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// Inherited from QWidget
@@ -3723,12 +3854,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
+    pub fn ReleaseShortcut(self: KUrlLabel, id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -3737,12 +3868,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutEnabled(self: KUrlLabel, id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -3751,28 +3882,28 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutAutoRepeat(self: KUrlLabel, id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QtC.QWidget {
-        return qtc.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QtC.QWidget {
-        return qtc.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
 
     /// Inherited from QWidget
@@ -3781,10 +3912,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
+    pub fn UpdatesEnabled(self: KUrlLabel) bool {
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3793,12 +3924,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+    pub fn SetUpdatesEnabled(self: KUrlLabel, enable: bool) void {
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -3807,10 +3938,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    pub fn GraphicsProxyWidget(self: KUrlLabel) QGraphicsProxyWidget {
+        return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3819,10 +3950,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Update(self: ?*anyopaque) void {
-        qtc.QWidget_Update(@ptrCast(self));
+    pub fn Update(self: KUrlLabel) void {
+        qtc.QWidget_Update(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3831,10 +3962,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Repaint(self: ?*anyopaque) void {
-        qtc.QWidget_Repaint(@ptrCast(self));
+    pub fn Repaint(self: KUrlLabel) void {
+        qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3843,7 +3974,7 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` x: i32 `
     ///
@@ -3853,8 +3984,8 @@ pub const kurllabel = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Update2(self: KUrlLabel, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3863,12 +3994,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: KUrlLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3877,12 +4009,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: KUrlLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3891,7 +4024,7 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` x: i32 `
     ///
@@ -3901,8 +4034,8 @@ pub const kurllabel = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Repaint2(self: KUrlLabel, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3911,12 +4044,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: KUrlLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3925,12 +4059,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: KUrlLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3939,12 +4074,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
+    pub fn SetHidden(self: KUrlLabel, hidden: bool) void {
+        qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
 
     /// Inherited from QWidget
@@ -3953,10 +4088,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QWidget_Show(@ptrCast(self));
+    pub fn Show(self: KUrlLabel) void {
+        qtc.QWidget_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3965,10 +4100,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QWidget_Hide(@ptrCast(self));
+    pub fn Hide(self: KUrlLabel) void {
+        qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3977,10 +4112,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn ShowMinimized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMinimized(@ptrCast(self));
+    pub fn ShowMinimized(self: KUrlLabel) void {
+        qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3989,10 +4124,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn ShowMaximized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMaximized(@ptrCast(self));
+    pub fn ShowMaximized(self: KUrlLabel) void {
+        qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4001,10 +4136,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn ShowFullScreen(self: ?*anyopaque) void {
-        qtc.QWidget_ShowFullScreen(@ptrCast(self));
+    pub fn ShowFullScreen(self: KUrlLabel) void {
+        qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4013,10 +4148,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn ShowNormal(self: ?*anyopaque) void {
-        qtc.QWidget_ShowNormal(@ptrCast(self));
+    pub fn ShowNormal(self: KUrlLabel) void {
+        qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4025,10 +4160,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Close(self: ?*anyopaque) bool {
-        return qtc.QWidget_Close(@ptrCast(self));
+    pub fn Close(self: KUrlLabel) bool {
+        return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4037,10 +4172,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Raise(self: ?*anyopaque) void {
-        qtc.QWidget_Raise(@ptrCast(self));
+    pub fn Raise(self: KUrlLabel) void {
+        qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4049,10 +4184,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Lower(self: ?*anyopaque) void {
-        qtc.QWidget_Lower(@ptrCast(self));
+    pub fn Lower(self: KUrlLabel) void {
+        qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4061,12 +4196,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+    pub fn StackUnder(self: KUrlLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4075,14 +4211,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn Move(self: KUrlLabel, x: i32, y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -4091,12 +4227,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: KUrlLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4105,14 +4242,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn Resize(self: KUrlLabel, w: i32, h: i32) void {
+        qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4121,12 +4258,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QSize `
+    /// ` param1: QSize `
     ///
-    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: KUrlLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4135,7 +4273,7 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` x: i32 `
     ///
@@ -4145,8 +4283,8 @@ pub const kurllabel = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetGeometry(self: KUrlLabel, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4155,12 +4293,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` geometry: QtC.QRect `
+    /// ` geometry: QRect `
     ///
-    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: KUrlLabel, geometry: anytype) void {
+        comptime _ = @TypeOf(geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
     }
 
     /// Inherited from QWidget
@@ -4169,12 +4308,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+    pub fn SaveGeometry(self: KUrlLabel, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kurllabel.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -4187,16 +4326,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
+    pub fn RestoreGeometry(self: KUrlLabel, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
-        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
 
     /// Inherited from QWidget
@@ -4205,10 +4344,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QWidget_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: KUrlLabel) void {
+        qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4217,10 +4356,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: KUrlLabel) bool {
+        return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4229,12 +4368,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsVisibleTo(self: KUrlLabel, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4243,10 +4383,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn IsHidden(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsHidden(@ptrCast(self));
+    pub fn IsHidden(self: KUrlLabel) bool {
+        return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4255,10 +4395,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn IsMinimized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMinimized(@ptrCast(self));
+    pub fn IsMinimized(self: KUrlLabel) bool {
+        return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4267,10 +4407,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn IsMaximized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMaximized(@ptrCast(self));
+    pub fn IsMaximized(self: KUrlLabel) bool {
+        return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4279,10 +4419,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsFullScreen(@ptrCast(self));
+    pub fn IsFullScreen(self: KUrlLabel) bool {
+        return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4291,14 +4431,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowState(@ptrCast(self));
+    pub fn WindowState(self: KUrlLabel) i32 {
+        return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4307,12 +4447,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
+    pub fn SetWindowState(self: KUrlLabel, state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -4321,12 +4461,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
+    pub fn OverrideWindowState(self: KUrlLabel, state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -4335,10 +4475,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QWidget_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: KUrlLabel) QSizePolicy {
+        return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4347,12 +4487,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` sizePolicy: QtC.QSizePolicy `
+    /// ` sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
-        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    pub fn SetSizePolicy(self: KUrlLabel, sizePolicy: anytype) void {
+        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
     }
 
     /// Inherited from QWidget
@@ -4361,14 +4502,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` horizontal: qsizepolicy_enums.Policy `
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
+    pub fn SetSizePolicy2(self: KUrlLabel, horizontal: i32, vertical: i32) void {
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -4377,10 +4518,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_VisibleRegion(@ptrCast(self));
+    pub fn VisibleRegion(self: KUrlLabel) QRegion {
+        return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4389,7 +4530,7 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` left: i32 `
     ///
@@ -4399,8 +4540,8 @@ pub const kurllabel = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: KUrlLabel, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -4409,12 +4550,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: KUrlLabel, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QWidget
@@ -4423,10 +4565,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QWidget_ContentsMargins(@ptrCast(self));
+    pub fn ContentsMargins(self: KUrlLabel) QMargins {
+        return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4435,10 +4577,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: KUrlLabel) QRect {
+        return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4447,10 +4589,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidget_Layout(@ptrCast(self));
+    pub fn Layout(self: KUrlLabel) QLayout {
+        return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4459,12 +4601,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` layout: QtC.QLayout `
+    /// ` layout: QLayout `
     ///
-    pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetLayout(self: KUrlLabel, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// Inherited from QWidget
@@ -4473,10 +4616,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QWidget_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: KUrlLabel) void {
+        qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4485,12 +4628,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KUrlLabel, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QWidget
@@ -4499,14 +4643,15 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
+    pub fn SetParent2(self: KUrlLabel, parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -4515,14 +4660,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Scroll(self: KUrlLabel, dx: i32, dy: i32) void {
+        qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -4531,16 +4676,17 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    /// ` param3: QtC.QRect `
+    /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
+    pub fn Scroll2(self: KUrlLabel, dx: i32, dy: i32, param3: anytype) void {
+        comptime _ = @TypeOf(param3)._is_QRect;
+        qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QWidget
@@ -4549,10 +4695,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusWidget(@ptrCast(self));
+    pub fn FocusWidget(self: KUrlLabel) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4561,10 +4707,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
+    pub fn NextInFocusChain(self: KUrlLabel) QWidget {
+        return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4573,10 +4719,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
+    pub fn PreviousInFocusChain(self: KUrlLabel) QWidget {
+        return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4585,10 +4731,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return qtc.QWidget_AcceptDrops(@ptrCast(self));
+    pub fn AcceptDrops(self: KUrlLabel) bool {
+        return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4597,12 +4743,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
+    pub fn SetAcceptDrops(self: KUrlLabel, on: bool) void {
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QWidget
@@ -4611,12 +4757,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+    pub fn AddAction(self: KUrlLabel, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -4625,16 +4772,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn AddActions(self: KUrlLabel, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -4643,18 +4790,19 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn InsertActions(self: KUrlLabel, before: anytype, actions: []QAction) void {
+        comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -4663,14 +4811,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn InsertAction(self: KUrlLabel, before: anytype, action: anytype) void {
+        comptime _ = @TypeOf(before)._is_QAction;
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -4679,12 +4829,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn RemoveAction(self: KUrlLabel, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -4693,16 +4844,17 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+    pub fn Actions(self: KUrlLabel, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("kurllabel.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("kurllabel.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -4712,16 +4864,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: KUrlLabel, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction2(@ptrCast(self), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -4730,18 +4882,19 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: KUrlLabel, icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -4750,18 +4903,19 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: KUrlLabel, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4770,20 +4924,22 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: KUrlLabel, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4792,10 +4948,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: KUrlLabel) QWidget {
+        return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4804,12 +4960,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetWindowFlags(self: KUrlLabel, typeVal: i32) void {
+        qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -4818,14 +4974,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowFlags(@ptrCast(self));
+    pub fn WindowFlags(self: KUrlLabel) i32 {
+        return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4834,12 +4990,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
+    pub fn SetWindowFlag(self: KUrlLabel, param1: i32) void {
+        qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4848,12 +5004,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn OverrideWindowFlags(self: KUrlLabel, typeVal: i32) void {
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -4862,14 +5018,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowType(@ptrCast(self));
+    pub fn WindowType(self: KUrlLabel) i32 {
+        return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4880,8 +5036,8 @@ pub const kurllabel = struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QtC.QWidget {
-        return qtc.QWidget_Find(@bitCast(param1));
+    pub fn Find(param1: usize) QWidget {
+        return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -4890,14 +5046,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: KUrlLabel, x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QWidget
@@ -4906,12 +5062,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: KUrlLabel, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4920,12 +5077,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: KUrlLabel, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4934,12 +5092,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn SetAttribute(self: KUrlLabel, param1: i32) void {
+        qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4948,12 +5106,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn TestAttribute(self: KUrlLabel, param1: i32) bool {
+        return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4962,10 +5120,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn EnsurePolished(self: ?*anyopaque) void {
-        qtc.QWidget_EnsurePolished(@ptrCast(self));
+    pub fn EnsurePolished(self: KUrlLabel) void {
+        qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4974,12 +5132,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` child: QtC.QWidget `
+    /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+    pub fn IsAncestorOf(self: KUrlLabel, child: anytype) bool {
+        comptime _ = @TypeOf(child)._is_QWidget;
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from QWidget
@@ -4988,10 +5147,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
+    pub fn AutoFillBackground(self: KUrlLabel) bool {
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5000,12 +5159,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+    pub fn SetAutoFillBackground(self: KUrlLabel, enabled: bool) void {
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -5014,10 +5173,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
-        return qtc.QWidget_BackingStore(@ptrCast(self));
+    pub fn BackingStore(self: KUrlLabel) QBackingStore {
+        return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5026,10 +5185,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QWidget_WindowHandle(@ptrCast(self));
+    pub fn WindowHandle(self: KUrlLabel) QWindow {
+        return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5038,10 +5197,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
-        return qtc.QWidget_Screen(@ptrCast(self));
+    pub fn Screen(self: KUrlLabel) QScreen {
+        return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5050,12 +5209,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+    pub fn SetScreen(self: KUrlLabel, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QWidget
@@ -5064,10 +5224,11 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
+    pub fn CreateWindowContainer(window: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5076,16 +5237,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn WindowTitleChanged(self: KUrlLabel, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QWidget
@@ -5094,12 +5255,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowTitleChanged(self: KUrlLabel, callback: *const fn (KUrlLabel, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5108,12 +5269,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+    pub fn WindowIconChanged(self: KUrlLabel, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -5122,12 +5284,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, icon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconChanged(self: KUrlLabel, callback: *const fn (KUrlLabel, QIcon) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5136,16 +5298,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
+    pub fn WindowIconTextChanged(self: KUrlLabel, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
-        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
 
     /// Inherited from QWidget
@@ -5154,12 +5316,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, iconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconTextChanged(self: KUrlLabel, callback: *const fn (KUrlLabel, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5168,12 +5330,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+    pub fn CustomContextMenuRequested(self: KUrlLabel, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QWidget
@@ -5182,12 +5345,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomContextMenuRequested(self: KUrlLabel, callback: *const fn (KUrlLabel, QPoint) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5196,14 +5359,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i32 {
-        return qtc.QWidget_InputMethodHints(@ptrCast(self));
+    pub fn InputMethodHints(self: KUrlLabel) i32 {
+        return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5212,12 +5375,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetInputMethodHints(self: KUrlLabel, hints: i32) void {
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -5226,14 +5389,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: KUrlLabel, target: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -5242,16 +5407,19 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render3(self: KUrlLabel, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -5260,18 +5428,21 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render4(self: KUrlLabel, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -5280,14 +5451,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: KUrlLabel, painter: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -5296,16 +5469,19 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render32(self: KUrlLabel, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -5314,18 +5490,21 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render42(self: KUrlLabel, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -5334,12 +5513,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Grab1(self: KUrlLabel, rectangle: anytype) QPixmap {
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5348,14 +5528,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
+    pub fn GrabGesture2(self: KUrlLabel, typeVal: i32, flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -5364,14 +5544,15 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
+    pub fn GrabShortcut2(self: KUrlLabel, key: anytype, context: i32) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -5380,14 +5561,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutEnabled2(self: KUrlLabel, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -5396,14 +5577,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutAutoRepeat2(self: KUrlLabel, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -5412,14 +5593,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetWindowFlag2(self: KUrlLabel, param1: i32, on: bool) void {
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -5428,14 +5609,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetAttribute2(self: KUrlLabel, param1: i32, on: bool) void {
+        qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -5444,12 +5625,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5458,14 +5641,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
+    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QObject
@@ -5474,12 +5659,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KUrlLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kurllabel.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5492,12 +5677,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KUrlLabel, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -5506,10 +5691,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KUrlLabel) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5518,10 +5703,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KUrlLabel) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5530,10 +5715,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KUrlLabel) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5542,10 +5727,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KUrlLabel) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5554,12 +5739,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KUrlLabel, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -5568,10 +5753,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KUrlLabel) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5580,12 +5765,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KUrlLabel, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -5594,12 +5780,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KUrlLabel, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -5608,12 +5794,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KUrlLabel, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -5622,12 +5808,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KUrlLabel, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -5636,12 +5822,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KUrlLabel, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -5650,16 +5836,17 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KUrlLabel, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kurllabel.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kurllabel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -5669,12 +5856,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KUrlLabel, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -5683,12 +5871,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KUrlLabel, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -5697,18 +5886,20 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -5717,16 +5908,20 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5735,18 +5930,19 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KUrlLabel, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -5755,18 +5951,20 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5775,16 +5973,20 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -5793,10 +5995,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KUrlLabel) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5805,12 +6007,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KUrlLabel, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -5819,10 +6022,11 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -5831,10 +6035,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KUrlLabel) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5843,10 +6047,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KUrlLabel) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5855,15 +6059,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KUrlLabel, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -5872,13 +6077,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KUrlLabel, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -5887,17 +6092,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KUrlLabel, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kurllabel.DynamicPropertyNames: Memory allocation failed");
@@ -5916,10 +6120,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KUrlLabel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5928,10 +6132,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KUrlLabel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5940,10 +6144,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KUrlLabel) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5952,12 +6156,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KUrlLabel, callback: *const fn (KUrlLabel) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5966,10 +6170,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: KUrlLabel) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5978,13 +6182,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KUrlLabel, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -5993,10 +6197,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KUrlLabel) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6005,14 +6209,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KUrlLabel, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -6021,14 +6225,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KUrlLabel, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -6037,20 +6241,22 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -6059,18 +6265,22 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -6079,9 +6289,9 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6089,10 +6299,11 @@ pub const kurllabel = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KUrlLabel, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -6101,13 +6312,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KUrlLabel, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -6116,15 +6327,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KUrlLabel, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -6133,18 +6345,19 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KUrlLabel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -6153,15 +6366,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KUrlLabel, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -6170,12 +6384,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KUrlLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -6184,12 +6399,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KUrlLabel, callback: *const fn (KUrlLabel, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -6198,10 +6413,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: KUrlLabel) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6210,10 +6425,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: KUrlLabel) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6222,10 +6437,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: KUrlLabel) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6234,10 +6449,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: KUrlLabel) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6246,10 +6461,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: KUrlLabel) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6258,10 +6473,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: KUrlLabel) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6270,10 +6485,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: KUrlLabel) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6282,10 +6497,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: KUrlLabel) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6294,10 +6509,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: KUrlLabel) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6306,10 +6521,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: KUrlLabel) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6318,10 +6533,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: KUrlLabel) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6354,10 +6569,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KUrlLabel_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: KUrlLabel) QSize {
+        return .{ .ptr = qtc.KUrlLabel_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSizeHint` instead
@@ -6372,10 +6587,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KUrlLabel_SuperSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: KUrlLabel) QSize {
+        return .{ .ptr = qtc.KUrlLabel_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QLabel
@@ -6386,12 +6601,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.KUrlLabel_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHint(self: KUrlLabel, callback: *const fn () callconv(.c) QSize) void {
+        qtc.KUrlLabel_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLabel
@@ -6402,10 +6617,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KUrlLabel_MinimumSizeHint(@ptrCast(self));
+    pub fn MinimumSizeHint(self: KUrlLabel) QSize {
+        return .{ .ptr = qtc.KUrlLabel_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
@@ -6420,10 +6635,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KUrlLabel_SuperMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: KUrlLabel) QSize {
+        return .{ .ptr = qtc.KUrlLabel_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QLabel
@@ -6434,12 +6649,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.KUrlLabel_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumSizeHint(self: KUrlLabel, callback: *const fn () callconv(.c) QSize) void {
+        qtc.KUrlLabel_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLabel
@@ -6450,12 +6665,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KUrlLabel_HeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn HeightForWidth(self: KUrlLabel, param1: i32) i32 {
+        return qtc.KUrlLabel_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperHeightForWidth` instead
@@ -6470,12 +6685,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KUrlLabel_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: KUrlLabel, param1: i32) i32 {
+        return qtc.KUrlLabel_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QLabel
@@ -6486,12 +6701,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, param1: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KUrlLabel, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KUrlLabel_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeightForWidth(self: KUrlLabel, callback: *const fn (KUrlLabel, i32) callconv(.c) i32) void {
+        qtc.KUrlLabel_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLabel
@@ -6502,12 +6717,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` ev: QtC.QKeyEvent `
+    /// ` ev: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.KUrlLabel_KeyPressEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn KeyPressEvent(self: KUrlLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QKeyEvent;
+        qtc.KUrlLabel_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
@@ -6522,12 +6738,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` ev: QtC.QKeyEvent `
+    /// ` ev: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperKeyPressEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperKeyPressEvent(self: KUrlLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QKeyEvent;
+        qtc.KUrlLabel_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// Inherited from QLabel
@@ -6538,12 +6755,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, ev: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, ev: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyPressEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QKeyEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLabel
@@ -6554,12 +6771,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QPaintEvent `
+    /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KUrlLabel_PaintEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn PaintEvent(self: KUrlLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPaintEvent;
+        qtc.KUrlLabel_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperPaintEvent` instead
@@ -6574,12 +6792,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QPaintEvent `
+    /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperPaintEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperPaintEvent(self: KUrlLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPaintEvent;
+        qtc.KUrlLabel_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QLabel
@@ -6590,12 +6809,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, param1: QtC.QPaintEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QPaintEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLabel
@@ -6606,12 +6825,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KUrlLabel_ChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ChangeEvent(self: KUrlLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.KUrlLabel_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChangeEvent` instead
@@ -6626,12 +6846,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: KUrlLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.KUrlLabel_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QLabel
@@ -6642,12 +6863,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, param1: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangeEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLabel
@@ -6658,12 +6879,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` ev: QtC.QMouseEvent `
+    /// ` ev: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.KUrlLabel_MousePressEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn MousePressEvent(self: KUrlLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QMouseEvent;
+        qtc.KUrlLabel_MousePressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMousePressEvent` instead
@@ -6678,12 +6900,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` ev: QtC.QMouseEvent `
+    /// ` ev: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperMousePressEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperMousePressEvent(self: KUrlLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QMouseEvent;
+        qtc.KUrlLabel_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// Inherited from QLabel
@@ -6694,12 +6917,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, ev: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, ev: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMousePressEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QMouseEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLabel
@@ -6710,12 +6933,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` ev: QtC.QMouseEvent `
+    /// ` ev: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.KUrlLabel_MouseMoveEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn MouseMoveEvent(self: KUrlLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QMouseEvent;
+        qtc.KUrlLabel_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
@@ -6730,12 +6954,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` ev: QtC.QMouseEvent `
+    /// ` ev: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperMouseMoveEvent(self: KUrlLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QMouseEvent;
+        qtc.KUrlLabel_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// Inherited from QLabel
@@ -6746,12 +6971,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, ev: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, ev: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseMoveEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QMouseEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLabel
@@ -6762,12 +6987,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` ev: QtC.QContextMenuEvent `
+    /// ` ev: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.KUrlLabel_ContextMenuEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn ContextMenuEvent(self: KUrlLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QContextMenuEvent;
+        qtc.KUrlLabel_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
@@ -6782,12 +7008,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` ev: QtC.QContextMenuEvent `
+    /// ` ev: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperContextMenuEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperContextMenuEvent(self: KUrlLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QContextMenuEvent;
+        qtc.KUrlLabel_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// Inherited from QLabel
@@ -6798,12 +7025,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, ev: QtC.QContextMenuEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, ev: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QContextMenuEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLabel
@@ -6814,12 +7041,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` ev: QtC.QFocusEvent `
+    /// ` ev: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.KUrlLabel_FocusInEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn FocusInEvent(self: KUrlLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QFocusEvent;
+        qtc.KUrlLabel_FocusInEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusInEvent` instead
@@ -6834,12 +7062,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` ev: QtC.QFocusEvent `
+    /// ` ev: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperFocusInEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperFocusInEvent(self: KUrlLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QFocusEvent;
+        qtc.KUrlLabel_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// Inherited from QLabel
@@ -6850,12 +7079,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, ev: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, ev: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusInEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QFocusEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLabel
@@ -6866,12 +7095,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` ev: QtC.QFocusEvent `
+    /// ` ev: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.KUrlLabel_FocusOutEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn FocusOutEvent(self: KUrlLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QFocusEvent;
+        qtc.KUrlLabel_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
@@ -6886,12 +7116,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` ev: QtC.QFocusEvent `
+    /// ` ev: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperFocusOutEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperFocusOutEvent(self: KUrlLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QFocusEvent;
+        qtc.KUrlLabel_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// Inherited from QLabel
@@ -6902,12 +7133,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, ev: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, ev: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusOutEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QFocusEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLabel
@@ -6918,12 +7149,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.KUrlLabel_FocusNextPrevChild(@ptrCast(self), next);
+    pub fn FocusNextPrevChild(self: KUrlLabel, next: bool) bool {
+        return qtc.KUrlLabel_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
@@ -6938,12 +7169,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.KUrlLabel_SuperFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: KUrlLabel, next: bool) bool {
+        return qtc.KUrlLabel_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// Inherited from QLabel
@@ -6954,12 +7185,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, next: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: KUrlLabel, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.KUrlLabel_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextPrevChild(self: KUrlLabel, callback: *const fn (KUrlLabel, bool) callconv(.c) bool) void {
+        qtc.KUrlLabel_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -6970,12 +7201,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` option: QtC.QStyleOptionFrame `
+    /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.KUrlLabel_InitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn InitStyleOption(self: KUrlLabel, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
+        qtc.KUrlLabel_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitStyleOption` instead
@@ -6990,12 +7222,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` option: QtC.QStyleOptionFrame `
+    /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperInitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitStyleOption(self: KUrlLabel, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
+        qtc.KUrlLabel_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// Inherited from QFrame
@@ -7006,12 +7239,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, option: QtC.QStyleOptionFrame) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnInitStyleOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitStyleOption(self: KUrlLabel, callback: *const fn (KUrlLabel, QStyleOptionFrame) callconv(.c) void) void {
+        qtc.KUrlLabel_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7022,10 +7255,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.KUrlLabel_DevType(@ptrCast(self));
+    pub fn DevType(self: KUrlLabel) i32 {
+        return qtc.KUrlLabel_DevType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDevType` instead
@@ -7040,10 +7273,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SuperDevType(self: ?*anyopaque) i32 {
-        return qtc.KUrlLabel_SuperDevType(@ptrCast(self));
+    pub fn SuperDevType(self: KUrlLabel) i32 {
+        return qtc.KUrlLabel_SuperDevType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7054,12 +7287,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KUrlLabel_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDevType(self: KUrlLabel, callback: *const fn () callconv(.c) i32) void {
+        qtc.KUrlLabel_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7070,12 +7303,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.KUrlLabel_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: KUrlLabel, visible: bool) void {
+        qtc.KUrlLabel_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### DEPRECATED: Use `SuperSetVisible` instead
@@ -7090,12 +7323,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.KUrlLabel_SuperSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: KUrlLabel, visible: bool) void {
+        qtc.KUrlLabel_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QWidget
@@ -7106,12 +7339,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KUrlLabel_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetVisible(self: KUrlLabel, callback: *const fn (KUrlLabel, bool) callconv(.c) void) void {
+        qtc.KUrlLabel_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7122,10 +7355,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.KUrlLabel_HasHeightForWidth(@ptrCast(self));
+    pub fn HasHeightForWidth(self: KUrlLabel) bool {
+        return qtc.KUrlLabel_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
@@ -7140,10 +7373,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.KUrlLabel_SuperHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: KUrlLabel) bool {
+        return qtc.KUrlLabel_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7154,12 +7387,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KUrlLabel_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasHeightForWidth(self: KUrlLabel, callback: *const fn () callconv(.c) bool) void {
+        qtc.KUrlLabel_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7170,10 +7403,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.KUrlLabel_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: KUrlLabel) QPaintEngine {
+        return .{ .ptr = qtc.KUrlLabel_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperPaintEngine` instead
@@ -7188,10 +7421,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.KUrlLabel_SuperPaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: KUrlLabel) QPaintEngine {
+        return .{ .ptr = qtc.KUrlLabel_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7202,12 +7435,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.KUrlLabel_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEngine(self: KUrlLabel, callback: *const fn () callconv(.c) QPaintEngine) void {
+        qtc.KUrlLabel_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7218,12 +7451,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseDoubleClickEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.KUrlLabel_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
@@ -7238,12 +7472,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.KUrlLabel_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7254,12 +7489,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseDoubleClickEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QMouseEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7270,12 +7505,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_WheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn WheelEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.KUrlLabel_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperWheelEvent` instead
@@ -7290,12 +7526,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.KUrlLabel_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7306,12 +7543,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, event: QtC.QWheelEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWheelEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QWheelEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7322,12 +7559,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyReleaseEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.KUrlLabel_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
@@ -7342,12 +7580,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.KUrlLabel_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7358,12 +7597,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyReleaseEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QKeyEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7374,12 +7613,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_MoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MoveEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.KUrlLabel_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMoveEvent` instead
@@ -7394,12 +7634,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.KUrlLabel_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7410,12 +7651,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, event: QtC.QMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QMoveEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7426,12 +7667,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_ResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ResizeEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.KUrlLabel_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResizeEvent` instead
@@ -7446,12 +7688,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.KUrlLabel_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7462,12 +7705,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, event: QtC.QResizeEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResizeEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QResizeEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7478,12 +7721,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_CloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CloseEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.KUrlLabel_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEvent` instead
@@ -7498,12 +7742,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.KUrlLabel_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7514,12 +7759,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, event: QtC.QCloseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QCloseEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7530,12 +7775,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_TabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TabletEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.KUrlLabel_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTabletEvent` instead
@@ -7550,12 +7796,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.KUrlLabel_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7566,12 +7813,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, event: QtC.QTabletEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabletEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QTabletEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7582,12 +7829,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_ActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ActionEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.KUrlLabel_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperActionEvent` instead
@@ -7602,12 +7850,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.KUrlLabel_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7618,12 +7867,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, event: QtC.QActionEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QActionEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7634,12 +7883,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_DragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragEnterEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.KUrlLabel_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
@@ -7654,12 +7904,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.KUrlLabel_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7670,12 +7921,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, event: QtC.QDragEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragEnterEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QDragEnterEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7686,12 +7937,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_DragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragMoveEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.KUrlLabel_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
@@ -7706,12 +7958,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.KUrlLabel_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7722,12 +7975,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, event: QtC.QDragMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragMoveEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QDragMoveEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7738,12 +7991,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragLeaveEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.KUrlLabel_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
@@ -7758,12 +8012,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.KUrlLabel_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7774,12 +8029,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, event: QtC.QDragLeaveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragLeaveEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QDragLeaveEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7790,12 +8045,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_DropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DropEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.KUrlLabel_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropEvent` instead
@@ -7810,12 +8066,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.KUrlLabel_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7826,12 +8083,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, event: QtC.QDropEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QDropEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7842,12 +8099,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_ShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ShowEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.KUrlLabel_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperShowEvent` instead
@@ -7862,12 +8120,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.KUrlLabel_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7878,12 +8137,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, event: QtC.QShowEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShowEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QShowEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7894,12 +8153,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_HideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn HideEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.KUrlLabel_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHideEvent` instead
@@ -7914,12 +8174,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.KUrlLabel_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7930,12 +8191,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, event: QtC.QHideEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHideEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QHideEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7946,7 +8207,7 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` eventType: []u8 `
     ///
@@ -7954,12 +8215,12 @@ pub const kurllabel = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn NativeEvent(self: KUrlLabel, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KUrlLabel_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KUrlLabel_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### DEPRECATED: Use `SuperNativeEvent` instead
@@ -7974,7 +8235,7 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` eventType: []u8 `
     ///
@@ -7982,12 +8243,12 @@ pub const kurllabel = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: KUrlLabel, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KUrlLabel_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KUrlLabel_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -7998,12 +8259,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KUrlLabel, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.KUrlLabel_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNativeEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.KUrlLabel_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8014,12 +8275,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KUrlLabel_Metric(@ptrCast(self), @bitCast(param1));
+    pub fn Metric(self: KUrlLabel, param1: i32) i32 {
+        return qtc.KUrlLabel_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperMetric` instead
@@ -8034,12 +8295,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KUrlLabel_SuperMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: KUrlLabel, param1: i32) i32 {
+        return qtc.KUrlLabel_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -8050,12 +8311,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KUrlLabel, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KUrlLabel_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetric(self: KUrlLabel, callback: *const fn (KUrlLabel, i32) callconv(.c) i32) void {
+        qtc.KUrlLabel_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8066,12 +8327,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.KUrlLabel_InitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn InitPainter(self: KUrlLabel, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.KUrlLabel_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitPainter` instead
@@ -8086,12 +8348,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: KUrlLabel, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.KUrlLabel_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -8102,12 +8365,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, painter: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitPainter(self: KUrlLabel, callback: *const fn (KUrlLabel, QPainter) callconv(.c) void) void {
+        qtc.KUrlLabel_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8118,12 +8381,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.KUrlLabel_Redirected(@ptrCast(self), @ptrCast(offset));
+    pub fn Redirected(self: KUrlLabel, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.KUrlLabel_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperRedirected` instead
@@ -8138,12 +8402,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.KUrlLabel_SuperRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: KUrlLabel, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.KUrlLabel_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8154,12 +8419,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    /// ` callback: *const fn (self: KUrlLabel, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.KUrlLabel_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: KUrlLabel, callback: *const fn (KUrlLabel, QPoint) callconv(.c) QPaintDevice) void {
+        qtc.KUrlLabel_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8170,10 +8435,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.KUrlLabel_SharedPainter(@ptrCast(self));
+    pub fn SharedPainter(self: KUrlLabel) QPainter {
+        return .{ .ptr = qtc.KUrlLabel_SharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSharedPainter` instead
@@ -8188,10 +8453,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.KUrlLabel_SuperSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: KUrlLabel) QPainter {
+        return .{ .ptr = qtc.KUrlLabel_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8202,12 +8467,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.KUrlLabel_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSharedPainter(self: KUrlLabel, callback: *const fn () callconv(.c) QPainter) void {
+        qtc.KUrlLabel_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8218,12 +8483,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KUrlLabel_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn InputMethodEvent(self: KUrlLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.KUrlLabel_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
@@ -8238,12 +8504,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: KUrlLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.KUrlLabel_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -8254,12 +8521,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, param1: QtC.QInputMethodEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QInputMethodEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8270,12 +8537,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.KUrlLabel_InputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn InputMethodQuery(self: KUrlLabel, param1: i32) QVariant {
+        return .{ .ptr = qtc.KUrlLabel_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
@@ -8290,12 +8557,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.KUrlLabel_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: KUrlLabel, param1: i32) QVariant {
+        return .{ .ptr = qtc.KUrlLabel_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -8306,12 +8573,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: KUrlLabel, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.KUrlLabel_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodQuery(self: KUrlLabel, callback: *const fn (KUrlLabel, i32) callconv(.c) QVariant) void {
+        qtc.KUrlLabel_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8322,14 +8589,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KUrlLabel_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KUrlLabel, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KUrlLabel_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -8344,14 +8613,16 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KUrlLabel_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KUrlLabel, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KUrlLabel_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -8362,12 +8633,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KUrlLabel, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KUrlLabel_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KUrlLabel, callback: *const fn (KUrlLabel, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KUrlLabel_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8378,12 +8649,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KUrlLabel_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -8398,12 +8670,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KUrlLabel_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -8414,12 +8687,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QTimerEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8430,12 +8703,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KUrlLabel_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -8450,12 +8724,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KUrlLabel_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -8466,12 +8741,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QChildEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8482,12 +8757,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KUrlLabel_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -8502,12 +8778,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KUrlLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KUrlLabel_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -8518,12 +8795,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KUrlLabel, callback: *const fn (KUrlLabel, QEvent) callconv(.c) void) void {
+        qtc.KUrlLabel_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8534,12 +8811,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KUrlLabel_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KUrlLabel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KUrlLabel_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -8554,12 +8832,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KUrlLabel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KUrlLabel_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -8570,12 +8849,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KUrlLabel, callback: *const fn (KUrlLabel, QMetaMethod) callconv(.c) void) void {
+        qtc.KUrlLabel_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8586,12 +8865,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KUrlLabel_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KUrlLabel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KUrlLabel_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -8606,12 +8886,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KUrlLabel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KUrlLabel_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -8622,12 +8903,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KUrlLabel, callback: *const fn (KUrlLabel, QMetaMethod) callconv(.c) void) void {
+        qtc.KUrlLabel_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -8638,12 +8919,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QPainter `
+    /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KUrlLabel_DrawFrame(@ptrCast(self), @ptrCast(param1));
+    pub fn DrawFrame(self: KUrlLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPainter;
+        qtc.KUrlLabel_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDrawFrame` instead
@@ -8658,12 +8940,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` param1: QtC.QPainter `
+    /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperDrawFrame(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDrawFrame(self: KUrlLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPainter;
+        qtc.KUrlLabel_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QFrame
@@ -8674,12 +8957,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, param1: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KUrlLabel_OnDrawFrame(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDrawFrame(self: KUrlLabel, callback: *const fn (KUrlLabel, QPainter) callconv(.c) void) void {
+        qtc.KUrlLabel_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8690,10 +8973,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.KUrlLabel_UpdateMicroFocus(@ptrCast(self));
+    pub fn UpdateMicroFocus(self: KUrlLabel) void {
+        qtc.KUrlLabel_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
@@ -8708,10 +8991,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: KUrlLabel) void {
+        qtc.KUrlLabel_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8722,12 +9005,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KUrlLabel_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateMicroFocus(self: KUrlLabel, callback: *const fn () callconv(.c) void) void {
+        qtc.KUrlLabel_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8738,10 +9021,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Create(self: ?*anyopaque) void {
-        qtc.KUrlLabel_Create(@ptrCast(self));
+    pub fn Create(self: KUrlLabel) void {
+        qtc.KUrlLabel_Create(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -8756,10 +9039,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SuperCreate(self: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperCreate(@ptrCast(self));
+    pub fn SuperCreate(self: KUrlLabel) void {
+        qtc.KUrlLabel_SuperCreate(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8770,12 +9053,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KUrlLabel_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: KUrlLabel, callback: *const fn () callconv(.c) void) void {
+        qtc.KUrlLabel_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8786,10 +9069,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Destroy(self: ?*anyopaque) void {
-        qtc.KUrlLabel_Destroy(@ptrCast(self));
+    pub fn Destroy(self: KUrlLabel) void {
+        qtc.KUrlLabel_Destroy(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDestroy` instead
@@ -8804,10 +9087,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SuperDestroy(self: ?*anyopaque) void {
-        qtc.KUrlLabel_SuperDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: KUrlLabel) void {
+        qtc.KUrlLabel_SuperDestroy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8818,12 +9101,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KUrlLabel_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroy(self: KUrlLabel, callback: *const fn () callconv(.c) void) void {
+        qtc.KUrlLabel_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8834,10 +9117,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return qtc.KUrlLabel_FocusNextChild(@ptrCast(self));
+    pub fn FocusNextChild(self: KUrlLabel) bool {
+        return qtc.KUrlLabel_FocusNextChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextChild` instead
@@ -8852,10 +9135,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.KUrlLabel_SuperFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: KUrlLabel) bool {
+        return qtc.KUrlLabel_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8866,12 +9149,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KUrlLabel_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextChild(self: KUrlLabel, callback: *const fn () callconv(.c) bool) void {
+        qtc.KUrlLabel_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8882,10 +9165,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.KUrlLabel_FocusPreviousChild(@ptrCast(self));
+    pub fn FocusPreviousChild(self: KUrlLabel) bool {
+        return qtc.KUrlLabel_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
@@ -8900,10 +9183,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.KUrlLabel_SuperFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: KUrlLabel) bool {
+        return qtc.KUrlLabel_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8914,12 +9197,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KUrlLabel_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusPreviousChild(self: KUrlLabel, callback: *const fn () callconv(.c) bool) void {
+        qtc.KUrlLabel_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8930,10 +9213,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KUrlLabel_Sender(@ptrCast(self));
+    pub fn Sender(self: KUrlLabel) QObject {
+        return .{ .ptr = qtc.KUrlLabel_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -8948,10 +9231,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KUrlLabel_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KUrlLabel) QObject {
+        return .{ .ptr = qtc.KUrlLabel_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -8962,12 +9245,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KUrlLabel_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KUrlLabel, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KUrlLabel_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8978,10 +9261,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KUrlLabel_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KUrlLabel) i32 {
+        return qtc.KUrlLabel_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -8996,10 +9279,10 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KUrlLabel_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KUrlLabel) i32 {
+        return qtc.KUrlLabel_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -9010,12 +9293,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KUrlLabel_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KUrlLabel, callback: *const fn () callconv(.c) i32) void {
+        qtc.KUrlLabel_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9026,13 +9309,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KUrlLabel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KUrlLabel_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KUrlLabel_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -9047,13 +9330,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KUrlLabel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KUrlLabel_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KUrlLabel_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -9064,12 +9347,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KUrlLabel, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KUrlLabel_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KUrlLabel, callback: *const fn (KUrlLabel, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KUrlLabel_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9080,12 +9363,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KUrlLabel_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KUrlLabel, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KUrlLabel_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -9100,12 +9384,13 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KUrlLabel_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KUrlLabel, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KUrlLabel_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -9116,12 +9401,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KUrlLabel, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KUrlLabel_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KUrlLabel, callback: *const fn (KUrlLabel, QMetaMethod) callconv(.c) bool) void {
+        qtc.KUrlLabel_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -9132,14 +9417,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KUrlLabel_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn GetDecodedMetricF(self: KUrlLabel, metricA: i32, metricB: i32) f64 {
+        return qtc.KUrlLabel_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
@@ -9154,14 +9439,14 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KUrlLabel_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: KUrlLabel, metricA: i32, metricB: i32) f64 {
+        return qtc.KUrlLabel_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -9172,12 +9457,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel`
+    /// ` self: KUrlLabel`
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    /// ` callback: *const fn (self: KUrlLabel, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.KUrlLabel_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetDecodedMetricF(self: KUrlLabel, callback: *const fn (KUrlLabel, i32, i32) callconv(.c) f64) void {
+        qtc.KUrlLabel_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9188,12 +9473,12 @@ pub const kurllabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    /// ` callback: *const fn (self: QtC.KUrlLabel, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KUrlLabel, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KUrlLabel, callback: *const fn (KUrlLabel, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -9206,9 +9491,9 @@ pub const kurllabel = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KUrlLabel `
+    /// ` self: KUrlLabel `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KUrlLabel_Delete(@ptrCast(self));
+    pub fn Delete(self: KUrlLabel) void {
+        qtc.KUrlLabel_Delete(@ptrCast(self.ptr));
     }
 };

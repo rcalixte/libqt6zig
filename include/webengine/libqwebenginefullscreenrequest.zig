@@ -1,68 +1,79 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QUrl = @import("libqt6").QUrl;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefullscreenrequest.html)
-pub const qwebenginefullscreenrequest = struct {
+pub const QWebEngineFullScreenRequest = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefullscreenrequest.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QWebEngineFullScreenRequest,
+
+    pub const _is_QWebEngineFullScreenRequest = {};
+
     /// New constructs a new QWebEngineFullScreenRequest object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QWebEngineFullScreenRequest `
+    /// ` other: QWebEngineFullScreenRequest `
     ///
-    pub fn New(other: ?*anyopaque) QtC.QWebEngineFullScreenRequest {
-        return qtc.QWebEngineFullScreenRequest_new(@ptrCast(other));
+    pub fn New(other: anytype) QWebEngineFullScreenRequest {
+        comptime _ = @TypeOf(other)._is_QWebEngineFullScreenRequest;
+        return .{ .ptr = qtc.QWebEngineFullScreenRequest_new(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefullscreenrequest.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineFullScreenRequest `
+    /// ` self: QWebEngineFullScreenRequest `
     ///
-    /// ` other: QtC.QWebEngineFullScreenRequest `
+    /// ` other: QWebEngineFullScreenRequest `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QWebEngineFullScreenRequest_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QWebEngineFullScreenRequest, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QWebEngineFullScreenRequest;
+        qtc.QWebEngineFullScreenRequest_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefullscreenrequest.html#reject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineFullScreenRequest `
+    /// ` self: QWebEngineFullScreenRequest `
     ///
-    pub fn Reject(self: ?*anyopaque) void {
-        qtc.QWebEngineFullScreenRequest_Reject(@ptrCast(self));
+    pub fn Reject(self: QWebEngineFullScreenRequest) void {
+        qtc.QWebEngineFullScreenRequest_Reject(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefullscreenrequest.html#accept)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineFullScreenRequest `
+    /// ` self: QWebEngineFullScreenRequest `
     ///
-    pub fn Accept(self: ?*anyopaque) void {
-        qtc.QWebEngineFullScreenRequest_Accept(@ptrCast(self));
+    pub fn Accept(self: QWebEngineFullScreenRequest) void {
+        qtc.QWebEngineFullScreenRequest_Accept(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefullscreenrequest.html#toggleOn)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineFullScreenRequest `
+    /// ` self: QWebEngineFullScreenRequest `
     ///
-    pub fn ToggleOn(self: ?*anyopaque) bool {
-        return qtc.QWebEngineFullScreenRequest_ToggleOn(@ptrCast(self));
+    pub fn ToggleOn(self: QWebEngineFullScreenRequest) bool {
+        return qtc.QWebEngineFullScreenRequest_ToggleOn(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefullscreenrequest.html#origin)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineFullScreenRequest `
+    /// ` self: QWebEngineFullScreenRequest `
     ///
-    pub fn Origin(self: ?*anyopaque) QtC.QUrl {
-        return qtc.QWebEngineFullScreenRequest_Origin(@ptrCast(self));
+    pub fn Origin(self: QWebEngineFullScreenRequest) QUrl {
+        return .{ .ptr = qtc.QWebEngineFullScreenRequest_Origin(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -75,9 +86,9 @@ pub const qwebenginefullscreenrequest = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QWebEngineFullScreenRequest `
+    /// ` self: QWebEngineFullScreenRequest `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QWebEngineFullScreenRequest_Delete(@ptrCast(self));
+    pub fn Delete(self: QWebEngineFullScreenRequest) void {
+        qtc.QWebEngineFullScreenRequest_Delete(@ptrCast(self.ptr));
     }
 };

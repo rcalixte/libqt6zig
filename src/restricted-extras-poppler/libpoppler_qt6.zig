@@ -1,22 +1,49 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const Poppler__Annotation = @import("libqt6").Poppler__Annotation;
+const Poppler__FormField = @import("libqt6").Poppler__FormField;
+const Poppler__FormFieldSignature = @import("libqt6").Poppler__FormFieldSignature;
+const Poppler__Link = @import("libqt6").Poppler__Link;
+const Poppler__LinkDestination = @import("libqt6").Poppler__LinkDestination;
+const Poppler__LinkResetForm = @import("libqt6").Poppler__LinkResetForm;
+const Poppler__OptContentModel = @import("libqt6").Poppler__OptContentModel;
+const Poppler__PDFConverter = @import("libqt6").Poppler__PDFConverter;
+const Poppler__PSConverter = @import("libqt6").Poppler__PSConverter;
+const Poppler__PageTransition = @import("libqt6").Poppler__PageTransition;
+const QColor = @import("libqt6").QColor;
+const QDateTime = @import("libqt6").QDateTime;
+const QIODevice = @import("libqt6").QIODevice;
+const QImage = @import("libqt6").QImage;
+const QPainter = @import("libqt6").QPainter;
+const QRectF = @import("libqt6").QRectF;
+const QSize = @import("libqt6").QSize;
+const QSizeF = @import("libqt6").QSizeF;
+const QVariant = @import("libqt6").QVariant;
 const poppler_annotation_enums = @import("libpoppler_annotation.zig").enums;
 const poppler_qt6_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const std = @import("std");
-const set_i32 = std.AutoHashMapUnmanaged(i32, void);
+const Set_i32 = std.AutoHashMapUnmanaged(i32, void);
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/namespacePoppler.html)
-pub const poppler = struct {
+pub const Poppler = extern struct {
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/namespacePoppler.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Poppler,
+
+    pub const _is_Poppler = {};
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/namespacePoppler.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn ConvertDate(param1: [:0]const u8) QtC.QDateTime {
+    pub fn ConvertDate(param1: [:0]const u8) QDateTime {
         const param1_Cstring = param1.ptr;
-        return qtc.Poppler_ConvertDate(param1_Cstring);
+        return .{ .ptr = qtc.Poppler_ConvertDate(param1_Cstring) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/namespacePoppler.html)
@@ -33,34 +60,42 @@ pub const poppler = struct {
 };
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextBox.html)
-pub const poppler__textbox = struct {
+pub const Poppler__TextBox = extern struct {
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextBox.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Poppler__TextBox,
+
+    pub const _is_Poppler__TextBox = {};
+
     /// New constructs a new Poppler::TextBox object.
     ///
     /// ## Parameter(s):
     ///
     /// ` text: []const u8 `
     ///
-    /// ` bBox: QtC.QRectF `
+    /// ` bBox: QRectF `
     ///
-    pub fn New(text: []const u8, bBox: ?*anyopaque) QtC.Poppler__TextBox {
+    pub fn New(text: []const u8, bBox: anytype) Poppler__TextBox {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-
-        return qtc.Poppler__TextBox_new(text_str, @ptrCast(bBox));
+        comptime _ = @TypeOf(bBox)._is_QRectF;
+        return .{ .ptr = qtc.Poppler__TextBox_new(text_str, @ptrCast(bBox.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextBox.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__TextBox `
+    /// ` self: Poppler__TextBox `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__TextBox_Text(@ptrCast(self));
+    pub fn Text(self: Poppler__TextBox, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__TextBox_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__textbox.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -71,42 +106,42 @@ pub const poppler__textbox = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__TextBox `
+    /// ` self: Poppler__TextBox `
     ///
-    pub fn BoundingBox(self: ?*anyopaque) QtC.QRectF {
-        return qtc.Poppler__TextBox_BoundingBox(@ptrCast(self));
+    pub fn BoundingBox(self: Poppler__TextBox) QRectF {
+        return .{ .ptr = qtc.Poppler__TextBox_BoundingBox(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextBox.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__TextBox `
+    /// ` self: Poppler__TextBox `
     ///
-    pub fn NextWord(self: ?*anyopaque) QtC.Poppler__TextBox {
-        return qtc.Poppler__TextBox_NextWord(@ptrCast(self));
+    pub fn NextWord(self: Poppler__TextBox) Poppler__TextBox {
+        return .{ .ptr = qtc.Poppler__TextBox_NextWord(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextBox.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__TextBox `
+    /// ` self: Poppler__TextBox `
     ///
     /// ` i: i32 `
     ///
-    pub fn CharBoundingBox(self: ?*anyopaque, i: i32) QtC.QRectF {
-        return qtc.Poppler__TextBox_CharBoundingBox(@ptrCast(self), @bitCast(i));
+    pub fn CharBoundingBox(self: Poppler__TextBox, i: i32) QRectF {
+        return .{ .ptr = qtc.Poppler__TextBox_CharBoundingBox(@ptrCast(self.ptr), @bitCast(i)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1TextBox.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__TextBox `
+    /// ` self: Poppler__TextBox `
     ///
-    pub fn HasSpaceAfter(self: ?*anyopaque) bool {
-        return qtc.Poppler__TextBox_HasSpaceAfter(@ptrCast(self));
+    pub fn HasSpaceAfter(self: Poppler__TextBox) bool {
+        return qtc.Poppler__TextBox_HasSpaceAfter(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -119,41 +154,50 @@ pub const poppler__textbox = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Poppler__TextBox `
+    /// ` self: Poppler__TextBox `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Poppler__TextBox_Delete(@ptrCast(self));
+    pub fn Delete(self: Poppler__TextBox) void {
+        qtc.Poppler__TextBox_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FontInfo.html)
-pub const poppler__fontinfo = struct {
+pub const Poppler__FontInfo = extern struct {
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FontInfo.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Poppler__FontInfo,
+
+    pub const _is_Poppler__FontInfo = {};
+
     /// New constructs a new Poppler::FontInfo object.
     ///
-    pub fn New() QtC.Poppler__FontInfo {
-        return qtc.Poppler__FontInfo_new();
+    pub fn New() Poppler__FontInfo {
+        return .{ .ptr = qtc.Poppler__FontInfo_new() };
     }
 
     /// New2 constructs a new Poppler::FontInfo object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` fi: QtC.Poppler__FontInfo `
+    /// ` fi: Poppler__FontInfo `
     ///
-    pub fn New2(fi: ?*anyopaque) QtC.Poppler__FontInfo {
-        return qtc.Poppler__FontInfo_new2(@ptrCast(fi));
+    pub fn New2(fi: anytype) Poppler__FontInfo {
+        comptime _ = @TypeOf(fi)._is_Poppler__FontInfo;
+        return .{ .ptr = qtc.Poppler__FontInfo_new2(@ptrCast(fi.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FontInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FontInfo `
+    /// ` self: Poppler__FontInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__FontInfo_Name(@ptrCast(self));
+    pub fn Name(self: Poppler__FontInfo, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__FontInfo_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__fontinfo.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -164,12 +208,12 @@ pub const poppler__fontinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FontInfo `
+    /// ` self: Poppler__FontInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SubstituteName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__FontInfo_SubstituteName(@ptrCast(self));
+    pub fn SubstituteName(self: Poppler__FontInfo, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__FontInfo_SubstituteName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__fontinfo.SubstituteName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -180,12 +224,12 @@ pub const poppler__fontinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FontInfo `
+    /// ` self: Poppler__FontInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn File(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__FontInfo_File(@ptrCast(self));
+    pub fn File(self: Poppler__FontInfo, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__FontInfo_File(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__fontinfo.File: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -196,46 +240,46 @@ pub const poppler__fontinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FontInfo `
+    /// ` self: Poppler__FontInfo `
     ///
-    pub fn IsEmbedded(self: ?*anyopaque) bool {
-        return qtc.Poppler__FontInfo_IsEmbedded(@ptrCast(self));
+    pub fn IsEmbedded(self: Poppler__FontInfo) bool {
+        return qtc.Poppler__FontInfo_IsEmbedded(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FontInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FontInfo `
+    /// ` self: Poppler__FontInfo `
     ///
-    pub fn IsSubset(self: ?*anyopaque) bool {
-        return qtc.Poppler__FontInfo_IsSubset(@ptrCast(self));
+    pub fn IsSubset(self: Poppler__FontInfo) bool {
+        return qtc.Poppler__FontInfo_IsSubset(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FontInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FontInfo `
+    /// ` self: Poppler__FontInfo `
     ///
     /// ## Returns:
     ///
     /// ` poppler_qt6_enums.Type `
     ///
-    pub fn Type(self: ?*anyopaque) i32 {
-        return qtc.Poppler__FontInfo_Type(@ptrCast(self));
+    pub fn Type(self: Poppler__FontInfo) i32 {
+        return qtc.Poppler__FontInfo_Type(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FontInfo.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FontInfo `
+    /// ` self: Poppler__FontInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TypeName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__FontInfo_TypeName(@ptrCast(self));
+    pub fn TypeName(self: Poppler__FontInfo, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__FontInfo_TypeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__fontinfo.TypeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -246,12 +290,13 @@ pub const poppler__fontinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FontInfo `
+    /// ` self: Poppler__FontInfo `
     ///
-    /// ` fi: QtC.Poppler__FontInfo `
+    /// ` fi: Poppler__FontInfo `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, fi: ?*anyopaque) void {
-        qtc.Poppler__FontInfo_OperatorAssign(@ptrCast(self), @ptrCast(fi));
+    pub fn OperatorAssign(self: Poppler__FontInfo, fi: anytype) void {
+        comptime _ = @TypeOf(fi)._is_Poppler__FontInfo;
+        qtc.Poppler__FontInfo_OperatorAssign(@ptrCast(self.ptr), @ptrCast(fi.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -264,29 +309,38 @@ pub const poppler__fontinfo = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Poppler__FontInfo `
+    /// ` self: Poppler__FontInfo `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Poppler__FontInfo_Delete(@ptrCast(self));
+    pub fn Delete(self: Poppler__FontInfo) void {
+        qtc.Poppler__FontInfo_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FontIterator.html)
-pub const poppler__fontiterator = struct {
+pub const Poppler__FontIterator = extern struct {
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FontIterator.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Poppler__FontIterator,
+
+    pub const _is_Poppler__FontIterator = {};
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FontIterator.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FontIterator `
+    /// ` self: Poppler__FontIterator `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Next(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Poppler__FontInfo {
-        const _arr: qtc.libqt_list = qtc.Poppler__FontIterator_Next(@ptrCast(self));
+    pub fn Next(self: Poppler__FontIterator, allocator: std.mem.Allocator) []Poppler__FontInfo {
+        const _arr: qtc.libqt_list = qtc.Poppler__FontIterator_Next(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.Poppler__FontInfo, _arr.len) catch @panic("poppler__fontiterator.Next: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__FontInfo, _arr.len) catch @panic("poppler__fontiterator.Next: Memory allocation failed");
         const _data: [*]QtC.Poppler__FontInfo = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -294,20 +348,20 @@ pub const poppler__fontiterator = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FontIterator `
+    /// ` self: Poppler__FontIterator `
     ///
-    pub fn HasNext(self: ?*anyopaque) bool {
-        return qtc.Poppler__FontIterator_HasNext(@ptrCast(self));
+    pub fn HasNext(self: Poppler__FontIterator) bool {
+        return qtc.Poppler__FontIterator_HasNext(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1FontIterator.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__FontIterator `
+    /// ` self: Poppler__FontIterator `
     ///
-    pub fn CurrentPage(self: ?*anyopaque) i32 {
-        return qtc.Poppler__FontIterator_CurrentPage(@ptrCast(self));
+    pub fn CurrentPage(self: Poppler__FontIterator) i32 {
+        return qtc.Poppler__FontIterator_CurrentPage(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -320,25 +374,33 @@ pub const poppler__fontiterator = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Poppler__FontIterator `
+    /// ` self: Poppler__FontIterator `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Poppler__FontIterator_Delete(@ptrCast(self));
+    pub fn Delete(self: Poppler__FontIterator) void {
+        qtc.Poppler__FontIterator_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1EmbeddedFile.html)
-pub const poppler__embeddedfile = struct {
+pub const Poppler__EmbeddedFile = extern struct {
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1EmbeddedFile.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Poppler__EmbeddedFile,
+
+    pub const _is_Poppler__EmbeddedFile = {};
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1EmbeddedFile.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__EmbeddedFile `
+    /// ` self: Poppler__EmbeddedFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__EmbeddedFile_Name(@ptrCast(self));
+    pub fn Name(self: Poppler__EmbeddedFile, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__EmbeddedFile_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__embeddedfile.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -349,12 +411,12 @@ pub const poppler__embeddedfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__EmbeddedFile `
+    /// ` self: Poppler__EmbeddedFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__EmbeddedFile_Description(@ptrCast(self));
+    pub fn Description(self: Poppler__EmbeddedFile, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__EmbeddedFile_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__embeddedfile.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -365,42 +427,42 @@ pub const poppler__embeddedfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__EmbeddedFile `
+    /// ` self: Poppler__EmbeddedFile `
     ///
-    pub fn Size(self: ?*anyopaque) i32 {
-        return qtc.Poppler__EmbeddedFile_Size(@ptrCast(self));
+    pub fn Size(self: Poppler__EmbeddedFile) i32 {
+        return qtc.Poppler__EmbeddedFile_Size(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1EmbeddedFile.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__EmbeddedFile `
+    /// ` self: Poppler__EmbeddedFile `
     ///
-    pub fn ModDate(self: ?*anyopaque) QtC.QDateTime {
-        return qtc.Poppler__EmbeddedFile_ModDate(@ptrCast(self));
+    pub fn ModDate(self: Poppler__EmbeddedFile) QDateTime {
+        return .{ .ptr = qtc.Poppler__EmbeddedFile_ModDate(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1EmbeddedFile.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__EmbeddedFile `
+    /// ` self: Poppler__EmbeddedFile `
     ///
-    pub fn CreateDate(self: ?*anyopaque) QtC.QDateTime {
-        return qtc.Poppler__EmbeddedFile_CreateDate(@ptrCast(self));
+    pub fn CreateDate(self: Poppler__EmbeddedFile) QDateTime {
+        return .{ .ptr = qtc.Poppler__EmbeddedFile_CreateDate(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1EmbeddedFile.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__EmbeddedFile `
+    /// ` self: Poppler__EmbeddedFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Checksum(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.Poppler__EmbeddedFile_Checksum(@ptrCast(self));
+    pub fn Checksum(self: Poppler__EmbeddedFile, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.Poppler__EmbeddedFile_Checksum(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("poppler__embeddedfile.Checksum: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -411,12 +473,12 @@ pub const poppler__embeddedfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__EmbeddedFile `
+    /// ` self: Poppler__EmbeddedFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeType(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__EmbeddedFile_MimeType(@ptrCast(self));
+    pub fn MimeType(self: Poppler__EmbeddedFile, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__EmbeddedFile_MimeType(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__embeddedfile.MimeType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -427,12 +489,12 @@ pub const poppler__embeddedfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__EmbeddedFile `
+    /// ` self: Poppler__EmbeddedFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Data(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.Poppler__EmbeddedFile_Data(@ptrCast(self));
+    pub fn Data(self: Poppler__EmbeddedFile, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.Poppler__EmbeddedFile_Data(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("poppler__embeddedfile.Data: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -443,10 +505,10 @@ pub const poppler__embeddedfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__EmbeddedFile `
+    /// ` self: Poppler__EmbeddedFile `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.Poppler__EmbeddedFile_IsValid(@ptrCast(self));
+    pub fn IsValid(self: Poppler__EmbeddedFile) bool {
+        return qtc.Poppler__EmbeddedFile_IsValid(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -459,30 +521,38 @@ pub const poppler__embeddedfile = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Poppler__EmbeddedFile `
+    /// ` self: Poppler__EmbeddedFile `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Poppler__EmbeddedFile_Delete(@ptrCast(self));
+    pub fn Delete(self: Poppler__EmbeddedFile) void {
+        qtc.Poppler__EmbeddedFile_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
-pub const poppler__page = struct {
+pub const Poppler__Page = extern struct {
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Poppler__Page,
+
+    pub const _is_Poppler__Page = {};
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
-    pub fn RenderToImage(self: ?*anyopaque) QtC.QImage {
-        return qtc.Poppler__Page_RenderToImage(@ptrCast(self));
+    pub fn RenderToImage(self: Poppler__Page) QImage {
+        return .{ .ptr = qtc.Poppler__Page_RenderToImage(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
     /// ` xres: f64 `
     ///
@@ -498,21 +568,22 @@ pub const poppler__page = struct {
     ///
     /// ` rotate: poppler_qt6_enums.Rotation `
     ///
-    /// ` partialUpdateCallback: *const fn (funcparam1: QtC.QImage, funcparam2: QtC.QVariant) callconv(.c) void `
+    /// ` partialUpdateCallback: *const fn (funcparam1: QImage, funcparam2: QVariant) callconv(.c) void `
     ///
-    /// ` shouldDoPartialUpdateCallback: *const fn (funcparam1: QtC.QVariant) callconv(.c) bool `
+    /// ` shouldDoPartialUpdateCallback: *const fn (funcparam1: QVariant) callconv(.c) bool `
     ///
-    /// ` payload: QtC.QVariant `
+    /// ` payload: QVariant `
     ///
-    pub fn RenderToImage2(self: ?*anyopaque, xres: f64, yres: f64, x: i32, y: i32, w: i32, h: i32, rotate: i32, partialUpdateCallback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void, shouldDoPartialUpdateCallback: *const fn (?*anyopaque) callconv(.c) bool, payload: ?*anyopaque) QtC.QImage {
-        return qtc.Poppler__Page_RenderToImage2(@ptrCast(self), @bitCast(xres), @bitCast(yres), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(rotate), @bitCast(@intFromPtr(partialUpdateCallback)), @bitCast(@intFromPtr(shouldDoPartialUpdateCallback)), @ptrCast(payload));
+    pub fn RenderToImage2(self: Poppler__Page, xres: f64, yres: f64, x: i32, y: i32, w: i32, h: i32, rotate: i32, partialUpdateCallback: *const fn (QImage, QVariant) callconv(.c) void, shouldDoPartialUpdateCallback: *const fn (QVariant) callconv(.c) bool, payload: anytype) QImage {
+        comptime _ = @TypeOf(payload)._is_QVariant;
+        return .{ .ptr = qtc.Poppler__Page_RenderToImage2(@ptrCast(self.ptr), @bitCast(xres), @bitCast(yres), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(rotate), @bitCast(@intFromPtr(partialUpdateCallback)), @bitCast(@intFromPtr(shouldDoPartialUpdateCallback)), @ptrCast(payload.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
     /// ` xres: f64 `
     ///
@@ -528,54 +599,57 @@ pub const poppler__page = struct {
     ///
     /// ` rotate: poppler_qt6_enums.Rotation `
     ///
-    /// ` partialUpdateCallback: *const fn (funcparam1: QtC.QImage, funcparam2: QtC.QVariant) callconv(.c) void `
+    /// ` partialUpdateCallback: *const fn (funcparam1: QImage, funcparam2: QVariant) callconv(.c) void `
     ///
-    /// ` shouldDoPartialUpdateCallback: *const fn (funcparam1: QtC.QVariant) callconv(.c) bool `
+    /// ` shouldDoPartialUpdateCallback: *const fn (funcparam1: QVariant) callconv(.c) bool `
     ///
-    /// ` shouldAbortRenderCallback: *const fn (funcparam1: QtC.QVariant) callconv(.c) bool `
+    /// ` shouldAbortRenderCallback: *const fn (funcparam1: QVariant) callconv(.c) bool `
     ///
-    /// ` payload: QtC.QVariant `
+    /// ` payload: QVariant `
     ///
-    pub fn RenderToImage3(self: ?*anyopaque, xres: f64, yres: f64, x: i32, y: i32, w: i32, h: i32, rotate: i32, partialUpdateCallback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void, shouldDoPartialUpdateCallback: *const fn (?*anyopaque) callconv(.c) bool, shouldAbortRenderCallback: *const fn (?*anyopaque) callconv(.c) bool, payload: ?*anyopaque) QtC.QImage {
-        return qtc.Poppler__Page_RenderToImage3(@ptrCast(self), @bitCast(xres), @bitCast(yres), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(rotate), @bitCast(@intFromPtr(partialUpdateCallback)), @bitCast(@intFromPtr(shouldDoPartialUpdateCallback)), @bitCast(@intFromPtr(shouldAbortRenderCallback)), @ptrCast(payload));
+    pub fn RenderToImage3(self: Poppler__Page, xres: f64, yres: f64, x: i32, y: i32, w: i32, h: i32, rotate: i32, partialUpdateCallback: *const fn (QImage, QVariant) callconv(.c) void, shouldDoPartialUpdateCallback: *const fn (QVariant) callconv(.c) bool, shouldAbortRenderCallback: *const fn (QVariant) callconv(.c) bool, payload: anytype) QImage {
+        comptime _ = @TypeOf(payload)._is_QVariant;
+        return .{ .ptr = qtc.Poppler__Page_RenderToImage3(@ptrCast(self.ptr), @bitCast(xres), @bitCast(yres), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(rotate), @bitCast(@intFromPtr(partialUpdateCallback)), @bitCast(@intFromPtr(shouldDoPartialUpdateCallback)), @bitCast(@intFromPtr(shouldAbortRenderCallback)), @ptrCast(payload.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn RenderToPainter(self: ?*anyopaque, painter: ?*anyopaque) bool {
-        return qtc.Poppler__Page_RenderToPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn RenderToPainter(self: Poppler__Page, painter: anytype) bool {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        return qtc.Poppler__Page_RenderToPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
-    pub fn Thumbnail(self: ?*anyopaque) QtC.QImage {
-        return qtc.Poppler__Page_Thumbnail(@ptrCast(self));
+    pub fn Thumbnail(self: Poppler__Page) QImage {
+        return .{ .ptr = qtc.Poppler__Page_Thumbnail(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
-    ///
-    /// ` rect: QtC.QRectF `
-    ///
-    /// ` textLayout: poppler_qt6_enums.TextLayout `
+    /// ` self: Poppler__Page `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: ?*anyopaque, rect: ?*anyopaque, textLayout: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__Page_Text(@ptrCast(self), @ptrCast(rect), @bitCast(textLayout));
+    /// ` rect: QRectF `
+    ///
+    /// ` textLayout: poppler_qt6_enums.TextLayout `
+    ///
+    pub fn Text(self: Poppler__Page, allocator: std.mem.Allocator, rect: anytype, textLayout: i32) []const u8 {
+        comptime _ = @TypeOf(rect)._is_QRectF;
+        var _str = qtc.Poppler__Page_Text(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(textLayout));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__page.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -586,14 +660,15 @@ pub const poppler__page = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
-    ///
-    /// ` rect: QtC.QRectF `
+    /// ` self: Poppler__Page `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text2(self: ?*anyopaque, rect: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__Page_Text2(@ptrCast(self), @ptrCast(rect));
+    /// ` rect: QRectF `
+    ///
+    pub fn Text2(self: Poppler__Page, allocator: std.mem.Allocator, rect: anytype) []const u8 {
+        comptime _ = @TypeOf(rect)._is_QRectF;
+        var _str = qtc.Poppler__Page_Text2(@ptrCast(self.ptr), @ptrCast(rect.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__page.Text2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -604,7 +679,7 @@ pub const poppler__page = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
     /// ` text: []const u8 `
     ///
@@ -618,34 +693,35 @@ pub const poppler__page = struct {
     ///
     /// ` direction: poppler_qt6_enums.SearchDirection `
     ///
-    pub fn Search(self: ?*anyopaque, text: []const u8, sLeft: *f64, sTop: *f64, sRight: *f64, sBottom: *f64, direction: i32) bool {
+    pub fn Search(self: Poppler__Page, text: []const u8, sLeft: *f64, sTop: *f64, sRight: *f64, sBottom: *f64, direction: i32) bool {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.Poppler__Page_Search(@ptrCast(self), text_str, @ptrCast(sLeft), @ptrCast(sTop), @ptrCast(sRight), @ptrCast(sBottom), @bitCast(direction));
+        return qtc.Poppler__Page_Search(@ptrCast(self.ptr), text_str, @ptrCast(sLeft), @ptrCast(sTop), @ptrCast(sRight), @ptrCast(sBottom), @bitCast(direction));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Search2(self: ?*anyopaque, text: []const u8, allocator: std.mem.Allocator) []QtC.QRectF {
+    pub fn Search2(self: Poppler__Page, allocator: std.mem.Allocator, text: []const u8) []QRectF {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.Poppler__Page_Search2(@ptrCast(self), text_str);
+        const _arr: qtc.libqt_list = qtc.Poppler__Page_Search2(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QRectF, _arr.len) catch @panic("poppler__page.Search2: Memory allocation failed");
+        const _ret = allocator.alloc(QRectF, _arr.len) catch @panic("poppler__page.Search2: Memory allocation failed");
         const _data: [*]QtC.QRectF = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -653,16 +729,17 @@ pub const poppler__page = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TextList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Poppler__TextBox {
-        const _arr: qtc.libqt_list = qtc.Poppler__Page_TextList(@ptrCast(self));
+    pub fn TextList(self: Poppler__Page, allocator: std.mem.Allocator) []Poppler__TextBox {
+        const _arr: qtc.libqt_list = qtc.Poppler__Page_TextList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.Poppler__TextBox, _arr.len) catch @panic("poppler__page.TextList: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__TextBox, _arr.len) catch @panic("poppler__page.TextList: Memory allocation failed");
         const _data: [*]QtC.Poppler__TextBox = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -670,22 +747,24 @@ pub const poppler__page = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` rotate: poppler_qt6_enums.Rotation `
     ///
-    /// ` shouldAbortExtractionCallback: *const fn (funcparam1: QtC.QVariant) callconv(.c) bool `
+    /// ` shouldAbortExtractionCallback: *const fn (funcparam1: QVariant) callconv(.c) bool `
     ///
-    /// ` closure: QtC.QVariant `
+    /// ` closure: QVariant `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn TextList2(self: ?*anyopaque, rotate: i32, shouldAbortExtractionCallback: *const fn (?*anyopaque) callconv(.c) bool, closure: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Poppler__TextBox {
-        const _arr: qtc.libqt_list = qtc.Poppler__Page_TextList2(@ptrCast(self), @bitCast(rotate), @bitCast(@intFromPtr(shouldAbortExtractionCallback)), @ptrCast(closure));
+    pub fn TextList2(self: Poppler__Page, allocator: std.mem.Allocator, rotate: i32, shouldAbortExtractionCallback: *const fn (QVariant) callconv(.c) bool, closure: anytype) []Poppler__TextBox {
+        comptime _ = @TypeOf(closure)._is_QVariant;
+        const _arr: qtc.libqt_list = qtc.Poppler__Page_TextList2(@ptrCast(self.ptr), @bitCast(rotate), @bitCast(@intFromPtr(shouldAbortExtractionCallback)), @ptrCast(closure.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.Poppler__TextBox, _arr.len) catch @panic("poppler__page.TextList2: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__TextBox, _arr.len) catch @panic("poppler__page.TextList2: Memory allocation failed");
         const _data: [*]QtC.Poppler__TextBox = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -693,63 +772,63 @@ pub const poppler__page = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
-    pub fn PageSizeF(self: ?*anyopaque) QtC.QSizeF {
-        return qtc.Poppler__Page_PageSizeF(@ptrCast(self));
+    pub fn PageSizeF(self: Poppler__Page) QSizeF {
+        return .{ .ptr = qtc.Poppler__Page_PageSizeF(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
-    pub fn PageSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.Poppler__Page_PageSize(@ptrCast(self));
+    pub fn PageSize(self: Poppler__Page) QSize {
+        return .{ .ptr = qtc.Poppler__Page_PageSize(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
-    pub fn Transition(self: ?*anyopaque) QtC.Poppler__PageTransition {
-        return qtc.Poppler__Page_Transition(@ptrCast(self));
+    pub fn Transition(self: Poppler__Page) Poppler__PageTransition {
+        return .{ .ptr = qtc.Poppler__Page_Transition(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
     /// ` act: poppler_qt6_enums.PageAction `
     ///
-    pub fn Action(self: ?*anyopaque, act: i32) QtC.Poppler__Link {
-        return qtc.Poppler__Page_Action(@ptrCast(self), @bitCast(act));
+    pub fn Action(self: Poppler__Page, act: i32) Poppler__Link {
+        return .{ .ptr = qtc.Poppler__Page_Action(@ptrCast(self.ptr), @bitCast(act)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
     /// ## Returns:
     ///
     /// ` poppler_qt6_enums.Orientation `
     ///
-    pub fn Orientation(self: ?*anyopaque) i32 {
-        return qtc.Poppler__Page_Orientation(@ptrCast(self));
+    pub fn Orientation(self: Poppler__Page) i32 {
+        return qtc.Poppler__Page_Orientation(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
     /// ` CTM: *f64 `
     ///
@@ -761,24 +840,25 @@ pub const poppler__page = struct {
     ///
     /// ` upsideDown: bool `
     ///
-    pub fn DefaultCTM(self: ?*anyopaque, CTM: *f64, dpiX: f64, dpiY: f64, rotate: i32, upsideDown: bool) void {
-        qtc.Poppler__Page_DefaultCTM(@ptrCast(self), @ptrCast(CTM), @bitCast(dpiX), @bitCast(dpiY), @bitCast(rotate), upsideDown);
+    pub fn DefaultCTM(self: Poppler__Page, CTM: *f64, dpiX: f64, dpiY: f64, rotate: i32, upsideDown: bool) void {
+        qtc.Poppler__Page_DefaultCTM(@ptrCast(self.ptr), @ptrCast(CTM), @bitCast(dpiX), @bitCast(dpiY), @bitCast(rotate), upsideDown);
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Links(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Poppler__Link {
-        const _arr: qtc.libqt_list = qtc.Poppler__Page_Links(@ptrCast(self));
+    pub fn Links(self: Poppler__Page, allocator: std.mem.Allocator) []Poppler__Link {
+        const _arr: qtc.libqt_list = qtc.Poppler__Page_Links(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.Poppler__Link, _arr.len) catch @panic("poppler__page.Links: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("poppler__page.Links: Memory allocation failed");
         const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -786,16 +866,17 @@ pub const poppler__page = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Annotations(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Poppler__Annotation {
-        const _arr: qtc.libqt_list = qtc.Poppler__Page_Annotations(@ptrCast(self));
+    pub fn Annotations(self: Poppler__Page, allocator: std.mem.Allocator) []Poppler__Annotation {
+        const _arr: qtc.libqt_list = qtc.Poppler__Page_Annotations(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.Poppler__Annotation, _arr.len) catch @panic("poppler__page.Annotations: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("poppler__page.Annotations: Memory allocation failed");
         const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -803,31 +884,30 @@ pub const poppler__page = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
-    ///
-    /// ` subtypes: set_i32 of poppler_annotation_enums.SubType `
+    /// ` self: Poppler__Page `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Annotations2(self: ?*anyopaque, subtypes: set_i32, allocator: std.mem.Allocator) []QtC.Poppler__Annotation {
+    /// ` subtypes: Set_i32 of poppler_annotation_enums.SubType `
+    ///
+    pub fn Annotations2(self: Poppler__Page, allocator: std.mem.Allocator, subtypes: Set_i32) []Poppler__Annotation {
         const subtypes_count = subtypes.count();
         const subtypes_keys = allocator.alloc(i32, subtypes_count) catch @panic("poppler__page.Annotations2: Memory allocation failed");
         defer allocator.free(subtypes_keys);
         var i: usize = 0;
         var subtypes_it = subtypes.iterator();
-        while (subtypes_it.next()) |subtypes_item| : (i += 1) {
-            const subtypes_key = subtypes_item.key_ptr.*;
-            subtypes_keys[i] = @bitCast(subtypes_key);
-        }
+        while (subtypes_it.next()) |subtypes_item| : (i += 1)
+            subtypes_keys[i] = @bitCast(subtypes_item.key_ptr.*);
         const subtypes_set = qtc.libqt_list{
             .len = subtypes_count,
             .data = subtypes_keys.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.Poppler__Page_Annotations2(@ptrCast(self), subtypes_set);
+        const _arr: qtc.libqt_list = qtc.Poppler__Page_Annotations2(@ptrCast(self.ptr), subtypes_set);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.Poppler__Annotation, _arr.len) catch @panic("poppler__page.Annotations2: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("poppler__page.Annotations2: Memory allocation failed");
         const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -835,40 +915,43 @@ pub const poppler__page = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
-    /// ` ann: QtC.Poppler__Annotation `
+    /// ` ann: Poppler__Annotation `
     ///
-    pub fn AddAnnotation(self: ?*anyopaque, ann: ?*anyopaque) void {
-        qtc.Poppler__Page_AddAnnotation(@ptrCast(self), @ptrCast(ann));
+    pub fn AddAnnotation(self: Poppler__Page, ann: anytype) void {
+        comptime _ = @TypeOf(ann)._is_Poppler__Annotation;
+        qtc.Poppler__Page_AddAnnotation(@ptrCast(self.ptr), @ptrCast(ann.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
-    /// ` ann: QtC.Poppler__Annotation `
+    /// ` ann: Poppler__Annotation `
     ///
-    pub fn RemoveAnnotation(self: ?*anyopaque, ann: ?*anyopaque) void {
-        qtc.Poppler__Page_RemoveAnnotation(@ptrCast(self), @ptrCast(ann));
+    pub fn RemoveAnnotation(self: Poppler__Page, ann: anytype) void {
+        comptime _ = @TypeOf(ann)._is_Poppler__Annotation;
+        qtc.Poppler__Page_RemoveAnnotation(@ptrCast(self.ptr), @ptrCast(ann.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FormFields(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Poppler__FormField {
-        const _arr: qtc.libqt_list = qtc.Poppler__Page_FormFields(@ptrCast(self));
+    pub fn FormFields(self: Poppler__Page, allocator: std.mem.Allocator) []Poppler__FormField {
+        const _arr: qtc.libqt_list = qtc.Poppler__Page_FormFields(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.Poppler__FormField, _arr.len) catch @panic("poppler__page.FormFields: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__FormField, _arr.len) catch @panic("poppler__page.FormFields: Memory allocation failed");
         const _data: [*]QtC.Poppler__FormField = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -876,22 +959,22 @@ pub const poppler__page = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
-    pub fn Duration(self: ?*anyopaque) f64 {
-        return qtc.Poppler__Page_Duration(@ptrCast(self));
+    pub fn Duration(self: Poppler__Page) f64 {
+        return qtc.Poppler__Page_Duration(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Label(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__Page_Label(@ptrCast(self));
+    pub fn Label(self: Poppler__Page, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__Page_Label(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__page.Label: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -902,59 +985,43 @@ pub const poppler__page = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
-    pub fn Index(self: ?*anyopaque) i32 {
-        return qtc.Poppler__Page_Index(@ptrCast(self));
+    pub fn Index(self: Poppler__Page) i32 {
+        return qtc.Poppler__Page_Index(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
     /// ` xres: f64 `
     ///
-    pub fn RenderToImage1(self: ?*anyopaque, xres: f64) QtC.QImage {
-        return qtc.Poppler__Page_RenderToImage1(@ptrCast(self), @bitCast(xres));
+    pub fn RenderToImage1(self: Poppler__Page, xres: f64) QImage {
+        return .{ .ptr = qtc.Poppler__Page_RenderToImage1(@ptrCast(self.ptr), @bitCast(xres)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
-    ///
-    /// ` xres: f64 `
-    ///
-    /// ` yres: f64 `
-    ///
-    pub fn RenderToImage22(self: ?*anyopaque, xres: f64, yres: f64) QtC.QImage {
-        return qtc.Poppler__Page_RenderToImage22(@ptrCast(self), @bitCast(xres), @bitCast(yres));
-    }
-
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
     /// ` xres: f64 `
     ///
     /// ` yres: f64 `
     ///
-    /// ` x: i32 `
-    ///
-    pub fn RenderToImage32(self: ?*anyopaque, xres: f64, yres: f64, x: i32) QtC.QImage {
-        return qtc.Poppler__Page_RenderToImage32(@ptrCast(self), @bitCast(xres), @bitCast(yres), @bitCast(x));
+    pub fn RenderToImage22(self: Poppler__Page, xres: f64, yres: f64) QImage {
+        return .{ .ptr = qtc.Poppler__Page_RenderToImage22(@ptrCast(self.ptr), @bitCast(xres), @bitCast(yres)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
     /// ` xres: f64 `
     ///
@@ -962,17 +1029,15 @@ pub const poppler__page = struct {
     ///
     /// ` x: i32 `
     ///
-    /// ` y: i32 `
-    ///
-    pub fn RenderToImage4(self: ?*anyopaque, xres: f64, yres: f64, x: i32, y: i32) QtC.QImage {
-        return qtc.Poppler__Page_RenderToImage4(@ptrCast(self), @bitCast(xres), @bitCast(yres), @bitCast(x), @bitCast(y));
+    pub fn RenderToImage32(self: Poppler__Page, xres: f64, yres: f64, x: i32) QImage {
+        return .{ .ptr = qtc.Poppler__Page_RenderToImage32(@ptrCast(self.ptr), @bitCast(xres), @bitCast(yres), @bitCast(x)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
     /// ` xres: f64 `
     ///
@@ -982,17 +1047,15 @@ pub const poppler__page = struct {
     ///
     /// ` y: i32 `
     ///
-    /// ` w: i32 `
-    ///
-    pub fn RenderToImage5(self: ?*anyopaque, xres: f64, yres: f64, x: i32, y: i32, w: i32) QtC.QImage {
-        return qtc.Poppler__Page_RenderToImage5(@ptrCast(self), @bitCast(xres), @bitCast(yres), @bitCast(x), @bitCast(y), @bitCast(w));
+    pub fn RenderToImage4(self: Poppler__Page, xres: f64, yres: f64, x: i32, y: i32) QImage {
+        return .{ .ptr = qtc.Poppler__Page_RenderToImage4(@ptrCast(self.ptr), @bitCast(xres), @bitCast(yres), @bitCast(x), @bitCast(y)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
     /// ` xres: f64 `
     ///
@@ -1004,17 +1067,15 @@ pub const poppler__page = struct {
     ///
     /// ` w: i32 `
     ///
-    /// ` h: i32 `
-    ///
-    pub fn RenderToImage6(self: ?*anyopaque, xres: f64, yres: f64, x: i32, y: i32, w: i32, h: i32) QtC.QImage {
-        return qtc.Poppler__Page_RenderToImage6(@ptrCast(self), @bitCast(xres), @bitCast(yres), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn RenderToImage5(self: Poppler__Page, xres: f64, yres: f64, x: i32, y: i32, w: i32) QImage {
+        return .{ .ptr = qtc.Poppler__Page_RenderToImage5(@ptrCast(self.ptr), @bitCast(xres), @bitCast(yres), @bitCast(x), @bitCast(y), @bitCast(w)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
     /// ` xres: f64 `
     ///
@@ -1028,133 +1089,15 @@ pub const poppler__page = struct {
     ///
     /// ` h: i32 `
     ///
-    /// ` rotate: poppler_qt6_enums.Rotation `
-    ///
-    pub fn RenderToImage7(self: ?*anyopaque, xres: f64, yres: f64, x: i32, y: i32, w: i32, h: i32, rotate: i32) QtC.QImage {
-        return qtc.Poppler__Page_RenderToImage7(@ptrCast(self), @bitCast(xres), @bitCast(yres), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(rotate));
+    pub fn RenderToImage6(self: Poppler__Page, xres: f64, yres: f64, x: i32, y: i32, w: i32, h: i32) QImage {
+        return .{ .ptr = qtc.Poppler__Page_RenderToImage6(@ptrCast(self.ptr), @bitCast(xres), @bitCast(yres), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
-    ///
-    /// ` painter: QtC.QPainter `
-    ///
-    /// ` xres: f64 `
-    ///
-    pub fn RenderToPainter2(self: ?*anyopaque, painter: ?*anyopaque, xres: f64) bool {
-        return qtc.Poppler__Page_RenderToPainter2(@ptrCast(self), @ptrCast(painter), @bitCast(xres));
-    }
-
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.Poppler__Page `
-    ///
-    /// ` painter: QtC.QPainter `
-    ///
-    /// ` xres: f64 `
-    ///
-    /// ` yres: f64 `
-    ///
-    pub fn RenderToPainter3(self: ?*anyopaque, painter: ?*anyopaque, xres: f64, yres: f64) bool {
-        return qtc.Poppler__Page_RenderToPainter3(@ptrCast(self), @ptrCast(painter), @bitCast(xres), @bitCast(yres));
-    }
-
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.Poppler__Page `
-    ///
-    /// ` painter: QtC.QPainter `
-    ///
-    /// ` xres: f64 `
-    ///
-    /// ` yres: f64 `
-    ///
-    /// ` x: i32 `
-    ///
-    pub fn RenderToPainter4(self: ?*anyopaque, painter: ?*anyopaque, xres: f64, yres: f64, x: i32) bool {
-        return qtc.Poppler__Page_RenderToPainter4(@ptrCast(self), @ptrCast(painter), @bitCast(xres), @bitCast(yres), @bitCast(x));
-    }
-
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.Poppler__Page `
-    ///
-    /// ` painter: QtC.QPainter `
-    ///
-    /// ` xres: f64 `
-    ///
-    /// ` yres: f64 `
-    ///
-    /// ` x: i32 `
-    ///
-    /// ` y: i32 `
-    ///
-    pub fn RenderToPainter5(self: ?*anyopaque, painter: ?*anyopaque, xres: f64, yres: f64, x: i32, y: i32) bool {
-        return qtc.Poppler__Page_RenderToPainter5(@ptrCast(self), @ptrCast(painter), @bitCast(xres), @bitCast(yres), @bitCast(x), @bitCast(y));
-    }
-
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.Poppler__Page `
-    ///
-    /// ` painter: QtC.QPainter `
-    ///
-    /// ` xres: f64 `
-    ///
-    /// ` yres: f64 `
-    ///
-    /// ` x: i32 `
-    ///
-    /// ` y: i32 `
-    ///
-    /// ` w: i32 `
-    ///
-    pub fn RenderToPainter6(self: ?*anyopaque, painter: ?*anyopaque, xres: f64, yres: f64, x: i32, y: i32, w: i32) bool {
-        return qtc.Poppler__Page_RenderToPainter6(@ptrCast(self), @ptrCast(painter), @bitCast(xres), @bitCast(yres), @bitCast(x), @bitCast(y), @bitCast(w));
-    }
-
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.Poppler__Page `
-    ///
-    /// ` painter: QtC.QPainter `
-    ///
-    /// ` xres: f64 `
-    ///
-    /// ` yres: f64 `
-    ///
-    /// ` x: i32 `
-    ///
-    /// ` y: i32 `
-    ///
-    /// ` w: i32 `
-    ///
-    /// ` h: i32 `
-    ///
-    pub fn RenderToPainter7(self: ?*anyopaque, painter: ?*anyopaque, xres: f64, yres: f64, x: i32, y: i32, w: i32, h: i32) bool {
-        return qtc.Poppler__Page_RenderToPainter7(@ptrCast(self), @ptrCast(painter), @bitCast(xres), @bitCast(yres), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
-    }
-
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.Poppler__Page `
-    ///
-    /// ` painter: QtC.QPainter `
+    /// ` self: Poppler__Page `
     ///
     /// ` xres: f64 `
     ///
@@ -1170,17 +1113,164 @@ pub const poppler__page = struct {
     ///
     /// ` rotate: poppler_qt6_enums.Rotation `
     ///
-    pub fn RenderToPainter8(self: ?*anyopaque, painter: ?*anyopaque, xres: f64, yres: f64, x: i32, y: i32, w: i32, h: i32, rotate: i32) bool {
-        return qtc.Poppler__Page_RenderToPainter8(@ptrCast(self), @ptrCast(painter), @bitCast(xres), @bitCast(yres), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(rotate));
+    pub fn RenderToImage7(self: Poppler__Page, xres: f64, yres: f64, x: i32, y: i32, w: i32, h: i32, rotate: i32) QImage {
+        return .{ .ptr = qtc.Poppler__Page_RenderToImage7(@ptrCast(self.ptr), @bitCast(xres), @bitCast(yres), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(rotate)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
+    ///
+    /// ` xres: f64 `
+    ///
+    pub fn RenderToPainter2(self: Poppler__Page, painter: anytype, xres: f64) bool {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        return qtc.Poppler__Page_RenderToPainter2(@ptrCast(self.ptr), @ptrCast(painter.ptr), @bitCast(xres));
+    }
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__Page `
+    ///
+    /// ` painter: QPainter `
+    ///
+    /// ` xres: f64 `
+    ///
+    /// ` yres: f64 `
+    ///
+    pub fn RenderToPainter3(self: Poppler__Page, painter: anytype, xres: f64, yres: f64) bool {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        return qtc.Poppler__Page_RenderToPainter3(@ptrCast(self.ptr), @ptrCast(painter.ptr), @bitCast(xres), @bitCast(yres));
+    }
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__Page `
+    ///
+    /// ` painter: QPainter `
+    ///
+    /// ` xres: f64 `
+    ///
+    /// ` yres: f64 `
+    ///
+    /// ` x: i32 `
+    ///
+    pub fn RenderToPainter4(self: Poppler__Page, painter: anytype, xres: f64, yres: f64, x: i32) bool {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        return qtc.Poppler__Page_RenderToPainter4(@ptrCast(self.ptr), @ptrCast(painter.ptr), @bitCast(xres), @bitCast(yres), @bitCast(x));
+    }
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__Page `
+    ///
+    /// ` painter: QPainter `
+    ///
+    /// ` xres: f64 `
+    ///
+    /// ` yres: f64 `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
+    pub fn RenderToPainter5(self: Poppler__Page, painter: anytype, xres: f64, yres: f64, x: i32, y: i32) bool {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        return qtc.Poppler__Page_RenderToPainter5(@ptrCast(self.ptr), @ptrCast(painter.ptr), @bitCast(xres), @bitCast(yres), @bitCast(x), @bitCast(y));
+    }
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__Page `
+    ///
+    /// ` painter: QPainter `
+    ///
+    /// ` xres: f64 `
+    ///
+    /// ` yres: f64 `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
+    /// ` w: i32 `
+    ///
+    pub fn RenderToPainter6(self: Poppler__Page, painter: anytype, xres: f64, yres: f64, x: i32, y: i32, w: i32) bool {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        return qtc.Poppler__Page_RenderToPainter6(@ptrCast(self.ptr), @ptrCast(painter.ptr), @bitCast(xres), @bitCast(yres), @bitCast(x), @bitCast(y), @bitCast(w));
+    }
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__Page `
+    ///
+    /// ` painter: QPainter `
+    ///
+    /// ` xres: f64 `
+    ///
+    /// ` yres: f64 `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
+    pub fn RenderToPainter7(self: Poppler__Page, painter: anytype, xres: f64, yres: f64, x: i32, y: i32, w: i32, h: i32) bool {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        return qtc.Poppler__Page_RenderToPainter7(@ptrCast(self.ptr), @ptrCast(painter.ptr), @bitCast(xres), @bitCast(yres), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    }
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__Page `
+    ///
+    /// ` painter: QPainter `
+    ///
+    /// ` xres: f64 `
+    ///
+    /// ` yres: f64 `
+    ///
+    /// ` x: i32 `
+    ///
+    /// ` y: i32 `
+    ///
+    /// ` w: i32 `
+    ///
+    /// ` h: i32 `
+    ///
+    /// ` rotate: poppler_qt6_enums.Rotation `
+    ///
+    pub fn RenderToPainter8(self: Poppler__Page, painter: anytype, xres: f64, yres: f64, x: i32, y: i32, w: i32, h: i32, rotate: i32) bool {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        return qtc.Poppler__Page_RenderToPainter8(@ptrCast(self.ptr), @ptrCast(painter.ptr), @bitCast(xres), @bitCast(yres), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(rotate));
+    }
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__Page `
+    ///
+    /// ` painter: QPainter `
     ///
     /// ` xres: f64 `
     ///
@@ -1198,15 +1288,16 @@ pub const poppler__page = struct {
     ///
     /// ` flags: flag of poppler_qt6_enums.PainterFlag `
     ///
-    pub fn RenderToPainter9(self: ?*anyopaque, painter: ?*anyopaque, xres: f64, yres: f64, x: i32, y: i32, w: i32, h: i32, rotate: i32, flags: i32) bool {
-        return qtc.Poppler__Page_RenderToPainter9(@ptrCast(self), @ptrCast(painter), @bitCast(xres), @bitCast(yres), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(rotate), @bitCast(flags));
+    pub fn RenderToPainter9(self: Poppler__Page, painter: anytype, xres: f64, yres: f64, x: i32, y: i32, w: i32, h: i32, rotate: i32, flags: i32) bool {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        return qtc.Poppler__Page_RenderToPainter9(@ptrCast(self.ptr), @ptrCast(painter.ptr), @bitCast(xres), @bitCast(yres), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(rotate), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
     /// ` text: []const u8 `
     ///
@@ -1222,19 +1313,19 @@ pub const poppler__page = struct {
     ///
     /// ` flags: flag of poppler_qt6_enums.SearchFlag `
     ///
-    pub fn Search7(self: ?*anyopaque, text: []const u8, sLeft: *f64, sTop: *f64, sRight: *f64, sBottom: *f64, direction: i32, flags: i32) bool {
+    pub fn Search7(self: Poppler__Page, text: []const u8, sLeft: *f64, sTop: *f64, sRight: *f64, sBottom: *f64, direction: i32, flags: i32) bool {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.Poppler__Page_Search7(@ptrCast(self), text_str, @ptrCast(sLeft), @ptrCast(sTop), @ptrCast(sRight), @ptrCast(sBottom), @bitCast(direction), @bitCast(flags));
+        return qtc.Poppler__Page_Search7(@ptrCast(self.ptr), text_str, @ptrCast(sLeft), @ptrCast(sTop), @ptrCast(sRight), @ptrCast(sBottom), @bitCast(direction), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
     /// ` text: []const u8 `
     ///
@@ -1252,36 +1343,37 @@ pub const poppler__page = struct {
     ///
     /// ` rotate: poppler_qt6_enums.Rotation `
     ///
-    pub fn Search8(self: ?*anyopaque, text: []const u8, sLeft: *f64, sTop: *f64, sRight: *f64, sBottom: *f64, direction: i32, flags: i32, rotate: i32) bool {
+    pub fn Search8(self: Poppler__Page, text: []const u8, sLeft: *f64, sTop: *f64, sRight: *f64, sBottom: *f64, direction: i32, flags: i32, rotate: i32) bool {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.Poppler__Page_Search8(@ptrCast(self), text_str, @ptrCast(sLeft), @ptrCast(sTop), @ptrCast(sRight), @ptrCast(sBottom), @bitCast(direction), @bitCast(flags), @bitCast(rotate));
+        return qtc.Poppler__Page_Search8(@ptrCast(self.ptr), text_str, @ptrCast(sLeft), @ptrCast(sTop), @ptrCast(sRight), @ptrCast(sBottom), @bitCast(direction), @bitCast(flags), @bitCast(rotate));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Page.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` text: []const u8 `
     ///
     /// ` flags: flag of poppler_qt6_enums.SearchFlag `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Search22(self: ?*anyopaque, text: []const u8, flags: i32, allocator: std.mem.Allocator) []QtC.QRectF {
+    pub fn Search22(self: Poppler__Page, allocator: std.mem.Allocator, text: []const u8, flags: i32) []QRectF {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.Poppler__Page_Search22(@ptrCast(self), text_str, @bitCast(flags));
+        const _arr: qtc.libqt_list = qtc.Poppler__Page_Search22(@ptrCast(self.ptr), text_str, @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QRectF, _arr.len) catch @panic("poppler__page.Search22: Memory allocation failed");
+        const _ret = allocator.alloc(QRectF, _arr.len) catch @panic("poppler__page.Search22: Memory allocation failed");
         const _data: [*]QtC.QRectF = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1289,7 +1381,9 @@ pub const poppler__page = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` text: []const u8 `
     ///
@@ -1297,18 +1391,17 @@ pub const poppler__page = struct {
     ///
     /// ` rotate: poppler_qt6_enums.Rotation `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Search3(self: ?*anyopaque, text: []const u8, flags: i32, rotate: i32, allocator: std.mem.Allocator) []QtC.QRectF {
+    pub fn Search3(self: Poppler__Page, allocator: std.mem.Allocator, text: []const u8, flags: i32, rotate: i32) []QRectF {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.Poppler__Page_Search3(@ptrCast(self), text_str, @bitCast(flags), @bitCast(rotate));
+        const _arr: qtc.libqt_list = qtc.Poppler__Page_Search3(@ptrCast(self.ptr), text_str, @bitCast(flags), @bitCast(rotate));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QRectF, _arr.len) catch @panic("poppler__page.Search3: Memory allocation failed");
+        const _ret = allocator.alloc(QRectF, _arr.len) catch @panic("poppler__page.Search3: Memory allocation failed");
         const _data: [*]QtC.QRectF = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1316,18 +1409,19 @@ pub const poppler__page = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Page `
-    ///
-    /// ` rotate: poppler_qt6_enums.Rotation `
+    /// ` self: Poppler__Page `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TextList1(self: ?*anyopaque, rotate: i32, allocator: std.mem.Allocator) []QtC.Poppler__TextBox {
-        const _arr: qtc.libqt_list = qtc.Poppler__Page_TextList1(@ptrCast(self), @bitCast(rotate));
+    /// ` rotate: poppler_qt6_enums.Rotation `
+    ///
+    pub fn TextList1(self: Poppler__Page, allocator: std.mem.Allocator, rotate: i32) []Poppler__TextBox {
+        const _arr: qtc.libqt_list = qtc.Poppler__Page_TextList1(@ptrCast(self.ptr), @bitCast(rotate));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.Poppler__TextBox, _arr.len) catch @panic("poppler__page.TextList1: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__TextBox, _arr.len) catch @panic("poppler__page.TextList1: Memory allocation failed");
         const _data: [*]QtC.Poppler__TextBox = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1341,63 +1435,73 @@ pub const poppler__page = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Poppler__Page `
+    /// ` self: Poppler__Page `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Poppler__Page_Delete(@ptrCast(self));
+    pub fn Delete(self: Poppler__Page) void {
+        qtc.Poppler__Page_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1OutlineItem.html)
-pub const poppler__outlineitem = struct {
+pub const Poppler__OutlineItem = extern struct {
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1OutlineItem.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Poppler__OutlineItem,
+
+    pub const _is_Poppler__OutlineItem = {};
+
     /// New constructs a new Poppler::OutlineItem object.
     ///
-    pub fn New() QtC.Poppler__OutlineItem {
-        return qtc.Poppler__OutlineItem_new();
+    pub fn New() Poppler__OutlineItem {
+        return .{ .ptr = qtc.Poppler__OutlineItem_new() };
     }
 
     /// New2 constructs a new Poppler::OutlineItem object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.Poppler__OutlineItem `
+    /// ` other: Poppler__OutlineItem `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.Poppler__OutlineItem {
-        return qtc.Poppler__OutlineItem_new2(@ptrCast(other));
+    pub fn New2(other: anytype) Poppler__OutlineItem {
+        comptime _ = @TypeOf(other)._is_Poppler__OutlineItem;
+        return .{ .ptr = qtc.Poppler__OutlineItem_new2(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1OutlineItem.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__OutlineItem `
+    /// ` self: Poppler__OutlineItem `
     ///
-    /// ` other: QtC.Poppler__OutlineItem `
+    /// ` other: Poppler__OutlineItem `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.Poppler__OutlineItem_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: Poppler__OutlineItem, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_Poppler__OutlineItem;
+        qtc.Poppler__OutlineItem_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1OutlineItem.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__OutlineItem `
+    /// ` self: Poppler__OutlineItem `
     ///
-    pub fn IsNull(self: ?*anyopaque) bool {
-        return qtc.Poppler__OutlineItem_IsNull(@ptrCast(self));
+    pub fn IsNull(self: Poppler__OutlineItem) bool {
+        return qtc.Poppler__OutlineItem_IsNull(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1OutlineItem.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__OutlineItem `
+    /// ` self: Poppler__OutlineItem `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__OutlineItem_Name(@ptrCast(self));
+    pub fn Name(self: Poppler__OutlineItem, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__OutlineItem_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__outlineitem.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1408,22 +1512,22 @@ pub const poppler__outlineitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__OutlineItem `
+    /// ` self: Poppler__OutlineItem `
     ///
-    pub fn IsOpen(self: ?*anyopaque) bool {
-        return qtc.Poppler__OutlineItem_IsOpen(@ptrCast(self));
+    pub fn IsOpen(self: Poppler__OutlineItem) bool {
+        return qtc.Poppler__OutlineItem_IsOpen(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1OutlineItem.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__OutlineItem `
+    /// ` self: Poppler__OutlineItem `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExternalFileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__OutlineItem_ExternalFileName(@ptrCast(self));
+    pub fn ExternalFileName(self: Poppler__OutlineItem, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__OutlineItem_ExternalFileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__outlineitem.ExternalFileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1434,12 +1538,12 @@ pub const poppler__outlineitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__OutlineItem `
+    /// ` self: Poppler__OutlineItem `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Uri(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__OutlineItem_Uri(@ptrCast(self));
+    pub fn Uri(self: Poppler__OutlineItem, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__OutlineItem_Uri(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__outlineitem.Uri: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1450,26 +1554,27 @@ pub const poppler__outlineitem = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__OutlineItem `
+    /// ` self: Poppler__OutlineItem `
     ///
-    pub fn HasChildren(self: ?*anyopaque) bool {
-        return qtc.Poppler__OutlineItem_HasChildren(@ptrCast(self));
+    pub fn HasChildren(self: Poppler__OutlineItem) bool {
+        return qtc.Poppler__OutlineItem_HasChildren(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1OutlineItem.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__OutlineItem `
+    /// ` self: Poppler__OutlineItem `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Poppler__OutlineItem {
-        const _arr: qtc.libqt_list = qtc.Poppler__OutlineItem_Children(@ptrCast(self));
+    pub fn Children(self: Poppler__OutlineItem, allocator: std.mem.Allocator) []Poppler__OutlineItem {
+        const _arr: qtc.libqt_list = qtc.Poppler__OutlineItem_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.Poppler__OutlineItem, _arr.len) catch @panic("poppler__outlineitem.Children: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__OutlineItem, _arr.len) catch @panic("poppler__outlineitem.Children: Memory allocation failed");
         const _data: [*]QtC.Poppler__OutlineItem = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1483,61 +1588,69 @@ pub const poppler__outlineitem = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Poppler__OutlineItem `
+    /// ` self: Poppler__OutlineItem `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Poppler__OutlineItem_Delete(@ptrCast(self));
+    pub fn Delete(self: Poppler__OutlineItem) void {
+        qtc.Poppler__OutlineItem_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
-pub const poppler__document = struct {
+pub const Poppler__Document = extern struct {
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Poppler__Document,
+
+    pub const _is_Poppler__Document = {};
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` outputProfileA: ?*anyopaque `
     ///
-    pub fn SetColorDisplayProfile(self: ?*anyopaque, outputProfileA: ?*anyopaque) void {
-        qtc.Poppler__Document_SetColorDisplayProfile(@ptrCast(self), @ptrCast(outputProfileA));
+    pub fn SetColorDisplayProfile(self: Poppler__Document, outputProfileA: ?*anyopaque) void {
+        qtc.Poppler__Document_SetColorDisplayProfile(@ptrCast(self.ptr), @ptrCast(outputProfileA));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetColorDisplayProfileName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetColorDisplayProfileName(self: Poppler__Document, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.Poppler__Document_SetColorDisplayProfileName(@ptrCast(self), name_str);
+        qtc.Poppler__Document_SetColorDisplayProfileName(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn ColorRgbProfile(self: ?*anyopaque) ?*anyopaque {
-        return qtc.Poppler__Document_ColorRgbProfile(@ptrCast(self));
+    pub fn ColorRgbProfile(self: Poppler__Document) ?*anyopaque {
+        return qtc.Poppler__Document_ColorRgbProfile(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn ColorDisplayProfile(self: ?*anyopaque) ?*anyopaque {
-        return qtc.Poppler__Document_ColorDisplayProfile(@ptrCast(self));
+    pub fn ColorDisplayProfile(self: Poppler__Document) ?*anyopaque {
+        return qtc.Poppler__Document_ColorDisplayProfile(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
@@ -1546,22 +1659,23 @@ pub const poppler__document = struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn Load(filePath: []const u8) QtC.Poppler__Document {
+    pub fn Load(filePath: []const u8) Poppler__Document {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        return qtc.Poppler__Document_Load(filePath_str);
+        return .{ .ptr = qtc.Poppler__Document_Load(filePath_str) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` device: QtC.QIODevice `
+    /// ` device: QIODevice `
     ///
-    pub fn Load2(device: ?*anyopaque) QtC.Poppler__Document {
-        return qtc.Poppler__Document_Load2(@ptrCast(device));
+    pub fn Load2(device: anytype) Poppler__Document {
+        comptime _ = @TypeOf(device)._is_QIODevice;
+        return .{ .ptr = qtc.Poppler__Document_Load2(@ptrCast(device.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
@@ -1570,105 +1684,105 @@ pub const poppler__document = struct {
     ///
     /// ` fileContents: []u8 `
     ///
-    pub fn LoadFromData(fileContents: []u8) QtC.Poppler__Document {
+    pub fn LoadFromData(fileContents: []u8) Poppler__Document {
         const fileContents_str = qtc.libqt_string{
             .len = fileContents.len,
             .data = fileContents.ptr,
         };
-        return qtc.Poppler__Document_LoadFromData(fileContents_str);
+        return .{ .ptr = qtc.Poppler__Document_LoadFromData(fileContents_str) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` index: i32 `
     ///
-    pub fn Page(self: ?*anyopaque, index: i32) QtC.Poppler__Page {
-        return qtc.Poppler__Document_Page(@ptrCast(self), @bitCast(index));
+    pub fn Page(self: Poppler__Document, index: i32) Poppler__Page {
+        return .{ .ptr = qtc.Poppler__Document_Page(@ptrCast(self.ptr), @bitCast(index)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` label: []const u8 `
     ///
-    pub fn Page2(self: ?*anyopaque, label: []const u8) QtC.Poppler__Page {
+    pub fn Page2(self: Poppler__Document, label: []const u8) Poppler__Page {
         const label_str = qtc.libqt_string{
             .len = label.len,
             .data = label.ptr,
         };
-        return qtc.Poppler__Document_Page2(@ptrCast(self), label_str);
+        return .{ .ptr = qtc.Poppler__Document_Page2(@ptrCast(self.ptr), label_str) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn NumPages(self: ?*anyopaque) i32 {
-        return qtc.Poppler__Document_NumPages(@ptrCast(self));
+    pub fn NumPages(self: Poppler__Document) i32 {
+        return qtc.Poppler__Document_NumPages(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ## Returns:
     ///
     /// ` poppler_qt6_enums.PageMode `
     ///
-    pub fn PageMode(self: ?*anyopaque) i32 {
-        return qtc.Poppler__Document_PageMode(@ptrCast(self));
+    pub fn PageMode(self: Poppler__Document) i32 {
+        return qtc.Poppler__Document_PageMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ## Returns:
     ///
     /// ` poppler_qt6_enums.PageLayout `
     ///
-    pub fn PageLayout(self: ?*anyopaque) i32 {
-        return qtc.Poppler__Document_PageLayout(@ptrCast(self));
+    pub fn PageLayout(self: Poppler__Document) i32 {
+        return qtc.Poppler__Document_PageLayout(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn TextDirection(self: ?*anyopaque) i32 {
-        return qtc.Poppler__Document_TextDirection(@ptrCast(self));
+    pub fn TextDirection(self: Poppler__Document) i32 {
+        return qtc.Poppler__Document_TextDirection(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` ownerPassword: []u8 `
     ///
     /// ` userPassword: []u8 `
     ///
-    pub fn Unlock(self: ?*anyopaque, ownerPassword: []u8, userPassword: []u8) bool {
+    pub fn Unlock(self: Poppler__Document, ownerPassword: []u8, userPassword: []u8) bool {
         const ownerPassword_str = qtc.libqt_string{
             .len = ownerPassword.len,
             .data = ownerPassword.ptr,
@@ -1677,113 +1791,116 @@ pub const poppler__document = struct {
             .len = userPassword.len,
             .data = userPassword.ptr,
         };
-        return qtc.Poppler__Document_Unlock(@ptrCast(self), ownerPassword_str, userPassword_str);
+        return qtc.Poppler__Document_Unlock(@ptrCast(self.ptr), ownerPassword_str, userPassword_str);
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn IsLocked(self: ?*anyopaque) bool {
-        return qtc.Poppler__Document_IsLocked(@ptrCast(self));
+    pub fn IsLocked(self: Poppler__Document) bool {
+        return qtc.Poppler__Document_IsLocked(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` typeVal: []const u8 `
     ///
-    pub fn Date(self: ?*anyopaque, typeVal: []const u8) QtC.QDateTime {
+    pub fn Date(self: Poppler__Document, typeVal: []const u8) QDateTime {
         const typeVal_str = qtc.libqt_string{
             .len = typeVal.len,
             .data = typeVal.ptr,
         };
-        return qtc.Poppler__Document_Date(@ptrCast(self), typeVal_str);
+        return .{ .ptr = qtc.Poppler__Document_Date(@ptrCast(self.ptr), typeVal_str) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` key: []const u8 `
     ///
-    /// ` val: QtC.QDateTime `
+    /// ` val: QDateTime `
     ///
-    pub fn SetDate(self: ?*anyopaque, key: []const u8, val: ?*anyopaque) bool {
+    pub fn SetDate(self: Poppler__Document, key: []const u8, val: anytype) bool {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        return qtc.Poppler__Document_SetDate(@ptrCast(self), key_str, @ptrCast(val));
+        comptime _ = @TypeOf(val)._is_QDateTime;
+        return qtc.Poppler__Document_SetDate(@ptrCast(self.ptr), key_str, @ptrCast(val.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn CreationDate(self: ?*anyopaque) QtC.QDateTime {
-        return qtc.Poppler__Document_CreationDate(@ptrCast(self));
+    pub fn CreationDate(self: Poppler__Document) QDateTime {
+        return .{ .ptr = qtc.Poppler__Document_CreationDate(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    /// ` val: QtC.QDateTime `
+    /// ` val: QDateTime `
     ///
-    pub fn SetCreationDate(self: ?*anyopaque, val: ?*anyopaque) bool {
-        return qtc.Poppler__Document_SetCreationDate(@ptrCast(self), @ptrCast(val));
+    pub fn SetCreationDate(self: Poppler__Document, val: anytype) bool {
+        comptime _ = @TypeOf(val)._is_QDateTime;
+        return qtc.Poppler__Document_SetCreationDate(@ptrCast(self.ptr), @ptrCast(val.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn ModificationDate(self: ?*anyopaque) QtC.QDateTime {
-        return qtc.Poppler__Document_ModificationDate(@ptrCast(self));
+    pub fn ModificationDate(self: Poppler__Document) QDateTime {
+        return .{ .ptr = qtc.Poppler__Document_ModificationDate(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    /// ` val: QtC.QDateTime `
+    /// ` val: QDateTime `
     ///
-    pub fn SetModificationDate(self: ?*anyopaque, val: ?*anyopaque) bool {
-        return qtc.Poppler__Document_SetModificationDate(@ptrCast(self), @ptrCast(val));
+    pub fn SetModificationDate(self: Poppler__Document, val: anytype) bool {
+        comptime _ = @TypeOf(val)._is_QDateTime;
+        return qtc.Poppler__Document_SetModificationDate(@ptrCast(self.ptr), @ptrCast(val.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
-    ///
-    /// ` typeVal: []const u8 `
+    /// ` self: Poppler__Document `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Info(self: ?*anyopaque, typeVal: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` typeVal: []const u8 `
+    ///
+    pub fn Info(self: Poppler__Document, allocator: std.mem.Allocator, typeVal: []const u8) []const u8 {
         const typeVal_str = qtc.libqt_string{
             .len = typeVal.len,
             .data = typeVal.ptr,
         };
-        var _str = qtc.Poppler__Document_Info(@ptrCast(self), typeVal_str);
+        var _str = qtc.Poppler__Document_Info(@ptrCast(self.ptr), typeVal_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__document.Info: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1794,13 +1911,13 @@ pub const poppler__document = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` key: []const u8 `
     ///
     /// ` val: []const u8 `
     ///
-    pub fn SetInfo(self: ?*anyopaque, key: []const u8, val: []const u8) bool {
+    pub fn SetInfo(self: Poppler__Document, key: []const u8, val: []const u8) bool {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -1809,19 +1926,19 @@ pub const poppler__document = struct {
             .len = val.len,
             .data = val.ptr,
         };
-        return qtc.Poppler__Document_SetInfo(@ptrCast(self), key_str, val_str);
+        return qtc.Poppler__Document_SetInfo(@ptrCast(self.ptr), key_str, val_str);
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Title(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__Document_Title(@ptrCast(self));
+    pub fn Title(self: Poppler__Document, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__Document_Title(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__document.Title: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1832,28 +1949,28 @@ pub const poppler__document = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` val: []const u8 `
     ///
-    pub fn SetTitle(self: ?*anyopaque, val: []const u8) bool {
+    pub fn SetTitle(self: Poppler__Document, val: []const u8) bool {
         const val_str = qtc.libqt_string{
             .len = val.len,
             .data = val.ptr,
         };
-        return qtc.Poppler__Document_SetTitle(@ptrCast(self), val_str);
+        return qtc.Poppler__Document_SetTitle(@ptrCast(self.ptr), val_str);
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Author(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__Document_Author(@ptrCast(self));
+    pub fn Author(self: Poppler__Document, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__Document_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__document.Author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1864,28 +1981,28 @@ pub const poppler__document = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` val: []const u8 `
     ///
-    pub fn SetAuthor(self: ?*anyopaque, val: []const u8) bool {
+    pub fn SetAuthor(self: Poppler__Document, val: []const u8) bool {
         const val_str = qtc.libqt_string{
             .len = val.len,
             .data = val.ptr,
         };
-        return qtc.Poppler__Document_SetAuthor(@ptrCast(self), val_str);
+        return qtc.Poppler__Document_SetAuthor(@ptrCast(self.ptr), val_str);
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Subject(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__Document_Subject(@ptrCast(self));
+    pub fn Subject(self: Poppler__Document, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__Document_Subject(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__document.Subject: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1896,28 +2013,28 @@ pub const poppler__document = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` val: []const u8 `
     ///
-    pub fn SetSubject(self: ?*anyopaque, val: []const u8) bool {
+    pub fn SetSubject(self: Poppler__Document, val: []const u8) bool {
         const val_str = qtc.libqt_string{
             .len = val.len,
             .data = val.ptr,
         };
-        return qtc.Poppler__Document_SetSubject(@ptrCast(self), val_str);
+        return qtc.Poppler__Document_SetSubject(@ptrCast(self.ptr), val_str);
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Keywords(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__Document_Keywords(@ptrCast(self));
+    pub fn Keywords(self: Poppler__Document, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__Document_Keywords(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__document.Keywords: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1928,28 +2045,28 @@ pub const poppler__document = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` val: []const u8 `
     ///
-    pub fn SetKeywords(self: ?*anyopaque, val: []const u8) bool {
+    pub fn SetKeywords(self: Poppler__Document, val: []const u8) bool {
         const val_str = qtc.libqt_string{
             .len = val.len,
             .data = val.ptr,
         };
-        return qtc.Poppler__Document_SetKeywords(@ptrCast(self), val_str);
+        return qtc.Poppler__Document_SetKeywords(@ptrCast(self.ptr), val_str);
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Creator(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__Document_Creator(@ptrCast(self));
+    pub fn Creator(self: Poppler__Document, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__Document_Creator(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__document.Creator: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1960,28 +2077,28 @@ pub const poppler__document = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` val: []const u8 `
     ///
-    pub fn SetCreator(self: ?*anyopaque, val: []const u8) bool {
+    pub fn SetCreator(self: Poppler__Document, val: []const u8) bool {
         const val_str = qtc.libqt_string{
             .len = val.len,
             .data = val.ptr,
         };
-        return qtc.Poppler__Document_SetCreator(@ptrCast(self), val_str);
+        return qtc.Poppler__Document_SetCreator(@ptrCast(self.ptr), val_str);
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Producer(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__Document_Producer(@ptrCast(self));
+    pub fn Producer(self: Poppler__Document, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__Document_Producer(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__document.Producer: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1992,43 +2109,42 @@ pub const poppler__document = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` val: []const u8 `
     ///
-    pub fn SetProducer(self: ?*anyopaque, val: []const u8) bool {
+    pub fn SetProducer(self: Poppler__Document, val: []const u8) bool {
         const val_str = qtc.libqt_string{
             .len = val.len,
             .data = val.ptr,
         };
-        return qtc.Poppler__Document_SetProducer(@ptrCast(self), val_str);
+        return qtc.Poppler__Document_SetProducer(@ptrCast(self.ptr), val_str);
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn RemoveInfo(self: ?*anyopaque) bool {
-        return qtc.Poppler__Document_RemoveInfo(@ptrCast(self));
+    pub fn RemoveInfo(self: Poppler__Document) bool {
+        return qtc.Poppler__Document_RemoveInfo(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InfoKeys(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.Poppler__Document_InfoKeys(@ptrCast(self));
+    pub fn InfoKeys(self: Poppler__Document, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.Poppler__Document_InfoKeys(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("poppler__document.InfoKeys: Memory allocation failed");
@@ -2045,136 +2161,137 @@ pub const poppler__document = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn IsEncrypted(self: ?*anyopaque) bool {
-        return qtc.Poppler__Document_IsEncrypted(@ptrCast(self));
+    pub fn IsEncrypted(self: Poppler__Document) bool {
+        return qtc.Poppler__Document_IsEncrypted(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn IsLinearized(self: ?*anyopaque) bool {
-        return qtc.Poppler__Document_IsLinearized(@ptrCast(self));
+    pub fn IsLinearized(self: Poppler__Document) bool {
+        return qtc.Poppler__Document_IsLinearized(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn OkToPrint(self: ?*anyopaque) bool {
-        return qtc.Poppler__Document_OkToPrint(@ptrCast(self));
+    pub fn OkToPrint(self: Poppler__Document) bool {
+        return qtc.Poppler__Document_OkToPrint(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn OkToPrintHighRes(self: ?*anyopaque) bool {
-        return qtc.Poppler__Document_OkToPrintHighRes(@ptrCast(self));
+    pub fn OkToPrintHighRes(self: Poppler__Document) bool {
+        return qtc.Poppler__Document_OkToPrintHighRes(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn OkToChange(self: ?*anyopaque) bool {
-        return qtc.Poppler__Document_OkToChange(@ptrCast(self));
+    pub fn OkToChange(self: Poppler__Document) bool {
+        return qtc.Poppler__Document_OkToChange(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn OkToCopy(self: ?*anyopaque) bool {
-        return qtc.Poppler__Document_OkToCopy(@ptrCast(self));
+    pub fn OkToCopy(self: Poppler__Document) bool {
+        return qtc.Poppler__Document_OkToCopy(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn OkToAddNotes(self: ?*anyopaque) bool {
-        return qtc.Poppler__Document_OkToAddNotes(@ptrCast(self));
+    pub fn OkToAddNotes(self: Poppler__Document) bool {
+        return qtc.Poppler__Document_OkToAddNotes(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn OkToFillForm(self: ?*anyopaque) bool {
-        return qtc.Poppler__Document_OkToFillForm(@ptrCast(self));
+    pub fn OkToFillForm(self: Poppler__Document) bool {
+        return qtc.Poppler__Document_OkToFillForm(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn OkToCreateFormFields(self: ?*anyopaque) bool {
-        return qtc.Poppler__Document_OkToCreateFormFields(@ptrCast(self));
+    pub fn OkToCreateFormFields(self: Poppler__Document) bool {
+        return qtc.Poppler__Document_OkToCreateFormFields(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn OkToExtractForAccessibility(self: ?*anyopaque) bool {
-        return qtc.Poppler__Document_OkToExtractForAccessibility(@ptrCast(self));
+    pub fn OkToExtractForAccessibility(self: Poppler__Document) bool {
+        return qtc.Poppler__Document_OkToExtractForAccessibility(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn OkToAssemble(self: ?*anyopaque) bool {
-        return qtc.Poppler__Document_OkToAssemble(@ptrCast(self));
+    pub fn OkToAssemble(self: Poppler__Document) bool {
+        return qtc.Poppler__Document_OkToAssemble(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn GetPdfVersion(self: ?*anyopaque) QtC.Poppler__Document__PdfVersion {
-        return qtc.Poppler__Document_GetPdfVersion(@ptrCast(self));
+    pub fn GetPdfVersion(self: Poppler__Document) Poppler__Document__PdfVersion {
+        return .{ .ptr = qtc.Poppler__Document_GetPdfVersion(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Fonts(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Poppler__FontInfo {
-        const _arr: qtc.libqt_list = qtc.Poppler__Document_Fonts(@ptrCast(self));
+    pub fn Fonts(self: Poppler__Document, allocator: std.mem.Allocator) []Poppler__FontInfo {
+        const _arr: qtc.libqt_list = qtc.Poppler__Document_Fonts(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.Poppler__FontInfo, _arr.len) catch @panic("poppler__document.Fonts: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__FontInfo, _arr.len) catch @panic("poppler__document.Fonts: Memory allocation failed");
         const _data: [*]QtC.Poppler__FontInfo = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2182,24 +2299,25 @@ pub const poppler__document = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn NewFontIterator(self: ?*anyopaque) QtC.Poppler__FontIterator {
-        return qtc.Poppler__Document_NewFontIterator(@ptrCast(self));
+    pub fn NewFontIterator(self: Poppler__Document) Poppler__FontIterator {
+        return .{ .ptr = qtc.Poppler__Document_NewFontIterator(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
-    ///
-    /// ` fi: QtC.Poppler__FontInfo `
+    /// ` self: Poppler__Document `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FontData(self: ?*anyopaque, fi: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.Poppler__Document_FontData(@ptrCast(self), @ptrCast(fi));
+    /// ` fi: Poppler__FontInfo `
+    ///
+    pub fn FontData(self: Poppler__Document, allocator: std.mem.Allocator, fi: anytype) []u8 {
+        comptime _ = @TypeOf(fi)._is_Poppler__FontInfo;
+        var _bytearray: qtc.libqt_string = qtc.Poppler__Document_FontData(@ptrCast(self.ptr), @ptrCast(fi.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("poppler__document.FontData: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -2210,16 +2328,17 @@ pub const poppler__document = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EmbeddedFiles(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Poppler__EmbeddedFile {
-        const _arr: qtc.libqt_list = qtc.Poppler__Document_EmbeddedFiles(@ptrCast(self));
+    pub fn EmbeddedFiles(self: Poppler__Document, allocator: std.mem.Allocator) []Poppler__EmbeddedFile {
+        const _arr: qtc.libqt_list = qtc.Poppler__Document_EmbeddedFiles(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.Poppler__EmbeddedFile, _arr.len) catch @panic("poppler__document.EmbeddedFiles: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__EmbeddedFile, _arr.len) catch @panic("poppler__document.EmbeddedFiles: Memory allocation failed");
         const _data: [*]QtC.Poppler__EmbeddedFile = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2227,26 +2346,27 @@ pub const poppler__document = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn HasEmbeddedFiles(self: ?*anyopaque) bool {
-        return qtc.Poppler__Document_HasEmbeddedFiles(@ptrCast(self));
+    pub fn HasEmbeddedFiles(self: Poppler__Document) bool {
+        return qtc.Poppler__Document_HasEmbeddedFiles(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Outline(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Poppler__OutlineItem {
-        const _arr: qtc.libqt_list = qtc.Poppler__Document_Outline(@ptrCast(self));
+    pub fn Outline(self: Poppler__Document, allocator: std.mem.Allocator) []Poppler__OutlineItem {
+        const _arr: qtc.libqt_list = qtc.Poppler__Document_Outline(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.Poppler__OutlineItem, _arr.len) catch @panic("poppler__document.Outline: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__OutlineItem, _arr.len) catch @panic("poppler__document.Outline: Memory allocation failed");
         const _data: [*]QtC.Poppler__OutlineItem = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2254,64 +2374,65 @@ pub const poppler__document = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn LinkDestination(self: ?*anyopaque, name: []const u8) QtC.Poppler__LinkDestination {
+    pub fn LinkDestination(self: Poppler__Document, name: []const u8) Poppler__LinkDestination {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.Poppler__Document_LinkDestination(@ptrCast(self), name_str);
+        return .{ .ptr = qtc.Poppler__Document_LinkDestination(@ptrCast(self.ptr), name_str) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn SetPaperColor(self: ?*anyopaque, color: ?*anyopaque) void {
-        qtc.Poppler__Document_SetPaperColor(@ptrCast(self), @ptrCast(color));
+    pub fn SetPaperColor(self: Poppler__Document, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.Poppler__Document_SetPaperColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn PaperColor(self: ?*anyopaque) QtC.QColor {
-        return qtc.Poppler__Document_PaperColor(@ptrCast(self));
+    pub fn PaperColor(self: Poppler__Document) QColor {
+        return .{ .ptr = qtc.Poppler__Document_PaperColor(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` backend: poppler_qt6_enums.RenderBackend `
     ///
-    pub fn SetRenderBackend(self: ?*anyopaque, backend: i32) void {
-        qtc.Poppler__Document_SetRenderBackend(@ptrCast(self), @bitCast(backend));
+    pub fn SetRenderBackend(self: Poppler__Document, backend: i32) void {
+        qtc.Poppler__Document_SetRenderBackend(@ptrCast(self.ptr), @bitCast(backend));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ## Returns:
     ///
     /// ` poppler_qt6_enums.RenderBackend `
     ///
-    pub fn RenderBackend(self: ?*anyopaque) i32 {
-        return qtc.Poppler__Document_RenderBackend(@ptrCast(self));
+    pub fn RenderBackend(self: Poppler__Document) i32 {
+        return qtc.Poppler__Document_RenderBackend(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
@@ -2322,15 +2443,14 @@ pub const poppler__document = struct {
     ///
     /// ## Returns:
     ///
-    /// ` set_i32 of poppler_qt6_enums.RenderBackend `
+    /// ` Set_i32 of poppler_qt6_enums.RenderBackend `
     ///
-    pub fn AvailableRenderBackends(allocator: std.mem.Allocator) set_i32 {
+    pub fn AvailableRenderBackends(allocator: std.mem.Allocator) Set_i32 {
         const _set: qtc.libqt_list = qtc.Poppler__Document_AvailableRenderBackends();
-        var _ret: set_i32 = .empty;
+        var _ret: Set_i32 = .empty;
         const _data: [*]i32 = @ptrCast(@alignCast(_set.data));
-        for (0.._set.len) |i| {
+        for (0.._set.len) |i|
             _ret.put(allocator, _data[i], {}) catch @panic("poppler__document.AvailableRenderBackends: Set insertion failed");
-        }
         return _ret;
     }
 
@@ -2338,58 +2458,58 @@ pub const poppler__document = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` hint: poppler_qt6_enums.RenderHint `
     ///
-    pub fn SetRenderHint(self: ?*anyopaque, hint: i32) void {
-        qtc.Poppler__Document_SetRenderHint(@ptrCast(self), @bitCast(hint));
+    pub fn SetRenderHint(self: Poppler__Document, hint: i32) void {
+        qtc.Poppler__Document_SetRenderHint(@ptrCast(self.ptr), @bitCast(hint));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ## Returns:
     ///
     /// ` flag of poppler_qt6_enums.RenderHint `
     ///
-    pub fn RenderHints(self: ?*anyopaque) i32 {
-        return qtc.Poppler__Document_RenderHints(@ptrCast(self));
+    pub fn RenderHints(self: Poppler__Document) i32 {
+        return qtc.Poppler__Document_RenderHints(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn PsConverter(self: ?*anyopaque) QtC.Poppler__PSConverter {
-        return qtc.Poppler__Document_PsConverter(@ptrCast(self));
+    pub fn PsConverter(self: Poppler__Document) Poppler__PSConverter {
+        return .{ .ptr = qtc.Poppler__Document_PsConverter(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn PdfConverter(self: ?*anyopaque) QtC.Poppler__PDFConverter {
-        return qtc.Poppler__Document_PdfConverter(@ptrCast(self));
+    pub fn PdfConverter(self: Poppler__Document) Poppler__PDFConverter {
+        return .{ .ptr = qtc.Poppler__Document_PdfConverter(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Metadata(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__Document_Metadata(@ptrCast(self));
+    pub fn Metadata(self: Poppler__Document, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__Document_Metadata(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__document.Metadata: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2400,49 +2520,49 @@ pub const poppler__document = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn HasOptionalContent(self: ?*anyopaque) bool {
-        return qtc.Poppler__Document_HasOptionalContent(@ptrCast(self));
+    pub fn HasOptionalContent(self: Poppler__Document) bool {
+        return qtc.Poppler__Document_HasOptionalContent(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn OptionalContentModel(self: ?*anyopaque) QtC.Poppler__OptContentModel {
-        return qtc.Poppler__Document_OptionalContentModel(@ptrCast(self));
+    pub fn OptionalContentModel(self: Poppler__Document) Poppler__OptContentModel {
+        return .{ .ptr = qtc.Poppler__Document_OptionalContentModel(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    /// ` link: QtC.Poppler__LinkResetForm `
+    /// ` link: Poppler__LinkResetForm `
     ///
-    pub fn ApplyResetFormsLink(self: ?*anyopaque, link: ?*anyopaque) void {
-        qtc.Poppler__Document_ApplyResetFormsLink(@ptrCast(self), @ptrCast(link));
+    pub fn ApplyResetFormsLink(self: Poppler__Document, link: anytype) void {
+        comptime _ = @TypeOf(link)._is_Poppler__LinkResetForm;
+        qtc.Poppler__Document_ApplyResetFormsLink(@ptrCast(self.ptr), @ptrCast(link.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Scripts(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.Poppler__Document_Scripts(@ptrCast(self));
+    pub fn Scripts(self: Poppler__Document, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.Poppler__Document_Scripts(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("poppler__document.Scripts: Memory allocation failed");
@@ -2459,38 +2579,38 @@ pub const poppler__document = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` typeVal: poppler_qt6_enums.DocumentAdditionalActionsType `
     ///
-    pub fn AdditionalAction(self: ?*anyopaque, typeVal: i32) QtC.Poppler__Link {
-        return qtc.Poppler__Document_AdditionalAction(@ptrCast(self), @bitCast(typeVal));
+    pub fn AdditionalAction(self: Poppler__Document, typeVal: i32) Poppler__Link {
+        return .{ .ptr = qtc.Poppler__Document_AdditionalAction(@ptrCast(self.ptr), @bitCast(typeVal)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ## Returns:
     ///
     /// ` poppler_qt6_enums.FormType `
     ///
-    pub fn FormType(self: ?*anyopaque) i32 {
-        return qtc.Poppler__Document_FormType(@ptrCast(self));
+    pub fn FormType(self: Poppler__Document) i32 {
+        return qtc.Poppler__Document_FormType(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FormCalculateOrder(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.libqt_list = qtc.Poppler__Document_FormCalculateOrder(@ptrCast(self));
+    pub fn FormCalculateOrder(self: Poppler__Document, allocator: std.mem.Allocator) []i32 {
+        const _arr: qtc.libqt_list = qtc.Poppler__Document_FormCalculateOrder(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("poppler__document.FormCalculateOrder: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -2502,16 +2622,17 @@ pub const poppler__document = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Signatures(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.Poppler__FormFieldSignature {
-        const _arr: qtc.libqt_list = qtc.Poppler__Document_Signatures(@ptrCast(self));
+    pub fn Signatures(self: Poppler__Document, allocator: std.mem.Allocator) []Poppler__FormFieldSignature {
+        const _arr: qtc.libqt_list = qtc.Poppler__Document_Signatures(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.Poppler__FormFieldSignature, _arr.len) catch @panic("poppler__document.Signatures: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__FormFieldSignature, _arr.len) catch @panic("poppler__document.Signatures: Memory allocation failed");
         const _data: [*]QtC.Poppler__FormFieldSignature = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2519,22 +2640,22 @@ pub const poppler__document = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn XrefWasReconstructed(self: ?*anyopaque) bool {
-        return qtc.Poppler__Document_XrefWasReconstructed(@ptrCast(self));
+    pub fn XrefWasReconstructed(self: Poppler__Document) bool {
+        return qtc.Poppler__Document_XrefWasReconstructed(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn SetXRefReconstructedCallback(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.Poppler__Document_SetXRefReconstructedCallback(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn SetXRefReconstructedCallback(self: Poppler__Document, callback: *const fn () callconv(.c) void) void {
+        qtc.Poppler__Document_SetXRefReconstructedCallback(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
@@ -2545,7 +2666,7 @@ pub const poppler__document = struct {
     ///
     /// ` ownerPassword: []u8 `
     ///
-    pub fn Load22(filePath: []const u8, ownerPassword: []u8) QtC.Poppler__Document {
+    pub fn Load22(filePath: []const u8, ownerPassword: []u8) Poppler__Document {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
@@ -2554,7 +2675,7 @@ pub const poppler__document = struct {
             .len = ownerPassword.len,
             .data = ownerPassword.ptr,
         };
-        return qtc.Poppler__Document_Load22(filePath_str, ownerPassword_str);
+        return .{ .ptr = qtc.Poppler__Document_Load22(filePath_str, ownerPassword_str) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
@@ -2567,7 +2688,7 @@ pub const poppler__document = struct {
     ///
     /// ` userPassword: []u8 `
     ///
-    pub fn Load3(filePath: []const u8, ownerPassword: []u8, userPassword: []u8) QtC.Poppler__Document {
+    pub fn Load3(filePath: []const u8, ownerPassword: []u8, userPassword: []u8) Poppler__Document {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
@@ -2580,36 +2701,38 @@ pub const poppler__document = struct {
             .len = userPassword.len,
             .data = userPassword.ptr,
         };
-        return qtc.Poppler__Document_Load3(filePath_str, ownerPassword_str, userPassword_str);
+        return .{ .ptr = qtc.Poppler__Document_Load3(filePath_str, ownerPassword_str, userPassword_str) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` device: QtC.QIODevice `
+    /// ` device: QIODevice `
     ///
     /// ` ownerPassword: []u8 `
     ///
-    pub fn Load23(device: ?*anyopaque, ownerPassword: []u8) QtC.Poppler__Document {
+    pub fn Load23(device: anytype, ownerPassword: []u8) Poppler__Document {
+        comptime _ = @TypeOf(device)._is_QIODevice;
         const ownerPassword_str = qtc.libqt_string{
             .len = ownerPassword.len,
             .data = ownerPassword.ptr,
         };
-        return qtc.Poppler__Document_Load23(@ptrCast(device), ownerPassword_str);
+        return .{ .ptr = qtc.Poppler__Document_Load23(@ptrCast(device.ptr), ownerPassword_str) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` device: QtC.QIODevice `
+    /// ` device: QIODevice `
     ///
     /// ` ownerPassword: []u8 `
     ///
     /// ` userPassword: []u8 `
     ///
-    pub fn Load32(device: ?*anyopaque, ownerPassword: []u8, userPassword: []u8) QtC.Poppler__Document {
+    pub fn Load32(device: anytype, ownerPassword: []u8, userPassword: []u8) Poppler__Document {
+        comptime _ = @TypeOf(device)._is_QIODevice;
         const ownerPassword_str = qtc.libqt_string{
             .len = ownerPassword.len,
             .data = ownerPassword.ptr,
@@ -2618,7 +2741,7 @@ pub const poppler__document = struct {
             .len = userPassword.len,
             .data = userPassword.ptr,
         };
-        return qtc.Poppler__Document_Load32(@ptrCast(device), ownerPassword_str, userPassword_str);
+        return .{ .ptr = qtc.Poppler__Document_Load32(@ptrCast(device.ptr), ownerPassword_str, userPassword_str) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
@@ -2629,7 +2752,7 @@ pub const poppler__document = struct {
     ///
     /// ` ownerPassword: []u8 `
     ///
-    pub fn LoadFromData2(fileContents: []u8, ownerPassword: []u8) QtC.Poppler__Document {
+    pub fn LoadFromData2(fileContents: []u8, ownerPassword: []u8) Poppler__Document {
         const fileContents_str = qtc.libqt_string{
             .len = fileContents.len,
             .data = fileContents.ptr,
@@ -2638,7 +2761,7 @@ pub const poppler__document = struct {
             .len = ownerPassword.len,
             .data = ownerPassword.ptr,
         };
-        return qtc.Poppler__Document_LoadFromData2(fileContents_str, ownerPassword_str);
+        return .{ .ptr = qtc.Poppler__Document_LoadFromData2(fileContents_str, ownerPassword_str) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
@@ -2651,7 +2774,7 @@ pub const poppler__document = struct {
     ///
     /// ` userPassword: []u8 `
     ///
-    pub fn LoadFromData3(fileContents: []u8, ownerPassword: []u8, userPassword: []u8) QtC.Poppler__Document {
+    pub fn LoadFromData3(fileContents: []u8, ownerPassword: []u8, userPassword: []u8) Poppler__Document {
         const fileContents_str = qtc.libqt_string{
             .len = fileContents.len,
             .data = fileContents.ptr,
@@ -2664,33 +2787,33 @@ pub const poppler__document = struct {
             .len = userPassword.len,
             .data = userPassword.ptr,
         };
-        return qtc.Poppler__Document_LoadFromData3(fileContents_str, ownerPassword_str, userPassword_str);
+        return .{ .ptr = qtc.Poppler__Document_LoadFromData3(fileContents_str, ownerPassword_str, userPassword_str) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` startPage: i32 `
     ///
-    pub fn NewFontIterator1(self: ?*anyopaque, startPage: i32) QtC.Poppler__FontIterator {
-        return qtc.Poppler__Document_NewFontIterator1(@ptrCast(self), @bitCast(startPage));
+    pub fn NewFontIterator1(self: Poppler__Document, startPage: i32) Poppler__FontIterator {
+        return .{ .ptr = qtc.Poppler__Document_NewFontIterator1(@ptrCast(self.ptr), @bitCast(startPage)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Document.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
     /// ` hint: poppler_qt6_enums.RenderHint `
     ///
     /// ` on: bool `
     ///
-    pub fn SetRenderHint2(self: ?*anyopaque, hint: i32, on: bool) void {
-        qtc.Poppler__Document_SetRenderHint2(@ptrCast(self), @bitCast(hint), on);
+    pub fn SetRenderHint2(self: Poppler__Document, hint: i32, on: bool) void {
+        qtc.Poppler__Document_SetRenderHint2(@ptrCast(self.ptr), @bitCast(hint), on);
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -2703,39 +2826,47 @@ pub const poppler__document = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Poppler__Document `
+    /// ` self: Poppler__Document `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Poppler__Document_Delete(@ptrCast(self));
+    pub fn Delete(self: Poppler__Document) void {
+        qtc.Poppler__Document_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundObject.html)
-pub const poppler__soundobject = struct {
+pub const Poppler__SoundObject = extern struct {
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundObject.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Poppler__SoundObject,
+
+    pub const _is_Poppler__SoundObject = {};
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundObject.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__SoundObject `
+    /// ` self: Poppler__SoundObject `
     ///
     /// ## Returns:
     ///
     /// ` poppler_qt6_enums.SoundType `
     ///
-    pub fn SoundType(self: ?*anyopaque) i32 {
-        return qtc.Poppler__SoundObject_SoundType(@ptrCast(self));
+    pub fn SoundType(self: Poppler__SoundObject) i32 {
+        return qtc.Poppler__SoundObject_SoundType(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundObject.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__SoundObject `
+    /// ` self: Poppler__SoundObject `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Url(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__SoundObject_Url(@ptrCast(self));
+    pub fn Url(self: Poppler__SoundObject, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__SoundObject_Url(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__soundobject.Url: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2746,12 +2877,12 @@ pub const poppler__soundobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__SoundObject `
+    /// ` self: Poppler__SoundObject `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Data(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.Poppler__SoundObject_Data(@ptrCast(self));
+    pub fn Data(self: Poppler__SoundObject, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.Poppler__SoundObject_Data(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("poppler__soundobject.Data: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -2762,44 +2893,44 @@ pub const poppler__soundobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__SoundObject `
+    /// ` self: Poppler__SoundObject `
     ///
-    pub fn SamplingRate(self: ?*anyopaque) f64 {
-        return qtc.Poppler__SoundObject_SamplingRate(@ptrCast(self));
+    pub fn SamplingRate(self: Poppler__SoundObject) f64 {
+        return qtc.Poppler__SoundObject_SamplingRate(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundObject.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__SoundObject `
+    /// ` self: Poppler__SoundObject `
     ///
-    pub fn Channels(self: ?*anyopaque) i32 {
-        return qtc.Poppler__SoundObject_Channels(@ptrCast(self));
+    pub fn Channels(self: Poppler__SoundObject) i32 {
+        return qtc.Poppler__SoundObject_Channels(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundObject.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__SoundObject `
+    /// ` self: Poppler__SoundObject `
     ///
-    pub fn BitsPerSample(self: ?*anyopaque) i32 {
-        return qtc.Poppler__SoundObject_BitsPerSample(@ptrCast(self));
+    pub fn BitsPerSample(self: Poppler__SoundObject) i32 {
+        return qtc.Poppler__SoundObject_BitsPerSample(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1SoundObject.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__SoundObject `
+    /// ` self: Poppler__SoundObject `
     ///
     /// ## Returns:
     ///
     /// ` poppler_qt6_enums.SoundEncoding `
     ///
-    pub fn SoundEncoding(self: ?*anyopaque) i32 {
-        return qtc.Poppler__SoundObject_SoundEncoding(@ptrCast(self));
+    pub fn SoundEncoding(self: Poppler__SoundObject) i32 {
+        return qtc.Poppler__SoundObject_SoundEncoding(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -2812,25 +2943,33 @@ pub const poppler__soundobject = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Poppler__SoundObject `
+    /// ` self: Poppler__SoundObject `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Poppler__SoundObject_Delete(@ptrCast(self));
+    pub fn Delete(self: Poppler__SoundObject) void {
+        qtc.Poppler__SoundObject_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieObject.html)
-pub const poppler__movieobject = struct {
+pub const Poppler__MovieObject = extern struct {
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieObject.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Poppler__MovieObject,
+
+    pub const _is_Poppler__MovieObject = {};
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieObject.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__MovieObject `
+    /// ` self: Poppler__MovieObject `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Url(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__MovieObject_Url(@ptrCast(self));
+    pub fn Url(self: Poppler__MovieObject, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__MovieObject_Url(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__movieobject.Url: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2841,64 +2980,64 @@ pub const poppler__movieobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__MovieObject `
+    /// ` self: Poppler__MovieObject `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.Poppler__MovieObject_Size(@ptrCast(self));
+    pub fn Size(self: Poppler__MovieObject) QSize {
+        return .{ .ptr = qtc.Poppler__MovieObject_Size(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieObject.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__MovieObject `
+    /// ` self: Poppler__MovieObject `
     ///
-    pub fn Rotation(self: ?*anyopaque) i32 {
-        return qtc.Poppler__MovieObject_Rotation(@ptrCast(self));
+    pub fn Rotation(self: Poppler__MovieObject) i32 {
+        return qtc.Poppler__MovieObject_Rotation(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieObject.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__MovieObject `
+    /// ` self: Poppler__MovieObject `
     ///
-    pub fn ShowControls(self: ?*anyopaque) bool {
-        return qtc.Poppler__MovieObject_ShowControls(@ptrCast(self));
+    pub fn ShowControls(self: Poppler__MovieObject) bool {
+        return qtc.Poppler__MovieObject_ShowControls(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieObject.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__MovieObject `
+    /// ` self: Poppler__MovieObject `
     ///
     /// ## Returns:
     ///
     /// ` poppler_qt6_enums.PlayMode `
     ///
-    pub fn PlayMode(self: ?*anyopaque) i32 {
-        return qtc.Poppler__MovieObject_PlayMode(@ptrCast(self));
+    pub fn PlayMode(self: Poppler__MovieObject) i32 {
+        return qtc.Poppler__MovieObject_PlayMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieObject.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__MovieObject `
+    /// ` self: Poppler__MovieObject `
     ///
-    pub fn ShowPosterImage(self: ?*anyopaque) bool {
-        return qtc.Poppler__MovieObject_ShowPosterImage(@ptrCast(self));
+    pub fn ShowPosterImage(self: Poppler__MovieObject) bool {
+        return qtc.Poppler__MovieObject_ShowPosterImage(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1MovieObject.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__MovieObject `
+    /// ` self: Poppler__MovieObject `
     ///
-    pub fn PosterImage(self: ?*anyopaque) QtC.QImage {
-        return qtc.Poppler__MovieObject_PosterImage(@ptrCast(self));
+    pub fn PosterImage(self: Poppler__MovieObject) QImage {
+        return .{ .ptr = qtc.Poppler__MovieObject_PosterImage(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -2911,57 +3050,65 @@ pub const poppler__movieobject = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Poppler__MovieObject `
+    /// ` self: Poppler__MovieObject `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Poppler__MovieObject_Delete(@ptrCast(self));
+    pub fn Delete(self: Poppler__MovieObject) void {
+        qtc.Poppler__MovieObject_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/structPoppler_1_1Document_1_1PdfVersion.html)
-pub const poppler__document__pdfversion = struct {
+pub const Poppler__Document__PdfVersion = extern struct {
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/structPoppler_1_1Document_1_1PdfVersion.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Poppler__Document__PdfVersion,
+
+    pub const _is_Poppler__Document__PdfVersion = {};
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/structPoppler_1_1Document_1_1PdfVersion.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document__PdfVersion `
+    /// ` self: Poppler__Document__PdfVersion `
     ///
-    pub fn Major(self: ?*anyopaque) i32 {
-        return qtc.Poppler__Document__PdfVersion_Major(@ptrCast(self));
+    pub fn Major(self: Poppler__Document__PdfVersion) i32 {
+        return qtc.Poppler__Document__PdfVersion_Major(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/structPoppler_1_1Document_1_1PdfVersion.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document__PdfVersion `
+    /// ` self: Poppler__Document__PdfVersion `
     ///
     /// ` major: i32 `
     ///
-    pub fn SetMajor(self: ?*anyopaque, major: i32) void {
-        qtc.Poppler__Document__PdfVersion_SetMajor(@ptrCast(self), @bitCast(major));
+    pub fn SetMajor(self: Poppler__Document__PdfVersion, major: i32) void {
+        qtc.Poppler__Document__PdfVersion_SetMajor(@ptrCast(self.ptr), @bitCast(major));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/structPoppler_1_1Document_1_1PdfVersion.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document__PdfVersion `
+    /// ` self: Poppler__Document__PdfVersion `
     ///
-    pub fn Minor(self: ?*anyopaque) i32 {
-        return qtc.Poppler__Document__PdfVersion_Minor(@ptrCast(self));
+    pub fn Minor(self: Poppler__Document__PdfVersion) i32 {
+        return qtc.Poppler__Document__PdfVersion_Minor(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/structPoppler_1_1Document_1_1PdfVersion.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Poppler__Document__PdfVersion `
+    /// ` self: Poppler__Document__PdfVersion `
     ///
     /// ` minor: i32 `
     ///
-    pub fn SetMinor(self: ?*anyopaque, minor: i32) void {
-        qtc.Poppler__Document__PdfVersion_SetMinor(@ptrCast(self), @bitCast(minor));
+    pub fn SetMinor(self: Poppler__Document__PdfVersion, minor: i32) void {
+        qtc.Poppler__Document__PdfVersion_SetMinor(@ptrCast(self.ptr), @bitCast(minor));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -2974,10 +3121,10 @@ pub const poppler__document__pdfversion = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Poppler__Document__PdfVersion `
+    /// ` self: Poppler__Document__PdfVersion `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Poppler__Document__PdfVersion_Delete(@ptrCast(self));
+    pub fn Delete(self: Poppler__Document__PdfVersion) void {
+        qtc.Poppler__Document__PdfVersion_Delete(@ptrCast(self.ptr));
     }
 };
 

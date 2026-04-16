@@ -1,37 +1,64 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KIO__Job = @import("libqt6").KIO__Job;
+const KIO__JobUiDelegateExtension = @import("libqt6").KIO__JobUiDelegateExtension;
+const KIO__MetaData = @import("libqt6").KIO__MetaData;
+const KJob = @import("libqt6").KJob;
+const KJobUiDelegate = @import("libqt6").KJobUiDelegate;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QUrl = @import("libqt6").QUrl;
+const QVariant = @import("libqt6").QVariant;
 const kjob_enums = @import("../extras-kcoreaddons/libkjob.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const arraymap_constu8_constu8 = std.array_hash_map.String([]const u8);
+const ArrayMap_constu8_constu8 = std.array_hash_map.String([]const u8);
 
 /// ### [Upstream resources](https://api.kde.org/kio-emptytrashjob.html)
-pub const kio__emptytrashjob = struct {
+pub const KIO__EmptyTrashJob = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kio-emptytrashjob.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KIO__EmptyTrashJob,
+
+    pub const _is_KIO__EmptyTrashJob = {};
+    pub const _is_KIO__SimpleJob = {};
+    pub const _is_KIO__Job = {};
+    pub const _is_KCompositeJob = {};
+    pub const _is_KJob = {};
+    pub const _is_QObject = {};
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KIO__EmptyTrashJob_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KIO__EmptyTrashJob) QMetaObject {
+        return .{ .ptr = qtc.KIO__EmptyTrashJob_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KIO__EmptyTrashJob, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KIO__EmptyTrashJob_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KIO__EmptyTrashJob_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -39,19 +66,19 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KIO__EmptyTrashJob_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KIO__EmptyTrashJob, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KIO__EmptyTrashJob_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -64,13 +91,13 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -84,15 +111,15 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -108,10 +135,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn Url(self: ?*anyopaque) QtC.QUrl {
-        return qtc.KIO__SimpleJob_Url(@ptrCast(self));
+    pub fn Url(self: KIO__EmptyTrashJob) QUrl {
+        return .{ .ptr = qtc.KIO__SimpleJob_Url(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KIO::SimpleJob
@@ -120,10 +147,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn PutOnHold(self: ?*anyopaque) void {
-        qtc.KIO__SimpleJob_PutOnHold(@ptrCast(self));
+    pub fn PutOnHold(self: KIO__EmptyTrashJob) void {
+        qtc.KIO__SimpleJob_PutOnHold(@ptrCast(self.ptr));
     }
 
     /// Inherited from KIO::SimpleJob
@@ -140,10 +167,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn IsRedirectionHandlingEnabled(self: ?*anyopaque) bool {
-        return qtc.KIO__SimpleJob_IsRedirectionHandlingEnabled(@ptrCast(self));
+    pub fn IsRedirectionHandlingEnabled(self: KIO__EmptyTrashJob) bool {
+        return qtc.KIO__SimpleJob_IsRedirectionHandlingEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from KIO::SimpleJob
@@ -152,12 +179,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` handle: bool `
     ///
-    pub fn SetRedirectionHandlingEnabled(self: ?*anyopaque, handle: bool) void {
-        qtc.KIO__SimpleJob_SetRedirectionHandlingEnabled(@ptrCast(self), handle);
+    pub fn SetRedirectionHandlingEnabled(self: KIO__EmptyTrashJob, handle: bool) void {
+        qtc.KIO__SimpleJob_SetRedirectionHandlingEnabled(@ptrCast(self.ptr), handle);
     }
 
     /// Inherited from KIO::SimpleJob
@@ -166,18 +193,18 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` param1: i32 `
     ///
     /// ` param2: []const u8 `
     ///
-    pub fn SlotError(self: ?*anyopaque, param1: i32, param2: []const u8) void {
+    pub fn SlotError(self: KIO__EmptyTrashJob, param1: i32, param2: []const u8) void {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
             .data = param2.ptr,
         };
-        qtc.KIO__SimpleJob_SlotError(@ptrCast(self), @bitCast(param1), param2_str);
+        qtc.KIO__SimpleJob_SlotError(@ptrCast(self.ptr), @bitCast(param1), param2_str);
     }
 
     /// Inherited from KIO::Job
@@ -186,10 +213,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn Start(self: ?*anyopaque) void {
-        qtc.KIO__Job_Start(@ptrCast(self));
+    pub fn Start(self: KIO__EmptyTrashJob) void {
+        qtc.KIO__Job_Start(@ptrCast(self.ptr));
     }
 
     /// Inherited from KIO::Job
@@ -198,10 +225,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn UiDelegateExtension(self: ?*anyopaque) QtC.KIO__JobUiDelegateExtension {
-        return qtc.KIO__Job_UiDelegateExtension(@ptrCast(self));
+    pub fn UiDelegateExtension(self: KIO__EmptyTrashJob) KIO__JobUiDelegateExtension {
+        return .{ .ptr = qtc.KIO__Job_UiDelegateExtension(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KIO::Job
@@ -210,12 +237,13 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` extension: QtC.KIO__JobUiDelegateExtension `
+    /// ` extension: KIO__JobUiDelegateExtension `
     ///
-    pub fn SetUiDelegateExtension(self: ?*anyopaque, extension: ?*anyopaque) void {
-        qtc.KIO__Job_SetUiDelegateExtension(@ptrCast(self), @ptrCast(extension));
+    pub fn SetUiDelegateExtension(self: KIO__EmptyTrashJob, extension: anytype) void {
+        comptime _ = @TypeOf(extension)._is_KIO__JobUiDelegateExtension;
+        qtc.KIO__Job_SetUiDelegateExtension(@ptrCast(self.ptr), @ptrCast(extension.ptr));
     }
 
     /// Inherited from KIO::Job
@@ -224,12 +252,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KIO__Job_ErrorString(@ptrCast(self));
+    pub fn ErrorString(self: KIO__EmptyTrashJob, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KIO__Job_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__emptytrashjob.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -242,17 +270,16 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DetailedErrorStrings(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KIO__Job_DetailedErrorStrings(@ptrCast(self));
+    pub fn DetailedErrorStrings(self: KIO__EmptyTrashJob, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KIO__Job_DetailedErrorStrings(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kio__emptytrashjob.DetailedErrorStrings: Memory allocation failed");
@@ -271,12 +298,13 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` parentJob: QtC.KIO__Job `
+    /// ` parentJob: KIO__Job `
     ///
-    pub fn SetParentJob(self: ?*anyopaque, parentJob: ?*anyopaque) void {
-        qtc.KIO__Job_SetParentJob(@ptrCast(self), @ptrCast(parentJob));
+    pub fn SetParentJob(self: KIO__EmptyTrashJob, parentJob: anytype) void {
+        comptime _ = @TypeOf(parentJob)._is_KIO__Job;
+        qtc.KIO__Job_SetParentJob(@ptrCast(self.ptr), @ptrCast(parentJob.ptr));
     }
 
     /// Inherited from KIO::Job
@@ -285,10 +313,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn ParentJob(self: ?*anyopaque) QtC.KIO__Job {
-        return qtc.KIO__Job_ParentJob(@ptrCast(self));
+    pub fn ParentJob(self: KIO__EmptyTrashJob) KIO__Job {
+        return .{ .ptr = qtc.KIO__Job_ParentJob(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KIO::Job
@@ -297,12 +325,13 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` metaData: QtC.KIO__MetaData `
+    /// ` metaData: KIO__MetaData `
     ///
-    pub fn SetMetaData(self: ?*anyopaque, metaData: ?*anyopaque) void {
-        qtc.KIO__Job_SetMetaData(@ptrCast(self), @ptrCast(metaData));
+    pub fn SetMetaData(self: KIO__EmptyTrashJob, metaData: anytype) void {
+        comptime _ = @TypeOf(metaData)._is_KIO__MetaData;
+        qtc.KIO__Job_SetMetaData(@ptrCast(self.ptr), @ptrCast(metaData.ptr));
     }
 
     /// Inherited from KIO::Job
@@ -311,13 +340,13 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` key: []const u8 `
     ///
     /// ` value: []const u8 `
     ///
-    pub fn AddMetaData(self: ?*anyopaque, key: []const u8, value: []const u8) void {
+    pub fn AddMetaData(self: KIO__EmptyTrashJob, key: []const u8, value: []const u8) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -326,7 +355,7 @@ pub const kio__emptytrashjob = struct {
             .len = value.len,
             .data = value.ptr,
         };
-        qtc.KIO__Job_AddMetaData(@ptrCast(self), key_str, value_str);
+        qtc.KIO__Job_AddMetaData(@ptrCast(self.ptr), key_str, value_str);
     }
 
     /// Inherited from KIO::Job
@@ -335,13 +364,13 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
-    ///
-    /// ` values: arraymap_constu8_constu8 `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AddMetaData2(self: ?*anyopaque, values: arraymap_constu8_constu8, allocator: std.mem.Allocator) void {
+    /// ` values: ArrayMap_constu8_constu8 `
+    ///
+    pub fn AddMetaData2(self: KIO__EmptyTrashJob, allocator: std.mem.Allocator, values: ArrayMap_constu8_constu8) void {
         const values_count = values.count();
         const values_keys = allocator.alloc(qtc.libqt_string, values_count) catch @panic("kio__emptytrashjob.AddMetaData2: Memory allocation failed");
         defer allocator.free(values_keys);
@@ -366,7 +395,7 @@ pub const kio__emptytrashjob = struct {
             .keys = @ptrCast(values_keys.ptr),
             .values = @ptrCast(values_values.ptr),
         };
-        qtc.KIO__Job_AddMetaData2(@ptrCast(self), values_map);
+        qtc.KIO__Job_AddMetaData2(@ptrCast(self.ptr), values_map);
     }
 
     /// Inherited from KIO::Job
@@ -375,13 +404,13 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
-    ///
-    /// ` values: arraymap_constu8_constu8 `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MergeMetaData(self: ?*anyopaque, values: arraymap_constu8_constu8, allocator: std.mem.Allocator) void {
+    /// ` values: ArrayMap_constu8_constu8 `
+    ///
+    pub fn MergeMetaData(self: KIO__EmptyTrashJob, allocator: std.mem.Allocator, values: ArrayMap_constu8_constu8) void {
         const values_count = values.count();
         const values_keys = allocator.alloc(qtc.libqt_string, values_count) catch @panic("kio__emptytrashjob.MergeMetaData: Memory allocation failed");
         defer allocator.free(values_keys);
@@ -406,7 +435,7 @@ pub const kio__emptytrashjob = struct {
             .keys = @ptrCast(values_keys.ptr),
             .values = @ptrCast(values_values.ptr),
         };
-        qtc.KIO__Job_MergeMetaData(@ptrCast(self), values_map);
+        qtc.KIO__Job_MergeMetaData(@ptrCast(self.ptr), values_map);
     }
 
     /// Inherited from KIO::Job
@@ -415,10 +444,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn OutgoingMetaData(self: ?*anyopaque) QtC.KIO__MetaData {
-        return qtc.KIO__Job_OutgoingMetaData(@ptrCast(self));
+    pub fn OutgoingMetaData(self: KIO__EmptyTrashJob) KIO__MetaData {
+        return .{ .ptr = qtc.KIO__Job_OutgoingMetaData(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KIO::Job
@@ -427,10 +456,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn MetaData(self: ?*anyopaque) QtC.KIO__MetaData {
-        return qtc.KIO__Job_MetaData(@ptrCast(self));
+    pub fn MetaData(self: KIO__EmptyTrashJob) KIO__MetaData {
+        return .{ .ptr = qtc.KIO__Job_MetaData(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KIO::Job
@@ -439,18 +468,18 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
-    ///
-    /// ` key: []const u8 `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn QueryMetaData(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` key: []const u8 `
+    ///
+    pub fn QueryMetaData(self: KIO__EmptyTrashJob, allocator: std.mem.Allocator, key: []const u8) []const u8 {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        var _str = qtc.KIO__Job_QueryMetaData(@ptrCast(self), key_str);
+        var _str = qtc.KIO__Job_QueryMetaData(@ptrCast(self.ptr), key_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__emptytrashjob.QueryMetaData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -463,12 +492,13 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` job: QtC.KIO__Job `
+    /// ` job: KIO__Job `
     ///
-    pub fn Connected(self: ?*anyopaque, job: ?*anyopaque) void {
-        qtc.KIO__Job_Connected(@ptrCast(self), @ptrCast(job));
+    pub fn Connected(self: KIO__EmptyTrashJob, job: anytype) void {
+        comptime _ = @TypeOf(job)._is_KIO__Job;
+        qtc.KIO__Job_Connected(@ptrCast(self.ptr), @ptrCast(job.ptr));
     }
 
     /// Inherited from KIO::Job
@@ -477,12 +507,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__EmptyTrashJob, job: QtC.KIO__Job) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__EmptyTrashJob, job: KIO__Job) callconv(.c) void `
     ///
-    pub fn OnConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__Job_Connect_Connected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnected(self: KIO__EmptyTrashJob, callback: *const fn (KIO__EmptyTrashJob, KIO__Job) callconv(.c) void) void {
+        qtc.KIO__Job_Connect_Connected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::Job
@@ -491,19 +521,19 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
-    ///
-    /// ` reqUrl: QtC.QUrl `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DetailedErrorStrings1(self: ?*anyopaque, reqUrl: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KIO__Job_DetailedErrorStrings1(@ptrCast(self), @ptrCast(reqUrl));
+    /// ` reqUrl: QUrl `
+    ///
+    pub fn DetailedErrorStrings1(self: KIO__EmptyTrashJob, allocator: std.mem.Allocator, reqUrl: anytype) []const []const u8 {
+        comptime _ = @TypeOf(reqUrl)._is_QUrl;
+        const _arr: qtc.libqt_list = qtc.KIO__Job_DetailedErrorStrings1(@ptrCast(self.ptr), @ptrCast(reqUrl.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kio__emptytrashjob.DetailedErrorStrings1: Memory allocation failed");
@@ -522,21 +552,21 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
-    ///
-    /// ` reqUrl: QtC.QUrl `
-    ///
-    /// ` method: i32 `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DetailedErrorStrings2(self: ?*anyopaque, reqUrl: ?*anyopaque, method: i32, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KIO__Job_DetailedErrorStrings2(@ptrCast(self), @ptrCast(reqUrl), @bitCast(method));
+    /// ` reqUrl: QUrl `
+    ///
+    /// ` method: i32 `
+    ///
+    pub fn DetailedErrorStrings2(self: KIO__EmptyTrashJob, allocator: std.mem.Allocator, reqUrl: anytype, method: i32) []const []const u8 {
+        comptime _ = @TypeOf(reqUrl)._is_QUrl;
+        const _arr: qtc.libqt_list = qtc.KIO__Job_DetailedErrorStrings2(@ptrCast(self.ptr), @ptrCast(reqUrl.ptr), @bitCast(method));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kio__emptytrashjob.DetailedErrorStrings2: Memory allocation failed");
@@ -555,12 +585,13 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` delegate: QtC.KJobUiDelegate `
+    /// ` delegate: KJobUiDelegate `
     ///
-    pub fn SetUiDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
-        qtc.KJob_SetUiDelegate(@ptrCast(self), @ptrCast(delegate));
+    pub fn SetUiDelegate(self: KIO__EmptyTrashJob, delegate: anytype) void {
+        comptime _ = @TypeOf(delegate)._is_KJobUiDelegate;
+        qtc.KJob_SetUiDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
     }
 
     /// Inherited from KJob
@@ -569,10 +600,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn UiDelegate(self: ?*anyopaque) QtC.KJobUiDelegate {
-        return qtc.KJob_UiDelegate(@ptrCast(self));
+    pub fn UiDelegate(self: KIO__EmptyTrashJob) KJobUiDelegate {
+        return .{ .ptr = qtc.KJob_UiDelegate(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KJob
@@ -581,14 +612,14 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ## Returns:
     ///
     /// ` flag of kjob_enums.Capability `
     ///
-    pub fn Capabilities(self: ?*anyopaque) i32 {
-        return qtc.KJob_Capabilities(@ptrCast(self));
+    pub fn Capabilities(self: KIO__EmptyTrashJob) i32 {
+        return qtc.KJob_Capabilities(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -597,10 +628,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn IsSuspended(self: ?*anyopaque) bool {
-        return qtc.KJob_IsSuspended(@ptrCast(self));
+    pub fn IsSuspended(self: KIO__EmptyTrashJob) bool {
+        return qtc.KJob_IsSuspended(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -609,10 +640,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn Kill(self: ?*anyopaque) bool {
-        return qtc.KJob_Kill(@ptrCast(self));
+    pub fn Kill(self: KIO__EmptyTrashJob) bool {
+        return qtc.KJob_Kill(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -621,10 +652,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn Suspend(self: ?*anyopaque) bool {
-        return qtc.KJob_Suspend(@ptrCast(self));
+    pub fn Suspend(self: KIO__EmptyTrashJob) bool {
+        return qtc.KJob_Suspend(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -633,10 +664,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn Resume(self: ?*anyopaque) bool {
-        return qtc.KJob_Resume(@ptrCast(self));
+    pub fn Resume(self: KIO__EmptyTrashJob) bool {
+        return qtc.KJob_Resume(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -645,10 +676,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn Exec(self: ?*anyopaque) bool {
-        return qtc.KJob_Exec(@ptrCast(self));
+    pub fn Exec(self: KIO__EmptyTrashJob) bool {
+        return qtc.KJob_Exec(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -657,10 +688,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn Error(self: ?*anyopaque) i32 {
-        return qtc.KJob_Error(@ptrCast(self));
+    pub fn Error(self: KIO__EmptyTrashJob) i32 {
+        return qtc.KJob_Error(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -669,12 +700,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KJob_ErrorText(@ptrCast(self));
+    pub fn ErrorText(self: KIO__EmptyTrashJob, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KJob_ErrorText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__emptytrashjob.ErrorText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -687,12 +718,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn ProcessedAmount(self: ?*anyopaque, unit: i32) usize {
-        return qtc.KJob_ProcessedAmount(@ptrCast(self), @bitCast(unit));
+    pub fn ProcessedAmount(self: KIO__EmptyTrashJob, unit: i32) usize {
+        return qtc.KJob_ProcessedAmount(@ptrCast(self.ptr), @bitCast(unit));
     }
 
     /// Inherited from KJob
@@ -701,12 +732,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn TotalAmount(self: ?*anyopaque, unit: i32) usize {
-        return qtc.KJob_TotalAmount(@ptrCast(self), @bitCast(unit));
+    pub fn TotalAmount(self: KIO__EmptyTrashJob, unit: i32) usize {
+        return qtc.KJob_TotalAmount(@ptrCast(self.ptr), @bitCast(unit));
     }
 
     /// Inherited from KJob
@@ -715,10 +746,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn Percent(self: ?*anyopaque) usize {
-        return qtc.KJob_Percent(@ptrCast(self));
+    pub fn Percent(self: KIO__EmptyTrashJob) usize {
+        return qtc.KJob_Percent(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -727,12 +758,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` autodelete: bool `
     ///
-    pub fn SetAutoDelete(self: ?*anyopaque, autodelete: bool) void {
-        qtc.KJob_SetAutoDelete(@ptrCast(self), autodelete);
+    pub fn SetAutoDelete(self: KIO__EmptyTrashJob, autodelete: bool) void {
+        qtc.KJob_SetAutoDelete(@ptrCast(self.ptr), autodelete);
     }
 
     /// Inherited from KJob
@@ -741,10 +772,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn IsAutoDelete(self: ?*anyopaque) bool {
-        return qtc.KJob_IsAutoDelete(@ptrCast(self));
+    pub fn IsAutoDelete(self: KIO__EmptyTrashJob) bool {
+        return qtc.KJob_IsAutoDelete(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -753,10 +784,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn SetFinishedNotificationHidden(self: ?*anyopaque) void {
-        qtc.KJob_SetFinishedNotificationHidden(@ptrCast(self));
+    pub fn SetFinishedNotificationHidden(self: KIO__EmptyTrashJob) void {
+        qtc.KJob_SetFinishedNotificationHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -765,10 +796,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn IsFinishedNotificationHidden(self: ?*anyopaque) bool {
-        return qtc.KJob_IsFinishedNotificationHidden(@ptrCast(self));
+    pub fn IsFinishedNotificationHidden(self: KIO__EmptyTrashJob) bool {
+        return qtc.KJob_IsFinishedNotificationHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -777,10 +808,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn IsStartedWithExec(self: ?*anyopaque) bool {
-        return qtc.KJob_IsStartedWithExec(@ptrCast(self));
+    pub fn IsStartedWithExec(self: KIO__EmptyTrashJob) bool {
+        return qtc.KJob_IsStartedWithExec(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -789,10 +820,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn ElapsedTime(self: ?*anyopaque) i64 {
-        return qtc.KJob_ElapsedTime(@ptrCast(self));
+    pub fn ElapsedTime(self: KIO__EmptyTrashJob) i64 {
+        return qtc.KJob_ElapsedTime(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -801,18 +832,19 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` job: QtC.KJob `
+    /// ` job: KJob `
     ///
     /// ` message: []const u8 `
     ///
-    pub fn InfoMessage(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
+    pub fn InfoMessage(self: KIO__EmptyTrashJob, job: anytype, message: []const u8) void {
+        comptime _ = @TypeOf(job)._is_KJob;
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-        qtc.KJob_InfoMessage(@ptrCast(self), @ptrCast(job), message_str);
+        qtc.KJob_InfoMessage(@ptrCast(self.ptr), @ptrCast(job.ptr), message_str);
     }
 
     /// Inherited from KJob
@@ -821,12 +853,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__EmptyTrashJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__EmptyTrashJob, job: KJob, message: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnInfoMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJob_Connect_InfoMessage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInfoMessage(self: KIO__EmptyTrashJob, callback: *const fn (KIO__EmptyTrashJob, KJob, [*:0]const u8) callconv(.c) void) void {
+        qtc.KJob_Connect_InfoMessage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -835,18 +867,19 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` job: QtC.KJob `
+    /// ` job: KJob `
     ///
     /// ` message: []const u8 `
     ///
-    pub fn Warning(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
+    pub fn Warning(self: KIO__EmptyTrashJob, job: anytype, message: []const u8) void {
+        comptime _ = @TypeOf(job)._is_KJob;
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-        qtc.KJob_Warning(@ptrCast(self), @ptrCast(job), message_str);
+        qtc.KJob_Warning(@ptrCast(self.ptr), @ptrCast(job.ptr), message_str);
     }
 
     /// Inherited from KJob
@@ -855,12 +888,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__EmptyTrashJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__EmptyTrashJob, job: KJob, message: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWarning(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJob_Connect_Warning(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWarning(self: KIO__EmptyTrashJob, callback: *const fn (KIO__EmptyTrashJob, KJob, [*:0]const u8) callconv(.c) void) void {
+        qtc.KJob_Connect_Warning(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -869,14 +902,15 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` job: QtC.KJob `
+    /// ` job: KJob `
     ///
     /// ` size: usize `
     ///
-    pub fn TotalSize(self: ?*anyopaque, job: ?*anyopaque, size: usize) void {
-        qtc.KJob_TotalSize(@ptrCast(self), @ptrCast(job), @bitCast(size));
+    pub fn TotalSize(self: KIO__EmptyTrashJob, job: anytype, size: usize) void {
+        comptime _ = @TypeOf(job)._is_KJob;
+        qtc.KJob_TotalSize(@ptrCast(self.ptr), @ptrCast(job.ptr), @bitCast(size));
     }
 
     /// Inherited from KJob
@@ -885,12 +919,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__EmptyTrashJob, job: QtC.KJob, size: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__EmptyTrashJob, job: KJob, size: usize) callconv(.c) void `
     ///
-    pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
-        qtc.KJob_Connect_TotalSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTotalSize(self: KIO__EmptyTrashJob, callback: *const fn (KIO__EmptyTrashJob, KJob, usize) callconv(.c) void) void {
+        qtc.KJob_Connect_TotalSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -899,14 +933,15 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` job: QtC.KJob `
+    /// ` job: KJob `
     ///
     /// ` size: usize `
     ///
-    pub fn ProcessedSize(self: ?*anyopaque, job: ?*anyopaque, size: usize) void {
-        qtc.KJob_ProcessedSize(@ptrCast(self), @ptrCast(job), @bitCast(size));
+    pub fn ProcessedSize(self: KIO__EmptyTrashJob, job: anytype, size: usize) void {
+        comptime _ = @TypeOf(job)._is_KJob;
+        qtc.KJob_ProcessedSize(@ptrCast(self.ptr), @ptrCast(job.ptr), @bitCast(size));
     }
 
     /// Inherited from KJob
@@ -915,12 +950,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__EmptyTrashJob, job: QtC.KJob, size: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__EmptyTrashJob, job: KJob, size: usize) callconv(.c) void `
     ///
-    pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
-        qtc.KJob_Connect_ProcessedSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnProcessedSize(self: KIO__EmptyTrashJob, callback: *const fn (KIO__EmptyTrashJob, KJob, usize) callconv(.c) void) void {
+        qtc.KJob_Connect_ProcessedSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -929,14 +964,15 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` job: QtC.KJob `
+    /// ` job: KJob `
     ///
     /// ` speed: usize `
     ///
-    pub fn Speed(self: ?*anyopaque, job: ?*anyopaque, speed: usize) void {
-        qtc.KJob_Speed(@ptrCast(self), @ptrCast(job), @bitCast(speed));
+    pub fn Speed(self: KIO__EmptyTrashJob, job: anytype, speed: usize) void {
+        comptime _ = @TypeOf(job)._is_KJob;
+        qtc.KJob_Speed(@ptrCast(self.ptr), @ptrCast(job.ptr), @bitCast(speed));
     }
 
     /// Inherited from KJob
@@ -945,12 +981,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__EmptyTrashJob, job: QtC.KJob, speed: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__EmptyTrashJob, job: KJob, speed: usize) callconv(.c) void `
     ///
-    pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
-        qtc.KJob_Connect_Speed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSpeed(self: KIO__EmptyTrashJob, callback: *const fn (KIO__EmptyTrashJob, KJob, usize) callconv(.c) void) void {
+        qtc.KJob_Connect_Speed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -959,12 +995,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` verbosity: kjob_enums.KillVerbosity `
     ///
-    pub fn Kill1(self: ?*anyopaque, verbosity: i32) bool {
-        return qtc.KJob_Kill1(@ptrCast(self), @bitCast(verbosity));
+    pub fn Kill1(self: KIO__EmptyTrashJob, verbosity: i32) bool {
+        return qtc.KJob_Kill1(@ptrCast(self.ptr), @bitCast(verbosity));
     }
 
     /// Inherited from KJob
@@ -973,12 +1009,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` hide: bool `
     ///
-    pub fn SetFinishedNotificationHidden1(self: ?*anyopaque, hide: bool) void {
-        qtc.KJob_SetFinishedNotificationHidden1(@ptrCast(self), hide);
+    pub fn SetFinishedNotificationHidden1(self: KIO__EmptyTrashJob, hide: bool) void {
+        qtc.KJob_SetFinishedNotificationHidden1(@ptrCast(self.ptr), hide);
     }
 
     /// Inherited from QObject
@@ -987,12 +1023,13 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KIO__EmptyTrashJob, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1001,14 +1038,16 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KIO__EmptyTrashJob, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1017,12 +1056,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KIO__EmptyTrashJob, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__emptytrashjob.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1035,12 +1074,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KIO__EmptyTrashJob, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1049,10 +1088,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KIO__EmptyTrashJob) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1061,10 +1100,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KIO__EmptyTrashJob) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1073,10 +1112,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KIO__EmptyTrashJob) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1085,10 +1124,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KIO__EmptyTrashJob) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1097,12 +1136,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KIO__EmptyTrashJob, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -1111,10 +1150,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KIO__EmptyTrashJob) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1123,12 +1162,13 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KIO__EmptyTrashJob, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1137,12 +1177,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KIO__EmptyTrashJob, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1151,12 +1191,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KIO__EmptyTrashJob, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1165,12 +1205,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KIO__EmptyTrashJob, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1179,12 +1219,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KIO__EmptyTrashJob, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1193,16 +1233,17 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KIO__EmptyTrashJob, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kio__emptytrashjob.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kio__emptytrashjob.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1212,12 +1253,13 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KIO__EmptyTrashJob, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1226,12 +1268,13 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KIO__EmptyTrashJob, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1240,12 +1283,13 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KIO__EmptyTrashJob, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1254,18 +1298,20 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1274,16 +1320,20 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1292,18 +1342,19 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KIO__EmptyTrashJob, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1312,18 +1363,20 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1332,16 +1385,20 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1350,10 +1407,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KIO__EmptyTrashJob) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1362,12 +1419,13 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KIO__EmptyTrashJob, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1376,10 +1434,11 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1388,10 +1447,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KIO__EmptyTrashJob) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1400,10 +1459,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KIO__EmptyTrashJob) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1412,15 +1471,16 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KIO__EmptyTrashJob, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1429,13 +1489,13 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KIO__EmptyTrashJob, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1444,17 +1504,16 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KIO__EmptyTrashJob, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kio__emptytrashjob.DynamicPropertyNames: Memory allocation failed");
@@ -1473,10 +1532,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KIO__EmptyTrashJob) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1485,10 +1544,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KIO__EmptyTrashJob) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1497,10 +1556,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KIO__EmptyTrashJob) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1509,12 +1568,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__EmptyTrashJob) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__EmptyTrashJob) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KIO__EmptyTrashJob, callback: *const fn (KIO__EmptyTrashJob) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1523,10 +1582,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: KIO__EmptyTrashJob) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1535,13 +1594,13 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KIO__EmptyTrashJob, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1550,10 +1609,10 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KIO__EmptyTrashJob) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1562,14 +1621,14 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KIO__EmptyTrashJob, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1578,14 +1637,14 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KIO__EmptyTrashJob, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1594,20 +1653,22 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1616,18 +1677,22 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1636,9 +1701,9 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1646,10 +1711,11 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KIO__EmptyTrashJob, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1658,13 +1724,13 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KIO__EmptyTrashJob, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1673,15 +1739,16 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KIO__EmptyTrashJob, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1690,18 +1757,19 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KIO__EmptyTrashJob, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1710,15 +1778,16 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KIO__EmptyTrashJob, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1727,12 +1796,13 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KIO__EmptyTrashJob, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1741,12 +1811,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__EmptyTrashJob, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__EmptyTrashJob, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KIO__EmptyTrashJob, callback: *const fn (KIO__EmptyTrashJob, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1757,12 +1827,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__EmptyTrashJob, job: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__EmptyTrashJob, job: KJob) callconv(.c) void `
     ///
-    pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFinished(self: KIO__EmptyTrashJob, callback: *const fn (KIO__EmptyTrashJob, KJob) callconv(.c) void) void {
+        qtc.KJob_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1773,12 +1843,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__EmptyTrashJob, job: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__EmptyTrashJob, job: KJob) callconv(.c) void `
     ///
-    pub fn OnSuspended(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Suspended(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSuspended(self: KIO__EmptyTrashJob, callback: *const fn (KIO__EmptyTrashJob, KJob) callconv(.c) void) void {
+        qtc.KJob_Connect_Suspended(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1789,12 +1859,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__EmptyTrashJob, job: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__EmptyTrashJob, job: KJob) callconv(.c) void `
     ///
-    pub fn OnResumed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Resumed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResumed(self: KIO__EmptyTrashJob, callback: *const fn (KIO__EmptyTrashJob, KJob) callconv(.c) void) void {
+        qtc.KJob_Connect_Resumed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1805,12 +1875,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__EmptyTrashJob, job: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__EmptyTrashJob, job: KJob) callconv(.c) void `
     ///
-    pub fn OnResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Result(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResult(self: KIO__EmptyTrashJob, callback: *const fn (KIO__EmptyTrashJob, KJob) callconv(.c) void) void {
+        qtc.KJob_Connect_Result(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1821,12 +1891,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__EmptyTrashJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__EmptyTrashJob, job: KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnTotalAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, usize) callconv(.c) void) void {
-        qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTotalAmountChanged(self: KIO__EmptyTrashJob, callback: *const fn (KIO__EmptyTrashJob, KJob, i32, usize) callconv(.c) void) void {
+        qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1837,12 +1907,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__EmptyTrashJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__EmptyTrashJob, job: KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnProcessedAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, usize) callconv(.c) void) void {
-        qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnProcessedAmountChanged(self: KIO__EmptyTrashJob, callback: *const fn (KIO__EmptyTrashJob, KJob, i32, usize) callconv(.c) void) void {
+        qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1853,12 +1923,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__EmptyTrashJob, job: QtC.KJob, percent: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__EmptyTrashJob, job: KJob, percent: usize) callconv(.c) void `
     ///
-    pub fn OnPercentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
-        qtc.KJob_Connect_PercentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPercentChanged(self: KIO__EmptyTrashJob, callback: *const fn (KIO__EmptyTrashJob, KJob, usize) callconv(.c) void) void {
+        qtc.KJob_Connect_PercentChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1869,12 +1939,12 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__EmptyTrashJob, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__EmptyTrashJob, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KIO__EmptyTrashJob, callback: *const fn (KIO__EmptyTrashJob, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1885,18 +1955,26 @@ pub const kio__emptytrashjob = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KIO__EmptyTrashJob `
+    /// ` self: KIO__EmptyTrashJob `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KIO__EmptyTrashJob_Delete(@ptrCast(self));
+    pub fn Delete(self: KIO__EmptyTrashJob) void {
+        qtc.KIO__EmptyTrashJob_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://api.kde.org/kio.html)
-pub const kio = struct {
+pub const KIO = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kio.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KIO,
+
+    pub const _is_KIO = {};
+
     /// ### [Upstream resources](https://api.kde.org/kio.html#emptyTrash)
     ///
-    pub fn EmptyTrash() QtC.KIO__EmptyTrashJob {
-        return qtc.KIO_EmptyTrash();
+    pub fn EmptyTrash() KIO__EmptyTrashJob {
+        return .{ .ptr = qtc.KIO_EmptyTrash() };
     }
 };

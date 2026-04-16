@@ -3,7 +3,15 @@ const qtc = @import("qt6c");
 const qaudio_enums = enums;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudio.html)
-pub const qaudio = struct {
+pub const QAudio = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudio.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QAudio,
+
+    pub const _is_QAudio = {};
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudio.html#convertVolume)
     ///
     /// ## Parameter(s):

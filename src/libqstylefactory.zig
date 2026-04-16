@@ -1,51 +1,62 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QStyle = @import("libqt6").QStyle;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylefactory.html)
-pub const qstylefactory = struct {
+pub const QStyleFactory = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylefactory.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QStyleFactory,
+
+    pub const _is_QStyleFactory = {};
+
     /// New constructs a new QStyleFactory object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QStyleFactory `
+    /// ` other: QStyleFactory `
     ///
-    pub fn New(other: ?*anyopaque) QtC.QStyleFactory {
-        return qtc.QStyleFactory_new(@ptrCast(other));
+    pub fn New(other: anytype) QStyleFactory {
+        comptime _ = @TypeOf(other)._is_QStyleFactory;
+        return .{ .ptr = qtc.QStyleFactory_new(@ptrCast(other.ptr)) };
     }
 
     /// New2 constructs a new QStyleFactory object and invalidates the source QStyleFactory object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QStyleFactory `
+    /// ` other: QStyleFactory `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QStyleFactory {
-        return qtc.QStyleFactory_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QStyleFactory {
+        comptime _ = @TypeOf(other)._is_QStyleFactory;
+        return .{ .ptr = qtc.QStyleFactory_new2(@ptrCast(other.ptr)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QStyleFactory `
+    /// ` self: QStyleFactory `
     ///
-    /// ` other: QtC.QStyleFactory `
+    /// ` other: QStyleFactory `
     ///
-    pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleFactory_CopyAssign(@ptrCast(self), @ptrCast(other));
+    pub fn CopyAssign(self: QStyleFactory, other: QStyleFactory) void {
+        qtc.QStyleFactory_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QStyleFactory `
+    /// ` self: QStyleFactory `
     ///
-    /// ` other: QtC.QStyleFactory `
+    /// ` other: QStyleFactory `
     ///
-    pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QStyleFactory_MoveAssign(@ptrCast(self), @ptrCast(other));
+    pub fn MoveAssign(self: QStyleFactory, other: QStyleFactory) void {
+        qtc.QStyleFactory_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylefactory.html#keys)
@@ -58,9 +69,8 @@ pub const qstylefactory = struct {
         const _arr: qtc.libqt_list = qtc.QStyleFactory_Keys();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qstylefactory.Keys: Memory allocation failed");
@@ -79,12 +89,12 @@ pub const qstylefactory = struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn Create(param1: []const u8) QtC.QStyle {
+    pub fn Create(param1: []const u8) QStyle {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        return qtc.QStyleFactory_Create(param1_str);
+        return .{ .ptr = qtc.QStyleFactory_Create(param1_str) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -97,9 +107,9 @@ pub const qstylefactory = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QStyleFactory `
+    /// ` self: QStyleFactory `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QStyleFactory_Delete(@ptrCast(self));
+    pub fn Delete(self: QStyleFactory) void {
+        qtc.QStyleFactory_Delete(@ptrCast(self.ptr));
     }
 };

@@ -1,5 +1,20 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QActionGroup = @import("libqt6").QActionGroup;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QFont = @import("libqt6").QFont;
+const QIcon = @import("libqt6").QIcon;
+const QKeySequence = @import("libqt6").QKeySequence;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
+const QWidget = @import("libqt6").QWidget;
 const qaction_enums = @import("../libqaction.zig").enums;
 const qkeysequence_enums = @import("../libqkeysequence.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
@@ -7,25 +22,37 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/ktoolbarspaceraction.html)
-pub const ktoolbarspaceraction = struct {
+pub const KToolBarSpacerAction = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/ktoolbarspaceraction.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KToolBarSpacerAction,
+
+    pub const _is_KToolBarSpacerAction = {};
+    pub const _is_QWidgetAction = {};
+    pub const _is_QAction = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new KToolBarSpacerAction object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.KToolBarSpacerAction {
-        return qtc.KToolBarSpacerAction_new(@ptrCast(parent));
+    pub fn New(parent: anytype) KToolBarSpacerAction {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.KToolBarSpacerAction_new(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KToolBarSpacerAction_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KToolBarSpacerAction) QMetaObject {
+        return .{ .ptr = qtc.KToolBarSpacerAction_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -34,12 +61,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KToolBarSpacerAction_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KToolBarSpacerAction, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KToolBarSpacerAction_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -52,33 +79,33 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KToolBarSpacerAction_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KToolBarSpacerAction) QMetaObject {
+        return .{ .ptr = qtc.KToolBarSpacerAction_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KToolBarSpacerAction, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KToolBarSpacerAction_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KToolBarSpacerAction_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KToolBarSpacerAction, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KToolBarSpacerAction_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KToolBarSpacerAction_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -89,18 +116,18 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KToolBarSpacerAction, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KToolBarSpacerAction_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KToolBarSpacerAction_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -108,20 +135,20 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KToolBarSpacerAction_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KToolBarSpacerAction, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KToolBarSpacerAction_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KToolBarSpacerAction, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KToolBarSpacerAction_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KToolBarSpacerAction_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -132,7 +159,7 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -140,19 +167,19 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KToolBarSpacerAction_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KToolBarSpacerAction, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KToolBarSpacerAction_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -165,12 +192,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.KToolBarSpacerAction_CreateWidget(@ptrCast(self), @ptrCast(parent));
+    pub fn CreateWidget(self: KToolBarSpacerAction, parent: anytype) QWidget {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.KToolBarSpacerAction_CreateWidget(@ptrCast(self.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktoolbarspaceraction.html#createWidget)
@@ -179,12 +207,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, parent: QtC.QWidget) callconv(.c) QtC.QWidget `
+    /// ` callback: *const fn (self: KToolBarSpacerAction, parent: QWidget) callconv(.c) QWidget `
     ///
-    pub fn OnCreateWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
-        qtc.KToolBarSpacerAction_OnCreateWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreateWidget(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction, QWidget) callconv(.c) QWidget) void {
+        qtc.KToolBarSpacerAction_OnCreateWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCreateWidget` instead
@@ -197,25 +225,26 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SuperCreateWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.KToolBarSpacerAction_SuperCreateWidget(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperCreateWidget(self: KToolBarSpacerAction, parent: anytype) QWidget {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.KToolBarSpacerAction_SuperCreateWidget(@ptrCast(self.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -229,15 +258,15 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -253,12 +282,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` w: QtC.QWidget `
+    /// ` w: QWidget `
     ///
-    pub fn SetDefaultWidget(self: ?*anyopaque, w: ?*anyopaque) void {
-        qtc.QWidgetAction_SetDefaultWidget(@ptrCast(self), @ptrCast(w));
+    pub fn SetDefaultWidget(self: KToolBarSpacerAction, w: anytype) void {
+        comptime _ = @TypeOf(w)._is_QWidget;
+        qtc.QWidgetAction_SetDefaultWidget(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
     /// Inherited from QWidgetAction
@@ -267,10 +297,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn DefaultWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidgetAction_DefaultWidget(@ptrCast(self));
+    pub fn DefaultWidget(self: KToolBarSpacerAction) QWidget {
+        return .{ .ptr = qtc.QWidgetAction_DefaultWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidgetAction
@@ -279,12 +309,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn RequestWidget(self: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidgetAction_RequestWidget(@ptrCast(self), @ptrCast(parent));
+    pub fn RequestWidget(self: KToolBarSpacerAction, parent: anytype) QWidget {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidgetAction_RequestWidget(@ptrCast(self.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidgetAction
@@ -293,12 +324,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn ReleaseWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QWidgetAction_ReleaseWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn ReleaseWidget(self: KToolBarSpacerAction, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QWidgetAction_ReleaseWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// Inherited from QAction
@@ -307,16 +339,17 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AssociatedObjects(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QAction_AssociatedObjects(@ptrCast(self));
+    pub fn AssociatedObjects(self: KToolBarSpacerAction, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QAction_AssociatedObjects(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("ktoolbarspaceraction.AssociatedObjects: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("ktoolbarspaceraction.AssociatedObjects: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -326,12 +359,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` group: QtC.QActionGroup `
+    /// ` group: QActionGroup `
     ///
-    pub fn SetActionGroup(self: ?*anyopaque, group: ?*anyopaque) void {
-        qtc.QAction_SetActionGroup(@ptrCast(self), @ptrCast(group));
+    pub fn SetActionGroup(self: KToolBarSpacerAction, group: anytype) void {
+        comptime _ = @TypeOf(group)._is_QActionGroup;
+        qtc.QAction_SetActionGroup(@ptrCast(self.ptr), @ptrCast(group.ptr));
     }
 
     /// Inherited from QAction
@@ -340,10 +374,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn ActionGroup(self: ?*anyopaque) QtC.QActionGroup {
-        return qtc.QAction_ActionGroup(@ptrCast(self));
+    pub fn ActionGroup(self: KToolBarSpacerAction) QActionGroup {
+        return .{ .ptr = qtc.QAction_ActionGroup(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAction
@@ -352,12 +386,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QAction_SetIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetIcon(self: KToolBarSpacerAction, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QAction_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QAction
@@ -366,10 +401,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn Icon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QAction_Icon(@ptrCast(self));
+    pub fn Icon(self: KToolBarSpacerAction) QIcon {
+        return .{ .ptr = qtc.QAction_Icon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAction
@@ -378,16 +413,16 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SetText(self: KToolBarSpacerAction, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QAction_SetText(@ptrCast(self), text_str);
+        qtc.QAction_SetText(@ptrCast(self.ptr), text_str);
     }
 
     /// Inherited from QAction
@@ -396,12 +431,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAction_Text(@ptrCast(self));
+    pub fn Text(self: KToolBarSpacerAction, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QAction_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktoolbarspaceraction.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -414,16 +449,16 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetIconText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SetIconText(self: KToolBarSpacerAction, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QAction_SetIconText(@ptrCast(self), text_str);
+        qtc.QAction_SetIconText(@ptrCast(self.ptr), text_str);
     }
 
     /// Inherited from QAction
@@ -432,12 +467,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAction_IconText(@ptrCast(self));
+    pub fn IconText(self: KToolBarSpacerAction, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QAction_IconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktoolbarspaceraction.IconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -450,16 +485,16 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` tip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, tip: []const u8) void {
+    pub fn SetToolTip(self: KToolBarSpacerAction, tip: []const u8) void {
         const tip_str = qtc.libqt_string{
             .len = tip.len,
             .data = tip.ptr,
         };
-        qtc.QAction_SetToolTip(@ptrCast(self), tip_str);
+        qtc.QAction_SetToolTip(@ptrCast(self.ptr), tip_str);
     }
 
     /// Inherited from QAction
@@ -468,12 +503,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAction_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: KToolBarSpacerAction, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QAction_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktoolbarspaceraction.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -486,16 +521,16 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: KToolBarSpacerAction, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QAction_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QAction_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QAction
@@ -504,12 +539,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAction_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: KToolBarSpacerAction, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QAction_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktoolbarspaceraction.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -522,16 +557,16 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` what: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, what: []const u8) void {
+    pub fn SetWhatsThis(self: KToolBarSpacerAction, what: []const u8) void {
         const what_str = qtc.libqt_string{
             .len = what.len,
             .data = what.ptr,
         };
-        qtc.QAction_SetWhatsThis(@ptrCast(self), what_str);
+        qtc.QAction_SetWhatsThis(@ptrCast(self.ptr), what_str);
     }
 
     /// Inherited from QAction
@@ -540,12 +575,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAction_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: KToolBarSpacerAction, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QAction_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktoolbarspaceraction.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -558,12 +593,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` priority: qaction_enums.Priority `
     ///
-    pub fn SetPriority(self: ?*anyopaque, priority: i32) void {
-        qtc.QAction_SetPriority(@ptrCast(self), @bitCast(priority));
+    pub fn SetPriority(self: KToolBarSpacerAction, priority: i32) void {
+        qtc.QAction_SetPriority(@ptrCast(self.ptr), @bitCast(priority));
     }
 
     /// Inherited from QAction
@@ -572,14 +607,14 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ## Returns:
     ///
     /// ` qaction_enums.Priority `
     ///
-    pub fn Priority(self: ?*anyopaque) i32 {
-        return qtc.QAction_Priority(@ptrCast(self));
+    pub fn Priority(self: KToolBarSpacerAction) i32 {
+        return qtc.QAction_Priority(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAction
@@ -588,12 +623,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` b: bool `
     ///
-    pub fn SetSeparator(self: ?*anyopaque, b: bool) void {
-        qtc.QAction_SetSeparator(@ptrCast(self), b);
+    pub fn SetSeparator(self: KToolBarSpacerAction, b: bool) void {
+        qtc.QAction_SetSeparator(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QAction
@@ -602,10 +637,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn IsSeparator(self: ?*anyopaque) bool {
-        return qtc.QAction_IsSeparator(@ptrCast(self));
+    pub fn IsSeparator(self: KToolBarSpacerAction) bool {
+        return qtc.QAction_IsSeparator(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAction
@@ -614,12 +649,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn SetShortcut(self: ?*anyopaque, shortcut: ?*anyopaque) void {
-        qtc.QAction_SetShortcut(@ptrCast(self), @ptrCast(shortcut));
+    pub fn SetShortcut(self: KToolBarSpacerAction, shortcut: anytype) void {
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        qtc.QAction_SetShortcut(@ptrCast(self.ptr), @ptrCast(shortcut.ptr));
     }
 
     /// Inherited from QAction
@@ -628,10 +664,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn Shortcut(self: ?*anyopaque) QtC.QKeySequence {
-        return qtc.QAction_Shortcut(@ptrCast(self));
+    pub fn Shortcut(self: KToolBarSpacerAction) QKeySequence {
+        return .{ .ptr = qtc.QAction_Shortcut(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAction
@@ -640,16 +676,16 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` shortcuts: []QtC.QKeySequence `
+    /// ` shortcuts: []QKeySequence `
     ///
-    pub fn SetShortcuts(self: ?*anyopaque, shortcuts: []QtC.QKeySequence) void {
+    pub fn SetShortcuts(self: KToolBarSpacerAction, shortcuts: []QKeySequence) void {
         const shortcuts_list = qtc.libqt_list{
             .len = shortcuts.len,
             .data = @ptrCast(shortcuts.ptr),
         };
-        qtc.QAction_SetShortcuts(@ptrCast(self), shortcuts_list);
+        qtc.QAction_SetShortcuts(@ptrCast(self.ptr), shortcuts_list);
     }
 
     /// Inherited from QAction
@@ -658,12 +694,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` shortcuts: qkeysequence_enums.StandardKey `
     ///
-    pub fn SetShortcuts2(self: ?*anyopaque, shortcuts: i32) void {
-        qtc.QAction_SetShortcuts2(@ptrCast(self), @bitCast(shortcuts));
+    pub fn SetShortcuts2(self: KToolBarSpacerAction, shortcuts: i32) void {
+        qtc.QAction_SetShortcuts2(@ptrCast(self.ptr), @bitCast(shortcuts));
     }
 
     /// Inherited from QAction
@@ -672,16 +708,17 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Shortcuts(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QKeySequence {
-        const _arr: qtc.libqt_list = qtc.QAction_Shortcuts(@ptrCast(self));
+    pub fn Shortcuts(self: KToolBarSpacerAction, allocator: std.mem.Allocator) []QKeySequence {
+        const _arr: qtc.libqt_list = qtc.QAction_Shortcuts(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QKeySequence, _arr.len) catch @panic("ktoolbarspaceraction.Shortcuts: Memory allocation failed");
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("ktoolbarspaceraction.Shortcuts: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -691,12 +728,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn SetShortcutContext(self: ?*anyopaque, context: i32) void {
-        qtc.QAction_SetShortcutContext(@ptrCast(self), @bitCast(context));
+    pub fn SetShortcutContext(self: KToolBarSpacerAction, context: i32) void {
+        qtc.QAction_SetShortcutContext(@ptrCast(self.ptr), @bitCast(context));
     }
 
     /// Inherited from QAction
@@ -705,14 +742,14 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ShortcutContext `
     ///
-    pub fn ShortcutContext(self: ?*anyopaque) i32 {
-        return qtc.QAction_ShortcutContext(@ptrCast(self));
+    pub fn ShortcutContext(self: KToolBarSpacerAction) i32 {
+        return qtc.QAction_ShortcutContext(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAction
@@ -721,12 +758,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` autoRepeat: bool `
     ///
-    pub fn SetAutoRepeat(self: ?*anyopaque, autoRepeat: bool) void {
-        qtc.QAction_SetAutoRepeat(@ptrCast(self), autoRepeat);
+    pub fn SetAutoRepeat(self: KToolBarSpacerAction, autoRepeat: bool) void {
+        qtc.QAction_SetAutoRepeat(@ptrCast(self.ptr), autoRepeat);
     }
 
     /// Inherited from QAction
@@ -735,10 +772,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn AutoRepeat(self: ?*anyopaque) bool {
-        return qtc.QAction_AutoRepeat(@ptrCast(self));
+    pub fn AutoRepeat(self: KToolBarSpacerAction) bool {
+        return qtc.QAction_AutoRepeat(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAction
@@ -747,12 +784,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QAction_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: KToolBarSpacerAction, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QAction_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QAction
@@ -761,10 +799,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QAction_Font(@ptrCast(self));
+    pub fn Font(self: KToolBarSpacerAction) QFont {
+        return .{ .ptr = qtc.QAction_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAction
@@ -773,12 +811,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` checkable: bool `
     ///
-    pub fn SetCheckable(self: ?*anyopaque, checkable: bool) void {
-        qtc.QAction_SetCheckable(@ptrCast(self), checkable);
+    pub fn SetCheckable(self: KToolBarSpacerAction, checkable: bool) void {
+        qtc.QAction_SetCheckable(@ptrCast(self.ptr), checkable);
     }
 
     /// Inherited from QAction
@@ -787,10 +825,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn IsCheckable(self: ?*anyopaque) bool {
-        return qtc.QAction_IsCheckable(@ptrCast(self));
+    pub fn IsCheckable(self: KToolBarSpacerAction) bool {
+        return qtc.QAction_IsCheckable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAction
@@ -799,10 +837,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn Data(self: ?*anyopaque) QtC.QVariant {
-        return qtc.QAction_Data(@ptrCast(self));
+    pub fn Data(self: KToolBarSpacerAction) QVariant {
+        return .{ .ptr = qtc.QAction_Data(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAction
@@ -811,12 +849,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` varVal: QtC.QVariant `
+    /// ` varVal: QVariant `
     ///
-    pub fn SetData(self: ?*anyopaque, varVal: ?*anyopaque) void {
-        qtc.QAction_SetData(@ptrCast(self), @ptrCast(varVal));
+    pub fn SetData(self: KToolBarSpacerAction, varVal: anytype) void {
+        comptime _ = @TypeOf(varVal)._is_QVariant;
+        qtc.QAction_SetData(@ptrCast(self.ptr), @ptrCast(varVal.ptr));
     }
 
     /// Inherited from QAction
@@ -825,10 +864,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn IsChecked(self: ?*anyopaque) bool {
-        return qtc.QAction_IsChecked(@ptrCast(self));
+    pub fn IsChecked(self: KToolBarSpacerAction) bool {
+        return qtc.QAction_IsChecked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAction
@@ -837,10 +876,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QAction_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: KToolBarSpacerAction) bool {
+        return qtc.QAction_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAction
@@ -849,10 +888,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QAction_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: KToolBarSpacerAction) bool {
+        return qtc.QAction_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAction
@@ -861,12 +900,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` event: qaction_enums.ActionEvent `
     ///
-    pub fn Activate(self: ?*anyopaque, event: i32) void {
-        qtc.QAction_Activate(@ptrCast(self), @bitCast(event));
+    pub fn Activate(self: KToolBarSpacerAction, event: i32) void {
+        qtc.QAction_Activate(@ptrCast(self.ptr), @bitCast(event));
     }
 
     /// Inherited from QAction
@@ -875,12 +914,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` menuRole: qaction_enums.MenuRole `
     ///
-    pub fn SetMenuRole(self: ?*anyopaque, menuRole: i32) void {
-        qtc.QAction_SetMenuRole(@ptrCast(self), @bitCast(menuRole));
+    pub fn SetMenuRole(self: KToolBarSpacerAction, menuRole: i32) void {
+        qtc.QAction_SetMenuRole(@ptrCast(self.ptr), @bitCast(menuRole));
     }
 
     /// Inherited from QAction
@@ -889,14 +928,14 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ## Returns:
     ///
     /// ` qaction_enums.MenuRole `
     ///
-    pub fn MenuRole(self: ?*anyopaque) i32 {
-        return qtc.QAction_MenuRole(@ptrCast(self));
+    pub fn MenuRole(self: KToolBarSpacerAction) i32 {
+        return qtc.QAction_MenuRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAction
@@ -905,12 +944,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetIconVisibleInMenu(self: ?*anyopaque, visible: bool) void {
-        qtc.QAction_SetIconVisibleInMenu(@ptrCast(self), visible);
+    pub fn SetIconVisibleInMenu(self: KToolBarSpacerAction, visible: bool) void {
+        qtc.QAction_SetIconVisibleInMenu(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QAction
@@ -919,10 +958,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn IsIconVisibleInMenu(self: ?*anyopaque) bool {
-        return qtc.QAction_IsIconVisibleInMenu(@ptrCast(self));
+    pub fn IsIconVisibleInMenu(self: KToolBarSpacerAction) bool {
+        return qtc.QAction_IsIconVisibleInMenu(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAction
@@ -931,12 +970,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` show: bool `
     ///
-    pub fn SetShortcutVisibleInContextMenu(self: ?*anyopaque, show: bool) void {
-        qtc.QAction_SetShortcutVisibleInContextMenu(@ptrCast(self), show);
+    pub fn SetShortcutVisibleInContextMenu(self: KToolBarSpacerAction, show: bool) void {
+        qtc.QAction_SetShortcutVisibleInContextMenu(@ptrCast(self.ptr), show);
     }
 
     /// Inherited from QAction
@@ -945,10 +984,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn IsShortcutVisibleInContextMenu(self: ?*anyopaque) bool {
-        return qtc.QAction_IsShortcutVisibleInContextMenu(@ptrCast(self));
+    pub fn IsShortcutVisibleInContextMenu(self: KToolBarSpacerAction) bool {
+        return qtc.QAction_IsShortcutVisibleInContextMenu(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAction
@@ -957,10 +996,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn ShowStatusText(self: ?*anyopaque) bool {
-        return qtc.QAction_ShowStatusText(@ptrCast(self));
+    pub fn ShowStatusText(self: KToolBarSpacerAction) bool {
+        return qtc.QAction_ShowStatusText(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAction
@@ -969,10 +1008,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn Trigger(self: ?*anyopaque) void {
-        qtc.QAction_Trigger(@ptrCast(self));
+    pub fn Trigger(self: KToolBarSpacerAction) void {
+        qtc.QAction_Trigger(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAction
@@ -981,10 +1020,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn Hover(self: ?*anyopaque) void {
-        qtc.QAction_Hover(@ptrCast(self));
+    pub fn Hover(self: KToolBarSpacerAction) void {
+        qtc.QAction_Hover(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAction
@@ -993,12 +1032,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` checked: bool `
     ///
-    pub fn SetChecked(self: ?*anyopaque, checked: bool) void {
-        qtc.QAction_SetChecked(@ptrCast(self), checked);
+    pub fn SetChecked(self: KToolBarSpacerAction, checked: bool) void {
+        qtc.QAction_SetChecked(@ptrCast(self.ptr), checked);
     }
 
     /// Inherited from QAction
@@ -1007,10 +1046,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn Toggle(self: ?*anyopaque) void {
-        qtc.QAction_Toggle(@ptrCast(self));
+    pub fn Toggle(self: KToolBarSpacerAction) void {
+        qtc.QAction_Toggle(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAction
@@ -1019,12 +1058,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QAction_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: KToolBarSpacerAction, enabled: bool) void {
+        qtc.QAction_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QAction
@@ -1033,10 +1072,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn ResetEnabled(self: ?*anyopaque) void {
-        qtc.QAction_ResetEnabled(@ptrCast(self));
+    pub fn ResetEnabled(self: KToolBarSpacerAction) void {
+        qtc.QAction_ResetEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAction
@@ -1045,12 +1084,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` b: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, b: bool) void {
-        qtc.QAction_SetDisabled(@ptrCast(self), b);
+    pub fn SetDisabled(self: KToolBarSpacerAction, b: bool) void {
+        qtc.QAction_SetDisabled(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QAction
@@ -1059,12 +1098,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QAction_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: KToolBarSpacerAction, visible: bool) void {
+        qtc.QAction_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QAction
@@ -1073,10 +1112,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn Changed(self: ?*anyopaque) void {
-        qtc.QAction_Changed(@ptrCast(self));
+    pub fn Changed(self: KToolBarSpacerAction) void {
+        qtc.QAction_Changed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAction
@@ -1085,12 +1124,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction) callconv(.c) void `
+    /// ` callback: *const fn (self: KToolBarSpacerAction) callconv(.c) void `
     ///
-    pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_Changed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChanged(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction) callconv(.c) void) void {
+        qtc.QAction_Connect_Changed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1099,12 +1138,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` enabled: bool `
     ///
-    pub fn EnabledChanged(self: ?*anyopaque, enabled: bool) void {
-        qtc.QAction_EnabledChanged(@ptrCast(self), enabled);
+    pub fn EnabledChanged(self: KToolBarSpacerAction, enabled: bool) void {
+        qtc.QAction_EnabledChanged(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QAction
@@ -1113,12 +1152,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, enabled: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KToolBarSpacerAction, enabled: bool) callconv(.c) void `
     ///
-    pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_EnabledChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnabledChanged(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction, bool) callconv(.c) void) void {
+        qtc.QAction_Connect_EnabledChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1127,12 +1166,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` checkable: bool `
     ///
-    pub fn CheckableChanged(self: ?*anyopaque, checkable: bool) void {
-        qtc.QAction_CheckableChanged(@ptrCast(self), checkable);
+    pub fn CheckableChanged(self: KToolBarSpacerAction, checkable: bool) void {
+        qtc.QAction_CheckableChanged(@ptrCast(self.ptr), checkable);
     }
 
     /// Inherited from QAction
@@ -1141,12 +1180,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, checkable: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KToolBarSpacerAction, checkable: bool) callconv(.c) void `
     ///
-    pub fn OnCheckableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_CheckableChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCheckableChanged(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction, bool) callconv(.c) void) void {
+        qtc.QAction_Connect_CheckableChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1155,10 +1194,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn VisibleChanged(self: ?*anyopaque) void {
-        qtc.QAction_VisibleChanged(@ptrCast(self));
+    pub fn VisibleChanged(self: KToolBarSpacerAction) void {
+        qtc.QAction_VisibleChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAction
@@ -1167,12 +1206,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction) callconv(.c) void `
+    /// ` callback: *const fn (self: KToolBarSpacerAction) callconv(.c) void `
     ///
-    pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_VisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVisibleChanged(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction) callconv(.c) void) void {
+        qtc.QAction_Connect_VisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1181,10 +1220,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn Triggered(self: ?*anyopaque) void {
-        qtc.QAction_Triggered(@ptrCast(self));
+    pub fn Triggered(self: KToolBarSpacerAction) void {
+        qtc.QAction_Triggered(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAction
@@ -1193,12 +1232,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction) callconv(.c) void `
+    /// ` callback: *const fn (self: KToolBarSpacerAction) callconv(.c) void `
     ///
-    pub fn OnTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_Triggered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTriggered(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction) callconv(.c) void) void {
+        qtc.QAction_Connect_Triggered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1207,10 +1246,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn Hovered(self: ?*anyopaque) void {
-        qtc.QAction_Hovered(@ptrCast(self));
+    pub fn Hovered(self: KToolBarSpacerAction) void {
+        qtc.QAction_Hovered(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAction
@@ -1219,12 +1258,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction) callconv(.c) void `
+    /// ` callback: *const fn (self: KToolBarSpacerAction) callconv(.c) void `
     ///
-    pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_Hovered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHovered(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction) callconv(.c) void) void {
+        qtc.QAction_Connect_Hovered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1233,12 +1272,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` param1: bool `
     ///
-    pub fn Toggled(self: ?*anyopaque, param1: bool) void {
-        qtc.QAction_Toggled(@ptrCast(self), param1);
+    pub fn Toggled(self: KToolBarSpacerAction, param1: bool) void {
+        qtc.QAction_Toggled(@ptrCast(self.ptr), param1);
     }
 
     /// Inherited from QAction
@@ -1247,12 +1286,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, param1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KToolBarSpacerAction, param1: bool) callconv(.c) void `
     ///
-    pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_Toggled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnToggled(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction, bool) callconv(.c) void) void {
+        qtc.QAction_Connect_Toggled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1261,12 +1300,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` object: QtC.QObject `
+    /// ` object: QObject `
     ///
-    pub fn ShowStatusText1(self: ?*anyopaque, object: ?*anyopaque) bool {
-        return qtc.QAction_ShowStatusText1(@ptrCast(self), @ptrCast(object));
+    pub fn ShowStatusText1(self: KToolBarSpacerAction, object: anytype) bool {
+        comptime _ = @TypeOf(object)._is_QObject;
+        return qtc.QAction_ShowStatusText1(@ptrCast(self.ptr), @ptrCast(object.ptr));
     }
 
     /// Inherited from QAction
@@ -1275,12 +1315,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` checked: bool `
     ///
-    pub fn Triggered1(self: ?*anyopaque, checked: bool) void {
-        qtc.QAction_Triggered1(@ptrCast(self), checked);
+    pub fn Triggered1(self: KToolBarSpacerAction, checked: bool) void {
+        qtc.QAction_Triggered1(@ptrCast(self.ptr), checked);
     }
 
     /// Inherited from QAction
@@ -1289,12 +1329,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, checked: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KToolBarSpacerAction, checked: bool) callconv(.c) void `
     ///
-    pub fn OnTriggered1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_Triggered1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTriggered1(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction, bool) callconv(.c) void) void {
+        qtc.QAction_Connect_Triggered1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1303,12 +1343,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KToolBarSpacerAction, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktoolbarspaceraction.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1321,12 +1361,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KToolBarSpacerAction, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1335,10 +1375,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KToolBarSpacerAction) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1347,10 +1387,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KToolBarSpacerAction) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1359,10 +1399,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KToolBarSpacerAction) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1371,10 +1411,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KToolBarSpacerAction) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1383,12 +1423,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KToolBarSpacerAction, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -1397,10 +1437,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KToolBarSpacerAction) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1409,12 +1449,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KToolBarSpacerAction, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1423,12 +1464,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KToolBarSpacerAction, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1437,12 +1478,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KToolBarSpacerAction, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1451,12 +1492,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KToolBarSpacerAction, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1465,12 +1506,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KToolBarSpacerAction, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1479,16 +1520,17 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KToolBarSpacerAction, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("ktoolbarspaceraction.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("ktoolbarspaceraction.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1498,12 +1540,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KToolBarSpacerAction, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1512,12 +1555,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KToolBarSpacerAction, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1526,12 +1570,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KToolBarSpacerAction, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1540,18 +1585,20 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1560,16 +1607,20 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1578,18 +1629,19 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KToolBarSpacerAction, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1598,18 +1650,20 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1618,16 +1672,20 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1636,10 +1694,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KToolBarSpacerAction) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1648,12 +1706,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KToolBarSpacerAction, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1662,10 +1721,11 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1674,10 +1734,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KToolBarSpacerAction) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1686,10 +1746,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KToolBarSpacerAction) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1698,15 +1758,16 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KToolBarSpacerAction, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1715,13 +1776,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KToolBarSpacerAction, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1730,17 +1791,16 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KToolBarSpacerAction, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("ktoolbarspaceraction.DynamicPropertyNames: Memory allocation failed");
@@ -1759,10 +1819,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KToolBarSpacerAction) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1771,10 +1831,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KToolBarSpacerAction) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1783,10 +1843,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KToolBarSpacerAction) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1795,12 +1855,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction) callconv(.c) void `
+    /// ` callback: *const fn (self: KToolBarSpacerAction) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1809,10 +1869,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: KToolBarSpacerAction) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1821,13 +1881,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KToolBarSpacerAction, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1836,10 +1896,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KToolBarSpacerAction) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1848,14 +1908,14 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KToolBarSpacerAction, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1864,14 +1924,14 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KToolBarSpacerAction, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1880,20 +1940,22 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1902,18 +1964,22 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1922,9 +1988,9 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1932,10 +1998,11 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KToolBarSpacerAction, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1944,13 +2011,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KToolBarSpacerAction, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1959,15 +2026,16 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KToolBarSpacerAction, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1976,18 +2044,19 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KToolBarSpacerAction, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1996,15 +2065,16 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KToolBarSpacerAction, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2013,12 +2083,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KToolBarSpacerAction, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -2027,12 +2098,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KToolBarSpacerAction, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetAction
@@ -2043,12 +2114,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.KToolBarSpacerAction_Event(@ptrCast(self), @ptrCast(param1));
+    pub fn Event(self: KToolBarSpacerAction, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        return qtc.KToolBarSpacerAction_Event(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -2063,12 +2135,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.KToolBarSpacerAction_SuperEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperEvent(self: KToolBarSpacerAction, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        return qtc.KToolBarSpacerAction_SuperEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidgetAction
@@ -2079,12 +2152,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction`
+    /// ` self: KToolBarSpacerAction`
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, param1: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KToolBarSpacerAction, param1: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KToolBarSpacerAction_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction, QEvent) callconv(.c) bool) void {
+        qtc.KToolBarSpacerAction_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetAction
@@ -2095,14 +2168,16 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    /// ` param2: QtC.QEvent `
+    /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.KToolBarSpacerAction_EventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn EventFilter(self: KToolBarSpacerAction, param1: anytype, param2: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        comptime _ = @TypeOf(param2)._is_QEvent;
+        return qtc.KToolBarSpacerAction_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -2117,14 +2192,16 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    /// ` param2: QtC.QEvent `
+    /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.KToolBarSpacerAction_SuperEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn SuperEventFilter(self: KToolBarSpacerAction, param1: anytype, param2: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        comptime _ = @TypeOf(param2)._is_QEvent;
+        return qtc.KToolBarSpacerAction_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidgetAction
@@ -2135,12 +2212,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction`
+    /// ` self: KToolBarSpacerAction`
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, param1: QtC.QObject, param2: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KToolBarSpacerAction, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KToolBarSpacerAction_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KToolBarSpacerAction_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetAction
@@ -2151,12 +2228,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn DeleteWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.KToolBarSpacerAction_DeleteWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn DeleteWidget(self: KToolBarSpacerAction, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.KToolBarSpacerAction_DeleteWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDeleteWidget` instead
@@ -2171,12 +2249,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SuperDeleteWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.KToolBarSpacerAction_SuperDeleteWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn SuperDeleteWidget(self: KToolBarSpacerAction, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.KToolBarSpacerAction_SuperDeleteWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// Inherited from QWidgetAction
@@ -2187,12 +2266,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction`
+    /// ` self: KToolBarSpacerAction`
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, widget: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: KToolBarSpacerAction, widget: QWidget) callconv(.c) void `
     ///
-    pub fn OnDeleteWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KToolBarSpacerAction_OnDeleteWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDeleteWidget(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction, QWidget) callconv(.c) void) void {
+        qtc.KToolBarSpacerAction_OnDeleteWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2203,12 +2282,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KToolBarSpacerAction_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KToolBarSpacerAction, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KToolBarSpacerAction_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -2223,12 +2303,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KToolBarSpacerAction_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KToolBarSpacerAction, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KToolBarSpacerAction_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2239,12 +2320,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction`
+    /// ` self: KToolBarSpacerAction`
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KToolBarSpacerAction, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KToolBarSpacerAction_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction, QTimerEvent) callconv(.c) void) void {
+        qtc.KToolBarSpacerAction_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2255,12 +2336,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KToolBarSpacerAction_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KToolBarSpacerAction, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KToolBarSpacerAction_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -2275,12 +2357,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KToolBarSpacerAction_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KToolBarSpacerAction, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KToolBarSpacerAction_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2291,12 +2374,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction`
+    /// ` self: KToolBarSpacerAction`
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KToolBarSpacerAction, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KToolBarSpacerAction_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction, QChildEvent) callconv(.c) void) void {
+        qtc.KToolBarSpacerAction_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2307,12 +2390,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KToolBarSpacerAction_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KToolBarSpacerAction, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KToolBarSpacerAction_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -2327,12 +2411,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KToolBarSpacerAction_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KToolBarSpacerAction, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KToolBarSpacerAction_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2343,12 +2428,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction`
+    /// ` self: KToolBarSpacerAction`
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KToolBarSpacerAction, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KToolBarSpacerAction_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction, QEvent) callconv(.c) void) void {
+        qtc.KToolBarSpacerAction_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2359,12 +2444,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KToolBarSpacerAction_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KToolBarSpacerAction, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KToolBarSpacerAction_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -2379,12 +2465,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KToolBarSpacerAction_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KToolBarSpacerAction, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KToolBarSpacerAction_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2395,12 +2482,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction`
+    /// ` self: KToolBarSpacerAction`
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KToolBarSpacerAction, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KToolBarSpacerAction_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction, QMetaMethod) callconv(.c) void) void {
+        qtc.KToolBarSpacerAction_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2411,12 +2498,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KToolBarSpacerAction_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KToolBarSpacerAction, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KToolBarSpacerAction_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -2431,12 +2519,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KToolBarSpacerAction_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KToolBarSpacerAction, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KToolBarSpacerAction_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2447,12 +2536,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction`
+    /// ` self: KToolBarSpacerAction`
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KToolBarSpacerAction, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KToolBarSpacerAction_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction, QMetaMethod) callconv(.c) void) void {
+        qtc.KToolBarSpacerAction_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetAction
@@ -2463,16 +2552,17 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CreatedWidgets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWidget {
-        const _arr: qtc.libqt_list = qtc.KToolBarSpacerAction_CreatedWidgets(@ptrCast(self));
+    pub fn CreatedWidgets(self: KToolBarSpacerAction, allocator: std.mem.Allocator) []QWidget {
+        const _arr: qtc.libqt_list = qtc.KToolBarSpacerAction_CreatedWidgets(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("ktoolbarspaceraction.CreatedWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("ktoolbarspaceraction.CreatedWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2488,16 +2578,17 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperCreatedWidgets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWidget {
-        const _arr: qtc.libqt_list = qtc.KToolBarSpacerAction_SuperCreatedWidgets(@ptrCast(self));
+    pub fn SuperCreatedWidgets(self: KToolBarSpacerAction, allocator: std.mem.Allocator) []QWidget {
+        const _arr: qtc.libqt_list = qtc.KToolBarSpacerAction_SuperCreatedWidgets(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("ktoolbarspaceraction.CreatedWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("ktoolbarspaceraction.CreatedWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2507,20 +2598,20 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction`
+    /// ` self: KToolBarSpacerAction`
     ///
     /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of []QtC.QWidget `
+    /// ` C ABI representation of []QWidget `
     ///
-    pub fn OnCreatedWidgets(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.KToolBarSpacerAction_OnCreatedWidgets(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreatedWidgets(self: KToolBarSpacerAction, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+        qtc.KToolBarSpacerAction_OnCreatedWidgets(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2531,10 +2622,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KToolBarSpacerAction_Sender(@ptrCast(self));
+    pub fn Sender(self: KToolBarSpacerAction) QObject {
+        return .{ .ptr = qtc.KToolBarSpacerAction_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -2549,10 +2640,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KToolBarSpacerAction_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KToolBarSpacerAction) QObject {
+        return .{ .ptr = qtc.KToolBarSpacerAction_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2563,12 +2654,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction`
+    /// ` self: KToolBarSpacerAction`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KToolBarSpacerAction_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KToolBarSpacerAction, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KToolBarSpacerAction_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2579,10 +2670,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KToolBarSpacerAction_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KToolBarSpacerAction) i32 {
+        return qtc.KToolBarSpacerAction_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -2597,10 +2688,10 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KToolBarSpacerAction_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KToolBarSpacerAction) i32 {
+        return qtc.KToolBarSpacerAction_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2611,12 +2702,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction`
+    /// ` self: KToolBarSpacerAction`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KToolBarSpacerAction_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KToolBarSpacerAction, callback: *const fn () callconv(.c) i32) void {
+        qtc.KToolBarSpacerAction_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2627,13 +2718,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KToolBarSpacerAction, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KToolBarSpacerAction_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KToolBarSpacerAction_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -2648,13 +2739,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KToolBarSpacerAction, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KToolBarSpacerAction_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KToolBarSpacerAction_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2665,12 +2756,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction`
+    /// ` self: KToolBarSpacerAction`
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KToolBarSpacerAction, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KToolBarSpacerAction_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KToolBarSpacerAction_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2681,12 +2772,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KToolBarSpacerAction_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KToolBarSpacerAction, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KToolBarSpacerAction_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -2701,12 +2793,13 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KToolBarSpacerAction_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KToolBarSpacerAction, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KToolBarSpacerAction_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2717,12 +2810,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction`
+    /// ` self: KToolBarSpacerAction`
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KToolBarSpacerAction, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KToolBarSpacerAction_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction, QMetaMethod) callconv(.c) bool) void {
+        qtc.KToolBarSpacerAction_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2733,12 +2826,12 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    /// ` callback: *const fn (self: QtC.KToolBarSpacerAction, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KToolBarSpacerAction, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KToolBarSpacerAction, callback: *const fn (KToolBarSpacerAction, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -2751,9 +2844,9 @@ pub const ktoolbarspaceraction = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KToolBarSpacerAction `
+    /// ` self: KToolBarSpacerAction `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KToolBarSpacerAction_Delete(@ptrCast(self));
+    pub fn Delete(self: KToolBarSpacerAction) void {
+        qtc.KToolBarSpacerAction_Delete(@ptrCast(self.ptr));
     }
 };

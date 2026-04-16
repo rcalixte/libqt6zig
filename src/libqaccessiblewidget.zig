@@ -1,60 +1,90 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAccessibleActionInterface = @import("libqt6").QAccessibleActionInterface;
+const QAccessibleAttributesInterface = @import("libqt6").QAccessibleAttributesInterface;
+const QAccessibleEditableTextInterface = @import("libqt6").QAccessibleEditableTextInterface;
+const QAccessibleHyperlinkInterface = @import("libqt6").QAccessibleHyperlinkInterface;
+const QAccessibleImageInterface = @import("libqt6").QAccessibleImageInterface;
+const QAccessibleInterface = @import("libqt6").QAccessibleInterface;
+const QAccessibleSelectionInterface = @import("libqt6").QAccessibleSelectionInterface;
+const QAccessibleTableCellInterface = @import("libqt6").QAccessibleTableCellInterface;
+const QAccessibleTableInterface = @import("libqt6").QAccessibleTableInterface;
+const QAccessibleTextInterface = @import("libqt6").QAccessibleTextInterface;
+const QAccessibleValueInterface = @import("libqt6").QAccessibleValueInterface;
+const QAccessible__State = @import("libqt6").QAccessible__State;
+const QColor = @import("libqt6").QColor;
+const QObject = @import("libqt6").QObject;
+const QRect = @import("libqt6").QRect;
+const QWidget = @import("libqt6").QWidget;
+const QWindow = @import("libqt6").QWindow;
 const qaccessible_base_enums = @import("libqaccessible_base.zig").enums;
 const std = @import("std");
-const struct_qtcqaccessibleinterface_i32 = extern struct { first: QtC.QAccessibleInterface, second: i32 };
+const Struct_QAccessibleInterface_i32 = extern struct { first: QAccessibleInterface, second: i32 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html)
-pub const qaccessiblewidget = struct {
+pub const QAccessibleWidget = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QAccessibleWidget,
+
+    pub const _is_QAccessibleWidget = {};
+    pub const _is_QAccessibleObject = {};
+    pub const _is_QAccessibleInterface = {};
+    pub const _is_QAccessibleActionInterface = {};
+
     /// New constructs a new QAccessibleWidget object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` o: QtC.QWidget `
+    /// ` o: QWidget `
     ///
-    pub fn New(o: ?*anyopaque) QtC.QAccessibleWidget {
-        return qtc.QAccessibleWidget_new(@ptrCast(o));
+    pub fn New(o: anytype) QAccessibleWidget {
+        comptime _ = @TypeOf(o)._is_QWidget;
+        return .{ .ptr = qtc.QAccessibleWidget_new(@ptrCast(o.ptr)) };
     }
 
     /// New2 constructs a new QAccessibleWidget object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` o: QtC.QWidget `
+    /// ` o: QWidget `
     ///
     /// ` r: qaccessible_base_enums.Role `
     ///
-    pub fn New2(o: ?*anyopaque, r: i32) QtC.QAccessibleWidget {
-        return qtc.QAccessibleWidget_new2(@ptrCast(o), @bitCast(r));
+    pub fn New2(o: anytype, r: i32) QAccessibleWidget {
+        comptime _ = @TypeOf(o)._is_QWidget;
+        return .{ .ptr = qtc.QAccessibleWidget_new2(@ptrCast(o.ptr), @bitCast(r)) };
     }
 
     /// New3 constructs a new QAccessibleWidget object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` o: QtC.QWidget `
+    /// ` o: QWidget `
     ///
     /// ` r: qaccessible_base_enums.Role `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn New3(o: ?*anyopaque, r: i32, name: []const u8) QtC.QAccessibleWidget {
+    pub fn New3(o: anytype, r: i32, name: []const u8) QAccessibleWidget {
+        comptime _ = @TypeOf(o)._is_QWidget;
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-
-        return qtc.QAccessibleWidget_new3(@ptrCast(o), @bitCast(r), name_str);
+        return .{ .ptr = qtc.QAccessibleWidget_new3(@ptrCast(o.ptr), @bitCast(r), name_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#isValid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.QAccessibleWidget_IsValid(@ptrCast(self));
+    pub fn IsValid(self: QAccessibleWidget) bool {
+        return qtc.QAccessibleWidget_IsValid(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#isValid)
@@ -63,12 +93,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsValid(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QAccessibleWidget_OnIsValid(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsValid(self: QAccessibleWidget, callback: *const fn () callconv(.c) bool) void {
+        qtc.QAccessibleWidget_OnIsValid(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIsValid` instead
@@ -81,20 +111,20 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn SuperIsValid(self: ?*anyopaque) bool {
-        return qtc.QAccessibleWidget_SuperIsValid(@ptrCast(self));
+    pub fn SuperIsValid(self: QAccessibleWidget) bool {
+        return qtc.QAccessibleWidget_SuperIsValid(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#window)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QAccessibleWidget_Window(@ptrCast(self));
+    pub fn Window(self: QAccessibleWidget) QWindow {
+        return .{ .ptr = qtc.QAccessibleWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#window)
@@ -103,12 +133,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QWindow `
+    /// ` callback: *const fn () callconv(.c) QWindow `
     ///
-    pub fn OnWindow(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWindow) void {
-        qtc.QAccessibleWidget_OnWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindow(self: QAccessibleWidget, callback: *const fn () callconv(.c) QWindow) void {
+        qtc.QAccessibleWidget_OnWindow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperWindow` instead
@@ -121,20 +151,20 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn SuperWindow(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QAccessibleWidget_SuperWindow(@ptrCast(self));
+    pub fn SuperWindow(self: QAccessibleWidget) QWindow {
+        return .{ .ptr = qtc.QAccessibleWidget_SuperWindow(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#childCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn ChildCount(self: ?*anyopaque) i32 {
-        return qtc.QAccessibleWidget_ChildCount(@ptrCast(self));
+    pub fn ChildCount(self: QAccessibleWidget) i32 {
+        return qtc.QAccessibleWidget_ChildCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#childCount)
@@ -143,12 +173,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnChildCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAccessibleWidget_OnChildCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildCount(self: QAccessibleWidget, callback: *const fn () callconv(.c) i32) void {
+        qtc.QAccessibleWidget_OnChildCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperChildCount` instead
@@ -161,22 +191,23 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn SuperChildCount(self: ?*anyopaque) i32 {
-        return qtc.QAccessibleWidget_SuperChildCount(@ptrCast(self));
+    pub fn SuperChildCount(self: QAccessibleWidget) i32 {
+        return qtc.QAccessibleWidget_SuperChildCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#indexOfChild)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    /// ` child: QtC.QAccessibleInterface `
+    /// ` child: QAccessibleInterface `
     ///
-    pub fn IndexOfChild(self: ?*anyopaque, child: ?*anyopaque) i32 {
-        return qtc.QAccessibleWidget_IndexOfChild(@ptrCast(self), @ptrCast(child));
+    pub fn IndexOfChild(self: QAccessibleWidget, child: anytype) i32 {
+        comptime _ = @TypeOf(child)._is_QAccessibleInterface;
+        return qtc.QAccessibleWidget_IndexOfChild(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#indexOfChild)
@@ -185,12 +216,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QAccessibleWidget, child: QtC.QAccessibleInterface) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAccessibleWidget, child: QAccessibleInterface) callconv(.c) i32 `
     ///
-    pub fn OnIndexOfChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QAccessibleWidget_OnIndexOfChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIndexOfChild(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget, QAccessibleInterface) callconv(.c) i32) void {
+        qtc.QAccessibleWidget_OnIndexOfChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIndexOfChild` instead
@@ -203,29 +234,30 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    /// ` child: QtC.QAccessibleInterface `
+    /// ` child: QAccessibleInterface `
     ///
-    pub fn SuperIndexOfChild(self: ?*anyopaque, child: ?*anyopaque) i32 {
-        return qtc.QAccessibleWidget_SuperIndexOfChild(@ptrCast(self), @ptrCast(child));
+    pub fn SuperIndexOfChild(self: QAccessibleWidget, child: anytype) i32 {
+        comptime _ = @TypeOf(child)._is_QAccessibleInterface;
+        return qtc.QAccessibleWidget_SuperIndexOfChild(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#relations)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
-    ///
-    /// ` match: flag of qaccessible_base_enums.RelationFlag `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Relations(self: ?*anyopaque, match: i32, allocator: std.mem.Allocator) []struct_qtcqaccessibleinterface_i32 {
-        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_Relations(@ptrCast(self), @bitCast(match));
-        const _data: [*]struct_qtcqaccessibleinterface_i32 = @ptrCast(@alignCast(_arr.data));
+    /// ` match: flag of qaccessible_base_enums.RelationFlag `
+    ///
+    pub fn Relations(self: QAccessibleWidget, allocator: std.mem.Allocator, match: i32) []Struct_QAccessibleInterface_i32 {
+        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_Relations(@ptrCast(self.ptr), @bitCast(match));
+        const _data: [*]Struct_QAccessibleInterface_i32 = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i32, _arr.len) catch @panic("qaccessiblewidget.Relations: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_QAccessibleInterface_i32, _arr.len) catch @panic("qaccessiblewidget.Relations: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -234,20 +266,20 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QAccessibleWidget, match: flag of qaccessible_base_enums.RelationFlag) callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: QAccessibleWidget, match: flag of qaccessible_base_enums.RelationFlag) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of []struct_qtcqaccessibleinterface_i32 `
+    /// ` C ABI representation of []Struct_QAccessibleInterface_i32 `
     ///
-    pub fn OnRelations(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) qtc.libqt_list) void {
-        qtc.QAccessibleWidget_OnRelations(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRelations(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget, i32) callconv(.c) qtc.libqt_list) void {
+        qtc.QAccessibleWidget_OnRelations(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRelations` instead
@@ -260,17 +292,17 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
-    ///
-    /// ` match: flag of qaccessible_base_enums.RelationFlag `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperRelations(self: ?*anyopaque, match: i32, allocator: std.mem.Allocator) []struct_qtcqaccessibleinterface_i32 {
-        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_SuperRelations(@ptrCast(self), @bitCast(match));
-        const _data: [*]struct_qtcqaccessibleinterface_i32 = @ptrCast(@alignCast(_arr.data));
+    /// ` match: flag of qaccessible_base_enums.RelationFlag `
+    ///
+    pub fn SuperRelations(self: QAccessibleWidget, allocator: std.mem.Allocator, match: i32) []Struct_QAccessibleInterface_i32 {
+        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_SuperRelations(@ptrCast(self.ptr), @bitCast(match));
+        const _data: [*]Struct_QAccessibleInterface_i32 = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i32, _arr.len) catch @panic("qaccessiblewidget.Relations: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_QAccessibleInterface_i32, _arr.len) catch @panic("qaccessiblewidget.Relations: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -279,10 +311,10 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn FocusChild(self: ?*anyopaque) QtC.QAccessibleInterface {
-        return qtc.QAccessibleWidget_FocusChild(@ptrCast(self));
+    pub fn FocusChild(self: QAccessibleWidget) QAccessibleInterface {
+        return .{ .ptr = qtc.QAccessibleWidget_FocusChild(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#focusChild)
@@ -291,12 +323,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QAccessibleInterface `
+    /// ` callback: *const fn () callconv(.c) QAccessibleInterface `
     ///
-    pub fn OnFocusChild(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleWidget_OnFocusChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusChild(self: QAccessibleWidget, callback: *const fn () callconv(.c) QAccessibleInterface) void {
+        qtc.QAccessibleWidget_OnFocusChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperFocusChild` instead
@@ -309,20 +341,20 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn SuperFocusChild(self: ?*anyopaque) QtC.QAccessibleInterface {
-        return qtc.QAccessibleWidget_SuperFocusChild(@ptrCast(self));
+    pub fn SuperFocusChild(self: QAccessibleWidget) QAccessibleInterface {
+        return .{ .ptr = qtc.QAccessibleWidget_SuperFocusChild(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#rect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QAccessibleWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: QAccessibleWidget) QRect {
+        return .{ .ptr = qtc.QAccessibleWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#rect)
@@ -331,12 +363,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QRect `
+    /// ` callback: *const fn () callconv(.c) QRect `
     ///
-    pub fn OnRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
-        qtc.QAccessibleWidget_OnRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRect(self: QAccessibleWidget, callback: *const fn () callconv(.c) QRect) void {
+        qtc.QAccessibleWidget_OnRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRect` instead
@@ -349,20 +381,20 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn SuperRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QAccessibleWidget_SuperRect(@ptrCast(self));
+    pub fn SuperRect(self: QAccessibleWidget) QRect {
+        return .{ .ptr = qtc.QAccessibleWidget_SuperRect(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#parent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QAccessibleInterface {
-        return qtc.QAccessibleWidget_Parent(@ptrCast(self));
+    pub fn Parent(self: QAccessibleWidget) QAccessibleInterface {
+        return .{ .ptr = qtc.QAccessibleWidget_Parent(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#parent)
@@ -371,12 +403,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QAccessibleInterface `
+    /// ` callback: *const fn () callconv(.c) QAccessibleInterface `
     ///
-    pub fn OnParent(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleWidget_OnParent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnParent(self: QAccessibleWidget, callback: *const fn () callconv(.c) QAccessibleInterface) void {
+        qtc.QAccessibleWidget_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperParent` instead
@@ -389,22 +421,22 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn SuperParent(self: ?*anyopaque) QtC.QAccessibleInterface {
-        return qtc.QAccessibleWidget_SuperParent(@ptrCast(self));
+    pub fn SuperParent(self: QAccessibleWidget) QAccessibleInterface {
+        return .{ .ptr = qtc.QAccessibleWidget_SuperParent(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#child)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` index: i32 `
     ///
-    pub fn Child(self: ?*anyopaque, index: i32) QtC.QAccessibleInterface {
-        return qtc.QAccessibleWidget_Child(@ptrCast(self), @bitCast(index));
+    pub fn Child(self: QAccessibleWidget, index: i32) QAccessibleInterface {
+        return .{ .ptr = qtc.QAccessibleWidget_Child(@ptrCast(self.ptr), @bitCast(index)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#child)
@@ -413,12 +445,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QAccessibleWidget, index: i32) callconv(.c) QtC.QAccessibleInterface `
+    /// ` callback: *const fn (self: QAccessibleWidget, index: i32) callconv(.c) QAccessibleInterface `
     ///
-    pub fn OnChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleWidget_OnChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChild(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget, i32) callconv(.c) QAccessibleInterface) void {
+        qtc.QAccessibleWidget_OnChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperChild` instead
@@ -431,26 +463,26 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperChild(self: ?*anyopaque, index: i32) QtC.QAccessibleInterface {
-        return qtc.QAccessibleWidget_SuperChild(@ptrCast(self), @bitCast(index));
+    pub fn SuperChild(self: QAccessibleWidget, index: i32) QAccessibleInterface {
+        return .{ .ptr = qtc.QAccessibleWidget_SuperChild(@ptrCast(self.ptr), @bitCast(index)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#text)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
-    ///
-    /// ` t: qaccessible_base_enums.Text `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAccessibleWidget_Text(@ptrCast(self), @bitCast(t));
+    /// ` t: qaccessible_base_enums.Text `
+    ///
+    pub fn Text(self: QAccessibleWidget, allocator: std.mem.Allocator, t: i32) []const u8 {
+        var _str = qtc.QAccessibleWidget_Text(@ptrCast(self.ptr), @bitCast(t));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessiblewidget.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -461,16 +493,16 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QAccessibleWidget, t: qaccessible_base_enums.Text) callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QAccessibleWidget, t: qaccessible_base_enums.Text) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnText(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) [*:0]const u8) void {
-        qtc.QAccessibleWidget_OnText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnText(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget, i32) callconv(.c) [*:0]const u8) void {
+        qtc.QAccessibleWidget_OnText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperText` instead
@@ -483,14 +515,14 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
-    ///
-    /// ` t: qaccessible_base_enums.Text `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperText(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAccessibleWidget_SuperText(@ptrCast(self), @bitCast(t));
+    /// ` t: qaccessible_base_enums.Text `
+    ///
+    pub fn SuperText(self: QAccessibleWidget, allocator: std.mem.Allocator, t: i32) []const u8 {
+        var _str = qtc.QAccessibleWidget_SuperText(@ptrCast(self.ptr), @bitCast(t));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessiblewidget.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -501,14 +533,14 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
     /// ## Returns:
     ///
     /// ` qaccessible_base_enums.Role `
     ///
-    pub fn Role(self: ?*anyopaque) i32 {
-        return qtc.QAccessibleWidget_Role(@ptrCast(self));
+    pub fn Role(self: QAccessibleWidget) i32 {
+        return qtc.QAccessibleWidget_Role(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#role)
@@ -517,12 +549,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnRole(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAccessibleWidget_OnRole(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRole(self: QAccessibleWidget, callback: *const fn () callconv(.c) i32) void {
+        qtc.QAccessibleWidget_OnRole(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRole` instead
@@ -535,24 +567,24 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
     /// ## Returns:
     ///
     /// ` qaccessible_base_enums.Role `
     ///
-    pub fn SuperRole(self: ?*anyopaque) i32 {
-        return qtc.QAccessibleWidget_SuperRole(@ptrCast(self));
+    pub fn SuperRole(self: QAccessibleWidget) i32 {
+        return qtc.QAccessibleWidget_SuperRole(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#state)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn State(self: ?*anyopaque) QtC.QAccessible__State {
-        return qtc.QAccessibleWidget_State(@ptrCast(self));
+    pub fn State(self: QAccessibleWidget) QAccessible__State {
+        return .{ .ptr = qtc.QAccessibleWidget_State(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#state)
@@ -561,12 +593,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QAccessible__State `
+    /// ` callback: *const fn () callconv(.c) QAccessible__State `
     ///
-    pub fn OnState(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessible__State) void {
-        qtc.QAccessibleWidget_OnState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnState(self: QAccessibleWidget, callback: *const fn () callconv(.c) QAccessible__State) void {
+        qtc.QAccessibleWidget_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperState` instead
@@ -579,20 +611,20 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn SuperState(self: ?*anyopaque) QtC.QAccessible__State {
-        return qtc.QAccessibleWidget_SuperState(@ptrCast(self));
+    pub fn SuperState(self: QAccessibleWidget) QAccessible__State {
+        return .{ .ptr = qtc.QAccessibleWidget_SuperState(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#foregroundColor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn ForegroundColor(self: ?*anyopaque) QtC.QColor {
-        return qtc.QAccessibleWidget_ForegroundColor(@ptrCast(self));
+    pub fn ForegroundColor(self: QAccessibleWidget) QColor {
+        return .{ .ptr = qtc.QAccessibleWidget_ForegroundColor(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#foregroundColor)
@@ -601,12 +633,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QColor `
+    /// ` callback: *const fn () callconv(.c) QColor `
     ///
-    pub fn OnForegroundColor(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QColor) void {
-        qtc.QAccessibleWidget_OnForegroundColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnForegroundColor(self: QAccessibleWidget, callback: *const fn () callconv(.c) QColor) void {
+        qtc.QAccessibleWidget_OnForegroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperForegroundColor` instead
@@ -619,20 +651,20 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn SuperForegroundColor(self: ?*anyopaque) QtC.QColor {
-        return qtc.QAccessibleWidget_SuperForegroundColor(@ptrCast(self));
+    pub fn SuperForegroundColor(self: QAccessibleWidget) QColor {
+        return .{ .ptr = qtc.QAccessibleWidget_SuperForegroundColor(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#backgroundColor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn BackgroundColor(self: ?*anyopaque) QtC.QColor {
-        return qtc.QAccessibleWidget_BackgroundColor(@ptrCast(self));
+    pub fn BackgroundColor(self: QAccessibleWidget) QColor {
+        return .{ .ptr = qtc.QAccessibleWidget_BackgroundColor(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#backgroundColor)
@@ -641,12 +673,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QColor `
+    /// ` callback: *const fn () callconv(.c) QColor `
     ///
-    pub fn OnBackgroundColor(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QColor) void {
-        qtc.QAccessibleWidget_OnBackgroundColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBackgroundColor(self: QAccessibleWidget, callback: *const fn () callconv(.c) QColor) void {
+        qtc.QAccessibleWidget_OnBackgroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperBackgroundColor` instead
@@ -659,22 +691,22 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn SuperBackgroundColor(self: ?*anyopaque) QtC.QColor {
-        return qtc.QAccessibleWidget_SuperBackgroundColor(@ptrCast(self));
+    pub fn SuperBackgroundColor(self: QAccessibleWidget) QColor {
+        return .{ .ptr = qtc.QAccessibleWidget_SuperBackgroundColor(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#interface_cast)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` t: qaccessible_base_enums.InterfaceType `
     ///
-    pub fn InterfaceCast(self: ?*anyopaque, t: i32) ?*anyopaque {
-        return qtc.QAccessibleWidget_InterfaceCast(@ptrCast(self), @bitCast(t));
+    pub fn InterfaceCast(self: QAccessibleWidget, t: i32) ?*anyopaque {
+        return qtc.QAccessibleWidget_InterfaceCast(@ptrCast(self.ptr), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#interface_cast)
@@ -683,12 +715,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QAccessibleWidget, t: qaccessible_base_enums.InterfaceType) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QAccessibleWidget, t: qaccessible_base_enums.InterfaceType) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnInterfaceCast(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) ?*anyopaque) void {
-        qtc.QAccessibleWidget_OnInterfaceCast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInterfaceCast(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget, i32) callconv(.c) ?*anyopaque) void {
+        qtc.QAccessibleWidget_OnInterfaceCast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperInterfaceCast` instead
@@ -701,29 +733,28 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` t: qaccessible_base_enums.InterfaceType `
     ///
-    pub fn SuperInterfaceCast(self: ?*anyopaque, t: i32) ?*anyopaque {
-        return qtc.QAccessibleWidget_SuperInterfaceCast(@ptrCast(self), @bitCast(t));
+    pub fn SuperInterfaceCast(self: QAccessibleWidget, t: i32) ?*anyopaque {
+        return qtc.QAccessibleWidget_SuperInterfaceCast(@ptrCast(self.ptr), @bitCast(t));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#actionNames)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ActionNames(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_ActionNames(@ptrCast(self));
+    pub fn ActionNames(self: QAccessibleWidget, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_ActionNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qaccessiblewidget.ActionNames: Memory allocation failed");
@@ -740,16 +771,16 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnActionNames(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.QAccessibleWidget_OnActionNames(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionNames(self: QAccessibleWidget, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+        qtc.QAccessibleWidget_OnActionNames(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperActionNames` instead
@@ -762,17 +793,16 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperActionNames(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_SuperActionNames(@ptrCast(self));
+    pub fn SuperActionNames(self: QAccessibleWidget, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_SuperActionNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qaccessiblewidget.ActionNames: Memory allocation failed");
@@ -789,16 +819,16 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` actionName: []const u8 `
     ///
-    pub fn DoAction(self: ?*anyopaque, actionName: []const u8) void {
+    pub fn DoAction(self: QAccessibleWidget, actionName: []const u8) void {
         const actionName_str = qtc.libqt_string{
             .len = actionName.len,
             .data = actionName.ptr,
         };
-        qtc.QAccessibleWidget_DoAction(@ptrCast(self), actionName_str);
+        qtc.QAccessibleWidget_DoAction(@ptrCast(self.ptr), actionName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#doAction)
@@ -807,12 +837,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QAccessibleWidget, actionName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QAccessibleWidget, actionName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnDoAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QAccessibleWidget_OnDoAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDoAction(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget, [*:0]const u8) callconv(.c) void) void {
+        qtc.QAccessibleWidget_OnDoAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDoAction` instead
@@ -825,39 +855,38 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` actionName: []const u8 `
     ///
-    pub fn SuperDoAction(self: ?*anyopaque, actionName: []const u8) void {
+    pub fn SuperDoAction(self: QAccessibleWidget, actionName: []const u8) void {
         const actionName_str = qtc.libqt_string{
             .len = actionName.len,
             .data = actionName.ptr,
         };
-        qtc.QAccessibleWidget_SuperDoAction(@ptrCast(self), actionName_str);
+        qtc.QAccessibleWidget_SuperDoAction(@ptrCast(self.ptr), actionName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#keyBindingsForAction)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
-    ///
-    /// ` actionName: []const u8 `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn KeyBindingsForAction(self: ?*anyopaque, actionName: []const u8, allocator: std.mem.Allocator) []const []const u8 {
+    /// ` actionName: []const u8 `
+    ///
+    pub fn KeyBindingsForAction(self: QAccessibleWidget, allocator: std.mem.Allocator, actionName: []const u8) []const []const u8 {
         const actionName_str = qtc.libqt_string{
             .len = actionName.len,
             .data = actionName.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_KeyBindingsForAction(@ptrCast(self), actionName_str);
+        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_KeyBindingsForAction(@ptrCast(self.ptr), actionName_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qaccessiblewidget.KeyBindingsForAction: Memory allocation failed");
@@ -874,16 +903,16 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QAccessibleWidget, actionName: [*:0]const u8) callconv(.c) ?[*:null]?[*:0]const u8 `
+    /// ` callback: *const fn (self: QAccessibleWidget, actionName: [*:0]const u8) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnKeyBindingsForAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.QAccessibleWidget_OnKeyBindingsForAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyBindingsForAction(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget, [*:0]const u8) callconv(.c) ?[*:null]?[*:0]const u8) void {
+        qtc.QAccessibleWidget_OnKeyBindingsForAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperKeyBindingsForAction` instead
@@ -896,23 +925,22 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
-    ///
-    /// ` actionName: []const u8 `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperKeyBindingsForAction(self: ?*anyopaque, actionName: []const u8, allocator: std.mem.Allocator) []const []const u8 {
+    /// ` actionName: []const u8 `
+    ///
+    pub fn SuperKeyBindingsForAction(self: QAccessibleWidget, allocator: std.mem.Allocator, actionName: []const u8) []const []const u8 {
         const actionName_str = qtc.libqt_string{
             .len = actionName.len,
             .data = actionName.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_SuperKeyBindingsForAction(@ptrCast(self), actionName_str);
+        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_SuperKeyBindingsForAction(@ptrCast(self.ptr), actionName_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qaccessiblewidget.KeyBindingsForAction: Memory allocation failed");
@@ -929,10 +957,10 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn Widget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QAccessibleWidget_Widget(@ptrCast(self));
+    pub fn Widget(self: QAccessibleWidget) QWidget {
+        return .{ .ptr = qtc.QAccessibleWidget_Widget(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#widget)
@@ -941,12 +969,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QWidget `
+    /// ` callback: *const fn () callconv(.c) QWidget `
     ///
-    pub fn OnWidget(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
-        qtc.QAccessibleWidget_OnWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWidget(self: QAccessibleWidget, callback: *const fn () callconv(.c) QWidget) void {
+        qtc.QAccessibleWidget_OnWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperWidget` instead
@@ -959,20 +987,20 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn SuperWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QAccessibleWidget_SuperWidget(@ptrCast(self));
+    pub fn SuperWidget(self: QAccessibleWidget) QWidget {
+        return .{ .ptr = qtc.QAccessibleWidget_SuperWidget(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#parentObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn ParentObject(self: ?*anyopaque) QtC.QObject {
-        return qtc.QAccessibleWidget_ParentObject(@ptrCast(self));
+    pub fn ParentObject(self: QAccessibleWidget) QObject {
+        return .{ .ptr = qtc.QAccessibleWidget_ParentObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#parentObject)
@@ -981,12 +1009,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnParentObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QAccessibleWidget_OnParentObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnParentObject(self: QAccessibleWidget, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QAccessibleWidget_OnParentObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperParentObject` instead
@@ -999,26 +1027,26 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn SuperParentObject(self: ?*anyopaque) QtC.QObject {
-        return qtc.QAccessibleWidget_SuperParentObject(@ptrCast(self));
+    pub fn SuperParentObject(self: QAccessibleWidget) QObject {
+        return .{ .ptr = qtc.QAccessibleWidget_SuperParentObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#addControllingSignal)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` signal: []const u8 `
     ///
-    pub fn AddControllingSignal(self: ?*anyopaque, signal: []const u8) void {
+    pub fn AddControllingSignal(self: QAccessibleWidget, signal: []const u8) void {
         const signal_str = qtc.libqt_string{
             .len = signal.len,
             .data = signal.ptr,
         };
-        qtc.QAccessibleWidget_AddControllingSignal(@ptrCast(self), signal_str);
+        qtc.QAccessibleWidget_AddControllingSignal(@ptrCast(self.ptr), signal_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaccessiblewidget.html#addControllingSignal)
@@ -1027,12 +1055,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    /// ` callback: *const fn (self: QtC.QAccessibleWidget, signal: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QAccessibleWidget, signal: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnAddControllingSignal(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QAccessibleWidget_OnAddControllingSignal(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAddControllingSignal(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget, [*:0]const u8) callconv(.c) void) void {
+        qtc.QAccessibleWidget_OnAddControllingSignal(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperAddControllingSignal` instead
@@ -1045,16 +1073,16 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` signal: []const u8 `
     ///
-    pub fn SuperAddControllingSignal(self: ?*anyopaque, signal: []const u8) void {
+    pub fn SuperAddControllingSignal(self: QAccessibleWidget, signal: []const u8) void {
         const signal_str = qtc.libqt_string{
             .len = signal.len,
             .data = signal.ptr,
         };
-        qtc.QAccessibleWidget_SuperAddControllingSignal(@ptrCast(self), signal_str);
+        qtc.QAccessibleWidget_SuperAddControllingSignal(@ptrCast(self.ptr), signal_str);
     }
 
     /// Inherited from QAccessibleInterface
@@ -1063,10 +1091,10 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn TextInterface(self: ?*anyopaque) QtC.QAccessibleTextInterface {
-        return qtc.QAccessibleInterface_TextInterface(@ptrCast(self));
+    pub fn TextInterface(self: QAccessibleWidget) QAccessibleTextInterface {
+        return .{ .ptr = qtc.QAccessibleInterface_TextInterface(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAccessibleInterface
@@ -1075,10 +1103,10 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn EditableTextInterface(self: ?*anyopaque) QtC.QAccessibleEditableTextInterface {
-        return qtc.QAccessibleInterface_EditableTextInterface(@ptrCast(self));
+    pub fn EditableTextInterface(self: QAccessibleWidget) QAccessibleEditableTextInterface {
+        return .{ .ptr = qtc.QAccessibleInterface_EditableTextInterface(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAccessibleInterface
@@ -1087,10 +1115,10 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn ValueInterface(self: ?*anyopaque) QtC.QAccessibleValueInterface {
-        return qtc.QAccessibleInterface_ValueInterface(@ptrCast(self));
+    pub fn ValueInterface(self: QAccessibleWidget) QAccessibleValueInterface {
+        return .{ .ptr = qtc.QAccessibleInterface_ValueInterface(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAccessibleInterface
@@ -1099,10 +1127,10 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn ActionInterface(self: ?*anyopaque) QtC.QAccessibleActionInterface {
-        return qtc.QAccessibleInterface_ActionInterface(@ptrCast(self));
+    pub fn ActionInterface(self: QAccessibleWidget) QAccessibleActionInterface {
+        return .{ .ptr = qtc.QAccessibleInterface_ActionInterface(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAccessibleInterface
@@ -1111,10 +1139,10 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn ImageInterface(self: ?*anyopaque) QtC.QAccessibleImageInterface {
-        return qtc.QAccessibleInterface_ImageInterface(@ptrCast(self));
+    pub fn ImageInterface(self: QAccessibleWidget) QAccessibleImageInterface {
+        return .{ .ptr = qtc.QAccessibleInterface_ImageInterface(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAccessibleInterface
@@ -1123,10 +1151,10 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn TableInterface(self: ?*anyopaque) QtC.QAccessibleTableInterface {
-        return qtc.QAccessibleInterface_TableInterface(@ptrCast(self));
+    pub fn TableInterface(self: QAccessibleWidget) QAccessibleTableInterface {
+        return .{ .ptr = qtc.QAccessibleInterface_TableInterface(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAccessibleInterface
@@ -1135,10 +1163,10 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn TableCellInterface(self: ?*anyopaque) QtC.QAccessibleTableCellInterface {
-        return qtc.QAccessibleInterface_TableCellInterface(@ptrCast(self));
+    pub fn TableCellInterface(self: QAccessibleWidget) QAccessibleTableCellInterface {
+        return .{ .ptr = qtc.QAccessibleInterface_TableCellInterface(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAccessibleInterface
@@ -1147,10 +1175,10 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn HyperlinkInterface(self: ?*anyopaque) QtC.QAccessibleHyperlinkInterface {
-        return qtc.QAccessibleInterface_HyperlinkInterface(@ptrCast(self));
+    pub fn HyperlinkInterface(self: QAccessibleWidget) QAccessibleHyperlinkInterface {
+        return .{ .ptr = qtc.QAccessibleInterface_HyperlinkInterface(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAccessibleInterface
@@ -1159,10 +1187,10 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn SelectionInterface(self: ?*anyopaque) QtC.QAccessibleSelectionInterface {
-        return qtc.QAccessibleInterface_SelectionInterface(@ptrCast(self));
+    pub fn SelectionInterface(self: QAccessibleWidget) QAccessibleSelectionInterface {
+        return .{ .ptr = qtc.QAccessibleInterface_SelectionInterface(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAccessibleInterface
@@ -1171,10 +1199,10 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn AttributesInterface(self: ?*anyopaque) QtC.QAccessibleAttributesInterface {
-        return qtc.QAccessibleInterface_AttributesInterface(@ptrCast(self));
+    pub fn AttributesInterface(self: QAccessibleWidget) QAccessibleAttributesInterface {
+        return .{ .ptr = qtc.QAccessibleInterface_AttributesInterface(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAccessibleActionInterface
@@ -1183,11 +1211,11 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sourceText: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(sourceText: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` sourceText: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, sourceText: [:0]const u8) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         var _str = qtc.QObject_Tr(sourceText_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -1394,13 +1422,13 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` sourceText: [:0]const u8 `
     ///
     /// ` disambiguation: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(sourceText: [:0]const u8, disambiguation: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, sourceText: [:0]const u8, disambiguation: [:0]const u8) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QObject_Tr2(sourceText_Cstring, disambiguation_Cstring);
@@ -1416,15 +1444,15 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` sourceText: [:0]const u8 `
     ///
     /// ` disambiguation: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(sourceText: [:0]const u8, disambiguation: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, sourceText: [:0]const u8, disambiguation: [:0]const u8, n: i32) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @bitCast(n));
@@ -1442,10 +1470,10 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn Object(self: ?*anyopaque) QtC.QObject {
-        return qtc.QAccessibleWidget_Object(@ptrCast(self));
+    pub fn Object(self: QAccessibleWidget) QObject {
+        return .{ .ptr = qtc.QAccessibleWidget_Object(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperObject` instead
@@ -1460,10 +1488,10 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
-    pub fn SuperObject(self: ?*anyopaque) QtC.QObject {
-        return qtc.QAccessibleWidget_SuperObject(@ptrCast(self));
+    pub fn SuperObject(self: QAccessibleWidget) QObject {
+        return .{ .ptr = qtc.QAccessibleWidget_SuperObject(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAccessibleObject
@@ -1474,12 +1502,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget`
+    /// ` self: QAccessibleWidget`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QAccessibleWidget_OnObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObject(self: QAccessibleWidget, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QAccessibleWidget_OnObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleObject
@@ -1490,18 +1518,18 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` t: qaccessible_base_enums.Text `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetText(self: ?*anyopaque, t: i32, text: []const u8) void {
+    pub fn SetText(self: QAccessibleWidget, t: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QAccessibleWidget_SetText(@ptrCast(self), @bitCast(t), text_str);
+        qtc.QAccessibleWidget_SetText(@ptrCast(self.ptr), @bitCast(t), text_str);
     }
 
     /// ### DEPRECATED: Use `SuperSetText` instead
@@ -1516,18 +1544,18 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` t: qaccessible_base_enums.Text `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SuperSetText(self: ?*anyopaque, t: i32, text: []const u8) void {
+    pub fn SuperSetText(self: QAccessibleWidget, t: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QAccessibleWidget_SuperSetText(@ptrCast(self), @bitCast(t), text_str);
+        qtc.QAccessibleWidget_SuperSetText(@ptrCast(self.ptr), @bitCast(t), text_str);
     }
 
     /// Inherited from QAccessibleObject
@@ -1538,12 +1566,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget`
+    /// ` self: QAccessibleWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QAccessibleWidget, t: qaccessible_base_enums.Text, text: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QAccessibleWidget, t: qaccessible_base_enums.Text, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetText(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QAccessibleWidget_OnSetText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetText(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.QAccessibleWidget_OnSetText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleObject
@@ -1554,14 +1582,14 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QAccessibleInterface {
-        return qtc.QAccessibleWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: QAccessibleWidget, x: i32, y: i32) QAccessibleInterface {
+        return .{ .ptr = qtc.QAccessibleWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// ### DEPRECATED: Use `SuperChildAt` instead
@@ -1576,14 +1604,14 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn SuperChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QAccessibleInterface {
-        return qtc.QAccessibleWidget_SuperChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn SuperChildAt(self: QAccessibleWidget, x: i32, y: i32) QAccessibleInterface {
+        return .{ .ptr = qtc.QAccessibleWidget_SuperChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QAccessibleObject
@@ -1594,12 +1622,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget`
+    /// ` self: QAccessibleWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QAccessibleWidget, x: i32, y: i32) callconv(.c) QtC.QAccessibleInterface `
+    /// ` callback: *const fn (self: QAccessibleWidget, x: i32, y: i32) callconv(.c) QAccessibleInterface `
     ///
-    pub fn OnChildAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleWidget_OnChildAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildAt(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget, i32, i32) callconv(.c) QAccessibleInterface) void {
+        qtc.QAccessibleWidget_OnChildAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
@@ -1610,14 +1638,14 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` id: i32 `
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.QAccessibleWidget_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
+    pub fn VirtualHook(self: QAccessibleWidget, id: i32, data: ?*anyopaque) void {
+        qtc.QAccessibleWidget_VirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(data));
     }
 
     /// ### DEPRECATED: Use `SuperVirtualHook` instead
@@ -1632,14 +1660,14 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` id: i32 `
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn SuperVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.QAccessibleWidget_SuperVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
+    pub fn SuperVirtualHook(self: QAccessibleWidget, id: i32, data: ?*anyopaque) void {
+        qtc.QAccessibleWidget_SuperVirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from QAccessibleInterface
@@ -1650,12 +1678,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget`
+    /// ` self: QAccessibleWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QAccessibleWidget, id: i32, data: ?*anyopaque) callconv(.c) void `
+    /// ` callback: *const fn (self: QAccessibleWidget, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAccessibleWidget_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVirtualHook(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAccessibleWidget_OnVirtualHook(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleActionInterface
@@ -1666,18 +1694,18 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
-    ///
-    /// ` name: []const u8 `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalizedActionName(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` name: []const u8 `
+    ///
+    pub fn LocalizedActionName(self: QAccessibleWidget, allocator: std.mem.Allocator, name: []const u8) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        var _str = qtc.QAccessibleWidget_LocalizedActionName(@ptrCast(self), name_str);
+        var _str = qtc.QAccessibleWidget_LocalizedActionName(@ptrCast(self.ptr), name_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessiblewidget.LocalizedActionName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1696,18 +1724,18 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
-    ///
-    /// ` name: []const u8 `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperLocalizedActionName(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` name: []const u8 `
+    ///
+    pub fn SuperLocalizedActionName(self: QAccessibleWidget, allocator: std.mem.Allocator, name: []const u8) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        var _str = qtc.QAccessibleWidget_SuperLocalizedActionName(@ptrCast(self), name_str);
+        var _str = qtc.QAccessibleWidget_SuperLocalizedActionName(@ptrCast(self.ptr), name_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessiblewidget.LocalizedActionName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1720,16 +1748,16 @@ pub const qaccessiblewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget`
+    /// ` self: QAccessibleWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QAccessibleWidget, name: [*:0]const u8) callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QAccessibleWidget, name: [*:0]const u8) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnLocalizedActionName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]const u8) void {
-        qtc.QAccessibleWidget_OnLocalizedActionName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLocalizedActionName(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget, [*:0]const u8) callconv(.c) [*:0]const u8) void {
+        qtc.QAccessibleWidget_OnLocalizedActionName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleActionInterface
@@ -1740,18 +1768,18 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
-    ///
-    /// ` name: []const u8 `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalizedActionDescription(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` name: []const u8 `
+    ///
+    pub fn LocalizedActionDescription(self: QAccessibleWidget, allocator: std.mem.Allocator, name: []const u8) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        var _str = qtc.QAccessibleWidget_LocalizedActionDescription(@ptrCast(self), name_str);
+        var _str = qtc.QAccessibleWidget_LocalizedActionDescription(@ptrCast(self.ptr), name_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessiblewidget.LocalizedActionDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1770,18 +1798,18 @@ pub const qaccessiblewidget = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAccessibleWidget `
-    ///
-    /// ` name: []const u8 `
+    /// ` self: QAccessibleWidget `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperLocalizedActionDescription(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` name: []const u8 `
+    ///
+    pub fn SuperLocalizedActionDescription(self: QAccessibleWidget, allocator: std.mem.Allocator, name: []const u8) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        var _str = qtc.QAccessibleWidget_SuperLocalizedActionDescription(@ptrCast(self), name_str);
+        var _str = qtc.QAccessibleWidget_SuperLocalizedActionDescription(@ptrCast(self.ptr), name_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessiblewidget.LocalizedActionDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1794,15 +1822,15 @@ pub const qaccessiblewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAccessibleWidget`
+    /// ` self: QAccessibleWidget`
     ///
-    /// ` callback: *const fn (self: QtC.QAccessibleWidget, name: [*:0]const u8) callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: QAccessibleWidget, name: [*:0]const u8) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnLocalizedActionDescription(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]const u8) void {
-        qtc.QAccessibleWidget_OnLocalizedActionDescription(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLocalizedActionDescription(self: QAccessibleWidget, callback: *const fn (QAccessibleWidget, [*:0]const u8) callconv(.c) [*:0]const u8) void {
+        qtc.QAccessibleWidget_OnLocalizedActionDescription(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 };

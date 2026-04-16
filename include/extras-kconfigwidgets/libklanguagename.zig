@@ -3,16 +3,24 @@ const qtc = @import("qt6c");
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/klanguagename.html)
-pub const klanguagename = struct {
+pub const KLanguageName = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/klanguagename.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KLanguageName,
+
+    pub const _is_KLanguageName = {};
+
     /// ### [Upstream resources](https://api.kde.org/klanguagename.html#nameForCode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NameForCode(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` param1: []const u8 `
+    ///
+    pub fn NameForCode(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -28,13 +36,13 @@ pub const klanguagename = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` param1: []const u8 `
     ///
     /// ` param2: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn NameForCodeInLocale(param1: []const u8, param2: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn NameForCodeInLocale(allocator: std.mem.Allocator, param1: []const u8, param2: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -60,9 +68,8 @@ pub const klanguagename = struct {
         const _arr: qtc.libqt_list = qtc.KLanguageName_AllLanguageCodes();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("klanguagename.AllLanguageCodes: Memory allocation failed");

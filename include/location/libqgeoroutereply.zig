@@ -1,12 +1,33 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QGeoRoute = @import("libqt6").QGeoRoute;
+const QGeoRouteRequest = @import("libqt6").QGeoRouteRequest;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qgeoroutereply_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html)
-pub const qgeoroutereply = struct {
+pub const QGeoRouteReply = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QGeoRouteReply,
+
+    pub const _is_QGeoRouteReply = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QGeoRouteReply object.
     ///
     /// ## Parameter(s):
@@ -15,13 +36,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn New(errorVal: i32, errorString: []const u8) QtC.QGeoRouteReply {
+    pub fn New(errorVal: i32, errorString: []const u8) QGeoRouteReply {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-
-        return qtc.QGeoRouteReply_new(@bitCast(errorVal), errorString_str);
+        return .{ .ptr = qtc.QGeoRouteReply_new(@bitCast(errorVal), errorString_str) };
     }
 
     /// New2 constructs a new QGeoRouteReply object.
@@ -32,25 +52,25 @@ pub const qgeoroutereply = struct {
     ///
     /// ` errorString: []const u8 `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(errorVal: i32, errorString: []const u8, parent: ?*anyopaque) QtC.QGeoRouteReply {
+    pub fn New2(errorVal: i32, errorString: []const u8, parent: anytype) QGeoRouteReply {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-
-        return qtc.QGeoRouteReply_new2(@bitCast(errorVal), errorString_str, @ptrCast(parent));
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QGeoRouteReply_new2(@bitCast(errorVal), errorString_str, @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QGeoRouteReply_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QGeoRouteReply) QMetaObject {
+        return .{ .ptr = qtc.QGeoRouteReply_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -59,12 +79,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QGeoRouteReply_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QGeoRouteReply, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QGeoRouteReply_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -77,33 +97,33 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QGeoRouteReply_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QGeoRouteReply) QMetaObject {
+        return .{ .ptr = qtc.QGeoRouteReply_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QGeoRouteReply, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QGeoRouteReply_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QGeoRouteReply_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QGeoRouteReply, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QGeoRouteReply_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QGeoRouteReply_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -114,18 +134,18 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QGeoRouteReply, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QGeoRouteReply_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QGeoRouteReply_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -133,20 +153,20 @@ pub const qgeoroutereply = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGeoRouteReply_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QGeoRouteReply, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QGeoRouteReply_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QGeoRouteReply, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QGeoRouteReply_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QGeoRouteReply_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -157,7 +177,7 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -165,19 +185,19 @@ pub const qgeoroutereply = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGeoRouteReply_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QGeoRouteReply, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QGeoRouteReply_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -190,36 +210,36 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn IsFinished(self: ?*anyopaque) bool {
-        return qtc.QGeoRouteReply_IsFinished(@ptrCast(self));
+    pub fn IsFinished(self: QGeoRouteReply) bool {
+        return qtc.QGeoRouteReply_IsFinished(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#error)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ## Returns:
     ///
     /// ` qgeoroutereply_enums.Error `
     ///
-    pub fn Error(self: ?*anyopaque) i32 {
-        return qtc.QGeoRouteReply_Error(@ptrCast(self));
+    pub fn Error(self: QGeoRouteReply) i32 {
+        return qtc.QGeoRouteReply_Error(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#errorString)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QGeoRouteReply_ErrorString(@ptrCast(self));
+    pub fn ErrorString(self: QGeoRouteReply, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QGeoRouteReply_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoroutereply.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -230,26 +250,27 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn Request(self: ?*anyopaque) QtC.QGeoRouteRequest {
-        return qtc.QGeoRouteReply_Request(@ptrCast(self));
+    pub fn Request(self: QGeoRouteReply) QGeoRouteRequest {
+        return .{ .ptr = qtc.QGeoRouteReply_Request(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#routes)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Routes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGeoRoute {
-        const _arr: qtc.libqt_list = qtc.QGeoRouteReply_Routes(@ptrCast(self));
+    pub fn Routes(self: QGeoRouteReply, allocator: std.mem.Allocator) []QGeoRoute {
+        const _arr: qtc.libqt_list = qtc.QGeoRouteReply_Routes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QGeoRoute, _arr.len) catch @panic("qgeoroutereply.Routes: Memory allocation failed");
+        const _ret = allocator.alloc(QGeoRoute, _arr.len) catch @panic("qgeoroutereply.Routes: Memory allocation failed");
         const _data: [*]QtC.QGeoRoute = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -257,10 +278,10 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn Abort(self: ?*anyopaque) void {
-        qtc.QGeoRouteReply_Abort(@ptrCast(self));
+    pub fn Abort(self: QGeoRouteReply) void {
+        qtc.QGeoRouteReply_Abort(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#abort)
@@ -269,12 +290,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAbort(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QGeoRouteReply_OnAbort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAbort(self: QGeoRouteReply, callback: *const fn () callconv(.c) void) void {
+        qtc.QGeoRouteReply_OnAbort(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperAbort` instead
@@ -287,96 +308,96 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn SuperAbort(self: ?*anyopaque) void {
-        qtc.QGeoRouteReply_SuperAbort(@ptrCast(self));
+    pub fn SuperAbort(self: QGeoRouteReply) void {
+        qtc.QGeoRouteReply_SuperAbort(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#finished)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn Finished(self: ?*anyopaque) void {
-        qtc.QGeoRouteReply_Finished(@ptrCast(self));
+    pub fn Finished(self: QGeoRouteReply) void {
+        qtc.QGeoRouteReply_Finished(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#finished)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply) callconv(.c) void `
+    /// ` callback: *const fn (self: QGeoRouteReply) callconv(.c) void `
     ///
-    pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoRouteReply_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFinished(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply) callconv(.c) void) void {
+        qtc.QGeoRouteReply_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#aborted)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn Aborted(self: ?*anyopaque) void {
-        qtc.QGeoRouteReply_Aborted(@ptrCast(self));
+    pub fn Aborted(self: QGeoRouteReply) void {
+        qtc.QGeoRouteReply_Aborted(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#aborted)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply) callconv(.c) void `
+    /// ` callback: *const fn (self: QGeoRouteReply) callconv(.c) void `
     ///
-    pub fn OnAborted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoRouteReply_Connect_Aborted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAborted(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply) callconv(.c) void) void {
+        qtc.QGeoRouteReply_Connect_Aborted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#errorOccurred)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` errorVal: qgeoroutereply_enums.Error `
     ///
-    pub fn ErrorOccurred(self: ?*anyopaque, errorVal: i32) void {
-        qtc.QGeoRouteReply_ErrorOccurred(@ptrCast(self), @bitCast(errorVal));
+    pub fn ErrorOccurred(self: QGeoRouteReply, errorVal: i32) void {
+        qtc.QGeoRouteReply_ErrorOccurred(@ptrCast(self.ptr), @bitCast(errorVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#errorOccurred)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply, errorVal: qgeoroutereply_enums.Error) callconv(.c) void `
+    /// ` callback: *const fn (self: QGeoRouteReply, errorVal: qgeoroutereply_enums.Error) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGeoRouteReply_Connect_ErrorOccurred(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnErrorOccurred(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, i32) callconv(.c) void) void {
+        qtc.QGeoRouteReply_Connect_ErrorOccurred(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#setError)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` errorVal: qgeoroutereply_enums.Error `
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn SetError(self: ?*anyopaque, errorVal: i32, errorString: []const u8) void {
+    pub fn SetError(self: QGeoRouteReply, errorVal: i32, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QGeoRouteReply_SetError(@ptrCast(self), @bitCast(errorVal), errorString_str);
+        qtc.QGeoRouteReply_SetError(@ptrCast(self.ptr), @bitCast(errorVal), errorString_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#setError)
@@ -385,12 +406,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply, errorVal: qgeoroutereply_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QGeoRouteReply, errorVal: qgeoroutereply_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetError(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QGeoRouteReply_OnSetError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetError(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.QGeoRouteReply_OnSetError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetError` instead
@@ -403,30 +424,30 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` errorVal: qgeoroutereply_enums.Error `
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn SuperSetError(self: ?*anyopaque, errorVal: i32, errorString: []const u8) void {
+    pub fn SuperSetError(self: QGeoRouteReply, errorVal: i32, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QGeoRouteReply_SuperSetError(@ptrCast(self), @bitCast(errorVal), errorString_str);
+        qtc.QGeoRouteReply_SuperSetError(@ptrCast(self.ptr), @bitCast(errorVal), errorString_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#setFinished)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` finished: bool `
     ///
-    pub fn SetFinished(self: ?*anyopaque, finished: bool) void {
-        qtc.QGeoRouteReply_SetFinished(@ptrCast(self), finished);
+    pub fn SetFinished(self: QGeoRouteReply, finished: bool) void {
+        qtc.QGeoRouteReply_SetFinished(@ptrCast(self.ptr), finished);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#setFinished)
@@ -435,12 +456,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply, finished: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QGeoRouteReply, finished: bool) callconv(.c) void `
     ///
-    pub fn OnSetFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QGeoRouteReply_OnSetFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetFinished(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, bool) callconv(.c) void) void {
+        qtc.QGeoRouteReply_OnSetFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetFinished` instead
@@ -453,28 +474,28 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` finished: bool `
     ///
-    pub fn SuperSetFinished(self: ?*anyopaque, finished: bool) void {
-        qtc.QGeoRouteReply_SuperSetFinished(@ptrCast(self), finished);
+    pub fn SuperSetFinished(self: QGeoRouteReply, finished: bool) void {
+        qtc.QGeoRouteReply_SuperSetFinished(@ptrCast(self.ptr), finished);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#setRoutes)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` routes: []QtC.QGeoRoute `
+    /// ` routes: []QGeoRoute `
     ///
-    pub fn SetRoutes(self: ?*anyopaque, routes: []QtC.QGeoRoute) void {
+    pub fn SetRoutes(self: QGeoRouteReply, routes: []QGeoRoute) void {
         const routes_list = qtc.libqt_list{
             .len = routes.len,
             .data = @ptrCast(routes.ptr),
         };
-        qtc.QGeoRouteReply_SetRoutes(@ptrCast(self), routes_list);
+        qtc.QGeoRouteReply_SetRoutes(@ptrCast(self.ptr), routes_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#setRoutes)
@@ -483,12 +504,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply, routes: qtc.libqt_list ([]QtC.QGeoRoute)) callconv(.c) void `
+    /// ` callback: *const fn (self: QGeoRouteReply, routes: qtc.libqt_list ([]QGeoRoute)) callconv(.c) void `
     ///
-    pub fn OnSetRoutes(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QGeoRouteReply_OnSetRoutes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetRoutes(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QGeoRouteReply_OnSetRoutes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetRoutes` instead
@@ -501,32 +522,32 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` routes: []QtC.QGeoRoute `
+    /// ` routes: []QGeoRoute `
     ///
-    pub fn SuperSetRoutes(self: ?*anyopaque, routes: []QtC.QGeoRoute) void {
+    pub fn SuperSetRoutes(self: QGeoRouteReply, routes: []QGeoRoute) void {
         const routes_list = qtc.libqt_list{
             .len = routes.len,
             .data = @ptrCast(routes.ptr),
         };
-        qtc.QGeoRouteReply_SuperSetRoutes(@ptrCast(self), routes_list);
+        qtc.QGeoRouteReply_SuperSetRoutes(@ptrCast(self.ptr), routes_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#addRoutes)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` routes: []QtC.QGeoRoute `
+    /// ` routes: []QGeoRoute `
     ///
-    pub fn AddRoutes(self: ?*anyopaque, routes: []QtC.QGeoRoute) void {
+    pub fn AddRoutes(self: QGeoRouteReply, routes: []QGeoRoute) void {
         const routes_list = qtc.libqt_list{
             .len = routes.len,
             .data = @ptrCast(routes.ptr),
         };
-        qtc.QGeoRouteReply_AddRoutes(@ptrCast(self), routes_list);
+        qtc.QGeoRouteReply_AddRoutes(@ptrCast(self.ptr), routes_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#addRoutes)
@@ -535,12 +556,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply, routes: qtc.libqt_list ([]QtC.QGeoRoute)) callconv(.c) void `
+    /// ` callback: *const fn (self: QGeoRouteReply, routes: qtc.libqt_list ([]QGeoRoute)) callconv(.c) void `
     ///
-    pub fn OnAddRoutes(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QGeoRouteReply_OnAddRoutes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAddRoutes(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QGeoRouteReply_OnAddRoutes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperAddRoutes` instead
@@ -553,29 +574,29 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` routes: []QtC.QGeoRoute `
+    /// ` routes: []QGeoRoute `
     ///
-    pub fn SuperAddRoutes(self: ?*anyopaque, routes: []QtC.QGeoRoute) void {
+    pub fn SuperAddRoutes(self: QGeoRouteReply, routes: []QGeoRoute) void {
         const routes_list = qtc.libqt_list{
             .len = routes.len,
             .data = @ptrCast(routes.ptr),
         };
-        qtc.QGeoRouteReply_SuperAddRoutes(@ptrCast(self), routes_list);
+        qtc.QGeoRouteReply_SuperAddRoutes(@ptrCast(self.ptr), routes_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -589,15 +610,15 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -611,30 +632,30 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` errorVal: qgeoroutereply_enums.Error `
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn ErrorOccurred2(self: ?*anyopaque, errorVal: i32, errorString: []const u8) void {
+    pub fn ErrorOccurred2(self: QGeoRouteReply, errorVal: i32, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QGeoRouteReply_ErrorOccurred2(@ptrCast(self), @bitCast(errorVal), errorString_str);
+        qtc.QGeoRouteReply_ErrorOccurred2(@ptrCast(self.ptr), @bitCast(errorVal), errorString_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoroutereply.html#errorOccurred)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply, errorVal: qgeoroutereply_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QGeoRouteReply, errorVal: qgeoroutereply_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QGeoRouteReply_Connect_ErrorOccurred2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnErrorOccurred2(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.QGeoRouteReply_Connect_ErrorOccurred2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -643,12 +664,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QGeoRouteReply, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoroutereply.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -661,12 +682,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QGeoRouteReply, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -675,10 +696,10 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QGeoRouteReply) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -687,10 +708,10 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QGeoRouteReply) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -699,10 +720,10 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QGeoRouteReply) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -711,10 +732,10 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QGeoRouteReply) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -723,12 +744,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QGeoRouteReply, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -737,10 +758,10 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QGeoRouteReply) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -749,12 +770,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QGeoRouteReply, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -763,12 +785,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QGeoRouteReply, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -777,12 +799,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QGeoRouteReply, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -791,12 +813,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QGeoRouteReply, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -805,12 +827,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QGeoRouteReply, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -819,16 +841,17 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QGeoRouteReply, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qgeoroutereply.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qgeoroutereply.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -838,12 +861,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QGeoRouteReply, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -852,12 +876,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QGeoRouteReply, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -866,12 +891,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QGeoRouteReply, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -880,18 +906,20 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -900,16 +928,20 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -918,18 +950,19 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QGeoRouteReply, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -938,18 +971,20 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -958,16 +993,20 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -976,10 +1015,10 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QGeoRouteReply) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -988,12 +1027,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QGeoRouteReply, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1002,10 +1042,11 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1014,10 +1055,10 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QGeoRouteReply) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1026,10 +1067,10 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QGeoRouteReply) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1038,15 +1079,16 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QGeoRouteReply, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1055,13 +1097,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QGeoRouteReply, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1070,17 +1112,16 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QGeoRouteReply, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qgeoroutereply.DynamicPropertyNames: Memory allocation failed");
@@ -1099,10 +1140,10 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QGeoRouteReply) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1111,10 +1152,10 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QGeoRouteReply) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1123,10 +1164,10 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QGeoRouteReply) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1135,12 +1176,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply) callconv(.c) void `
+    /// ` callback: *const fn (self: QGeoRouteReply) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1149,10 +1190,10 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QGeoRouteReply) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1161,13 +1202,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QGeoRouteReply, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1176,10 +1217,10 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QGeoRouteReply) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1188,14 +1229,14 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QGeoRouteReply, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1204,14 +1245,14 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QGeoRouteReply, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1220,20 +1261,22 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1242,18 +1285,22 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1262,9 +1309,9 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1272,10 +1319,11 @@ pub const qgeoroutereply = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QGeoRouteReply, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1284,13 +1332,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QGeoRouteReply, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1299,15 +1347,16 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QGeoRouteReply, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1316,18 +1365,19 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QGeoRouteReply, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1336,15 +1386,16 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QGeoRouteReply, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1353,12 +1404,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QGeoRouteReply, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1367,12 +1419,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QGeoRouteReply, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1383,12 +1435,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGeoRouteReply_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QGeoRouteReply, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QGeoRouteReply_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1403,12 +1456,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGeoRouteReply_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QGeoRouteReply, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QGeoRouteReply_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1419,12 +1473,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply`
+    /// ` self: QGeoRouteReply`
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QGeoRouteReply, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGeoRouteReply_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, QEvent) callconv(.c) bool) void {
+        qtc.QGeoRouteReply_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1435,14 +1489,16 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGeoRouteReply_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QGeoRouteReply, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QGeoRouteReply_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1457,14 +1513,16 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGeoRouteReply_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QGeoRouteReply, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QGeoRouteReply_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1475,12 +1533,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply`
+    /// ` self: QGeoRouteReply`
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QGeoRouteReply, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGeoRouteReply_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QGeoRouteReply_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1491,12 +1549,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGeoRouteReply_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QGeoRouteReply, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QGeoRouteReply_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1511,12 +1570,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGeoRouteReply_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QGeoRouteReply, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QGeoRouteReply_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1527,12 +1587,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply`
+    /// ` self: QGeoRouteReply`
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QGeoRouteReply, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoRouteReply_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, QTimerEvent) callconv(.c) void) void {
+        qtc.QGeoRouteReply_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1543,12 +1603,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGeoRouteReply_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QGeoRouteReply, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QGeoRouteReply_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1563,12 +1624,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGeoRouteReply_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QGeoRouteReply, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QGeoRouteReply_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1579,12 +1641,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply`
+    /// ` self: QGeoRouteReply`
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QGeoRouteReply, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoRouteReply_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, QChildEvent) callconv(.c) void) void {
+        qtc.QGeoRouteReply_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1595,12 +1657,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGeoRouteReply_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QGeoRouteReply, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QGeoRouteReply_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1615,12 +1678,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGeoRouteReply_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QGeoRouteReply, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QGeoRouteReply_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1631,12 +1695,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply`
+    /// ` self: QGeoRouteReply`
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QGeoRouteReply, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoRouteReply_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, QEvent) callconv(.c) void) void {
+        qtc.QGeoRouteReply_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1647,12 +1711,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGeoRouteReply_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QGeoRouteReply, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QGeoRouteReply_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1667,12 +1732,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGeoRouteReply_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QGeoRouteReply, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QGeoRouteReply_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1683,12 +1749,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply`
+    /// ` self: QGeoRouteReply`
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QGeoRouteReply, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoRouteReply_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, QMetaMethod) callconv(.c) void) void {
+        qtc.QGeoRouteReply_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1699,12 +1765,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGeoRouteReply_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QGeoRouteReply, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QGeoRouteReply_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1719,12 +1786,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGeoRouteReply_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QGeoRouteReply, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QGeoRouteReply_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1735,12 +1803,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply`
+    /// ` self: QGeoRouteReply`
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QGeoRouteReply, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoRouteReply_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, QMetaMethod) callconv(.c) void) void {
+        qtc.QGeoRouteReply_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1751,10 +1819,10 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QGeoRouteReply_Sender(@ptrCast(self));
+    pub fn Sender(self: QGeoRouteReply) QObject {
+        return .{ .ptr = qtc.QGeoRouteReply_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -1769,10 +1837,10 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QGeoRouteReply_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QGeoRouteReply) QObject {
+        return .{ .ptr = qtc.QGeoRouteReply_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1783,12 +1851,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply`
+    /// ` self: QGeoRouteReply`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QGeoRouteReply_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QGeoRouteReply, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QGeoRouteReply_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1799,10 +1867,10 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QGeoRouteReply_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QGeoRouteReply) i32 {
+        return qtc.QGeoRouteReply_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -1817,10 +1885,10 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QGeoRouteReply_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QGeoRouteReply) i32 {
+        return qtc.QGeoRouteReply_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1831,12 +1899,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply`
+    /// ` self: QGeoRouteReply`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGeoRouteReply_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QGeoRouteReply, callback: *const fn () callconv(.c) i32) void {
+        qtc.QGeoRouteReply_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1847,13 +1915,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QGeoRouteReply, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QGeoRouteReply_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QGeoRouteReply_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -1868,13 +1936,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QGeoRouteReply, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QGeoRouteReply_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QGeoRouteReply_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1885,12 +1953,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply`
+    /// ` self: QGeoRouteReply`
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QGeoRouteReply, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGeoRouteReply_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QGeoRouteReply_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1901,12 +1969,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QGeoRouteReply_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QGeoRouteReply, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QGeoRouteReply_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -1921,12 +1990,13 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QGeoRouteReply_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QGeoRouteReply, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QGeoRouteReply_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1937,12 +2007,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply`
+    /// ` self: QGeoRouteReply`
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QGeoRouteReply, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGeoRouteReply_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, QMetaMethod) callconv(.c) bool) void {
+        qtc.QGeoRouteReply_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1953,12 +2023,12 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    /// ` callback: *const fn (self: QtC.QGeoRouteReply, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QGeoRouteReply, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QGeoRouteReply, callback: *const fn (QGeoRouteReply, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1971,10 +2041,10 @@ pub const qgeoroutereply = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QGeoRouteReply `
+    /// ` self: QGeoRouteReply `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QGeoRouteReply_Delete(@ptrCast(self));
+    pub fn Delete(self: QGeoRouteReply) void {
+        qtc.QGeoRouteReply_Delete(@ptrCast(self.ptr));
     }
 };
 

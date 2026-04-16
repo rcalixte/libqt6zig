@@ -1,5 +1,25 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAuthenticator = @import("libqt6").QAuthenticator;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QHostAddress = @import("libqt6").QHostAddress;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QNetworkProxy = @import("libqt6").QNetworkProxy;
+const QObject = @import("libqt6").QObject;
+const QOcspResponse = @import("libqt6").QOcspResponse;
+const QSslCertificate = @import("libqt6").QSslCertificate;
+const QSslCipher = @import("libqt6").QSslCipher;
+const QSslConfiguration = @import("libqt6").QSslConfiguration;
+const QSslError = @import("libqt6").QSslError;
+const QSslKey = @import("libqt6").QSslKey;
+const QSslPreSharedKeyAuthenticator = @import("libqt6").QSslPreSharedKeyAuthenticator;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qabstractsocket_enums = @import("libqabstractsocket.zig").enums;
 const qhostaddress_enums = @import("libqhostaddress.zig").enums;
 const qiodevicebase_enums = @import("../libqiodevicebase.zig").enums;
@@ -10,31 +30,45 @@ const qsslsocket_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html)
-pub const qsslsocket = struct {
+pub const QSslSocket = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QSslSocket,
+
+    pub const _is_QSslSocket = {};
+    pub const _is_QTcpSocket = {};
+    pub const _is_QAbstractSocket = {};
+    pub const _is_QIODevice = {};
+    pub const _is_QObject = {};
+    pub const _is_QIODeviceBase = {};
+
     /// New constructs a new QSslSocket object.
     ///
-    pub fn New() QtC.QSslSocket {
-        return qtc.QSslSocket_new();
+    pub fn New() QSslSocket {
+        return .{ .ptr = qtc.QSslSocket_new() };
     }
 
     /// New2 constructs a new QSslSocket object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.QSslSocket {
-        return qtc.QSslSocket_new2(@ptrCast(parent));
+    pub fn New2(parent: anytype) QSslSocket {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QSslSocket_new2(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QSslSocket_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QSslSocket) QMetaObject {
+        return .{ .ptr = qtc.QSslSocket_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -43,12 +77,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QSslSocket_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QSslSocket, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QSslSocket_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -61,33 +95,33 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QSslSocket_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QSslSocket) QMetaObject {
+        return .{ .ptr = qtc.QSslSocket_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QSslSocket, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QSslSocket_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QSslSocket_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QSslSocket, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QSslSocket_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QSslSocket, callback: *const fn (QSslSocket, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QSslSocket_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -98,18 +132,18 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QSslSocket, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QSslSocket_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QSslSocket_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -117,20 +151,20 @@ pub const qsslsocket = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QSslSocket_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QSslSocket, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QSslSocket_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSslSocket, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QSslSocket_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QSslSocket, callback: *const fn (QSslSocket, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QSslSocket_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -141,7 +175,7 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -149,19 +183,19 @@ pub const qsslsocket = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QSslSocket_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QSslSocket, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QSslSocket_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -174,10 +208,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn Resume(self: ?*anyopaque) void {
-        qtc.QSslSocket_Resume(@ptrCast(self));
+    pub fn Resume(self: QSslSocket) void {
+        qtc.QSslSocket_Resume(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#resume)
@@ -186,12 +220,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnResume(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QSslSocket_OnResume(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResume(self: QSslSocket, callback: *const fn () callconv(.c) void) void {
+        qtc.QSslSocket_OnResume(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperResume` instead
@@ -204,35 +238,35 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn SuperResume(self: ?*anyopaque) void {
-        qtc.QSslSocket_SuperResume(@ptrCast(self));
+    pub fn SuperResume(self: QSslSocket) void {
+        qtc.QSslSocket_SuperResume(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#connectToHostEncrypted)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` hostName: []const u8 `
     ///
     /// ` port: u16 `
     ///
-    pub fn ConnectToHostEncrypted(self: ?*anyopaque, hostName: []const u8, port: u16) void {
+    pub fn ConnectToHostEncrypted(self: QSslSocket, hostName: []const u8, port: u16) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
-        qtc.QSslSocket_ConnectToHostEncrypted(@ptrCast(self), hostName_str, @bitCast(port));
+        qtc.QSslSocket_ConnectToHostEncrypted(@ptrCast(self.ptr), hostName_str, @bitCast(port));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#connectToHostEncrypted)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` hostName: []const u8 `
     ///
@@ -240,7 +274,7 @@ pub const qsslsocket = struct {
     ///
     /// ` sslPeerName: []const u8 `
     ///
-    pub fn ConnectToHostEncrypted2(self: ?*anyopaque, hostName: []const u8, port: u16, sslPeerName: []const u8) void {
+    pub fn ConnectToHostEncrypted2(self: QSslSocket, hostName: []const u8, port: u16, sslPeerName: []const u8) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
@@ -249,14 +283,14 @@ pub const qsslsocket = struct {
             .len = sslPeerName.len,
             .data = sslPeerName.ptr,
         };
-        qtc.QSslSocket_ConnectToHostEncrypted2(@ptrCast(self), hostName_str, @bitCast(port), sslPeerName_str);
+        qtc.QSslSocket_ConnectToHostEncrypted2(@ptrCast(self.ptr), hostName_str, @bitCast(port), sslPeerName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setSocketDescriptor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` socketDescriptor: isize `
     ///
@@ -264,8 +298,8 @@ pub const qsslsocket = struct {
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SetSocketDescriptor(self: ?*anyopaque, socketDescriptor: isize, state: i32, openMode: i32) bool {
-        return qtc.QSslSocket_SetSocketDescriptor(@ptrCast(self), @bitCast(socketDescriptor), @bitCast(state), @bitCast(openMode));
+    pub fn SetSocketDescriptor(self: QSslSocket, socketDescriptor: isize, state: i32, openMode: i32) bool {
+        return qtc.QSslSocket_SetSocketDescriptor(@ptrCast(self.ptr), @bitCast(socketDescriptor), @bitCast(state), @bitCast(openMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setSocketDescriptor)
@@ -274,12 +308,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, socketDescriptor: isize, state: qabstractsocket_enums.SocketState, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSslSocket, socketDescriptor: isize, state: qabstractsocket_enums.SocketState, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
     ///
-    pub fn OnSetSocketDescriptor(self: ?*anyopaque, callback: *const fn (?*anyopaque, isize, i32, i32) callconv(.c) bool) void {
-        qtc.QSslSocket_OnSetSocketDescriptor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetSocketDescriptor(self: QSslSocket, callback: *const fn (QSslSocket, isize, i32, i32) callconv(.c) bool) void {
+        qtc.QSslSocket_OnSetSocketDescriptor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetSocketDescriptor` instead
@@ -292,7 +326,7 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` socketDescriptor: isize `
     ///
@@ -300,15 +334,15 @@ pub const qsslsocket = struct {
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperSetSocketDescriptor(self: ?*anyopaque, socketDescriptor: isize, state: i32, openMode: i32) bool {
-        return qtc.QSslSocket_SuperSetSocketDescriptor(@ptrCast(self), @bitCast(socketDescriptor), @bitCast(state), @bitCast(openMode));
+    pub fn SuperSetSocketDescriptor(self: QSslSocket, socketDescriptor: isize, state: i32, openMode: i32) bool {
+        return qtc.QSslSocket_SuperSetSocketDescriptor(@ptrCast(self.ptr), @bitCast(socketDescriptor), @bitCast(state), @bitCast(openMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#connectToHost)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` hostName: []const u8 `
     ///
@@ -318,12 +352,12 @@ pub const qsslsocket = struct {
     ///
     /// ` protocol: qabstractsocket_enums.NetworkLayerProtocol `
     ///
-    pub fn ConnectToHost(self: ?*anyopaque, hostName: []const u8, port: u16, openMode: i32, protocol: i32) void {
+    pub fn ConnectToHost(self: QSslSocket, hostName: []const u8, port: u16, openMode: i32, protocol: i32) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
-        qtc.QSslSocket_ConnectToHost(@ptrCast(self), hostName_str, @bitCast(port), @bitCast(openMode), @bitCast(protocol));
+        qtc.QSslSocket_ConnectToHost(@ptrCast(self.ptr), hostName_str, @bitCast(port), @bitCast(openMode), @bitCast(protocol));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#connectToHost)
@@ -332,12 +366,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, hostName: [*:0]const u8, port: u16, openMode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, hostName: [*:0]const u8, port: u16, openMode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol) callconv(.c) void `
     ///
-    pub fn OnConnectToHost(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, u16, i32, i32) callconv(.c) void) void {
-        qtc.QSslSocket_OnConnectToHost(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectToHost(self: QSslSocket, callback: *const fn (QSslSocket, [*:0]const u8, u16, i32, i32) callconv(.c) void) void {
+        qtc.QSslSocket_OnConnectToHost(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperConnectToHost` instead
@@ -350,7 +384,7 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` hostName: []const u8 `
     ///
@@ -360,22 +394,22 @@ pub const qsslsocket = struct {
     ///
     /// ` protocol: qabstractsocket_enums.NetworkLayerProtocol `
     ///
-    pub fn SuperConnectToHost(self: ?*anyopaque, hostName: []const u8, port: u16, openMode: i32, protocol: i32) void {
+    pub fn SuperConnectToHost(self: QSslSocket, hostName: []const u8, port: u16, openMode: i32, protocol: i32) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
-        qtc.QSslSocket_SuperConnectToHost(@ptrCast(self), hostName_str, @bitCast(port), @bitCast(openMode), @bitCast(protocol));
+        qtc.QSslSocket_SuperConnectToHost(@ptrCast(self.ptr), hostName_str, @bitCast(port), @bitCast(openMode), @bitCast(protocol));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#disconnectFromHost)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn DisconnectFromHost(self: ?*anyopaque) void {
-        qtc.QSslSocket_DisconnectFromHost(@ptrCast(self));
+    pub fn DisconnectFromHost(self: QSslSocket) void {
+        qtc.QSslSocket_DisconnectFromHost(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#disconnectFromHost)
@@ -384,12 +418,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDisconnectFromHost(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QSslSocket_OnDisconnectFromHost(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectFromHost(self: QSslSocket, callback: *const fn () callconv(.c) void) void {
+        qtc.QSslSocket_OnDisconnectFromHost(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectFromHost` instead
@@ -402,24 +436,25 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn SuperDisconnectFromHost(self: ?*anyopaque) void {
-        qtc.QSslSocket_SuperDisconnectFromHost(@ptrCast(self));
+    pub fn SuperDisconnectFromHost(self: QSslSocket) void {
+        qtc.QSslSocket_SuperDisconnectFromHost(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setSocketOption)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` option: qabstractsocket_enums.SocketOption `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetSocketOption(self: ?*anyopaque, option: i32, value: ?*anyopaque) void {
-        qtc.QSslSocket_SetSocketOption(@ptrCast(self), @bitCast(option), @ptrCast(value));
+    pub fn SetSocketOption(self: QSslSocket, option: i32, value: anytype) void {
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QSslSocket_SetSocketOption(@ptrCast(self.ptr), @bitCast(option), @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setSocketOption)
@@ -428,12 +463,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, option: qabstractsocket_enums.SocketOption, value: QtC.QVariant) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, option: qabstractsocket_enums.SocketOption, value: QVariant) callconv(.c) void `
     ///
-    pub fn OnSetSocketOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSslSocket_OnSetSocketOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetSocketOption(self: QSslSocket, callback: *const fn (QSslSocket, i32, QVariant) callconv(.c) void) void {
+        qtc.QSslSocket_OnSetSocketOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetSocketOption` instead
@@ -446,26 +481,27 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` option: qabstractsocket_enums.SocketOption `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SuperSetSocketOption(self: ?*anyopaque, option: i32, value: ?*anyopaque) void {
-        qtc.QSslSocket_SuperSetSocketOption(@ptrCast(self), @bitCast(option), @ptrCast(value));
+    pub fn SuperSetSocketOption(self: QSslSocket, option: i32, value: anytype) void {
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QSslSocket_SuperSetSocketOption(@ptrCast(self.ptr), @bitCast(option), @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#socketOption)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` option: qabstractsocket_enums.SocketOption `
     ///
-    pub fn SocketOption(self: ?*anyopaque, option: i32) QtC.QVariant {
-        return qtc.QSslSocket_SocketOption(@ptrCast(self), @bitCast(option));
+    pub fn SocketOption(self: QSslSocket, option: i32) QVariant {
+        return .{ .ptr = qtc.QSslSocket_SocketOption(@ptrCast(self.ptr), @bitCast(option)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#socketOption)
@@ -474,12 +510,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, option: qabstractsocket_enums.SocketOption) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QSslSocket, option: qabstractsocket_enums.SocketOption) callconv(.c) QVariant `
     ///
-    pub fn OnSocketOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QSslSocket_OnSocketOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSocketOption(self: QSslSocket, callback: *const fn (QSslSocket, i32) callconv(.c) QVariant) void {
+        qtc.QSslSocket_OnSocketOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSocketOption` instead
@@ -492,122 +528,122 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` option: qabstractsocket_enums.SocketOption `
     ///
-    pub fn SuperSocketOption(self: ?*anyopaque, option: i32) QtC.QVariant {
-        return qtc.QSslSocket_SuperSocketOption(@ptrCast(self), @bitCast(option));
+    pub fn SuperSocketOption(self: QSslSocket, option: i32) QVariant {
+        return .{ .ptr = qtc.QSslSocket_SuperSocketOption(@ptrCast(self.ptr), @bitCast(option)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#mode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ## Returns:
     ///
     /// ` qsslsocket_enums.SslMode `
     ///
-    pub fn Mode(self: ?*anyopaque) i32 {
-        return qtc.QSslSocket_Mode(@ptrCast(self));
+    pub fn Mode(self: QSslSocket) i32 {
+        return qtc.QSslSocket_Mode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#isEncrypted)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn IsEncrypted(self: ?*anyopaque) bool {
-        return qtc.QSslSocket_IsEncrypted(@ptrCast(self));
+    pub fn IsEncrypted(self: QSslSocket) bool {
+        return qtc.QSslSocket_IsEncrypted(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#protocol)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ## Returns:
     ///
     /// ` qssl_enums.SslProtocol `
     ///
-    pub fn Protocol(self: ?*anyopaque) i32 {
-        return qtc.QSslSocket_Protocol(@ptrCast(self));
+    pub fn Protocol(self: QSslSocket) i32 {
+        return qtc.QSslSocket_Protocol(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setProtocol)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` protocol: qssl_enums.SslProtocol `
     ///
-    pub fn SetProtocol(self: ?*anyopaque, protocol: i32) void {
-        qtc.QSslSocket_SetProtocol(@ptrCast(self), @bitCast(protocol));
+    pub fn SetProtocol(self: QSslSocket, protocol: i32) void {
+        qtc.QSslSocket_SetProtocol(@ptrCast(self.ptr), @bitCast(protocol));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#peerVerifyMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ## Returns:
     ///
     /// ` qsslsocket_enums.PeerVerifyMode `
     ///
-    pub fn PeerVerifyMode(self: ?*anyopaque) i32 {
-        return qtc.QSslSocket_PeerVerifyMode(@ptrCast(self));
+    pub fn PeerVerifyMode(self: QSslSocket) i32 {
+        return qtc.QSslSocket_PeerVerifyMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setPeerVerifyMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` mode: qsslsocket_enums.PeerVerifyMode `
     ///
-    pub fn SetPeerVerifyMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QSslSocket_SetPeerVerifyMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetPeerVerifyMode(self: QSslSocket, mode: i32) void {
+        qtc.QSslSocket_SetPeerVerifyMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#peerVerifyDepth)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn PeerVerifyDepth(self: ?*anyopaque) i32 {
-        return qtc.QSslSocket_PeerVerifyDepth(@ptrCast(self));
+    pub fn PeerVerifyDepth(self: QSslSocket) i32 {
+        return qtc.QSslSocket_PeerVerifyDepth(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setPeerVerifyDepth)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` depth: i32 `
     ///
-    pub fn SetPeerVerifyDepth(self: ?*anyopaque, depth: i32) void {
-        qtc.QSslSocket_SetPeerVerifyDepth(@ptrCast(self), @bitCast(depth));
+    pub fn SetPeerVerifyDepth(self: QSslSocket, depth: i32) void {
+        qtc.QSslSocket_SetPeerVerifyDepth(@ptrCast(self.ptr), @bitCast(depth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#peerVerifyName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PeerVerifyName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QSslSocket_PeerVerifyName(@ptrCast(self));
+    pub fn PeerVerifyName(self: QSslSocket, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QSslSocket_PeerVerifyName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslsocket.PeerVerifyName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -618,26 +654,26 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` hostName: []const u8 `
     ///
-    pub fn SetPeerVerifyName(self: ?*anyopaque, hostName: []const u8) void {
+    pub fn SetPeerVerifyName(self: QSslSocket, hostName: []const u8) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
-        qtc.QSslSocket_SetPeerVerifyName(@ptrCast(self), hostName_str);
+        qtc.QSslSocket_SetPeerVerifyName(@ptrCast(self.ptr), hostName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#bytesAvailable)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn BytesAvailable(self: ?*anyopaque) i64 {
-        return qtc.QSslSocket_BytesAvailable(@ptrCast(self));
+    pub fn BytesAvailable(self: QSslSocket) i64 {
+        return qtc.QSslSocket_BytesAvailable(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#bytesAvailable)
@@ -646,12 +682,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnBytesAvailable(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QSslSocket_OnBytesAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBytesAvailable(self: QSslSocket, callback: *const fn () callconv(.c) i64) void {
+        qtc.QSslSocket_OnBytesAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperBytesAvailable` instead
@@ -664,20 +700,20 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn SuperBytesAvailable(self: ?*anyopaque) i64 {
-        return qtc.QSslSocket_SuperBytesAvailable(@ptrCast(self));
+    pub fn SuperBytesAvailable(self: QSslSocket) i64 {
+        return qtc.QSslSocket_SuperBytesAvailable(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#bytesToWrite)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn BytesToWrite(self: ?*anyopaque) i64 {
-        return qtc.QSslSocket_BytesToWrite(@ptrCast(self));
+    pub fn BytesToWrite(self: QSslSocket) i64 {
+        return qtc.QSslSocket_BytesToWrite(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#bytesToWrite)
@@ -686,12 +722,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnBytesToWrite(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QSslSocket_OnBytesToWrite(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBytesToWrite(self: QSslSocket, callback: *const fn () callconv(.c) i64) void {
+        qtc.QSslSocket_OnBytesToWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperBytesToWrite` instead
@@ -704,20 +740,20 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn SuperBytesToWrite(self: ?*anyopaque) i64 {
-        return qtc.QSslSocket_SuperBytesToWrite(@ptrCast(self));
+    pub fn SuperBytesToWrite(self: QSslSocket) i64 {
+        return qtc.QSslSocket_SuperBytesToWrite(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#canReadLine)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn CanReadLine(self: ?*anyopaque) bool {
-        return qtc.QSslSocket_CanReadLine(@ptrCast(self));
+    pub fn CanReadLine(self: QSslSocket) bool {
+        return qtc.QSslSocket_CanReadLine(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#canReadLine)
@@ -726,12 +762,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnCanReadLine(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QSslSocket_OnCanReadLine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCanReadLine(self: QSslSocket, callback: *const fn () callconv(.c) bool) void {
+        qtc.QSslSocket_OnCanReadLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCanReadLine` instead
@@ -744,20 +780,20 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn SuperCanReadLine(self: ?*anyopaque) bool {
-        return qtc.QSslSocket_SuperCanReadLine(@ptrCast(self));
+    pub fn SuperCanReadLine(self: QSslSocket) bool {
+        return qtc.QSslSocket_SuperCanReadLine(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#close)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn Close(self: ?*anyopaque) void {
-        qtc.QSslSocket_Close(@ptrCast(self));
+    pub fn Close(self: QSslSocket) void {
+        qtc.QSslSocket_Close(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#close)
@@ -766,12 +802,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnClose(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QSslSocket_OnClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClose(self: QSslSocket, callback: *const fn () callconv(.c) void) void {
+        qtc.QSslSocket_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperClose` instead
@@ -784,20 +820,20 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn SuperClose(self: ?*anyopaque) void {
-        qtc.QSslSocket_SuperClose(@ptrCast(self));
+    pub fn SuperClose(self: QSslSocket) void {
+        qtc.QSslSocket_SuperClose(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#atEnd)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn AtEnd(self: ?*anyopaque) bool {
-        return qtc.QSslSocket_AtEnd(@ptrCast(self));
+    pub fn AtEnd(self: QSslSocket) bool {
+        return qtc.QSslSocket_AtEnd(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#atEnd)
@@ -806,12 +842,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnAtEnd(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QSslSocket_OnAtEnd(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAtEnd(self: QSslSocket, callback: *const fn () callconv(.c) bool) void {
+        qtc.QSslSocket_OnAtEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperAtEnd` instead
@@ -824,22 +860,22 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn SuperAtEnd(self: ?*anyopaque) bool {
-        return qtc.QSslSocket_SuperAtEnd(@ptrCast(self));
+    pub fn SuperAtEnd(self: QSslSocket) bool {
+        return qtc.QSslSocket_SuperAtEnd(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setReadBufferSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` size: i64 `
     ///
-    pub fn SetReadBufferSize(self: ?*anyopaque, size: i64) void {
-        qtc.QSslSocket_SetReadBufferSize(@ptrCast(self), @bitCast(size));
+    pub fn SetReadBufferSize(self: QSslSocket, size: i64) void {
+        qtc.QSslSocket_SetReadBufferSize(@ptrCast(self.ptr), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setReadBufferSize)
@@ -848,12 +884,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, size: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, size: i64) callconv(.c) void `
     ///
-    pub fn OnSetReadBufferSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
-        qtc.QSslSocket_OnSetReadBufferSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetReadBufferSize(self: QSslSocket, callback: *const fn (QSslSocket, i64) callconv(.c) void) void {
+        qtc.QSslSocket_OnSetReadBufferSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetReadBufferSize` instead
@@ -866,86 +902,88 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` size: i64 `
     ///
-    pub fn SuperSetReadBufferSize(self: ?*anyopaque, size: i64) void {
-        qtc.QSslSocket_SuperSetReadBufferSize(@ptrCast(self), @bitCast(size));
+    pub fn SuperSetReadBufferSize(self: QSslSocket, size: i64) void {
+        qtc.QSslSocket_SuperSetReadBufferSize(@ptrCast(self.ptr), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#encryptedBytesAvailable)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn EncryptedBytesAvailable(self: ?*anyopaque) i64 {
-        return qtc.QSslSocket_EncryptedBytesAvailable(@ptrCast(self));
+    pub fn EncryptedBytesAvailable(self: QSslSocket) i64 {
+        return qtc.QSslSocket_EncryptedBytesAvailable(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#encryptedBytesToWrite)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn EncryptedBytesToWrite(self: ?*anyopaque) i64 {
-        return qtc.QSslSocket_EncryptedBytesToWrite(@ptrCast(self));
+    pub fn EncryptedBytesToWrite(self: QSslSocket) i64 {
+        return qtc.QSslSocket_EncryptedBytesToWrite(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#sslConfiguration)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn SslConfiguration(self: ?*anyopaque) QtC.QSslConfiguration {
-        return qtc.QSslSocket_SslConfiguration(@ptrCast(self));
+    pub fn SslConfiguration(self: QSslSocket) QSslConfiguration {
+        return .{ .ptr = qtc.QSslSocket_SslConfiguration(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setSslConfiguration)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` config: QtC.QSslConfiguration `
+    /// ` config: QSslConfiguration `
     ///
-    pub fn SetSslConfiguration(self: ?*anyopaque, config: ?*anyopaque) void {
-        qtc.QSslSocket_SetSslConfiguration(@ptrCast(self), @ptrCast(config));
+    pub fn SetSslConfiguration(self: QSslSocket, config: anytype) void {
+        comptime _ = @TypeOf(config)._is_QSslConfiguration;
+        qtc.QSslSocket_SetSslConfiguration(@ptrCast(self.ptr), @ptrCast(config.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setLocalCertificateChain)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` localChain: []QtC.QSslCertificate `
+    /// ` localChain: []QSslCertificate `
     ///
-    pub fn SetLocalCertificateChain(self: ?*anyopaque, localChain: []QtC.QSslCertificate) void {
+    pub fn SetLocalCertificateChain(self: QSslSocket, localChain: []QSslCertificate) void {
         const localChain_list = qtc.libqt_list{
             .len = localChain.len,
             .data = @ptrCast(localChain.ptr),
         };
-        qtc.QSslSocket_SetLocalCertificateChain(@ptrCast(self), localChain_list);
+        qtc.QSslSocket_SetLocalCertificateChain(@ptrCast(self.ptr), localChain_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#localCertificateChain)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalCertificateChain(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslCertificate {
-        const _arr: qtc.libqt_list = qtc.QSslSocket_LocalCertificateChain(@ptrCast(self));
+    pub fn LocalCertificateChain(self: QSslSocket, allocator: std.mem.Allocator) []QSslCertificate {
+        const _arr: qtc.libqt_list = qtc.QSslSocket_LocalCertificateChain(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QSslCertificate, _arr.len) catch @panic("qsslsocket.LocalCertificateChain: Memory allocation failed");
+        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("qsslsocket.LocalCertificateChain: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -953,64 +991,66 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` certificate: QtC.QSslCertificate `
+    /// ` certificate: QSslCertificate `
     ///
-    pub fn SetLocalCertificate(self: ?*anyopaque, certificate: ?*anyopaque) void {
-        qtc.QSslSocket_SetLocalCertificate(@ptrCast(self), @ptrCast(certificate));
+    pub fn SetLocalCertificate(self: QSslSocket, certificate: anytype) void {
+        comptime _ = @TypeOf(certificate)._is_QSslCertificate;
+        qtc.QSslSocket_SetLocalCertificate(@ptrCast(self.ptr), @ptrCast(certificate.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setLocalCertificate)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn SetLocalCertificate2(self: ?*anyopaque, fileName: []const u8) void {
+    pub fn SetLocalCertificate2(self: QSslSocket, fileName: []const u8) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        qtc.QSslSocket_SetLocalCertificate2(@ptrCast(self), fileName_str);
+        qtc.QSslSocket_SetLocalCertificate2(@ptrCast(self.ptr), fileName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#localCertificate)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn LocalCertificate(self: ?*anyopaque) QtC.QSslCertificate {
-        return qtc.QSslSocket_LocalCertificate(@ptrCast(self));
+    pub fn LocalCertificate(self: QSslSocket) QSslCertificate {
+        return .{ .ptr = qtc.QSslSocket_LocalCertificate(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#peerCertificate)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn PeerCertificate(self: ?*anyopaque) QtC.QSslCertificate {
-        return qtc.QSslSocket_PeerCertificate(@ptrCast(self));
+    pub fn PeerCertificate(self: QSslSocket) QSslCertificate {
+        return .{ .ptr = qtc.QSslSocket_PeerCertificate(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#peerCertificateChain)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PeerCertificateChain(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslCertificate {
-        const _arr: qtc.libqt_list = qtc.QSslSocket_PeerCertificateChain(@ptrCast(self));
+    pub fn PeerCertificateChain(self: QSslSocket, allocator: std.mem.Allocator) []QSslCertificate {
+        const _arr: qtc.libqt_list = qtc.QSslSocket_PeerCertificateChain(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QSslCertificate, _arr.len) catch @panic("qsslsocket.PeerCertificateChain: Memory allocation failed");
+        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("qsslsocket.PeerCertificateChain: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1018,40 +1058,41 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn SessionCipher(self: ?*anyopaque) QtC.QSslCipher {
-        return qtc.QSslSocket_SessionCipher(@ptrCast(self));
+    pub fn SessionCipher(self: QSslSocket) QSslCipher {
+        return .{ .ptr = qtc.QSslSocket_SessionCipher(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#sessionProtocol)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ## Returns:
     ///
     /// ` qssl_enums.SslProtocol `
     ///
-    pub fn SessionProtocol(self: ?*anyopaque) i32 {
-        return qtc.QSslSocket_SessionProtocol(@ptrCast(self));
+    pub fn SessionProtocol(self: QSslSocket) i32 {
+        return qtc.QSslSocket_SessionProtocol(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#ocspResponses)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn OcspResponses(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QOcspResponse {
-        const _arr: qtc.libqt_list = qtc.QSslSocket_OcspResponses(@ptrCast(self));
+    pub fn OcspResponses(self: QSslSocket, allocator: std.mem.Allocator) []QOcspResponse {
+        const _arr: qtc.libqt_list = qtc.QSslSocket_OcspResponses(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QOcspResponse, _arr.len) catch @panic("qsslsocket.OcspResponses: Memory allocation failed");
+        const _ret = allocator.alloc(QOcspResponse, _arr.len) catch @panic("qsslsocket.OcspResponses: Memory allocation failed");
         const _data: [*]QtC.QOcspResponse = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1059,50 +1100,51 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` key: QtC.QSslKey `
+    /// ` key: QSslKey `
     ///
-    pub fn SetPrivateKey(self: ?*anyopaque, key: ?*anyopaque) void {
-        qtc.QSslSocket_SetPrivateKey(@ptrCast(self), @ptrCast(key));
+    pub fn SetPrivateKey(self: QSslSocket, key: anytype) void {
+        comptime _ = @TypeOf(key)._is_QSslKey;
+        qtc.QSslSocket_SetPrivateKey(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setPrivateKey)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn SetPrivateKey2(self: ?*anyopaque, fileName: []const u8) void {
+    pub fn SetPrivateKey2(self: QSslSocket, fileName: []const u8) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        qtc.QSslSocket_SetPrivateKey2(@ptrCast(self), fileName_str);
+        qtc.QSslSocket_SetPrivateKey2(@ptrCast(self.ptr), fileName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#privateKey)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn PrivateKey(self: ?*anyopaque) QtC.QSslKey {
-        return qtc.QSslSocket_PrivateKey(@ptrCast(self));
+    pub fn PrivateKey(self: QSslSocket) QSslKey {
+        return .{ .ptr = qtc.QSslSocket_PrivateKey(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForConnected)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForConnected(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QSslSocket_WaitForConnected(@ptrCast(self), @bitCast(msecs));
+    pub fn WaitForConnected(self: QSslSocket, msecs: i32) bool {
+        return qtc.QSslSocket_WaitForConnected(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForConnected)
@@ -1111,12 +1153,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, msecs: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSslSocket, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QSslSocket_OnWaitForConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWaitForConnected(self: QSslSocket, callback: *const fn (QSslSocket, i32) callconv(.c) bool) void {
+        qtc.QSslSocket_OnWaitForConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperWaitForConnected` instead
@@ -1129,34 +1171,34 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForConnected(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QSslSocket_SuperWaitForConnected(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForConnected(self: QSslSocket, msecs: i32) bool {
+        return qtc.QSslSocket_SuperWaitForConnected(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForEncrypted)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn WaitForEncrypted(self: ?*anyopaque) bool {
-        return qtc.QSslSocket_WaitForEncrypted(@ptrCast(self));
+    pub fn WaitForEncrypted(self: QSslSocket) bool {
+        return qtc.QSslSocket_WaitForEncrypted(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForReadyRead)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QSslSocket_WaitForReadyRead(@ptrCast(self), @bitCast(msecs));
+    pub fn WaitForReadyRead(self: QSslSocket, msecs: i32) bool {
+        return qtc.QSslSocket_WaitForReadyRead(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForReadyRead)
@@ -1165,12 +1207,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, msecs: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSslSocket, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QSslSocket_OnWaitForReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWaitForReadyRead(self: QSslSocket, callback: *const fn (QSslSocket, i32) callconv(.c) bool) void {
+        qtc.QSslSocket_OnWaitForReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperWaitForReadyRead` instead
@@ -1183,24 +1225,24 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QSslSocket_SuperWaitForReadyRead(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForReadyRead(self: QSslSocket, msecs: i32) bool {
+        return qtc.QSslSocket_SuperWaitForReadyRead(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForBytesWritten)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QSslSocket_WaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
+    pub fn WaitForBytesWritten(self: QSslSocket, msecs: i32) bool {
+        return qtc.QSslSocket_WaitForBytesWritten(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForBytesWritten)
@@ -1209,12 +1251,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, msecs: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSslSocket, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QSslSocket_OnWaitForBytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWaitForBytesWritten(self: QSslSocket, callback: *const fn (QSslSocket, i32) callconv(.c) bool) void {
+        qtc.QSslSocket_OnWaitForBytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperWaitForBytesWritten` instead
@@ -1227,24 +1269,24 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QSslSocket_SuperWaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForBytesWritten(self: QSslSocket, msecs: i32) bool {
+        return qtc.QSslSocket_SuperWaitForBytesWritten(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForDisconnected)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForDisconnected(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QSslSocket_WaitForDisconnected(@ptrCast(self), @bitCast(msecs));
+    pub fn WaitForDisconnected(self: QSslSocket, msecs: i32) bool {
+        return qtc.QSslSocket_WaitForDisconnected(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForDisconnected)
@@ -1253,12 +1295,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, msecs: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSslSocket, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForDisconnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QSslSocket_OnWaitForDisconnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWaitForDisconnected(self: QSslSocket, callback: *const fn (QSslSocket, i32) callconv(.c) bool) void {
+        qtc.QSslSocket_OnWaitForDisconnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperWaitForDisconnected` instead
@@ -1271,28 +1313,29 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForDisconnected(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QSslSocket_SuperWaitForDisconnected(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForDisconnected(self: QSslSocket, msecs: i32) bool {
+        return qtc.QSslSocket_SuperWaitForDisconnected(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#sslHandshakeErrors)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SslHandshakeErrors(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslError {
-        const _arr: qtc.libqt_list = qtc.QSslSocket_SslHandshakeErrors(@ptrCast(self));
+    pub fn SslHandshakeErrors(self: QSslSocket, allocator: std.mem.Allocator) []QSslError {
+        const _arr: qtc.libqt_list = qtc.QSslSocket_SslHandshakeErrors(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QSslError, _arr.len) catch @panic("qsslsocket.SslHandshakeErrors: Memory allocation failed");
+        const _ret = allocator.alloc(QSslError, _arr.len) catch @panic("qsslsocket.SslHandshakeErrors: Memory allocation failed");
         const _data: [*]QtC.QSslError = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1352,9 +1395,8 @@ pub const qsslsocket = struct {
         const _arr: qtc.libqt_list = qtc.QSslSocket_AvailableBackends();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qsslsocket.AvailableBackends: Memory allocation failed");
@@ -1486,231 +1528,233 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` errors: []QtC.QSslError `
+    /// ` errors: []QSslError `
     ///
-    pub fn IgnoreSslErrors(self: ?*anyopaque, errors: []QtC.QSslError) void {
+    pub fn IgnoreSslErrors(self: QSslSocket, errors: []QSslError) void {
         const errors_list = qtc.libqt_list{
             .len = errors.len,
             .data = @ptrCast(errors.ptr),
         };
-        qtc.QSslSocket_IgnoreSslErrors(@ptrCast(self), errors_list);
+        qtc.QSslSocket_IgnoreSslErrors(@ptrCast(self.ptr), errors_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#continueInterruptedHandshake)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn ContinueInterruptedHandshake(self: ?*anyopaque) void {
-        qtc.QSslSocket_ContinueInterruptedHandshake(@ptrCast(self));
+    pub fn ContinueInterruptedHandshake(self: QSslSocket) void {
+        qtc.QSslSocket_ContinueInterruptedHandshake(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#startClientEncryption)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn StartClientEncryption(self: ?*anyopaque) void {
-        qtc.QSslSocket_StartClientEncryption(@ptrCast(self));
+    pub fn StartClientEncryption(self: QSslSocket) void {
+        qtc.QSslSocket_StartClientEncryption(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#startServerEncryption)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn StartServerEncryption(self: ?*anyopaque) void {
-        qtc.QSslSocket_StartServerEncryption(@ptrCast(self));
+    pub fn StartServerEncryption(self: QSslSocket) void {
+        qtc.QSslSocket_StartServerEncryption(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#ignoreSslErrors)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn IgnoreSslErrors2(self: ?*anyopaque) void {
-        qtc.QSslSocket_IgnoreSslErrors2(@ptrCast(self));
+    pub fn IgnoreSslErrors2(self: QSslSocket) void {
+        qtc.QSslSocket_IgnoreSslErrors2(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#encrypted)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn Encrypted(self: ?*anyopaque) void {
-        qtc.QSslSocket_Encrypted(@ptrCast(self));
+    pub fn Encrypted(self: QSslSocket) void {
+        qtc.QSslSocket_Encrypted(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#encrypted)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket) callconv(.c) void `
     ///
-    pub fn OnEncrypted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSslSocket_Connect_Encrypted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEncrypted(self: QSslSocket, callback: *const fn (QSslSocket) callconv(.c) void) void {
+        qtc.QSslSocket_Connect_Encrypted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#peerVerifyError)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` errorVal: QtC.QSslError `
+    /// ` errorVal: QSslError `
     ///
-    pub fn PeerVerifyError(self: ?*anyopaque, errorVal: ?*anyopaque) void {
-        qtc.QSslSocket_PeerVerifyError(@ptrCast(self), @ptrCast(errorVal));
+    pub fn PeerVerifyError(self: QSslSocket, errorVal: anytype) void {
+        comptime _ = @TypeOf(errorVal)._is_QSslError;
+        qtc.QSslSocket_PeerVerifyError(@ptrCast(self.ptr), @ptrCast(errorVal.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#peerVerifyError)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, errorVal: QtC.QSslError) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, errorVal: QSslError) callconv(.c) void `
     ///
-    pub fn OnPeerVerifyError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSslSocket_Connect_PeerVerifyError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPeerVerifyError(self: QSslSocket, callback: *const fn (QSslSocket, QSslError) callconv(.c) void) void {
+        qtc.QSslSocket_Connect_PeerVerifyError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#sslErrors)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` errors: []QtC.QSslError `
+    /// ` errors: []QSslError `
     ///
-    pub fn SslErrors(self: ?*anyopaque, errors: []QtC.QSslError) void {
+    pub fn SslErrors(self: QSslSocket, errors: []QSslError) void {
         const errors_list = qtc.libqt_list{
             .len = errors.len,
             .data = @ptrCast(errors.ptr),
         };
-        qtc.QSslSocket_SslErrors(@ptrCast(self), errors_list);
+        qtc.QSslSocket_SslErrors(@ptrCast(self.ptr), errors_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#sslErrors)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, errors: qtc.libqt_list ([]QtC.QSslError)) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, errors: qtc.libqt_list ([]QSslError)) callconv(.c) void `
     ///
-    pub fn OnSslErrors(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QSslSocket_Connect_SslErrors(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSslErrors(self: QSslSocket, callback: *const fn (QSslSocket, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QSslSocket_Connect_SslErrors(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#modeChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` newMode: qsslsocket_enums.SslMode `
     ///
-    pub fn ModeChanged(self: ?*anyopaque, newMode: i32) void {
-        qtc.QSslSocket_ModeChanged(@ptrCast(self), @bitCast(newMode));
+    pub fn ModeChanged(self: QSslSocket, newMode: i32) void {
+        qtc.QSslSocket_ModeChanged(@ptrCast(self.ptr), @bitCast(newMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#modeChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, newMode: qsslsocket_enums.SslMode) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, newMode: qsslsocket_enums.SslMode) callconv(.c) void `
     ///
-    pub fn OnModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QSslSocket_Connect_ModeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnModeChanged(self: QSslSocket, callback: *const fn (QSslSocket, i32) callconv(.c) void) void {
+        qtc.QSslSocket_Connect_ModeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#encryptedBytesWritten)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` totalBytes: i64 `
     ///
-    pub fn EncryptedBytesWritten(self: ?*anyopaque, totalBytes: i64) void {
-        qtc.QSslSocket_EncryptedBytesWritten(@ptrCast(self), @bitCast(totalBytes));
+    pub fn EncryptedBytesWritten(self: QSslSocket, totalBytes: i64) void {
+        qtc.QSslSocket_EncryptedBytesWritten(@ptrCast(self.ptr), @bitCast(totalBytes));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#encryptedBytesWritten)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, totalBytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, totalBytes: i64) callconv(.c) void `
     ///
-    pub fn OnEncryptedBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
-        qtc.QSslSocket_Connect_EncryptedBytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEncryptedBytesWritten(self: QSslSocket, callback: *const fn (QSslSocket, i64) callconv(.c) void) void {
+        qtc.QSslSocket_Connect_EncryptedBytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#preSharedKeyAuthenticationRequired)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` authenticator: QtC.QSslPreSharedKeyAuthenticator `
+    /// ` authenticator: QSslPreSharedKeyAuthenticator `
     ///
-    pub fn PreSharedKeyAuthenticationRequired(self: ?*anyopaque, authenticator: ?*anyopaque) void {
-        qtc.QSslSocket_PreSharedKeyAuthenticationRequired(@ptrCast(self), @ptrCast(authenticator));
+    pub fn PreSharedKeyAuthenticationRequired(self: QSslSocket, authenticator: anytype) void {
+        comptime _ = @TypeOf(authenticator)._is_QSslPreSharedKeyAuthenticator;
+        qtc.QSslSocket_PreSharedKeyAuthenticationRequired(@ptrCast(self.ptr), @ptrCast(authenticator.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#preSharedKeyAuthenticationRequired)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, authenticator: QtC.QSslPreSharedKeyAuthenticator) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, authenticator: QSslPreSharedKeyAuthenticator) callconv(.c) void `
     ///
-    pub fn OnPreSharedKeyAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSslSocket_Connect_PreSharedKeyAuthenticationRequired(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPreSharedKeyAuthenticationRequired(self: QSslSocket, callback: *const fn (QSslSocket, QSslPreSharedKeyAuthenticator) callconv(.c) void) void {
+        qtc.QSslSocket_Connect_PreSharedKeyAuthenticationRequired(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#newSessionTicketReceived)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn NewSessionTicketReceived(self: ?*anyopaque) void {
-        qtc.QSslSocket_NewSessionTicketReceived(@ptrCast(self));
+    pub fn NewSessionTicketReceived(self: QSslSocket) void {
+        qtc.QSslSocket_NewSessionTicketReceived(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#newSessionTicketReceived)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket) callconv(.c) void `
     ///
-    pub fn OnNewSessionTicketReceived(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSslSocket_Connect_NewSessionTicketReceived(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNewSessionTicketReceived(self: QSslSocket, callback: *const fn (QSslSocket) callconv(.c) void) void {
+        qtc.QSslSocket_Connect_NewSessionTicketReceived(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#alertSent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` level: qssl_enums.AlertLevel `
     ///
@@ -1718,31 +1762,31 @@ pub const qsslsocket = struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn AlertSent(self: ?*anyopaque, level: i32, typeVal: i32, description: []const u8) void {
+    pub fn AlertSent(self: QSslSocket, level: i32, typeVal: i32, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QSslSocket_AlertSent(@ptrCast(self), @bitCast(level), @bitCast(typeVal), description_str);
+        qtc.QSslSocket_AlertSent(@ptrCast(self.ptr), @bitCast(level), @bitCast(typeVal), description_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#alertSent)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnAlertSent(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QSslSocket_Connect_AlertSent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAlertSent(self: QSslSocket, callback: *const fn (QSslSocket, i32, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.QSslSocket_Connect_AlertSent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#alertReceived)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` level: qssl_enums.AlertLevel `
     ///
@@ -1750,63 +1794,64 @@ pub const qsslsocket = struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn AlertReceived(self: ?*anyopaque, level: i32, typeVal: i32, description: []const u8) void {
+    pub fn AlertReceived(self: QSslSocket, level: i32, typeVal: i32, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QSslSocket_AlertReceived(@ptrCast(self), @bitCast(level), @bitCast(typeVal), description_str);
+        qtc.QSslSocket_AlertReceived(@ptrCast(self.ptr), @bitCast(level), @bitCast(typeVal), description_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#alertReceived)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnAlertReceived(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QSslSocket_Connect_AlertReceived(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAlertReceived(self: QSslSocket, callback: *const fn (QSslSocket, i32, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.QSslSocket_Connect_AlertReceived(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#handshakeInterruptedOnError)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` errorVal: QtC.QSslError `
+    /// ` errorVal: QSslError `
     ///
-    pub fn HandshakeInterruptedOnError(self: ?*anyopaque, errorVal: ?*anyopaque) void {
-        qtc.QSslSocket_HandshakeInterruptedOnError(@ptrCast(self), @ptrCast(errorVal));
+    pub fn HandshakeInterruptedOnError(self: QSslSocket, errorVal: anytype) void {
+        comptime _ = @TypeOf(errorVal)._is_QSslError;
+        qtc.QSslSocket_HandshakeInterruptedOnError(@ptrCast(self.ptr), @ptrCast(errorVal.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#handshakeInterruptedOnError)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, errorVal: QtC.QSslError) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, errorVal: QSslError) callconv(.c) void `
     ///
-    pub fn OnHandshakeInterruptedOnError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSslSocket_Connect_HandshakeInterruptedOnError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHandshakeInterruptedOnError(self: QSslSocket, callback: *const fn (QSslSocket, QSslError) callconv(.c) void) void {
+        qtc.QSslSocket_Connect_HandshakeInterruptedOnError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#readData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn ReadData(self: QSslSocket, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QSslSocket_ReadData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QSslSocket_ReadData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#readData)
@@ -1815,12 +1860,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: QSslSocket, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
-    pub fn OnReadData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, i64) callconv(.c) i64) void {
-        qtc.QSslSocket_OnReadData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadData(self: QSslSocket, callback: *const fn (QSslSocket, qtc.libqt_string, i64) callconv(.c) i64) void {
+        qtc.QSslSocket_OnReadData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperReadData` instead
@@ -1833,27 +1878,27 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn SuperReadData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn SuperReadData(self: QSslSocket, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QSslSocket_SuperReadData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QSslSocket_SuperReadData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#skipData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn SkipData(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QSslSocket_SkipData(@ptrCast(self), @bitCast(maxSize));
+    pub fn SkipData(self: QSslSocket, maxSize: i64) i64 {
+        return qtc.QSslSocket_SkipData(@ptrCast(self.ptr), @bitCast(maxSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#skipData)
@@ -1862,12 +1907,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, maxSize: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: QSslSocket, maxSize: i64) callconv(.c) i64 `
     ///
-    pub fn OnSkipData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) i64) void {
-        qtc.QSslSocket_OnSkipData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSkipData(self: QSslSocket, callback: *const fn (QSslSocket, i64) callconv(.c) i64) void {
+        qtc.QSslSocket_OnSkipData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSkipData` instead
@@ -1880,27 +1925,27 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn SuperSkipData(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QSslSocket_SuperSkipData(@ptrCast(self), @bitCast(maxSize));
+    pub fn SuperSkipData(self: QSslSocket, maxSize: i64) i64 {
+        return qtc.QSslSocket_SuperSkipData(@ptrCast(self.ptr), @bitCast(maxSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#writeData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` data: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn WriteData(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn WriteData(self: QSslSocket, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QSslSocket_WriteData(@ptrCast(self), data_Cstring, @bitCast(lenVal));
+        return qtc.QSslSocket_WriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#writeData)
@@ -1909,12 +1954,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: QSslSocket, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 `
     ///
-    pub fn OnWriteData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
-        qtc.QSslSocket_OnWriteData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWriteData(self: QSslSocket, callback: *const fn (QSslSocket, [*:0]const u8, i64) callconv(.c) i64) void {
+        qtc.QSslSocket_OnWriteData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperWriteData` instead
@@ -1927,28 +1972,28 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` data: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn SuperWriteData(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn SuperWriteData(self: QSslSocket, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QSslSocket_SuperWriteData(@ptrCast(self), data_Cstring, @bitCast(lenVal));
+        return qtc.QSslSocket_SuperWriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -1962,15 +2007,15 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -1984,7 +2029,7 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` hostName: []const u8 `
     ///
@@ -1992,19 +2037,19 @@ pub const qsslsocket = struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn ConnectToHostEncrypted3(self: ?*anyopaque, hostName: []const u8, port: u16, mode: i32) void {
+    pub fn ConnectToHostEncrypted3(self: QSslSocket, hostName: []const u8, port: u16, mode: i32) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
-        qtc.QSslSocket_ConnectToHostEncrypted3(@ptrCast(self), hostName_str, @bitCast(port), @bitCast(mode));
+        qtc.QSslSocket_ConnectToHostEncrypted3(@ptrCast(self.ptr), hostName_str, @bitCast(port), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#connectToHostEncrypted)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` hostName: []const u8 `
     ///
@@ -2014,19 +2059,19 @@ pub const qsslsocket = struct {
     ///
     /// ` protocol: qabstractsocket_enums.NetworkLayerProtocol `
     ///
-    pub fn ConnectToHostEncrypted4(self: ?*anyopaque, hostName: []const u8, port: u16, mode: i32, protocol: i32) void {
+    pub fn ConnectToHostEncrypted4(self: QSslSocket, hostName: []const u8, port: u16, mode: i32, protocol: i32) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
-        qtc.QSslSocket_ConnectToHostEncrypted4(@ptrCast(self), hostName_str, @bitCast(port), @bitCast(mode), @bitCast(protocol));
+        qtc.QSslSocket_ConnectToHostEncrypted4(@ptrCast(self.ptr), hostName_str, @bitCast(port), @bitCast(mode), @bitCast(protocol));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#connectToHostEncrypted)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` hostName: []const u8 `
     ///
@@ -2036,7 +2081,7 @@ pub const qsslsocket = struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn ConnectToHostEncrypted42(self: ?*anyopaque, hostName: []const u8, port: u16, sslPeerName: []const u8, mode: i32) void {
+    pub fn ConnectToHostEncrypted42(self: QSslSocket, hostName: []const u8, port: u16, sslPeerName: []const u8, mode: i32) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
@@ -2045,14 +2090,14 @@ pub const qsslsocket = struct {
             .len = sslPeerName.len,
             .data = sslPeerName.ptr,
         };
-        qtc.QSslSocket_ConnectToHostEncrypted42(@ptrCast(self), hostName_str, @bitCast(port), sslPeerName_str, @bitCast(mode));
+        qtc.QSslSocket_ConnectToHostEncrypted42(@ptrCast(self.ptr), hostName_str, @bitCast(port), sslPeerName_str, @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#connectToHostEncrypted)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` hostName: []const u8 `
     ///
@@ -2064,7 +2109,7 @@ pub const qsslsocket = struct {
     ///
     /// ` protocol: qabstractsocket_enums.NetworkLayerProtocol `
     ///
-    pub fn ConnectToHostEncrypted5(self: ?*anyopaque, hostName: []const u8, port: u16, sslPeerName: []const u8, mode: i32, protocol: i32) void {
+    pub fn ConnectToHostEncrypted5(self: QSslSocket, hostName: []const u8, port: u16, sslPeerName: []const u8, mode: i32, protocol: i32) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
@@ -2073,50 +2118,50 @@ pub const qsslsocket = struct {
             .len = sslPeerName.len,
             .data = sslPeerName.ptr,
         };
-        qtc.QSslSocket_ConnectToHostEncrypted5(@ptrCast(self), hostName_str, @bitCast(port), sslPeerName_str, @bitCast(mode), @bitCast(protocol));
+        qtc.QSslSocket_ConnectToHostEncrypted5(@ptrCast(self.ptr), hostName_str, @bitCast(port), sslPeerName_str, @bitCast(mode), @bitCast(protocol));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setLocalCertificate)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` fileName: []const u8 `
     ///
     /// ` format: qssl_enums.EncodingFormat `
     ///
-    pub fn SetLocalCertificate22(self: ?*anyopaque, fileName: []const u8, format: i32) void {
+    pub fn SetLocalCertificate22(self: QSslSocket, fileName: []const u8, format: i32) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        qtc.QSslSocket_SetLocalCertificate22(@ptrCast(self), fileName_str, @bitCast(format));
+        qtc.QSslSocket_SetLocalCertificate22(@ptrCast(self.ptr), fileName_str, @bitCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setPrivateKey)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` fileName: []const u8 `
     ///
     /// ` algorithm: qssl_enums.KeyAlgorithm `
     ///
-    pub fn SetPrivateKey22(self: ?*anyopaque, fileName: []const u8, algorithm: i32) void {
+    pub fn SetPrivateKey22(self: QSslSocket, fileName: []const u8, algorithm: i32) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        qtc.QSslSocket_SetPrivateKey22(@ptrCast(self), fileName_str, @bitCast(algorithm));
+        qtc.QSslSocket_SetPrivateKey22(@ptrCast(self.ptr), fileName_str, @bitCast(algorithm));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setPrivateKey)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` fileName: []const u8 `
     ///
@@ -2124,19 +2169,19 @@ pub const qsslsocket = struct {
     ///
     /// ` format: qssl_enums.EncodingFormat `
     ///
-    pub fn SetPrivateKey3(self: ?*anyopaque, fileName: []const u8, algorithm: i32, format: i32) void {
+    pub fn SetPrivateKey3(self: QSslSocket, fileName: []const u8, algorithm: i32, format: i32) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        qtc.QSslSocket_SetPrivateKey3(@ptrCast(self), fileName_str, @bitCast(algorithm), @bitCast(format));
+        qtc.QSslSocket_SetPrivateKey3(@ptrCast(self.ptr), fileName_str, @bitCast(algorithm), @bitCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#setPrivateKey)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` fileName: []const u8 `
     ///
@@ -2146,7 +2191,7 @@ pub const qsslsocket = struct {
     ///
     /// ` passPhrase: []u8 `
     ///
-    pub fn SetPrivateKey4(self: ?*anyopaque, fileName: []const u8, algorithm: i32, format: i32, passPhrase: []u8) void {
+    pub fn SetPrivateKey4(self: QSslSocket, fileName: []const u8, algorithm: i32, format: i32, passPhrase: []u8) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -2155,34 +2200,34 @@ pub const qsslsocket = struct {
             .len = passPhrase.len,
             .data = passPhrase.ptr,
         };
-        qtc.QSslSocket_SetPrivateKey4(@ptrCast(self), fileName_str, @bitCast(algorithm), @bitCast(format), passPhrase_str);
+        qtc.QSslSocket_SetPrivateKey4(@ptrCast(self.ptr), fileName_str, @bitCast(algorithm), @bitCast(format), passPhrase_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#waitForEncrypted)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForEncrypted1(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QSslSocket_WaitForEncrypted1(@ptrCast(self), @bitCast(msecs));
+    pub fn WaitForEncrypted1(self: QSslSocket, msecs: i32) bool {
+        return qtc.QSslSocket_WaitForEncrypted1(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslsocket.html#supportedProtocols)
     ///
     /// ## Parameter(s):
     ///
-    /// ` backendName: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` backendName: []const u8 `
     ///
     /// ## Returns:
     ///
     /// ` []qssl_enums.SslProtocol `
     ///
-    pub fn SupportedProtocols1(backendName: []const u8, allocator: std.mem.Allocator) []i32 {
+    pub fn SupportedProtocols1(allocator: std.mem.Allocator, backendName: []const u8) []i32 {
         const backendName_str = qtc.libqt_string{
             .len = backendName.len,
             .data = backendName.ptr,
@@ -2215,15 +2260,15 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` backendName: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` backendName: []const u8 `
     ///
     /// ## Returns:
     ///
     /// ` []qssl_enums.ImplementedClass `
     ///
-    pub fn ImplementedClasses1(backendName: []const u8, allocator: std.mem.Allocator) []i32 {
+    pub fn ImplementedClasses1(allocator: std.mem.Allocator, backendName: []const u8) []i32 {
         const backendName_str = qtc.libqt_string{
             .len = backendName.len,
             .data = backendName.ptr,
@@ -2256,15 +2301,15 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` backendName: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` backendName: []const u8 `
     ///
     /// ## Returns:
     ///
     /// ` []qssl_enums.SupportedFeature `
     ///
-    pub fn SupportedFeatures1(backendName: []const u8, allocator: std.mem.Allocator) []i32 {
+    pub fn SupportedFeatures1(allocator: std.mem.Allocator, backendName: []const u8) []i32 {
         const backendName_str = qtc.libqt_string{
             .len = backendName.len,
             .data = backendName.ptr,
@@ -2299,14 +2344,14 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` addr: qhostaddress_enums.SpecialAddress `
     ///
     /// ` port: u16 `
     ///
-    pub fn Bind2(self: ?*anyopaque, addr: i32, port: u16) bool {
-        return qtc.QTcpSocket_Bind2(@ptrCast(self), @bitCast(addr), @bitCast(port));
+    pub fn Bind2(self: QSslSocket, addr: i32, port: u16) bool {
+        return qtc.QTcpSocket_Bind2(@ptrCast(self.ptr), @bitCast(addr), @bitCast(port));
     }
 
     /// Inherited from QTcpSocket
@@ -2315,7 +2360,7 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` addr: qhostaddress_enums.SpecialAddress `
     ///
@@ -2323,8 +2368,8 @@ pub const qsslsocket = struct {
     ///
     /// ` mode: flag of qabstractsocket_enums.BindFlag `
     ///
-    pub fn Bind3(self: ?*anyopaque, addr: i32, port: u16, mode: i32) bool {
-        return qtc.QTcpSocket_Bind3(@ptrCast(self), @bitCast(addr), @bitCast(port), @bitCast(mode));
+    pub fn Bind3(self: QSslSocket, addr: i32, port: u16, mode: i32) bool {
+        return qtc.QTcpSocket_Bind3(@ptrCast(self.ptr), @bitCast(addr), @bitCast(port), @bitCast(mode));
     }
 
     /// Inherited from QAbstractSocket
@@ -2333,14 +2378,14 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ## Returns:
     ///
     /// ` flag of qabstractsocket_enums.PauseMode `
     ///
-    pub fn PauseMode(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSocket_PauseMode(@ptrCast(self));
+    pub fn PauseMode(self: QSslSocket) i32 {
+        return qtc.QAbstractSocket_PauseMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -2349,12 +2394,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` pauseMode: flag of qabstractsocket_enums.PauseMode `
     ///
-    pub fn SetPauseMode(self: ?*anyopaque, pauseMode: i32) void {
-        qtc.QAbstractSocket_SetPauseMode(@ptrCast(self), @bitCast(pauseMode));
+    pub fn SetPauseMode(self: QSslSocket, pauseMode: i32) void {
+        qtc.QAbstractSocket_SetPauseMode(@ptrCast(self.ptr), @bitCast(pauseMode));
     }
 
     /// Inherited from QAbstractSocket
@@ -2363,14 +2408,15 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` address: QtC.QHostAddress `
+    /// ` address: QHostAddress `
     ///
     /// ` port: u16 `
     ///
-    pub fn ConnectToHost2(self: ?*anyopaque, address: ?*anyopaque, port: u16) void {
-        qtc.QAbstractSocket_ConnectToHost2(@ptrCast(self), @ptrCast(address), @bitCast(port));
+    pub fn ConnectToHost2(self: QSslSocket, address: anytype, port: u16) void {
+        comptime _ = @TypeOf(address)._is_QHostAddress;
+        qtc.QAbstractSocket_ConnectToHost2(@ptrCast(self.ptr), @ptrCast(address.ptr), @bitCast(port));
     }
 
     /// Inherited from QAbstractSocket
@@ -2379,10 +2425,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.QAbstractSocket_IsValid(@ptrCast(self));
+    pub fn IsValid(self: QSslSocket) bool {
+        return qtc.QAbstractSocket_IsValid(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -2391,10 +2437,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn LocalPort(self: ?*anyopaque) u16 {
-        return qtc.QAbstractSocket_LocalPort(@ptrCast(self));
+    pub fn LocalPort(self: QSslSocket) u16 {
+        return qtc.QAbstractSocket_LocalPort(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -2403,10 +2449,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn LocalAddress(self: ?*anyopaque) QtC.QHostAddress {
-        return qtc.QAbstractSocket_LocalAddress(@ptrCast(self));
+    pub fn LocalAddress(self: QSslSocket) QHostAddress {
+        return .{ .ptr = qtc.QAbstractSocket_LocalAddress(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractSocket
@@ -2415,10 +2461,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn PeerPort(self: ?*anyopaque) u16 {
-        return qtc.QAbstractSocket_PeerPort(@ptrCast(self));
+    pub fn PeerPort(self: QSslSocket) u16 {
+        return qtc.QAbstractSocket_PeerPort(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -2427,10 +2473,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn PeerAddress(self: ?*anyopaque) QtC.QHostAddress {
-        return qtc.QAbstractSocket_PeerAddress(@ptrCast(self));
+    pub fn PeerAddress(self: QSslSocket) QHostAddress {
+        return .{ .ptr = qtc.QAbstractSocket_PeerAddress(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractSocket
@@ -2439,12 +2485,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PeerName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAbstractSocket_PeerName(@ptrCast(self));
+    pub fn PeerName(self: QSslSocket, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QAbstractSocket_PeerName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslsocket.PeerName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2457,10 +2503,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn ReadBufferSize(self: ?*anyopaque) i64 {
-        return qtc.QAbstractSocket_ReadBufferSize(@ptrCast(self));
+    pub fn ReadBufferSize(self: QSslSocket) i64 {
+        return qtc.QAbstractSocket_ReadBufferSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -2469,10 +2515,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn Abort(self: ?*anyopaque) void {
-        qtc.QAbstractSocket_Abort(@ptrCast(self));
+    pub fn Abort(self: QSslSocket) void {
+        qtc.QAbstractSocket_Abort(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -2481,14 +2527,14 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ## Returns:
     ///
     /// ` qabstractsocket_enums.SocketType `
     ///
-    pub fn SocketType(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSocket_SocketType(@ptrCast(self));
+    pub fn SocketType(self: QSslSocket) i32 {
+        return qtc.QAbstractSocket_SocketType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -2497,14 +2543,14 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ## Returns:
     ///
     /// ` qabstractsocket_enums.SocketState `
     ///
-    pub fn State(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSocket_State(@ptrCast(self));
+    pub fn State(self: QSslSocket) i32 {
+        return qtc.QAbstractSocket_State(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -2513,14 +2559,14 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ## Returns:
     ///
     /// ` qabstractsocket_enums.SocketError `
     ///
-    pub fn Error(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSocket_Error(@ptrCast(self));
+    pub fn Error(self: QSslSocket) i32 {
+        return qtc.QAbstractSocket_Error(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -2529,10 +2575,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn Flush(self: ?*anyopaque) bool {
-        return qtc.QAbstractSocket_Flush(@ptrCast(self));
+    pub fn Flush(self: QSslSocket) bool {
+        return qtc.QAbstractSocket_Flush(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -2541,12 +2587,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` networkProxy: QtC.QNetworkProxy `
+    /// ` networkProxy: QNetworkProxy `
     ///
-    pub fn SetProxy(self: ?*anyopaque, networkProxy: ?*anyopaque) void {
-        qtc.QAbstractSocket_SetProxy(@ptrCast(self), @ptrCast(networkProxy));
+    pub fn SetProxy(self: QSslSocket, networkProxy: anytype) void {
+        comptime _ = @TypeOf(networkProxy)._is_QNetworkProxy;
+        qtc.QAbstractSocket_SetProxy(@ptrCast(self.ptr), @ptrCast(networkProxy.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -2555,10 +2602,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn Proxy(self: ?*anyopaque) QtC.QNetworkProxy {
-        return qtc.QAbstractSocket_Proxy(@ptrCast(self));
+    pub fn Proxy(self: QSslSocket) QNetworkProxy {
+        return .{ .ptr = qtc.QAbstractSocket_Proxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractSocket
@@ -2567,12 +2614,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ProtocolTag(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAbstractSocket_ProtocolTag(@ptrCast(self));
+    pub fn ProtocolTag(self: QSslSocket, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QAbstractSocket_ProtocolTag(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslsocket.ProtocolTag: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2585,16 +2632,16 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` tag: []const u8 `
     ///
-    pub fn SetProtocolTag(self: ?*anyopaque, tag: []const u8) void {
+    pub fn SetProtocolTag(self: QSslSocket, tag: []const u8) void {
         const tag_str = qtc.libqt_string{
             .len = tag.len,
             .data = tag.ptr,
         };
-        qtc.QAbstractSocket_SetProtocolTag(@ptrCast(self), tag_str);
+        qtc.QAbstractSocket_SetProtocolTag(@ptrCast(self.ptr), tag_str);
     }
 
     /// Inherited from QAbstractSocket
@@ -2603,10 +2650,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn HostFound(self: ?*anyopaque) void {
-        qtc.QAbstractSocket_HostFound(@ptrCast(self));
+    pub fn HostFound(self: QSslSocket) void {
+        qtc.QAbstractSocket_HostFound(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -2615,12 +2662,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket) callconv(.c) void `
     ///
-    pub fn OnHostFound(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSocket_Connect_HostFound(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHostFound(self: QSslSocket, callback: *const fn (QSslSocket) callconv(.c) void) void {
+        qtc.QAbstractSocket_Connect_HostFound(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -2629,10 +2676,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn Connected(self: ?*anyopaque) void {
-        qtc.QAbstractSocket_Connected(@ptrCast(self));
+    pub fn Connected(self: QSslSocket) void {
+        qtc.QAbstractSocket_Connected(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -2641,12 +2688,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket) callconv(.c) void `
     ///
-    pub fn OnConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSocket_Connect_Connected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnected(self: QSslSocket, callback: *const fn (QSslSocket) callconv(.c) void) void {
+        qtc.QAbstractSocket_Connect_Connected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -2655,10 +2702,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn Disconnected(self: ?*anyopaque) void {
-        qtc.QAbstractSocket_Disconnected(@ptrCast(self));
+    pub fn Disconnected(self: QSslSocket) void {
+        qtc.QAbstractSocket_Disconnected(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -2667,12 +2714,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket) callconv(.c) void `
     ///
-    pub fn OnDisconnected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSocket_Connect_Disconnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnected(self: QSslSocket, callback: *const fn (QSslSocket) callconv(.c) void) void {
+        qtc.QAbstractSocket_Connect_Disconnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -2681,12 +2728,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` param1: qabstractsocket_enums.SocketState `
     ///
-    pub fn StateChanged(self: ?*anyopaque, param1: i32) void {
-        qtc.QAbstractSocket_StateChanged(@ptrCast(self), @bitCast(param1));
+    pub fn StateChanged(self: QSslSocket, param1: i32) void {
+        qtc.QAbstractSocket_StateChanged(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QAbstractSocket
@@ -2695,12 +2742,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, param1: qabstractsocket_enums.SocketState) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, param1: qabstractsocket_enums.SocketState) callconv(.c) void `
     ///
-    pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractSocket_Connect_StateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStateChanged(self: QSslSocket, callback: *const fn (QSslSocket, i32) callconv(.c) void) void {
+        qtc.QAbstractSocket_Connect_StateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -2709,12 +2756,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` param1: qabstractsocket_enums.SocketError `
     ///
-    pub fn ErrorOccurred(self: ?*anyopaque, param1: i32) void {
-        qtc.QAbstractSocket_ErrorOccurred(@ptrCast(self), @bitCast(param1));
+    pub fn ErrorOccurred(self: QSslSocket, param1: i32) void {
+        qtc.QAbstractSocket_ErrorOccurred(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QAbstractSocket
@@ -2723,12 +2770,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, param1: qabstractsocket_enums.SocketError) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, param1: qabstractsocket_enums.SocketError) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractSocket_Connect_ErrorOccurred(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnErrorOccurred(self: QSslSocket, callback: *const fn (QSslSocket, i32) callconv(.c) void) void {
+        qtc.QAbstractSocket_Connect_ErrorOccurred(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -2737,14 +2784,16 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` proxy: QtC.QNetworkProxy `
+    /// ` proxy: QNetworkProxy `
     ///
-    /// ` authenticator: QtC.QAuthenticator `
+    /// ` authenticator: QAuthenticator `
     ///
-    pub fn ProxyAuthenticationRequired(self: ?*anyopaque, proxy: ?*anyopaque, authenticator: ?*anyopaque) void {
-        qtc.QAbstractSocket_ProxyAuthenticationRequired(@ptrCast(self), @ptrCast(proxy), @ptrCast(authenticator));
+    pub fn ProxyAuthenticationRequired(self: QSslSocket, proxy: anytype, authenticator: anytype) void {
+        comptime _ = @TypeOf(proxy)._is_QNetworkProxy;
+        comptime _ = @TypeOf(authenticator)._is_QAuthenticator;
+        qtc.QAbstractSocket_ProxyAuthenticationRequired(@ptrCast(self.ptr), @ptrCast(proxy.ptr), @ptrCast(authenticator.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -2753,12 +2802,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, proxy: QtC.QNetworkProxy, authenticator: QtC.QAuthenticator) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, proxy: QNetworkProxy, authenticator: QAuthenticator) callconv(.c) void `
     ///
-    pub fn OnProxyAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSocket_Connect_ProxyAuthenticationRequired(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnProxyAuthenticationRequired(self: QSslSocket, callback: *const fn (QSslSocket, QNetworkProxy, QAuthenticator) callconv(.c) void) void {
+        qtc.QAbstractSocket_Connect_ProxyAuthenticationRequired(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -2767,12 +2816,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` port: u16 `
     ///
-    pub fn Bind1(self: ?*anyopaque, port: u16) bool {
-        return qtc.QAbstractSocket_Bind1(@ptrCast(self), @bitCast(port));
+    pub fn Bind1(self: QSslSocket, port: u16) bool {
+        return qtc.QAbstractSocket_Bind1(@ptrCast(self.ptr), @bitCast(port));
     }
 
     /// Inherited from QAbstractSocket
@@ -2781,14 +2830,14 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` port: u16 `
     ///
     /// ` mode: flag of qabstractsocket_enums.BindFlag `
     ///
-    pub fn Bind22(self: ?*anyopaque, port: u16, mode: i32) bool {
-        return qtc.QAbstractSocket_Bind22(@ptrCast(self), @bitCast(port), @bitCast(mode));
+    pub fn Bind22(self: QSslSocket, port: u16, mode: i32) bool {
+        return qtc.QAbstractSocket_Bind22(@ptrCast(self.ptr), @bitCast(port), @bitCast(mode));
     }
 
     /// Inherited from QAbstractSocket
@@ -2797,16 +2846,17 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` address: QtC.QHostAddress `
+    /// ` address: QHostAddress `
     ///
     /// ` port: u16 `
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn ConnectToHost3(self: ?*anyopaque, address: ?*anyopaque, port: u16, mode: i32) void {
-        qtc.QAbstractSocket_ConnectToHost3(@ptrCast(self), @ptrCast(address), @bitCast(port), @bitCast(mode));
+    pub fn ConnectToHost3(self: QSslSocket, address: anytype, port: u16, mode: i32) void {
+        comptime _ = @TypeOf(address)._is_QHostAddress;
+        qtc.QAbstractSocket_ConnectToHost3(@ptrCast(self.ptr), @ptrCast(address.ptr), @bitCast(port), @bitCast(mode));
     }
 
     /// Inherited from QIODevice
@@ -2815,14 +2865,14 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ## Returns:
     ///
     /// ` flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn OpenMode(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_OpenMode(@ptrCast(self));
+    pub fn OpenMode(self: QSslSocket) i32 {
+        return qtc.QIODevice_OpenMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -2831,12 +2881,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetTextModeEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QIODevice_SetTextModeEnabled(@ptrCast(self), enabled);
+    pub fn SetTextModeEnabled(self: QSslSocket, enabled: bool) void {
+        qtc.QIODevice_SetTextModeEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QIODevice
@@ -2845,10 +2895,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn IsTextModeEnabled(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsTextModeEnabled(@ptrCast(self));
+    pub fn IsTextModeEnabled(self: QSslSocket) bool {
+        return qtc.QIODevice_IsTextModeEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -2857,10 +2907,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn IsOpen(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsOpen(@ptrCast(self));
+    pub fn IsOpen(self: QSslSocket) bool {
+        return qtc.QIODevice_IsOpen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -2869,10 +2919,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn IsReadable(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsReadable(@ptrCast(self));
+    pub fn IsReadable(self: QSslSocket) bool {
+        return qtc.QIODevice_IsReadable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -2881,10 +2931,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn IsWritable(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsWritable(@ptrCast(self));
+    pub fn IsWritable(self: QSslSocket) bool {
+        return qtc.QIODevice_IsWritable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -2893,10 +2943,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn ReadChannelCount(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_ReadChannelCount(@ptrCast(self));
+    pub fn ReadChannelCount(self: QSslSocket) i32 {
+        return qtc.QIODevice_ReadChannelCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -2905,10 +2955,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn WriteChannelCount(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_WriteChannelCount(@ptrCast(self));
+    pub fn WriteChannelCount(self: QSslSocket) i32 {
+        return qtc.QIODevice_WriteChannelCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -2917,10 +2967,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn CurrentReadChannel(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_CurrentReadChannel(@ptrCast(self));
+    pub fn CurrentReadChannel(self: QSslSocket) i32 {
+        return qtc.QIODevice_CurrentReadChannel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -2929,12 +2979,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentReadChannel(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self), @bitCast(channel));
+    pub fn SetCurrentReadChannel(self: QSslSocket, channel: i32) void {
+        qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -2943,10 +2993,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn CurrentWriteChannel(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_CurrentWriteChannel(@ptrCast(self));
+    pub fn CurrentWriteChannel(self: QSslSocket) i32 {
+        return qtc.QIODevice_CurrentWriteChannel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -2955,12 +3005,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentWriteChannel(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self), @bitCast(channel));
+    pub fn SetCurrentWriteChannel(self: QSslSocket, channel: i32) void {
+        qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -2969,15 +3019,15 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Read(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn Read(self: QSslSocket, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Read(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QIODevice_Read(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -2986,14 +3036,14 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
-    ///
-    /// ` maxlen: i64 `
+    /// ` self: QSslSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @bitCast(maxlen));
+    /// ` maxlen: i64 `
+    ///
+    pub fn Read2(self: QSslSocket, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslsocket.Read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3006,12 +3056,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadAll(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self));
+    pub fn ReadAll(self: QSslSocket, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslsocket.ReadAll: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3024,15 +3074,15 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLine(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn ReadLine(self: QSslSocket, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_ReadLine(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QIODevice_ReadLine(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -3041,12 +3091,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadLine2(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self));
+    pub fn ReadLine2(self: QSslSocket, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslsocket.ReadLine2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3059,10 +3109,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn StartTransaction(self: ?*anyopaque) void {
-        qtc.QIODevice_StartTransaction(@ptrCast(self));
+    pub fn StartTransaction(self: QSslSocket) void {
+        qtc.QIODevice_StartTransaction(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -3071,10 +3121,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn CommitTransaction(self: ?*anyopaque) void {
-        qtc.QIODevice_CommitTransaction(@ptrCast(self));
+    pub fn CommitTransaction(self: QSslSocket) void {
+        qtc.QIODevice_CommitTransaction(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -3083,10 +3133,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn RollbackTransaction(self: ?*anyopaque) void {
-        qtc.QIODevice_RollbackTransaction(@ptrCast(self));
+    pub fn RollbackTransaction(self: QSslSocket) void {
+        qtc.QIODevice_RollbackTransaction(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -3095,10 +3145,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn IsTransactionStarted(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsTransactionStarted(@ptrCast(self));
+    pub fn IsTransactionStarted(self: QSslSocket) bool {
+        return qtc.QIODevice_IsTransactionStarted(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -3107,15 +3157,15 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` data: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn Write(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn Write(self: QSslSocket, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Write(@ptrCast(self), data_Cstring, @bitCast(lenVal));
+        return qtc.QIODevice_Write(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
     }
 
     /// Inherited from QIODevice
@@ -3124,13 +3174,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` data: [:0]const u8 `
     ///
-    pub fn Write2(self: ?*anyopaque, data: [:0]const u8) i64 {
+    pub fn Write2(self: QSslSocket, data: [:0]const u8) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Write2(@ptrCast(self), data_Cstring);
+        return qtc.QIODevice_Write2(@ptrCast(self.ptr), data_Cstring);
     }
 
     /// Inherited from QIODevice
@@ -3139,16 +3189,16 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` data: []u8 `
     ///
-    pub fn Write3(self: ?*anyopaque, data: []u8) i64 {
+    pub fn Write3(self: QSslSocket, data: []u8) i64 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.QIODevice_Write3(@ptrCast(self), data_str);
+        return qtc.QIODevice_Write3(@ptrCast(self.ptr), data_str);
     }
 
     /// Inherited from QIODevice
@@ -3157,15 +3207,15 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Peek(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn Peek(self: QSslSocket, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Peek(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QIODevice_Peek(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -3174,14 +3224,14 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
-    ///
-    /// ` maxlen: i64 `
+    /// ` self: QSslSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @bitCast(maxlen));
+    /// ` maxlen: i64 `
+    ///
+    pub fn Peek2(self: QSslSocket, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslsocket.Peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3194,12 +3244,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn Skip(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QIODevice_Skip(@ptrCast(self), @bitCast(maxSize));
+    pub fn Skip(self: QSslSocket, maxSize: i64) i64 {
+        return qtc.QIODevice_Skip(@ptrCast(self.ptr), @bitCast(maxSize));
     }
 
     /// Inherited from QIODevice
@@ -3208,12 +3258,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` c: u8 `
     ///
-    pub fn UngetChar(self: ?*anyopaque, c: u8) void {
-        qtc.QIODevice_UngetChar(@ptrCast(self), @bitCast(c));
+    pub fn UngetChar(self: QSslSocket, c: u8) void {
+        qtc.QIODevice_UngetChar(@ptrCast(self.ptr), @bitCast(c));
     }
 
     /// Inherited from QIODevice
@@ -3222,12 +3272,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` c: u8 `
     ///
-    pub fn PutChar(self: ?*anyopaque, c: u8) bool {
-        return qtc.QIODevice_PutChar(@ptrCast(self), @bitCast(c));
+    pub fn PutChar(self: QSslSocket, c: u8) bool {
+        return qtc.QIODevice_PutChar(@ptrCast(self.ptr), @bitCast(c));
     }
 
     /// Inherited from QIODevice
@@ -3236,13 +3286,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` c: [:0]u8 `
     ///
-    pub fn GetChar(self: ?*anyopaque, c: [:0]u8) bool {
+    pub fn GetChar(self: QSslSocket, c: [:0]u8) bool {
         const c_Cstring = c.ptr;
-        return qtc.QIODevice_GetChar(@ptrCast(self), c_Cstring);
+        return qtc.QIODevice_GetChar(@ptrCast(self.ptr), c_Cstring);
     }
 
     /// Inherited from QIODevice
@@ -3251,12 +3301,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QIODevice_ErrorString(@ptrCast(self));
+    pub fn ErrorString(self: QSslSocket, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QIODevice_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslsocket.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3269,10 +3319,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn ReadyRead(self: ?*anyopaque) void {
-        qtc.QIODevice_ReadyRead(@ptrCast(self));
+    pub fn ReadyRead(self: QSslSocket) void {
+        qtc.QIODevice_ReadyRead(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -3281,12 +3331,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket) callconv(.c) void `
     ///
-    pub fn OnReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadyRead(self: QSslSocket, callback: *const fn (QSslSocket) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3295,12 +3345,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` channel: i32 `
     ///
-    pub fn ChannelReadyRead(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_ChannelReadyRead(@ptrCast(self), @bitCast(channel));
+    pub fn ChannelReadyRead(self: QSslSocket, channel: i32) void {
+        qtc.QIODevice_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -3309,12 +3359,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, channel: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, channel: i32) callconv(.c) void `
     ///
-    pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChannelReadyRead(self: QSslSocket, callback: *const fn (QSslSocket, i32) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3323,12 +3373,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` bytes: i64 `
     ///
-    pub fn BytesWritten(self: ?*anyopaque, bytes: i64) void {
-        qtc.QIODevice_BytesWritten(@ptrCast(self), @bitCast(bytes));
+    pub fn BytesWritten(self: QSslSocket, bytes: i64) void {
+        qtc.QIODevice_BytesWritten(@ptrCast(self.ptr), @bitCast(bytes));
     }
 
     /// Inherited from QIODevice
@@ -3337,12 +3387,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, bytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBytesWritten(self: QSslSocket, callback: *const fn (QSslSocket, i64) callconv(.c) void) void {
+        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3351,14 +3401,14 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` channel: i32 `
     ///
     /// ` bytes: i64 `
     ///
-    pub fn ChannelBytesWritten(self: ?*anyopaque, channel: i32, bytes: i64) void {
-        qtc.QIODevice_ChannelBytesWritten(@ptrCast(self), @bitCast(channel), @bitCast(bytes));
+    pub fn ChannelBytesWritten(self: QSslSocket, channel: i32, bytes: i64) void {
+        qtc.QIODevice_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(channel), @bitCast(bytes));
     }
 
     /// Inherited from QIODevice
@@ -3367,12 +3417,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, channel: i32, bytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, channel: i32, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChannelBytesWritten(self: QSslSocket, callback: *const fn (QSslSocket, i32, i64) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3381,10 +3431,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn AboutToClose(self: ?*anyopaque) void {
-        qtc.QIODevice_AboutToClose(@ptrCast(self));
+    pub fn AboutToClose(self: QSslSocket) void {
+        qtc.QIODevice_AboutToClose(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -3393,12 +3443,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket) callconv(.c) void `
     ///
-    pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAboutToClose(self: QSslSocket, callback: *const fn (QSslSocket) callconv(.c) void) void {
+        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3407,10 +3457,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn ReadChannelFinished(self: ?*anyopaque) void {
-        qtc.QIODevice_ReadChannelFinished(@ptrCast(self));
+    pub fn ReadChannelFinished(self: QSslSocket) void {
+        qtc.QIODevice_ReadChannelFinished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -3419,12 +3469,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket) callconv(.c) void `
     ///
-    pub fn OnReadChannelFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadChannelFinished(self: QSslSocket, callback: *const fn (QSslSocket) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3433,14 +3483,14 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
-    ///
-    /// ` maxlen: i64 `
+    /// ` self: QSslSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @bitCast(maxlen));
+    /// ` maxlen: i64 `
+    ///
+    pub fn ReadLine1(self: QSslSocket, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslsocket.ReadLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3453,12 +3503,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QSslSocket, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslsocket.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3471,12 +3521,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QSslSocket, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -3485,10 +3535,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QSslSocket) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3497,10 +3547,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QSslSocket) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3509,10 +3559,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QSslSocket) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3521,10 +3571,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QSslSocket) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3533,12 +3583,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QSslSocket, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -3547,10 +3597,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QSslSocket) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3559,12 +3609,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QSslSocket, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -3573,12 +3624,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QSslSocket, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -3587,12 +3638,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QSslSocket, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -3601,12 +3652,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QSslSocket, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -3615,12 +3666,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QSslSocket, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -3629,16 +3680,17 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QSslSocket, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qsslsocket.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qsslsocket.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -3648,12 +3700,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QSslSocket, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -3662,12 +3715,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QSslSocket, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -3676,12 +3730,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QSslSocket, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -3690,18 +3745,20 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -3710,16 +3767,20 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3728,18 +3789,19 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QSslSocket, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -3748,18 +3810,20 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -3768,16 +3832,20 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -3786,10 +3854,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QSslSocket) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3798,12 +3866,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QSslSocket, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -3812,10 +3881,11 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -3824,10 +3894,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QSslSocket) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3836,10 +3906,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QSslSocket) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3848,15 +3918,16 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QSslSocket, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -3865,13 +3936,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QSslSocket, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -3880,17 +3951,16 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QSslSocket, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qsslsocket.DynamicPropertyNames: Memory allocation failed");
@@ -3909,10 +3979,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QSslSocket) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3921,10 +3991,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QSslSocket) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3933,10 +4003,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QSslSocket) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3945,12 +4015,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QSslSocket, callback: *const fn (QSslSocket) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3959,10 +4029,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QSslSocket) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3971,13 +4041,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QSslSocket, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -3986,10 +4056,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QSslSocket) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3998,14 +4068,14 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QSslSocket, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -4014,14 +4084,14 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QSslSocket, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -4030,20 +4100,22 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -4052,18 +4124,22 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -4072,9 +4148,9 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4082,10 +4158,11 @@ pub const qsslsocket = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QSslSocket, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -4094,13 +4171,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QSslSocket, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -4109,15 +4186,16 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QSslSocket, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -4126,18 +4204,19 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QSslSocket, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -4146,15 +4225,16 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QSslSocket, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -4163,12 +4243,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QSslSocket, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -4177,12 +4258,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QSslSocket, callback: *const fn (QSslSocket, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -4193,16 +4274,17 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` address: QtC.QHostAddress `
+    /// ` address: QHostAddress `
     ///
     /// ` port: u16 `
     ///
     /// ` mode: flag of qabstractsocket_enums.BindFlag `
     ///
-    pub fn Bind(self: ?*anyopaque, address: ?*anyopaque, port: u16, mode: i32) bool {
-        return qtc.QSslSocket_Bind(@ptrCast(self), @ptrCast(address), @bitCast(port), @bitCast(mode));
+    pub fn Bind(self: QSslSocket, address: anytype, port: u16, mode: i32) bool {
+        comptime _ = @TypeOf(address)._is_QHostAddress;
+        return qtc.QSslSocket_Bind(@ptrCast(self.ptr), @ptrCast(address.ptr), @bitCast(port), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `SuperBind` instead
@@ -4217,16 +4299,17 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` address: QtC.QHostAddress `
+    /// ` address: QHostAddress `
     ///
     /// ` port: u16 `
     ///
     /// ` mode: flag of qabstractsocket_enums.BindFlag `
     ///
-    pub fn SuperBind(self: ?*anyopaque, address: ?*anyopaque, port: u16, mode: i32) bool {
-        return qtc.QSslSocket_SuperBind(@ptrCast(self), @ptrCast(address), @bitCast(port), @bitCast(mode));
+    pub fn SuperBind(self: QSslSocket, address: anytype, port: u16, mode: i32) bool {
+        comptime _ = @TypeOf(address)._is_QHostAddress;
+        return qtc.QSslSocket_SuperBind(@ptrCast(self.ptr), @ptrCast(address.ptr), @bitCast(port), @bitCast(mode));
     }
 
     /// Inherited from QAbstractSocket
@@ -4237,12 +4320,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, address: QtC.QHostAddress, port: u16, mode: flag of qabstractsocket_enums.BindFlag) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSslSocket, address: QHostAddress, port: u16, mode: flag of qabstractsocket_enums.BindFlag) callconv(.c) bool `
     ///
-    pub fn OnBind(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u16, i32) callconv(.c) bool) void {
-        qtc.QSslSocket_OnBind(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBind(self: QSslSocket, callback: *const fn (QSslSocket, QHostAddress, u16, i32) callconv(.c) bool) void {
+        qtc.QSslSocket_OnBind(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -4253,10 +4336,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn SocketDescriptor(self: ?*anyopaque) isize {
-        return qtc.QSslSocket_SocketDescriptor(@ptrCast(self));
+    pub fn SocketDescriptor(self: QSslSocket) isize {
+        return qtc.QSslSocket_SocketDescriptor(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSocketDescriptor` instead
@@ -4271,10 +4354,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn SuperSocketDescriptor(self: ?*anyopaque) isize {
-        return qtc.QSslSocket_SuperSocketDescriptor(@ptrCast(self));
+    pub fn SuperSocketDescriptor(self: QSslSocket) isize {
+        return qtc.QSslSocket_SuperSocketDescriptor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -4285,12 +4368,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
     /// ` callback: *const fn () callconv(.c) isize `
     ///
-    pub fn OnSocketDescriptor(self: ?*anyopaque, callback: *const fn () callconv(.c) isize) void {
-        qtc.QSslSocket_OnSocketDescriptor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSocketDescriptor(self: QSslSocket, callback: *const fn () callconv(.c) isize) void {
+        qtc.QSslSocket_OnSocketDescriptor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -4301,10 +4384,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn IsSequential(self: ?*anyopaque) bool {
-        return qtc.QSslSocket_IsSequential(@ptrCast(self));
+    pub fn IsSequential(self: QSslSocket) bool {
+        return qtc.QSslSocket_IsSequential(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSequential` instead
@@ -4319,10 +4402,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn SuperIsSequential(self: ?*anyopaque) bool {
-        return qtc.QSslSocket_SuperIsSequential(@ptrCast(self));
+    pub fn SuperIsSequential(self: QSslSocket) bool {
+        return qtc.QSslSocket_SuperIsSequential(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -4333,12 +4416,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsSequential(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QSslSocket_OnIsSequential(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSequential(self: QSslSocket, callback: *const fn () callconv(.c) bool) void {
+        qtc.QSslSocket_OnIsSequential(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -4349,15 +4432,15 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn ReadLineData(self: QSslSocket, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QSslSocket_ReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QSslSocket_ReadLineData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// ### DEPRECATED: Use `SuperReadLineData` instead
@@ -4372,15 +4455,15 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn SuperReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn SuperReadLineData(self: QSslSocket, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QSslSocket_SuperReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QSslSocket_SuperReadLineData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QAbstractSocket
@@ -4391,12 +4474,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: QSslSocket, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
-    pub fn OnReadLineData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, i64) callconv(.c) i64) void {
-        qtc.QSslSocket_OnReadLineData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadLineData(self: QSslSocket, callback: *const fn (QSslSocket, qtc.libqt_string, i64) callconv(.c) i64) void {
+        qtc.QSslSocket_OnReadLineData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -4407,12 +4490,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn Open(self: ?*anyopaque, mode: i32) bool {
-        return qtc.QSslSocket_Open(@ptrCast(self), @bitCast(mode));
+    pub fn Open(self: QSslSocket, mode: i32) bool {
+        return qtc.QSslSocket_Open(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `SuperOpen` instead
@@ -4427,12 +4510,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperOpen(self: ?*anyopaque, mode: i32) bool {
-        return qtc.QSslSocket_SuperOpen(@ptrCast(self), @bitCast(mode));
+    pub fn SuperOpen(self: QSslSocket, mode: i32) bool {
+        return qtc.QSslSocket_SuperOpen(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// Inherited from QIODevice
@@ -4443,12 +4526,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSslSocket, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
     ///
-    pub fn OnOpen(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QSslSocket_OnOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnOpen(self: QSslSocket, callback: *const fn (QSslSocket, i32) callconv(.c) bool) void {
+        qtc.QSslSocket_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -4459,10 +4542,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn Pos(self: ?*anyopaque) i64 {
-        return qtc.QSslSocket_Pos(@ptrCast(self));
+    pub fn Pos(self: QSslSocket) i64 {
+        return qtc.QSslSocket_Pos(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperPos` instead
@@ -4477,10 +4560,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn SuperPos(self: ?*anyopaque) i64 {
-        return qtc.QSslSocket_SuperPos(@ptrCast(self));
+    pub fn SuperPos(self: QSslSocket) i64 {
+        return qtc.QSslSocket_SuperPos(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -4491,12 +4574,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnPos(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QSslSocket_OnPos(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPos(self: QSslSocket, callback: *const fn () callconv(.c) i64) void {
+        qtc.QSslSocket_OnPos(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -4507,10 +4590,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn Size(self: ?*anyopaque) i64 {
-        return qtc.QSslSocket_Size(@ptrCast(self));
+    pub fn Size(self: QSslSocket) i64 {
+        return qtc.QSslSocket_Size(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSize` instead
@@ -4525,10 +4608,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn SuperSize(self: ?*anyopaque) i64 {
-        return qtc.QSslSocket_SuperSize(@ptrCast(self));
+    pub fn SuperSize(self: QSslSocket) i64 {
+        return qtc.QSslSocket_SuperSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -4539,12 +4622,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnSize(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QSslSocket_OnSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSize(self: QSslSocket, callback: *const fn () callconv(.c) i64) void {
+        qtc.QSslSocket_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -4555,12 +4638,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` pos: i64 `
     ///
-    pub fn Seek(self: ?*anyopaque, pos: i64) bool {
-        return qtc.QSslSocket_Seek(@ptrCast(self), @bitCast(pos));
+    pub fn Seek(self: QSslSocket, pos: i64) bool {
+        return qtc.QSslSocket_Seek(@ptrCast(self.ptr), @bitCast(pos));
     }
 
     /// ### DEPRECATED: Use `SuperSeek` instead
@@ -4575,12 +4658,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` pos: i64 `
     ///
-    pub fn SuperSeek(self: ?*anyopaque, pos: i64) bool {
-        return qtc.QSslSocket_SuperSeek(@ptrCast(self), @bitCast(pos));
+    pub fn SuperSeek(self: QSslSocket, pos: i64) bool {
+        return qtc.QSslSocket_SuperSeek(@ptrCast(self.ptr), @bitCast(pos));
     }
 
     /// Inherited from QIODevice
@@ -4591,12 +4674,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, pos: i64) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSslSocket, pos: i64) callconv(.c) bool `
     ///
-    pub fn OnSeek(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.QSslSocket_OnSeek(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSeek(self: QSslSocket, callback: *const fn (QSslSocket, i64) callconv(.c) bool) void {
+        qtc.QSslSocket_OnSeek(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -4607,10 +4690,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn Reset(self: ?*anyopaque) bool {
-        return qtc.QSslSocket_Reset(@ptrCast(self));
+    pub fn Reset(self: QSslSocket) bool {
+        return qtc.QSslSocket_Reset(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperReset` instead
@@ -4625,10 +4708,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn SuperReset(self: ?*anyopaque) bool {
-        return qtc.QSslSocket_SuperReset(@ptrCast(self));
+    pub fn SuperReset(self: QSslSocket) bool {
+        return qtc.QSslSocket_SuperReset(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -4639,12 +4722,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QSslSocket_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReset(self: QSslSocket, callback: *const fn () callconv(.c) bool) void {
+        qtc.QSslSocket_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4655,12 +4738,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSslSocket_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QSslSocket, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QSslSocket_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -4675,12 +4759,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSslSocket_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QSslSocket, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QSslSocket_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -4691,12 +4776,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSslSocket, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSslSocket_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QSslSocket, callback: *const fn (QSslSocket, QEvent) callconv(.c) bool) void {
+        qtc.QSslSocket_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4707,14 +4792,16 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSslSocket_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QSslSocket, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QSslSocket_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -4729,14 +4816,16 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSslSocket_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QSslSocket, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QSslSocket_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -4747,12 +4836,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSslSocket, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSslSocket_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QSslSocket, callback: *const fn (QSslSocket, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QSslSocket_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4763,12 +4852,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSslSocket_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QSslSocket, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QSslSocket_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -4783,12 +4873,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSslSocket_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QSslSocket, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QSslSocket_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -4799,12 +4890,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSslSocket_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QSslSocket, callback: *const fn (QSslSocket, QTimerEvent) callconv(.c) void) void {
+        qtc.QSslSocket_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4815,12 +4906,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSslSocket_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QSslSocket, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QSslSocket_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -4835,12 +4927,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSslSocket_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QSslSocket, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QSslSocket_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -4851,12 +4944,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSslSocket_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QSslSocket, callback: *const fn (QSslSocket, QChildEvent) callconv(.c) void) void {
+        qtc.QSslSocket_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4867,12 +4960,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSslSocket_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QSslSocket, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QSslSocket_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -4887,12 +4981,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSslSocket_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QSslSocket, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QSslSocket_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -4903,12 +4998,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSslSocket_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QSslSocket, callback: *const fn (QSslSocket, QEvent) callconv(.c) void) void {
+        qtc.QSslSocket_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4919,12 +5014,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSslSocket_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QSslSocket, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSslSocket_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -4939,12 +5035,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSslSocket_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QSslSocket, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSslSocket_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -4955,12 +5052,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSslSocket_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QSslSocket, callback: *const fn (QSslSocket, QMetaMethod) callconv(.c) void) void {
+        qtc.QSslSocket_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4971,12 +5068,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSslSocket_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QSslSocket, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSslSocket_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -4991,12 +5089,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSslSocket_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QSslSocket, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSslSocket_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -5007,12 +5106,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSslSocket_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QSslSocket, callback: *const fn (QSslSocket, QMetaMethod) callconv(.c) void) void {
+        qtc.QSslSocket_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -5023,12 +5122,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` state: qabstractsocket_enums.SocketState `
     ///
-    pub fn SetSocketState(self: ?*anyopaque, state: i32) void {
-        qtc.QSslSocket_SetSocketState(@ptrCast(self), @bitCast(state));
+    pub fn SetSocketState(self: QSslSocket, state: i32) void {
+        qtc.QSslSocket_SetSocketState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// ### DEPRECATED: Use `SuperSetSocketState` instead
@@ -5043,12 +5142,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` state: qabstractsocket_enums.SocketState `
     ///
-    pub fn SuperSetSocketState(self: ?*anyopaque, state: i32) void {
-        qtc.QSslSocket_SuperSetSocketState(@ptrCast(self), @bitCast(state));
+    pub fn SuperSetSocketState(self: QSslSocket, state: i32) void {
+        qtc.QSslSocket_SuperSetSocketState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QAbstractSocket
@@ -5059,12 +5158,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, state: qabstractsocket_enums.SocketState) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, state: qabstractsocket_enums.SocketState) callconv(.c) void `
     ///
-    pub fn OnSetSocketState(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QSslSocket_OnSetSocketState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetSocketState(self: QSslSocket, callback: *const fn (QSslSocket, i32) callconv(.c) void) void {
+        qtc.QSslSocket_OnSetSocketState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -5075,12 +5174,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` socketError: qabstractsocket_enums.SocketError `
     ///
-    pub fn SetSocketError(self: ?*anyopaque, socketError: i32) void {
-        qtc.QSslSocket_SetSocketError(@ptrCast(self), @bitCast(socketError));
+    pub fn SetSocketError(self: QSslSocket, socketError: i32) void {
+        qtc.QSslSocket_SetSocketError(@ptrCast(self.ptr), @bitCast(socketError));
     }
 
     /// ### DEPRECATED: Use `SuperSetSocketError` instead
@@ -5095,12 +5194,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` socketError: qabstractsocket_enums.SocketError `
     ///
-    pub fn SuperSetSocketError(self: ?*anyopaque, socketError: i32) void {
-        qtc.QSslSocket_SuperSetSocketError(@ptrCast(self), @bitCast(socketError));
+    pub fn SuperSetSocketError(self: QSslSocket, socketError: i32) void {
+        qtc.QSslSocket_SuperSetSocketError(@ptrCast(self.ptr), @bitCast(socketError));
     }
 
     /// Inherited from QAbstractSocket
@@ -5111,12 +5210,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, socketError: qabstractsocket_enums.SocketError) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, socketError: qabstractsocket_enums.SocketError) callconv(.c) void `
     ///
-    pub fn OnSetSocketError(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QSslSocket_OnSetSocketError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetSocketError(self: QSslSocket, callback: *const fn (QSslSocket, i32) callconv(.c) void) void {
+        qtc.QSslSocket_OnSetSocketError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -5127,12 +5226,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` port: u16 `
     ///
-    pub fn SetLocalPort(self: ?*anyopaque, port: u16) void {
-        qtc.QSslSocket_SetLocalPort(@ptrCast(self), @bitCast(port));
+    pub fn SetLocalPort(self: QSslSocket, port: u16) void {
+        qtc.QSslSocket_SetLocalPort(@ptrCast(self.ptr), @bitCast(port));
     }
 
     /// ### DEPRECATED: Use `SuperSetLocalPort` instead
@@ -5147,12 +5246,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` port: u16 `
     ///
-    pub fn SuperSetLocalPort(self: ?*anyopaque, port: u16) void {
-        qtc.QSslSocket_SuperSetLocalPort(@ptrCast(self), @bitCast(port));
+    pub fn SuperSetLocalPort(self: QSslSocket, port: u16) void {
+        qtc.QSslSocket_SuperSetLocalPort(@ptrCast(self.ptr), @bitCast(port));
     }
 
     /// Inherited from QAbstractSocket
@@ -5163,12 +5262,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, port: u16) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, port: u16) callconv(.c) void `
     ///
-    pub fn OnSetLocalPort(self: ?*anyopaque, callback: *const fn (?*anyopaque, u16) callconv(.c) void) void {
-        qtc.QSslSocket_OnSetLocalPort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetLocalPort(self: QSslSocket, callback: *const fn (QSslSocket, u16) callconv(.c) void) void {
+        qtc.QSslSocket_OnSetLocalPort(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -5179,12 +5278,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` address: QtC.QHostAddress `
+    /// ` address: QHostAddress `
     ///
-    pub fn SetLocalAddress(self: ?*anyopaque, address: ?*anyopaque) void {
-        qtc.QSslSocket_SetLocalAddress(@ptrCast(self), @ptrCast(address));
+    pub fn SetLocalAddress(self: QSslSocket, address: anytype) void {
+        comptime _ = @TypeOf(address)._is_QHostAddress;
+        qtc.QSslSocket_SetLocalAddress(@ptrCast(self.ptr), @ptrCast(address.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSetLocalAddress` instead
@@ -5199,12 +5299,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` address: QtC.QHostAddress `
+    /// ` address: QHostAddress `
     ///
-    pub fn SuperSetLocalAddress(self: ?*anyopaque, address: ?*anyopaque) void {
-        qtc.QSslSocket_SuperSetLocalAddress(@ptrCast(self), @ptrCast(address));
+    pub fn SuperSetLocalAddress(self: QSslSocket, address: anytype) void {
+        comptime _ = @TypeOf(address)._is_QHostAddress;
+        qtc.QSslSocket_SuperSetLocalAddress(@ptrCast(self.ptr), @ptrCast(address.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -5215,12 +5316,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, address: QtC.QHostAddress) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, address: QHostAddress) callconv(.c) void `
     ///
-    pub fn OnSetLocalAddress(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSslSocket_OnSetLocalAddress(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetLocalAddress(self: QSslSocket, callback: *const fn (QSslSocket, QHostAddress) callconv(.c) void) void {
+        qtc.QSslSocket_OnSetLocalAddress(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -5231,12 +5332,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` port: u16 `
     ///
-    pub fn SetPeerPort(self: ?*anyopaque, port: u16) void {
-        qtc.QSslSocket_SetPeerPort(@ptrCast(self), @bitCast(port));
+    pub fn SetPeerPort(self: QSslSocket, port: u16) void {
+        qtc.QSslSocket_SetPeerPort(@ptrCast(self.ptr), @bitCast(port));
     }
 
     /// ### DEPRECATED: Use `SuperSetPeerPort` instead
@@ -5251,12 +5352,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` port: u16 `
     ///
-    pub fn SuperSetPeerPort(self: ?*anyopaque, port: u16) void {
-        qtc.QSslSocket_SuperSetPeerPort(@ptrCast(self), @bitCast(port));
+    pub fn SuperSetPeerPort(self: QSslSocket, port: u16) void {
+        qtc.QSslSocket_SuperSetPeerPort(@ptrCast(self.ptr), @bitCast(port));
     }
 
     /// Inherited from QAbstractSocket
@@ -5267,12 +5368,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, port: u16) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, port: u16) callconv(.c) void `
     ///
-    pub fn OnSetPeerPort(self: ?*anyopaque, callback: *const fn (?*anyopaque, u16) callconv(.c) void) void {
-        qtc.QSslSocket_OnSetPeerPort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetPeerPort(self: QSslSocket, callback: *const fn (QSslSocket, u16) callconv(.c) void) void {
+        qtc.QSslSocket_OnSetPeerPort(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -5283,12 +5384,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` address: QtC.QHostAddress `
+    /// ` address: QHostAddress `
     ///
-    pub fn SetPeerAddress(self: ?*anyopaque, address: ?*anyopaque) void {
-        qtc.QSslSocket_SetPeerAddress(@ptrCast(self), @ptrCast(address));
+    pub fn SetPeerAddress(self: QSslSocket, address: anytype) void {
+        comptime _ = @TypeOf(address)._is_QHostAddress;
+        qtc.QSslSocket_SetPeerAddress(@ptrCast(self.ptr), @ptrCast(address.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSetPeerAddress` instead
@@ -5303,12 +5405,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` address: QtC.QHostAddress `
+    /// ` address: QHostAddress `
     ///
-    pub fn SuperSetPeerAddress(self: ?*anyopaque, address: ?*anyopaque) void {
-        qtc.QSslSocket_SuperSetPeerAddress(@ptrCast(self), @ptrCast(address));
+    pub fn SuperSetPeerAddress(self: QSslSocket, address: anytype) void {
+        comptime _ = @TypeOf(address)._is_QHostAddress;
+        qtc.QSslSocket_SuperSetPeerAddress(@ptrCast(self.ptr), @ptrCast(address.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -5319,12 +5422,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, address: QtC.QHostAddress) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, address: QHostAddress) callconv(.c) void `
     ///
-    pub fn OnSetPeerAddress(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSslSocket_OnSetPeerAddress(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetPeerAddress(self: QSslSocket, callback: *const fn (QSslSocket, QHostAddress) callconv(.c) void) void {
+        qtc.QSslSocket_OnSetPeerAddress(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -5335,16 +5438,16 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetPeerName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetPeerName(self: QSslSocket, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QSslSocket_SetPeerName(@ptrCast(self), name_str);
+        qtc.QSslSocket_SetPeerName(@ptrCast(self.ptr), name_str);
     }
 
     /// ### DEPRECATED: Use `SuperSetPeerName` instead
@@ -5359,16 +5462,16 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SuperSetPeerName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SuperSetPeerName(self: QSslSocket, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QSslSocket_SuperSetPeerName(@ptrCast(self), name_str);
+        qtc.QSslSocket_SuperSetPeerName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QAbstractSocket
@@ -5379,12 +5482,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, name: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, name: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetPeerName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QSslSocket_OnSetPeerName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetPeerName(self: QSslSocket, callback: *const fn (QSslSocket, [*:0]const u8) callconv(.c) void) void {
+        qtc.QSslSocket_OnSetPeerName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -5395,12 +5498,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SetOpenMode(self: ?*anyopaque, openMode: i32) void {
-        qtc.QSslSocket_SetOpenMode(@ptrCast(self), @bitCast(openMode));
+    pub fn SetOpenMode(self: QSslSocket, openMode: i32) void {
+        qtc.QSslSocket_SetOpenMode(@ptrCast(self.ptr), @bitCast(openMode));
     }
 
     /// ### DEPRECATED: Use `SuperSetOpenMode` instead
@@ -5415,12 +5518,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperSetOpenMode(self: ?*anyopaque, openMode: i32) void {
-        qtc.QSslSocket_SuperSetOpenMode(@ptrCast(self), @bitCast(openMode));
+    pub fn SuperSetOpenMode(self: QSslSocket, openMode: i32) void {
+        qtc.QSslSocket_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(openMode));
     }
 
     /// Inherited from QIODevice
@@ -5431,12 +5534,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
     ///
-    pub fn OnSetOpenMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QSslSocket_OnSetOpenMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetOpenMode(self: QSslSocket, callback: *const fn (QSslSocket, i32) callconv(.c) void) void {
+        qtc.QSslSocket_OnSetOpenMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -5447,16 +5550,16 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn SetErrorString(self: ?*anyopaque, errorString: []const u8) void {
+    pub fn SetErrorString(self: QSslSocket, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QSslSocket_SetErrorString(@ptrCast(self), errorString_str);
+        qtc.QSslSocket_SetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
     /// ### DEPRECATED: Use `SuperSetErrorString` instead
@@ -5471,16 +5574,16 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn SuperSetErrorString(self: ?*anyopaque, errorString: []const u8) void {
+    pub fn SuperSetErrorString(self: QSslSocket, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QSslSocket_SuperSetErrorString(@ptrCast(self), errorString_str);
+        qtc.QSslSocket_SuperSetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
     /// Inherited from QIODevice
@@ -5491,12 +5594,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, errorString: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, errorString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetErrorString(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QSslSocket_OnSetErrorString(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetErrorString(self: QSslSocket, callback: *const fn (QSslSocket, [*:0]const u8) callconv(.c) void) void {
+        qtc.QSslSocket_OnSetErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5507,10 +5610,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QSslSocket_Sender(@ptrCast(self));
+    pub fn Sender(self: QSslSocket) QObject {
+        return .{ .ptr = qtc.QSslSocket_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -5525,10 +5628,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QSslSocket_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QSslSocket) QObject {
+        return .{ .ptr = qtc.QSslSocket_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5539,12 +5642,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QSslSocket_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QSslSocket, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QSslSocket_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5555,10 +5658,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QSslSocket_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QSslSocket) i32 {
+        return qtc.QSslSocket_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -5573,10 +5676,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QSslSocket_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QSslSocket) i32 {
+        return qtc.QSslSocket_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5587,12 +5690,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QSslSocket_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QSslSocket, callback: *const fn () callconv(.c) i32) void {
+        qtc.QSslSocket_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5603,13 +5706,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QSslSocket, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QSslSocket_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QSslSocket_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -5624,13 +5727,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QSslSocket, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QSslSocket_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QSslSocket_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5641,12 +5744,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSslSocket, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QSslSocket_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QSslSocket, callback: *const fn (QSslSocket, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QSslSocket_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5657,12 +5760,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QSslSocket_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QSslSocket, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QSslSocket_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -5677,12 +5781,13 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QSslSocket_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QSslSocket, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QSslSocket_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -5693,12 +5798,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket`
+    /// ` self: QSslSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSslSocket, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSslSocket_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QSslSocket, callback: *const fn (QSslSocket, QMetaMethod) callconv(.c) bool) void {
+        qtc.QSslSocket_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5709,12 +5814,12 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSslSocket, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QSslSocket, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QSslSocket, callback: *const fn (QSslSocket, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -5727,10 +5832,10 @@ pub const qsslsocket = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QSslSocket `
+    /// ` self: QSslSocket `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QSslSocket_Delete(@ptrCast(self));
+    pub fn Delete(self: QSslSocket) void {
+        qtc.QSslSocket_Delete(@ptrCast(self.ptr));
     }
 };
 

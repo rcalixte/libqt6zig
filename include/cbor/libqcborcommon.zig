@@ -4,57 +4,65 @@ const qcborcommon_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html)
-pub const qcborerror = struct {
+pub const QCborError = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QCborError,
+
+    pub const _is_QCborError = {};
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#c-var)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCborError `
+    /// ` self: QCborError `
     ///
     /// ## Returns:
     ///
     /// ` qcborcommon_enums.Code `
     ///
-    pub fn C(self: ?*anyopaque) i32 {
-        return qtc.QCborError_C(@ptrCast(self));
+    pub fn C(self: QCborError) i32 {
+        return qtc.QCborError_C(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#c-var)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCborError `
+    /// ` self: QCborError `
     ///
     /// ` c: qcborcommon_enums.Code `
     ///
-    pub fn SetC(self: ?*anyopaque, c: i32) void {
-        qtc.QCborError_SetC(@ptrCast(self), @bitCast(c));
+    pub fn SetC(self: QCborError, c: i32) void {
+        qtc.QCborError_SetC(@ptrCast(self.ptr), @bitCast(c));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#operator)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCborError `
+    /// ` self: QCborError `
     ///
     /// ## Returns:
     ///
     /// ` qcborcommon_enums.Code `
     ///
-    pub fn ToQCborError__Code(self: ?*anyopaque) i32 {
-        return qtc.QCborError_ToQCborError__Code(@ptrCast(self));
+    pub fn ToQCborError__Code(self: QCborError) i32 {
+        return qtc.QCborError_ToQCborError__Code(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#toString)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCborError `
+    /// ` self: QCborError `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QCborError_ToString(@ptrCast(self));
+    pub fn ToString(self: QCborError, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QCborError_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcborerror.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -71,10 +79,10 @@ pub const qcborerror = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QCborError `
+    /// ` self: QCborError `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QCborError_Delete(@ptrCast(self));
+    pub fn Delete(self: QCborError) void {
+        qtc.QCborError_Delete(@ptrCast(self.ptr));
     }
 };
 

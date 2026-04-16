@@ -4,49 +4,59 @@ const kfile_enums = enums;
 const qdir_enums = @import("../libqdir.zig").enums;
 
 /// ### [Upstream resources](https://api.kde.org/kfile.html)
-pub const kfile = struct {
+pub const KFile = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kfile.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KFile,
+
+    pub const _is_KFile = {};
+
     /// New constructs a new KFile object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.KFile `
+    /// ` other: KFile `
     ///
-    pub fn New(other: ?*anyopaque) QtC.KFile {
-        return qtc.KFile_new(@ptrCast(other));
+    pub fn New(other: anytype) KFile {
+        comptime _ = @TypeOf(other)._is_KFile;
+        return .{ .ptr = qtc.KFile_new(@ptrCast(other.ptr)) };
     }
 
     /// New2 constructs a new KFile object and invalidates the source KFile object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.KFile `
+    /// ` other: KFile `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.KFile {
-        return qtc.KFile_new2(@ptrCast(other));
+    pub fn New2(other: anytype) KFile {
+        comptime _ = @TypeOf(other)._is_KFile;
+        return .{ .ptr = qtc.KFile_new2(@ptrCast(other.ptr)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFile `
+    /// ` self: KFile `
     ///
-    /// ` other: QtC.KFile `
+    /// ` other: KFile `
     ///
-    pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.KFile_CopyAssign(@ptrCast(self), @ptrCast(other));
+    pub fn CopyAssign(self: KFile, other: KFile) void {
+        qtc.KFile_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KFile `
+    /// ` self: KFile `
     ///
-    /// ` other: QtC.KFile `
+    /// ` other: KFile `
     ///
-    pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.KFile_MoveAssign(@ptrCast(self), @ptrCast(other));
+    pub fn MoveAssign(self: KFile, other: KFile) void {
+        qtc.KFile_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfile.html#isSortByName)
@@ -199,10 +209,10 @@ pub const kfile = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KFile `
+    /// ` self: KFile `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KFile_Delete(@ptrCast(self));
+    pub fn Delete(self: KFile) void {
+        qtc.KFile_Delete(@ptrCast(self.ptr));
     }
 };
 

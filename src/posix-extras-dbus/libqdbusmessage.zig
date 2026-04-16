@@ -1,49 +1,62 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QDBusError = @import("libqt6").QDBusError;
+const QVariant = @import("libqt6").QVariant;
 const qdbuserror_enums = @import("libqdbuserror.zig").enums;
 const qdbusmessage_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html)
-pub const qdbusmessage = struct {
+pub const QDBusMessage = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QDBusMessage,
+
+    pub const _is_QDBusMessage = {};
+
     /// New constructs a new QDBusMessage object.
     ///
-    pub fn New() QtC.QDBusMessage {
-        return qtc.QDBusMessage_new();
+    pub fn New() QDBusMessage {
+        return .{ .ptr = qtc.QDBusMessage_new() };
     }
 
     /// New2 constructs a new QDBusMessage object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QDBusMessage `
+    /// ` other: QDBusMessage `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QDBusMessage {
-        return qtc.QDBusMessage_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QDBusMessage {
+        comptime _ = @TypeOf(other)._is_QDBusMessage;
+        return .{ .ptr = qtc.QDBusMessage_new2(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
-    /// ` other: QtC.QDBusMessage `
+    /// ` other: QDBusMessage `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QDBusMessage_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QDBusMessage, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QDBusMessage;
+        qtc.QDBusMessage_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
-    /// ` other: QtC.QDBusMessage `
+    /// ` other: QDBusMessage `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QDBusMessage_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QDBusMessage, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QDBusMessage;
+        qtc.QDBusMessage_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#createSignal)
@@ -56,7 +69,7 @@ pub const qdbusmessage = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn CreateSignal(path: []const u8, interface: []const u8, name: []const u8) QtC.QDBusMessage {
+    pub fn CreateSignal(path: []const u8, interface: []const u8, name: []const u8) QDBusMessage {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -69,7 +82,7 @@ pub const qdbusmessage = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QDBusMessage_CreateSignal(path_str, interface_str, name_str);
+        return .{ .ptr = qtc.QDBusMessage_CreateSignal(path_str, interface_str, name_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#createTargetedSignal)
@@ -84,7 +97,7 @@ pub const qdbusmessage = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn CreateTargetedSignal(service: []const u8, path: []const u8, interface: []const u8, name: []const u8) QtC.QDBusMessage {
+    pub fn CreateTargetedSignal(service: []const u8, path: []const u8, interface: []const u8, name: []const u8) QDBusMessage {
         const service_str = qtc.libqt_string{
             .len = service.len,
             .data = service.ptr,
@@ -101,7 +114,7 @@ pub const qdbusmessage = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QDBusMessage_CreateTargetedSignal(service_str, path_str, interface_str, name_str);
+        return .{ .ptr = qtc.QDBusMessage_CreateTargetedSignal(service_str, path_str, interface_str, name_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#createMethodCall)
@@ -116,7 +129,7 @@ pub const qdbusmessage = struct {
     ///
     /// ` method: []const u8 `
     ///
-    pub fn CreateMethodCall(destination: []const u8, path: []const u8, interface: []const u8, method: []const u8) QtC.QDBusMessage {
+    pub fn CreateMethodCall(destination: []const u8, path: []const u8, interface: []const u8, method: []const u8) QDBusMessage {
         const destination_str = qtc.libqt_string{
             .len = destination.len,
             .data = destination.ptr,
@@ -133,7 +146,7 @@ pub const qdbusmessage = struct {
             .len = method.len,
             .data = method.ptr,
         };
-        return qtc.QDBusMessage_CreateMethodCall(destination_str, path_str, interface_str, method_str);
+        return .{ .ptr = qtc.QDBusMessage_CreateMethodCall(destination_str, path_str, interface_str, method_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#createError)
@@ -144,7 +157,7 @@ pub const qdbusmessage = struct {
     ///
     /// ` msg: []const u8 `
     ///
-    pub fn CreateError(name: []const u8, msg: []const u8) QtC.QDBusMessage {
+    pub fn CreateError(name: []const u8, msg: []const u8) QDBusMessage {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -153,17 +166,18 @@ pub const qdbusmessage = struct {
             .len = msg.len,
             .data = msg.ptr,
         };
-        return qtc.QDBusMessage_CreateError(name_str, msg_str);
+        return .{ .ptr = qtc.QDBusMessage_CreateError(name_str, msg_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#createError)
     ///
     /// ## Parameter(s):
     ///
-    /// ` err: QtC.QDBusError `
+    /// ` err: QDBusError `
     ///
-    pub fn CreateError2(err: ?*anyopaque) QtC.QDBusMessage {
-        return qtc.QDBusMessage_CreateError2(@ptrCast(err));
+    pub fn CreateError2(err: anytype) QDBusMessage {
+        comptime _ = @TypeOf(err)._is_QDBusError;
+        return .{ .ptr = qtc.QDBusMessage_CreateError2(@ptrCast(err.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#createError)
@@ -174,47 +188,48 @@ pub const qdbusmessage = struct {
     ///
     /// ` msg: []const u8 `
     ///
-    pub fn CreateError3(typeVal: i32, msg: []const u8) QtC.QDBusMessage {
+    pub fn CreateError3(typeVal: i32, msg: []const u8) QDBusMessage {
         const msg_str = qtc.libqt_string{
             .len = msg.len,
             .data = msg.ptr,
         };
-        return qtc.QDBusMessage_CreateError3(@bitCast(typeVal), msg_str);
+        return .{ .ptr = qtc.QDBusMessage_CreateError3(@bitCast(typeVal), msg_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#createReply)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
-    pub fn CreateReply(self: ?*anyopaque) QtC.QDBusMessage {
-        return qtc.QDBusMessage_CreateReply(@ptrCast(self));
+    pub fn CreateReply(self: QDBusMessage) QDBusMessage {
+        return .{ .ptr = qtc.QDBusMessage_CreateReply(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#createReply)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
-    /// ` argument: QtC.QVariant `
+    /// ` argument: QVariant `
     ///
-    pub fn CreateReply2(self: ?*anyopaque, argument: ?*anyopaque) QtC.QDBusMessage {
-        return qtc.QDBusMessage_CreateReply2(@ptrCast(self), @ptrCast(argument));
+    pub fn CreateReply2(self: QDBusMessage, argument: anytype) QDBusMessage {
+        comptime _ = @TypeOf(argument)._is_QVariant;
+        return .{ .ptr = qtc.QDBusMessage_CreateReply2(@ptrCast(self.ptr), @ptrCast(argument.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#createErrorReply)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
     /// ` name: []const u8 `
     ///
     /// ` msg: []const u8 `
     ///
-    pub fn CreateErrorReply(self: ?*anyopaque, name: []const u8, msg: []const u8) QtC.QDBusMessage {
+    pub fn CreateErrorReply(self: QDBusMessage, name: []const u8, msg: []const u8) QDBusMessage {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -223,49 +238,50 @@ pub const qdbusmessage = struct {
             .len = msg.len,
             .data = msg.ptr,
         };
-        return qtc.QDBusMessage_CreateErrorReply(@ptrCast(self), name_str, msg_str);
+        return .{ .ptr = qtc.QDBusMessage_CreateErrorReply(@ptrCast(self.ptr), name_str, msg_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#createErrorReply)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
-    /// ` err: QtC.QDBusError `
+    /// ` err: QDBusError `
     ///
-    pub fn CreateErrorReply2(self: ?*anyopaque, err: ?*anyopaque) QtC.QDBusMessage {
-        return qtc.QDBusMessage_CreateErrorReply2(@ptrCast(self), @ptrCast(err));
+    pub fn CreateErrorReply2(self: QDBusMessage, err: anytype) QDBusMessage {
+        comptime _ = @TypeOf(err)._is_QDBusError;
+        return .{ .ptr = qtc.QDBusMessage_CreateErrorReply2(@ptrCast(self.ptr), @ptrCast(err.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#createErrorReply)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
     /// ` typeVal: qdbuserror_enums.ErrorType `
     ///
     /// ` msg: []const u8 `
     ///
-    pub fn CreateErrorReply3(self: ?*anyopaque, typeVal: i32, msg: []const u8) QtC.QDBusMessage {
+    pub fn CreateErrorReply3(self: QDBusMessage, typeVal: i32, msg: []const u8) QDBusMessage {
         const msg_str = qtc.libqt_string{
             .len = msg.len,
             .data = msg.ptr,
         };
-        return qtc.QDBusMessage_CreateErrorReply3(@ptrCast(self), @bitCast(typeVal), msg_str);
+        return .{ .ptr = qtc.QDBusMessage_CreateErrorReply3(@ptrCast(self.ptr), @bitCast(typeVal), msg_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#service)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Service(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDBusMessage_Service(@ptrCast(self));
+    pub fn Service(self: QDBusMessage, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDBusMessage_Service(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusmessage.Service: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -276,12 +292,12 @@ pub const qdbusmessage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Path(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDBusMessage_Path(@ptrCast(self));
+    pub fn Path(self: QDBusMessage, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDBusMessage_Path(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusmessage.Path: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -292,12 +308,12 @@ pub const qdbusmessage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Interface(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDBusMessage_Interface(@ptrCast(self));
+    pub fn Interface(self: QDBusMessage, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDBusMessage_Interface(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusmessage.Interface: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -308,12 +324,12 @@ pub const qdbusmessage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Member(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDBusMessage_Member(@ptrCast(self));
+    pub fn Member(self: QDBusMessage, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDBusMessage_Member(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusmessage.Member: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -324,12 +340,12 @@ pub const qdbusmessage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDBusMessage_ErrorName(@ptrCast(self));
+    pub fn ErrorName(self: QDBusMessage, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDBusMessage_ErrorName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusmessage.ErrorName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -340,12 +356,12 @@ pub const qdbusmessage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorMessage(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDBusMessage_ErrorMessage(@ptrCast(self));
+    pub fn ErrorMessage(self: QDBusMessage, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDBusMessage_ErrorMessage(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusmessage.ErrorMessage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -356,26 +372,26 @@ pub const qdbusmessage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
     /// ## Returns:
     ///
     /// ` qdbusmessage_enums.MessageType `
     ///
-    pub fn Type(self: ?*anyopaque) i32 {
-        return qtc.QDBusMessage_Type(@ptrCast(self));
+    pub fn Type(self: QDBusMessage) i32 {
+        return qtc.QDBusMessage_Type(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#signature)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Signature(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDBusMessage_Signature(@ptrCast(self));
+    pub fn Signature(self: QDBusMessage, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDBusMessage_Signature(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusmessage.Signature: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -386,108 +402,109 @@ pub const qdbusmessage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
-    pub fn IsReplyRequired(self: ?*anyopaque) bool {
-        return qtc.QDBusMessage_IsReplyRequired(@ptrCast(self));
+    pub fn IsReplyRequired(self: QDBusMessage) bool {
+        return qtc.QDBusMessage_IsReplyRequired(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#setDelayedReply)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDelayedReply(self: ?*anyopaque, enable: bool) void {
-        qtc.QDBusMessage_SetDelayedReply(@ptrCast(self), enable);
+    pub fn SetDelayedReply(self: QDBusMessage, enable: bool) void {
+        qtc.QDBusMessage_SetDelayedReply(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#isDelayedReply)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
-    pub fn IsDelayedReply(self: ?*anyopaque) bool {
-        return qtc.QDBusMessage_IsDelayedReply(@ptrCast(self));
+    pub fn IsDelayedReply(self: QDBusMessage) bool {
+        return qtc.QDBusMessage_IsDelayedReply(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#setAutoStartService)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAutoStartService(self: ?*anyopaque, enable: bool) void {
-        qtc.QDBusMessage_SetAutoStartService(@ptrCast(self), enable);
+    pub fn SetAutoStartService(self: QDBusMessage, enable: bool) void {
+        qtc.QDBusMessage_SetAutoStartService(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#autoStartService)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
-    pub fn AutoStartService(self: ?*anyopaque) bool {
-        return qtc.QDBusMessage_AutoStartService(@ptrCast(self));
+    pub fn AutoStartService(self: QDBusMessage) bool {
+        return qtc.QDBusMessage_AutoStartService(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#setInteractiveAuthorizationAllowed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetInteractiveAuthorizationAllowed(self: ?*anyopaque, enable: bool) void {
-        qtc.QDBusMessage_SetInteractiveAuthorizationAllowed(@ptrCast(self), enable);
+    pub fn SetInteractiveAuthorizationAllowed(self: QDBusMessage, enable: bool) void {
+        qtc.QDBusMessage_SetInteractiveAuthorizationAllowed(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#isInteractiveAuthorizationAllowed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
-    pub fn IsInteractiveAuthorizationAllowed(self: ?*anyopaque) bool {
-        return qtc.QDBusMessage_IsInteractiveAuthorizationAllowed(@ptrCast(self));
+    pub fn IsInteractiveAuthorizationAllowed(self: QDBusMessage) bool {
+        return qtc.QDBusMessage_IsInteractiveAuthorizationAllowed(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#setArguments)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
-    /// ` arguments: []QtC.QVariant `
+    /// ` arguments: []QVariant `
     ///
-    pub fn SetArguments(self: ?*anyopaque, arguments: []QtC.QVariant) void {
+    pub fn SetArguments(self: QDBusMessage, arguments: []QVariant) void {
         const arguments_list = qtc.libqt_list{
             .len = arguments.len,
             .data = @ptrCast(arguments.ptr),
         };
-        qtc.QDBusMessage_SetArguments(@ptrCast(self), arguments_list);
+        qtc.QDBusMessage_SetArguments(@ptrCast(self.ptr), arguments_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#arguments)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Arguments(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QVariant {
-        const _arr: qtc.libqt_list = qtc.QDBusMessage_Arguments(@ptrCast(self));
+    pub fn Arguments(self: QDBusMessage, allocator: std.mem.Allocator) []QVariant {
+        const _arr: qtc.libqt_list = qtc.QDBusMessage_Arguments(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QVariant, _arr.len) catch @panic("qdbusmessage.Arguments: Memory allocation failed");
+        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("qdbusmessage.Arguments: Memory allocation failed");
         const _data: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -495,28 +512,29 @@ pub const qdbusmessage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
-    /// ` arg: QtC.QVariant `
+    /// ` arg: QVariant `
     ///
-    pub fn OperatorShiftLeft(self: ?*anyopaque, arg: ?*anyopaque) QtC.QDBusMessage {
-        return qtc.QDBusMessage_OperatorShiftLeft(@ptrCast(self), @ptrCast(arg));
+    pub fn OperatorShiftLeft(self: QDBusMessage, arg: anytype) QDBusMessage {
+        comptime _ = @TypeOf(arg)._is_QVariant;
+        return .{ .ptr = qtc.QDBusMessage_OperatorShiftLeft(@ptrCast(self.ptr), @ptrCast(arg.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusmessage.html#createReply)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
-    /// ` arguments: []QtC.QVariant `
+    /// ` arguments: []QVariant `
     ///
-    pub fn CreateReply1(self: ?*anyopaque, arguments: []QtC.QVariant) QtC.QDBusMessage {
+    pub fn CreateReply1(self: QDBusMessage, arguments: []QVariant) QDBusMessage {
         const arguments_list = qtc.libqt_list{
             .len = arguments.len,
             .data = @ptrCast(arguments.ptr),
         };
-        return qtc.QDBusMessage_CreateReply1(@ptrCast(self), arguments_list);
+        return .{ .ptr = qtc.QDBusMessage_CreateReply1(@ptrCast(self.ptr), arguments_list) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -529,10 +547,10 @@ pub const qdbusmessage = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QDBusMessage `
+    /// ` self: QDBusMessage `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QDBusMessage_Delete(@ptrCast(self));
+    pub fn Delete(self: QDBusMessage) void {
+        qtc.QDBusMessage_Delete(@ptrCast(self.ptr));
     }
 };
 

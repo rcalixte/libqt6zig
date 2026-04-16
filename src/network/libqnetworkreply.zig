@@ -1,5 +1,20 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QEvent = @import("libqt6").QEvent;
+const QHttpHeaders = @import("libqt6").QHttpHeaders;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QNetworkAccessManager = @import("libqt6").QNetworkAccessManager;
+const QNetworkRequest = @import("libqt6").QNetworkRequest;
+const QObject = @import("libqt6").QObject;
+const QSslConfiguration = @import("libqt6").QSslConfiguration;
+const QSslError = @import("libqt6").QSslError;
+const QSslPreSharedKeyAuthenticator = @import("libqt6").QSslPreSharedKeyAuthenticator;
+const QThread = @import("libqt6").QThread;
+const QUrl = @import("libqt6").QUrl;
+const QVariant = @import("libqt6").QVariant;
 const qiodevicebase_enums = @import("../libqiodevicebase.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qnetworkaccessmanager_enums = @import("libqnetworkaccessmanager.zig").enums;
@@ -7,34 +22,45 @@ const qnetworkreply_enums = enums;
 const qnetworkrequest_enums = @import("libqnetworkrequest.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const struct_u8_u8 = struct { first: []u8, second: []u8 };
+const Struct_u8_u8 = struct { first: []u8, second: []u8 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html)
-pub const qnetworkreply = struct {
+pub const QNetworkReply = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QNetworkReply,
+
+    pub const _is_QNetworkReply = {};
+    pub const _is_QIODevice = {};
+    pub const _is_QObject = {};
+    pub const _is_QIODeviceBase = {};
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QNetworkReply_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QNetworkReply) QMetaObject {
+        return .{ .ptr = qtc.QNetworkReply_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QNetworkReply, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QNetworkReply_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QNetworkReply_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -42,19 +68,19 @@ pub const qnetworkreply = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QNetworkReply_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QNetworkReply, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QNetworkReply_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -67,161 +93,160 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn Close(self: ?*anyopaque) void {
-        qtc.QNetworkReply_Close(@ptrCast(self));
+    pub fn Close(self: QNetworkReply) void {
+        qtc.QNetworkReply_Close(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#isSequential)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn IsSequential(self: ?*anyopaque) bool {
-        return qtc.QNetworkReply_IsSequential(@ptrCast(self));
+    pub fn IsSequential(self: QNetworkReply) bool {
+        return qtc.QNetworkReply_IsSequential(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#readBufferSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn ReadBufferSize(self: ?*anyopaque) i64 {
-        return qtc.QNetworkReply_ReadBufferSize(@ptrCast(self));
+    pub fn ReadBufferSize(self: QNetworkReply) i64 {
+        return qtc.QNetworkReply_ReadBufferSize(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#setReadBufferSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` size: i64 `
     ///
-    pub fn SetReadBufferSize(self: ?*anyopaque, size: i64) void {
-        qtc.QNetworkReply_SetReadBufferSize(@ptrCast(self), @bitCast(size));
+    pub fn SetReadBufferSize(self: QNetworkReply, size: i64) void {
+        qtc.QNetworkReply_SetReadBufferSize(@ptrCast(self.ptr), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#manager)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn Manager(self: ?*anyopaque) QtC.QNetworkAccessManager {
-        return qtc.QNetworkReply_Manager(@ptrCast(self));
+    pub fn Manager(self: QNetworkReply) QNetworkAccessManager {
+        return .{ .ptr = qtc.QNetworkReply_Manager(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#operation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ## Returns:
     ///
     /// ` qnetworkaccessmanager_enums.Operation `
     ///
-    pub fn Operation(self: ?*anyopaque) i32 {
-        return qtc.QNetworkReply_Operation(@ptrCast(self));
+    pub fn Operation(self: QNetworkReply) i32 {
+        return qtc.QNetworkReply_Operation(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#request)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn Request(self: ?*anyopaque) QtC.QNetworkRequest {
-        return qtc.QNetworkReply_Request(@ptrCast(self));
+    pub fn Request(self: QNetworkReply) QNetworkRequest {
+        return .{ .ptr = qtc.QNetworkReply_Request(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#error)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ## Returns:
     ///
     /// ` qnetworkreply_enums.NetworkError `
     ///
-    pub fn Error(self: ?*anyopaque) i32 {
-        return qtc.QNetworkReply_Error(@ptrCast(self));
+    pub fn Error(self: QNetworkReply) i32 {
+        return qtc.QNetworkReply_Error(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#isFinished)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn IsFinished(self: ?*anyopaque) bool {
-        return qtc.QNetworkReply_IsFinished(@ptrCast(self));
+    pub fn IsFinished(self: QNetworkReply) bool {
+        return qtc.QNetworkReply_IsFinished(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#isRunning)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn IsRunning(self: ?*anyopaque) bool {
-        return qtc.QNetworkReply_IsRunning(@ptrCast(self));
+    pub fn IsRunning(self: QNetworkReply) bool {
+        return qtc.QNetworkReply_IsRunning(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#url)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn Url(self: ?*anyopaque) QtC.QUrl {
-        return qtc.QNetworkReply_Url(@ptrCast(self));
+    pub fn Url(self: QNetworkReply) QUrl {
+        return .{ .ptr = qtc.QNetworkReply_Url(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#header)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` header: qnetworkrequest_enums.KnownHeaders `
     ///
-    pub fn Header(self: ?*anyopaque, header: i32) QtC.QVariant {
-        return qtc.QNetworkReply_Header(@ptrCast(self), @bitCast(header));
+    pub fn Header(self: QNetworkReply, header: i32) QVariant {
+        return .{ .ptr = qtc.QNetworkReply_Header(@ptrCast(self.ptr), @bitCast(header)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#hasRawHeader)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` headerName: []const u8 `
     ///
-    pub fn HasRawHeader(self: ?*anyopaque, headerName: []const u8) bool {
-        return qtc.QNetworkReply_HasRawHeader(@ptrCast(self), headerName.ptr);
+    pub fn HasRawHeader(self: QNetworkReply, headerName: []const u8) bool {
+        return qtc.QNetworkReply_HasRawHeader(@ptrCast(self.ptr), headerName.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#rawHeaderList)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RawHeaderList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QNetworkReply_RawHeaderList(@ptrCast(self));
+    pub fn RawHeaderList(self: QNetworkReply, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QNetworkReply_RawHeaderList(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qnetworkreply.RawHeaderList: Memory allocation failed");
@@ -238,14 +263,14 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
-    ///
-    /// ` headerName: []const u8 `
+    /// ` self: QNetworkReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RawHeader(self: ?*anyopaque, headerName: []const u8, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QNetworkReply_RawHeader(@ptrCast(self), headerName.ptr);
+    /// ` headerName: []const u8 `
+    ///
+    pub fn RawHeader(self: QNetworkReply, allocator: std.mem.Allocator, headerName: []const u8) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QNetworkReply_RawHeader(@ptrCast(self.ptr), headerName.ptr);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkreply.RawHeader: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -256,12 +281,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RawHeaderPairs(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_u8_u8 {
-        const _arr: qtc.libqt_list = qtc.QNetworkReply_RawHeaderPairs(@ptrCast(self));
+    pub fn RawHeaderPairs(self: QNetworkReply, allocator: std.mem.Allocator) []Struct_u8_u8 {
+        const _arr: qtc.libqt_list = qtc.QNetworkReply_RawHeaderPairs(@ptrCast(self.ptr));
         const _data: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -270,7 +295,7 @@ pub const qnetworkreply = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(struct_u8_u8, _arr.len) catch @panic("qnetworkreply.RawHeaderPairs: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_u8_u8, _arr.len) catch @panic("qnetworkreply.RawHeaderPairs: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].first));
             const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("qnetworkreply.RawHeaderPairs: Memory allocation failed");
@@ -278,7 +303,7 @@ pub const qnetworkreply = struct {
             const _second_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].second));
             const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("qnetworkreply.RawHeaderPairs: Memory allocation failed");
             @memcpy(_second_slice, _second_str.data[0.._second_str.len]);
-            _ret[i] = struct_u8_u8{
+            _ret[i] = Struct_u8_u8{
                 .first = _first_slice,
                 .second = _second_slice,
             };
@@ -290,377 +315,380 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn Headers(self: ?*anyopaque) QtC.QHttpHeaders {
-        return qtc.QNetworkReply_Headers(@ptrCast(self));
+    pub fn Headers(self: QNetworkReply) QHttpHeaders {
+        return .{ .ptr = qtc.QNetworkReply_Headers(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#attribute)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` code: qnetworkrequest_enums.Attribute `
     ///
-    pub fn Attribute(self: ?*anyopaque, code: i32) QtC.QVariant {
-        return qtc.QNetworkReply_Attribute(@ptrCast(self), @bitCast(code));
+    pub fn Attribute(self: QNetworkReply, code: i32) QVariant {
+        return .{ .ptr = qtc.QNetworkReply_Attribute(@ptrCast(self.ptr), @bitCast(code)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#sslConfiguration)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn SslConfiguration(self: ?*anyopaque) QtC.QSslConfiguration {
-        return qtc.QNetworkReply_SslConfiguration(@ptrCast(self));
+    pub fn SslConfiguration(self: QNetworkReply) QSslConfiguration {
+        return .{ .ptr = qtc.QNetworkReply_SslConfiguration(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#setSslConfiguration)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` configuration: QtC.QSslConfiguration `
+    /// ` configuration: QSslConfiguration `
     ///
-    pub fn SetSslConfiguration(self: ?*anyopaque, configuration: ?*anyopaque) void {
-        qtc.QNetworkReply_SetSslConfiguration(@ptrCast(self), @ptrCast(configuration));
+    pub fn SetSslConfiguration(self: QNetworkReply, configuration: anytype) void {
+        comptime _ = @TypeOf(configuration)._is_QSslConfiguration;
+        qtc.QNetworkReply_SetSslConfiguration(@ptrCast(self.ptr), @ptrCast(configuration.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#ignoreSslErrors)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` errors: []QtC.QSslError `
+    /// ` errors: []QSslError `
     ///
-    pub fn IgnoreSslErrors(self: ?*anyopaque, errors: []QtC.QSslError) void {
+    pub fn IgnoreSslErrors(self: QNetworkReply, errors: []QSslError) void {
         const errors_list = qtc.libqt_list{
             .len = errors.len,
             .data = @ptrCast(errors.ptr),
         };
-        qtc.QNetworkReply_IgnoreSslErrors(@ptrCast(self), errors_list);
+        qtc.QNetworkReply_IgnoreSslErrors(@ptrCast(self.ptr), errors_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#abort)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn Abort(self: ?*anyopaque) void {
-        qtc.QNetworkReply_Abort(@ptrCast(self));
+    pub fn Abort(self: QNetworkReply) void {
+        qtc.QNetworkReply_Abort(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#ignoreSslErrors)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn IgnoreSslErrors2(self: ?*anyopaque) void {
-        qtc.QNetworkReply_IgnoreSslErrors2(@ptrCast(self));
+    pub fn IgnoreSslErrors2(self: QNetworkReply) void {
+        qtc.QNetworkReply_IgnoreSslErrors2(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#socketStartedConnecting)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn SocketStartedConnecting(self: ?*anyopaque) void {
-        qtc.QNetworkReply_SocketStartedConnecting(@ptrCast(self));
+    pub fn SocketStartedConnecting(self: QNetworkReply) void {
+        qtc.QNetworkReply_SocketStartedConnecting(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#socketStartedConnecting)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReply) callconv(.c) void `
+    /// ` callback: *const fn (self: QNetworkReply) callconv(.c) void `
     ///
-    pub fn OnSocketStartedConnecting(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QNetworkReply_Connect_SocketStartedConnecting(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSocketStartedConnecting(self: QNetworkReply, callback: *const fn (QNetworkReply) callconv(.c) void) void {
+        qtc.QNetworkReply_Connect_SocketStartedConnecting(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#requestSent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn RequestSent(self: ?*anyopaque) void {
-        qtc.QNetworkReply_RequestSent(@ptrCast(self));
+    pub fn RequestSent(self: QNetworkReply) void {
+        qtc.QNetworkReply_RequestSent(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#requestSent)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReply) callconv(.c) void `
+    /// ` callback: *const fn (self: QNetworkReply) callconv(.c) void `
     ///
-    pub fn OnRequestSent(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QNetworkReply_Connect_RequestSent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRequestSent(self: QNetworkReply, callback: *const fn (QNetworkReply) callconv(.c) void) void {
+        qtc.QNetworkReply_Connect_RequestSent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#metaDataChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn MetaDataChanged(self: ?*anyopaque) void {
-        qtc.QNetworkReply_MetaDataChanged(@ptrCast(self));
+    pub fn MetaDataChanged(self: QNetworkReply) void {
+        qtc.QNetworkReply_MetaDataChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#metaDataChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReply) callconv(.c) void `
+    /// ` callback: *const fn (self: QNetworkReply) callconv(.c) void `
     ///
-    pub fn OnMetaDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QNetworkReply_Connect_MetaDataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaDataChanged(self: QNetworkReply, callback: *const fn (QNetworkReply) callconv(.c) void) void {
+        qtc.QNetworkReply_Connect_MetaDataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#finished)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn Finished(self: ?*anyopaque) void {
-        qtc.QNetworkReply_Finished(@ptrCast(self));
+    pub fn Finished(self: QNetworkReply) void {
+        qtc.QNetworkReply_Finished(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#finished)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReply) callconv(.c) void `
+    /// ` callback: *const fn (self: QNetworkReply) callconv(.c) void `
     ///
-    pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QNetworkReply_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFinished(self: QNetworkReply, callback: *const fn (QNetworkReply) callconv(.c) void) void {
+        qtc.QNetworkReply_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#errorOccurred)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` param1: qnetworkreply_enums.NetworkError `
     ///
-    pub fn ErrorOccurred(self: ?*anyopaque, param1: i32) void {
-        qtc.QNetworkReply_ErrorOccurred(@ptrCast(self), @bitCast(param1));
+    pub fn ErrorOccurred(self: QNetworkReply, param1: i32) void {
+        qtc.QNetworkReply_ErrorOccurred(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#errorOccurred)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReply, param1: qnetworkreply_enums.NetworkError) callconv(.c) void `
+    /// ` callback: *const fn (self: QNetworkReply, param1: qnetworkreply_enums.NetworkError) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QNetworkReply_Connect_ErrorOccurred(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnErrorOccurred(self: QNetworkReply, callback: *const fn (QNetworkReply, i32) callconv(.c) void) void {
+        qtc.QNetworkReply_Connect_ErrorOccurred(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#encrypted)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn Encrypted(self: ?*anyopaque) void {
-        qtc.QNetworkReply_Encrypted(@ptrCast(self));
+    pub fn Encrypted(self: QNetworkReply) void {
+        qtc.QNetworkReply_Encrypted(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#encrypted)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReply) callconv(.c) void `
+    /// ` callback: *const fn (self: QNetworkReply) callconv(.c) void `
     ///
-    pub fn OnEncrypted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QNetworkReply_Connect_Encrypted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEncrypted(self: QNetworkReply, callback: *const fn (QNetworkReply) callconv(.c) void) void {
+        qtc.QNetworkReply_Connect_Encrypted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#sslErrors)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` errors: []QtC.QSslError `
+    /// ` errors: []QSslError `
     ///
-    pub fn SslErrors(self: ?*anyopaque, errors: []QtC.QSslError) void {
+    pub fn SslErrors(self: QNetworkReply, errors: []QSslError) void {
         const errors_list = qtc.libqt_list{
             .len = errors.len,
             .data = @ptrCast(errors.ptr),
         };
-        qtc.QNetworkReply_SslErrors(@ptrCast(self), errors_list);
+        qtc.QNetworkReply_SslErrors(@ptrCast(self.ptr), errors_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#sslErrors)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReply, errors: qtc.libqt_list ([]QtC.QSslError)) callconv(.c) void `
+    /// ` callback: *const fn (self: QNetworkReply, errors: qtc.libqt_list ([]QSslError)) callconv(.c) void `
     ///
-    pub fn OnSslErrors(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QNetworkReply_Connect_SslErrors(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSslErrors(self: QNetworkReply, callback: *const fn (QNetworkReply, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QNetworkReply_Connect_SslErrors(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#preSharedKeyAuthenticationRequired)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` authenticator: QtC.QSslPreSharedKeyAuthenticator `
+    /// ` authenticator: QSslPreSharedKeyAuthenticator `
     ///
-    pub fn PreSharedKeyAuthenticationRequired(self: ?*anyopaque, authenticator: ?*anyopaque) void {
-        qtc.QNetworkReply_PreSharedKeyAuthenticationRequired(@ptrCast(self), @ptrCast(authenticator));
+    pub fn PreSharedKeyAuthenticationRequired(self: QNetworkReply, authenticator: anytype) void {
+        comptime _ = @TypeOf(authenticator)._is_QSslPreSharedKeyAuthenticator;
+        qtc.QNetworkReply_PreSharedKeyAuthenticationRequired(@ptrCast(self.ptr), @ptrCast(authenticator.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#preSharedKeyAuthenticationRequired)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReply, authenticator: QtC.QSslPreSharedKeyAuthenticator) callconv(.c) void `
+    /// ` callback: *const fn (self: QNetworkReply, authenticator: QSslPreSharedKeyAuthenticator) callconv(.c) void `
     ///
-    pub fn OnPreSharedKeyAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QNetworkReply_Connect_PreSharedKeyAuthenticationRequired(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPreSharedKeyAuthenticationRequired(self: QNetworkReply, callback: *const fn (QNetworkReply, QSslPreSharedKeyAuthenticator) callconv(.c) void) void {
+        qtc.QNetworkReply_Connect_PreSharedKeyAuthenticationRequired(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#redirected)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` url: QtC.QUrl `
+    /// ` url: QUrl `
     ///
-    pub fn Redirected(self: ?*anyopaque, url: ?*anyopaque) void {
-        qtc.QNetworkReply_Redirected(@ptrCast(self), @ptrCast(url));
+    pub fn Redirected(self: QNetworkReply, url: anytype) void {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        qtc.QNetworkReply_Redirected(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#redirected)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReply, url: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QNetworkReply, url: QUrl) callconv(.c) void `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QNetworkReply_Connect_Redirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: QNetworkReply, callback: *const fn (QNetworkReply, QUrl) callconv(.c) void) void {
+        qtc.QNetworkReply_Connect_Redirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#redirectAllowed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn RedirectAllowed(self: ?*anyopaque) void {
-        qtc.QNetworkReply_RedirectAllowed(@ptrCast(self));
+    pub fn RedirectAllowed(self: QNetworkReply) void {
+        qtc.QNetworkReply_RedirectAllowed(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#redirectAllowed)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReply) callconv(.c) void `
+    /// ` callback: *const fn (self: QNetworkReply) callconv(.c) void `
     ///
-    pub fn OnRedirectAllowed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QNetworkReply_Connect_RedirectAllowed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirectAllowed(self: QNetworkReply, callback: *const fn (QNetworkReply) callconv(.c) void) void {
+        qtc.QNetworkReply_Connect_RedirectAllowed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#uploadProgress)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` bytesSent: i64 `
     ///
     /// ` bytesTotal: i64 `
     ///
-    pub fn UploadProgress(self: ?*anyopaque, bytesSent: i64, bytesTotal: i64) void {
-        qtc.QNetworkReply_UploadProgress(@ptrCast(self), @bitCast(bytesSent), @bitCast(bytesTotal));
+    pub fn UploadProgress(self: QNetworkReply, bytesSent: i64, bytesTotal: i64) void {
+        qtc.QNetworkReply_UploadProgress(@ptrCast(self.ptr), @bitCast(bytesSent), @bitCast(bytesTotal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#uploadProgress)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReply, bytesSent: i64, bytesTotal: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QNetworkReply, bytesSent: i64, bytesTotal: i64) callconv(.c) void `
     ///
-    pub fn OnUploadProgress(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, i64) callconv(.c) void) void {
-        qtc.QNetworkReply_Connect_UploadProgress(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUploadProgress(self: QNetworkReply, callback: *const fn (QNetworkReply, i64, i64) callconv(.c) void) void {
+        qtc.QNetworkReply_Connect_UploadProgress(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#downloadProgress)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` bytesReceived: i64 `
     ///
     /// ` bytesTotal: i64 `
     ///
-    pub fn DownloadProgress(self: ?*anyopaque, bytesReceived: i64, bytesTotal: i64) void {
-        qtc.QNetworkReply_DownloadProgress(@ptrCast(self), @bitCast(bytesReceived), @bitCast(bytesTotal));
+    pub fn DownloadProgress(self: QNetworkReply, bytesReceived: i64, bytesTotal: i64) void {
+        qtc.QNetworkReply_DownloadProgress(@ptrCast(self.ptr), @bitCast(bytesReceived), @bitCast(bytesTotal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#downloadProgress)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReply, bytesReceived: i64, bytesTotal: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QNetworkReply, bytesReceived: i64, bytesTotal: i64) callconv(.c) void `
     ///
-    pub fn OnDownloadProgress(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, i64) callconv(.c) void) void {
-        qtc.QNetworkReply_Connect_DownloadProgress(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDownloadProgress(self: QNetworkReply, callback: *const fn (QNetworkReply, i64, i64) callconv(.c) void) void {
+        qtc.QNetworkReply_Connect_DownloadProgress(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -674,15 +702,15 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -698,14 +726,14 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ## Returns:
     ///
     /// ` flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn OpenMode(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_OpenMode(@ptrCast(self));
+    pub fn OpenMode(self: QNetworkReply) i32 {
+        return qtc.QIODevice_OpenMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -714,12 +742,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetTextModeEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QIODevice_SetTextModeEnabled(@ptrCast(self), enabled);
+    pub fn SetTextModeEnabled(self: QNetworkReply, enabled: bool) void {
+        qtc.QIODevice_SetTextModeEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QIODevice
@@ -728,10 +756,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn IsTextModeEnabled(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsTextModeEnabled(@ptrCast(self));
+    pub fn IsTextModeEnabled(self: QNetworkReply) bool {
+        return qtc.QIODevice_IsTextModeEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -740,10 +768,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn IsOpen(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsOpen(@ptrCast(self));
+    pub fn IsOpen(self: QNetworkReply) bool {
+        return qtc.QIODevice_IsOpen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -752,10 +780,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn IsReadable(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsReadable(@ptrCast(self));
+    pub fn IsReadable(self: QNetworkReply) bool {
+        return qtc.QIODevice_IsReadable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -764,10 +792,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn IsWritable(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsWritable(@ptrCast(self));
+    pub fn IsWritable(self: QNetworkReply) bool {
+        return qtc.QIODevice_IsWritable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -776,10 +804,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn ReadChannelCount(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_ReadChannelCount(@ptrCast(self));
+    pub fn ReadChannelCount(self: QNetworkReply) i32 {
+        return qtc.QIODevice_ReadChannelCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -788,10 +816,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn WriteChannelCount(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_WriteChannelCount(@ptrCast(self));
+    pub fn WriteChannelCount(self: QNetworkReply) i32 {
+        return qtc.QIODevice_WriteChannelCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -800,10 +828,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn CurrentReadChannel(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_CurrentReadChannel(@ptrCast(self));
+    pub fn CurrentReadChannel(self: QNetworkReply) i32 {
+        return qtc.QIODevice_CurrentReadChannel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -812,12 +840,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentReadChannel(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self), @bitCast(channel));
+    pub fn SetCurrentReadChannel(self: QNetworkReply, channel: i32) void {
+        qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -826,10 +854,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn CurrentWriteChannel(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_CurrentWriteChannel(@ptrCast(self));
+    pub fn CurrentWriteChannel(self: QNetworkReply) i32 {
+        return qtc.QIODevice_CurrentWriteChannel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -838,12 +866,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentWriteChannel(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self), @bitCast(channel));
+    pub fn SetCurrentWriteChannel(self: QNetworkReply, channel: i32) void {
+        qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -852,12 +880,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn Open(self: ?*anyopaque, mode: i32) bool {
-        return qtc.QIODevice_Open(@ptrCast(self), @bitCast(mode));
+    pub fn Open(self: QNetworkReply, mode: i32) bool {
+        return qtc.QIODevice_Open(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// Inherited from QIODevice
@@ -866,10 +894,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn Pos(self: ?*anyopaque) i64 {
-        return qtc.QIODevice_Pos(@ptrCast(self));
+    pub fn Pos(self: QNetworkReply) i64 {
+        return qtc.QIODevice_Pos(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -878,10 +906,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn Size(self: ?*anyopaque) i64 {
-        return qtc.QIODevice_Size(@ptrCast(self));
+    pub fn Size(self: QNetworkReply) i64 {
+        return qtc.QIODevice_Size(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -890,12 +918,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` pos: i64 `
     ///
-    pub fn Seek(self: ?*anyopaque, pos: i64) bool {
-        return qtc.QIODevice_Seek(@ptrCast(self), @bitCast(pos));
+    pub fn Seek(self: QNetworkReply, pos: i64) bool {
+        return qtc.QIODevice_Seek(@ptrCast(self.ptr), @bitCast(pos));
     }
 
     /// Inherited from QIODevice
@@ -904,10 +932,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn AtEnd(self: ?*anyopaque) bool {
-        return qtc.QIODevice_AtEnd(@ptrCast(self));
+    pub fn AtEnd(self: QNetworkReply) bool {
+        return qtc.QIODevice_AtEnd(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -916,10 +944,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn Reset(self: ?*anyopaque) bool {
-        return qtc.QIODevice_Reset(@ptrCast(self));
+    pub fn Reset(self: QNetworkReply) bool {
+        return qtc.QIODevice_Reset(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -928,10 +956,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn BytesAvailable(self: ?*anyopaque) i64 {
-        return qtc.QIODevice_BytesAvailable(@ptrCast(self));
+    pub fn BytesAvailable(self: QNetworkReply) i64 {
+        return qtc.QIODevice_BytesAvailable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -940,10 +968,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn BytesToWrite(self: ?*anyopaque) i64 {
-        return qtc.QIODevice_BytesToWrite(@ptrCast(self));
+    pub fn BytesToWrite(self: QNetworkReply) i64 {
+        return qtc.QIODevice_BytesToWrite(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -952,15 +980,15 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Read(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn Read(self: QNetworkReply, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Read(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QIODevice_Read(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -969,14 +997,14 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
-    ///
-    /// ` maxlen: i64 `
+    /// ` self: QNetworkReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @bitCast(maxlen));
+    /// ` maxlen: i64 `
+    ///
+    pub fn Read2(self: QNetworkReply, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkreply.Read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -989,12 +1017,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadAll(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self));
+    pub fn ReadAll(self: QNetworkReply, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkreply.ReadAll: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1007,15 +1035,15 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLine(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn ReadLine(self: QNetworkReply, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_ReadLine(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QIODevice_ReadLine(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -1024,12 +1052,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadLine2(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self));
+    pub fn ReadLine2(self: QNetworkReply, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkreply.ReadLine2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1042,10 +1070,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn CanReadLine(self: ?*anyopaque) bool {
-        return qtc.QIODevice_CanReadLine(@ptrCast(self));
+    pub fn CanReadLine(self: QNetworkReply) bool {
+        return qtc.QIODevice_CanReadLine(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1054,10 +1082,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn StartTransaction(self: ?*anyopaque) void {
-        qtc.QIODevice_StartTransaction(@ptrCast(self));
+    pub fn StartTransaction(self: QNetworkReply) void {
+        qtc.QIODevice_StartTransaction(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1066,10 +1094,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn CommitTransaction(self: ?*anyopaque) void {
-        qtc.QIODevice_CommitTransaction(@ptrCast(self));
+    pub fn CommitTransaction(self: QNetworkReply) void {
+        qtc.QIODevice_CommitTransaction(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1078,10 +1106,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn RollbackTransaction(self: ?*anyopaque) void {
-        qtc.QIODevice_RollbackTransaction(@ptrCast(self));
+    pub fn RollbackTransaction(self: QNetworkReply) void {
+        qtc.QIODevice_RollbackTransaction(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1090,10 +1118,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn IsTransactionStarted(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsTransactionStarted(@ptrCast(self));
+    pub fn IsTransactionStarted(self: QNetworkReply) bool {
+        return qtc.QIODevice_IsTransactionStarted(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1102,15 +1130,15 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` data: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn Write(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn Write(self: QNetworkReply, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Write(@ptrCast(self), data_Cstring, @bitCast(lenVal));
+        return qtc.QIODevice_Write(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
     }
 
     /// Inherited from QIODevice
@@ -1119,13 +1147,13 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` data: [:0]const u8 `
     ///
-    pub fn Write2(self: ?*anyopaque, data: [:0]const u8) i64 {
+    pub fn Write2(self: QNetworkReply, data: [:0]const u8) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Write2(@ptrCast(self), data_Cstring);
+        return qtc.QIODevice_Write2(@ptrCast(self.ptr), data_Cstring);
     }
 
     /// Inherited from QIODevice
@@ -1134,16 +1162,16 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` data: []u8 `
     ///
-    pub fn Write3(self: ?*anyopaque, data: []u8) i64 {
+    pub fn Write3(self: QNetworkReply, data: []u8) i64 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.QIODevice_Write3(@ptrCast(self), data_str);
+        return qtc.QIODevice_Write3(@ptrCast(self.ptr), data_str);
     }
 
     /// Inherited from QIODevice
@@ -1152,15 +1180,15 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Peek(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn Peek(self: QNetworkReply, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Peek(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QIODevice_Peek(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -1169,14 +1197,14 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
-    ///
-    /// ` maxlen: i64 `
+    /// ` self: QNetworkReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @bitCast(maxlen));
+    /// ` maxlen: i64 `
+    ///
+    pub fn Peek2(self: QNetworkReply, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkreply.Peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1189,12 +1217,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn Skip(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QIODevice_Skip(@ptrCast(self), @bitCast(maxSize));
+    pub fn Skip(self: QNetworkReply, maxSize: i64) i64 {
+        return qtc.QIODevice_Skip(@ptrCast(self.ptr), @bitCast(maxSize));
     }
 
     /// Inherited from QIODevice
@@ -1203,12 +1231,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QIODevice_WaitForReadyRead(@ptrCast(self), @bitCast(msecs));
+    pub fn WaitForReadyRead(self: QNetworkReply, msecs: i32) bool {
+        return qtc.QIODevice_WaitForReadyRead(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// Inherited from QIODevice
@@ -1217,12 +1245,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QIODevice_WaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
+    pub fn WaitForBytesWritten(self: QNetworkReply, msecs: i32) bool {
+        return qtc.QIODevice_WaitForBytesWritten(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// Inherited from QIODevice
@@ -1231,12 +1259,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` c: u8 `
     ///
-    pub fn UngetChar(self: ?*anyopaque, c: u8) void {
-        qtc.QIODevice_UngetChar(@ptrCast(self), @bitCast(c));
+    pub fn UngetChar(self: QNetworkReply, c: u8) void {
+        qtc.QIODevice_UngetChar(@ptrCast(self.ptr), @bitCast(c));
     }
 
     /// Inherited from QIODevice
@@ -1245,12 +1273,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` c: u8 `
     ///
-    pub fn PutChar(self: ?*anyopaque, c: u8) bool {
-        return qtc.QIODevice_PutChar(@ptrCast(self), @bitCast(c));
+    pub fn PutChar(self: QNetworkReply, c: u8) bool {
+        return qtc.QIODevice_PutChar(@ptrCast(self.ptr), @bitCast(c));
     }
 
     /// Inherited from QIODevice
@@ -1259,13 +1287,13 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` c: [:0]u8 `
     ///
-    pub fn GetChar(self: ?*anyopaque, c: [:0]u8) bool {
+    pub fn GetChar(self: QNetworkReply, c: [:0]u8) bool {
         const c_Cstring = c.ptr;
-        return qtc.QIODevice_GetChar(@ptrCast(self), c_Cstring);
+        return qtc.QIODevice_GetChar(@ptrCast(self.ptr), c_Cstring);
     }
 
     /// Inherited from QIODevice
@@ -1274,12 +1302,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QIODevice_ErrorString(@ptrCast(self));
+    pub fn ErrorString(self: QNetworkReply, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QIODevice_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkreply.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1292,10 +1320,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn ReadyRead(self: ?*anyopaque) void {
-        qtc.QIODevice_ReadyRead(@ptrCast(self));
+    pub fn ReadyRead(self: QNetworkReply) void {
+        qtc.QIODevice_ReadyRead(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1304,12 +1332,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReply) callconv(.c) void `
+    /// ` callback: *const fn (self: QNetworkReply) callconv(.c) void `
     ///
-    pub fn OnReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadyRead(self: QNetworkReply, callback: *const fn (QNetworkReply) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1318,12 +1346,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` channel: i32 `
     ///
-    pub fn ChannelReadyRead(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_ChannelReadyRead(@ptrCast(self), @bitCast(channel));
+    pub fn ChannelReadyRead(self: QNetworkReply, channel: i32) void {
+        qtc.QIODevice_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -1332,12 +1360,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReply, channel: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QNetworkReply, channel: i32) callconv(.c) void `
     ///
-    pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChannelReadyRead(self: QNetworkReply, callback: *const fn (QNetworkReply, i32) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1346,12 +1374,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` bytes: i64 `
     ///
-    pub fn BytesWritten(self: ?*anyopaque, bytes: i64) void {
-        qtc.QIODevice_BytesWritten(@ptrCast(self), @bitCast(bytes));
+    pub fn BytesWritten(self: QNetworkReply, bytes: i64) void {
+        qtc.QIODevice_BytesWritten(@ptrCast(self.ptr), @bitCast(bytes));
     }
 
     /// Inherited from QIODevice
@@ -1360,12 +1388,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReply, bytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QNetworkReply, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBytesWritten(self: QNetworkReply, callback: *const fn (QNetworkReply, i64) callconv(.c) void) void {
+        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1374,14 +1402,14 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` channel: i32 `
     ///
     /// ` bytes: i64 `
     ///
-    pub fn ChannelBytesWritten(self: ?*anyopaque, channel: i32, bytes: i64) void {
-        qtc.QIODevice_ChannelBytesWritten(@ptrCast(self), @bitCast(channel), @bitCast(bytes));
+    pub fn ChannelBytesWritten(self: QNetworkReply, channel: i32, bytes: i64) void {
+        qtc.QIODevice_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(channel), @bitCast(bytes));
     }
 
     /// Inherited from QIODevice
@@ -1390,12 +1418,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReply, channel: i32, bytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QNetworkReply, channel: i32, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChannelBytesWritten(self: QNetworkReply, callback: *const fn (QNetworkReply, i32, i64) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1404,10 +1432,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn AboutToClose(self: ?*anyopaque) void {
-        qtc.QIODevice_AboutToClose(@ptrCast(self));
+    pub fn AboutToClose(self: QNetworkReply) void {
+        qtc.QIODevice_AboutToClose(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1416,12 +1444,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReply) callconv(.c) void `
+    /// ` callback: *const fn (self: QNetworkReply) callconv(.c) void `
     ///
-    pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAboutToClose(self: QNetworkReply, callback: *const fn (QNetworkReply) callconv(.c) void) void {
+        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1430,10 +1458,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn ReadChannelFinished(self: ?*anyopaque) void {
-        qtc.QIODevice_ReadChannelFinished(@ptrCast(self));
+    pub fn ReadChannelFinished(self: QNetworkReply) void {
+        qtc.QIODevice_ReadChannelFinished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1442,12 +1470,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReply) callconv(.c) void `
+    /// ` callback: *const fn (self: QNetworkReply) callconv(.c) void `
     ///
-    pub fn OnReadChannelFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadChannelFinished(self: QNetworkReply, callback: *const fn (QNetworkReply) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1456,14 +1484,14 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
-    ///
-    /// ` maxlen: i64 `
+    /// ` self: QNetworkReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @bitCast(maxlen));
+    /// ` maxlen: i64 `
+    ///
+    pub fn ReadLine1(self: QNetworkReply, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkreply.ReadLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1476,12 +1504,13 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QNetworkReply, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1490,14 +1519,16 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QNetworkReply, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1506,12 +1537,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QNetworkReply, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkreply.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1524,12 +1555,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QNetworkReply, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1538,10 +1569,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QNetworkReply) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1550,10 +1581,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QNetworkReply) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1562,10 +1593,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QNetworkReply) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1574,10 +1605,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QNetworkReply) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1586,12 +1617,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QNetworkReply, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -1600,10 +1631,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QNetworkReply) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1612,12 +1643,13 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QNetworkReply, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1626,12 +1658,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QNetworkReply, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1640,12 +1672,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QNetworkReply, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1654,12 +1686,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QNetworkReply, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1668,12 +1700,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QNetworkReply, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1682,16 +1714,17 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QNetworkReply, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qnetworkreply.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qnetworkreply.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1701,12 +1734,13 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QNetworkReply, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1715,12 +1749,13 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QNetworkReply, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1729,12 +1764,13 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QNetworkReply, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1743,18 +1779,20 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1763,16 +1801,20 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1781,18 +1823,19 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QNetworkReply, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1801,18 +1844,20 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1821,16 +1866,20 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1839,10 +1888,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QNetworkReply) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1851,12 +1900,13 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QNetworkReply, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1865,10 +1915,11 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1877,10 +1928,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QNetworkReply) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1889,10 +1940,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QNetworkReply) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1901,15 +1952,16 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QNetworkReply, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1918,13 +1970,13 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QNetworkReply, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1933,17 +1985,16 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QNetworkReply, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qnetworkreply.DynamicPropertyNames: Memory allocation failed");
@@ -1962,10 +2013,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QNetworkReply) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1974,10 +2025,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QNetworkReply) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1986,10 +2037,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QNetworkReply) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1998,12 +2049,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReply) callconv(.c) void `
+    /// ` callback: *const fn (self: QNetworkReply) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QNetworkReply, callback: *const fn (QNetworkReply) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2012,10 +2063,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QNetworkReply) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2024,13 +2075,13 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QNetworkReply, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -2039,10 +2090,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QNetworkReply) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2051,14 +2102,14 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QNetworkReply, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2067,14 +2118,14 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QNetworkReply, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2083,20 +2134,22 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -2105,18 +2158,22 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2125,9 +2182,9 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2135,10 +2192,11 @@ pub const qnetworkreply = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QNetworkReply, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2147,13 +2205,13 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QNetworkReply, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2162,15 +2220,16 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QNetworkReply, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -2179,18 +2238,19 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QNetworkReply, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2199,15 +2259,16 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QNetworkReply, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2216,12 +2277,13 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QNetworkReply, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -2230,12 +2292,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReply, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QNetworkReply, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QNetworkReply, callback: *const fn (QNetworkReply, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2246,12 +2308,12 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    /// ` callback: *const fn (self: QtC.QNetworkReply, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QNetworkReply, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QNetworkReply, callback: *const fn (QNetworkReply, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -2264,10 +2326,10 @@ pub const qnetworkreply = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QNetworkReply `
+    /// ` self: QNetworkReply `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QNetworkReply_Delete(@ptrCast(self));
+    pub fn Delete(self: QNetworkReply) void {
+        qtc.QNetworkReply_Delete(@ptrCast(self.ptr));
     }
 };
 

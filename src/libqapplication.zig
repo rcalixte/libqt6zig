@@ -1,34 +1,78 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAbstractEventDispatcher = @import("libqt6").QAbstractEventDispatcher;
+const QAbstractNativeEventFilter = @import("libqt6").QAbstractNativeEventFilter;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QClipboard = @import("libqt6").QClipboard;
+const QCoreApplication = @import("libqt6").QCoreApplication;
+const QCursor = @import("libqt6").QCursor;
+const QDeadlineTimer = @import("libqt6").QDeadlineTimer;
+const QEvent = @import("libqt6").QEvent;
+const QFont = @import("libqt6").QFont;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QIcon = @import("libqt6").QIcon;
+const QInputMethod = @import("libqt6").QInputMethod;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QPalette = @import("libqt6").QPalette;
+const QPermission = @import("libqt6").QPermission;
+const QPoint = @import("libqt6").QPoint;
+const QScreen = @import("libqt6").QScreen;
+const QSessionManager = @import("libqt6").QSessionManager;
+const QStyle = @import("libqt6").QStyle;
+const QStyleHints = @import("libqt6").QStyleHints;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QTranslator = @import("libqt6").QTranslator;
+const QVariant = @import("libqt6").QVariant;
+const QWidget = @import("libqt6").QWidget;
+const QWindow = @import("libqt6").QWindow;
 const qeventloop_enums = @import("libqeventloop.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html)
-pub const qapplication = struct {
+pub const QApplication = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QApplication,
+
+    pub const _is_QApplication = {};
+    pub const _is_QGuiApplication = {};
+    pub const _is_QCoreApplication = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QApplication object.
     ///
     /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` argc: *i32 `
     ///
     /// ` argv: [][:0]u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn New(argc: *i32, argv: [][:0]u8, allocator: std.mem.Allocator) QtC.QApplication {
+    pub fn New(allocator: std.mem.Allocator, argc: *i32, argv: [][:0]u8) QApplication {
         const argv_chararr = allocator.alloc([*c]u8, argv.len) catch @panic("qapplication.New: Memory allocation failed");
-        for (argv, 0..argv.len) |str, i| {
+        // Qt takes ownership of the memory.
+        // The memory must outlive the application.
+        // Do not free this allocation.
+        for (argv, 0..argv.len) |str, i|
             argv_chararr[i] = @ptrCast(str.ptr);
-        }
-
-        return qtc.QApplication_new(@ptrCast(argc), argv_chararr.ptr);
+        return .{ .ptr = qtc.QApplication_new(@ptrCast(argc), argv_chararr.ptr) };
     }
 
     /// New2 constructs a new QApplication object.
     ///
     /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` argc: *i32 `
     ///
@@ -36,25 +80,24 @@ pub const qapplication = struct {
     ///
     /// ` param3: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn New2(argc: *i32, argv: [][:0]u8, param3: i32, allocator: std.mem.Allocator) QtC.QApplication {
+    pub fn New2(allocator: std.mem.Allocator, argc: *i32, argv: [][:0]u8, param3: i32) QApplication {
         const argv_chararr = allocator.alloc([*c]u8, argv.len) catch @panic("qapplication.New2: Memory allocation failed");
-        for (argv, 0..argv.len) |str, i| {
+        // Qt takes ownership of the memory.
+        // The memory must outlive the application.
+        // Do not free this allocation.
+        for (argv, 0..argv.len) |str, i|
             argv_chararr[i] = @ptrCast(str.ptr);
-        }
-
-        return qtc.QApplication_new2(@ptrCast(argc), argv_chararr.ptr, @bitCast(param3));
+        return .{ .ptr = qtc.QApplication_new2(@ptrCast(argc), argv_chararr.ptr, @bitCast(param3)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QApplication_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QApplication) QMetaObject {
+        return .{ .ptr = qtc.QApplication_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -63,12 +106,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QApplication_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QApplication, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QApplication_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -81,33 +124,33 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QApplication_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QApplication) QMetaObject {
+        return .{ .ptr = qtc.QApplication_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QApplication, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QApplication_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QApplication_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QApplication, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QApplication_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QApplication, callback: *const fn (QApplication, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QApplication_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -118,18 +161,18 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QApplication, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QApplication_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QApplication_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -137,20 +180,20 @@ pub const qapplication = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QApplication_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QApplication, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QApplication_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QApplication, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QApplication_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QApplication, callback: *const fn (QApplication, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QApplication_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -161,7 +204,7 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -169,19 +212,19 @@ pub const qapplication = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QApplication_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QApplication, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QApplication_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -192,18 +235,19 @@ pub const qapplication = struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#style)
     ///
-    pub fn Style() QtC.QStyle {
-        return qtc.QApplication_Style();
+    pub fn Style() QStyle {
+        return .{ .ptr = qtc.QApplication_Style() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#setStyle)
     ///
     /// ## Parameter(s):
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(style: ?*anyopaque) void {
-        qtc.QApplication_SetStyle(@ptrCast(style));
+    pub fn SetStyle(style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QApplication_SetStyle(@ptrCast(style.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#setStyle)
@@ -212,22 +256,23 @@ pub const qapplication = struct {
     ///
     /// ` style: []const u8 `
     ///
-    pub fn SetStyle2(style: []const u8) QtC.QStyle {
+    pub fn SetStyle2(style: []const u8) QStyle {
         const style_str = qtc.libqt_string{
             .len = style.len,
             .data = style.ptr,
         };
-        return qtc.QApplication_SetStyle2(style_str);
+        return .{ .ptr = qtc.QApplication_SetStyle2(style_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#palette)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn Palette(param1: ?*anyopaque) QtC.QPalette {
-        return qtc.QApplication_Palette(@ptrCast(param1));
+    pub fn Palette(param1: anytype) QPalette {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return .{ .ptr = qtc.QApplication_Palette(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#palette)
@@ -236,35 +281,37 @@ pub const qapplication = struct {
     ///
     /// ` className: [:0]const u8 `
     ///
-    pub fn Palette2(className: [:0]const u8) QtC.QPalette {
+    pub fn Palette2(className: [:0]const u8) QPalette {
         const className_Cstring = className.ptr;
-        return qtc.QApplication_Palette2(className_Cstring);
+        return .{ .ptr = qtc.QApplication_Palette2(className_Cstring) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#setPalette)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QPalette `
+    /// ` param1: QPalette `
     ///
-    pub fn SetPalette(param1: ?*anyopaque) void {
-        qtc.QApplication_SetPalette(@ptrCast(param1));
+    pub fn SetPalette(param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPalette;
+        qtc.QApplication_SetPalette(@ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#font)
     ///
-    pub fn Font() QtC.QFont {
-        return qtc.QApplication_Font();
+    pub fn Font() QFont {
+        return .{ .ptr = qtc.QApplication_Font() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#font)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn Font2(param1: ?*anyopaque) QtC.QFont {
-        return qtc.QApplication_Font2(@ptrCast(param1));
+    pub fn Font2(param1: anytype) QFont {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return .{ .ptr = qtc.QApplication_Font2(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#font)
@@ -273,25 +320,26 @@ pub const qapplication = struct {
     ///
     /// ` className: [:0]const u8 `
     ///
-    pub fn Font3(className: [:0]const u8) QtC.QFont {
+    pub fn Font3(className: [:0]const u8) QFont {
         const className_Cstring = className.ptr;
-        return qtc.QApplication_Font3(className_Cstring);
+        return .{ .ptr = qtc.QApplication_Font3(className_Cstring) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#setFont)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QFont `
+    /// ` param1: QFont `
     ///
-    pub fn SetFont(param1: ?*anyopaque) void {
-        qtc.QApplication_SetFont(@ptrCast(param1));
+    pub fn SetFont(param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QFont;
+        qtc.QApplication_SetFont(@ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#fontMetrics)
     ///
-    pub fn FontMetrics() QtC.QFontMetrics {
-        return qtc.QApplication_FontMetrics();
+    pub fn FontMetrics() QFontMetrics {
+        return .{ .ptr = qtc.QApplication_FontMetrics() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#allWidgets)
@@ -300,12 +348,13 @@ pub const qapplication = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllWidgets(allocator: std.mem.Allocator) []QtC.QWidget {
+    pub fn AllWidgets(allocator: std.mem.Allocator) []QWidget {
         const _arr: qtc.libqt_list = qtc.QApplication_AllWidgets();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("qapplication.AllWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("qapplication.AllWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -315,57 +364,60 @@ pub const qapplication = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TopLevelWidgets(allocator: std.mem.Allocator) []QtC.QWidget {
+    pub fn TopLevelWidgets(allocator: std.mem.Allocator) []QWidget {
         const _arr: qtc.libqt_list = qtc.QApplication_TopLevelWidgets();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("qapplication.TopLevelWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("qapplication.TopLevelWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#activePopupWidget)
     ///
-    pub fn ActivePopupWidget() QtC.QWidget {
-        return qtc.QApplication_ActivePopupWidget();
+    pub fn ActivePopupWidget() QWidget {
+        return .{ .ptr = qtc.QApplication_ActivePopupWidget() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#activeModalWidget)
     ///
-    pub fn ActiveModalWidget() QtC.QWidget {
-        return qtc.QApplication_ActiveModalWidget();
+    pub fn ActiveModalWidget() QWidget {
+        return .{ .ptr = qtc.QApplication_ActiveModalWidget() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#focusWidget)
     ///
-    pub fn FocusWidget() QtC.QWidget {
-        return qtc.QApplication_FocusWidget();
+    pub fn FocusWidget() QWidget {
+        return .{ .ptr = qtc.QApplication_FocusWidget() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#activeWindow)
     ///
-    pub fn ActiveWindow() QtC.QWidget {
-        return qtc.QApplication_ActiveWindow();
+    pub fn ActiveWindow() QWidget {
+        return .{ .ptr = qtc.QApplication_ActiveWindow() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#setActiveWindow)
     ///
     /// ## Parameter(s):
     ///
-    /// ` act: QtC.QWidget `
+    /// ` act: QWidget `
     ///
-    pub fn SetActiveWindow(act: ?*anyopaque) void {
-        qtc.QApplication_SetActiveWindow(@ptrCast(act));
+    pub fn SetActiveWindow(act: anytype) void {
+        comptime _ = @TypeOf(act)._is_QWidget;
+        qtc.QApplication_SetActiveWindow(@ptrCast(act.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#widgetAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn WidgetAt(p: ?*anyopaque) QtC.QWidget {
-        return qtc.QApplication_WidgetAt(@ptrCast(p));
+    pub fn WidgetAt(p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QApplication_WidgetAt(@ptrCast(p.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#widgetAt)
@@ -376,18 +428,19 @@ pub const qapplication = struct {
     ///
     /// ` y: i32 `
     ///
-    pub fn WidgetAt2(x: i32, y: i32) QtC.QWidget {
-        return qtc.QApplication_WidgetAt2(@bitCast(x), @bitCast(y));
+    pub fn WidgetAt2(x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QApplication_WidgetAt2(@bitCast(x), @bitCast(y)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#topLevelAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn TopLevelAt(p: ?*anyopaque) QtC.QWidget {
-        return qtc.QApplication_TopLevelAt(@ptrCast(p));
+    pub fn TopLevelAt(p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QApplication_TopLevelAt(@ptrCast(p.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#topLevelAt)
@@ -398,8 +451,8 @@ pub const qapplication = struct {
     ///
     /// ` y: i32 `
     ///
-    pub fn TopLevelAt2(x: i32, y: i32) QtC.QWidget {
-        return qtc.QApplication_TopLevelAt2(@bitCast(x), @bitCast(y));
+    pub fn TopLevelAt2(x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QApplication_TopLevelAt2(@bitCast(x), @bitCast(y)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#beep)
@@ -412,10 +465,11 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn Alert(widget: ?*anyopaque) void {
-        qtc.QApplication_Alert(@ptrCast(widget));
+    pub fn Alert(widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QApplication_Alert(@ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#setCursorFlashTime)
@@ -544,14 +598,16 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    /// ` param2: QtC.QEvent `
+    /// ` param2: QEvent `
     ///
-    pub fn Notify(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.QApplication_Notify(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn Notify(self: QApplication, param1: anytype, param2: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        comptime _ = @TypeOf(param2)._is_QEvent;
+        return qtc.QApplication_Notify(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#notify)
@@ -560,12 +616,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, param1: QtC.QObject, param2: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QApplication, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QApplication_OnNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNotify(self: QApplication, callback: *const fn (QApplication, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QApplication_OnNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperNotify` instead
@@ -578,29 +634,31 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    /// ` param2: QtC.QEvent `
+    /// ` param2: QEvent `
     ///
-    pub fn SuperNotify(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.QApplication_SuperNotify(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn SuperNotify(self: QApplication, param1: anytype, param2: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        comptime _ = @TypeOf(param2)._is_QEvent;
+        return qtc.QApplication_SuperNotify(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#resolveInterface)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` name: [:0]const u8 `
     ///
     /// ` revision: i32 `
     ///
-    pub fn ResolveInterface(self: ?*anyopaque, name: [:0]const u8, revision: i32) ?*anyopaque {
+    pub fn ResolveInterface(self: QApplication, name: [:0]const u8, revision: i32) ?*anyopaque {
         const name_Cstring = name.ptr;
-        return qtc.QApplication_ResolveInterface(@ptrCast(self), name_Cstring, @bitCast(revision));
+        return qtc.QApplication_ResolveInterface(@ptrCast(self.ptr), name_Cstring, @bitCast(revision));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#resolveInterface)
@@ -609,12 +667,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, name: [*:0]const u8, revision: i32) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QApplication, name: [*:0]const u8, revision: i32) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnResolveInterface(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) ?*anyopaque) void {
-        qtc.QApplication_OnResolveInterface(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResolveInterface(self: QApplication, callback: *const fn (QApplication, [*:0]const u8, i32) callconv(.c) ?*anyopaque) void {
+        qtc.QApplication_OnResolveInterface(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperResolveInterface` instead
@@ -627,53 +685,55 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` name: [:0]const u8 `
     ///
     /// ` revision: i32 `
     ///
-    pub fn SuperResolveInterface(self: ?*anyopaque, name: [:0]const u8, revision: i32) ?*anyopaque {
+    pub fn SuperResolveInterface(self: QApplication, name: [:0]const u8, revision: i32) ?*anyopaque {
         const name_Cstring = name.ptr;
-        return qtc.QApplication_SuperResolveInterface(@ptrCast(self), name_Cstring, @bitCast(revision));
+        return qtc.QApplication_SuperResolveInterface(@ptrCast(self.ptr), name_Cstring, @bitCast(revision));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#focusChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` old: QtC.QWidget `
+    /// ` old: QWidget `
     ///
-    /// ` now: QtC.QWidget `
+    /// ` now: QWidget `
     ///
-    pub fn FocusChanged(self: ?*anyopaque, old: ?*anyopaque, now: ?*anyopaque) void {
-        qtc.QApplication_FocusChanged(@ptrCast(self), @ptrCast(old), @ptrCast(now));
+    pub fn FocusChanged(self: QApplication, old: anytype, now: anytype) void {
+        comptime _ = @TypeOf(old)._is_QWidget;
+        comptime _ = @TypeOf(now)._is_QWidget;
+        qtc.QApplication_FocusChanged(@ptrCast(self.ptr), @ptrCast(old.ptr), @ptrCast(now.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#focusChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, old: QtC.QWidget, now: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication, old: QWidget, now: QWidget) callconv(.c) void `
     ///
-    pub fn OnFocusChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QApplication_Connect_FocusChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusChanged(self: QApplication, callback: *const fn (QApplication, QWidget, QWidget) callconv(.c) void) void {
+        qtc.QApplication_Connect_FocusChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#styleSheet)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QApplication_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: QApplication, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QApplication_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qapplication.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -684,38 +744,38 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn AutoSipEnabled(self: ?*anyopaque) bool {
-        return qtc.QApplication_AutoSipEnabled(@ptrCast(self));
+    pub fn AutoSipEnabled(self: QApplication) bool {
+        return qtc.QApplication_AutoSipEnabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#setStyleSheet)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` sheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, sheet: []const u8) void {
+    pub fn SetStyleSheet(self: QApplication, sheet: []const u8) void {
         const sheet_str = qtc.libqt_string{
             .len = sheet.len,
             .data = sheet.ptr,
         };
-        qtc.QApplication_SetStyleSheet(@ptrCast(self), sheet_str);
+        qtc.QApplication_SetStyleSheet(@ptrCast(self.ptr), sheet_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#setAutoSipEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoSipEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QApplication_SetAutoSipEnabled(@ptrCast(self), enabled);
+    pub fn SetAutoSipEnabled(self: QApplication, enabled: bool) void {
+        qtc.QApplication_SetAutoSipEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#closeAllWindows)
@@ -734,12 +794,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QApplication_Event(@ptrCast(self), @ptrCast(param1));
+    pub fn Event(self: QApplication, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        return qtc.QApplication_Event(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#event)
@@ -748,12 +809,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, param1: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QApplication, param1: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QApplication_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QApplication, callback: *const fn (QApplication, QEvent) callconv(.c) bool) void {
+        qtc.QApplication_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -766,25 +827,26 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QApplication_SuperEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperEvent(self: QApplication, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        return qtc.QApplication_SuperEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -798,15 +860,15 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -820,38 +882,41 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QPalette `
+    /// ` param1: QPalette `
     ///
     /// ` className: [:0]const u8 `
     ///
-    pub fn SetPalette2(param1: ?*anyopaque, className: [:0]const u8) void {
+    pub fn SetPalette2(param1: anytype, className: [:0]const u8) void {
+        comptime _ = @TypeOf(param1)._is_QPalette;
         const className_Cstring = className.ptr;
-        qtc.QApplication_SetPalette2(@ptrCast(param1), className_Cstring);
+        qtc.QApplication_SetPalette2(@ptrCast(param1.ptr), className_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#setFont)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QFont `
+    /// ` param1: QFont `
     ///
     /// ` className: [:0]const u8 `
     ///
-    pub fn SetFont2(param1: ?*anyopaque, className: [:0]const u8) void {
+    pub fn SetFont2(param1: anytype, className: [:0]const u8) void {
+        comptime _ = @TypeOf(param1)._is_QFont;
         const className_Cstring = className.ptr;
-        qtc.QApplication_SetFont2(@ptrCast(param1), className_Cstring);
+        qtc.QApplication_SetFont2(@ptrCast(param1.ptr), className_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#alert)
     ///
     /// ## Parameter(s):
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
     /// ` duration: i32 `
     ///
-    pub fn Alert2(widget: ?*anyopaque, duration: i32) void {
-        qtc.QApplication_Alert2(@ptrCast(widget), @bitCast(duration));
+    pub fn Alert2(widget: anytype, duration: i32) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QApplication_Alert2(@ptrCast(widget.ptr), @bitCast(duration));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qapplication.html#setEffectEnabled)
@@ -904,12 +969,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` number: i64 `
     ///
-    pub fn SetBadgeNumber(self: ?*anyopaque, number: i64) void {
-        qtc.QGuiApplication_SetBadgeNumber(@ptrCast(self), @bitCast(number));
+    pub fn SetBadgeNumber(self: QApplication, number: i64) void {
+        qtc.QGuiApplication_SetBadgeNumber(@ptrCast(self.ptr), @bitCast(number));
     }
 
     /// Inherited from QGuiApplication
@@ -952,12 +1017,13 @@ pub const qapplication = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllWindows(allocator: std.mem.Allocator) []QtC.QWindow {
+    pub fn AllWindows(allocator: std.mem.Allocator) []QWindow {
         const _arr: qtc.libqt_list = qtc.QGuiApplication_AllWindows();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QWindow, _arr.len) catch @panic("qapplication.AllWindows: Memory allocation failed");
+        const _ret = allocator.alloc(QWindow, _arr.len) catch @panic("qapplication.AllWindows: Memory allocation failed");
         const _data: [*]QtC.QWindow = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -969,12 +1035,13 @@ pub const qapplication = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TopLevelWindows(allocator: std.mem.Allocator) []QtC.QWindow {
+    pub fn TopLevelWindows(allocator: std.mem.Allocator) []QWindow {
         const _arr: qtc.libqt_list = qtc.QGuiApplication_TopLevelWindows();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QWindow, _arr.len) catch @panic("qapplication.TopLevelWindows: Memory allocation failed");
+        const _ret = allocator.alloc(QWindow, _arr.len) catch @panic("qapplication.TopLevelWindows: Memory allocation failed");
         const _data: [*]QtC.QWindow = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -984,18 +1051,19 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(icon: ?*anyopaque) void {
-        qtc.QGuiApplication_SetWindowIcon(@ptrCast(icon));
+    pub fn SetWindowIcon(icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QGuiApplication_SetWindowIcon(@ptrCast(icon.ptr));
     }
 
     /// Inherited from QGuiApplication
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qguiapplication.html#windowIcon)
     ///
-    pub fn WindowIcon() QtC.QIcon {
-        return qtc.QGuiApplication_WindowIcon();
+    pub fn WindowIcon() QIcon {
+        return .{ .ptr = qtc.QGuiApplication_WindowIcon() };
     }
 
     /// Inherited from QGuiApplication
@@ -1018,32 +1086,32 @@ pub const qapplication = struct {
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qguiapplication.html#modalWindow)
     ///
-    pub fn ModalWindow() QtC.QWindow {
-        return qtc.QGuiApplication_ModalWindow();
+    pub fn ModalWindow() QWindow {
+        return .{ .ptr = qtc.QGuiApplication_ModalWindow() };
     }
 
     /// Inherited from QGuiApplication
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qguiapplication.html#focusWindow)
     ///
-    pub fn FocusWindow() QtC.QWindow {
-        return qtc.QGuiApplication_FocusWindow();
+    pub fn FocusWindow() QWindow {
+        return .{ .ptr = qtc.QGuiApplication_FocusWindow() };
     }
 
     /// Inherited from QGuiApplication
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qguiapplication.html#focusObject)
     ///
-    pub fn FocusObject() QtC.QObject {
-        return qtc.QGuiApplication_FocusObject();
+    pub fn FocusObject() QObject {
+        return .{ .ptr = qtc.QGuiApplication_FocusObject() };
     }
 
     /// Inherited from QGuiApplication
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qguiapplication.html#primaryScreen)
     ///
-    pub fn PrimaryScreen() QtC.QScreen {
-        return qtc.QGuiApplication_PrimaryScreen();
+    pub fn PrimaryScreen() QScreen {
+        return .{ .ptr = qtc.QGuiApplication_PrimaryScreen() };
     }
 
     /// Inherited from QGuiApplication
@@ -1054,12 +1122,13 @@ pub const qapplication = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Screens(allocator: std.mem.Allocator) []QtC.QScreen {
+    pub fn Screens(allocator: std.mem.Allocator) []QScreen {
         const _arr: qtc.libqt_list = qtc.QGuiApplication_Screens();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QScreen, _arr.len) catch @panic("qapplication.Screens: Memory allocation failed");
+        const _ret = allocator.alloc(QScreen, _arr.len) catch @panic("qapplication.Screens: Memory allocation failed");
         const _data: [*]QtC.QScreen = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1069,10 +1138,11 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` point: QtC.QPoint `
+    /// ` point: QPoint `
     ///
-    pub fn ScreenAt(point: ?*anyopaque) QtC.QScreen {
-        return qtc.QGuiApplication_ScreenAt(@ptrCast(point));
+    pub fn ScreenAt(point: anytype) QScreen {
+        comptime _ = @TypeOf(point)._is_QPoint;
+        return .{ .ptr = qtc.QGuiApplication_ScreenAt(@ptrCast(point.ptr)) };
     }
 
     /// Inherited from QGuiApplication
@@ -1081,18 +1151,18 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QGuiApplication_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: QApplication) f64 {
+        return qtc.QGuiApplication_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGuiApplication
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qguiapplication.html#overrideCursor)
     ///
-    pub fn OverrideCursor() QtC.QCursor {
-        return qtc.QGuiApplication_OverrideCursor();
+    pub fn OverrideCursor() QCursor {
+        return .{ .ptr = qtc.QGuiApplication_OverrideCursor() };
     }
 
     /// Inherited from QGuiApplication
@@ -1101,10 +1171,11 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` overrideCursor: QtC.QCursor `
+    /// ` overrideCursor: QCursor `
     ///
-    pub fn SetOverrideCursor(overrideCursor: ?*anyopaque) void {
-        qtc.QGuiApplication_SetOverrideCursor(@ptrCast(overrideCursor));
+    pub fn SetOverrideCursor(overrideCursor: anytype) void {
+        comptime _ = @TypeOf(overrideCursor)._is_QCursor;
+        qtc.QGuiApplication_SetOverrideCursor(@ptrCast(overrideCursor.ptr));
     }
 
     /// Inherited from QGuiApplication
@@ -1113,10 +1184,11 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn ChangeOverrideCursor(param1: ?*anyopaque) void {
-        qtc.QGuiApplication_ChangeOverrideCursor(@ptrCast(param1));
+    pub fn ChangeOverrideCursor(param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QGuiApplication_ChangeOverrideCursor(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QGuiApplication
@@ -1131,8 +1203,8 @@ pub const qapplication = struct {
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qguiapplication.html#clipboard)
     ///
-    pub fn Clipboard() QtC.QClipboard {
-        return qtc.QGuiApplication_Clipboard();
+    pub fn Clipboard() QClipboard {
+        return .{ .ptr = qtc.QGuiApplication_Clipboard() };
     }
 
     /// Inherited from QGuiApplication
@@ -1215,8 +1287,8 @@ pub const qapplication = struct {
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qguiapplication.html#styleHints)
     ///
-    pub fn StyleHints() QtC.QStyleHints {
-        return qtc.QGuiApplication_StyleHints();
+    pub fn StyleHints() QStyleHints {
+        return .{ .ptr = qtc.QGuiApplication_StyleHints() };
     }
 
     /// Inherited from QGuiApplication
@@ -1243,8 +1315,8 @@ pub const qapplication = struct {
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qguiapplication.html#inputMethod)
     ///
-    pub fn InputMethod() QtC.QInputMethod {
-        return qtc.QGuiApplication_InputMethod();
+    pub fn InputMethod() QInputMethod {
+        return .{ .ptr = qtc.QGuiApplication_InputMethod() };
     }
 
     /// Inherited from QGuiApplication
@@ -1329,10 +1401,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn IsSessionRestored(self: ?*anyopaque) bool {
-        return qtc.QGuiApplication_IsSessionRestored(@ptrCast(self));
+    pub fn IsSessionRestored(self: QApplication) bool {
+        return qtc.QGuiApplication_IsSessionRestored(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGuiApplication
@@ -1341,12 +1413,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SessionId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QGuiApplication_SessionId(@ptrCast(self));
+    pub fn SessionId(self: QApplication, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QGuiApplication_SessionId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qapplication.SessionId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1359,12 +1431,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SessionKey(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QGuiApplication_SessionKey(@ptrCast(self));
+    pub fn SessionKey(self: QApplication, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QGuiApplication_SessionKey(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qapplication.SessionKey: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1377,10 +1449,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn IsSavingSession(self: ?*anyopaque) bool {
-        return qtc.QGuiApplication_IsSavingSession(@ptrCast(self));
+    pub fn IsSavingSession(self: QApplication) bool {
+        return qtc.QGuiApplication_IsSavingSession(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGuiApplication
@@ -1397,10 +1469,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn FontDatabaseChanged(self: ?*anyopaque) void {
-        qtc.QGuiApplication_FontDatabaseChanged(@ptrCast(self));
+    pub fn FontDatabaseChanged(self: QApplication) void {
+        qtc.QGuiApplication_FontDatabaseChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGuiApplication
@@ -1409,12 +1481,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication) callconv(.c) void `
     ///
-    pub fn OnFontDatabaseChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_FontDatabaseChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFontDatabaseChanged(self: QApplication, callback: *const fn (QApplication) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_FontDatabaseChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGuiApplication
@@ -1423,12 +1495,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn ScreenAdded(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QGuiApplication_ScreenAdded(@ptrCast(self), @ptrCast(screen));
+    pub fn ScreenAdded(self: QApplication, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QGuiApplication_ScreenAdded(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QGuiApplication
@@ -1437,12 +1510,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, screen: QtC.QScreen) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication, screen: QScreen) callconv(.c) void `
     ///
-    pub fn OnScreenAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_ScreenAdded(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnScreenAdded(self: QApplication, callback: *const fn (QApplication, QScreen) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_ScreenAdded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGuiApplication
@@ -1451,12 +1524,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn ScreenRemoved(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QGuiApplication_ScreenRemoved(@ptrCast(self), @ptrCast(screen));
+    pub fn ScreenRemoved(self: QApplication, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QGuiApplication_ScreenRemoved(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QGuiApplication
@@ -1465,12 +1539,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, screen: QtC.QScreen) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication, screen: QScreen) callconv(.c) void `
     ///
-    pub fn OnScreenRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_ScreenRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnScreenRemoved(self: QApplication, callback: *const fn (QApplication, QScreen) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_ScreenRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGuiApplication
@@ -1479,12 +1553,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn PrimaryScreenChanged(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QGuiApplication_PrimaryScreenChanged(@ptrCast(self), @ptrCast(screen));
+    pub fn PrimaryScreenChanged(self: QApplication, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QGuiApplication_PrimaryScreenChanged(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QGuiApplication
@@ -1493,12 +1568,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, screen: QtC.QScreen) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication, screen: QScreen) callconv(.c) void `
     ///
-    pub fn OnPrimaryScreenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_PrimaryScreenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPrimaryScreenChanged(self: QApplication, callback: *const fn (QApplication, QScreen) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_PrimaryScreenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGuiApplication
@@ -1507,10 +1582,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn LastWindowClosed(self: ?*anyopaque) void {
-        qtc.QGuiApplication_LastWindowClosed(@ptrCast(self));
+    pub fn LastWindowClosed(self: QApplication) void {
+        qtc.QGuiApplication_LastWindowClosed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGuiApplication
@@ -1519,12 +1594,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication) callconv(.c) void `
     ///
-    pub fn OnLastWindowClosed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_LastWindowClosed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLastWindowClosed(self: QApplication, callback: *const fn (QApplication) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_LastWindowClosed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGuiApplication
@@ -1533,12 +1608,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` focusObject: QtC.QObject `
+    /// ` focusObject: QObject `
     ///
-    pub fn FocusObjectChanged(self: ?*anyopaque, focusObject: ?*anyopaque) void {
-        qtc.QGuiApplication_FocusObjectChanged(@ptrCast(self), @ptrCast(focusObject));
+    pub fn FocusObjectChanged(self: QApplication, focusObject: anytype) void {
+        comptime _ = @TypeOf(focusObject)._is_QObject;
+        qtc.QGuiApplication_FocusObjectChanged(@ptrCast(self.ptr), @ptrCast(focusObject.ptr));
     }
 
     /// Inherited from QGuiApplication
@@ -1547,12 +1623,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, focusObject: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication, focusObject: QObject) callconv(.c) void `
     ///
-    pub fn OnFocusObjectChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_FocusObjectChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusObjectChanged(self: QApplication, callback: *const fn (QApplication, QObject) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_FocusObjectChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGuiApplication
@@ -1561,12 +1637,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` focusWindow: QtC.QWindow `
+    /// ` focusWindow: QWindow `
     ///
-    pub fn FocusWindowChanged(self: ?*anyopaque, focusWindow: ?*anyopaque) void {
-        qtc.QGuiApplication_FocusWindowChanged(@ptrCast(self), @ptrCast(focusWindow));
+    pub fn FocusWindowChanged(self: QApplication, focusWindow: anytype) void {
+        comptime _ = @TypeOf(focusWindow)._is_QWindow;
+        qtc.QGuiApplication_FocusWindowChanged(@ptrCast(self.ptr), @ptrCast(focusWindow.ptr));
     }
 
     /// Inherited from QGuiApplication
@@ -1575,12 +1652,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, focusWindow: QtC.QWindow) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication, focusWindow: QWindow) callconv(.c) void `
     ///
-    pub fn OnFocusWindowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_FocusWindowChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusWindowChanged(self: QApplication, callback: *const fn (QApplication, QWindow) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_FocusWindowChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGuiApplication
@@ -1589,12 +1666,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` state: qnamespace_enums.ApplicationState `
     ///
-    pub fn ApplicationStateChanged(self: ?*anyopaque, state: i32) void {
-        qtc.QGuiApplication_ApplicationStateChanged(@ptrCast(self), @bitCast(state));
+    pub fn ApplicationStateChanged(self: QApplication, state: i32) void {
+        qtc.QGuiApplication_ApplicationStateChanged(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QGuiApplication
@@ -1603,12 +1680,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, state: qnamespace_enums.ApplicationState) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication, state: qnamespace_enums.ApplicationState) callconv(.c) void `
     ///
-    pub fn OnApplicationStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_ApplicationStateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnApplicationStateChanged(self: QApplication, callback: *const fn (QApplication, i32) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_ApplicationStateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGuiApplication
@@ -1617,12 +1694,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirectionChanged(self: ?*anyopaque, direction: i32) void {
-        qtc.QGuiApplication_LayoutDirectionChanged(@ptrCast(self), @bitCast(direction));
+    pub fn LayoutDirectionChanged(self: QApplication, direction: i32) void {
+        qtc.QGuiApplication_LayoutDirectionChanged(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QGuiApplication
@@ -1631,12 +1708,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, direction: qnamespace_enums.LayoutDirection) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication, direction: qnamespace_enums.LayoutDirection) callconv(.c) void `
     ///
-    pub fn OnLayoutDirectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_LayoutDirectionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutDirectionChanged(self: QApplication, callback: *const fn (QApplication, i32) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_LayoutDirectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGuiApplication
@@ -1645,12 +1722,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` sessionManager: QtC.QSessionManager `
+    /// ` sessionManager: QSessionManager `
     ///
-    pub fn CommitDataRequest(self: ?*anyopaque, sessionManager: ?*anyopaque) void {
-        qtc.QGuiApplication_CommitDataRequest(@ptrCast(self), @ptrCast(sessionManager));
+    pub fn CommitDataRequest(self: QApplication, sessionManager: anytype) void {
+        comptime _ = @TypeOf(sessionManager)._is_QSessionManager;
+        qtc.QGuiApplication_CommitDataRequest(@ptrCast(self.ptr), @ptrCast(sessionManager.ptr));
     }
 
     /// Inherited from QGuiApplication
@@ -1659,12 +1737,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, sessionManager: QtC.QSessionManager) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication, sessionManager: QSessionManager) callconv(.c) void `
     ///
-    pub fn OnCommitDataRequest(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_CommitDataRequest(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCommitDataRequest(self: QApplication, callback: *const fn (QApplication, QSessionManager) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_CommitDataRequest(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGuiApplication
@@ -1673,12 +1751,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` sessionManager: QtC.QSessionManager `
+    /// ` sessionManager: QSessionManager `
     ///
-    pub fn SaveStateRequest(self: ?*anyopaque, sessionManager: ?*anyopaque) void {
-        qtc.QGuiApplication_SaveStateRequest(@ptrCast(self), @ptrCast(sessionManager));
+    pub fn SaveStateRequest(self: QApplication, sessionManager: anytype) void {
+        comptime _ = @TypeOf(sessionManager)._is_QSessionManager;
+        qtc.QGuiApplication_SaveStateRequest(@ptrCast(self.ptr), @ptrCast(sessionManager.ptr));
     }
 
     /// Inherited from QGuiApplication
@@ -1687,12 +1766,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, sessionManager: QtC.QSessionManager) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication, sessionManager: QSessionManager) callconv(.c) void `
     ///
-    pub fn OnSaveStateRequest(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_SaveStateRequest(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSaveStateRequest(self: QApplication, callback: *const fn (QApplication, QSessionManager) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_SaveStateRequest(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGuiApplication
@@ -1701,10 +1780,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn ApplicationDisplayNameChanged(self: ?*anyopaque) void {
-        qtc.QGuiApplication_ApplicationDisplayNameChanged(@ptrCast(self));
+    pub fn ApplicationDisplayNameChanged(self: QApplication) void {
+        qtc.QGuiApplication_ApplicationDisplayNameChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGuiApplication
@@ -1713,12 +1792,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication) callconv(.c) void `
     ///
-    pub fn OnApplicationDisplayNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_ApplicationDisplayNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnApplicationDisplayNameChanged(self: QApplication, callback: *const fn (QApplication) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_ApplicationDisplayNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGuiApplication
@@ -1727,12 +1806,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` pal: QtC.QPalette `
+    /// ` pal: QPalette `
     ///
-    pub fn PaletteChanged(self: ?*anyopaque, pal: ?*anyopaque) void {
-        qtc.QGuiApplication_PaletteChanged(@ptrCast(self), @ptrCast(pal));
+    pub fn PaletteChanged(self: QApplication, pal: anytype) void {
+        comptime _ = @TypeOf(pal)._is_QPalette;
+        qtc.QGuiApplication_PaletteChanged(@ptrCast(self.ptr), @ptrCast(pal.ptr));
     }
 
     /// Inherited from QGuiApplication
@@ -1741,12 +1821,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, pal: QtC.QPalette) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication, pal: QPalette) callconv(.c) void `
     ///
-    pub fn OnPaletteChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_PaletteChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaletteChanged(self: QApplication, callback: *const fn (QApplication, QPalette) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_PaletteChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGuiApplication
@@ -1755,12 +1835,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn FontChanged(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QGuiApplication_FontChanged(@ptrCast(self), @ptrCast(font));
+    pub fn FontChanged(self: QApplication, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QGuiApplication_FontChanged(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QGuiApplication
@@ -1769,12 +1850,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, font: QtC.QFont) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication, font: QFont) callconv(.c) void `
     ///
-    pub fn OnFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_FontChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFontChanged(self: QApplication, callback: *const fn (QApplication, QFont) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_FontChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCoreApplication
@@ -1789,9 +1870,8 @@ pub const qapplication = struct {
         const _arr: qtc.libqt_list = qtc.QCoreApplication_Arguments();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qapplication.Arguments: Memory allocation failed");
@@ -1980,8 +2060,8 @@ pub const qapplication = struct {
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#instance)
     ///
-    pub fn Instance() QtC.QCoreApplication {
-        return qtc.QCoreApplication_Instance();
+    pub fn Instance() QCoreApplication {
+        return .{ .ptr = qtc.QCoreApplication_Instance() };
     }
 
     /// Inherited from QCoreApplication
@@ -2014,10 +2094,11 @@ pub const qapplication = struct {
     ///
     /// ` flags: flag of qeventloop_enums.ProcessEventsFlag `
     ///
-    /// ` deadline: QtC.QDeadlineTimer `
+    /// ` deadline: QDeadlineTimer `
     ///
-    pub fn ProcessEvents3(flags: i32, deadline: QtC.QDeadlineTimer) void {
-        qtc.QCoreApplication_ProcessEvents3(@bitCast(flags), @ptrCast(deadline));
+    pub fn ProcessEvents3(flags: i32, deadline: anytype) void {
+        comptime _ = @TypeOf(deadline)._is_QDeadlineTimer;
+        qtc.QCoreApplication_ProcessEvents3(@bitCast(flags), @ptrCast(deadline.ptr));
     }
 
     /// Inherited from QCoreApplication
@@ -2026,12 +2107,14 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SendEvent(receiver: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QCoreApplication_SendEvent(@ptrCast(receiver), @ptrCast(event));
+    pub fn SendEvent(receiver: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QCoreApplication_SendEvent(@ptrCast(receiver.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QCoreApplication
@@ -2040,12 +2123,14 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn PostEvent(receiver: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QCoreApplication_PostEvent(@ptrCast(receiver), @ptrCast(event));
+    pub fn PostEvent(receiver: anytype, event: anytype) void {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QCoreApplication_PostEvent(@ptrCast(receiver.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QCoreApplication
@@ -2062,18 +2147,19 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn RemovePostedEvents(receiver: ?*anyopaque) void {
-        qtc.QCoreApplication_RemovePostedEvents(@ptrCast(receiver));
+    pub fn RemovePostedEvents(receiver: anytype) void {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        qtc.QCoreApplication_RemovePostedEvents(@ptrCast(receiver.ptr));
     }
 
     /// Inherited from QCoreApplication
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcoreapplication.html#eventDispatcher)
     ///
-    pub fn EventDispatcher() QtC.QAbstractEventDispatcher {
-        return qtc.QCoreApplication_EventDispatcher();
+    pub fn EventDispatcher() QAbstractEventDispatcher {
+        return .{ .ptr = qtc.QCoreApplication_EventDispatcher() };
     }
 
     /// Inherited from QCoreApplication
@@ -2082,10 +2168,11 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` eventDispatcher: QtC.QAbstractEventDispatcher `
+    /// ` eventDispatcher: QAbstractEventDispatcher `
     ///
-    pub fn SetEventDispatcher(eventDispatcher: ?*anyopaque) void {
-        qtc.QCoreApplication_SetEventDispatcher(@ptrCast(eventDispatcher));
+    pub fn SetEventDispatcher(eventDispatcher: anytype) void {
+        comptime _ = @TypeOf(eventDispatcher)._is_QAbstractEventDispatcher;
+        qtc.QCoreApplication_SetEventDispatcher(@ptrCast(eventDispatcher.ptr));
     }
 
     /// Inherited from QCoreApplication
@@ -2150,16 +2237,17 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` permission: QtC.QPermission `
+    /// ` permission: QPermission `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.PermissionStatus `
     ///
-    pub fn CheckPermission(self: ?*anyopaque, permission: ?*anyopaque) i32 {
-        return qtc.QCoreApplication_CheckPermission(@ptrCast(self), @ptrCast(permission));
+    pub fn CheckPermission(self: QApplication, permission: anytype) i32 {
+        comptime _ = @TypeOf(permission)._is_QPermission;
+        return qtc.QCoreApplication_CheckPermission(@ptrCast(self.ptr), @ptrCast(permission.ptr));
     }
 
     /// Inherited from QCoreApplication
@@ -2168,19 +2256,18 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` libraryPaths: []const []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetLibraryPaths(libraryPaths: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` libraryPaths: []const []const u8 `
+    ///
+    pub fn SetLibraryPaths(allocator: std.mem.Allocator, libraryPaths: []const []const u8) void {
         const libraryPaths_arr = allocator.alloc(qtc.libqt_string, libraryPaths.len) catch @panic("qapplication.SetLibraryPaths: Memory allocation failed");
         defer allocator.free(libraryPaths_arr);
-        for (libraryPaths, 0..libraryPaths.len) |item, i| {
+        for (libraryPaths, 0..libraryPaths.len) |item, i|
             libraryPaths_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const libraryPaths_list = qtc.libqt_list{
             .len = libraryPaths.len,
             .data = libraryPaths_arr.ptr,
@@ -2200,9 +2287,8 @@ pub const qapplication = struct {
         const _arr: qtc.libqt_list = qtc.QCoreApplication_LibraryPaths();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qapplication.LibraryPaths: Memory allocation failed");
@@ -2253,10 +2339,11 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` messageFile: QtC.QTranslator `
+    /// ` messageFile: QTranslator `
     ///
-    pub fn InstallTranslator(messageFile: ?*anyopaque) bool {
-        return qtc.QCoreApplication_InstallTranslator(@ptrCast(messageFile));
+    pub fn InstallTranslator(messageFile: anytype) bool {
+        comptime _ = @TypeOf(messageFile)._is_QTranslator;
+        return qtc.QCoreApplication_InstallTranslator(@ptrCast(messageFile.ptr));
     }
 
     /// Inherited from QCoreApplication
@@ -2265,10 +2352,11 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` messageFile: QtC.QTranslator `
+    /// ` messageFile: QTranslator `
     ///
-    pub fn RemoveTranslator(messageFile: ?*anyopaque) bool {
-        return qtc.QCoreApplication_RemoveTranslator(@ptrCast(messageFile));
+    pub fn RemoveTranslator(messageFile: anytype) bool {
+        comptime _ = @TypeOf(messageFile)._is_QTranslator;
+        return qtc.QCoreApplication_RemoveTranslator(@ptrCast(messageFile.ptr));
     }
 
     /// Inherited from QCoreApplication
@@ -2277,13 +2365,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` context: [:0]const u8 `
     ///
     /// ` key: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Translate(context: [:0]const u8, key: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Translate(allocator: std.mem.Allocator, context: [:0]const u8, key: [:0]const u8) []const u8 {
         const context_Cstring = context.ptr;
         const key_Cstring = key.ptr;
         var _str = qtc.QCoreApplication_Translate(context_Cstring, key_Cstring);
@@ -2299,12 +2387,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` filterObj: QtC.QAbstractNativeEventFilter `
+    /// ` filterObj: QAbstractNativeEventFilter `
     ///
-    pub fn InstallNativeEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QCoreApplication_InstallNativeEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallNativeEventFilter(self: QApplication, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QAbstractNativeEventFilter;
+        qtc.QCoreApplication_InstallNativeEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QCoreApplication
@@ -2313,12 +2402,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, filterObj: QtC.QAbstractNativeEventFilter) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication, filterObj: QAbstractNativeEventFilter) callconv(.c) void `
     ///
-    pub fn OnInstallNativeEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCoreApplication_Connect_InstallNativeEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInstallNativeEventFilter(self: QApplication, callback: *const fn (QApplication, QAbstractNativeEventFilter) callconv(.c) void) void {
+        qtc.QCoreApplication_Connect_InstallNativeEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCoreApplication
@@ -2327,12 +2416,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` filterObj: QtC.QAbstractNativeEventFilter `
+    /// ` filterObj: QAbstractNativeEventFilter `
     ///
-    pub fn RemoveNativeEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QCoreApplication_RemoveNativeEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn RemoveNativeEventFilter(self: QApplication, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QAbstractNativeEventFilter;
+        qtc.QCoreApplication_RemoveNativeEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QCoreApplication
@@ -2341,12 +2431,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, filterObj: QtC.QAbstractNativeEventFilter) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication, filterObj: QAbstractNativeEventFilter) callconv(.c) void `
     ///
-    pub fn OnRemoveNativeEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCoreApplication_Connect_RemoveNativeEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRemoveNativeEventFilter(self: QApplication, callback: *const fn (QApplication, QAbstractNativeEventFilter) callconv(.c) void) void {
+        qtc.QCoreApplication_Connect_RemoveNativeEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCoreApplication
@@ -2391,10 +2481,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn OrganizationNameChanged(self: ?*anyopaque) void {
-        qtc.QCoreApplication_OrganizationNameChanged(@ptrCast(self));
+    pub fn OrganizationNameChanged(self: QApplication) void {
+        qtc.QCoreApplication_OrganizationNameChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QCoreApplication
@@ -2403,12 +2493,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication) callconv(.c) void `
     ///
-    pub fn OnOrganizationNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCoreApplication_Connect_OrganizationNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnOrganizationNameChanged(self: QApplication, callback: *const fn (QApplication) callconv(.c) void) void {
+        qtc.QCoreApplication_Connect_OrganizationNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCoreApplication
@@ -2417,10 +2507,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn OrganizationDomainChanged(self: ?*anyopaque) void {
-        qtc.QCoreApplication_OrganizationDomainChanged(@ptrCast(self));
+    pub fn OrganizationDomainChanged(self: QApplication) void {
+        qtc.QCoreApplication_OrganizationDomainChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QCoreApplication
@@ -2429,12 +2519,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication) callconv(.c) void `
     ///
-    pub fn OnOrganizationDomainChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCoreApplication_Connect_OrganizationDomainChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnOrganizationDomainChanged(self: QApplication, callback: *const fn (QApplication) callconv(.c) void) void {
+        qtc.QCoreApplication_Connect_OrganizationDomainChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCoreApplication
@@ -2443,10 +2533,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn ApplicationNameChanged(self: ?*anyopaque) void {
-        qtc.QCoreApplication_ApplicationNameChanged(@ptrCast(self));
+    pub fn ApplicationNameChanged(self: QApplication) void {
+        qtc.QCoreApplication_ApplicationNameChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QCoreApplication
@@ -2455,12 +2545,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication) callconv(.c) void `
     ///
-    pub fn OnApplicationNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCoreApplication_Connect_ApplicationNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnApplicationNameChanged(self: QApplication, callback: *const fn (QApplication) callconv(.c) void) void {
+        qtc.QCoreApplication_Connect_ApplicationNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCoreApplication
@@ -2469,10 +2559,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn ApplicationVersionChanged(self: ?*anyopaque) void {
-        qtc.QCoreApplication_ApplicationVersionChanged(@ptrCast(self));
+    pub fn ApplicationVersionChanged(self: QApplication) void {
+        qtc.QCoreApplication_ApplicationVersionChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QCoreApplication
@@ -2481,12 +2571,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication) callconv(.c) void `
     ///
-    pub fn OnApplicationVersionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCoreApplication_Connect_ApplicationVersionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnApplicationVersionChanged(self: QApplication, callback: *const fn (QApplication) callconv(.c) void) void {
+        qtc.QCoreApplication_Connect_ApplicationVersionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCoreApplication
@@ -2521,14 +2611,16 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
     /// ` priority: i32 `
     ///
-    pub fn PostEvent3(receiver: ?*anyopaque, event: ?*anyopaque, priority: i32) void {
-        qtc.QCoreApplication_PostEvent3(@ptrCast(receiver), @ptrCast(event), @bitCast(priority));
+    pub fn PostEvent3(receiver: anytype, event: anytype, priority: i32) void {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QCoreApplication_PostEvent3(@ptrCast(receiver.ptr), @ptrCast(event.ptr), @bitCast(priority));
     }
 
     /// Inherited from QCoreApplication
@@ -2537,10 +2629,11 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn SendPostedEvents1(receiver: ?*anyopaque) void {
-        qtc.QCoreApplication_SendPostedEvents1(@ptrCast(receiver));
+    pub fn SendPostedEvents1(receiver: anytype) void {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        qtc.QCoreApplication_SendPostedEvents1(@ptrCast(receiver.ptr));
     }
 
     /// Inherited from QCoreApplication
@@ -2549,12 +2642,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` event_type: i32 `
     ///
-    pub fn SendPostedEvents2(receiver: ?*anyopaque, event_type: i32) void {
-        qtc.QCoreApplication_SendPostedEvents2(@ptrCast(receiver), @bitCast(event_type));
+    pub fn SendPostedEvents2(receiver: anytype, event_type: i32) void {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        qtc.QCoreApplication_SendPostedEvents2(@ptrCast(receiver.ptr), @bitCast(event_type));
     }
 
     /// Inherited from QCoreApplication
@@ -2563,12 +2657,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` eventType: i32 `
     ///
-    pub fn RemovePostedEvents2(receiver: ?*anyopaque, eventType: i32) void {
-        qtc.QCoreApplication_RemovePostedEvents2(@ptrCast(receiver), @bitCast(eventType));
+    pub fn RemovePostedEvents2(receiver: anytype, eventType: i32) void {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        qtc.QCoreApplication_RemovePostedEvents2(@ptrCast(receiver.ptr), @bitCast(eventType));
     }
 
     /// Inherited from QCoreApplication
@@ -2577,15 +2672,15 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` context: [:0]const u8 `
     ///
     /// ` key: [:0]const u8 `
     ///
     /// ` disambiguation: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Translate3(context: [:0]const u8, key: [:0]const u8, disambiguation: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Translate3(allocator: std.mem.Allocator, context: [:0]const u8, key: [:0]const u8, disambiguation: [:0]const u8) []const u8 {
         const context_Cstring = context.ptr;
         const key_Cstring = key.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
@@ -2602,6 +2697,8 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` context: [:0]const u8 `
     ///
     /// ` key: [:0]const u8 `
@@ -2610,9 +2707,7 @@ pub const qapplication = struct {
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Translate4(context: [:0]const u8, key: [:0]const u8, disambiguation: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Translate4(allocator: std.mem.Allocator, context: [:0]const u8, key: [:0]const u8, disambiguation: [:0]const u8, n: i32) []const u8 {
         const context_Cstring = context.ptr;
         const key_Cstring = key.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
@@ -2641,12 +2736,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QApplication, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qapplication.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2659,12 +2754,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QApplication, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -2673,10 +2768,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QApplication) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2685,10 +2780,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QApplication) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2697,10 +2792,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QApplication) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2709,10 +2804,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QApplication) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2721,12 +2816,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QApplication, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -2735,10 +2830,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QApplication) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2747,12 +2842,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QApplication, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -2761,12 +2857,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QApplication, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -2775,12 +2871,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QApplication, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -2789,12 +2885,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QApplication, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2803,12 +2899,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QApplication, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2817,16 +2913,17 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QApplication, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qapplication.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qapplication.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2836,12 +2933,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QApplication, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -2850,12 +2948,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QApplication, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -2864,12 +2963,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QApplication, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -2878,18 +2978,20 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -2898,16 +3000,20 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2916,18 +3022,19 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QApplication, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -2936,18 +3043,20 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2956,16 +3065,20 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -2974,10 +3087,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QApplication) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2986,12 +3099,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QApplication, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -3000,10 +3114,11 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -3012,10 +3127,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QApplication) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3024,10 +3139,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QApplication) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3036,15 +3151,16 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QApplication, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -3053,13 +3169,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QApplication, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -3068,17 +3184,16 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QApplication, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qapplication.DynamicPropertyNames: Memory allocation failed");
@@ -3097,10 +3212,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QApplication) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3109,10 +3224,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QApplication) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3121,10 +3236,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QApplication) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3133,12 +3248,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QApplication, callback: *const fn (QApplication) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3147,10 +3262,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QApplication) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3159,13 +3274,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QApplication, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -3174,10 +3289,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QApplication) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3186,14 +3301,14 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QApplication, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -3202,14 +3317,14 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QApplication, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -3218,20 +3333,22 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -3240,18 +3357,22 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -3260,9 +3381,9 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -3270,10 +3391,11 @@ pub const qapplication = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QApplication, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -3282,13 +3404,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QApplication, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3297,15 +3419,16 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QApplication, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -3314,18 +3437,19 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QApplication, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -3334,15 +3458,16 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QApplication, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -3351,12 +3476,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QApplication, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -3365,12 +3491,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QApplication, callback: *const fn (QApplication, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3381,14 +3507,16 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QApplication_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QApplication, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QApplication_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -3403,14 +3531,16 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QApplication_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QApplication, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QApplication_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3421,12 +3551,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication`
+    /// ` self: QApplication`
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QApplication, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QApplication_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QApplication, callback: *const fn (QApplication, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QApplication_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3437,12 +3567,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QApplication_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QApplication, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QApplication_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -3457,12 +3588,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QApplication_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QApplication, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QApplication_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3473,12 +3605,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication`
+    /// ` self: QApplication`
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QApplication_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QApplication, callback: *const fn (QApplication, QTimerEvent) callconv(.c) void) void {
+        qtc.QApplication_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3489,12 +3621,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QApplication_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QApplication, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QApplication_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -3509,12 +3642,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QApplication_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QApplication, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QApplication_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3525,12 +3659,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication`
+    /// ` self: QApplication`
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QApplication_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QApplication, callback: *const fn (QApplication, QChildEvent) callconv(.c) void) void {
+        qtc.QApplication_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3541,12 +3675,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QApplication_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QApplication, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QApplication_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -3561,12 +3696,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QApplication_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QApplication, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QApplication_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3577,12 +3713,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication`
+    /// ` self: QApplication`
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QApplication_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QApplication, callback: *const fn (QApplication, QEvent) callconv(.c) void) void {
+        qtc.QApplication_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3593,12 +3729,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QApplication_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QApplication, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QApplication_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -3613,12 +3750,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QApplication_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QApplication, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QApplication_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3629,12 +3767,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication`
+    /// ` self: QApplication`
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QApplication_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QApplication, callback: *const fn (QApplication, QMetaMethod) callconv(.c) void) void {
+        qtc.QApplication_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3645,12 +3783,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QApplication_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QApplication, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QApplication_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -3665,12 +3804,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QApplication_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QApplication, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QApplication_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3681,12 +3821,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication`
+    /// ` self: QApplication`
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QApplication_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QApplication, callback: *const fn (QApplication, QMetaMethod) callconv(.c) void) void {
+        qtc.QApplication_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3697,10 +3837,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QApplication_Sender(@ptrCast(self));
+    pub fn Sender(self: QApplication) QObject {
+        return .{ .ptr = qtc.QApplication_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -3715,10 +3855,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QApplication_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QApplication) QObject {
+        return .{ .ptr = qtc.QApplication_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3729,12 +3869,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication`
+    /// ` self: QApplication`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QApplication_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QApplication, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QApplication_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3745,10 +3885,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QApplication_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QApplication) i32 {
+        return qtc.QApplication_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -3763,10 +3903,10 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QApplication_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QApplication) i32 {
+        return qtc.QApplication_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3777,12 +3917,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication`
+    /// ` self: QApplication`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QApplication_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QApplication, callback: *const fn () callconv(.c) i32) void {
+        qtc.QApplication_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3793,13 +3933,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QApplication, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QApplication_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QApplication_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -3814,13 +3954,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QApplication, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QApplication_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QApplication_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3831,12 +3971,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication`
+    /// ` self: QApplication`
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QApplication, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QApplication_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QApplication, callback: *const fn (QApplication, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QApplication_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3847,12 +3987,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QApplication_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QApplication, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QApplication_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -3867,12 +4008,13 @@ pub const qapplication = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QApplication_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QApplication, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QApplication_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3883,12 +4025,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication`
+    /// ` self: QApplication`
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QApplication, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QApplication_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QApplication, callback: *const fn (QApplication, QMetaMethod) callconv(.c) bool) void {
+        qtc.QApplication_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCoreApplication
@@ -3899,12 +4041,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication) callconv(.c) void `
     ///
-    pub fn OnAboutToQuit(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCoreApplication_Connect_AboutToQuit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAboutToQuit(self: QApplication, callback: *const fn (QApplication) callconv(.c) void) void {
+        qtc.QCoreApplication_Connect_AboutToQuit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3915,12 +4057,12 @@ pub const qapplication = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    /// ` callback: *const fn (self: QtC.QApplication, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QApplication, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QApplication, callback: *const fn (QApplication, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -3933,9 +4075,9 @@ pub const qapplication = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QApplication `
+    /// ` self: QApplication `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QApplication_Delete(@ptrCast(self));
+    pub fn Delete(self: QApplication) void {
+        qtc.QApplication_Delete(@ptrCast(self.ptr));
     }
 };

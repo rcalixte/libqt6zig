@@ -2,24 +2,33 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const speller_enums = enums;
 const std = @import("std");
-const arraymap_constu8_constu8 = std.array_hash_map.String([]const u8);
+const ArrayMap_constu8_constu8 = std.array_hash_map.String([]const u8);
 
 /// ### [Upstream resources](https://api.kde.org/sonnet-speller.html)
-pub const sonnet__speller = struct {
+pub const Sonnet__Speller = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/sonnet-speller.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Sonnet__Speller,
+
+    pub const _is_Sonnet__Speller = {};
+
     /// New constructs a new Sonnet::Speller object.
     ///
-    pub fn New() QtC.Sonnet__Speller {
-        return qtc.Sonnet__Speller_new();
+    pub fn New() Sonnet__Speller {
+        return .{ .ptr = qtc.Sonnet__Speller_new() };
     }
 
     /// New2 constructs a new Sonnet::Speller object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` speller: QtC.Sonnet__Speller `
+    /// ` speller: Sonnet__Speller `
     ///
-    pub fn New2(speller: ?*anyopaque) QtC.Sonnet__Speller {
-        return qtc.Sonnet__Speller_new2(@ptrCast(speller));
+    pub fn New2(speller: anytype) Sonnet__Speller {
+        comptime _ = @TypeOf(speller)._is_Sonnet__Speller;
+        return .{ .ptr = qtc.Sonnet__Speller_new2(@ptrCast(speller.ptr)) };
     }
 
     /// New3 constructs a new Sonnet::Speller object.
@@ -28,63 +37,63 @@ pub const sonnet__speller = struct {
     ///
     /// ` lang: []const u8 `
     ///
-    pub fn New3(lang: []const u8) QtC.Sonnet__Speller {
+    pub fn New3(lang: []const u8) Sonnet__Speller {
         const lang_str = qtc.libqt_string{
             .len = lang.len,
             .data = lang.ptr,
         };
-
-        return qtc.Sonnet__Speller_new3(lang_str);
+        return .{ .ptr = qtc.Sonnet__Speller_new3(lang_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-speller.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
-    /// ` speller: QtC.Sonnet__Speller `
+    /// ` speller: Sonnet__Speller `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, speller: ?*anyopaque) void {
-        qtc.Sonnet__Speller_OperatorAssign(@ptrCast(self), @ptrCast(speller));
+    pub fn OperatorAssign(self: Sonnet__Speller, speller: anytype) void {
+        comptime _ = @TypeOf(speller)._is_Sonnet__Speller;
+        qtc.Sonnet__Speller_OperatorAssign(@ptrCast(self.ptr), @ptrCast(speller.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-speller.html#isValid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.Sonnet__Speller_IsValid(@ptrCast(self));
+    pub fn IsValid(self: Sonnet__Speller) bool {
+        return qtc.Sonnet__Speller_IsValid(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-speller.html#setLanguage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
     /// ` lang: []const u8 `
     ///
-    pub fn SetLanguage(self: ?*anyopaque, lang: []const u8) void {
+    pub fn SetLanguage(self: Sonnet__Speller, lang: []const u8) void {
         const lang_str = qtc.libqt_string{
             .len = lang.len,
             .data = lang.ptr,
         };
-        qtc.Sonnet__Speller_SetLanguage(@ptrCast(self), lang_str);
+        qtc.Sonnet__Speller_SetLanguage(@ptrCast(self.ptr), lang_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-speller.html#language)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Language(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Sonnet__Speller_Language(@ptrCast(self));
+    pub fn Language(self: Sonnet__Speller, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Sonnet__Speller_Language(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__speller.Language: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -95,55 +104,54 @@ pub const sonnet__speller = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
     /// ` word: []const u8 `
     ///
-    pub fn IsCorrect(self: ?*anyopaque, word: []const u8) bool {
+    pub fn IsCorrect(self: Sonnet__Speller, word: []const u8) bool {
         const word_str = qtc.libqt_string{
             .len = word.len,
             .data = word.ptr,
         };
-        return qtc.Sonnet__Speller_IsCorrect(@ptrCast(self), word_str);
+        return qtc.Sonnet__Speller_IsCorrect(@ptrCast(self.ptr), word_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-speller.html#isMisspelled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
     /// ` word: []const u8 `
     ///
-    pub fn IsMisspelled(self: ?*anyopaque, word: []const u8) bool {
+    pub fn IsMisspelled(self: Sonnet__Speller, word: []const u8) bool {
         const word_str = qtc.libqt_string{
             .len = word.len,
             .data = word.ptr,
         };
-        return qtc.Sonnet__Speller_IsMisspelled(@ptrCast(self), word_str);
+        return qtc.Sonnet__Speller_IsMisspelled(@ptrCast(self.ptr), word_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-speller.html#suggest)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
-    ///
-    /// ` word: []const u8 `
+    /// ` self: Sonnet__Speller `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Suggest(self: ?*anyopaque, word: []const u8, allocator: std.mem.Allocator) []const []const u8 {
+    /// ` word: []const u8 `
+    ///
+    pub fn Suggest(self: Sonnet__Speller, allocator: std.mem.Allocator, word: []const u8) []const []const u8 {
         const word_str = qtc.libqt_string{
             .len = word.len,
             .data = word.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.Sonnet__Speller_Suggest(@ptrCast(self), word_str);
+        const _arr: qtc.libqt_list = qtc.Sonnet__Speller_Suggest(@ptrCast(self.ptr), word_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("sonnet__speller.Suggest: Memory allocation failed");
@@ -160,45 +168,44 @@ pub const sonnet__speller = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` word: []const u8 `
     ///
     /// ` suggestions: []const []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn CheckAndSuggest(self: ?*anyopaque, word: []const u8, suggestions: []const []const u8, allocator: std.mem.Allocator) bool {
+    pub fn CheckAndSuggest(self: Sonnet__Speller, allocator: std.mem.Allocator, word: []const u8, suggestions: []const []const u8) bool {
         const word_str = qtc.libqt_string{
             .len = word.len,
             .data = word.ptr,
         };
         const suggestions_arr = allocator.alloc(qtc.libqt_string, suggestions.len) catch @panic("sonnet__speller.CheckAndSuggest: Memory allocation failed");
         defer allocator.free(suggestions_arr);
-        for (suggestions, 0..suggestions.len) |item, i| {
+        for (suggestions, 0..suggestions.len) |item, i|
             suggestions_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const suggestions_list = qtc.libqt_list{
             .len = suggestions.len,
             .data = suggestions_arr.ptr,
         };
-        return qtc.Sonnet__Speller_CheckAndSuggest(@ptrCast(self), word_str, suggestions_list);
+        return qtc.Sonnet__Speller_CheckAndSuggest(@ptrCast(self.ptr), word_str, suggestions_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-speller.html#storeReplacement)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
     /// ` bad: []const u8 `
     ///
     /// ` good: []const u8 `
     ///
-    pub fn StoreReplacement(self: ?*anyopaque, bad: []const u8, good: []const u8) bool {
+    pub fn StoreReplacement(self: Sonnet__Speller, bad: []const u8, good: []const u8) bool {
         const bad_str = qtc.libqt_string{
             .len = bad.len,
             .data = bad.ptr,
@@ -207,76 +214,75 @@ pub const sonnet__speller = struct {
             .len = good.len,
             .data = good.ptr,
         };
-        return qtc.Sonnet__Speller_StoreReplacement(@ptrCast(self), bad_str, good_str);
+        return qtc.Sonnet__Speller_StoreReplacement(@ptrCast(self.ptr), bad_str, good_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-speller.html#addToPersonal)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
     /// ` word: []const u8 `
     ///
-    pub fn AddToPersonal(self: ?*anyopaque, word: []const u8) bool {
+    pub fn AddToPersonal(self: Sonnet__Speller, word: []const u8) bool {
         const word_str = qtc.libqt_string{
             .len = word.len,
             .data = word.ptr,
         };
-        return qtc.Sonnet__Speller_AddToPersonal(@ptrCast(self), word_str);
+        return qtc.Sonnet__Speller_AddToPersonal(@ptrCast(self.ptr), word_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-speller.html#addToSession)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
     /// ` word: []const u8 `
     ///
-    pub fn AddToSession(self: ?*anyopaque, word: []const u8) bool {
+    pub fn AddToSession(self: Sonnet__Speller, word: []const u8) bool {
         const word_str = qtc.libqt_string{
             .len = word.len,
             .data = word.ptr,
         };
-        return qtc.Sonnet__Speller_AddToSession(@ptrCast(self), word_str);
+        return qtc.Sonnet__Speller_AddToSession(@ptrCast(self.ptr), word_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-speller.html#save)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
-    pub fn Save(self: ?*anyopaque) void {
-        qtc.Sonnet__Speller_Save(@ptrCast(self));
+    pub fn Save(self: Sonnet__Speller) void {
+        qtc.Sonnet__Speller_Save(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-speller.html#restore)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
-    pub fn Restore(self: ?*anyopaque) void {
-        qtc.Sonnet__Speller_Restore(@ptrCast(self));
+    pub fn Restore(self: Sonnet__Speller) void {
+        qtc.Sonnet__Speller_Restore(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-speller.html#availableBackends)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableBackends(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.Sonnet__Speller_AvailableBackends(@ptrCast(self));
+    pub fn AvailableBackends(self: Sonnet__Speller, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.Sonnet__Speller_AvailableBackends(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("sonnet__speller.AvailableBackends: Memory allocation failed");
@@ -293,17 +299,16 @@ pub const sonnet__speller = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableLanguages(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.Sonnet__Speller_AvailableLanguages(@ptrCast(self));
+    pub fn AvailableLanguages(self: Sonnet__Speller, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.Sonnet__Speller_AvailableLanguages(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("sonnet__speller.AvailableLanguages: Memory allocation failed");
@@ -320,17 +325,16 @@ pub const sonnet__speller = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableLanguageNames(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.Sonnet__Speller_AvailableLanguageNames(@ptrCast(self));
+    pub fn AvailableLanguageNames(self: Sonnet__Speller, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.Sonnet__Speller_AvailableLanguageNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("sonnet__speller.AvailableLanguageNames: Memory allocation failed");
@@ -347,13 +351,13 @@ pub const sonnet__speller = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableDictionaries(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_constu8_constu8 {
-        const _map: qtc.libqt_map = qtc.Sonnet__Speller_AvailableDictionaries(@ptrCast(self));
-        var _ret: arraymap_constu8_constu8 = .empty;
+    pub fn AvailableDictionaries(self: Sonnet__Speller, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
+        const _map: qtc.libqt_map = qtc.Sonnet__Speller_AvailableDictionaries(@ptrCast(self.ptr));
+        var _ret: ArrayMap_constu8_constu8 = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -383,13 +387,13 @@ pub const sonnet__speller = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PreferredDictionaries(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_constu8_constu8 {
-        const _map: qtc.libqt_map = qtc.Sonnet__Speller_PreferredDictionaries(@ptrCast(self));
-        var _ret: arraymap_constu8_constu8 = .empty;
+    pub fn PreferredDictionaries(self: Sonnet__Speller, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
+        const _map: qtc.libqt_map = qtc.Sonnet__Speller_PreferredDictionaries(@ptrCast(self.ptr));
+        var _ret: ArrayMap_constu8_constu8 = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -419,28 +423,28 @@ pub const sonnet__speller = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
     /// ` lang: []const u8 `
     ///
-    pub fn SetDefaultLanguage(self: ?*anyopaque, lang: []const u8) void {
+    pub fn SetDefaultLanguage(self: Sonnet__Speller, lang: []const u8) void {
         const lang_str = qtc.libqt_string{
             .len = lang.len,
             .data = lang.ptr,
         };
-        qtc.Sonnet__Speller_SetDefaultLanguage(@ptrCast(self), lang_str);
+        qtc.Sonnet__Speller_SetDefaultLanguage(@ptrCast(self.ptr), lang_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-speller.html#defaultLanguage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultLanguage(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Sonnet__Speller_DefaultLanguage(@ptrCast(self));
+    pub fn DefaultLanguage(self: Sonnet__Speller, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Sonnet__Speller_DefaultLanguage(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__speller.DefaultLanguage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -451,28 +455,28 @@ pub const sonnet__speller = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
     /// ` client: []const u8 `
     ///
-    pub fn SetDefaultClient(self: ?*anyopaque, client: []const u8) void {
+    pub fn SetDefaultClient(self: Sonnet__Speller, client: []const u8) void {
         const client_str = qtc.libqt_string{
             .len = client.len,
             .data = client.ptr,
         };
-        qtc.Sonnet__Speller_SetDefaultClient(@ptrCast(self), client_str);
+        qtc.Sonnet__Speller_SetDefaultClient(@ptrCast(self.ptr), client_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-speller.html#defaultClient)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultClient(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Sonnet__Speller_DefaultClient(@ptrCast(self));
+    pub fn DefaultClient(self: Sonnet__Speller, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Sonnet__Speller_DefaultClient(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__speller.DefaultClient: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -483,38 +487,38 @@ pub const sonnet__speller = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
     /// ` attr: speller_enums.Attribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, attr: i32) void {
-        qtc.Sonnet__Speller_SetAttribute(@ptrCast(self), @bitCast(attr));
+    pub fn SetAttribute(self: Sonnet__Speller, attr: i32) void {
+        qtc.Sonnet__Speller_SetAttribute(@ptrCast(self.ptr), @bitCast(attr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-speller.html#testAttribute)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
     /// ` attr: speller_enums.Attribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, attr: i32) bool {
-        return qtc.Sonnet__Speller_TestAttribute(@ptrCast(self), @bitCast(attr));
+    pub fn TestAttribute(self: Sonnet__Speller, attr: i32) bool {
+        return qtc.Sonnet__Speller_TestAttribute(@ptrCast(self.ptr), @bitCast(attr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-speller.html#setAttribute)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
     /// ` attr: speller_enums.Attribute `
     ///
     /// ` b: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, attr: i32, b: bool) void {
-        qtc.Sonnet__Speller_SetAttribute2(@ptrCast(self), @bitCast(attr), b);
+    pub fn SetAttribute2(self: Sonnet__Speller, attr: i32, b: bool) void {
+        qtc.Sonnet__Speller_SetAttribute2(@ptrCast(self.ptr), @bitCast(attr), b);
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -525,10 +529,10 @@ pub const sonnet__speller = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Sonnet__Speller `
+    /// ` self: Sonnet__Speller `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Sonnet__Speller_Delete(@ptrCast(self));
+    pub fn Delete(self: Sonnet__Speller) void {
+        qtc.Sonnet__Speller_Delete(@ptrCast(self.ptr));
     }
 };
 

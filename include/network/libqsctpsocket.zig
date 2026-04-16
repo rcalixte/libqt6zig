@@ -1,5 +1,19 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAuthenticator = @import("libqt6").QAuthenticator;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QHostAddress = @import("libqt6").QHostAddress;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QNetworkDatagram = @import("libqt6").QNetworkDatagram;
+const QNetworkProxy = @import("libqt6").QNetworkProxy;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qabstractsocket_enums = @import("libqabstractsocket.zig").enums;
 const qhostaddress_enums = @import("libqhostaddress.zig").enums;
 const qiodevicebase_enums = @import("../libqiodevicebase.zig").enums;
@@ -8,31 +22,45 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsctpsocket.html)
-pub const qsctpsocket = struct {
+pub const QSctpSocket = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsctpsocket.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QSctpSocket,
+
+    pub const _is_QSctpSocket = {};
+    pub const _is_QTcpSocket = {};
+    pub const _is_QAbstractSocket = {};
+    pub const _is_QIODevice = {};
+    pub const _is_QObject = {};
+    pub const _is_QIODeviceBase = {};
+
     /// New constructs a new QSctpSocket object.
     ///
-    pub fn New() QtC.QSctpSocket {
-        return qtc.QSctpSocket_new();
+    pub fn New() QSctpSocket {
+        return .{ .ptr = qtc.QSctpSocket_new() };
     }
 
     /// New2 constructs a new QSctpSocket object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.QSctpSocket {
-        return qtc.QSctpSocket_new2(@ptrCast(parent));
+    pub fn New2(parent: anytype) QSctpSocket {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QSctpSocket_new2(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QSctpSocket_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QSctpSocket) QMetaObject {
+        return .{ .ptr = qtc.QSctpSocket_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -41,12 +69,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QSctpSocket_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QSctpSocket, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QSctpSocket_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -59,33 +87,33 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QSctpSocket_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QSctpSocket) QMetaObject {
+        return .{ .ptr = qtc.QSctpSocket_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QSctpSocket, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QSctpSocket_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QSctpSocket_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QSctpSocket, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QSctpSocket_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QSctpSocket, callback: *const fn (QSctpSocket, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QSctpSocket_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -96,18 +124,18 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QSctpSocket, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QSctpSocket_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QSctpSocket_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -115,20 +143,20 @@ pub const qsctpsocket = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QSctpSocket_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QSctpSocket, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QSctpSocket_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSctpSocket, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QSctpSocket_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QSctpSocket, callback: *const fn (QSctpSocket, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QSctpSocket_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -139,7 +167,7 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -147,19 +175,19 @@ pub const qsctpsocket = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QSctpSocket_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QSctpSocket, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QSctpSocket_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -172,10 +200,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn Close(self: ?*anyopaque) void {
-        qtc.QSctpSocket_Close(@ptrCast(self));
+    pub fn Close(self: QSctpSocket) void {
+        qtc.QSctpSocket_Close(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsctpsocket.html#close)
@@ -184,12 +212,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnClose(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QSctpSocket_OnClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClose(self: QSctpSocket, callback: *const fn () callconv(.c) void) void {
+        qtc.QSctpSocket_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperClose` instead
@@ -202,20 +230,20 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn SuperClose(self: ?*anyopaque) void {
-        qtc.QSctpSocket_SuperClose(@ptrCast(self));
+    pub fn SuperClose(self: QSctpSocket) void {
+        qtc.QSctpSocket_SuperClose(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsctpsocket.html#disconnectFromHost)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn DisconnectFromHost(self: ?*anyopaque) void {
-        qtc.QSctpSocket_DisconnectFromHost(@ptrCast(self));
+    pub fn DisconnectFromHost(self: QSctpSocket) void {
+        qtc.QSctpSocket_DisconnectFromHost(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsctpsocket.html#disconnectFromHost)
@@ -224,12 +252,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDisconnectFromHost(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QSctpSocket_OnDisconnectFromHost(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectFromHost(self: QSctpSocket, callback: *const fn () callconv(.c) void) void {
+        qtc.QSctpSocket_OnDisconnectFromHost(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectFromHost` instead
@@ -242,79 +270,80 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn SuperDisconnectFromHost(self: ?*anyopaque) void {
-        qtc.QSctpSocket_SuperDisconnectFromHost(@ptrCast(self));
+    pub fn SuperDisconnectFromHost(self: QSctpSocket) void {
+        qtc.QSctpSocket_SuperDisconnectFromHost(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsctpsocket.html#setMaximumChannelCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` count: i32 `
     ///
-    pub fn SetMaximumChannelCount(self: ?*anyopaque, count: i32) void {
-        qtc.QSctpSocket_SetMaximumChannelCount(@ptrCast(self), @bitCast(count));
+    pub fn SetMaximumChannelCount(self: QSctpSocket, count: i32) void {
+        qtc.QSctpSocket_SetMaximumChannelCount(@ptrCast(self.ptr), @bitCast(count));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsctpsocket.html#maximumChannelCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn MaximumChannelCount(self: ?*anyopaque) i32 {
-        return qtc.QSctpSocket_MaximumChannelCount(@ptrCast(self));
+    pub fn MaximumChannelCount(self: QSctpSocket) i32 {
+        return qtc.QSctpSocket_MaximumChannelCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsctpsocket.html#isInDatagramMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn IsInDatagramMode(self: ?*anyopaque) bool {
-        return qtc.QSctpSocket_IsInDatagramMode(@ptrCast(self));
+    pub fn IsInDatagramMode(self: QSctpSocket) bool {
+        return qtc.QSctpSocket_IsInDatagramMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsctpsocket.html#readDatagram)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn ReadDatagram(self: ?*anyopaque) QtC.QNetworkDatagram {
-        return qtc.QSctpSocket_ReadDatagram(@ptrCast(self));
+    pub fn ReadDatagram(self: QSctpSocket) QNetworkDatagram {
+        return .{ .ptr = qtc.QSctpSocket_ReadDatagram(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsctpsocket.html#writeDatagram)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` datagram: QtC.QNetworkDatagram `
+    /// ` datagram: QNetworkDatagram `
     ///
-    pub fn WriteDatagram(self: ?*anyopaque, datagram: ?*anyopaque) bool {
-        return qtc.QSctpSocket_WriteDatagram(@ptrCast(self), @ptrCast(datagram));
+    pub fn WriteDatagram(self: QSctpSocket, datagram: anytype) bool {
+        comptime _ = @TypeOf(datagram)._is_QNetworkDatagram;
+        return qtc.QSctpSocket_WriteDatagram(@ptrCast(self.ptr), @ptrCast(datagram.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsctpsocket.html#readData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn ReadData(self: QSctpSocket, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QSctpSocket_ReadData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QSctpSocket_ReadData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsctpsocket.html#readData)
@@ -323,12 +352,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: QSctpSocket, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
-    pub fn OnReadData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, i64) callconv(.c) i64) void {
-        qtc.QSctpSocket_OnReadData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadData(self: QSctpSocket, callback: *const fn (QSctpSocket, qtc.libqt_string, i64) callconv(.c) i64) void {
+        qtc.QSctpSocket_OnReadData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperReadData` instead
@@ -341,30 +370,30 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn SuperReadData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn SuperReadData(self: QSctpSocket, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QSctpSocket_SuperReadData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QSctpSocket_SuperReadData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsctpsocket.html#readLineData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn ReadLineData(self: QSctpSocket, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QSctpSocket_ReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QSctpSocket_ReadLineData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsctpsocket.html#readLineData)
@@ -373,12 +402,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: QSctpSocket, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
-    pub fn OnReadLineData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, i64) callconv(.c) i64) void {
-        qtc.QSctpSocket_OnReadLineData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadLineData(self: QSctpSocket, callback: *const fn (QSctpSocket, qtc.libqt_string, i64) callconv(.c) i64) void {
+        qtc.QSctpSocket_OnReadLineData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperReadLineData` instead
@@ -391,28 +420,28 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn SuperReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn SuperReadLineData(self: QSctpSocket, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QSctpSocket_SuperReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QSctpSocket_SuperReadLineData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -426,15 +455,15 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -450,14 +479,14 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` addr: qhostaddress_enums.SpecialAddress `
     ///
     /// ` port: u16 `
     ///
-    pub fn Bind2(self: ?*anyopaque, addr: i32, port: u16) bool {
-        return qtc.QTcpSocket_Bind2(@ptrCast(self), @bitCast(addr), @bitCast(port));
+    pub fn Bind2(self: QSctpSocket, addr: i32, port: u16) bool {
+        return qtc.QTcpSocket_Bind2(@ptrCast(self.ptr), @bitCast(addr), @bitCast(port));
     }
 
     /// Inherited from QTcpSocket
@@ -466,7 +495,7 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` addr: qhostaddress_enums.SpecialAddress `
     ///
@@ -474,8 +503,8 @@ pub const qsctpsocket = struct {
     ///
     /// ` mode: flag of qabstractsocket_enums.BindFlag `
     ///
-    pub fn Bind3(self: ?*anyopaque, addr: i32, port: u16, mode: i32) bool {
-        return qtc.QTcpSocket_Bind3(@ptrCast(self), @bitCast(addr), @bitCast(port), @bitCast(mode));
+    pub fn Bind3(self: QSctpSocket, addr: i32, port: u16, mode: i32) bool {
+        return qtc.QTcpSocket_Bind3(@ptrCast(self.ptr), @bitCast(addr), @bitCast(port), @bitCast(mode));
     }
 
     /// Inherited from QAbstractSocket
@@ -484,14 +513,14 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ## Returns:
     ///
     /// ` flag of qabstractsocket_enums.PauseMode `
     ///
-    pub fn PauseMode(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSocket_PauseMode(@ptrCast(self));
+    pub fn PauseMode(self: QSctpSocket) i32 {
+        return qtc.QAbstractSocket_PauseMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -500,12 +529,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` pauseMode: flag of qabstractsocket_enums.PauseMode `
     ///
-    pub fn SetPauseMode(self: ?*anyopaque, pauseMode: i32) void {
-        qtc.QAbstractSocket_SetPauseMode(@ptrCast(self), @bitCast(pauseMode));
+    pub fn SetPauseMode(self: QSctpSocket, pauseMode: i32) void {
+        qtc.QAbstractSocket_SetPauseMode(@ptrCast(self.ptr), @bitCast(pauseMode));
     }
 
     /// Inherited from QAbstractSocket
@@ -514,14 +543,15 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` address: QtC.QHostAddress `
+    /// ` address: QHostAddress `
     ///
     /// ` port: u16 `
     ///
-    pub fn ConnectToHost2(self: ?*anyopaque, address: ?*anyopaque, port: u16) void {
-        qtc.QAbstractSocket_ConnectToHost2(@ptrCast(self), @ptrCast(address), @bitCast(port));
+    pub fn ConnectToHost2(self: QSctpSocket, address: anytype, port: u16) void {
+        comptime _ = @TypeOf(address)._is_QHostAddress;
+        qtc.QAbstractSocket_ConnectToHost2(@ptrCast(self.ptr), @ptrCast(address.ptr), @bitCast(port));
     }
 
     /// Inherited from QAbstractSocket
@@ -530,10 +560,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.QAbstractSocket_IsValid(@ptrCast(self));
+    pub fn IsValid(self: QSctpSocket) bool {
+        return qtc.QAbstractSocket_IsValid(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -542,10 +572,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn LocalPort(self: ?*anyopaque) u16 {
-        return qtc.QAbstractSocket_LocalPort(@ptrCast(self));
+    pub fn LocalPort(self: QSctpSocket) u16 {
+        return qtc.QAbstractSocket_LocalPort(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -554,10 +584,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn LocalAddress(self: ?*anyopaque) QtC.QHostAddress {
-        return qtc.QAbstractSocket_LocalAddress(@ptrCast(self));
+    pub fn LocalAddress(self: QSctpSocket) QHostAddress {
+        return .{ .ptr = qtc.QAbstractSocket_LocalAddress(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractSocket
@@ -566,10 +596,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn PeerPort(self: ?*anyopaque) u16 {
-        return qtc.QAbstractSocket_PeerPort(@ptrCast(self));
+    pub fn PeerPort(self: QSctpSocket) u16 {
+        return qtc.QAbstractSocket_PeerPort(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -578,10 +608,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn PeerAddress(self: ?*anyopaque) QtC.QHostAddress {
-        return qtc.QAbstractSocket_PeerAddress(@ptrCast(self));
+    pub fn PeerAddress(self: QSctpSocket) QHostAddress {
+        return .{ .ptr = qtc.QAbstractSocket_PeerAddress(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractSocket
@@ -590,12 +620,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PeerName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAbstractSocket_PeerName(@ptrCast(self));
+    pub fn PeerName(self: QSctpSocket, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QAbstractSocket_PeerName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsctpsocket.PeerName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -608,10 +638,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn ReadBufferSize(self: ?*anyopaque) i64 {
-        return qtc.QAbstractSocket_ReadBufferSize(@ptrCast(self));
+    pub fn ReadBufferSize(self: QSctpSocket) i64 {
+        return qtc.QAbstractSocket_ReadBufferSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -620,10 +650,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn Abort(self: ?*anyopaque) void {
-        qtc.QAbstractSocket_Abort(@ptrCast(self));
+    pub fn Abort(self: QSctpSocket) void {
+        qtc.QAbstractSocket_Abort(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -632,14 +662,14 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ## Returns:
     ///
     /// ` qabstractsocket_enums.SocketType `
     ///
-    pub fn SocketType(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSocket_SocketType(@ptrCast(self));
+    pub fn SocketType(self: QSctpSocket) i32 {
+        return qtc.QAbstractSocket_SocketType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -648,14 +678,14 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ## Returns:
     ///
     /// ` qabstractsocket_enums.SocketState `
     ///
-    pub fn State(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSocket_State(@ptrCast(self));
+    pub fn State(self: QSctpSocket) i32 {
+        return qtc.QAbstractSocket_State(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -664,14 +694,14 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ## Returns:
     ///
     /// ` qabstractsocket_enums.SocketError `
     ///
-    pub fn Error(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSocket_Error(@ptrCast(self));
+    pub fn Error(self: QSctpSocket) i32 {
+        return qtc.QAbstractSocket_Error(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -680,10 +710,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn Flush(self: ?*anyopaque) bool {
-        return qtc.QAbstractSocket_Flush(@ptrCast(self));
+    pub fn Flush(self: QSctpSocket) bool {
+        return qtc.QAbstractSocket_Flush(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -692,12 +722,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` networkProxy: QtC.QNetworkProxy `
+    /// ` networkProxy: QNetworkProxy `
     ///
-    pub fn SetProxy(self: ?*anyopaque, networkProxy: ?*anyopaque) void {
-        qtc.QAbstractSocket_SetProxy(@ptrCast(self), @ptrCast(networkProxy));
+    pub fn SetProxy(self: QSctpSocket, networkProxy: anytype) void {
+        comptime _ = @TypeOf(networkProxy)._is_QNetworkProxy;
+        qtc.QAbstractSocket_SetProxy(@ptrCast(self.ptr), @ptrCast(networkProxy.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -706,10 +737,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn Proxy(self: ?*anyopaque) QtC.QNetworkProxy {
-        return qtc.QAbstractSocket_Proxy(@ptrCast(self));
+    pub fn Proxy(self: QSctpSocket) QNetworkProxy {
+        return .{ .ptr = qtc.QAbstractSocket_Proxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractSocket
@@ -718,12 +749,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ProtocolTag(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAbstractSocket_ProtocolTag(@ptrCast(self));
+    pub fn ProtocolTag(self: QSctpSocket, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QAbstractSocket_ProtocolTag(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsctpsocket.ProtocolTag: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -736,16 +767,16 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` tag: []const u8 `
     ///
-    pub fn SetProtocolTag(self: ?*anyopaque, tag: []const u8) void {
+    pub fn SetProtocolTag(self: QSctpSocket, tag: []const u8) void {
         const tag_str = qtc.libqt_string{
             .len = tag.len,
             .data = tag.ptr,
         };
-        qtc.QAbstractSocket_SetProtocolTag(@ptrCast(self), tag_str);
+        qtc.QAbstractSocket_SetProtocolTag(@ptrCast(self.ptr), tag_str);
     }
 
     /// Inherited from QAbstractSocket
@@ -754,10 +785,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn HostFound(self: ?*anyopaque) void {
-        qtc.QAbstractSocket_HostFound(@ptrCast(self));
+    pub fn HostFound(self: QSctpSocket) void {
+        qtc.QAbstractSocket_HostFound(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -766,12 +797,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket) callconv(.c) void `
     ///
-    pub fn OnHostFound(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSocket_Connect_HostFound(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHostFound(self: QSctpSocket, callback: *const fn (QSctpSocket) callconv(.c) void) void {
+        qtc.QAbstractSocket_Connect_HostFound(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -780,10 +811,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn Connected(self: ?*anyopaque) void {
-        qtc.QAbstractSocket_Connected(@ptrCast(self));
+    pub fn Connected(self: QSctpSocket) void {
+        qtc.QAbstractSocket_Connected(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -792,12 +823,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket) callconv(.c) void `
     ///
-    pub fn OnConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSocket_Connect_Connected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnected(self: QSctpSocket, callback: *const fn (QSctpSocket) callconv(.c) void) void {
+        qtc.QAbstractSocket_Connect_Connected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -806,10 +837,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn Disconnected(self: ?*anyopaque) void {
-        qtc.QAbstractSocket_Disconnected(@ptrCast(self));
+    pub fn Disconnected(self: QSctpSocket) void {
+        qtc.QAbstractSocket_Disconnected(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -818,12 +849,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket) callconv(.c) void `
     ///
-    pub fn OnDisconnected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSocket_Connect_Disconnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnected(self: QSctpSocket, callback: *const fn (QSctpSocket) callconv(.c) void) void {
+        qtc.QAbstractSocket_Connect_Disconnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -832,12 +863,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` param1: qabstractsocket_enums.SocketState `
     ///
-    pub fn StateChanged(self: ?*anyopaque, param1: i32) void {
-        qtc.QAbstractSocket_StateChanged(@ptrCast(self), @bitCast(param1));
+    pub fn StateChanged(self: QSctpSocket, param1: i32) void {
+        qtc.QAbstractSocket_StateChanged(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QAbstractSocket
@@ -846,12 +877,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, param1: qabstractsocket_enums.SocketState) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, param1: qabstractsocket_enums.SocketState) callconv(.c) void `
     ///
-    pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractSocket_Connect_StateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStateChanged(self: QSctpSocket, callback: *const fn (QSctpSocket, i32) callconv(.c) void) void {
+        qtc.QAbstractSocket_Connect_StateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -860,12 +891,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` param1: qabstractsocket_enums.SocketError `
     ///
-    pub fn ErrorOccurred(self: ?*anyopaque, param1: i32) void {
-        qtc.QAbstractSocket_ErrorOccurred(@ptrCast(self), @bitCast(param1));
+    pub fn ErrorOccurred(self: QSctpSocket, param1: i32) void {
+        qtc.QAbstractSocket_ErrorOccurred(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QAbstractSocket
@@ -874,12 +905,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, param1: qabstractsocket_enums.SocketError) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, param1: qabstractsocket_enums.SocketError) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractSocket_Connect_ErrorOccurred(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnErrorOccurred(self: QSctpSocket, callback: *const fn (QSctpSocket, i32) callconv(.c) void) void {
+        qtc.QAbstractSocket_Connect_ErrorOccurred(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -888,14 +919,16 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` proxy: QtC.QNetworkProxy `
+    /// ` proxy: QNetworkProxy `
     ///
-    /// ` authenticator: QtC.QAuthenticator `
+    /// ` authenticator: QAuthenticator `
     ///
-    pub fn ProxyAuthenticationRequired(self: ?*anyopaque, proxy: ?*anyopaque, authenticator: ?*anyopaque) void {
-        qtc.QAbstractSocket_ProxyAuthenticationRequired(@ptrCast(self), @ptrCast(proxy), @ptrCast(authenticator));
+    pub fn ProxyAuthenticationRequired(self: QSctpSocket, proxy: anytype, authenticator: anytype) void {
+        comptime _ = @TypeOf(proxy)._is_QNetworkProxy;
+        comptime _ = @TypeOf(authenticator)._is_QAuthenticator;
+        qtc.QAbstractSocket_ProxyAuthenticationRequired(@ptrCast(self.ptr), @ptrCast(proxy.ptr), @ptrCast(authenticator.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -904,12 +937,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, proxy: QtC.QNetworkProxy, authenticator: QtC.QAuthenticator) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, proxy: QNetworkProxy, authenticator: QAuthenticator) callconv(.c) void `
     ///
-    pub fn OnProxyAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSocket_Connect_ProxyAuthenticationRequired(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnProxyAuthenticationRequired(self: QSctpSocket, callback: *const fn (QSctpSocket, QNetworkProxy, QAuthenticator) callconv(.c) void) void {
+        qtc.QAbstractSocket_Connect_ProxyAuthenticationRequired(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -918,12 +951,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` port: u16 `
     ///
-    pub fn Bind1(self: ?*anyopaque, port: u16) bool {
-        return qtc.QAbstractSocket_Bind1(@ptrCast(self), @bitCast(port));
+    pub fn Bind1(self: QSctpSocket, port: u16) bool {
+        return qtc.QAbstractSocket_Bind1(@ptrCast(self.ptr), @bitCast(port));
     }
 
     /// Inherited from QAbstractSocket
@@ -932,14 +965,14 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` port: u16 `
     ///
     /// ` mode: flag of qabstractsocket_enums.BindFlag `
     ///
-    pub fn Bind22(self: ?*anyopaque, port: u16, mode: i32) bool {
-        return qtc.QAbstractSocket_Bind22(@ptrCast(self), @bitCast(port), @bitCast(mode));
+    pub fn Bind22(self: QSctpSocket, port: u16, mode: i32) bool {
+        return qtc.QAbstractSocket_Bind22(@ptrCast(self.ptr), @bitCast(port), @bitCast(mode));
     }
 
     /// Inherited from QAbstractSocket
@@ -948,16 +981,17 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` address: QtC.QHostAddress `
+    /// ` address: QHostAddress `
     ///
     /// ` port: u16 `
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn ConnectToHost3(self: ?*anyopaque, address: ?*anyopaque, port: u16, mode: i32) void {
-        qtc.QAbstractSocket_ConnectToHost3(@ptrCast(self), @ptrCast(address), @bitCast(port), @bitCast(mode));
+    pub fn ConnectToHost3(self: QSctpSocket, address: anytype, port: u16, mode: i32) void {
+        comptime _ = @TypeOf(address)._is_QHostAddress;
+        qtc.QAbstractSocket_ConnectToHost3(@ptrCast(self.ptr), @ptrCast(address.ptr), @bitCast(port), @bitCast(mode));
     }
 
     /// Inherited from QIODevice
@@ -966,14 +1000,14 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ## Returns:
     ///
     /// ` flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn OpenMode(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_OpenMode(@ptrCast(self));
+    pub fn OpenMode(self: QSctpSocket) i32 {
+        return qtc.QIODevice_OpenMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -982,12 +1016,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetTextModeEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QIODevice_SetTextModeEnabled(@ptrCast(self), enabled);
+    pub fn SetTextModeEnabled(self: QSctpSocket, enabled: bool) void {
+        qtc.QIODevice_SetTextModeEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QIODevice
@@ -996,10 +1030,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn IsTextModeEnabled(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsTextModeEnabled(@ptrCast(self));
+    pub fn IsTextModeEnabled(self: QSctpSocket) bool {
+        return qtc.QIODevice_IsTextModeEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1008,10 +1042,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn IsOpen(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsOpen(@ptrCast(self));
+    pub fn IsOpen(self: QSctpSocket) bool {
+        return qtc.QIODevice_IsOpen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1020,10 +1054,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn IsReadable(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsReadable(@ptrCast(self));
+    pub fn IsReadable(self: QSctpSocket) bool {
+        return qtc.QIODevice_IsReadable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1032,10 +1066,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn IsWritable(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsWritable(@ptrCast(self));
+    pub fn IsWritable(self: QSctpSocket) bool {
+        return qtc.QIODevice_IsWritable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1044,10 +1078,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn ReadChannelCount(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_ReadChannelCount(@ptrCast(self));
+    pub fn ReadChannelCount(self: QSctpSocket) i32 {
+        return qtc.QIODevice_ReadChannelCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1056,10 +1090,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn WriteChannelCount(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_WriteChannelCount(@ptrCast(self));
+    pub fn WriteChannelCount(self: QSctpSocket) i32 {
+        return qtc.QIODevice_WriteChannelCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1068,10 +1102,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn CurrentReadChannel(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_CurrentReadChannel(@ptrCast(self));
+    pub fn CurrentReadChannel(self: QSctpSocket) i32 {
+        return qtc.QIODevice_CurrentReadChannel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1080,12 +1114,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentReadChannel(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self), @bitCast(channel));
+    pub fn SetCurrentReadChannel(self: QSctpSocket, channel: i32) void {
+        qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -1094,10 +1128,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn CurrentWriteChannel(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_CurrentWriteChannel(@ptrCast(self));
+    pub fn CurrentWriteChannel(self: QSctpSocket) i32 {
+        return qtc.QIODevice_CurrentWriteChannel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1106,12 +1140,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentWriteChannel(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self), @bitCast(channel));
+    pub fn SetCurrentWriteChannel(self: QSctpSocket, channel: i32) void {
+        qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -1120,15 +1154,15 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Read(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn Read(self: QSctpSocket, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Read(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QIODevice_Read(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -1137,14 +1171,14 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
-    ///
-    /// ` maxlen: i64 `
+    /// ` self: QSctpSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @bitCast(maxlen));
+    /// ` maxlen: i64 `
+    ///
+    pub fn Read2(self: QSctpSocket, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsctpsocket.Read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1157,12 +1191,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadAll(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self));
+    pub fn ReadAll(self: QSctpSocket, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsctpsocket.ReadAll: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1175,15 +1209,15 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLine(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn ReadLine(self: QSctpSocket, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_ReadLine(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QIODevice_ReadLine(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -1192,12 +1226,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadLine2(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self));
+    pub fn ReadLine2(self: QSctpSocket, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsctpsocket.ReadLine2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1210,10 +1244,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn StartTransaction(self: ?*anyopaque) void {
-        qtc.QIODevice_StartTransaction(@ptrCast(self));
+    pub fn StartTransaction(self: QSctpSocket) void {
+        qtc.QIODevice_StartTransaction(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1222,10 +1256,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn CommitTransaction(self: ?*anyopaque) void {
-        qtc.QIODevice_CommitTransaction(@ptrCast(self));
+    pub fn CommitTransaction(self: QSctpSocket) void {
+        qtc.QIODevice_CommitTransaction(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1234,10 +1268,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn RollbackTransaction(self: ?*anyopaque) void {
-        qtc.QIODevice_RollbackTransaction(@ptrCast(self));
+    pub fn RollbackTransaction(self: QSctpSocket) void {
+        qtc.QIODevice_RollbackTransaction(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1246,10 +1280,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn IsTransactionStarted(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsTransactionStarted(@ptrCast(self));
+    pub fn IsTransactionStarted(self: QSctpSocket) bool {
+        return qtc.QIODevice_IsTransactionStarted(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1258,15 +1292,15 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` data: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn Write(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn Write(self: QSctpSocket, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Write(@ptrCast(self), data_Cstring, @bitCast(lenVal));
+        return qtc.QIODevice_Write(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
     }
 
     /// Inherited from QIODevice
@@ -1275,13 +1309,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` data: [:0]const u8 `
     ///
-    pub fn Write2(self: ?*anyopaque, data: [:0]const u8) i64 {
+    pub fn Write2(self: QSctpSocket, data: [:0]const u8) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Write2(@ptrCast(self), data_Cstring);
+        return qtc.QIODevice_Write2(@ptrCast(self.ptr), data_Cstring);
     }
 
     /// Inherited from QIODevice
@@ -1290,16 +1324,16 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` data: []u8 `
     ///
-    pub fn Write3(self: ?*anyopaque, data: []u8) i64 {
+    pub fn Write3(self: QSctpSocket, data: []u8) i64 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.QIODevice_Write3(@ptrCast(self), data_str);
+        return qtc.QIODevice_Write3(@ptrCast(self.ptr), data_str);
     }
 
     /// Inherited from QIODevice
@@ -1308,15 +1342,15 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Peek(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn Peek(self: QSctpSocket, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Peek(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QIODevice_Peek(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -1325,14 +1359,14 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
-    ///
-    /// ` maxlen: i64 `
+    /// ` self: QSctpSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @bitCast(maxlen));
+    /// ` maxlen: i64 `
+    ///
+    pub fn Peek2(self: QSctpSocket, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsctpsocket.Peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1345,12 +1379,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn Skip(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QIODevice_Skip(@ptrCast(self), @bitCast(maxSize));
+    pub fn Skip(self: QSctpSocket, maxSize: i64) i64 {
+        return qtc.QIODevice_Skip(@ptrCast(self.ptr), @bitCast(maxSize));
     }
 
     /// Inherited from QIODevice
@@ -1359,12 +1393,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` c: u8 `
     ///
-    pub fn UngetChar(self: ?*anyopaque, c: u8) void {
-        qtc.QIODevice_UngetChar(@ptrCast(self), @bitCast(c));
+    pub fn UngetChar(self: QSctpSocket, c: u8) void {
+        qtc.QIODevice_UngetChar(@ptrCast(self.ptr), @bitCast(c));
     }
 
     /// Inherited from QIODevice
@@ -1373,12 +1407,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` c: u8 `
     ///
-    pub fn PutChar(self: ?*anyopaque, c: u8) bool {
-        return qtc.QIODevice_PutChar(@ptrCast(self), @bitCast(c));
+    pub fn PutChar(self: QSctpSocket, c: u8) bool {
+        return qtc.QIODevice_PutChar(@ptrCast(self.ptr), @bitCast(c));
     }
 
     /// Inherited from QIODevice
@@ -1387,13 +1421,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` c: [:0]u8 `
     ///
-    pub fn GetChar(self: ?*anyopaque, c: [:0]u8) bool {
+    pub fn GetChar(self: QSctpSocket, c: [:0]u8) bool {
         const c_Cstring = c.ptr;
-        return qtc.QIODevice_GetChar(@ptrCast(self), c_Cstring);
+        return qtc.QIODevice_GetChar(@ptrCast(self.ptr), c_Cstring);
     }
 
     /// Inherited from QIODevice
@@ -1402,12 +1436,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QIODevice_ErrorString(@ptrCast(self));
+    pub fn ErrorString(self: QSctpSocket, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QIODevice_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsctpsocket.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1420,10 +1454,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn ReadyRead(self: ?*anyopaque) void {
-        qtc.QIODevice_ReadyRead(@ptrCast(self));
+    pub fn ReadyRead(self: QSctpSocket) void {
+        qtc.QIODevice_ReadyRead(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1432,12 +1466,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket) callconv(.c) void `
     ///
-    pub fn OnReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadyRead(self: QSctpSocket, callback: *const fn (QSctpSocket) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1446,12 +1480,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` channel: i32 `
     ///
-    pub fn ChannelReadyRead(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_ChannelReadyRead(@ptrCast(self), @bitCast(channel));
+    pub fn ChannelReadyRead(self: QSctpSocket, channel: i32) void {
+        qtc.QIODevice_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -1460,12 +1494,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, channel: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, channel: i32) callconv(.c) void `
     ///
-    pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChannelReadyRead(self: QSctpSocket, callback: *const fn (QSctpSocket, i32) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1474,12 +1508,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` bytes: i64 `
     ///
-    pub fn BytesWritten(self: ?*anyopaque, bytes: i64) void {
-        qtc.QIODevice_BytesWritten(@ptrCast(self), @bitCast(bytes));
+    pub fn BytesWritten(self: QSctpSocket, bytes: i64) void {
+        qtc.QIODevice_BytesWritten(@ptrCast(self.ptr), @bitCast(bytes));
     }
 
     /// Inherited from QIODevice
@@ -1488,12 +1522,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, bytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBytesWritten(self: QSctpSocket, callback: *const fn (QSctpSocket, i64) callconv(.c) void) void {
+        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1502,14 +1536,14 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` channel: i32 `
     ///
     /// ` bytes: i64 `
     ///
-    pub fn ChannelBytesWritten(self: ?*anyopaque, channel: i32, bytes: i64) void {
-        qtc.QIODevice_ChannelBytesWritten(@ptrCast(self), @bitCast(channel), @bitCast(bytes));
+    pub fn ChannelBytesWritten(self: QSctpSocket, channel: i32, bytes: i64) void {
+        qtc.QIODevice_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(channel), @bitCast(bytes));
     }
 
     /// Inherited from QIODevice
@@ -1518,12 +1552,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, channel: i32, bytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, channel: i32, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChannelBytesWritten(self: QSctpSocket, callback: *const fn (QSctpSocket, i32, i64) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1532,10 +1566,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn AboutToClose(self: ?*anyopaque) void {
-        qtc.QIODevice_AboutToClose(@ptrCast(self));
+    pub fn AboutToClose(self: QSctpSocket) void {
+        qtc.QIODevice_AboutToClose(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1544,12 +1578,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket) callconv(.c) void `
     ///
-    pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAboutToClose(self: QSctpSocket, callback: *const fn (QSctpSocket) callconv(.c) void) void {
+        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1558,10 +1592,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn ReadChannelFinished(self: ?*anyopaque) void {
-        qtc.QIODevice_ReadChannelFinished(@ptrCast(self));
+    pub fn ReadChannelFinished(self: QSctpSocket) void {
+        qtc.QIODevice_ReadChannelFinished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1570,12 +1604,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket) callconv(.c) void `
     ///
-    pub fn OnReadChannelFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadChannelFinished(self: QSctpSocket, callback: *const fn (QSctpSocket) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1584,14 +1618,14 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
-    ///
-    /// ` maxlen: i64 `
+    /// ` self: QSctpSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @bitCast(maxlen));
+    /// ` maxlen: i64 `
+    ///
+    pub fn ReadLine1(self: QSctpSocket, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsctpsocket.ReadLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1604,12 +1638,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QSctpSocket, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsctpsocket.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1622,12 +1656,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QSctpSocket, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1636,10 +1670,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QSctpSocket) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1648,10 +1682,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QSctpSocket) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1660,10 +1694,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QSctpSocket) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1672,10 +1706,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QSctpSocket) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1684,12 +1718,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QSctpSocket, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -1698,10 +1732,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QSctpSocket) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1710,12 +1744,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QSctpSocket, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1724,12 +1759,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QSctpSocket, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1738,12 +1773,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QSctpSocket, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1752,12 +1787,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QSctpSocket, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1766,12 +1801,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QSctpSocket, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1780,16 +1815,17 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QSctpSocket, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qsctpsocket.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qsctpsocket.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1799,12 +1835,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QSctpSocket, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1813,12 +1850,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QSctpSocket, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1827,12 +1865,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QSctpSocket, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1841,18 +1880,20 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1861,16 +1902,20 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1879,18 +1924,19 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QSctpSocket, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1899,18 +1945,20 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1919,16 +1967,20 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1937,10 +1989,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QSctpSocket) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1949,12 +2001,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QSctpSocket, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1963,10 +2016,11 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1975,10 +2029,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QSctpSocket) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1987,10 +2041,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QSctpSocket) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1999,15 +2053,16 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QSctpSocket, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -2016,13 +2071,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QSctpSocket, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -2031,17 +2086,16 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QSctpSocket, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qsctpsocket.DynamicPropertyNames: Memory allocation failed");
@@ -2060,10 +2114,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QSctpSocket) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2072,10 +2126,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QSctpSocket) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2084,10 +2138,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QSctpSocket) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2096,12 +2150,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QSctpSocket, callback: *const fn (QSctpSocket) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2110,10 +2164,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QSctpSocket) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2122,13 +2176,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QSctpSocket, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -2137,10 +2191,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QSctpSocket) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2149,14 +2203,14 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QSctpSocket, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2165,14 +2219,14 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QSctpSocket, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2181,20 +2235,22 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -2203,18 +2259,22 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2223,9 +2283,9 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2233,10 +2293,11 @@ pub const qsctpsocket = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QSctpSocket, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2245,13 +2306,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QSctpSocket, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2260,15 +2321,16 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QSctpSocket, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -2277,18 +2339,19 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QSctpSocket, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2297,15 +2360,16 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QSctpSocket, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2314,12 +2378,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QSctpSocket, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -2328,12 +2393,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QSctpSocket, callback: *const fn (QSctpSocket, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -2344,10 +2409,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn Resume(self: ?*anyopaque) void {
-        qtc.QSctpSocket_Resume(@ptrCast(self));
+    pub fn Resume(self: QSctpSocket) void {
+        qtc.QSctpSocket_Resume(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResume` instead
@@ -2362,10 +2427,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn SuperResume(self: ?*anyopaque) void {
-        qtc.QSctpSocket_SuperResume(@ptrCast(self));
+    pub fn SuperResume(self: QSctpSocket) void {
+        qtc.QSctpSocket_SuperResume(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -2376,12 +2441,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnResume(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QSctpSocket_OnResume(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResume(self: QSctpSocket, callback: *const fn () callconv(.c) void) void {
+        qtc.QSctpSocket_OnResume(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -2392,16 +2457,17 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` address: QtC.QHostAddress `
+    /// ` address: QHostAddress `
     ///
     /// ` port: u16 `
     ///
     /// ` mode: flag of qabstractsocket_enums.BindFlag `
     ///
-    pub fn Bind(self: ?*anyopaque, address: ?*anyopaque, port: u16, mode: i32) bool {
-        return qtc.QSctpSocket_Bind(@ptrCast(self), @ptrCast(address), @bitCast(port), @bitCast(mode));
+    pub fn Bind(self: QSctpSocket, address: anytype, port: u16, mode: i32) bool {
+        comptime _ = @TypeOf(address)._is_QHostAddress;
+        return qtc.QSctpSocket_Bind(@ptrCast(self.ptr), @ptrCast(address.ptr), @bitCast(port), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `SuperBind` instead
@@ -2416,16 +2482,17 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` address: QtC.QHostAddress `
+    /// ` address: QHostAddress `
     ///
     /// ` port: u16 `
     ///
     /// ` mode: flag of qabstractsocket_enums.BindFlag `
     ///
-    pub fn SuperBind(self: ?*anyopaque, address: ?*anyopaque, port: u16, mode: i32) bool {
-        return qtc.QSctpSocket_SuperBind(@ptrCast(self), @ptrCast(address), @bitCast(port), @bitCast(mode));
+    pub fn SuperBind(self: QSctpSocket, address: anytype, port: u16, mode: i32) bool {
+        comptime _ = @TypeOf(address)._is_QHostAddress;
+        return qtc.QSctpSocket_SuperBind(@ptrCast(self.ptr), @ptrCast(address.ptr), @bitCast(port), @bitCast(mode));
     }
 
     /// Inherited from QAbstractSocket
@@ -2436,12 +2503,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, address: QtC.QHostAddress, port: u16, mode: flag of qabstractsocket_enums.BindFlag) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSctpSocket, address: QHostAddress, port: u16, mode: flag of qabstractsocket_enums.BindFlag) callconv(.c) bool `
     ///
-    pub fn OnBind(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u16, i32) callconv(.c) bool) void {
-        qtc.QSctpSocket_OnBind(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBind(self: QSctpSocket, callback: *const fn (QSctpSocket, QHostAddress, u16, i32) callconv(.c) bool) void {
+        qtc.QSctpSocket_OnBind(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -2452,7 +2519,7 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` hostName: []const u8 `
     ///
@@ -2462,12 +2529,12 @@ pub const qsctpsocket = struct {
     ///
     /// ` protocol: qabstractsocket_enums.NetworkLayerProtocol `
     ///
-    pub fn ConnectToHost(self: ?*anyopaque, hostName: []const u8, port: u16, mode: i32, protocol: i32) void {
+    pub fn ConnectToHost(self: QSctpSocket, hostName: []const u8, port: u16, mode: i32, protocol: i32) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
-        qtc.QSctpSocket_ConnectToHost(@ptrCast(self), hostName_str, @bitCast(port), @bitCast(mode), @bitCast(protocol));
+        qtc.QSctpSocket_ConnectToHost(@ptrCast(self.ptr), hostName_str, @bitCast(port), @bitCast(mode), @bitCast(protocol));
     }
 
     /// ### DEPRECATED: Use `SuperConnectToHost` instead
@@ -2482,7 +2549,7 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` hostName: []const u8 `
     ///
@@ -2492,12 +2559,12 @@ pub const qsctpsocket = struct {
     ///
     /// ` protocol: qabstractsocket_enums.NetworkLayerProtocol `
     ///
-    pub fn SuperConnectToHost(self: ?*anyopaque, hostName: []const u8, port: u16, mode: i32, protocol: i32) void {
+    pub fn SuperConnectToHost(self: QSctpSocket, hostName: []const u8, port: u16, mode: i32, protocol: i32) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
-        qtc.QSctpSocket_SuperConnectToHost(@ptrCast(self), hostName_str, @bitCast(port), @bitCast(mode), @bitCast(protocol));
+        qtc.QSctpSocket_SuperConnectToHost(@ptrCast(self.ptr), hostName_str, @bitCast(port), @bitCast(mode), @bitCast(protocol));
     }
 
     /// Inherited from QAbstractSocket
@@ -2508,12 +2575,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, hostName: [*:0]const u8, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, hostName: [*:0]const u8, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol) callconv(.c) void `
     ///
-    pub fn OnConnectToHost(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, u16, i32, i32) callconv(.c) void) void {
-        qtc.QSctpSocket_OnConnectToHost(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectToHost(self: QSctpSocket, callback: *const fn (QSctpSocket, [*:0]const u8, u16, i32, i32) callconv(.c) void) void {
+        qtc.QSctpSocket_OnConnectToHost(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -2524,10 +2591,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn BytesAvailable(self: ?*anyopaque) i64 {
-        return qtc.QSctpSocket_BytesAvailable(@ptrCast(self));
+    pub fn BytesAvailable(self: QSctpSocket) i64 {
+        return qtc.QSctpSocket_BytesAvailable(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperBytesAvailable` instead
@@ -2542,10 +2609,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn SuperBytesAvailable(self: ?*anyopaque) i64 {
-        return qtc.QSctpSocket_SuperBytesAvailable(@ptrCast(self));
+    pub fn SuperBytesAvailable(self: QSctpSocket) i64 {
+        return qtc.QSctpSocket_SuperBytesAvailable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -2556,12 +2623,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnBytesAvailable(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QSctpSocket_OnBytesAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBytesAvailable(self: QSctpSocket, callback: *const fn () callconv(.c) i64) void {
+        qtc.QSctpSocket_OnBytesAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -2572,10 +2639,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn BytesToWrite(self: ?*anyopaque) i64 {
-        return qtc.QSctpSocket_BytesToWrite(@ptrCast(self));
+    pub fn BytesToWrite(self: QSctpSocket) i64 {
+        return qtc.QSctpSocket_BytesToWrite(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperBytesToWrite` instead
@@ -2590,10 +2657,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn SuperBytesToWrite(self: ?*anyopaque) i64 {
-        return qtc.QSctpSocket_SuperBytesToWrite(@ptrCast(self));
+    pub fn SuperBytesToWrite(self: QSctpSocket) i64 {
+        return qtc.QSctpSocket_SuperBytesToWrite(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -2604,12 +2671,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnBytesToWrite(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QSctpSocket_OnBytesToWrite(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBytesToWrite(self: QSctpSocket, callback: *const fn () callconv(.c) i64) void {
+        qtc.QSctpSocket_OnBytesToWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -2620,12 +2687,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` size: i64 `
     ///
-    pub fn SetReadBufferSize(self: ?*anyopaque, size: i64) void {
-        qtc.QSctpSocket_SetReadBufferSize(@ptrCast(self), @bitCast(size));
+    pub fn SetReadBufferSize(self: QSctpSocket, size: i64) void {
+        qtc.QSctpSocket_SetReadBufferSize(@ptrCast(self.ptr), @bitCast(size));
     }
 
     /// ### DEPRECATED: Use `SuperSetReadBufferSize` instead
@@ -2640,12 +2707,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` size: i64 `
     ///
-    pub fn SuperSetReadBufferSize(self: ?*anyopaque, size: i64) void {
-        qtc.QSctpSocket_SuperSetReadBufferSize(@ptrCast(self), @bitCast(size));
+    pub fn SuperSetReadBufferSize(self: QSctpSocket, size: i64) void {
+        qtc.QSctpSocket_SuperSetReadBufferSize(@ptrCast(self.ptr), @bitCast(size));
     }
 
     /// Inherited from QAbstractSocket
@@ -2656,12 +2723,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, size: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, size: i64) callconv(.c) void `
     ///
-    pub fn OnSetReadBufferSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
-        qtc.QSctpSocket_OnSetReadBufferSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetReadBufferSize(self: QSctpSocket, callback: *const fn (QSctpSocket, i64) callconv(.c) void) void {
+        qtc.QSctpSocket_OnSetReadBufferSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -2672,10 +2739,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn SocketDescriptor(self: ?*anyopaque) isize {
-        return qtc.QSctpSocket_SocketDescriptor(@ptrCast(self));
+    pub fn SocketDescriptor(self: QSctpSocket) isize {
+        return qtc.QSctpSocket_SocketDescriptor(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSocketDescriptor` instead
@@ -2690,10 +2757,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn SuperSocketDescriptor(self: ?*anyopaque) isize {
-        return qtc.QSctpSocket_SuperSocketDescriptor(@ptrCast(self));
+    pub fn SuperSocketDescriptor(self: QSctpSocket) isize {
+        return qtc.QSctpSocket_SuperSocketDescriptor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -2704,12 +2771,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
     /// ` callback: *const fn () callconv(.c) isize `
     ///
-    pub fn OnSocketDescriptor(self: ?*anyopaque, callback: *const fn () callconv(.c) isize) void {
-        qtc.QSctpSocket_OnSocketDescriptor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSocketDescriptor(self: QSctpSocket, callback: *const fn () callconv(.c) isize) void {
+        qtc.QSctpSocket_OnSocketDescriptor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -2720,7 +2787,7 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` socketDescriptor: isize `
     ///
@@ -2728,8 +2795,8 @@ pub const qsctpsocket = struct {
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SetSocketDescriptor(self: ?*anyopaque, socketDescriptor: isize, state: i32, openMode: i32) bool {
-        return qtc.QSctpSocket_SetSocketDescriptor(@ptrCast(self), @bitCast(socketDescriptor), @bitCast(state), @bitCast(openMode));
+    pub fn SetSocketDescriptor(self: QSctpSocket, socketDescriptor: isize, state: i32, openMode: i32) bool {
+        return qtc.QSctpSocket_SetSocketDescriptor(@ptrCast(self.ptr), @bitCast(socketDescriptor), @bitCast(state), @bitCast(openMode));
     }
 
     /// ### DEPRECATED: Use `SuperSetSocketDescriptor` instead
@@ -2744,7 +2811,7 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` socketDescriptor: isize `
     ///
@@ -2752,8 +2819,8 @@ pub const qsctpsocket = struct {
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperSetSocketDescriptor(self: ?*anyopaque, socketDescriptor: isize, state: i32, openMode: i32) bool {
-        return qtc.QSctpSocket_SuperSetSocketDescriptor(@ptrCast(self), @bitCast(socketDescriptor), @bitCast(state), @bitCast(openMode));
+    pub fn SuperSetSocketDescriptor(self: QSctpSocket, socketDescriptor: isize, state: i32, openMode: i32) bool {
+        return qtc.QSctpSocket_SuperSetSocketDescriptor(@ptrCast(self.ptr), @bitCast(socketDescriptor), @bitCast(state), @bitCast(openMode));
     }
 
     /// Inherited from QAbstractSocket
@@ -2764,12 +2831,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, socketDescriptor: isize, state: qabstractsocket_enums.SocketState, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSctpSocket, socketDescriptor: isize, state: qabstractsocket_enums.SocketState, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
     ///
-    pub fn OnSetSocketDescriptor(self: ?*anyopaque, callback: *const fn (?*anyopaque, isize, i32, i32) callconv(.c) bool) void {
-        qtc.QSctpSocket_OnSetSocketDescriptor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetSocketDescriptor(self: QSctpSocket, callback: *const fn (QSctpSocket, isize, i32, i32) callconv(.c) bool) void {
+        qtc.QSctpSocket_OnSetSocketDescriptor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -2780,14 +2847,15 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` option: qabstractsocket_enums.SocketOption `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetSocketOption(self: ?*anyopaque, option: i32, value: ?*anyopaque) void {
-        qtc.QSctpSocket_SetSocketOption(@ptrCast(self), @bitCast(option), @ptrCast(value));
+    pub fn SetSocketOption(self: QSctpSocket, option: i32, value: anytype) void {
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QSctpSocket_SetSocketOption(@ptrCast(self.ptr), @bitCast(option), @ptrCast(value.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSetSocketOption` instead
@@ -2802,14 +2870,15 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` option: qabstractsocket_enums.SocketOption `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SuperSetSocketOption(self: ?*anyopaque, option: i32, value: ?*anyopaque) void {
-        qtc.QSctpSocket_SuperSetSocketOption(@ptrCast(self), @bitCast(option), @ptrCast(value));
+    pub fn SuperSetSocketOption(self: QSctpSocket, option: i32, value: anytype) void {
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QSctpSocket_SuperSetSocketOption(@ptrCast(self.ptr), @bitCast(option), @ptrCast(value.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -2820,12 +2889,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, option: qabstractsocket_enums.SocketOption, value: QtC.QVariant) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, option: qabstractsocket_enums.SocketOption, value: QVariant) callconv(.c) void `
     ///
-    pub fn OnSetSocketOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSctpSocket_OnSetSocketOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetSocketOption(self: QSctpSocket, callback: *const fn (QSctpSocket, i32, QVariant) callconv(.c) void) void {
+        qtc.QSctpSocket_OnSetSocketOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -2836,12 +2905,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` option: qabstractsocket_enums.SocketOption `
     ///
-    pub fn SocketOption(self: ?*anyopaque, option: i32) QtC.QVariant {
-        return qtc.QSctpSocket_SocketOption(@ptrCast(self), @bitCast(option));
+    pub fn SocketOption(self: QSctpSocket, option: i32) QVariant {
+        return .{ .ptr = qtc.QSctpSocket_SocketOption(@ptrCast(self.ptr), @bitCast(option)) };
     }
 
     /// ### DEPRECATED: Use `SuperSocketOption` instead
@@ -2856,12 +2925,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` option: qabstractsocket_enums.SocketOption `
     ///
-    pub fn SuperSocketOption(self: ?*anyopaque, option: i32) QtC.QVariant {
-        return qtc.QSctpSocket_SuperSocketOption(@ptrCast(self), @bitCast(option));
+    pub fn SuperSocketOption(self: QSctpSocket, option: i32) QVariant {
+        return .{ .ptr = qtc.QSctpSocket_SuperSocketOption(@ptrCast(self.ptr), @bitCast(option)) };
     }
 
     /// Inherited from QAbstractSocket
@@ -2872,12 +2941,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, option: qabstractsocket_enums.SocketOption) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QSctpSocket, option: qabstractsocket_enums.SocketOption) callconv(.c) QVariant `
     ///
-    pub fn OnSocketOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QSctpSocket_OnSocketOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSocketOption(self: QSctpSocket, callback: *const fn (QSctpSocket, i32) callconv(.c) QVariant) void {
+        qtc.QSctpSocket_OnSocketOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -2888,10 +2957,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn IsSequential(self: ?*anyopaque) bool {
-        return qtc.QSctpSocket_IsSequential(@ptrCast(self));
+    pub fn IsSequential(self: QSctpSocket) bool {
+        return qtc.QSctpSocket_IsSequential(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSequential` instead
@@ -2906,10 +2975,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn SuperIsSequential(self: ?*anyopaque) bool {
-        return qtc.QSctpSocket_SuperIsSequential(@ptrCast(self));
+    pub fn SuperIsSequential(self: QSctpSocket) bool {
+        return qtc.QSctpSocket_SuperIsSequential(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -2920,12 +2989,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsSequential(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QSctpSocket_OnIsSequential(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSequential(self: QSctpSocket, callback: *const fn () callconv(.c) bool) void {
+        qtc.QSctpSocket_OnIsSequential(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -2936,12 +3005,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForConnected(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QSctpSocket_WaitForConnected(@ptrCast(self), @bitCast(msecs));
+    pub fn WaitForConnected(self: QSctpSocket, msecs: i32) bool {
+        return qtc.QSctpSocket_WaitForConnected(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// ### DEPRECATED: Use `SuperWaitForConnected` instead
@@ -2956,12 +3025,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForConnected(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QSctpSocket_SuperWaitForConnected(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForConnected(self: QSctpSocket, msecs: i32) bool {
+        return qtc.QSctpSocket_SuperWaitForConnected(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// Inherited from QAbstractSocket
@@ -2972,12 +3041,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, msecs: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSctpSocket, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QSctpSocket_OnWaitForConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWaitForConnected(self: QSctpSocket, callback: *const fn (QSctpSocket, i32) callconv(.c) bool) void {
+        qtc.QSctpSocket_OnWaitForConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -2988,12 +3057,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QSctpSocket_WaitForReadyRead(@ptrCast(self), @bitCast(msecs));
+    pub fn WaitForReadyRead(self: QSctpSocket, msecs: i32) bool {
+        return qtc.QSctpSocket_WaitForReadyRead(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// ### DEPRECATED: Use `SuperWaitForReadyRead` instead
@@ -3008,12 +3077,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QSctpSocket_SuperWaitForReadyRead(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForReadyRead(self: QSctpSocket, msecs: i32) bool {
+        return qtc.QSctpSocket_SuperWaitForReadyRead(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// Inherited from QAbstractSocket
@@ -3024,12 +3093,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, msecs: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSctpSocket, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QSctpSocket_OnWaitForReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWaitForReadyRead(self: QSctpSocket, callback: *const fn (QSctpSocket, i32) callconv(.c) bool) void {
+        qtc.QSctpSocket_OnWaitForReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -3040,12 +3109,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QSctpSocket_WaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
+    pub fn WaitForBytesWritten(self: QSctpSocket, msecs: i32) bool {
+        return qtc.QSctpSocket_WaitForBytesWritten(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// ### DEPRECATED: Use `SuperWaitForBytesWritten` instead
@@ -3060,12 +3129,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QSctpSocket_SuperWaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForBytesWritten(self: QSctpSocket, msecs: i32) bool {
+        return qtc.QSctpSocket_SuperWaitForBytesWritten(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// Inherited from QAbstractSocket
@@ -3076,12 +3145,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, msecs: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSctpSocket, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QSctpSocket_OnWaitForBytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWaitForBytesWritten(self: QSctpSocket, callback: *const fn (QSctpSocket, i32) callconv(.c) bool) void {
+        qtc.QSctpSocket_OnWaitForBytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -3092,12 +3161,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForDisconnected(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QSctpSocket_WaitForDisconnected(@ptrCast(self), @bitCast(msecs));
+    pub fn WaitForDisconnected(self: QSctpSocket, msecs: i32) bool {
+        return qtc.QSctpSocket_WaitForDisconnected(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// ### DEPRECATED: Use `SuperWaitForDisconnected` instead
@@ -3112,12 +3181,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForDisconnected(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QSctpSocket_SuperWaitForDisconnected(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForDisconnected(self: QSctpSocket, msecs: i32) bool {
+        return qtc.QSctpSocket_SuperWaitForDisconnected(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// Inherited from QAbstractSocket
@@ -3128,12 +3197,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, msecs: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSctpSocket, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForDisconnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QSctpSocket_OnWaitForDisconnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWaitForDisconnected(self: QSctpSocket, callback: *const fn (QSctpSocket, i32) callconv(.c) bool) void {
+        qtc.QSctpSocket_OnWaitForDisconnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -3144,12 +3213,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn SkipData(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QSctpSocket_SkipData(@ptrCast(self), @bitCast(maxSize));
+    pub fn SkipData(self: QSctpSocket, maxSize: i64) i64 {
+        return qtc.QSctpSocket_SkipData(@ptrCast(self.ptr), @bitCast(maxSize));
     }
 
     /// ### DEPRECATED: Use `SuperSkipData` instead
@@ -3164,12 +3233,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn SuperSkipData(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QSctpSocket_SuperSkipData(@ptrCast(self), @bitCast(maxSize));
+    pub fn SuperSkipData(self: QSctpSocket, maxSize: i64) i64 {
+        return qtc.QSctpSocket_SuperSkipData(@ptrCast(self.ptr), @bitCast(maxSize));
     }
 
     /// Inherited from QAbstractSocket
@@ -3180,12 +3249,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, maxSize: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: QSctpSocket, maxSize: i64) callconv(.c) i64 `
     ///
-    pub fn OnSkipData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) i64) void {
-        qtc.QSctpSocket_OnSkipData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSkipData(self: QSctpSocket, callback: *const fn (QSctpSocket, i64) callconv(.c) i64) void {
+        qtc.QSctpSocket_OnSkipData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -3196,15 +3265,15 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` data: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn WriteData(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn WriteData(self: QSctpSocket, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QSctpSocket_WriteData(@ptrCast(self), data_Cstring, @bitCast(lenVal));
+        return qtc.QSctpSocket_WriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
     }
 
     /// ### DEPRECATED: Use `SuperWriteData` instead
@@ -3219,15 +3288,15 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` data: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn SuperWriteData(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn SuperWriteData(self: QSctpSocket, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QSctpSocket_SuperWriteData(@ptrCast(self), data_Cstring, @bitCast(lenVal));
+        return qtc.QSctpSocket_SuperWriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
     }
 
     /// Inherited from QAbstractSocket
@@ -3238,12 +3307,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: QSctpSocket, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 `
     ///
-    pub fn OnWriteData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
-        qtc.QSctpSocket_OnWriteData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWriteData(self: QSctpSocket, callback: *const fn (QSctpSocket, [*:0]const u8, i64) callconv(.c) i64) void {
+        qtc.QSctpSocket_OnWriteData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3254,12 +3323,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn Open(self: ?*anyopaque, mode: i32) bool {
-        return qtc.QSctpSocket_Open(@ptrCast(self), @bitCast(mode));
+    pub fn Open(self: QSctpSocket, mode: i32) bool {
+        return qtc.QSctpSocket_Open(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### DEPRECATED: Use `SuperOpen` instead
@@ -3274,12 +3343,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperOpen(self: ?*anyopaque, mode: i32) bool {
-        return qtc.QSctpSocket_SuperOpen(@ptrCast(self), @bitCast(mode));
+    pub fn SuperOpen(self: QSctpSocket, mode: i32) bool {
+        return qtc.QSctpSocket_SuperOpen(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// Inherited from QIODevice
@@ -3290,12 +3359,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSctpSocket, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
     ///
-    pub fn OnOpen(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QSctpSocket_OnOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnOpen(self: QSctpSocket, callback: *const fn (QSctpSocket, i32) callconv(.c) bool) void {
+        qtc.QSctpSocket_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3306,10 +3375,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn Pos(self: ?*anyopaque) i64 {
-        return qtc.QSctpSocket_Pos(@ptrCast(self));
+    pub fn Pos(self: QSctpSocket) i64 {
+        return qtc.QSctpSocket_Pos(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperPos` instead
@@ -3324,10 +3393,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn SuperPos(self: ?*anyopaque) i64 {
-        return qtc.QSctpSocket_SuperPos(@ptrCast(self));
+    pub fn SuperPos(self: QSctpSocket) i64 {
+        return qtc.QSctpSocket_SuperPos(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -3338,12 +3407,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnPos(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QSctpSocket_OnPos(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPos(self: QSctpSocket, callback: *const fn () callconv(.c) i64) void {
+        qtc.QSctpSocket_OnPos(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3354,10 +3423,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn Size(self: ?*anyopaque) i64 {
-        return qtc.QSctpSocket_Size(@ptrCast(self));
+    pub fn Size(self: QSctpSocket) i64 {
+        return qtc.QSctpSocket_Size(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSize` instead
@@ -3372,10 +3441,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn SuperSize(self: ?*anyopaque) i64 {
-        return qtc.QSctpSocket_SuperSize(@ptrCast(self));
+    pub fn SuperSize(self: QSctpSocket) i64 {
+        return qtc.QSctpSocket_SuperSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -3386,12 +3455,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnSize(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QSctpSocket_OnSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSize(self: QSctpSocket, callback: *const fn () callconv(.c) i64) void {
+        qtc.QSctpSocket_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3402,12 +3471,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` pos: i64 `
     ///
-    pub fn Seek(self: ?*anyopaque, pos: i64) bool {
-        return qtc.QSctpSocket_Seek(@ptrCast(self), @bitCast(pos));
+    pub fn Seek(self: QSctpSocket, pos: i64) bool {
+        return qtc.QSctpSocket_Seek(@ptrCast(self.ptr), @bitCast(pos));
     }
 
     /// ### DEPRECATED: Use `SuperSeek` instead
@@ -3422,12 +3491,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` pos: i64 `
     ///
-    pub fn SuperSeek(self: ?*anyopaque, pos: i64) bool {
-        return qtc.QSctpSocket_SuperSeek(@ptrCast(self), @bitCast(pos));
+    pub fn SuperSeek(self: QSctpSocket, pos: i64) bool {
+        return qtc.QSctpSocket_SuperSeek(@ptrCast(self.ptr), @bitCast(pos));
     }
 
     /// Inherited from QIODevice
@@ -3438,12 +3507,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, pos: i64) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSctpSocket, pos: i64) callconv(.c) bool `
     ///
-    pub fn OnSeek(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.QSctpSocket_OnSeek(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSeek(self: QSctpSocket, callback: *const fn (QSctpSocket, i64) callconv(.c) bool) void {
+        qtc.QSctpSocket_OnSeek(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3454,10 +3523,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn AtEnd(self: ?*anyopaque) bool {
-        return qtc.QSctpSocket_AtEnd(@ptrCast(self));
+    pub fn AtEnd(self: QSctpSocket) bool {
+        return qtc.QSctpSocket_AtEnd(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperAtEnd` instead
@@ -3472,10 +3541,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn SuperAtEnd(self: ?*anyopaque) bool {
-        return qtc.QSctpSocket_SuperAtEnd(@ptrCast(self));
+    pub fn SuperAtEnd(self: QSctpSocket) bool {
+        return qtc.QSctpSocket_SuperAtEnd(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -3486,12 +3555,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnAtEnd(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QSctpSocket_OnAtEnd(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAtEnd(self: QSctpSocket, callback: *const fn () callconv(.c) bool) void {
+        qtc.QSctpSocket_OnAtEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3502,10 +3571,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn Reset(self: ?*anyopaque) bool {
-        return qtc.QSctpSocket_Reset(@ptrCast(self));
+    pub fn Reset(self: QSctpSocket) bool {
+        return qtc.QSctpSocket_Reset(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperReset` instead
@@ -3520,10 +3589,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn SuperReset(self: ?*anyopaque) bool {
-        return qtc.QSctpSocket_SuperReset(@ptrCast(self));
+    pub fn SuperReset(self: QSctpSocket) bool {
+        return qtc.QSctpSocket_SuperReset(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -3534,12 +3603,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QSctpSocket_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReset(self: QSctpSocket, callback: *const fn () callconv(.c) bool) void {
+        qtc.QSctpSocket_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3550,10 +3619,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn CanReadLine(self: ?*anyopaque) bool {
-        return qtc.QSctpSocket_CanReadLine(@ptrCast(self));
+    pub fn CanReadLine(self: QSctpSocket) bool {
+        return qtc.QSctpSocket_CanReadLine(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCanReadLine` instead
@@ -3568,10 +3637,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn SuperCanReadLine(self: ?*anyopaque) bool {
-        return qtc.QSctpSocket_SuperCanReadLine(@ptrCast(self));
+    pub fn SuperCanReadLine(self: QSctpSocket) bool {
+        return qtc.QSctpSocket_SuperCanReadLine(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -3582,12 +3651,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnCanReadLine(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QSctpSocket_OnCanReadLine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCanReadLine(self: QSctpSocket, callback: *const fn () callconv(.c) bool) void {
+        qtc.QSctpSocket_OnCanReadLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3598,12 +3667,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSctpSocket_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QSctpSocket, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QSctpSocket_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -3618,12 +3688,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSctpSocket_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QSctpSocket, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QSctpSocket_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3634,12 +3705,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSctpSocket, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSctpSocket_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QSctpSocket, callback: *const fn (QSctpSocket, QEvent) callconv(.c) bool) void {
+        qtc.QSctpSocket_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3650,14 +3721,16 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSctpSocket_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QSctpSocket, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QSctpSocket_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -3672,14 +3745,16 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSctpSocket_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QSctpSocket, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QSctpSocket_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3690,12 +3765,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSctpSocket, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSctpSocket_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QSctpSocket, callback: *const fn (QSctpSocket, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QSctpSocket_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3706,12 +3781,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSctpSocket_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QSctpSocket, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QSctpSocket_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -3726,12 +3802,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSctpSocket_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QSctpSocket, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QSctpSocket_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3742,12 +3819,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSctpSocket_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QSctpSocket, callback: *const fn (QSctpSocket, QTimerEvent) callconv(.c) void) void {
+        qtc.QSctpSocket_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3758,12 +3835,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSctpSocket_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QSctpSocket, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QSctpSocket_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -3778,12 +3856,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSctpSocket_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QSctpSocket, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QSctpSocket_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3794,12 +3873,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSctpSocket_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QSctpSocket, callback: *const fn (QSctpSocket, QChildEvent) callconv(.c) void) void {
+        qtc.QSctpSocket_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3810,12 +3889,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSctpSocket_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QSctpSocket, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QSctpSocket_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -3830,12 +3910,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSctpSocket_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QSctpSocket, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QSctpSocket_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3846,12 +3927,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSctpSocket_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QSctpSocket, callback: *const fn (QSctpSocket, QEvent) callconv(.c) void) void {
+        qtc.QSctpSocket_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3862,12 +3943,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSctpSocket_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QSctpSocket, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSctpSocket_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -3882,12 +3964,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSctpSocket_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QSctpSocket, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSctpSocket_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3898,12 +3981,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSctpSocket_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QSctpSocket, callback: *const fn (QSctpSocket, QMetaMethod) callconv(.c) void) void {
+        qtc.QSctpSocket_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3914,12 +3997,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSctpSocket_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QSctpSocket, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSctpSocket_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -3934,12 +4018,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSctpSocket_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QSctpSocket, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSctpSocket_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3950,12 +4035,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSctpSocket_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QSctpSocket, callback: *const fn (QSctpSocket, QMetaMethod) callconv(.c) void) void {
+        qtc.QSctpSocket_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -3966,12 +4051,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` state: qabstractsocket_enums.SocketState `
     ///
-    pub fn SetSocketState(self: ?*anyopaque, state: i32) void {
-        qtc.QSctpSocket_SetSocketState(@ptrCast(self), @bitCast(state));
+    pub fn SetSocketState(self: QSctpSocket, state: i32) void {
+        qtc.QSctpSocket_SetSocketState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// ### DEPRECATED: Use `SuperSetSocketState` instead
@@ -3986,12 +4071,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` state: qabstractsocket_enums.SocketState `
     ///
-    pub fn SuperSetSocketState(self: ?*anyopaque, state: i32) void {
-        qtc.QSctpSocket_SuperSetSocketState(@ptrCast(self), @bitCast(state));
+    pub fn SuperSetSocketState(self: QSctpSocket, state: i32) void {
+        qtc.QSctpSocket_SuperSetSocketState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QAbstractSocket
@@ -4002,12 +4087,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, state: qabstractsocket_enums.SocketState) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, state: qabstractsocket_enums.SocketState) callconv(.c) void `
     ///
-    pub fn OnSetSocketState(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QSctpSocket_OnSetSocketState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetSocketState(self: QSctpSocket, callback: *const fn (QSctpSocket, i32) callconv(.c) void) void {
+        qtc.QSctpSocket_OnSetSocketState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -4018,12 +4103,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` socketError: qabstractsocket_enums.SocketError `
     ///
-    pub fn SetSocketError(self: ?*anyopaque, socketError: i32) void {
-        qtc.QSctpSocket_SetSocketError(@ptrCast(self), @bitCast(socketError));
+    pub fn SetSocketError(self: QSctpSocket, socketError: i32) void {
+        qtc.QSctpSocket_SetSocketError(@ptrCast(self.ptr), @bitCast(socketError));
     }
 
     /// ### DEPRECATED: Use `SuperSetSocketError` instead
@@ -4038,12 +4123,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` socketError: qabstractsocket_enums.SocketError `
     ///
-    pub fn SuperSetSocketError(self: ?*anyopaque, socketError: i32) void {
-        qtc.QSctpSocket_SuperSetSocketError(@ptrCast(self), @bitCast(socketError));
+    pub fn SuperSetSocketError(self: QSctpSocket, socketError: i32) void {
+        qtc.QSctpSocket_SuperSetSocketError(@ptrCast(self.ptr), @bitCast(socketError));
     }
 
     /// Inherited from QAbstractSocket
@@ -4054,12 +4139,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, socketError: qabstractsocket_enums.SocketError) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, socketError: qabstractsocket_enums.SocketError) callconv(.c) void `
     ///
-    pub fn OnSetSocketError(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QSctpSocket_OnSetSocketError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetSocketError(self: QSctpSocket, callback: *const fn (QSctpSocket, i32) callconv(.c) void) void {
+        qtc.QSctpSocket_OnSetSocketError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -4070,12 +4155,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` port: u16 `
     ///
-    pub fn SetLocalPort(self: ?*anyopaque, port: u16) void {
-        qtc.QSctpSocket_SetLocalPort(@ptrCast(self), @bitCast(port));
+    pub fn SetLocalPort(self: QSctpSocket, port: u16) void {
+        qtc.QSctpSocket_SetLocalPort(@ptrCast(self.ptr), @bitCast(port));
     }
 
     /// ### DEPRECATED: Use `SuperSetLocalPort` instead
@@ -4090,12 +4175,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` port: u16 `
     ///
-    pub fn SuperSetLocalPort(self: ?*anyopaque, port: u16) void {
-        qtc.QSctpSocket_SuperSetLocalPort(@ptrCast(self), @bitCast(port));
+    pub fn SuperSetLocalPort(self: QSctpSocket, port: u16) void {
+        qtc.QSctpSocket_SuperSetLocalPort(@ptrCast(self.ptr), @bitCast(port));
     }
 
     /// Inherited from QAbstractSocket
@@ -4106,12 +4191,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, port: u16) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, port: u16) callconv(.c) void `
     ///
-    pub fn OnSetLocalPort(self: ?*anyopaque, callback: *const fn (?*anyopaque, u16) callconv(.c) void) void {
-        qtc.QSctpSocket_OnSetLocalPort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetLocalPort(self: QSctpSocket, callback: *const fn (QSctpSocket, u16) callconv(.c) void) void {
+        qtc.QSctpSocket_OnSetLocalPort(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -4122,12 +4207,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` address: QtC.QHostAddress `
+    /// ` address: QHostAddress `
     ///
-    pub fn SetLocalAddress(self: ?*anyopaque, address: ?*anyopaque) void {
-        qtc.QSctpSocket_SetLocalAddress(@ptrCast(self), @ptrCast(address));
+    pub fn SetLocalAddress(self: QSctpSocket, address: anytype) void {
+        comptime _ = @TypeOf(address)._is_QHostAddress;
+        qtc.QSctpSocket_SetLocalAddress(@ptrCast(self.ptr), @ptrCast(address.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSetLocalAddress` instead
@@ -4142,12 +4228,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` address: QtC.QHostAddress `
+    /// ` address: QHostAddress `
     ///
-    pub fn SuperSetLocalAddress(self: ?*anyopaque, address: ?*anyopaque) void {
-        qtc.QSctpSocket_SuperSetLocalAddress(@ptrCast(self), @ptrCast(address));
+    pub fn SuperSetLocalAddress(self: QSctpSocket, address: anytype) void {
+        comptime _ = @TypeOf(address)._is_QHostAddress;
+        qtc.QSctpSocket_SuperSetLocalAddress(@ptrCast(self.ptr), @ptrCast(address.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -4158,12 +4245,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, address: QtC.QHostAddress) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, address: QHostAddress) callconv(.c) void `
     ///
-    pub fn OnSetLocalAddress(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSctpSocket_OnSetLocalAddress(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetLocalAddress(self: QSctpSocket, callback: *const fn (QSctpSocket, QHostAddress) callconv(.c) void) void {
+        qtc.QSctpSocket_OnSetLocalAddress(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -4174,12 +4261,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` port: u16 `
     ///
-    pub fn SetPeerPort(self: ?*anyopaque, port: u16) void {
-        qtc.QSctpSocket_SetPeerPort(@ptrCast(self), @bitCast(port));
+    pub fn SetPeerPort(self: QSctpSocket, port: u16) void {
+        qtc.QSctpSocket_SetPeerPort(@ptrCast(self.ptr), @bitCast(port));
     }
 
     /// ### DEPRECATED: Use `SuperSetPeerPort` instead
@@ -4194,12 +4281,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` port: u16 `
     ///
-    pub fn SuperSetPeerPort(self: ?*anyopaque, port: u16) void {
-        qtc.QSctpSocket_SuperSetPeerPort(@ptrCast(self), @bitCast(port));
+    pub fn SuperSetPeerPort(self: QSctpSocket, port: u16) void {
+        qtc.QSctpSocket_SuperSetPeerPort(@ptrCast(self.ptr), @bitCast(port));
     }
 
     /// Inherited from QAbstractSocket
@@ -4210,12 +4297,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, port: u16) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, port: u16) callconv(.c) void `
     ///
-    pub fn OnSetPeerPort(self: ?*anyopaque, callback: *const fn (?*anyopaque, u16) callconv(.c) void) void {
-        qtc.QSctpSocket_OnSetPeerPort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetPeerPort(self: QSctpSocket, callback: *const fn (QSctpSocket, u16) callconv(.c) void) void {
+        qtc.QSctpSocket_OnSetPeerPort(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -4226,12 +4313,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` address: QtC.QHostAddress `
+    /// ` address: QHostAddress `
     ///
-    pub fn SetPeerAddress(self: ?*anyopaque, address: ?*anyopaque) void {
-        qtc.QSctpSocket_SetPeerAddress(@ptrCast(self), @ptrCast(address));
+    pub fn SetPeerAddress(self: QSctpSocket, address: anytype) void {
+        comptime _ = @TypeOf(address)._is_QHostAddress;
+        qtc.QSctpSocket_SetPeerAddress(@ptrCast(self.ptr), @ptrCast(address.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSetPeerAddress` instead
@@ -4246,12 +4334,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` address: QtC.QHostAddress `
+    /// ` address: QHostAddress `
     ///
-    pub fn SuperSetPeerAddress(self: ?*anyopaque, address: ?*anyopaque) void {
-        qtc.QSctpSocket_SuperSetPeerAddress(@ptrCast(self), @ptrCast(address));
+    pub fn SuperSetPeerAddress(self: QSctpSocket, address: anytype) void {
+        comptime _ = @TypeOf(address)._is_QHostAddress;
+        qtc.QSctpSocket_SuperSetPeerAddress(@ptrCast(self.ptr), @ptrCast(address.ptr));
     }
 
     /// Inherited from QAbstractSocket
@@ -4262,12 +4351,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, address: QtC.QHostAddress) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, address: QHostAddress) callconv(.c) void `
     ///
-    pub fn OnSetPeerAddress(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSctpSocket_OnSetPeerAddress(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetPeerAddress(self: QSctpSocket, callback: *const fn (QSctpSocket, QHostAddress) callconv(.c) void) void {
+        qtc.QSctpSocket_OnSetPeerAddress(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSocket
@@ -4278,16 +4367,16 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetPeerName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetPeerName(self: QSctpSocket, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QSctpSocket_SetPeerName(@ptrCast(self), name_str);
+        qtc.QSctpSocket_SetPeerName(@ptrCast(self.ptr), name_str);
     }
 
     /// ### DEPRECATED: Use `SuperSetPeerName` instead
@@ -4302,16 +4391,16 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SuperSetPeerName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SuperSetPeerName(self: QSctpSocket, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QSctpSocket_SuperSetPeerName(@ptrCast(self), name_str);
+        qtc.QSctpSocket_SuperSetPeerName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QAbstractSocket
@@ -4322,12 +4411,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, name: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, name: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetPeerName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QSctpSocket_OnSetPeerName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetPeerName(self: QSctpSocket, callback: *const fn (QSctpSocket, [*:0]const u8) callconv(.c) void) void {
+        qtc.QSctpSocket_OnSetPeerName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -4338,12 +4427,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SetOpenMode(self: ?*anyopaque, openMode: i32) void {
-        qtc.QSctpSocket_SetOpenMode(@ptrCast(self), @bitCast(openMode));
+    pub fn SetOpenMode(self: QSctpSocket, openMode: i32) void {
+        qtc.QSctpSocket_SetOpenMode(@ptrCast(self.ptr), @bitCast(openMode));
     }
 
     /// ### DEPRECATED: Use `SuperSetOpenMode` instead
@@ -4358,12 +4447,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperSetOpenMode(self: ?*anyopaque, openMode: i32) void {
-        qtc.QSctpSocket_SuperSetOpenMode(@ptrCast(self), @bitCast(openMode));
+    pub fn SuperSetOpenMode(self: QSctpSocket, openMode: i32) void {
+        qtc.QSctpSocket_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(openMode));
     }
 
     /// Inherited from QIODevice
@@ -4374,12 +4463,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
     ///
-    pub fn OnSetOpenMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QSctpSocket_OnSetOpenMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetOpenMode(self: QSctpSocket, callback: *const fn (QSctpSocket, i32) callconv(.c) void) void {
+        qtc.QSctpSocket_OnSetOpenMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -4390,16 +4479,16 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn SetErrorString(self: ?*anyopaque, errorString: []const u8) void {
+    pub fn SetErrorString(self: QSctpSocket, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QSctpSocket_SetErrorString(@ptrCast(self), errorString_str);
+        qtc.QSctpSocket_SetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
     /// ### DEPRECATED: Use `SuperSetErrorString` instead
@@ -4414,16 +4503,16 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn SuperSetErrorString(self: ?*anyopaque, errorString: []const u8) void {
+    pub fn SuperSetErrorString(self: QSctpSocket, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QSctpSocket_SuperSetErrorString(@ptrCast(self), errorString_str);
+        qtc.QSctpSocket_SuperSetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
     /// Inherited from QIODevice
@@ -4434,12 +4523,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, errorString: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, errorString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetErrorString(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QSctpSocket_OnSetErrorString(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetErrorString(self: QSctpSocket, callback: *const fn (QSctpSocket, [*:0]const u8) callconv(.c) void) void {
+        qtc.QSctpSocket_OnSetErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4450,10 +4539,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QSctpSocket_Sender(@ptrCast(self));
+    pub fn Sender(self: QSctpSocket) QObject {
+        return .{ .ptr = qtc.QSctpSocket_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -4468,10 +4557,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QSctpSocket_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QSctpSocket) QObject {
+        return .{ .ptr = qtc.QSctpSocket_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -4482,12 +4571,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QSctpSocket_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QSctpSocket, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QSctpSocket_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4498,10 +4587,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QSctpSocket_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QSctpSocket) i32 {
+        return qtc.QSctpSocket_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -4516,10 +4605,10 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QSctpSocket_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QSctpSocket) i32 {
+        return qtc.QSctpSocket_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4530,12 +4619,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QSctpSocket_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QSctpSocket, callback: *const fn () callconv(.c) i32) void {
+        qtc.QSctpSocket_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4546,13 +4635,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QSctpSocket, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QSctpSocket_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QSctpSocket_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -4567,13 +4656,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QSctpSocket, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QSctpSocket_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QSctpSocket_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -4584,12 +4673,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSctpSocket, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QSctpSocket_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QSctpSocket, callback: *const fn (QSctpSocket, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QSctpSocket_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4600,12 +4689,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QSctpSocket_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QSctpSocket, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QSctpSocket_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -4620,12 +4710,13 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QSctpSocket_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QSctpSocket, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QSctpSocket_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -4636,12 +4727,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket`
+    /// ` self: QSctpSocket`
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSctpSocket, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSctpSocket_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QSctpSocket, callback: *const fn (QSctpSocket, QMetaMethod) callconv(.c) bool) void {
+        qtc.QSctpSocket_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4652,12 +4743,12 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    /// ` callback: *const fn (self: QtC.QSctpSocket, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QSctpSocket, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QSctpSocket, callback: *const fn (QSctpSocket, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -4670,9 +4761,9 @@ pub const qsctpsocket = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QSctpSocket `
+    /// ` self: QSctpSocket `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QSctpSocket_Delete(@ptrCast(self));
+    pub fn Delete(self: QSctpSocket) void {
+        qtc.QSctpSocket_Delete(@ptrCast(self.ptr));
     }
 };

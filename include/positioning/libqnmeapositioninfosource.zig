@@ -1,22 +1,45 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QGeoPositionInfo = @import("libqt6").QGeoPositionInfo;
+const QGeoPositionInfoSource = @import("libqt6").QGeoPositionInfoSource;
+const QIODevice = @import("libqt6").QIODevice;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qgeopositioninfosource_enums = @import("libqgeopositioninfosource.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qnmeapositioninfosource_enums = enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const arraymap_constu8_qtcqvariant = std.array_hash_map.String(QtC.QVariant);
+const ArrayMap_constu8_QVariant = std.array_hash_map.String(QVariant);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html)
-pub const qnmeapositioninfosource = struct {
+pub const QNmeaPositionInfoSource = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QNmeaPositionInfoSource,
+
+    pub const _is_QNmeaPositionInfoSource = {};
+    pub const _is_QGeoPositionInfoSource = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QNmeaPositionInfoSource object.
     ///
     /// ## Parameter(s):
     ///
     /// ` updateMode: qnmeapositioninfosource_enums.UpdateMode `
     ///
-    pub fn New(updateMode: i32) QtC.QNmeaPositionInfoSource {
-        return qtc.QNmeaPositionInfoSource_new(@bitCast(updateMode));
+    pub fn New(updateMode: i32) QNmeaPositionInfoSource {
+        return .{ .ptr = qtc.QNmeaPositionInfoSource_new(@bitCast(updateMode)) };
     }
 
     /// New2 constructs a new QNmeaPositionInfoSource object.
@@ -25,20 +48,21 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ` updateMode: qnmeapositioninfosource_enums.UpdateMode `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(updateMode: i32, parent: ?*anyopaque) QtC.QNmeaPositionInfoSource {
-        return qtc.QNmeaPositionInfoSource_new2(@bitCast(updateMode), @ptrCast(parent));
+    pub fn New2(updateMode: i32, parent: anytype) QNmeaPositionInfoSource {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QNmeaPositionInfoSource_new2(@bitCast(updateMode), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QNmeaPositionInfoSource_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QNmeaPositionInfoSource) QMetaObject {
+        return .{ .ptr = qtc.QNmeaPositionInfoSource_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -47,12 +71,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QNmeaPositionInfoSource_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QNmeaPositionInfoSource, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QNmeaPositionInfoSource_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -65,33 +89,33 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QNmeaPositionInfoSource_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QNmeaPositionInfoSource) QMetaObject {
+        return .{ .ptr = qtc.QNmeaPositionInfoSource_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QNmeaPositionInfoSource, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QNmeaPositionInfoSource_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QNmeaPositionInfoSource_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QNmeaPositionInfoSource_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QNmeaPositionInfoSource_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -102,18 +126,18 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QNmeaPositionInfoSource, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QNmeaPositionInfoSource_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QNmeaPositionInfoSource_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -121,20 +145,20 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QNmeaPositionInfoSource_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QNmeaPositionInfoSource, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QNmeaPositionInfoSource_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QNmeaPositionInfoSource_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QNmeaPositionInfoSource_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -145,7 +169,7 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -153,19 +177,19 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QNmeaPositionInfoSource_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QNmeaPositionInfoSource, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QNmeaPositionInfoSource_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -178,70 +202,71 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` uere: f64 `
     ///
-    pub fn SetUserEquivalentRangeError(self: ?*anyopaque, uere: f64) void {
-        qtc.QNmeaPositionInfoSource_SetUserEquivalentRangeError(@ptrCast(self), @bitCast(uere));
+    pub fn SetUserEquivalentRangeError(self: QNmeaPositionInfoSource, uere: f64) void {
+        qtc.QNmeaPositionInfoSource_SetUserEquivalentRangeError(@ptrCast(self.ptr), @bitCast(uere));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#userEquivalentRangeError)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn UserEquivalentRangeError(self: ?*anyopaque) f64 {
-        return qtc.QNmeaPositionInfoSource_UserEquivalentRangeError(@ptrCast(self));
+    pub fn UserEquivalentRangeError(self: QNmeaPositionInfoSource) f64 {
+        return qtc.QNmeaPositionInfoSource_UserEquivalentRangeError(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#updateMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ## Returns:
     ///
     /// ` qnmeapositioninfosource_enums.UpdateMode `
     ///
-    pub fn UpdateMode(self: ?*anyopaque) i32 {
-        return qtc.QNmeaPositionInfoSource_UpdateMode(@ptrCast(self));
+    pub fn UpdateMode(self: QNmeaPositionInfoSource) i32 {
+        return qtc.QNmeaPositionInfoSource_UpdateMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#setDevice)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` source: QtC.QIODevice `
+    /// ` source: QIODevice `
     ///
-    pub fn SetDevice(self: ?*anyopaque, source: ?*anyopaque) void {
-        qtc.QNmeaPositionInfoSource_SetDevice(@ptrCast(self), @ptrCast(source));
+    pub fn SetDevice(self: QNmeaPositionInfoSource, source: anytype) void {
+        comptime _ = @TypeOf(source)._is_QIODevice;
+        qtc.QNmeaPositionInfoSource_SetDevice(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#device)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn Device(self: ?*anyopaque) QtC.QIODevice {
-        return qtc.QNmeaPositionInfoSource_Device(@ptrCast(self));
+    pub fn Device(self: QNmeaPositionInfoSource) QIODevice {
+        return .{ .ptr = qtc.QNmeaPositionInfoSource_Device(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#setUpdateInterval)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetUpdateInterval(self: ?*anyopaque, msec: i32) void {
-        qtc.QNmeaPositionInfoSource_SetUpdateInterval(@ptrCast(self), @bitCast(msec));
+    pub fn SetUpdateInterval(self: QNmeaPositionInfoSource, msec: i32) void {
+        qtc.QNmeaPositionInfoSource_SetUpdateInterval(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#setUpdateInterval)
@@ -250,12 +275,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, msec: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, msec: i32) callconv(.c) void `
     ///
-    pub fn OnSetUpdateInterval(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QNmeaPositionInfoSource_OnSetUpdateInterval(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetUpdateInterval(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, i32) callconv(.c) void) void {
+        qtc.QNmeaPositionInfoSource_OnSetUpdateInterval(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetUpdateInterval` instead
@@ -268,24 +293,24 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SuperSetUpdateInterval(self: ?*anyopaque, msec: i32) void {
-        qtc.QNmeaPositionInfoSource_SuperSetUpdateInterval(@ptrCast(self), @bitCast(msec));
+    pub fn SuperSetUpdateInterval(self: QNmeaPositionInfoSource, msec: i32) void {
+        qtc.QNmeaPositionInfoSource_SuperSetUpdateInterval(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#lastKnownPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` fromSatellitePositioningMethodsOnly: bool `
     ///
-    pub fn LastKnownPosition(self: ?*anyopaque, fromSatellitePositioningMethodsOnly: bool) QtC.QGeoPositionInfo {
-        return qtc.QNmeaPositionInfoSource_LastKnownPosition(@ptrCast(self), fromSatellitePositioningMethodsOnly);
+    pub fn LastKnownPosition(self: QNmeaPositionInfoSource, fromSatellitePositioningMethodsOnly: bool) QGeoPositionInfo {
+        return .{ .ptr = qtc.QNmeaPositionInfoSource_LastKnownPosition(@ptrCast(self.ptr), fromSatellitePositioningMethodsOnly) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#lastKnownPosition)
@@ -294,12 +319,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, fromSatellitePositioningMethodsOnly: bool) callconv(.c) QtC.QGeoPositionInfo `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, fromSatellitePositioningMethodsOnly: bool) callconv(.c) QGeoPositionInfo `
     ///
-    pub fn OnLastKnownPosition(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) QtC.QGeoPositionInfo) void {
-        qtc.QNmeaPositionInfoSource_OnLastKnownPosition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLastKnownPosition(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, bool) callconv(.c) QGeoPositionInfo) void {
+        qtc.QNmeaPositionInfoSource_OnLastKnownPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperLastKnownPosition` instead
@@ -312,26 +337,26 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` fromSatellitePositioningMethodsOnly: bool `
     ///
-    pub fn SuperLastKnownPosition(self: ?*anyopaque, fromSatellitePositioningMethodsOnly: bool) QtC.QGeoPositionInfo {
-        return qtc.QNmeaPositionInfoSource_SuperLastKnownPosition(@ptrCast(self), fromSatellitePositioningMethodsOnly);
+    pub fn SuperLastKnownPosition(self: QNmeaPositionInfoSource, fromSatellitePositioningMethodsOnly: bool) QGeoPositionInfo {
+        return .{ .ptr = qtc.QNmeaPositionInfoSource_SuperLastKnownPosition(@ptrCast(self.ptr), fromSatellitePositioningMethodsOnly) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#supportedPositioningMethods)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ## Returns:
     ///
     /// ` flag of qgeopositioninfosource_enums.PositioningMethod `
     ///
-    pub fn SupportedPositioningMethods(self: ?*anyopaque) i32 {
-        return qtc.QNmeaPositionInfoSource_SupportedPositioningMethods(@ptrCast(self));
+    pub fn SupportedPositioningMethods(self: QNmeaPositionInfoSource) i32 {
+        return qtc.QNmeaPositionInfoSource_SupportedPositioningMethods(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#supportedPositioningMethods)
@@ -340,12 +365,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedPositioningMethods(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QNmeaPositionInfoSource_OnSupportedPositioningMethods(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSupportedPositioningMethods(self: QNmeaPositionInfoSource, callback: *const fn () callconv(.c) i32) void {
+        qtc.QNmeaPositionInfoSource_OnSupportedPositioningMethods(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSupportedPositioningMethods` instead
@@ -358,24 +383,24 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ## Returns:
     ///
     /// ` flag of qgeopositioninfosource_enums.PositioningMethod `
     ///
-    pub fn SuperSupportedPositioningMethods(self: ?*anyopaque) i32 {
-        return qtc.QNmeaPositionInfoSource_SuperSupportedPositioningMethods(@ptrCast(self));
+    pub fn SuperSupportedPositioningMethods(self: QNmeaPositionInfoSource) i32 {
+        return qtc.QNmeaPositionInfoSource_SuperSupportedPositioningMethods(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#minimumUpdateInterval)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn MinimumUpdateInterval(self: ?*anyopaque) i32 {
-        return qtc.QNmeaPositionInfoSource_MinimumUpdateInterval(@ptrCast(self));
+    pub fn MinimumUpdateInterval(self: QNmeaPositionInfoSource) i32 {
+        return qtc.QNmeaPositionInfoSource_MinimumUpdateInterval(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#minimumUpdateInterval)
@@ -384,12 +409,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnMinimumUpdateInterval(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QNmeaPositionInfoSource_OnMinimumUpdateInterval(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumUpdateInterval(self: QNmeaPositionInfoSource, callback: *const fn () callconv(.c) i32) void {
+        qtc.QNmeaPositionInfoSource_OnMinimumUpdateInterval(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMinimumUpdateInterval` instead
@@ -402,24 +427,24 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn SuperMinimumUpdateInterval(self: ?*anyopaque) i32 {
-        return qtc.QNmeaPositionInfoSource_SuperMinimumUpdateInterval(@ptrCast(self));
+    pub fn SuperMinimumUpdateInterval(self: QNmeaPositionInfoSource) i32 {
+        return qtc.QNmeaPositionInfoSource_SuperMinimumUpdateInterval(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#error)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ## Returns:
     ///
     /// ` qgeopositioninfosource_enums.Error `
     ///
-    pub fn Error(self: ?*anyopaque) i32 {
-        return qtc.QNmeaPositionInfoSource_Error(@ptrCast(self));
+    pub fn Error(self: QNmeaPositionInfoSource) i32 {
+        return qtc.QNmeaPositionInfoSource_Error(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#error)
@@ -428,12 +453,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnError(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QNmeaPositionInfoSource_OnError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnError(self: QNmeaPositionInfoSource, callback: *const fn () callconv(.c) i32) void {
+        qtc.QNmeaPositionInfoSource_OnError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperError` instead
@@ -446,24 +471,24 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ## Returns:
     ///
     /// ` qgeopositioninfosource_enums.Error `
     ///
-    pub fn SuperError(self: ?*anyopaque) i32 {
-        return qtc.QNmeaPositionInfoSource_SuperError(@ptrCast(self));
+    pub fn SuperError(self: QNmeaPositionInfoSource) i32 {
+        return qtc.QNmeaPositionInfoSource_SuperError(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#startUpdates)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn StartUpdates(self: ?*anyopaque) void {
-        qtc.QNmeaPositionInfoSource_StartUpdates(@ptrCast(self));
+    pub fn StartUpdates(self: QNmeaPositionInfoSource) void {
+        qtc.QNmeaPositionInfoSource_StartUpdates(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#startUpdates)
@@ -472,12 +497,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStartUpdates(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QNmeaPositionInfoSource_OnStartUpdates(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStartUpdates(self: QNmeaPositionInfoSource, callback: *const fn () callconv(.c) void) void {
+        qtc.QNmeaPositionInfoSource_OnStartUpdates(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperStartUpdates` instead
@@ -490,20 +515,20 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn SuperStartUpdates(self: ?*anyopaque) void {
-        qtc.QNmeaPositionInfoSource_SuperStartUpdates(@ptrCast(self));
+    pub fn SuperStartUpdates(self: QNmeaPositionInfoSource) void {
+        qtc.QNmeaPositionInfoSource_SuperStartUpdates(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#stopUpdates)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn StopUpdates(self: ?*anyopaque) void {
-        qtc.QNmeaPositionInfoSource_StopUpdates(@ptrCast(self));
+    pub fn StopUpdates(self: QNmeaPositionInfoSource) void {
+        qtc.QNmeaPositionInfoSource_StopUpdates(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#stopUpdates)
@@ -512,12 +537,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStopUpdates(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QNmeaPositionInfoSource_OnStopUpdates(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStopUpdates(self: QNmeaPositionInfoSource, callback: *const fn () callconv(.c) void) void {
+        qtc.QNmeaPositionInfoSource_OnStopUpdates(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperStopUpdates` instead
@@ -530,22 +555,22 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn SuperStopUpdates(self: ?*anyopaque) void {
-        qtc.QNmeaPositionInfoSource_SuperStopUpdates(@ptrCast(self));
+    pub fn SuperStopUpdates(self: QNmeaPositionInfoSource) void {
+        qtc.QNmeaPositionInfoSource_SuperStopUpdates(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#requestUpdate)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` timeout: i32 `
     ///
-    pub fn RequestUpdate(self: ?*anyopaque, timeout: i32) void {
-        qtc.QNmeaPositionInfoSource_RequestUpdate(@ptrCast(self), @bitCast(timeout));
+    pub fn RequestUpdate(self: QNmeaPositionInfoSource, timeout: i32) void {
+        qtc.QNmeaPositionInfoSource_RequestUpdate(@ptrCast(self.ptr), @bitCast(timeout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#requestUpdate)
@@ -554,12 +579,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, timeout: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, timeout: i32) callconv(.c) void `
     ///
-    pub fn OnRequestUpdate(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QNmeaPositionInfoSource_OnRequestUpdate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRequestUpdate(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, i32) callconv(.c) void) void {
+        qtc.QNmeaPositionInfoSource_OnRequestUpdate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRequestUpdate` instead
@@ -572,31 +597,32 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` timeout: i32 `
     ///
-    pub fn SuperRequestUpdate(self: ?*anyopaque, timeout: i32) void {
-        qtc.QNmeaPositionInfoSource_SuperRequestUpdate(@ptrCast(self), @bitCast(timeout));
+    pub fn SuperRequestUpdate(self: QNmeaPositionInfoSource, timeout: i32) void {
+        qtc.QNmeaPositionInfoSource_SuperRequestUpdate(@ptrCast(self.ptr), @bitCast(timeout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#parsePosInfoFromNmeaData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` data: [:0]const u8 `
     ///
     /// ` size: i32 `
     ///
-    /// ` posInfo: QtC.QGeoPositionInfo `
+    /// ` posInfo: QGeoPositionInfo `
     ///
     /// ` hasFix: *bool `
     ///
-    pub fn ParsePosInfoFromNmeaData(self: ?*anyopaque, data: [:0]const u8, size: i32, posInfo: ?*anyopaque, hasFix: *bool) bool {
+    pub fn ParsePosInfoFromNmeaData(self: QNmeaPositionInfoSource, data: [:0]const u8, size: i32, posInfo: anytype, hasFix: *bool) bool {
         const data_Cstring = data.ptr;
-        return qtc.QNmeaPositionInfoSource_ParsePosInfoFromNmeaData(@ptrCast(self), data_Cstring, @bitCast(size), @ptrCast(posInfo), @ptrCast(hasFix));
+        comptime _ = @TypeOf(posInfo)._is_QGeoPositionInfo;
+        return qtc.QNmeaPositionInfoSource_ParsePosInfoFromNmeaData(@ptrCast(self.ptr), data_Cstring, @bitCast(size), @ptrCast(posInfo.ptr), @ptrCast(hasFix));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#parsePosInfoFromNmeaData)
@@ -605,12 +631,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, data: [*:0]const u8, size: i32, posInfo: QtC.QGeoPositionInfo, hasFix: *bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, data: [*:0]const u8, size: i32, posInfo: QGeoPositionInfo, hasFix: *bool) callconv(.c) bool `
     ///
-    pub fn OnParsePosInfoFromNmeaData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, ?*anyopaque, *bool) callconv(.c) bool) void {
-        qtc.QNmeaPositionInfoSource_OnParsePosInfoFromNmeaData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnParsePosInfoFromNmeaData(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, [*:0]const u8, i32, QGeoPositionInfo, *bool) callconv(.c) bool) void {
+        qtc.QNmeaPositionInfoSource_OnParsePosInfoFromNmeaData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperParsePosInfoFromNmeaData` instead
@@ -623,39 +649,41 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` data: [:0]const u8 `
     ///
     /// ` size: i32 `
     ///
-    /// ` posInfo: QtC.QGeoPositionInfo `
+    /// ` posInfo: QGeoPositionInfo `
     ///
     /// ` hasFix: *bool `
     ///
-    pub fn SuperParsePosInfoFromNmeaData(self: ?*anyopaque, data: [:0]const u8, size: i32, posInfo: ?*anyopaque, hasFix: *bool) bool {
+    pub fn SuperParsePosInfoFromNmeaData(self: QNmeaPositionInfoSource, data: [:0]const u8, size: i32, posInfo: anytype, hasFix: *bool) bool {
         const data_Cstring = data.ptr;
-        return qtc.QNmeaPositionInfoSource_SuperParsePosInfoFromNmeaData(@ptrCast(self), data_Cstring, @bitCast(size), @ptrCast(posInfo), @ptrCast(hasFix));
+        comptime _ = @TypeOf(posInfo)._is_QGeoPositionInfo;
+        return qtc.QNmeaPositionInfoSource_SuperParsePosInfoFromNmeaData(@ptrCast(self.ptr), data_Cstring, @bitCast(size), @ptrCast(posInfo.ptr), @ptrCast(hasFix));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#parsePosInfoFromNmeaData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` data: []u8 `
     ///
-    /// ` posInfo: QtC.QGeoPositionInfo `
+    /// ` posInfo: QGeoPositionInfo `
     ///
     /// ` hasFix: *bool `
     ///
-    pub fn ParsePosInfoFromNmeaData2(self: ?*anyopaque, data: []u8, posInfo: ?*anyopaque, hasFix: *bool) bool {
+    pub fn ParsePosInfoFromNmeaData2(self: QNmeaPositionInfoSource, data: []u8, posInfo: anytype, hasFix: *bool) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.QNmeaPositionInfoSource_ParsePosInfoFromNmeaData2(@ptrCast(self), data_str, @ptrCast(posInfo), @ptrCast(hasFix));
+        comptime _ = @TypeOf(posInfo)._is_QGeoPositionInfo;
+        return qtc.QNmeaPositionInfoSource_ParsePosInfoFromNmeaData2(@ptrCast(self.ptr), data_str, @ptrCast(posInfo.ptr), @ptrCast(hasFix));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#parsePosInfoFromNmeaData)
@@ -664,12 +692,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, data: qtc.libqt_string, posInfo: QtC.QGeoPositionInfo, hasFix: *bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, data: qtc.libqt_string, posInfo: QGeoPositionInfo, hasFix: *bool) callconv(.c) bool `
     ///
-    pub fn OnParsePosInfoFromNmeaData2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *bool) callconv(.c) bool) void {
-        qtc.QNmeaPositionInfoSource_OnParsePosInfoFromNmeaData2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnParsePosInfoFromNmeaData2(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, qtc.libqt_string, QGeoPositionInfo, *bool) callconv(.c) bool) void {
+        qtc.QNmeaPositionInfoSource_OnParsePosInfoFromNmeaData2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperParsePosInfoFromNmeaData2` instead
@@ -682,32 +710,33 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` data: []u8 `
     ///
-    /// ` posInfo: QtC.QGeoPositionInfo `
+    /// ` posInfo: QGeoPositionInfo `
     ///
     /// ` hasFix: *bool `
     ///
-    pub fn SuperParsePosInfoFromNmeaData2(self: ?*anyopaque, data: []u8, posInfo: ?*anyopaque, hasFix: *bool) bool {
+    pub fn SuperParsePosInfoFromNmeaData2(self: QNmeaPositionInfoSource, data: []u8, posInfo: anytype, hasFix: *bool) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.QNmeaPositionInfoSource_SuperParsePosInfoFromNmeaData2(@ptrCast(self), data_str, @ptrCast(posInfo), @ptrCast(hasFix));
+        comptime _ = @TypeOf(posInfo)._is_QGeoPositionInfo;
+        return qtc.QNmeaPositionInfoSource_SuperParsePosInfoFromNmeaData2(@ptrCast(self.ptr), data_str, @ptrCast(posInfo.ptr), @ptrCast(hasFix));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#setError)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` positionError: qgeopositioninfosource_enums.Error `
     ///
-    pub fn SetError(self: ?*anyopaque, positionError: i32) void {
-        qtc.QNmeaPositionInfoSource_SetError(@ptrCast(self), @bitCast(positionError));
+    pub fn SetError(self: QNmeaPositionInfoSource, positionError: i32) void {
+        qtc.QNmeaPositionInfoSource_SetError(@ptrCast(self.ptr), @bitCast(positionError));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeapositioninfosource.html#setError)
@@ -716,12 +745,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, positionError: qgeopositioninfosource_enums.Error) callconv(.c) void `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, positionError: qgeopositioninfosource_enums.Error) callconv(.c) void `
     ///
-    pub fn OnSetError(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QNmeaPositionInfoSource_OnSetError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetError(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, i32) callconv(.c) void) void {
+        qtc.QNmeaPositionInfoSource_OnSetError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetError` instead
@@ -734,25 +763,25 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` positionError: qgeopositioninfosource_enums.Error `
     ///
-    pub fn SuperSetError(self: ?*anyopaque, positionError: i32) void {
-        qtc.QNmeaPositionInfoSource_SuperSetError(@ptrCast(self), @bitCast(positionError));
+    pub fn SuperSetError(self: QNmeaPositionInfoSource, positionError: i32) void {
+        qtc.QNmeaPositionInfoSource_SuperSetError(@ptrCast(self.ptr), @bitCast(positionError));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -766,15 +795,15 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -790,10 +819,10 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn UpdateInterval(self: ?*anyopaque) i32 {
-        return qtc.QGeoPositionInfoSource_UpdateInterval(@ptrCast(self));
+    pub fn UpdateInterval(self: QNmeaPositionInfoSource) i32 {
+        return qtc.QGeoPositionInfoSource_UpdateInterval(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGeoPositionInfoSource
@@ -802,14 +831,14 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ## Returns:
     ///
     /// ` flag of qgeopositioninfosource_enums.PositioningMethod `
     ///
-    pub fn PreferredPositioningMethods(self: ?*anyopaque) i32 {
-        return qtc.QGeoPositionInfoSource_PreferredPositioningMethods(@ptrCast(self));
+    pub fn PreferredPositioningMethods(self: QNmeaPositionInfoSource) i32 {
+        return qtc.QGeoPositionInfoSource_PreferredPositioningMethods(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGeoPositionInfoSource
@@ -818,12 +847,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SourceName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QGeoPositionInfoSource_SourceName(@ptrCast(self));
+    pub fn SourceName(self: QNmeaPositionInfoSource, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QGeoPositionInfoSource_SourceName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnmeapositioninfosource.SourceName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -836,10 +865,11 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn CreateDefaultSource(parent: ?*anyopaque) QtC.QGeoPositionInfoSource {
-        return qtc.QGeoPositionInfoSource_CreateDefaultSource(@ptrCast(parent));
+    pub fn CreateDefaultSource(parent: anytype) QGeoPositionInfoSource {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QGeoPositionInfoSource_CreateDefaultSource(@ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QGeoPositionInfoSource
@@ -848,13 +878,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` parameters: arraymap_constu8_qtcqvariant `
-    ///
-    /// ` parent: QtC.QObject `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CreateDefaultSource2(parameters: arraymap_constu8_qtcqvariant, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.QGeoPositionInfoSource {
+    /// ` parameters: ArrayMap_constu8_QVariant `
+    ///
+    /// ` parent: QObject `
+    ///
+    pub fn CreateDefaultSource2(allocator: std.mem.Allocator, parameters: ArrayMap_constu8_QVariant, parent: anytype) QGeoPositionInfoSource {
         const parameters_count = parameters.count();
         const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("qnmeapositioninfosource.CreateDefaultSource2: Memory allocation failed");
         defer allocator.free(parameters_keys);
@@ -868,14 +898,15 @@ pub const qnmeapositioninfosource = struct {
                 .len = parameters_key.len,
                 .data = parameters_key.ptr,
             };
-            parameters_values[i] = @ptrCast(it_entry.value_ptr.*);
+            parameters_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const parameters_map = qtc.libqt_map{
             .len = parameters_count,
             .keys = @ptrCast(parameters_keys.ptr),
             .values = @ptrCast(parameters_values.ptr),
         };
-        return qtc.QGeoPositionInfoSource_CreateDefaultSource2(parameters_map, @ptrCast(parent));
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QGeoPositionInfoSource_CreateDefaultSource2(parameters_map, @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QGeoPositionInfoSource
@@ -886,14 +917,15 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ` sourceName: []const u8 `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn CreateSource(sourceName: []const u8, parent: ?*anyopaque) QtC.QGeoPositionInfoSource {
+    pub fn CreateSource(sourceName: []const u8, parent: anytype) QGeoPositionInfoSource {
         const sourceName_str = qtc.libqt_string{
             .len = sourceName.len,
             .data = sourceName.ptr,
         };
-        return qtc.QGeoPositionInfoSource_CreateSource(sourceName_str, @ptrCast(parent));
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QGeoPositionInfoSource_CreateSource(sourceName_str, @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QGeoPositionInfoSource
@@ -902,15 +934,15 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sourceName: []const u8 `
-    ///
-    /// ` parameters: arraymap_constu8_qtcqvariant `
-    ///
-    /// ` parent: QtC.QObject `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CreateSource2(sourceName: []const u8, parameters: arraymap_constu8_qtcqvariant, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.QGeoPositionInfoSource {
+    /// ` sourceName: []const u8 `
+    ///
+    /// ` parameters: ArrayMap_constu8_QVariant `
+    ///
+    /// ` parent: QObject `
+    ///
+    pub fn CreateSource2(allocator: std.mem.Allocator, sourceName: []const u8, parameters: ArrayMap_constu8_QVariant, parent: anytype) QGeoPositionInfoSource {
         const sourceName_str = qtc.libqt_string{
             .len = sourceName.len,
             .data = sourceName.ptr,
@@ -928,14 +960,15 @@ pub const qnmeapositioninfosource = struct {
                 .len = parameters_key.len,
                 .data = parameters_key.ptr,
             };
-            parameters_values[i] = @ptrCast(it_entry.value_ptr.*);
+            parameters_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const parameters_map = qtc.libqt_map{
             .len = parameters_count,
             .keys = @ptrCast(parameters_keys.ptr),
             .values = @ptrCast(parameters_values.ptr),
         };
-        return qtc.QGeoPositionInfoSource_CreateSource2(sourceName_str, parameters_map, @ptrCast(parent));
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QGeoPositionInfoSource_CreateSource2(sourceName_str, parameters_map, @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QGeoPositionInfoSource
@@ -950,9 +983,8 @@ pub const qnmeapositioninfosource = struct {
         const _arr: qtc.libqt_list = qtc.QGeoPositionInfoSource_AvailableSources();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qnmeapositioninfosource.AvailableSources: Memory allocation failed");
@@ -971,12 +1003,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` update: QtC.QGeoPositionInfo `
+    /// ` update: QGeoPositionInfo `
     ///
-    pub fn PositionUpdated(self: ?*anyopaque, update: ?*anyopaque) void {
-        qtc.QGeoPositionInfoSource_PositionUpdated(@ptrCast(self), @ptrCast(update));
+    pub fn PositionUpdated(self: QNmeaPositionInfoSource, update: anytype) void {
+        comptime _ = @TypeOf(update)._is_QGeoPositionInfo;
+        qtc.QGeoPositionInfoSource_PositionUpdated(@ptrCast(self.ptr), @ptrCast(update.ptr));
     }
 
     /// Inherited from QGeoPositionInfoSource
@@ -985,12 +1018,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, update: QtC.QGeoPositionInfo) callconv(.c) void `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, update: QGeoPositionInfo) callconv(.c) void `
     ///
-    pub fn OnPositionUpdated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoPositionInfoSource_Connect_PositionUpdated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPositionUpdated(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, QGeoPositionInfo) callconv(.c) void) void {
+        qtc.QGeoPositionInfoSource_Connect_PositionUpdated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGeoPositionInfoSource
@@ -999,12 +1032,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` param1: qgeopositioninfosource_enums.Error `
     ///
-    pub fn ErrorOccurred(self: ?*anyopaque, param1: i32) void {
-        qtc.QGeoPositionInfoSource_ErrorOccurred(@ptrCast(self), @bitCast(param1));
+    pub fn ErrorOccurred(self: QNmeaPositionInfoSource, param1: i32) void {
+        qtc.QGeoPositionInfoSource_ErrorOccurred(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QGeoPositionInfoSource
@@ -1013,12 +1046,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, param1: qgeopositioninfosource_enums.Error) callconv(.c) void `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, param1: qgeopositioninfosource_enums.Error) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGeoPositionInfoSource_Connect_ErrorOccurred(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnErrorOccurred(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, i32) callconv(.c) void) void {
+        qtc.QGeoPositionInfoSource_Connect_ErrorOccurred(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGeoPositionInfoSource
@@ -1027,10 +1060,10 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn SupportedPositioningMethodsChanged(self: ?*anyopaque) void {
-        qtc.QGeoPositionInfoSource_SupportedPositioningMethodsChanged(@ptrCast(self));
+    pub fn SupportedPositioningMethodsChanged(self: QNmeaPositionInfoSource) void {
+        qtc.QGeoPositionInfoSource_SupportedPositioningMethodsChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGeoPositionInfoSource
@@ -1039,12 +1072,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource) callconv(.c) void `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource) callconv(.c) void `
     ///
-    pub fn OnSupportedPositioningMethodsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGeoPositionInfoSource_Connect_SupportedPositioningMethodsChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSupportedPositioningMethodsChanged(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource) callconv(.c) void) void {
+        qtc.QGeoPositionInfoSource_Connect_SupportedPositioningMethodsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1053,12 +1086,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QNmeaPositionInfoSource, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnmeapositioninfosource.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1071,12 +1104,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QNmeaPositionInfoSource, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1085,10 +1118,10 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QNmeaPositionInfoSource) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1097,10 +1130,10 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QNmeaPositionInfoSource) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1109,10 +1142,10 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QNmeaPositionInfoSource) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1121,10 +1154,10 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QNmeaPositionInfoSource) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1133,12 +1166,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QNmeaPositionInfoSource, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -1147,10 +1180,10 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QNmeaPositionInfoSource) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1159,12 +1192,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QNmeaPositionInfoSource, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1173,12 +1207,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QNmeaPositionInfoSource, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1187,12 +1221,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QNmeaPositionInfoSource, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1201,12 +1235,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QNmeaPositionInfoSource, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1215,12 +1249,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QNmeaPositionInfoSource, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1229,16 +1263,17 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QNmeaPositionInfoSource, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qnmeapositioninfosource.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qnmeapositioninfosource.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1248,12 +1283,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QNmeaPositionInfoSource, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1262,12 +1298,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QNmeaPositionInfoSource, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1276,12 +1313,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QNmeaPositionInfoSource, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1290,18 +1328,20 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1310,16 +1350,20 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1328,18 +1372,19 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QNmeaPositionInfoSource, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1348,18 +1393,20 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1368,16 +1415,20 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1386,10 +1437,10 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QNmeaPositionInfoSource) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1398,12 +1449,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QNmeaPositionInfoSource, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1412,10 +1464,11 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1424,10 +1477,10 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QNmeaPositionInfoSource) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1436,10 +1489,10 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QNmeaPositionInfoSource) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1448,15 +1501,16 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QNmeaPositionInfoSource, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1465,13 +1519,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QNmeaPositionInfoSource, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1480,17 +1534,16 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QNmeaPositionInfoSource, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qnmeapositioninfosource.DynamicPropertyNames: Memory allocation failed");
@@ -1509,10 +1562,10 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QNmeaPositionInfoSource) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1521,10 +1574,10 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QNmeaPositionInfoSource) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1533,10 +1586,10 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QNmeaPositionInfoSource) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1545,12 +1598,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource) callconv(.c) void `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1559,10 +1612,10 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QNmeaPositionInfoSource) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1571,13 +1624,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QNmeaPositionInfoSource, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1586,10 +1639,10 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QNmeaPositionInfoSource) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1598,14 +1651,14 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QNmeaPositionInfoSource, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1614,14 +1667,14 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QNmeaPositionInfoSource, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1630,20 +1683,22 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1652,18 +1707,22 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1672,9 +1731,9 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1682,10 +1741,11 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QNmeaPositionInfoSource, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1694,13 +1754,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QNmeaPositionInfoSource, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1709,15 +1769,16 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QNmeaPositionInfoSource, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1726,18 +1787,19 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QNmeaPositionInfoSource, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1746,15 +1808,16 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QNmeaPositionInfoSource, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1763,12 +1826,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QNmeaPositionInfoSource, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1777,12 +1841,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGeoPositionInfoSource
@@ -1793,12 +1857,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` methods: flag of qgeopositioninfosource_enums.PositioningMethod `
     ///
-    pub fn SetPreferredPositioningMethods(self: ?*anyopaque, methods: i32) void {
-        qtc.QNmeaPositionInfoSource_SetPreferredPositioningMethods(@ptrCast(self), @bitCast(methods));
+    pub fn SetPreferredPositioningMethods(self: QNmeaPositionInfoSource, methods: i32) void {
+        qtc.QNmeaPositionInfoSource_SetPreferredPositioningMethods(@ptrCast(self.ptr), @bitCast(methods));
     }
 
     /// ### DEPRECATED: Use `SuperSetPreferredPositioningMethods` instead
@@ -1813,12 +1877,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` methods: flag of qgeopositioninfosource_enums.PositioningMethod `
     ///
-    pub fn SuperSetPreferredPositioningMethods(self: ?*anyopaque, methods: i32) void {
-        qtc.QNmeaPositionInfoSource_SuperSetPreferredPositioningMethods(@ptrCast(self), @bitCast(methods));
+    pub fn SuperSetPreferredPositioningMethods(self: QNmeaPositionInfoSource, methods: i32) void {
+        qtc.QNmeaPositionInfoSource_SuperSetPreferredPositioningMethods(@ptrCast(self.ptr), @bitCast(methods));
     }
 
     /// Inherited from QGeoPositionInfoSource
@@ -1829,12 +1893,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource`
+    /// ` self: QNmeaPositionInfoSource`
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, methods: flag of qgeopositioninfosource_enums.PositioningMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, methods: flag of qgeopositioninfosource_enums.PositioningMethod) callconv(.c) void `
     ///
-    pub fn OnSetPreferredPositioningMethods(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QNmeaPositionInfoSource_OnSetPreferredPositioningMethods(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetPreferredPositioningMethods(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, i32) callconv(.c) void) void {
+        qtc.QNmeaPositionInfoSource_OnSetPreferredPositioningMethods(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGeoPositionInfoSource
@@ -1845,18 +1909,19 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetBackendProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
+    pub fn SetBackendProperty(self: QNmeaPositionInfoSource, name: []const u8, value: anytype) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QNmeaPositionInfoSource_SetBackendProperty(@ptrCast(self), name_str, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QNmeaPositionInfoSource_SetBackendProperty(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSetBackendProperty` instead
@@ -1871,18 +1936,19 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SuperSetBackendProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
+    pub fn SuperSetBackendProperty(self: QNmeaPositionInfoSource, name: []const u8, value: anytype) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QNmeaPositionInfoSource_SuperSetBackendProperty(@ptrCast(self), name_str, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QNmeaPositionInfoSource_SuperSetBackendProperty(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr));
     }
 
     /// Inherited from QGeoPositionInfoSource
@@ -1893,12 +1959,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource`
+    /// ` self: QNmeaPositionInfoSource`
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, name: [*:0]const u8, value: QtC.QVariant) callconv(.c) bool `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, name: [*:0]const u8, value: QVariant) callconv(.c) bool `
     ///
-    pub fn OnSetBackendProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QNmeaPositionInfoSource_OnSetBackendProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetBackendProperty(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, [*:0]const u8, QVariant) callconv(.c) bool) void {
+        qtc.QNmeaPositionInfoSource_OnSetBackendProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGeoPositionInfoSource
@@ -1909,16 +1975,16 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn BackendProperty(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn BackendProperty(self: QNmeaPositionInfoSource, name: []const u8) QVariant {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QNmeaPositionInfoSource_BackendProperty(@ptrCast(self), name_str);
+        return .{ .ptr = qtc.QNmeaPositionInfoSource_BackendProperty(@ptrCast(self.ptr), name_str) };
     }
 
     /// ### DEPRECATED: Use `SuperBackendProperty` instead
@@ -1933,16 +1999,16 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SuperBackendProperty(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn SuperBackendProperty(self: QNmeaPositionInfoSource, name: []const u8) QVariant {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QNmeaPositionInfoSource_SuperBackendProperty(@ptrCast(self), name_str);
+        return .{ .ptr = qtc.QNmeaPositionInfoSource_SuperBackendProperty(@ptrCast(self.ptr), name_str) };
     }
 
     /// Inherited from QGeoPositionInfoSource
@@ -1953,12 +2019,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource`
+    /// ` self: QNmeaPositionInfoSource`
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, name: [*:0]const u8) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, name: [*:0]const u8) callconv(.c) QVariant `
     ///
-    pub fn OnBackendProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QVariant) void {
-        qtc.QNmeaPositionInfoSource_OnBackendProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBackendProperty(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, [*:0]const u8) callconv(.c) QVariant) void {
+        qtc.QNmeaPositionInfoSource_OnBackendProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1969,12 +2035,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QNmeaPositionInfoSource_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QNmeaPositionInfoSource, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QNmeaPositionInfoSource_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1989,12 +2056,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QNmeaPositionInfoSource_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QNmeaPositionInfoSource, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QNmeaPositionInfoSource_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2005,12 +2073,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource`
+    /// ` self: QNmeaPositionInfoSource`
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QNmeaPositionInfoSource_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, QEvent) callconv(.c) bool) void {
+        qtc.QNmeaPositionInfoSource_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2021,14 +2089,16 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QNmeaPositionInfoSource_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QNmeaPositionInfoSource, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QNmeaPositionInfoSource_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -2043,14 +2113,16 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QNmeaPositionInfoSource_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QNmeaPositionInfoSource, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QNmeaPositionInfoSource_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2061,12 +2133,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource`
+    /// ` self: QNmeaPositionInfoSource`
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QNmeaPositionInfoSource_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QNmeaPositionInfoSource_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2077,12 +2149,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QNmeaPositionInfoSource_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QNmeaPositionInfoSource, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QNmeaPositionInfoSource_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -2097,12 +2170,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QNmeaPositionInfoSource_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QNmeaPositionInfoSource, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QNmeaPositionInfoSource_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2113,12 +2187,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource`
+    /// ` self: QNmeaPositionInfoSource`
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QNmeaPositionInfoSource_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, QTimerEvent) callconv(.c) void) void {
+        qtc.QNmeaPositionInfoSource_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2129,12 +2203,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QNmeaPositionInfoSource_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QNmeaPositionInfoSource, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QNmeaPositionInfoSource_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -2149,12 +2224,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QNmeaPositionInfoSource_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QNmeaPositionInfoSource, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QNmeaPositionInfoSource_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2165,12 +2241,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource`
+    /// ` self: QNmeaPositionInfoSource`
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QNmeaPositionInfoSource_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, QChildEvent) callconv(.c) void) void {
+        qtc.QNmeaPositionInfoSource_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2181,12 +2257,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QNmeaPositionInfoSource_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QNmeaPositionInfoSource, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QNmeaPositionInfoSource_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -2201,12 +2278,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QNmeaPositionInfoSource_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QNmeaPositionInfoSource, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QNmeaPositionInfoSource_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2217,12 +2295,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource`
+    /// ` self: QNmeaPositionInfoSource`
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QNmeaPositionInfoSource_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, QEvent) callconv(.c) void) void {
+        qtc.QNmeaPositionInfoSource_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2233,12 +2311,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QNmeaPositionInfoSource_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QNmeaPositionInfoSource, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QNmeaPositionInfoSource_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -2253,12 +2332,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QNmeaPositionInfoSource_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QNmeaPositionInfoSource, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QNmeaPositionInfoSource_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2269,12 +2349,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource`
+    /// ` self: QNmeaPositionInfoSource`
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QNmeaPositionInfoSource_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, QMetaMethod) callconv(.c) void) void {
+        qtc.QNmeaPositionInfoSource_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2285,12 +2365,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QNmeaPositionInfoSource_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QNmeaPositionInfoSource, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QNmeaPositionInfoSource_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -2305,12 +2386,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QNmeaPositionInfoSource_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QNmeaPositionInfoSource, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QNmeaPositionInfoSource_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2321,12 +2403,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource`
+    /// ` self: QNmeaPositionInfoSource`
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QNmeaPositionInfoSource_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, QMetaMethod) callconv(.c) void) void {
+        qtc.QNmeaPositionInfoSource_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2337,10 +2419,10 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QNmeaPositionInfoSource_Sender(@ptrCast(self));
+    pub fn Sender(self: QNmeaPositionInfoSource) QObject {
+        return .{ .ptr = qtc.QNmeaPositionInfoSource_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -2355,10 +2437,10 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QNmeaPositionInfoSource_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QNmeaPositionInfoSource) QObject {
+        return .{ .ptr = qtc.QNmeaPositionInfoSource_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2369,12 +2451,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource`
+    /// ` self: QNmeaPositionInfoSource`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QNmeaPositionInfoSource_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QNmeaPositionInfoSource, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QNmeaPositionInfoSource_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2385,10 +2467,10 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QNmeaPositionInfoSource_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QNmeaPositionInfoSource) i32 {
+        return qtc.QNmeaPositionInfoSource_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -2403,10 +2485,10 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QNmeaPositionInfoSource_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QNmeaPositionInfoSource) i32 {
+        return qtc.QNmeaPositionInfoSource_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2417,12 +2499,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource`
+    /// ` self: QNmeaPositionInfoSource`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QNmeaPositionInfoSource_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QNmeaPositionInfoSource, callback: *const fn () callconv(.c) i32) void {
+        qtc.QNmeaPositionInfoSource_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2433,13 +2515,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QNmeaPositionInfoSource, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QNmeaPositionInfoSource_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QNmeaPositionInfoSource_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -2454,13 +2536,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QNmeaPositionInfoSource, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QNmeaPositionInfoSource_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QNmeaPositionInfoSource_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2471,12 +2553,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource`
+    /// ` self: QNmeaPositionInfoSource`
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QNmeaPositionInfoSource_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QNmeaPositionInfoSource_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2487,12 +2569,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QNmeaPositionInfoSource_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QNmeaPositionInfoSource, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QNmeaPositionInfoSource_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -2507,12 +2590,13 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QNmeaPositionInfoSource_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QNmeaPositionInfoSource, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QNmeaPositionInfoSource_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2523,12 +2607,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource`
+    /// ` self: QNmeaPositionInfoSource`
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QNmeaPositionInfoSource_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, QMetaMethod) callconv(.c) bool) void {
+        qtc.QNmeaPositionInfoSource_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2539,12 +2623,12 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    /// ` callback: *const fn (self: QtC.QNmeaPositionInfoSource, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QNmeaPositionInfoSource, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -2557,10 +2641,10 @@ pub const qnmeapositioninfosource = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QNmeaPositionInfoSource `
+    /// ` self: QNmeaPositionInfoSource `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QNmeaPositionInfoSource_Delete(@ptrCast(self));
+    pub fn Delete(self: QNmeaPositionInfoSource) void {
+        qtc.QNmeaPositionInfoSource_Delete(@ptrCast(self.ptr));
     }
 };
 

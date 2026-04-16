@@ -1,129 +1,143 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QObject = @import("libqt6").QObject;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html)
-pub const qbasictimer = struct {
+pub const QBasicTimer = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QBasicTimer,
+
+    pub const _is_QBasicTimer = {};
+
     /// New constructs a new QBasicTimer object.
     ///
-    pub fn New() QtC.QBasicTimer {
-        return qtc.QBasicTimer_new();
+    pub fn New() QBasicTimer {
+        return .{ .ptr = qtc.QBasicTimer_new() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBasicTimer `
+    /// ` self: QBasicTimer `
     ///
-    /// ` other: QtC.QBasicTimer `
+    /// ` other: QBasicTimer `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QBasicTimer_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QBasicTimer, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QBasicTimer;
+        qtc.QBasicTimer_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#isActive)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBasicTimer `
+    /// ` self: QBasicTimer `
     ///
-    pub fn IsActive(self: ?*anyopaque) bool {
-        return qtc.QBasicTimer_IsActive(@ptrCast(self));
+    pub fn IsActive(self: QBasicTimer) bool {
+        return qtc.QBasicTimer_IsActive(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#timerId)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBasicTimer `
+    /// ` self: QBasicTimer `
     ///
-    pub fn TimerId(self: ?*anyopaque) i32 {
-        return qtc.QBasicTimer_TimerId(@ptrCast(self));
+    pub fn TimerId(self: QBasicTimer) i32 {
+        return qtc.QBasicTimer_TimerId(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#id)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBasicTimer `
+    /// ` self: QBasicTimer `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.TimerId `
     ///
-    pub fn Id(self: ?*anyopaque) i32 {
-        return qtc.QBasicTimer_Id(@ptrCast(self));
+    pub fn Id(self: QBasicTimer) i32 {
+        return qtc.QBasicTimer_Id(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#start)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBasicTimer `
+    /// ` self: QBasicTimer `
     ///
     /// ` msec: i32 `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn Start(self: ?*anyopaque, msec: i32, obj: ?*anyopaque) void {
-        qtc.QBasicTimer_Start(@ptrCast(self), @bitCast(msec), @ptrCast(obj));
+    pub fn Start(self: QBasicTimer, msec: i32, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QBasicTimer_Start(@ptrCast(self.ptr), @bitCast(msec), @ptrCast(obj.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#start)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBasicTimer `
+    /// ` self: QBasicTimer `
     ///
     /// ` msec: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn Start2(self: ?*anyopaque, msec: i32, timerType: i32, obj: ?*anyopaque) void {
-        qtc.QBasicTimer_Start2(@ptrCast(self), @bitCast(msec), @bitCast(timerType), @ptrCast(obj));
+    pub fn Start2(self: QBasicTimer, msec: i32, timerType: i32, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QBasicTimer_Start2(@ptrCast(self.ptr), @bitCast(msec), @bitCast(timerType), @ptrCast(obj.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#start)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBasicTimer `
+    /// ` self: QBasicTimer `
     ///
     /// ` duration: i64 of milliseconds `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn Start3(self: ?*anyopaque, duration: i64, obj: ?*anyopaque) void {
-        qtc.QBasicTimer_Start3(@ptrCast(self), @bitCast(duration), @ptrCast(obj));
+    pub fn Start3(self: QBasicTimer, duration: i64, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QBasicTimer_Start3(@ptrCast(self.ptr), @bitCast(duration), @ptrCast(obj.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#start)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBasicTimer `
+    /// ` self: QBasicTimer `
     ///
     /// ` duration: i64 of milliseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn Start4(self: ?*anyopaque, duration: i64, timerType: i32, obj: ?*anyopaque) void {
-        qtc.QBasicTimer_Start4(@ptrCast(self), @bitCast(duration), @bitCast(timerType), @ptrCast(obj));
+    pub fn Start4(self: QBasicTimer, duration: i64, timerType: i32, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QBasicTimer_Start4(@ptrCast(self.ptr), @bitCast(duration), @bitCast(timerType), @ptrCast(obj.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbasictimer.html#stop)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBasicTimer `
+    /// ` self: QBasicTimer `
     ///
-    pub fn Stop(self: ?*anyopaque) void {
-        qtc.QBasicTimer_Stop(@ptrCast(self));
+    pub fn Stop(self: QBasicTimer) void {
+        qtc.QBasicTimer_Stop(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -136,9 +150,9 @@ pub const qbasictimer = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QBasicTimer `
+    /// ` self: QBasicTimer `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QBasicTimer_Delete(@ptrCast(self));
+    pub fn Delete(self: QBasicTimer) void {
+        qtc.QBasicTimer_Delete(@ptrCast(self.ptr));
     }
 };

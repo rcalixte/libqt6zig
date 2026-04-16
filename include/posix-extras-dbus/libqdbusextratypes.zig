@@ -1,13 +1,22 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QVariant = @import("libqt6").QVariant;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusobjectpath.html)
-pub const qdbusobjectpath = struct {
+pub const QDBusObjectPath = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusobjectpath.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QDBusObjectPath,
+
+    pub const _is_QDBusObjectPath = {};
+
     /// New constructs a new QDBusObjectPath object.
     ///
-    pub fn New() QtC.QDBusObjectPath {
-        return qtc.QDBusObjectPath_new();
+    pub fn New() QDBusObjectPath {
+        return .{ .ptr = qtc.QDBusObjectPath_new() };
     }
 
     /// New2 constructs a new QDBusObjectPath object.
@@ -16,10 +25,9 @@ pub const qdbusobjectpath = struct {
     ///
     /// ` path: [:0]const u8 `
     ///
-    pub fn New2(path: [:0]const u8) QtC.QDBusObjectPath {
+    pub fn New2(path: [:0]const u8) QDBusObjectPath {
         const path_Cstring = path.ptr;
-
-        return qtc.QDBusObjectPath_new2(path_Cstring);
+        return .{ .ptr = qtc.QDBusObjectPath_new2(path_Cstring) };
     }
 
     /// New3 constructs a new QDBusObjectPath object.
@@ -28,63 +36,64 @@ pub const qdbusobjectpath = struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn New3(path: []const u8) QtC.QDBusObjectPath {
+    pub fn New3(path: []const u8) QDBusObjectPath {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-
-        return qtc.QDBusObjectPath_new3(path_str);
+        return .{ .ptr = qtc.QDBusObjectPath_new3(path_str) };
     }
 
     /// New4 constructs a new QDBusObjectPath object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QDBusObjectPath `
+    /// ` param1: QDBusObjectPath `
     ///
-    pub fn New4(param1: ?*anyopaque) QtC.QDBusObjectPath {
-        return qtc.QDBusObjectPath_new4(@ptrCast(param1));
+    pub fn New4(param1: anytype) QDBusObjectPath {
+        comptime _ = @TypeOf(param1)._is_QDBusObjectPath;
+        return .{ .ptr = qtc.QDBusObjectPath_new4(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusobjectpath.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusObjectPath `
+    /// ` self: QDBusObjectPath `
     ///
-    /// ` other: QtC.QDBusObjectPath `
+    /// ` other: QDBusObjectPath `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QDBusObjectPath_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QDBusObjectPath, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QDBusObjectPath;
+        qtc.QDBusObjectPath_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusobjectpath.html#setPath)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusObjectPath `
+    /// ` self: QDBusObjectPath `
     ///
     /// ` path: []const u8 `
     ///
-    pub fn SetPath(self: ?*anyopaque, path: []const u8) void {
+    pub fn SetPath(self: QDBusObjectPath, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        qtc.QDBusObjectPath_SetPath(@ptrCast(self), path_str);
+        qtc.QDBusObjectPath_SetPath(@ptrCast(self.ptr), path_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusobjectpath.html#path)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusObjectPath `
+    /// ` self: QDBusObjectPath `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Path(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDBusObjectPath_Path(@ptrCast(self));
+    pub fn Path(self: QDBusObjectPath, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDBusObjectPath_Path(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusobjectpath.Path: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -95,10 +104,10 @@ pub const qdbusobjectpath = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusObjectPath `
+    /// ` self: QDBusObjectPath `
     ///
-    pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
-        return qtc.QDBusObjectPath_ToQVariant(@ptrCast(self));
+    pub fn ToQVariant(self: QDBusObjectPath) QVariant {
+        return .{ .ptr = qtc.QDBusObjectPath_ToQVariant(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -111,19 +120,27 @@ pub const qdbusobjectpath = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QDBusObjectPath `
+    /// ` self: QDBusObjectPath `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QDBusObjectPath_Delete(@ptrCast(self));
+    pub fn Delete(self: QDBusObjectPath) void {
+        qtc.QDBusObjectPath_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbussignature.html)
-pub const qdbussignature = struct {
+pub const QDBusSignature = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbussignature.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QDBusSignature,
+
+    pub const _is_QDBusSignature = {};
+
     /// New constructs a new QDBusSignature object.
     ///
-    pub fn New() QtC.QDBusSignature {
-        return qtc.QDBusSignature_new();
+    pub fn New() QDBusSignature {
+        return .{ .ptr = qtc.QDBusSignature_new() };
     }
 
     /// New2 constructs a new QDBusSignature object.
@@ -132,10 +149,9 @@ pub const qdbussignature = struct {
     ///
     /// ` signature: [:0]const u8 `
     ///
-    pub fn New2(signature: [:0]const u8) QtC.QDBusSignature {
+    pub fn New2(signature: [:0]const u8) QDBusSignature {
         const signature_Cstring = signature.ptr;
-
-        return qtc.QDBusSignature_new2(signature_Cstring);
+        return .{ .ptr = qtc.QDBusSignature_new2(signature_Cstring) };
     }
 
     /// New3 constructs a new QDBusSignature object.
@@ -144,63 +160,64 @@ pub const qdbussignature = struct {
     ///
     /// ` signature: []const u8 `
     ///
-    pub fn New3(signature: []const u8) QtC.QDBusSignature {
+    pub fn New3(signature: []const u8) QDBusSignature {
         const signature_str = qtc.libqt_string{
             .len = signature.len,
             .data = signature.ptr,
         };
-
-        return qtc.QDBusSignature_new3(signature_str);
+        return .{ .ptr = qtc.QDBusSignature_new3(signature_str) };
     }
 
     /// New4 constructs a new QDBusSignature object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QDBusSignature `
+    /// ` param1: QDBusSignature `
     ///
-    pub fn New4(param1: ?*anyopaque) QtC.QDBusSignature {
-        return qtc.QDBusSignature_new4(@ptrCast(param1));
+    pub fn New4(param1: anytype) QDBusSignature {
+        comptime _ = @TypeOf(param1)._is_QDBusSignature;
+        return .{ .ptr = qtc.QDBusSignature_new4(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbussignature.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusSignature `
+    /// ` self: QDBusSignature `
     ///
-    /// ` other: QtC.QDBusSignature `
+    /// ` other: QDBusSignature `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QDBusSignature_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QDBusSignature, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QDBusSignature;
+        qtc.QDBusSignature_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbussignature.html#setSignature)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusSignature `
+    /// ` self: QDBusSignature `
     ///
     /// ` signature: []const u8 `
     ///
-    pub fn SetSignature(self: ?*anyopaque, signature: []const u8) void {
+    pub fn SetSignature(self: QDBusSignature, signature: []const u8) void {
         const signature_str = qtc.libqt_string{
             .len = signature.len,
             .data = signature.ptr,
         };
-        qtc.QDBusSignature_SetSignature(@ptrCast(self), signature_str);
+        qtc.QDBusSignature_SetSignature(@ptrCast(self.ptr), signature_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbussignature.html#signature)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusSignature `
+    /// ` self: QDBusSignature `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Signature(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDBusSignature_Signature(@ptrCast(self));
+    pub fn Signature(self: QDBusSignature, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDBusSignature_Signature(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbussignature.Signature: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -217,85 +234,98 @@ pub const qdbussignature = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QDBusSignature `
+    /// ` self: QDBusSignature `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QDBusSignature_Delete(@ptrCast(self));
+    pub fn Delete(self: QDBusSignature) void {
+        qtc.QDBusSignature_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusvariant.html)
-pub const qdbusvariant = struct {
+pub const QDBusVariant = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusvariant.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QDBusVariant,
+
+    pub const _is_QDBusVariant = {};
+
     /// New constructs a new QDBusVariant object.
     ///
-    pub fn New() QtC.QDBusVariant {
-        return qtc.QDBusVariant_new();
+    pub fn New() QDBusVariant {
+        return .{ .ptr = qtc.QDBusVariant_new() };
     }
 
     /// New2 constructs a new QDBusVariant object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` variant: QtC.QVariant `
+    /// ` variant: QVariant `
     ///
-    pub fn New2(variant: ?*anyopaque) QtC.QDBusVariant {
-        return qtc.QDBusVariant_new2(@ptrCast(variant));
+    pub fn New2(variant: anytype) QDBusVariant {
+        comptime _ = @TypeOf(variant)._is_QVariant;
+        return .{ .ptr = qtc.QDBusVariant_new2(@ptrCast(variant.ptr)) };
     }
 
     /// New3 constructs a new QDBusVariant object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QDBusVariant `
+    /// ` param1: QDBusVariant `
     ///
-    pub fn New3(param1: ?*anyopaque) QtC.QDBusVariant {
-        return qtc.QDBusVariant_new3(@ptrCast(param1));
+    pub fn New3(param1: anytype) QDBusVariant {
+        comptime _ = @TypeOf(param1)._is_QDBusVariant;
+        return .{ .ptr = qtc.QDBusVariant_new3(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusvariant.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusVariant `
+    /// ` self: QDBusVariant `
     ///
-    /// ` other: QtC.QDBusVariant `
+    /// ` other: QDBusVariant `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QDBusVariant_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QDBusVariant, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QDBusVariant;
+        qtc.QDBusVariant_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusvariant.html#setVariant)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusVariant `
+    /// ` self: QDBusVariant `
     ///
-    /// ` variant: QtC.QVariant `
+    /// ` variant: QVariant `
     ///
-    pub fn SetVariant(self: ?*anyopaque, variant: ?*anyopaque) void {
-        qtc.QDBusVariant_SetVariant(@ptrCast(self), @ptrCast(variant));
+    pub fn SetVariant(self: QDBusVariant, variant: anytype) void {
+        comptime _ = @TypeOf(variant)._is_QVariant;
+        qtc.QDBusVariant_SetVariant(@ptrCast(self.ptr), @ptrCast(variant.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusvariant.html#variant)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusVariant `
+    /// ` self: QDBusVariant `
     ///
-    pub fn Variant(self: ?*anyopaque) QtC.QVariant {
-        return qtc.QDBusVariant_Variant(@ptrCast(self));
+    pub fn Variant(self: QDBusVariant) QVariant {
+        return .{ .ptr = qtc.QDBusVariant_Variant(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusvariant.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusVariant `
+    /// ` self: QDBusVariant `
     ///
-    /// ` param1: QtC.QDBusVariant `
+    /// ` param1: QDBusVariant `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QDBusVariant_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    pub fn OperatorAssign(self: QDBusVariant, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QDBusVariant;
+        qtc.QDBusVariant_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -308,9 +338,9 @@ pub const qdbusvariant = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QDBusVariant `
+    /// ` self: QDBusVariant `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QDBusVariant_Delete(@ptrCast(self));
+    pub fn Delete(self: QDBusVariant) void {
+        qtc.QDBusVariant_Delete(@ptrCast(self.ptr));
     }
 };

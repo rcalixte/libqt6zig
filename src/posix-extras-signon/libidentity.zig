@@ -1,36 +1,55 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QVariant = @import("libqt6").QVariant;
+const SignOn__Error = @import("libqt6").SignOn__Error;
+const SignOn__IdentityInfo = @import("libqt6").SignOn__IdentityInfo;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const arraymap_constu8_qtcqvariant = std.array_hash_map.String(QtC.QVariant);
+const ArrayMap_constu8_QVariant = std.array_hash_map.String(QVariant);
 
 /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
-pub const signon__identity = struct {
+pub const SignOn__Identity = extern struct {
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.SignOn__Identity,
+
+    pub const _is_SignOn__Identity = {};
+    pub const _is_QObject = {};
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.SignOn__Identity_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: SignOn__Identity) QMetaObject {
+        return .{ .ptr = qtc.SignOn__Identity_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: SignOn__Identity, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.SignOn__Identity_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.SignOn__Identity_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -38,19 +57,19 @@ pub const signon__identity = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.SignOn__Identity_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: SignOn__Identity, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.SignOn__Identity_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -61,8 +80,8 @@ pub const signon__identity = struct {
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
-    pub fn NewIdentity() QtC.SignOn__Identity {
-        return qtc.SignOn__Identity_NewIdentity();
+    pub fn NewIdentity() SignOn__Identity {
+        return .{ .ptr = qtc.SignOn__Identity_NewIdentity() };
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
@@ -71,111 +90,111 @@ pub const signon__identity = struct {
     ///
     /// ` id: u32 `
     ///
-    pub fn ExistingIdentity(id: u32) QtC.SignOn__Identity {
-        return qtc.SignOn__Identity_ExistingIdentity(@bitCast(id));
+    pub fn ExistingIdentity(id: u32) SignOn__Identity {
+        return .{ .ptr = qtc.SignOn__Identity_ExistingIdentity(@bitCast(id)) };
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn Id(self: ?*anyopaque) u32 {
-        return qtc.SignOn__Identity_Id(@ptrCast(self));
+    pub fn Id(self: SignOn__Identity) u32 {
+        return qtc.SignOn__Identity_Id(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn QueryAvailableMethods(self: ?*anyopaque) void {
-        qtc.SignOn__Identity_QueryAvailableMethods(@ptrCast(self));
+    pub fn QueryAvailableMethods(self: SignOn__Identity) void {
+        qtc.SignOn__Identity_QueryAvailableMethods(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn RequestCredentialsUpdate(self: ?*anyopaque) void {
-        qtc.SignOn__Identity_RequestCredentialsUpdate(@ptrCast(self));
+    pub fn RequestCredentialsUpdate(self: SignOn__Identity) void {
+        qtc.SignOn__Identity_RequestCredentialsUpdate(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn StoreCredentials(self: ?*anyopaque) void {
-        qtc.SignOn__Identity_StoreCredentials(@ptrCast(self));
+    pub fn StoreCredentials(self: SignOn__Identity) void {
+        qtc.SignOn__Identity_StoreCredentials(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn Remove(self: ?*anyopaque) void {
-        qtc.SignOn__Identity_Remove(@ptrCast(self));
+    pub fn Remove(self: SignOn__Identity) void {
+        qtc.SignOn__Identity_Remove(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn AddReference(self: ?*anyopaque) void {
-        qtc.SignOn__Identity_AddReference(@ptrCast(self));
+    pub fn AddReference(self: SignOn__Identity) void {
+        qtc.SignOn__Identity_AddReference(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn RemoveReference(self: ?*anyopaque) void {
-        qtc.SignOn__Identity_RemoveReference(@ptrCast(self));
+    pub fn RemoveReference(self: SignOn__Identity) void {
+        qtc.SignOn__Identity_RemoveReference(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn QueryInfo(self: ?*anyopaque) void {
-        qtc.SignOn__Identity_QueryInfo(@ptrCast(self));
+    pub fn QueryInfo(self: SignOn__Identity) void {
+        qtc.SignOn__Identity_QueryInfo(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn VerifyUser(self: ?*anyopaque) void {
-        qtc.SignOn__Identity_VerifyUser(@ptrCast(self));
+    pub fn VerifyUser(self: SignOn__Identity) void {
+        qtc.SignOn__Identity_VerifyUser(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
-    ///
-    /// ` params: arraymap_constu8_qtcqvariant `
+    /// ` self: SignOn__Identity `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn VerifyUser2(self: ?*anyopaque, params: arraymap_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
+    /// ` params: ArrayMap_constu8_QVariant `
+    ///
+    pub fn VerifyUser2(self: SignOn__Identity, allocator: std.mem.Allocator, params: ArrayMap_constu8_QVariant) void {
         const params_count = params.count();
         const params_keys = allocator.alloc(qtc.libqt_string, params_count) catch @panic("signon__identity.VerifyUser2: Memory allocation failed");
         defer allocator.free(params_keys);
@@ -189,299 +208,300 @@ pub const signon__identity = struct {
                 .len = params_key.len,
                 .data = params_key.ptr,
             };
-            params_values[i] = @ptrCast(it_entry.value_ptr.*);
+            params_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const params_map = qtc.libqt_map{
             .len = params_count,
             .keys = @ptrCast(params_keys.ptr),
             .values = @ptrCast(params_values.ptr),
         };
-        qtc.SignOn__Identity_VerifyUser2(@ptrCast(self), params_map);
+        qtc.SignOn__Identity_VerifyUser2(@ptrCast(self.ptr), params_map);
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` secret: []const u8 `
     ///
-    pub fn VerifySecret(self: ?*anyopaque, secret: []const u8) void {
+    pub fn VerifySecret(self: SignOn__Identity, secret: []const u8) void {
         const secret_str = qtc.libqt_string{
             .len = secret.len,
             .data = secret.ptr,
         };
-        qtc.SignOn__Identity_VerifySecret(@ptrCast(self), secret_str);
+        qtc.SignOn__Identity_VerifySecret(@ptrCast(self.ptr), secret_str);
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn SignOut(self: ?*anyopaque) void {
-        qtc.SignOn__Identity_SignOut(@ptrCast(self));
+    pub fn SignOut(self: SignOn__Identity) void {
+        qtc.SignOn__Identity_SignOut(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` err: QtC.SignOn__Error `
+    /// ` err: SignOn__Error `
     ///
-    pub fn Error(self: ?*anyopaque, err: ?*anyopaque) void {
-        qtc.SignOn__Identity_Error(@ptrCast(self), @ptrCast(err));
+    pub fn Error(self: SignOn__Identity, err: anytype) void {
+        comptime _ = @TypeOf(err)._is_SignOn__Error;
+        qtc.SignOn__Identity_Error(@ptrCast(self.ptr), @ptrCast(err.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__Identity, err: QtC.SignOn__Error) callconv(.c) void `
+    /// ` callback: *const fn (self: SignOn__Identity, err: SignOn__Error) callconv(.c) void `
     ///
-    pub fn OnError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.SignOn__Identity_Connect_Error(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnError(self: SignOn__Identity, callback: *const fn (SignOn__Identity, SignOn__Error) callconv(.c) void) void {
+        qtc.SignOn__Identity_Connect_Error(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
-    ///
-    /// ` methods: []const []const u8 `
+    /// ` self: SignOn__Identity `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MethodsAvailable(self: ?*anyopaque, methods: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` methods: []const []const u8 `
+    ///
+    pub fn MethodsAvailable(self: SignOn__Identity, allocator: std.mem.Allocator, methods: []const []const u8) void {
         const methods_arr = allocator.alloc(qtc.libqt_string, methods.len) catch @panic("signon__identity.MethodsAvailable: Memory allocation failed");
         defer allocator.free(methods_arr);
-        for (methods, 0..methods.len) |item, i| {
+        for (methods, 0..methods.len) |item, i|
             methods_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const methods_list = qtc.libqt_list{
             .len = methods.len,
             .data = methods_arr.ptr,
         };
-        qtc.SignOn__Identity_MethodsAvailable(@ptrCast(self), methods_list);
+        qtc.SignOn__Identity_MethodsAvailable(@ptrCast(self.ptr), methods_list);
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__Identity, methods: ?[*:null]?[*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: SignOn__Identity, methods: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnMethodsAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
-        qtc.SignOn__Identity_Connect_MethodsAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMethodsAvailable(self: SignOn__Identity, callback: *const fn (SignOn__Identity, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
+        qtc.SignOn__Identity_Connect_MethodsAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` id: u32 `
     ///
-    pub fn CredentialsStored(self: ?*anyopaque, id: u32) void {
-        qtc.SignOn__Identity_CredentialsStored(@ptrCast(self), @bitCast(id));
+    pub fn CredentialsStored(self: SignOn__Identity, id: u32) void {
+        qtc.SignOn__Identity_CredentialsStored(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__Identity, id: u32) callconv(.c) void `
+    /// ` callback: *const fn (self: SignOn__Identity, id: u32) callconv(.c) void `
     ///
-    pub fn OnCredentialsStored(self: ?*anyopaque, callback: *const fn (?*anyopaque, u32) callconv(.c) void) void {
-        qtc.SignOn__Identity_Connect_CredentialsStored(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCredentialsStored(self: SignOn__Identity, callback: *const fn (SignOn__Identity, u32) callconv(.c) void) void {
+        qtc.SignOn__Identity_Connect_CredentialsStored(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn ReferenceAdded(self: ?*anyopaque) void {
-        qtc.SignOn__Identity_ReferenceAdded(@ptrCast(self));
+    pub fn ReferenceAdded(self: SignOn__Identity) void {
+        qtc.SignOn__Identity_ReferenceAdded(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__Identity) callconv(.c) void `
+    /// ` callback: *const fn (self: SignOn__Identity) callconv(.c) void `
     ///
-    pub fn OnReferenceAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.SignOn__Identity_Connect_ReferenceAdded(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReferenceAdded(self: SignOn__Identity, callback: *const fn (SignOn__Identity) callconv(.c) void) void {
+        qtc.SignOn__Identity_Connect_ReferenceAdded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn ReferenceRemoved(self: ?*anyopaque) void {
-        qtc.SignOn__Identity_ReferenceRemoved(@ptrCast(self));
+    pub fn ReferenceRemoved(self: SignOn__Identity) void {
+        qtc.SignOn__Identity_ReferenceRemoved(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__Identity) callconv(.c) void `
+    /// ` callback: *const fn (self: SignOn__Identity) callconv(.c) void `
     ///
-    pub fn OnReferenceRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.SignOn__Identity_Connect_ReferenceRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReferenceRemoved(self: SignOn__Identity, callback: *const fn (SignOn__Identity) callconv(.c) void) void {
+        qtc.SignOn__Identity_Connect_ReferenceRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` info: QtC.SignOn__IdentityInfo `
+    /// ` info: SignOn__IdentityInfo `
     ///
-    pub fn Info(self: ?*anyopaque, info: ?*anyopaque) void {
-        qtc.SignOn__Identity_Info(@ptrCast(self), @ptrCast(info));
+    pub fn Info(self: SignOn__Identity, info: anytype) void {
+        comptime _ = @TypeOf(info)._is_SignOn__IdentityInfo;
+        qtc.SignOn__Identity_Info(@ptrCast(self.ptr), @ptrCast(info.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__Identity, info: QtC.SignOn__IdentityInfo) callconv(.c) void `
+    /// ` callback: *const fn (self: SignOn__Identity, info: SignOn__IdentityInfo) callconv(.c) void `
     ///
-    pub fn OnInfo(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.SignOn__Identity_Connect_Info(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInfo(self: SignOn__Identity, callback: *const fn (SignOn__Identity, SignOn__IdentityInfo) callconv(.c) void) void {
+        qtc.SignOn__Identity_Connect_Info(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` valid: bool `
     ///
-    pub fn UserVerified(self: ?*anyopaque, valid: bool) void {
-        qtc.SignOn__Identity_UserVerified(@ptrCast(self), valid);
+    pub fn UserVerified(self: SignOn__Identity, valid: bool) void {
+        qtc.SignOn__Identity_UserVerified(@ptrCast(self.ptr), valid);
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__Identity, valid: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: SignOn__Identity, valid: bool) callconv(.c) void `
     ///
-    pub fn OnUserVerified(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.SignOn__Identity_Connect_UserVerified(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUserVerified(self: SignOn__Identity, callback: *const fn (SignOn__Identity, bool) callconv(.c) void) void {
+        qtc.SignOn__Identity_Connect_UserVerified(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` valid: bool `
     ///
-    pub fn SecretVerified(self: ?*anyopaque, valid: bool) void {
-        qtc.SignOn__Identity_SecretVerified(@ptrCast(self), valid);
+    pub fn SecretVerified(self: SignOn__Identity, valid: bool) void {
+        qtc.SignOn__Identity_SecretVerified(@ptrCast(self.ptr), valid);
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__Identity, valid: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: SignOn__Identity, valid: bool) callconv(.c) void `
     ///
-    pub fn OnSecretVerified(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.SignOn__Identity_Connect_SecretVerified(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSecretVerified(self: SignOn__Identity, callback: *const fn (SignOn__Identity, bool) callconv(.c) void) void {
+        qtc.SignOn__Identity_Connect_SecretVerified(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn SignedOut(self: ?*anyopaque) void {
-        qtc.SignOn__Identity_SignedOut(@ptrCast(self));
+    pub fn SignedOut(self: SignOn__Identity) void {
+        qtc.SignOn__Identity_SignedOut(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__Identity) callconv(.c) void `
+    /// ` callback: *const fn (self: SignOn__Identity) callconv(.c) void `
     ///
-    pub fn OnSignedOut(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.SignOn__Identity_Connect_SignedOut(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSignedOut(self: SignOn__Identity, callback: *const fn (SignOn__Identity) callconv(.c) void) void {
+        qtc.SignOn__Identity_Connect_SignedOut(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn Removed(self: ?*anyopaque) void {
-        qtc.SignOn__Identity_Removed(@ptrCast(self));
+    pub fn Removed(self: SignOn__Identity) void {
+        qtc.SignOn__Identity_Removed(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__Identity) callconv(.c) void `
+    /// ` callback: *const fn (self: SignOn__Identity) callconv(.c) void `
     ///
-    pub fn OnRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.SignOn__Identity_Connect_Removed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRemoved(self: SignOn__Identity, callback: *const fn (SignOn__Identity) callconv(.c) void) void {
+        qtc.SignOn__Identity_Connect_Removed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -495,15 +515,15 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -517,22 +537,25 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` info: QtC.SignOn__IdentityInfo `
+    /// ` info: SignOn__IdentityInfo `
     ///
-    pub fn NewIdentity1(info: ?*anyopaque) QtC.SignOn__Identity {
-        return qtc.SignOn__Identity_NewIdentity1(@ptrCast(info));
+    pub fn NewIdentity1(info: anytype) SignOn__Identity {
+        comptime _ = @TypeOf(info)._is_SignOn__IdentityInfo;
+        return .{ .ptr = qtc.SignOn__Identity_NewIdentity1(@ptrCast(info.ptr)) };
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` info: QtC.SignOn__IdentityInfo `
+    /// ` info: SignOn__IdentityInfo `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn NewIdentity2(info: ?*anyopaque, parent: ?*anyopaque) QtC.SignOn__Identity {
-        return qtc.SignOn__Identity_NewIdentity2(@ptrCast(info), @ptrCast(parent));
+    pub fn NewIdentity2(info: anytype, parent: anytype) SignOn__Identity {
+        comptime _ = @TypeOf(info)._is_SignOn__IdentityInfo;
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.SignOn__Identity_NewIdentity2(@ptrCast(info.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
@@ -541,86 +564,88 @@ pub const signon__identity = struct {
     ///
     /// ` id: u32 `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn ExistingIdentity2(id: u32, parent: ?*anyopaque) QtC.SignOn__Identity {
-        return qtc.SignOn__Identity_ExistingIdentity2(@bitCast(id), @ptrCast(parent));
+    pub fn ExistingIdentity2(id: u32, parent: anytype) SignOn__Identity {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.SignOn__Identity_ExistingIdentity2(@bitCast(id), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` message: []const u8 `
     ///
-    pub fn RequestCredentialsUpdate1(self: ?*anyopaque, message: []const u8) void {
+    pub fn RequestCredentialsUpdate1(self: SignOn__Identity, message: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-        qtc.SignOn__Identity_RequestCredentialsUpdate1(@ptrCast(self), message_str);
+        qtc.SignOn__Identity_RequestCredentialsUpdate1(@ptrCast(self.ptr), message_str);
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` info: QtC.SignOn__IdentityInfo `
+    /// ` info: SignOn__IdentityInfo `
     ///
-    pub fn StoreCredentials1(self: ?*anyopaque, info: ?*anyopaque) void {
-        qtc.SignOn__Identity_StoreCredentials1(@ptrCast(self), @ptrCast(info));
+    pub fn StoreCredentials1(self: SignOn__Identity, info: anytype) void {
+        comptime _ = @TypeOf(info)._is_SignOn__IdentityInfo;
+        qtc.SignOn__Identity_StoreCredentials1(@ptrCast(self.ptr), @ptrCast(info.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` reference: []const u8 `
     ///
-    pub fn AddReference1(self: ?*anyopaque, reference: []const u8) void {
+    pub fn AddReference1(self: SignOn__Identity, reference: []const u8) void {
         const reference_str = qtc.libqt_string{
             .len = reference.len,
             .data = reference.ptr,
         };
-        qtc.SignOn__Identity_AddReference1(@ptrCast(self), reference_str);
+        qtc.SignOn__Identity_AddReference1(@ptrCast(self.ptr), reference_str);
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` reference: []const u8 `
     ///
-    pub fn RemoveReference1(self: ?*anyopaque, reference: []const u8) void {
+    pub fn RemoveReference1(self: SignOn__Identity, reference: []const u8) void {
         const reference_str = qtc.libqt_string{
             .len = reference.len,
             .data = reference.ptr,
         };
-        qtc.SignOn__Identity_RemoveReference1(@ptrCast(self), reference_str);
+        qtc.SignOn__Identity_RemoveReference1(@ptrCast(self.ptr), reference_str);
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/signond/classSignOn_1_1Identity.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` message: []const u8 `
     ///
-    pub fn VerifyUser1(self: ?*anyopaque, message: []const u8) void {
+    pub fn VerifyUser1(self: SignOn__Identity, message: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-        qtc.SignOn__Identity_VerifyUser1(@ptrCast(self), message_str);
+        qtc.SignOn__Identity_VerifyUser1(@ptrCast(self.ptr), message_str);
     }
 
     /// Inherited from QObject
@@ -629,12 +654,13 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: SignOn__Identity, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -643,14 +669,16 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: SignOn__Identity, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -659,12 +687,12 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: SignOn__Identity, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("signon__identity.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -677,12 +705,12 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: SignOn__Identity, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -691,10 +719,10 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: SignOn__Identity) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -703,10 +731,10 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: SignOn__Identity) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -715,10 +743,10 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: SignOn__Identity) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -727,10 +755,10 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: SignOn__Identity) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -739,12 +767,12 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: SignOn__Identity, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -753,10 +781,10 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: SignOn__Identity) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -765,12 +793,13 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: SignOn__Identity, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -779,12 +808,12 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: SignOn__Identity, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -793,12 +822,12 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: SignOn__Identity, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -807,12 +836,12 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: SignOn__Identity, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -821,12 +850,12 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: SignOn__Identity, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -835,16 +864,17 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: SignOn__Identity, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("signon__identity.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("signon__identity.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -854,12 +884,13 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: SignOn__Identity, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -868,12 +899,13 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: SignOn__Identity, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -882,12 +914,13 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: SignOn__Identity, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -896,18 +929,20 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -916,16 +951,20 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -934,18 +973,19 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: SignOn__Identity, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -954,18 +994,20 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -974,16 +1016,20 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -992,10 +1038,10 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: SignOn__Identity) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1004,12 +1050,13 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: SignOn__Identity, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1018,10 +1065,11 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1030,10 +1078,10 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: SignOn__Identity) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1042,10 +1090,10 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: SignOn__Identity) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1054,15 +1102,16 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: SignOn__Identity, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1071,13 +1120,13 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: SignOn__Identity, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1086,17 +1135,16 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: SignOn__Identity, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("signon__identity.DynamicPropertyNames: Memory allocation failed");
@@ -1115,10 +1163,10 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: SignOn__Identity) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1127,10 +1175,10 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: SignOn__Identity) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1139,10 +1187,10 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: SignOn__Identity) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1151,12 +1199,12 @@ pub const signon__identity = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__Identity) callconv(.c) void `
+    /// ` callback: *const fn (self: SignOn__Identity) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: SignOn__Identity, callback: *const fn (SignOn__Identity) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1165,10 +1213,10 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: SignOn__Identity) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1177,13 +1225,13 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: SignOn__Identity, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1192,10 +1240,10 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: SignOn__Identity) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1204,14 +1252,14 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: SignOn__Identity, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1220,14 +1268,14 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: SignOn__Identity, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1236,20 +1284,22 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1258,18 +1308,22 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1278,9 +1332,9 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1288,10 +1342,11 @@ pub const signon__identity = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: SignOn__Identity, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1300,13 +1355,13 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: SignOn__Identity, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1315,15 +1370,16 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: SignOn__Identity, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1332,18 +1388,19 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: SignOn__Identity, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1352,15 +1409,16 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: SignOn__Identity, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1369,12 +1427,13 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: SignOn__Identity, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1383,12 +1442,12 @@ pub const signon__identity = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__Identity, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: SignOn__Identity, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: SignOn__Identity, callback: *const fn (SignOn__Identity, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1399,12 +1458,12 @@ pub const signon__identity = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    /// ` callback: *const fn (self: QtC.SignOn__Identity, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: SignOn__Identity, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: SignOn__Identity, callback: *const fn (SignOn__Identity, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1417,10 +1476,10 @@ pub const signon__identity = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.SignOn__Identity `
+    /// ` self: SignOn__Identity `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.SignOn__Identity_Delete(@ptrCast(self));
+    pub fn Delete(self: SignOn__Identity) void {
+        qtc.SignOn__Identity_Delete(@ptrCast(self.ptr));
     }
 };
 

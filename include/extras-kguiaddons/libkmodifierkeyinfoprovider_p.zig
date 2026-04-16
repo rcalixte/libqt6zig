@@ -1,26 +1,46 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const kmodifierkeyinfoprovider_p_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html)
-pub const kmodifierkeyinfoprovider = struct {
+pub const KModifierKeyInfoProvider = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KModifierKeyInfoProvider,
+
+    pub const _is_KModifierKeyInfoProvider = {};
+    pub const _is_QObject = {};
+    pub const _is_QSharedData = {};
+
     /// New constructs a new KModifierKeyInfoProvider object.
     ///
-    pub fn New() QtC.KModifierKeyInfoProvider {
-        return qtc.KModifierKeyInfoProvider_new();
+    pub fn New() KModifierKeyInfoProvider {
+        return .{ .ptr = qtc.KModifierKeyInfoProvider_new() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KModifierKeyInfoProvider_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KModifierKeyInfoProvider) QMetaObject {
+        return .{ .ptr = qtc.KModifierKeyInfoProvider_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -29,12 +49,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KModifierKeyInfoProvider_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KModifierKeyInfoProvider, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KModifierKeyInfoProvider_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -47,33 +67,33 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KModifierKeyInfoProvider_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KModifierKeyInfoProvider) QMetaObject {
+        return .{ .ptr = qtc.KModifierKeyInfoProvider_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KModifierKeyInfoProvider, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KModifierKeyInfoProvider_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KModifierKeyInfoProvider_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KModifierKeyInfoProvider_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KModifierKeyInfoProvider_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -84,18 +104,18 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KModifierKeyInfoProvider, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KModifierKeyInfoProvider_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KModifierKeyInfoProvider_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -103,20 +123,20 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KModifierKeyInfoProvider_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KModifierKeyInfoProvider, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KModifierKeyInfoProvider_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KModifierKeyInfoProvider_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KModifierKeyInfoProvider_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -127,7 +147,7 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -135,19 +155,19 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KModifierKeyInfoProvider_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KModifierKeyInfoProvider, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KModifierKeyInfoProvider_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -160,38 +180,38 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` key: qnamespace_enums.Key `
     ///
-    pub fn IsKeyPressed(self: ?*anyopaque, key: i32) bool {
-        return qtc.KModifierKeyInfoProvider_IsKeyPressed(@ptrCast(self), @bitCast(key));
+    pub fn IsKeyPressed(self: KModifierKeyInfoProvider, key: i32) bool {
+        return qtc.KModifierKeyInfoProvider_IsKeyPressed(@ptrCast(self.ptr), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#isKeyLatched)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` key: qnamespace_enums.Key `
     ///
-    pub fn IsKeyLatched(self: ?*anyopaque, key: i32) bool {
-        return qtc.KModifierKeyInfoProvider_IsKeyLatched(@ptrCast(self), @bitCast(key));
+    pub fn IsKeyLatched(self: KModifierKeyInfoProvider, key: i32) bool {
+        return qtc.KModifierKeyInfoProvider_IsKeyLatched(@ptrCast(self.ptr), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#setKeyLatched)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` key: qnamespace_enums.Key `
     ///
     /// ` latched: bool `
     ///
-    pub fn SetKeyLatched(self: ?*anyopaque, key: i32, latched: bool) bool {
-        return qtc.KModifierKeyInfoProvider_SetKeyLatched(@ptrCast(self), @bitCast(key), latched);
+    pub fn SetKeyLatched(self: KModifierKeyInfoProvider, key: i32, latched: bool) bool {
+        return qtc.KModifierKeyInfoProvider_SetKeyLatched(@ptrCast(self.ptr), @bitCast(key), latched);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#setKeyLatched)
@@ -200,12 +220,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, latched: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider, key: qnamespace_enums.Key, latched: bool) callconv(.c) bool `
     ///
-    pub fn OnSetKeyLatched(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) bool) void {
-        qtc.KModifierKeyInfoProvider_OnSetKeyLatched(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetKeyLatched(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, i32, bool) callconv(.c) bool) void {
+        qtc.KModifierKeyInfoProvider_OnSetKeyLatched(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetKeyLatched` instead
@@ -218,40 +238,40 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` key: qnamespace_enums.Key `
     ///
     /// ` latched: bool `
     ///
-    pub fn SuperSetKeyLatched(self: ?*anyopaque, key: i32, latched: bool) bool {
-        return qtc.KModifierKeyInfoProvider_SuperSetKeyLatched(@ptrCast(self), @bitCast(key), latched);
+    pub fn SuperSetKeyLatched(self: KModifierKeyInfoProvider, key: i32, latched: bool) bool {
+        return qtc.KModifierKeyInfoProvider_SuperSetKeyLatched(@ptrCast(self.ptr), @bitCast(key), latched);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#isKeyLocked)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` key: qnamespace_enums.Key `
     ///
-    pub fn IsKeyLocked(self: ?*anyopaque, key: i32) bool {
-        return qtc.KModifierKeyInfoProvider_IsKeyLocked(@ptrCast(self), @bitCast(key));
+    pub fn IsKeyLocked(self: KModifierKeyInfoProvider, key: i32) bool {
+        return qtc.KModifierKeyInfoProvider_IsKeyLocked(@ptrCast(self.ptr), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#setKeyLocked)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` key: qnamespace_enums.Key `
     ///
     /// ` locked: bool `
     ///
-    pub fn SetKeyLocked(self: ?*anyopaque, key: i32, locked: bool) bool {
-        return qtc.KModifierKeyInfoProvider_SetKeyLocked(@ptrCast(self), @bitCast(key), locked);
+    pub fn SetKeyLocked(self: KModifierKeyInfoProvider, key: i32, locked: bool) bool {
+        return qtc.KModifierKeyInfoProvider_SetKeyLocked(@ptrCast(self.ptr), @bitCast(key), locked);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#setKeyLocked)
@@ -260,12 +280,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, locked: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider, key: qnamespace_enums.Key, locked: bool) callconv(.c) bool `
     ///
-    pub fn OnSetKeyLocked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) bool) void {
-        qtc.KModifierKeyInfoProvider_OnSetKeyLocked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetKeyLocked(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, i32, bool) callconv(.c) bool) void {
+        qtc.KModifierKeyInfoProvider_OnSetKeyLocked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetKeyLocked` instead
@@ -278,45 +298,45 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` key: qnamespace_enums.Key `
     ///
     /// ` locked: bool `
     ///
-    pub fn SuperSetKeyLocked(self: ?*anyopaque, key: i32, locked: bool) bool {
-        return qtc.KModifierKeyInfoProvider_SuperSetKeyLocked(@ptrCast(self), @bitCast(key), locked);
+    pub fn SuperSetKeyLocked(self: KModifierKeyInfoProvider, key: i32, locked: bool) bool {
+        return qtc.KModifierKeyInfoProvider_SuperSetKeyLocked(@ptrCast(self.ptr), @bitCast(key), locked);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#isButtonPressed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` button: qnamespace_enums.MouseButton `
     ///
-    pub fn IsButtonPressed(self: ?*anyopaque, button: i32) bool {
-        return qtc.KModifierKeyInfoProvider_IsButtonPressed(@ptrCast(self), @bitCast(button));
+    pub fn IsButtonPressed(self: KModifierKeyInfoProvider, button: i32) bool {
+        return qtc.KModifierKeyInfoProvider_IsButtonPressed(@ptrCast(self.ptr), @bitCast(button));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#knowsKey)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` key: qnamespace_enums.Key `
     ///
-    pub fn KnowsKey(self: ?*anyopaque, key: i32) bool {
-        return qtc.KModifierKeyInfoProvider_KnowsKey(@ptrCast(self), @bitCast(key));
+    pub fn KnowsKey(self: KModifierKeyInfoProvider, key: i32) bool {
+        return qtc.KModifierKeyInfoProvider_KnowsKey(@ptrCast(self.ptr), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#knownKeys)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
@@ -324,8 +344,8 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ` []qnamespace_enums.Key `
     ///
-    pub fn KnownKeys(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.libqt_list = qtc.KModifierKeyInfoProvider_KnownKeys(@ptrCast(self));
+    pub fn KnownKeys(self: KModifierKeyInfoProvider, allocator: std.mem.Allocator) []i32 {
+        const _arr: qtc.libqt_list = qtc.KModifierKeyInfoProvider_KnownKeys(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("kmodifierkeyinfoprovider.KnownKeys: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -337,166 +357,166 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` key: qnamespace_enums.Key `
     ///
     /// ` state: bool `
     ///
-    pub fn KeyLatched(self: ?*anyopaque, key: i32, state: bool) void {
-        qtc.KModifierKeyInfoProvider_KeyLatched(@ptrCast(self), @bitCast(key), state);
+    pub fn KeyLatched(self: KModifierKeyInfoProvider, key: i32, state: bool) void {
+        qtc.KModifierKeyInfoProvider_KeyLatched(@ptrCast(self.ptr), @bitCast(key), state);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#keyLatched)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: bool) callconv(.c) void `
     ///
-    pub fn OnKeyLatched(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_Connect_KeyLatched(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyLatched(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, i32, bool) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_Connect_KeyLatched(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#keyLocked)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` key: qnamespace_enums.Key `
     ///
     /// ` state: bool `
     ///
-    pub fn KeyLocked(self: ?*anyopaque, key: i32, state: bool) void {
-        qtc.KModifierKeyInfoProvider_KeyLocked(@ptrCast(self), @bitCast(key), state);
+    pub fn KeyLocked(self: KModifierKeyInfoProvider, key: i32, state: bool) void {
+        qtc.KModifierKeyInfoProvider_KeyLocked(@ptrCast(self.ptr), @bitCast(key), state);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#keyLocked)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: bool) callconv(.c) void `
     ///
-    pub fn OnKeyLocked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_Connect_KeyLocked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyLocked(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, i32, bool) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_Connect_KeyLocked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#keyPressed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` key: qnamespace_enums.Key `
     ///
     /// ` state: bool `
     ///
-    pub fn KeyPressed(self: ?*anyopaque, key: i32, state: bool) void {
-        qtc.KModifierKeyInfoProvider_KeyPressed(@ptrCast(self), @bitCast(key), state);
+    pub fn KeyPressed(self: KModifierKeyInfoProvider, key: i32, state: bool) void {
+        qtc.KModifierKeyInfoProvider_KeyPressed(@ptrCast(self.ptr), @bitCast(key), state);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#keyPressed)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: bool) callconv(.c) void `
     ///
-    pub fn OnKeyPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_Connect_KeyPressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyPressed(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, i32, bool) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_Connect_KeyPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#buttonPressed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` button: qnamespace_enums.MouseButton `
     ///
     /// ` state: bool `
     ///
-    pub fn ButtonPressed(self: ?*anyopaque, button: i32, state: bool) void {
-        qtc.KModifierKeyInfoProvider_ButtonPressed(@ptrCast(self), @bitCast(button), state);
+    pub fn ButtonPressed(self: KModifierKeyInfoProvider, button: i32, state: bool) void {
+        qtc.KModifierKeyInfoProvider_ButtonPressed(@ptrCast(self.ptr), @bitCast(button), state);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#buttonPressed)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, button: qnamespace_enums.MouseButton, state: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider, button: qnamespace_enums.MouseButton, state: bool) callconv(.c) void `
     ///
-    pub fn OnButtonPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_Connect_ButtonPressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnButtonPressed(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, i32, bool) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_Connect_ButtonPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#keyAdded)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` key: qnamespace_enums.Key `
     ///
-    pub fn KeyAdded(self: ?*anyopaque, key: i32) void {
-        qtc.KModifierKeyInfoProvider_KeyAdded(@ptrCast(self), @bitCast(key));
+    pub fn KeyAdded(self: KModifierKeyInfoProvider, key: i32) void {
+        qtc.KModifierKeyInfoProvider_KeyAdded(@ptrCast(self.ptr), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#keyAdded)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key) callconv(.c) void `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider, key: qnamespace_enums.Key) callconv(.c) void `
     ///
-    pub fn OnKeyAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_Connect_KeyAdded(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyAdded(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, i32) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_Connect_KeyAdded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#keyRemoved)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` key: qnamespace_enums.Key `
     ///
-    pub fn KeyRemoved(self: ?*anyopaque, key: i32) void {
-        qtc.KModifierKeyInfoProvider_KeyRemoved(@ptrCast(self), @bitCast(key));
+    pub fn KeyRemoved(self: KModifierKeyInfoProvider, key: i32) void {
+        qtc.KModifierKeyInfoProvider_KeyRemoved(@ptrCast(self.ptr), @bitCast(key));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#keyRemoved)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key) callconv(.c) void `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider, key: qnamespace_enums.Key) callconv(.c) void `
     ///
-    pub fn OnKeyRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_Connect_KeyRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyRemoved(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, i32) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_Connect_KeyRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#stateUpdated)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` key: qnamespace_enums.Key `
     ///
     /// ` state: flag of kmodifierkeyinfoprovider_p_enums.ModifierState `
     ///
-    pub fn StateUpdated(self: ?*anyopaque, key: i32, state: i32) void {
-        qtc.KModifierKeyInfoProvider_StateUpdated(@ptrCast(self), @bitCast(key), @bitCast(state));
+    pub fn StateUpdated(self: KModifierKeyInfoProvider, key: i32, state: i32) void {
+        qtc.KModifierKeyInfoProvider_StateUpdated(@ptrCast(self.ptr), @bitCast(key), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kmodifierkeyinfoprovider.html#stateUpdated)
@@ -505,12 +525,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: flag of kmodifierkeyinfoprovider_p_enums.ModifierState) callconv(.c) void `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: flag of kmodifierkeyinfoprovider_p_enums.ModifierState) callconv(.c) void `
     ///
-    pub fn OnStateUpdated(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_OnStateUpdated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStateUpdated(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, i32, i32) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_OnStateUpdated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperStateUpdated` instead
@@ -523,27 +543,27 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` key: qnamespace_enums.Key `
     ///
     /// ` state: flag of kmodifierkeyinfoprovider_p_enums.ModifierState `
     ///
-    pub fn SuperStateUpdated(self: ?*anyopaque, key: i32, state: i32) void {
-        qtc.KModifierKeyInfoProvider_SuperStateUpdated(@ptrCast(self), @bitCast(key), @bitCast(state));
+    pub fn SuperStateUpdated(self: KModifierKeyInfoProvider, key: i32, state: i32) void {
+        qtc.KModifierKeyInfoProvider_SuperStateUpdated(@ptrCast(self.ptr), @bitCast(key), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -557,15 +577,15 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -581,12 +601,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KModifierKeyInfoProvider, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kmodifierkeyinfoprovider.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -599,12 +619,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KModifierKeyInfoProvider, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -613,10 +633,10 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KModifierKeyInfoProvider) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -625,10 +645,10 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KModifierKeyInfoProvider) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -637,10 +657,10 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KModifierKeyInfoProvider) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -649,10 +669,10 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KModifierKeyInfoProvider) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -661,12 +681,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KModifierKeyInfoProvider, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -675,10 +695,10 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KModifierKeyInfoProvider) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -687,12 +707,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KModifierKeyInfoProvider, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -701,12 +722,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KModifierKeyInfoProvider, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -715,12 +736,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KModifierKeyInfoProvider, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -729,12 +750,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KModifierKeyInfoProvider, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -743,12 +764,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KModifierKeyInfoProvider, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -757,16 +778,17 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KModifierKeyInfoProvider, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kmodifierkeyinfoprovider.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kmodifierkeyinfoprovider.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -776,12 +798,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KModifierKeyInfoProvider, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -790,12 +813,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KModifierKeyInfoProvider, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -804,12 +828,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KModifierKeyInfoProvider, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -818,18 +843,20 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -838,16 +865,20 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -856,18 +887,19 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KModifierKeyInfoProvider, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -876,18 +908,20 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -896,16 +930,20 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -914,10 +952,10 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KModifierKeyInfoProvider) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -926,12 +964,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KModifierKeyInfoProvider, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -940,10 +979,11 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -952,10 +992,10 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KModifierKeyInfoProvider) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -964,10 +1004,10 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KModifierKeyInfoProvider) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -976,15 +1016,16 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KModifierKeyInfoProvider, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -993,13 +1034,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KModifierKeyInfoProvider, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1008,17 +1049,16 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KModifierKeyInfoProvider, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kmodifierkeyinfoprovider.DynamicPropertyNames: Memory allocation failed");
@@ -1037,10 +1077,10 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KModifierKeyInfoProvider) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1049,10 +1089,10 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KModifierKeyInfoProvider) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1061,10 +1101,10 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KModifierKeyInfoProvider) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1073,12 +1113,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider) callconv(.c) void `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1087,10 +1127,10 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: KModifierKeyInfoProvider) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1099,13 +1139,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KModifierKeyInfoProvider, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1114,10 +1154,10 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KModifierKeyInfoProvider) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1126,14 +1166,14 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KModifierKeyInfoProvider, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1142,14 +1182,14 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KModifierKeyInfoProvider, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1158,20 +1198,22 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1180,18 +1222,22 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1200,9 +1246,9 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1210,10 +1256,11 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KModifierKeyInfoProvider, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1222,13 +1269,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KModifierKeyInfoProvider, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1237,15 +1284,16 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KModifierKeyInfoProvider, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1254,18 +1302,19 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KModifierKeyInfoProvider, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1274,15 +1323,16 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KModifierKeyInfoProvider, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1291,12 +1341,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KModifierKeyInfoProvider, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1305,12 +1356,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1321,12 +1372,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KModifierKeyInfoProvider_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KModifierKeyInfoProvider, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KModifierKeyInfoProvider_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1341,12 +1393,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KModifierKeyInfoProvider_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KModifierKeyInfoProvider, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KModifierKeyInfoProvider_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1357,12 +1410,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider`
+    /// ` self: KModifierKeyInfoProvider`
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KModifierKeyInfoProvider_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, QEvent) callconv(.c) bool) void {
+        qtc.KModifierKeyInfoProvider_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1373,14 +1426,16 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KModifierKeyInfoProvider_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KModifierKeyInfoProvider, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KModifierKeyInfoProvider_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1395,14 +1450,16 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KModifierKeyInfoProvider_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KModifierKeyInfoProvider, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KModifierKeyInfoProvider_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1413,12 +1470,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider`
+    /// ` self: KModifierKeyInfoProvider`
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KModifierKeyInfoProvider_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KModifierKeyInfoProvider_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1429,12 +1486,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KModifierKeyInfoProvider_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KModifierKeyInfoProvider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KModifierKeyInfoProvider_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1449,12 +1507,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KModifierKeyInfoProvider_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KModifierKeyInfoProvider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KModifierKeyInfoProvider_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1465,12 +1524,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider`
+    /// ` self: KModifierKeyInfoProvider`
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, QTimerEvent) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1481,12 +1540,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KModifierKeyInfoProvider_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KModifierKeyInfoProvider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KModifierKeyInfoProvider_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1501,12 +1561,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KModifierKeyInfoProvider_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KModifierKeyInfoProvider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KModifierKeyInfoProvider_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1517,12 +1578,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider`
+    /// ` self: KModifierKeyInfoProvider`
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, QChildEvent) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1533,12 +1594,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KModifierKeyInfoProvider_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KModifierKeyInfoProvider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KModifierKeyInfoProvider_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1553,12 +1615,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KModifierKeyInfoProvider_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KModifierKeyInfoProvider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KModifierKeyInfoProvider_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1569,12 +1632,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider`
+    /// ` self: KModifierKeyInfoProvider`
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, QEvent) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1585,12 +1648,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KModifierKeyInfoProvider_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KModifierKeyInfoProvider, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KModifierKeyInfoProvider_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1605,12 +1669,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KModifierKeyInfoProvider_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KModifierKeyInfoProvider, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KModifierKeyInfoProvider_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1621,12 +1686,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider`
+    /// ` self: KModifierKeyInfoProvider`
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, QMetaMethod) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1637,12 +1702,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KModifierKeyInfoProvider_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KModifierKeyInfoProvider, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KModifierKeyInfoProvider_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1657,12 +1723,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KModifierKeyInfoProvider_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KModifierKeyInfoProvider, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KModifierKeyInfoProvider_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1673,12 +1740,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider`
+    /// ` self: KModifierKeyInfoProvider`
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, QMetaMethod) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1689,10 +1756,10 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KModifierKeyInfoProvider_Sender(@ptrCast(self));
+    pub fn Sender(self: KModifierKeyInfoProvider) QObject {
+        return .{ .ptr = qtc.KModifierKeyInfoProvider_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -1707,10 +1774,10 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KModifierKeyInfoProvider_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KModifierKeyInfoProvider) QObject {
+        return .{ .ptr = qtc.KModifierKeyInfoProvider_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1721,12 +1788,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider`
+    /// ` self: KModifierKeyInfoProvider`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KModifierKeyInfoProvider_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KModifierKeyInfoProvider, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KModifierKeyInfoProvider_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1737,10 +1804,10 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KModifierKeyInfoProvider_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KModifierKeyInfoProvider) i32 {
+        return qtc.KModifierKeyInfoProvider_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -1755,10 +1822,10 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KModifierKeyInfoProvider_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KModifierKeyInfoProvider) i32 {
+        return qtc.KModifierKeyInfoProvider_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1769,12 +1836,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider`
+    /// ` self: KModifierKeyInfoProvider`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KModifierKeyInfoProvider_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KModifierKeyInfoProvider, callback: *const fn () callconv(.c) i32) void {
+        qtc.KModifierKeyInfoProvider_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1785,13 +1852,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KModifierKeyInfoProvider, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KModifierKeyInfoProvider_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KModifierKeyInfoProvider_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -1806,13 +1873,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KModifierKeyInfoProvider, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KModifierKeyInfoProvider_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KModifierKeyInfoProvider_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1823,12 +1890,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider`
+    /// ` self: KModifierKeyInfoProvider`
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KModifierKeyInfoProvider_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KModifierKeyInfoProvider_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1839,12 +1906,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KModifierKeyInfoProvider_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KModifierKeyInfoProvider, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KModifierKeyInfoProvider_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -1859,12 +1927,13 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KModifierKeyInfoProvider_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KModifierKeyInfoProvider, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KModifierKeyInfoProvider_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1875,12 +1944,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider`
+    /// ` self: KModifierKeyInfoProvider`
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KModifierKeyInfoProvider_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, QMetaMethod) callconv(.c) bool) void {
+        qtc.KModifierKeyInfoProvider_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1891,12 +1960,12 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    /// ` callback: *const fn (self: QtC.KModifierKeyInfoProvider, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KModifierKeyInfoProvider, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KModifierKeyInfoProvider, callback: *const fn (KModifierKeyInfoProvider, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1909,10 +1978,10 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KModifierKeyInfoProvider `
+    /// ` self: KModifierKeyInfoProvider `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KModifierKeyInfoProvider_Delete(@ptrCast(self));
+    pub fn Delete(self: KModifierKeyInfoProvider) void {
+        qtc.KModifierKeyInfoProvider_Delete(@ptrCast(self.ptr));
     }
 };
 

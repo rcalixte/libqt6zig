@@ -1,260 +1,280 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QDeadlineTimer = @import("libqt6").QDeadlineTimer;
+const QHostAddress = @import("libqt6").QHostAddress;
 const qnetworkinterface_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html)
-pub const qnetworkaddressentry = struct {
+pub const QNetworkAddressEntry = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QNetworkAddressEntry,
+
+    pub const _is_QNetworkAddressEntry = {};
+
     /// New constructs a new QNetworkAddressEntry object.
     ///
-    pub fn New() QtC.QNetworkAddressEntry {
-        return qtc.QNetworkAddressEntry_new();
+    pub fn New() QNetworkAddressEntry {
+        return .{ .ptr = qtc.QNetworkAddressEntry_new() };
     }
 
     /// New2 constructs a new QNetworkAddressEntry object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QNetworkAddressEntry `
+    /// ` other: QNetworkAddressEntry `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QNetworkAddressEntry {
-        return qtc.QNetworkAddressEntry_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QNetworkAddressEntry {
+        comptime _ = @TypeOf(other)._is_QNetworkAddressEntry;
+        return .{ .ptr = qtc.QNetworkAddressEntry_new2(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkAddressEntry `
+    /// ` self: QNetworkAddressEntry `
     ///
-    /// ` other: QtC.QNetworkAddressEntry `
+    /// ` other: QNetworkAddressEntry `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QNetworkAddressEntry_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QNetworkAddressEntry, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QNetworkAddressEntry;
+        qtc.QNetworkAddressEntry_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkAddressEntry `
+    /// ` self: QNetworkAddressEntry `
     ///
-    /// ` other: QtC.QNetworkAddressEntry `
+    /// ` other: QNetworkAddressEntry `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QNetworkAddressEntry_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QNetworkAddressEntry, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QNetworkAddressEntry;
+        qtc.QNetworkAddressEntry_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#operator-eq-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkAddressEntry `
+    /// ` self: QNetworkAddressEntry `
     ///
-    /// ` other: QtC.QNetworkAddressEntry `
+    /// ` other: QNetworkAddressEntry `
     ///
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QNetworkAddressEntry_OperatorEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorEqual(self: QNetworkAddressEntry, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QNetworkAddressEntry;
+        return qtc.QNetworkAddressEntry_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#operator-not-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkAddressEntry `
+    /// ` self: QNetworkAddressEntry `
     ///
-    /// ` other: QtC.QNetworkAddressEntry `
+    /// ` other: QNetworkAddressEntry `
     ///
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QNetworkAddressEntry_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorNotEqual(self: QNetworkAddressEntry, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QNetworkAddressEntry;
+        return qtc.QNetworkAddressEntry_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#dnsEligibility)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkAddressEntry `
+    /// ` self: QNetworkAddressEntry `
     ///
     /// ## Returns:
     ///
     /// ` qnetworkinterface_enums.DnsEligibilityStatus `
     ///
-    pub fn DnsEligibility(self: ?*anyopaque) i8 {
-        return qtc.QNetworkAddressEntry_DnsEligibility(@ptrCast(self));
+    pub fn DnsEligibility(self: QNetworkAddressEntry) i8 {
+        return qtc.QNetworkAddressEntry_DnsEligibility(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#setDnsEligibility)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkAddressEntry `
+    /// ` self: QNetworkAddressEntry `
     ///
     /// ` status: qnetworkinterface_enums.DnsEligibilityStatus `
     ///
-    pub fn SetDnsEligibility(self: ?*anyopaque, status: i8) void {
-        qtc.QNetworkAddressEntry_SetDnsEligibility(@ptrCast(self), @bitCast(status));
+    pub fn SetDnsEligibility(self: QNetworkAddressEntry, status: i8) void {
+        qtc.QNetworkAddressEntry_SetDnsEligibility(@ptrCast(self.ptr), @bitCast(status));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#ip)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkAddressEntry `
+    /// ` self: QNetworkAddressEntry `
     ///
-    pub fn Ip(self: ?*anyopaque) QtC.QHostAddress {
-        return qtc.QNetworkAddressEntry_Ip(@ptrCast(self));
+    pub fn Ip(self: QNetworkAddressEntry) QHostAddress {
+        return .{ .ptr = qtc.QNetworkAddressEntry_Ip(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#setIp)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkAddressEntry `
+    /// ` self: QNetworkAddressEntry `
     ///
-    /// ` newIp: QtC.QHostAddress `
+    /// ` newIp: QHostAddress `
     ///
-    pub fn SetIp(self: ?*anyopaque, newIp: ?*anyopaque) void {
-        qtc.QNetworkAddressEntry_SetIp(@ptrCast(self), @ptrCast(newIp));
+    pub fn SetIp(self: QNetworkAddressEntry, newIp: anytype) void {
+        comptime _ = @TypeOf(newIp)._is_QHostAddress;
+        qtc.QNetworkAddressEntry_SetIp(@ptrCast(self.ptr), @ptrCast(newIp.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#netmask)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkAddressEntry `
+    /// ` self: QNetworkAddressEntry `
     ///
-    pub fn Netmask(self: ?*anyopaque) QtC.QHostAddress {
-        return qtc.QNetworkAddressEntry_Netmask(@ptrCast(self));
+    pub fn Netmask(self: QNetworkAddressEntry) QHostAddress {
+        return .{ .ptr = qtc.QNetworkAddressEntry_Netmask(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#setNetmask)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkAddressEntry `
+    /// ` self: QNetworkAddressEntry `
     ///
-    /// ` newNetmask: QtC.QHostAddress `
+    /// ` newNetmask: QHostAddress `
     ///
-    pub fn SetNetmask(self: ?*anyopaque, newNetmask: ?*anyopaque) void {
-        qtc.QNetworkAddressEntry_SetNetmask(@ptrCast(self), @ptrCast(newNetmask));
+    pub fn SetNetmask(self: QNetworkAddressEntry, newNetmask: anytype) void {
+        comptime _ = @TypeOf(newNetmask)._is_QHostAddress;
+        qtc.QNetworkAddressEntry_SetNetmask(@ptrCast(self.ptr), @ptrCast(newNetmask.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#prefixLength)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkAddressEntry `
+    /// ` self: QNetworkAddressEntry `
     ///
-    pub fn PrefixLength(self: ?*anyopaque) i32 {
-        return qtc.QNetworkAddressEntry_PrefixLength(@ptrCast(self));
+    pub fn PrefixLength(self: QNetworkAddressEntry) i32 {
+        return qtc.QNetworkAddressEntry_PrefixLength(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#setPrefixLength)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkAddressEntry `
+    /// ` self: QNetworkAddressEntry `
     ///
     /// ` length: i32 `
     ///
-    pub fn SetPrefixLength(self: ?*anyopaque, length: i32) void {
-        qtc.QNetworkAddressEntry_SetPrefixLength(@ptrCast(self), @bitCast(length));
+    pub fn SetPrefixLength(self: QNetworkAddressEntry, length: i32) void {
+        qtc.QNetworkAddressEntry_SetPrefixLength(@ptrCast(self.ptr), @bitCast(length));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#broadcast)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkAddressEntry `
+    /// ` self: QNetworkAddressEntry `
     ///
-    pub fn Broadcast(self: ?*anyopaque) QtC.QHostAddress {
-        return qtc.QNetworkAddressEntry_Broadcast(@ptrCast(self));
+    pub fn Broadcast(self: QNetworkAddressEntry) QHostAddress {
+        return .{ .ptr = qtc.QNetworkAddressEntry_Broadcast(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#setBroadcast)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkAddressEntry `
+    /// ` self: QNetworkAddressEntry `
     ///
-    /// ` newBroadcast: QtC.QHostAddress `
+    /// ` newBroadcast: QHostAddress `
     ///
-    pub fn SetBroadcast(self: ?*anyopaque, newBroadcast: ?*anyopaque) void {
-        qtc.QNetworkAddressEntry_SetBroadcast(@ptrCast(self), @ptrCast(newBroadcast));
+    pub fn SetBroadcast(self: QNetworkAddressEntry, newBroadcast: anytype) void {
+        comptime _ = @TypeOf(newBroadcast)._is_QHostAddress;
+        qtc.QNetworkAddressEntry_SetBroadcast(@ptrCast(self.ptr), @ptrCast(newBroadcast.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#isLifetimeKnown)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkAddressEntry `
+    /// ` self: QNetworkAddressEntry `
     ///
-    pub fn IsLifetimeKnown(self: ?*anyopaque) bool {
-        return qtc.QNetworkAddressEntry_IsLifetimeKnown(@ptrCast(self));
+    pub fn IsLifetimeKnown(self: QNetworkAddressEntry) bool {
+        return qtc.QNetworkAddressEntry_IsLifetimeKnown(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#preferredLifetime)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkAddressEntry `
+    /// ` self: QNetworkAddressEntry `
     ///
-    pub fn PreferredLifetime(self: ?*anyopaque) QtC.QDeadlineTimer {
-        return qtc.QNetworkAddressEntry_PreferredLifetime(@ptrCast(self));
+    pub fn PreferredLifetime(self: QNetworkAddressEntry) QDeadlineTimer {
+        return .{ .ptr = qtc.QNetworkAddressEntry_PreferredLifetime(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#validityLifetime)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkAddressEntry `
+    /// ` self: QNetworkAddressEntry `
     ///
-    pub fn ValidityLifetime(self: ?*anyopaque) QtC.QDeadlineTimer {
-        return qtc.QNetworkAddressEntry_ValidityLifetime(@ptrCast(self));
+    pub fn ValidityLifetime(self: QNetworkAddressEntry) QDeadlineTimer {
+        return .{ .ptr = qtc.QNetworkAddressEntry_ValidityLifetime(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#setAddressLifetime)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkAddressEntry `
+    /// ` self: QNetworkAddressEntry `
     ///
-    /// ` preferred: QtC.QDeadlineTimer `
+    /// ` preferred: QDeadlineTimer `
     ///
-    /// ` validity: QtC.QDeadlineTimer `
+    /// ` validity: QDeadlineTimer `
     ///
-    pub fn SetAddressLifetime(self: ?*anyopaque, preferred: QtC.QDeadlineTimer, validity: QtC.QDeadlineTimer) void {
-        qtc.QNetworkAddressEntry_SetAddressLifetime(@ptrCast(self), @ptrCast(preferred), @ptrCast(validity));
+    pub fn SetAddressLifetime(self: QNetworkAddressEntry, preferred: anytype, validity: anytype) void {
+        comptime _ = @TypeOf(preferred)._is_QDeadlineTimer;
+        comptime _ = @TypeOf(validity)._is_QDeadlineTimer;
+        qtc.QNetworkAddressEntry_SetAddressLifetime(@ptrCast(self.ptr), @ptrCast(preferred.ptr), @ptrCast(validity.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#clearAddressLifetime)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkAddressEntry `
+    /// ` self: QNetworkAddressEntry `
     ///
-    pub fn ClearAddressLifetime(self: ?*anyopaque) void {
-        qtc.QNetworkAddressEntry_ClearAddressLifetime(@ptrCast(self));
+    pub fn ClearAddressLifetime(self: QNetworkAddressEntry) void {
+        qtc.QNetworkAddressEntry_ClearAddressLifetime(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#isPermanent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkAddressEntry `
+    /// ` self: QNetworkAddressEntry `
     ///
-    pub fn IsPermanent(self: ?*anyopaque) bool {
-        return qtc.QNetworkAddressEntry_IsPermanent(@ptrCast(self));
+    pub fn IsPermanent(self: QNetworkAddressEntry) bool {
+        return qtc.QNetworkAddressEntry_IsPermanent(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkaddressentry.html#isTemporary)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkAddressEntry `
+    /// ` self: QNetworkAddressEntry `
     ///
-    pub fn IsTemporary(self: ?*anyopaque) bool {
-        return qtc.QNetworkAddressEntry_IsTemporary(@ptrCast(self));
+    pub fn IsTemporary(self: QNetworkAddressEntry) bool {
+        return qtc.QNetworkAddressEntry_IsTemporary(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -267,95 +287,106 @@ pub const qnetworkaddressentry = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QNetworkAddressEntry `
+    /// ` self: QNetworkAddressEntry `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QNetworkAddressEntry_Delete(@ptrCast(self));
+    pub fn Delete(self: QNetworkAddressEntry) void {
+        qtc.QNetworkAddressEntry_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkinterface.html)
-pub const qnetworkinterface = struct {
+pub const QNetworkInterface = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkinterface.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QNetworkInterface,
+
+    pub const _is_QNetworkInterface = {};
+
     /// New constructs a new QNetworkInterface object.
     ///
-    pub fn New() QtC.QNetworkInterface {
-        return qtc.QNetworkInterface_new();
+    pub fn New() QNetworkInterface {
+        return .{ .ptr = qtc.QNetworkInterface_new() };
     }
 
     /// New2 constructs a new QNetworkInterface object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QNetworkInterface `
+    /// ` other: QNetworkInterface `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QNetworkInterface {
-        return qtc.QNetworkInterface_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QNetworkInterface {
+        comptime _ = @TypeOf(other)._is_QNetworkInterface;
+        return .{ .ptr = qtc.QNetworkInterface_new2(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkinterface.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkInterface `
+    /// ` self: QNetworkInterface `
     ///
-    /// ` other: QtC.QNetworkInterface `
+    /// ` other: QNetworkInterface `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QNetworkInterface_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QNetworkInterface, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QNetworkInterface;
+        qtc.QNetworkInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkinterface.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkInterface `
+    /// ` self: QNetworkInterface `
     ///
-    /// ` other: QtC.QNetworkInterface `
+    /// ` other: QNetworkInterface `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QNetworkInterface_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QNetworkInterface, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QNetworkInterface;
+        qtc.QNetworkInterface_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkinterface.html#isValid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkInterface `
+    /// ` self: QNetworkInterface `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.QNetworkInterface_IsValid(@ptrCast(self));
+    pub fn IsValid(self: QNetworkInterface) bool {
+        return qtc.QNetworkInterface_IsValid(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkinterface.html#index)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkInterface `
+    /// ` self: QNetworkInterface `
     ///
-    pub fn Index(self: ?*anyopaque) i32 {
-        return qtc.QNetworkInterface_Index(@ptrCast(self));
+    pub fn Index(self: QNetworkInterface) i32 {
+        return qtc.QNetworkInterface_Index(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkinterface.html#maximumTransmissionUnit)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkInterface `
+    /// ` self: QNetworkInterface `
     ///
-    pub fn MaximumTransmissionUnit(self: ?*anyopaque) i32 {
-        return qtc.QNetworkInterface_MaximumTransmissionUnit(@ptrCast(self));
+    pub fn MaximumTransmissionUnit(self: QNetworkInterface) i32 {
+        return qtc.QNetworkInterface_MaximumTransmissionUnit(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkinterface.html#name)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkInterface `
+    /// ` self: QNetworkInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QNetworkInterface_Name(@ptrCast(self));
+    pub fn Name(self: QNetworkInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QNetworkInterface_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkinterface.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -366,12 +397,12 @@ pub const qnetworkinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkInterface `
+    /// ` self: QNetworkInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn HumanReadableName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QNetworkInterface_HumanReadableName(@ptrCast(self));
+    pub fn HumanReadableName(self: QNetworkInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QNetworkInterface_HumanReadableName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkinterface.HumanReadableName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -382,40 +413,40 @@ pub const qnetworkinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkInterface `
+    /// ` self: QNetworkInterface `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnetworkinterface_enums.InterfaceFlag `
     ///
-    pub fn Flags(self: ?*anyopaque) i32 {
-        return qtc.QNetworkInterface_Flags(@ptrCast(self));
+    pub fn Flags(self: QNetworkInterface) i32 {
+        return qtc.QNetworkInterface_Flags(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkinterface.html#type)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkInterface `
+    /// ` self: QNetworkInterface `
     ///
     /// ## Returns:
     ///
     /// ` qnetworkinterface_enums.InterfaceType `
     ///
-    pub fn Type(self: ?*anyopaque) i32 {
-        return qtc.QNetworkInterface_Type(@ptrCast(self));
+    pub fn Type(self: QNetworkInterface) i32 {
+        return qtc.QNetworkInterface_Type(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkinterface.html#hardwareAddress)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkInterface `
+    /// ` self: QNetworkInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn HardwareAddress(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QNetworkInterface_HardwareAddress(@ptrCast(self));
+    pub fn HardwareAddress(self: QNetworkInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QNetworkInterface_HardwareAddress(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkinterface.HardwareAddress: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -426,16 +457,17 @@ pub const qnetworkinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QNetworkInterface `
+    /// ` self: QNetworkInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AddressEntries(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QNetworkAddressEntry {
-        const _arr: qtc.libqt_list = qtc.QNetworkInterface_AddressEntries(@ptrCast(self));
+    pub fn AddressEntries(self: QNetworkInterface, allocator: std.mem.Allocator) []QNetworkAddressEntry {
+        const _arr: qtc.libqt_list = qtc.QNetworkInterface_AddressEntries(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QNetworkAddressEntry, _arr.len) catch @panic("qnetworkinterface.AddressEntries: Memory allocation failed");
+        const _ret = allocator.alloc(QNetworkAddressEntry, _arr.len) catch @panic("qnetworkinterface.AddressEntries: Memory allocation failed");
         const _data: [*]QtC.QNetworkAddressEntry = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -459,12 +491,12 @@ pub const qnetworkinterface = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn InterfaceFromName(name: []const u8) QtC.QNetworkInterface {
+    pub fn InterfaceFromName(name: []const u8) QNetworkInterface {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QNetworkInterface_InterfaceFromName(name_str);
+        return .{ .ptr = qtc.QNetworkInterface_InterfaceFromName(name_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkinterface.html#interfaceFromIndex)
@@ -473,19 +505,19 @@ pub const qnetworkinterface = struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn InterfaceFromIndex(index: i32) QtC.QNetworkInterface {
-        return qtc.QNetworkInterface_InterfaceFromIndex(@bitCast(index));
+    pub fn InterfaceFromIndex(index: i32) QNetworkInterface {
+        return .{ .ptr = qtc.QNetworkInterface_InterfaceFromIndex(@bitCast(index)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkinterface.html#interfaceNameFromIndex)
     ///
     /// ## Parameter(s):
     ///
-    /// ` index: i32 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InterfaceNameFromIndex(index: i32, allocator: std.mem.Allocator) []const u8 {
+    /// ` index: i32 `
+    ///
+    pub fn InterfaceNameFromIndex(allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QNetworkInterface_InterfaceNameFromIndex(@bitCast(index));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkinterface.InterfaceNameFromIndex: Memory allocation failed");
@@ -499,12 +531,13 @@ pub const qnetworkinterface = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllInterfaces(allocator: std.mem.Allocator) []QtC.QNetworkInterface {
+    pub fn AllInterfaces(allocator: std.mem.Allocator) []QNetworkInterface {
         const _arr: qtc.libqt_list = qtc.QNetworkInterface_AllInterfaces();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QNetworkInterface, _arr.len) catch @panic("qnetworkinterface.AllInterfaces: Memory allocation failed");
+        const _ret = allocator.alloc(QNetworkInterface, _arr.len) catch @panic("qnetworkinterface.AllInterfaces: Memory allocation failed");
         const _data: [*]QtC.QNetworkInterface = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -514,12 +547,13 @@ pub const qnetworkinterface = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllAddresses(allocator: std.mem.Allocator) []QtC.QHostAddress {
+    pub fn AllAddresses(allocator: std.mem.Allocator) []QHostAddress {
         const _arr: qtc.libqt_list = qtc.QNetworkInterface_AllAddresses();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QHostAddress, _arr.len) catch @panic("qnetworkinterface.AllAddresses: Memory allocation failed");
+        const _ret = allocator.alloc(QHostAddress, _arr.len) catch @panic("qnetworkinterface.AllAddresses: Memory allocation failed");
         const _data: [*]QtC.QHostAddress = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -533,10 +567,10 @@ pub const qnetworkinterface = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QNetworkInterface `
+    /// ` self: QNetworkInterface `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QNetworkInterface_Delete(@ptrCast(self));
+    pub fn Delete(self: QNetworkInterface) void {
+        qtc.QNetworkInterface_Delete(@ptrCast(self.ptr));
     }
 };
 

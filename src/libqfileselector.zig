@@ -1,35 +1,56 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QUrl = @import("libqt6").QUrl;
+const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qfileselector.html)
-pub const qfileselector = struct {
+pub const QFileSelector = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfileselector.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QFileSelector,
+
+    pub const _is_QFileSelector = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QFileSelector object.
     ///
-    pub fn New() QtC.QFileSelector {
-        return qtc.QFileSelector_new();
+    pub fn New() QFileSelector {
+        return .{ .ptr = qtc.QFileSelector_new() };
     }
 
     /// New2 constructs a new QFileSelector object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.QFileSelector {
-        return qtc.QFileSelector_new2(@ptrCast(parent));
+    pub fn New2(parent: anytype) QFileSelector {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QFileSelector_new2(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QFileSelector_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QFileSelector) QMetaObject {
+        return .{ .ptr = qtc.QFileSelector_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -38,12 +59,12 @@ pub const qfileselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QFileSelector_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QFileSelector, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QFileSelector_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -56,33 +77,33 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QFileSelector_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QFileSelector) QMetaObject {
+        return .{ .ptr = qtc.QFileSelector_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QFileSelector, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QFileSelector_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QFileSelector_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` callback: *const fn (self: QtC.QFileSelector, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QFileSelector, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QFileSelector_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QFileSelector, callback: *const fn (QFileSelector, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QFileSelector_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -93,18 +114,18 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QFileSelector, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QFileSelector_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QFileSelector_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -112,20 +133,20 @@ pub const qfileselector = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QFileSelector_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QFileSelector, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QFileSelector_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` callback: *const fn (self: QtC.QFileSelector, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QFileSelector, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QFileSelector_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QFileSelector, callback: *const fn (QFileSelector, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QFileSelector_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -136,7 +157,7 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -144,19 +165,19 @@ pub const qfileselector = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QFileSelector_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QFileSelector, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QFileSelector_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -169,18 +190,18 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
-    ///
-    /// ` filePath: []const u8 `
+    /// ` self: QFileSelector `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Select(self: ?*anyopaque, filePath: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` filePath: []const u8 `
+    ///
+    pub fn Select(self: QFileSelector, allocator: std.mem.Allocator, filePath: []const u8) []const u8 {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        var _str = qtc.QFileSelector_Select(@ptrCast(self), filePath_str);
+        var _str = qtc.QFileSelector_Select(@ptrCast(self.ptr), filePath_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfileselector.Select: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -191,29 +212,29 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` filePath: QtC.QUrl `
+    /// ` filePath: QUrl `
     ///
-    pub fn Select2(self: ?*anyopaque, filePath: ?*anyopaque) QtC.QUrl {
-        return qtc.QFileSelector_Select2(@ptrCast(self), @ptrCast(filePath));
+    pub fn Select2(self: QFileSelector, filePath: anytype) QUrl {
+        comptime _ = @TypeOf(filePath)._is_QUrl;
+        return .{ .ptr = qtc.QFileSelector_Select2(@ptrCast(self.ptr), @ptrCast(filePath.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfileselector.html#extraSelectors)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExtraSelectors(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QFileSelector_ExtraSelectors(@ptrCast(self));
+    pub fn ExtraSelectors(self: QFileSelector, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QFileSelector_ExtraSelectors(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfileselector.ExtraSelectors: Memory allocation failed");
@@ -230,43 +251,41 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
-    ///
-    /// ` list: []const []const u8 `
+    /// ` self: QFileSelector `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetExtraSelectors(self: ?*anyopaque, list: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` list: []const []const u8 `
+    ///
+    pub fn SetExtraSelectors(self: QFileSelector, allocator: std.mem.Allocator, list: []const []const u8) void {
         const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("qfileselector.SetExtraSelectors: Memory allocation failed");
         defer allocator.free(list_arr);
-        for (list, 0..list.len) |item, i| {
+        for (list, 0..list.len) |item, i|
             list_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const list_list = qtc.libqt_list{
             .len = list.len,
             .data = list_arr.ptr,
         };
-        qtc.QFileSelector_SetExtraSelectors(@ptrCast(self), list_list);
+        qtc.QFileSelector_SetExtraSelectors(@ptrCast(self.ptr), list_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfileselector.html#allSelectors)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllSelectors(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QFileSelector_AllSelectors(@ptrCast(self));
+    pub fn AllSelectors(self: QFileSelector, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QFileSelector_AllSelectors(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfileselector.AllSelectors: Memory allocation failed");
@@ -283,13 +302,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -303,15 +322,15 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -327,12 +346,12 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QFileSelector, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfileselector.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -345,12 +364,12 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QFileSelector, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -359,10 +378,10 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QFileSelector) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -371,10 +390,10 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QFileSelector) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -383,10 +402,10 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QFileSelector) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -395,10 +414,10 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QFileSelector) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -407,12 +426,12 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QFileSelector, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -421,10 +440,10 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QFileSelector) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -433,12 +452,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QFileSelector, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -447,12 +467,12 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QFileSelector, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -461,12 +481,12 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QFileSelector, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -475,12 +495,12 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QFileSelector, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -489,12 +509,12 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QFileSelector, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -503,16 +523,17 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QFileSelector, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qfileselector.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qfileselector.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -522,12 +543,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QFileSelector, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -536,12 +558,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QFileSelector, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -550,12 +573,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QFileSelector, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -564,18 +588,20 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -584,16 +610,20 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -602,18 +632,19 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QFileSelector, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -622,18 +653,20 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -642,16 +675,20 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -660,10 +697,10 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QFileSelector) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -672,12 +709,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QFileSelector, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -686,10 +724,11 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -698,10 +737,10 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QFileSelector) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -710,10 +749,10 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QFileSelector) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -722,15 +761,16 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QFileSelector, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -739,13 +779,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QFileSelector, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -754,17 +794,16 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QFileSelector, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qfileselector.DynamicPropertyNames: Memory allocation failed");
@@ -783,10 +822,10 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QFileSelector) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -795,10 +834,10 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QFileSelector) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -807,10 +846,10 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QFileSelector) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -819,12 +858,12 @@ pub const qfileselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` callback: *const fn (self: QtC.QFileSelector) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileSelector) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QFileSelector, callback: *const fn (QFileSelector) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -833,10 +872,10 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QFileSelector) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -845,13 +884,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QFileSelector, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -860,10 +899,10 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QFileSelector) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -872,14 +911,14 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QFileSelector, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -888,14 +927,14 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QFileSelector, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -904,20 +943,22 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -926,18 +967,22 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -946,9 +991,9 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -956,10 +1001,11 @@ pub const qfileselector = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QFileSelector, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -968,13 +1014,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QFileSelector, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -983,15 +1029,16 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QFileSelector, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1000,18 +1047,19 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QFileSelector, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1020,15 +1068,16 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QFileSelector, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1037,12 +1086,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QFileSelector, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1051,12 +1101,12 @@ pub const qfileselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` callback: *const fn (self: QtC.QFileSelector, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileSelector, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QFileSelector, callback: *const fn (QFileSelector, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1067,12 +1117,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QFileSelector_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QFileSelector, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QFileSelector_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1087,12 +1138,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QFileSelector_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QFileSelector, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QFileSelector_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1103,12 +1155,12 @@ pub const qfileselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileSelector`
+    /// ` self: QFileSelector`
     ///
-    /// ` callback: *const fn (self: QtC.QFileSelector, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFileSelector, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFileSelector_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QFileSelector, callback: *const fn (QFileSelector, QEvent) callconv(.c) bool) void {
+        qtc.QFileSelector_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1119,14 +1171,16 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QFileSelector_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QFileSelector, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QFileSelector_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1141,14 +1195,16 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QFileSelector_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QFileSelector, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QFileSelector_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1159,12 +1215,12 @@ pub const qfileselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileSelector`
+    /// ` self: QFileSelector`
     ///
-    /// ` callback: *const fn (self: QtC.QFileSelector, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFileSelector, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFileSelector_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QFileSelector, callback: *const fn (QFileSelector, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QFileSelector_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1175,12 +1231,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileSelector_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QFileSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QFileSelector_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1195,12 +1252,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileSelector_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QFileSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QFileSelector_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1211,12 +1269,12 @@ pub const qfileselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileSelector`
+    /// ` self: QFileSelector`
     ///
-    /// ` callback: *const fn (self: QtC.QFileSelector, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileSelector, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileSelector_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QFileSelector, callback: *const fn (QFileSelector, QTimerEvent) callconv(.c) void) void {
+        qtc.QFileSelector_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1227,12 +1285,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileSelector_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QFileSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QFileSelector_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1247,12 +1306,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileSelector_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QFileSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QFileSelector_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1263,12 +1323,12 @@ pub const qfileselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileSelector`
+    /// ` self: QFileSelector`
     ///
-    /// ` callback: *const fn (self: QtC.QFileSelector, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileSelector, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileSelector_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QFileSelector, callback: *const fn (QFileSelector, QChildEvent) callconv(.c) void) void {
+        qtc.QFileSelector_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1279,12 +1339,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileSelector_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QFileSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QFileSelector_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1299,12 +1360,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFileSelector_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QFileSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QFileSelector_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1315,12 +1377,12 @@ pub const qfileselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileSelector`
+    /// ` self: QFileSelector`
     ///
-    /// ` callback: *const fn (self: QtC.QFileSelector, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileSelector, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileSelector_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QFileSelector, callback: *const fn (QFileSelector, QEvent) callconv(.c) void) void {
+        qtc.QFileSelector_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1331,12 +1393,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QFileSelector_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QFileSelector, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QFileSelector_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1351,12 +1414,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QFileSelector_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QFileSelector, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QFileSelector_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1367,12 +1431,12 @@ pub const qfileselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileSelector`
+    /// ` self: QFileSelector`
     ///
-    /// ` callback: *const fn (self: QtC.QFileSelector, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileSelector, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileSelector_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QFileSelector, callback: *const fn (QFileSelector, QMetaMethod) callconv(.c) void) void {
+        qtc.QFileSelector_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1383,12 +1447,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QFileSelector_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QFileSelector, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QFileSelector_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1403,12 +1468,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QFileSelector_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QFileSelector, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QFileSelector_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1419,12 +1485,12 @@ pub const qfileselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileSelector`
+    /// ` self: QFileSelector`
     ///
-    /// ` callback: *const fn (self: QtC.QFileSelector, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileSelector, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFileSelector_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QFileSelector, callback: *const fn (QFileSelector, QMetaMethod) callconv(.c) void) void {
+        qtc.QFileSelector_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1435,10 +1501,10 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QFileSelector_Sender(@ptrCast(self));
+    pub fn Sender(self: QFileSelector) QObject {
+        return .{ .ptr = qtc.QFileSelector_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -1453,10 +1519,10 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QFileSelector_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QFileSelector) QObject {
+        return .{ .ptr = qtc.QFileSelector_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1467,12 +1533,12 @@ pub const qfileselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileSelector`
+    /// ` self: QFileSelector`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QFileSelector_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QFileSelector, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QFileSelector_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1483,10 +1549,10 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QFileSelector_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QFileSelector) i32 {
+        return qtc.QFileSelector_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -1501,10 +1567,10 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QFileSelector_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QFileSelector) i32 {
+        return qtc.QFileSelector_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1515,12 +1581,12 @@ pub const qfileselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileSelector`
+    /// ` self: QFileSelector`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QFileSelector_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QFileSelector, callback: *const fn () callconv(.c) i32) void {
+        qtc.QFileSelector_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1531,13 +1597,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QFileSelector, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QFileSelector_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QFileSelector_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -1552,13 +1618,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QFileSelector, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QFileSelector_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QFileSelector_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1569,12 +1635,12 @@ pub const qfileselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileSelector`
+    /// ` self: QFileSelector`
     ///
-    /// ` callback: *const fn (self: QtC.QFileSelector, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QFileSelector, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QFileSelector_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QFileSelector, callback: *const fn (QFileSelector, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QFileSelector_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1585,12 +1651,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QFileSelector_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QFileSelector, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QFileSelector_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -1605,12 +1672,13 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QFileSelector_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QFileSelector, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QFileSelector_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1621,12 +1689,12 @@ pub const qfileselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileSelector`
+    /// ` self: QFileSelector`
     ///
-    /// ` callback: *const fn (self: QtC.QFileSelector, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFileSelector, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFileSelector_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QFileSelector, callback: *const fn (QFileSelector, QMetaMethod) callconv(.c) bool) void {
+        qtc.QFileSelector_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1637,12 +1705,12 @@ pub const qfileselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    /// ` callback: *const fn (self: QtC.QFileSelector, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QFileSelector, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QFileSelector, callback: *const fn (QFileSelector, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1655,9 +1723,9 @@ pub const qfileselector = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QFileSelector `
+    /// ` self: QFileSelector `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QFileSelector_Delete(@ptrCast(self));
+    pub fn Delete(self: QFileSelector) void {
+        qtc.QFileSelector_Delete(@ptrCast(self.ptr));
     }
 };

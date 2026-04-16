@@ -1,58 +1,69 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QDomDocument = @import("libqt6").QDomDocument;
 const std = @import("std");
-const set_constu8 = std.StringHashMapUnmanaged(void);
+const Set_constu8 = std.StringHashMapUnmanaged(void);
 
 /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
-pub const accounts__service = struct {
+pub const Accounts__Service = extern struct {
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Accounts__Service,
+
+    pub const _is_Accounts__Service = {};
+
     /// New constructs a new Accounts::Service object.
     ///
-    pub fn New() QtC.Accounts__Service {
-        return qtc.Accounts__Service_new();
+    pub fn New() Accounts__Service {
+        return .{ .ptr = qtc.Accounts__Service_new() };
     }
 
     /// New2 constructs a new Accounts::Service object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.Accounts__Service `
+    /// ` other: Accounts__Service `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.Accounts__Service {
-        return qtc.Accounts__Service_new2(@ptrCast(other));
+    pub fn New2(other: anytype) Accounts__Service {
+        comptime _ = @TypeOf(other)._is_Accounts__Service;
+        return .{ .ptr = qtc.Accounts__Service_new2(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__Service `
+    /// ` self: Accounts__Service `
     ///
-    /// ` other: QtC.Accounts__Service `
+    /// ` other: Accounts__Service `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.Accounts__Service_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: Accounts__Service, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_Accounts__Service;
+        qtc.Accounts__Service_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__Service `
+    /// ` self: Accounts__Service `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.Accounts__Service_IsValid(@ptrCast(self));
+    pub fn IsValid(self: Accounts__Service) bool {
+        return qtc.Accounts__Service_IsValid(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__Service `
+    /// ` self: Accounts__Service `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Accounts__Service_Name(@ptrCast(self));
+    pub fn Name(self: Accounts__Service, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Accounts__Service_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__service.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -63,12 +74,12 @@ pub const accounts__service = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__Service `
+    /// ` self: Accounts__Service `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Accounts__Service_Description(@ptrCast(self));
+    pub fn Description(self: Accounts__Service, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Accounts__Service_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__service.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -79,12 +90,12 @@ pub const accounts__service = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__Service `
+    /// ` self: Accounts__Service `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DisplayName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Accounts__Service_DisplayName(@ptrCast(self));
+    pub fn DisplayName(self: Accounts__Service, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Accounts__Service_DisplayName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__service.DisplayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -95,12 +106,12 @@ pub const accounts__service = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__Service `
+    /// ` self: Accounts__Service `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TrCatalog(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Accounts__Service_TrCatalog(@ptrCast(self));
+    pub fn TrCatalog(self: Accounts__Service, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Accounts__Service_TrCatalog(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__service.TrCatalog: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -111,12 +122,12 @@ pub const accounts__service = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__Service `
+    /// ` self: Accounts__Service `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ServiceType(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Accounts__Service_ServiceType(@ptrCast(self));
+    pub fn ServiceType(self: Accounts__Service, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Accounts__Service_ServiceType(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__service.ServiceType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -127,12 +138,12 @@ pub const accounts__service = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__Service `
+    /// ` self: Accounts__Service `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Provider(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Accounts__Service_Provider(@ptrCast(self));
+    pub fn Provider(self: Accounts__Service, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Accounts__Service_Provider(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__service.Provider: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -143,12 +154,12 @@ pub const accounts__service = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__Service `
+    /// ` self: Accounts__Service `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Accounts__Service_IconName(@ptrCast(self));
+    pub fn IconName(self: Accounts__Service, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Accounts__Service_IconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__service.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -159,33 +170,32 @@ pub const accounts__service = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__Service `
+    /// ` self: Accounts__Service `
     ///
     /// ` tag: []const u8 `
     ///
-    pub fn HasTag(self: ?*anyopaque, tag: []const u8) bool {
+    pub fn HasTag(self: Accounts__Service, tag: []const u8) bool {
         const tag_str = qtc.libqt_string{
             .len = tag.len,
             .data = tag.ptr,
         };
-        return qtc.Accounts__Service_HasTag(@ptrCast(self), tag_str);
+        return qtc.Accounts__Service_HasTag(@ptrCast(self.ptr), tag_str);
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Service.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__Service `
+    /// ` self: Accounts__Service `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tags(self: ?*anyopaque, allocator: std.mem.Allocator) set_constu8 {
-        const _set: qtc.libqt_list = qtc.Accounts__Service_Tags(@ptrCast(self));
-        var _ret: set_constu8 = .empty;
+    pub fn Tags(self: Accounts__Service, allocator: std.mem.Allocator) Set_constu8 {
+        const _set: qtc.libqt_list = qtc.Accounts__Service_Tags(@ptrCast(self.ptr));
+        var _ret: Set_constu8 = .empty;
         const _data: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
-        for (0.._set.len) |i| {
+        for (0.._set.len) |i|
             _ret.put(allocator, _data[i].data[0.._data[i].len], {}) catch @panic("accounts__service.Tags: Set insertion failed");
-        }
         return _ret;
     }
 
@@ -193,10 +203,10 @@ pub const accounts__service = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__Service `
+    /// ` self: Accounts__Service `
     ///
-    pub fn DomDocument(self: ?*anyopaque) QtC.QDomDocument {
-        return qtc.Accounts__Service_DomDocument(@ptrCast(self));
+    pub fn DomDocument(self: Accounts__Service) QDomDocument {
+        return .{ .ptr = qtc.Accounts__Service_DomDocument(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -209,9 +219,9 @@ pub const accounts__service = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Accounts__Service `
+    /// ` self: Accounts__Service `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Accounts__Service_Delete(@ptrCast(self));
+    pub fn Delete(self: Accounts__Service) void {
+        qtc.Accounts__Service_Delete(@ptrCast(self.ptr));
     }
 };

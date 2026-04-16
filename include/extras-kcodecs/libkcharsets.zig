@@ -1,18 +1,27 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QChar = @import("libqt6").QChar;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kcharsets.html)
-pub const kcharsets = struct {
+pub const KCharsets = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kcharsets.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KCharsets,
+
+    pub const _is_KCharsets = {};
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` sourceText: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(sourceText: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` sourceText: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, sourceText: [:0]const u8) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         var _str = qtc.QObject_Tr(sourceText_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -23,20 +32,21 @@ pub const kcharsets = struct {
 
     /// ### [Upstream resources](https://api.kde.org/kcharsets.html#charsets)
     ///
-    pub fn Charsets() QtC.KCharsets {
-        return qtc.KCharsets_Charsets();
+    pub fn Charsets() KCharsets {
+        return .{ .ptr = qtc.KCharsets_Charsets() };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcharsets.html#toEntity)
     ///
     /// ## Parameter(s):
     ///
-    /// ` ch: QtC.QChar `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToEntity(ch: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KCharsets_ToEntity(@ptrCast(ch));
+    /// ` ch: QChar `
+    ///
+    pub fn ToEntity(allocator: std.mem.Allocator, ch: anytype) []const u8 {
+        comptime _ = @TypeOf(ch)._is_QChar;
+        var _str = qtc.KCharsets_ToEntity(@ptrCast(ch.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcharsets.ToEntity: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -47,11 +57,11 @@ pub const kcharsets = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` text: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ResolveEntities(text: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` text: []const u8 `
+    ///
+    pub fn ResolveEntities(allocator: std.mem.Allocator, text: []const u8) []const u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -67,17 +77,16 @@ pub const kcharsets = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCharsets `
+    /// ` self: KCharsets `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableEncodingNames(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KCharsets_AvailableEncodingNames(@ptrCast(self));
+    pub fn AvailableEncodingNames(self: KCharsets, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KCharsets_AvailableEncodingNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kcharsets.AvailableEncodingNames: Memory allocation failed");
@@ -94,17 +103,16 @@ pub const kcharsets = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCharsets `
+    /// ` self: KCharsets `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DescriptiveEncodingNames(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KCharsets_DescriptiveEncodingNames(@ptrCast(self));
+    pub fn DescriptiveEncodingNames(self: KCharsets, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KCharsets_DescriptiveEncodingNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kcharsets.DescriptiveEncodingNames: Memory allocation failed");
@@ -121,19 +129,18 @@ pub const kcharsets = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCharsets `
+    /// ` self: KCharsets `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EncodingsByScript(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KCharsets_EncodingsByScript(@ptrCast(self));
+    pub fn EncodingsByScript(self: KCharsets, allocator: std.mem.Allocator) [][]const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KCharsets_EncodingsByScript(@ptrCast(self.ptr));
         const _str: [*]qtc.libqt_list = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 var _strlist: [*]qtc.libqt_string = @ptrCast(@alignCast(_str[i].data));
-                for (0.._str[i].len) |j| {
+                for (0.._str[i].len) |j|
                     qtc.libqt_string_free(@ptrCast(&_strlist[j]));
-                }
                 qtc.libqt_free(_str[i].data);
             }
             qtc.libqt_free(_arr.data);
@@ -157,18 +164,18 @@ pub const kcharsets = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KCharsets `
-    ///
-    /// ` descriptiveName: []const u8 `
+    /// ` self: KCharsets `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EncodingForName(self: ?*anyopaque, descriptiveName: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` descriptiveName: []const u8 `
+    ///
+    pub fn EncodingForName(self: KCharsets, allocator: std.mem.Allocator, descriptiveName: []const u8) []const u8 {
         const descriptiveName_str = qtc.libqt_string{
             .len = descriptiveName.len,
             .data = descriptiveName.ptr,
         };
-        var _str = qtc.KCharsets_EncodingForName(@ptrCast(self), descriptiveName_str);
+        var _str = qtc.KCharsets_EncodingForName(@ptrCast(self.ptr), descriptiveName_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcharsets.EncodingForName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -179,13 +186,13 @@ pub const kcharsets = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` sourceText: [:0]const u8 `
     ///
     /// ` disambiguation: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(sourceText: [:0]const u8, disambiguation: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, sourceText: [:0]const u8, disambiguation: [:0]const u8) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QObject_Tr2(sourceText_Cstring, disambiguation_Cstring);
@@ -199,15 +206,15 @@ pub const kcharsets = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` sourceText: [:0]const u8 `
     ///
     /// ` disambiguation: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(sourceText: [:0]const u8, disambiguation: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, sourceText: [:0]const u8, disambiguation: [:0]const u8, n: i32) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @bitCast(n));
@@ -227,9 +234,9 @@ pub const kcharsets = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KCharsets `
+    /// ` self: KCharsets `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KCharsets_Delete(@ptrCast(self));
+    pub fn Delete(self: KCharsets) void {
+        qtc.KCharsets_Delete(@ptrCast(self.ptr));
     }
 };

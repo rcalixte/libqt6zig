@@ -3,7 +3,15 @@ const qtc = @import("qt6c");
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/attica.html)
-pub const attica = struct {
+pub const Attica = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/attica.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Attica,
+
+    pub const _is_Attica = {};
+
     /// ### [Upstream resources](https://api.kde.org/attica.html#versionMajor)
     ///
     pub fn VersionMajor() u32 {

@@ -1,114 +1,135 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qopengldebug_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html)
-pub const qopengldebugmessage = struct {
+pub const QOpenGLDebugMessage = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QOpenGLDebugMessage,
+
+    pub const _is_QOpenGLDebugMessage = {};
+
     /// New constructs a new QOpenGLDebugMessage object.
     ///
-    pub fn New() QtC.QOpenGLDebugMessage {
-        return qtc.QOpenGLDebugMessage_new();
+    pub fn New() QOpenGLDebugMessage {
+        return .{ .ptr = qtc.QOpenGLDebugMessage_new() };
     }
 
     /// New2 constructs a new QOpenGLDebugMessage object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` debugMessage: QtC.QOpenGLDebugMessage `
+    /// ` debugMessage: QOpenGLDebugMessage `
     ///
-    pub fn New2(debugMessage: ?*anyopaque) QtC.QOpenGLDebugMessage {
-        return qtc.QOpenGLDebugMessage_new2(@ptrCast(debugMessage));
+    pub fn New2(debugMessage: anytype) QOpenGLDebugMessage {
+        comptime _ = @TypeOf(debugMessage)._is_QOpenGLDebugMessage;
+        return .{ .ptr = qtc.QOpenGLDebugMessage_new2(@ptrCast(debugMessage.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugMessage `
+    /// ` self: QOpenGLDebugMessage `
     ///
-    /// ` debugMessage: QtC.QOpenGLDebugMessage `
+    /// ` debugMessage: QOpenGLDebugMessage `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, debugMessage: ?*anyopaque) void {
-        qtc.QOpenGLDebugMessage_OperatorAssign(@ptrCast(self), @ptrCast(debugMessage));
+    pub fn OperatorAssign(self: QOpenGLDebugMessage, debugMessage: anytype) void {
+        comptime _ = @TypeOf(debugMessage)._is_QOpenGLDebugMessage;
+        qtc.QOpenGLDebugMessage_OperatorAssign(@ptrCast(self.ptr), @ptrCast(debugMessage.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugMessage `
+    /// ` self: QOpenGLDebugMessage `
     ///
-    /// ` other: QtC.QOpenGLDebugMessage `
+    /// ` other: QOpenGLDebugMessage `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QOpenGLDebugMessage_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QOpenGLDebugMessage, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QOpenGLDebugMessage;
+        qtc.QOpenGLDebugMessage_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html#source)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugMessage `
+    /// ` self: QOpenGLDebugMessage `
     ///
     /// ## Returns:
     ///
     /// ` qopengldebug_enums.Source `
     ///
-    pub fn Source(self: ?*anyopaque) i32 {
-        return qtc.QOpenGLDebugMessage_Source(@ptrCast(self));
+    pub fn Source(self: QOpenGLDebugMessage) i32 {
+        return qtc.QOpenGLDebugMessage_Source(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html#type)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugMessage `
+    /// ` self: QOpenGLDebugMessage `
     ///
     /// ## Returns:
     ///
     /// ` qopengldebug_enums.Type `
     ///
-    pub fn Type(self: ?*anyopaque) i32 {
-        return qtc.QOpenGLDebugMessage_Type(@ptrCast(self));
+    pub fn Type(self: QOpenGLDebugMessage) i32 {
+        return qtc.QOpenGLDebugMessage_Type(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html#severity)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugMessage `
+    /// ` self: QOpenGLDebugMessage `
     ///
     /// ## Returns:
     ///
     /// ` qopengldebug_enums.Severity `
     ///
-    pub fn Severity(self: ?*anyopaque) i32 {
-        return qtc.QOpenGLDebugMessage_Severity(@ptrCast(self));
+    pub fn Severity(self: QOpenGLDebugMessage) i32 {
+        return qtc.QOpenGLDebugMessage_Severity(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html#id)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugMessage `
+    /// ` self: QOpenGLDebugMessage `
     ///
-    pub fn Id(self: ?*anyopaque) u32 {
-        return qtc.QOpenGLDebugMessage_Id(@ptrCast(self));
+    pub fn Id(self: QOpenGLDebugMessage) u32 {
+        return qtc.QOpenGLDebugMessage_Id(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html#message)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugMessage `
+    /// ` self: QOpenGLDebugMessage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Message(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QOpenGLDebugMessage_Message(@ptrCast(self));
+    pub fn Message(self: QOpenGLDebugMessage, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QOpenGLDebugMessage_Message(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qopengldebugmessage.Message: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -121,12 +142,12 @@ pub const qopengldebugmessage = struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn CreateApplicationMessage(text: []const u8) QtC.QOpenGLDebugMessage {
+    pub fn CreateApplicationMessage(text: []const u8) QOpenGLDebugMessage {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QOpenGLDebugMessage_CreateApplicationMessage(text_str);
+        return .{ .ptr = qtc.QOpenGLDebugMessage_CreateApplicationMessage(text_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html#createThirdPartyMessage)
@@ -135,36 +156,38 @@ pub const qopengldebugmessage = struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn CreateThirdPartyMessage(text: []const u8) QtC.QOpenGLDebugMessage {
+    pub fn CreateThirdPartyMessage(text: []const u8) QOpenGLDebugMessage {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QOpenGLDebugMessage_CreateThirdPartyMessage(text_str);
+        return .{ .ptr = qtc.QOpenGLDebugMessage_CreateThirdPartyMessage(text_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html#operator-eq-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugMessage `
+    /// ` self: QOpenGLDebugMessage `
     ///
-    /// ` debugMessage: QtC.QOpenGLDebugMessage `
+    /// ` debugMessage: QOpenGLDebugMessage `
     ///
-    pub fn OperatorEqual(self: ?*anyopaque, debugMessage: ?*anyopaque) bool {
-        return qtc.QOpenGLDebugMessage_OperatorEqual(@ptrCast(self), @ptrCast(debugMessage));
+    pub fn OperatorEqual(self: QOpenGLDebugMessage, debugMessage: anytype) bool {
+        comptime _ = @TypeOf(debugMessage)._is_QOpenGLDebugMessage;
+        return qtc.QOpenGLDebugMessage_OperatorEqual(@ptrCast(self.ptr), @ptrCast(debugMessage.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html#operator-not-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugMessage `
+    /// ` self: QOpenGLDebugMessage `
     ///
-    /// ` debugMessage: QtC.QOpenGLDebugMessage `
+    /// ` debugMessage: QOpenGLDebugMessage `
     ///
-    pub fn OperatorNotEqual(self: ?*anyopaque, debugMessage: ?*anyopaque) bool {
-        return qtc.QOpenGLDebugMessage_OperatorNotEqual(@ptrCast(self), @ptrCast(debugMessage));
+    pub fn OperatorNotEqual(self: QOpenGLDebugMessage, debugMessage: anytype) bool {
+        comptime _ = @TypeOf(debugMessage)._is_QOpenGLDebugMessage;
+        return qtc.QOpenGLDebugMessage_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(debugMessage.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html#createApplicationMessage)
@@ -175,12 +198,12 @@ pub const qopengldebugmessage = struct {
     ///
     /// ` id: u32 `
     ///
-    pub fn CreateApplicationMessage2(text: []const u8, id: u32) QtC.QOpenGLDebugMessage {
+    pub fn CreateApplicationMessage2(text: []const u8, id: u32) QOpenGLDebugMessage {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QOpenGLDebugMessage_CreateApplicationMessage2(text_str, @bitCast(id));
+        return .{ .ptr = qtc.QOpenGLDebugMessage_CreateApplicationMessage2(text_str, @bitCast(id)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html#createApplicationMessage)
@@ -193,12 +216,12 @@ pub const qopengldebugmessage = struct {
     ///
     /// ` severity: qopengldebug_enums.Severity `
     ///
-    pub fn CreateApplicationMessage3(text: []const u8, id: u32, severity: i32) QtC.QOpenGLDebugMessage {
+    pub fn CreateApplicationMessage3(text: []const u8, id: u32, severity: i32) QOpenGLDebugMessage {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QOpenGLDebugMessage_CreateApplicationMessage3(text_str, @bitCast(id), @bitCast(severity));
+        return .{ .ptr = qtc.QOpenGLDebugMessage_CreateApplicationMessage3(text_str, @bitCast(id), @bitCast(severity)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html#createApplicationMessage)
@@ -213,12 +236,12 @@ pub const qopengldebugmessage = struct {
     ///
     /// ` typeVal: qopengldebug_enums.Type `
     ///
-    pub fn CreateApplicationMessage4(text: []const u8, id: u32, severity: i32, typeVal: i32) QtC.QOpenGLDebugMessage {
+    pub fn CreateApplicationMessage4(text: []const u8, id: u32, severity: i32, typeVal: i32) QOpenGLDebugMessage {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QOpenGLDebugMessage_CreateApplicationMessage4(text_str, @bitCast(id), @bitCast(severity), @bitCast(typeVal));
+        return .{ .ptr = qtc.QOpenGLDebugMessage_CreateApplicationMessage4(text_str, @bitCast(id), @bitCast(severity), @bitCast(typeVal)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html#createThirdPartyMessage)
@@ -229,12 +252,12 @@ pub const qopengldebugmessage = struct {
     ///
     /// ` id: u32 `
     ///
-    pub fn CreateThirdPartyMessage2(text: []const u8, id: u32) QtC.QOpenGLDebugMessage {
+    pub fn CreateThirdPartyMessage2(text: []const u8, id: u32) QOpenGLDebugMessage {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QOpenGLDebugMessage_CreateThirdPartyMessage2(text_str, @bitCast(id));
+        return .{ .ptr = qtc.QOpenGLDebugMessage_CreateThirdPartyMessage2(text_str, @bitCast(id)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html#createThirdPartyMessage)
@@ -247,12 +270,12 @@ pub const qopengldebugmessage = struct {
     ///
     /// ` severity: qopengldebug_enums.Severity `
     ///
-    pub fn CreateThirdPartyMessage3(text: []const u8, id: u32, severity: i32) QtC.QOpenGLDebugMessage {
+    pub fn CreateThirdPartyMessage3(text: []const u8, id: u32, severity: i32) QOpenGLDebugMessage {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QOpenGLDebugMessage_CreateThirdPartyMessage3(text_str, @bitCast(id), @bitCast(severity));
+        return .{ .ptr = qtc.QOpenGLDebugMessage_CreateThirdPartyMessage3(text_str, @bitCast(id), @bitCast(severity)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebugmessage.html#createThirdPartyMessage)
@@ -267,12 +290,12 @@ pub const qopengldebugmessage = struct {
     ///
     /// ` typeVal: qopengldebug_enums.Type `
     ///
-    pub fn CreateThirdPartyMessage4(text: []const u8, id: u32, severity: i32, typeVal: i32) QtC.QOpenGLDebugMessage {
+    pub fn CreateThirdPartyMessage4(text: []const u8, id: u32, severity: i32, typeVal: i32) QOpenGLDebugMessage {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QOpenGLDebugMessage_CreateThirdPartyMessage4(text_str, @bitCast(id), @bitCast(severity), @bitCast(typeVal));
+        return .{ .ptr = qtc.QOpenGLDebugMessage_CreateThirdPartyMessage4(text_str, @bitCast(id), @bitCast(severity), @bitCast(typeVal)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -285,39 +308,49 @@ pub const qopengldebugmessage = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QOpenGLDebugMessage `
+    /// ` self: QOpenGLDebugMessage `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QOpenGLDebugMessage_Delete(@ptrCast(self));
+    pub fn Delete(self: QOpenGLDebugMessage) void {
+        qtc.QOpenGLDebugMessage_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html)
-pub const qopengldebuglogger = struct {
+pub const QOpenGLDebugLogger = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QOpenGLDebugLogger,
+
+    pub const _is_QOpenGLDebugLogger = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QOpenGLDebugLogger object.
     ///
-    pub fn New() QtC.QOpenGLDebugLogger {
-        return qtc.QOpenGLDebugLogger_new();
+    pub fn New() QOpenGLDebugLogger {
+        return .{ .ptr = qtc.QOpenGLDebugLogger_new() };
     }
 
     /// New2 constructs a new QOpenGLDebugLogger object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.QOpenGLDebugLogger {
-        return qtc.QOpenGLDebugLogger_new2(@ptrCast(parent));
+    pub fn New2(parent: anytype) QOpenGLDebugLogger {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QOpenGLDebugLogger_new2(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QOpenGLDebugLogger_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QOpenGLDebugLogger) QMetaObject {
+        return .{ .ptr = qtc.QOpenGLDebugLogger_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -326,12 +359,12 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QOpenGLDebugLogger_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QOpenGLDebugLogger, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QOpenGLDebugLogger_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -344,33 +377,33 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QOpenGLDebugLogger_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QOpenGLDebugLogger) QMetaObject {
+        return .{ .ptr = qtc.QOpenGLDebugLogger_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QOpenGLDebugLogger, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QOpenGLDebugLogger_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QOpenGLDebugLogger_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QOpenGLDebugLogger, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QOpenGLDebugLogger_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QOpenGLDebugLogger, callback: *const fn (QOpenGLDebugLogger, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QOpenGLDebugLogger_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -381,18 +414,18 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QOpenGLDebugLogger, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QOpenGLDebugLogger_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QOpenGLDebugLogger_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -400,20 +433,20 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QOpenGLDebugLogger_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QOpenGLDebugLogger, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QOpenGLDebugLogger_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QOpenGLDebugLogger, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QOpenGLDebugLogger_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QOpenGLDebugLogger, callback: *const fn (QOpenGLDebugLogger, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QOpenGLDebugLogger_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -424,7 +457,7 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -432,19 +465,19 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QOpenGLDebugLogger_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QOpenGLDebugLogger, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QOpenGLDebugLogger_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -457,138 +490,139 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn Initialize(self: ?*anyopaque) bool {
-        return qtc.QOpenGLDebugLogger_Initialize(@ptrCast(self));
+    pub fn Initialize(self: QOpenGLDebugLogger) bool {
+        return qtc.QOpenGLDebugLogger_Initialize(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#isLogging)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn IsLogging(self: ?*anyopaque) bool {
-        return qtc.QOpenGLDebugLogger_IsLogging(@ptrCast(self));
+    pub fn IsLogging(self: QOpenGLDebugLogger) bool {
+        return qtc.QOpenGLDebugLogger_IsLogging(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#loggingMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ## Returns:
     ///
     /// ` qopengldebug_enums.LoggingMode `
     ///
-    pub fn LoggingMode(self: ?*anyopaque) i32 {
-        return qtc.QOpenGLDebugLogger_LoggingMode(@ptrCast(self));
+    pub fn LoggingMode(self: QOpenGLDebugLogger) i32 {
+        return qtc.QOpenGLDebugLogger_LoggingMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#maximumMessageLength)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn MaximumMessageLength(self: ?*anyopaque) i64 {
-        return qtc.QOpenGLDebugLogger_MaximumMessageLength(@ptrCast(self));
+    pub fn MaximumMessageLength(self: QOpenGLDebugLogger) i64 {
+        return qtc.QOpenGLDebugLogger_MaximumMessageLength(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#pushGroup)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn PushGroup(self: ?*anyopaque, name: []const u8) void {
+    pub fn PushGroup(self: QOpenGLDebugLogger, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QOpenGLDebugLogger_PushGroup(@ptrCast(self), name_str);
+        qtc.QOpenGLDebugLogger_PushGroup(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#popGroup)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn PopGroup(self: ?*anyopaque) void {
-        qtc.QOpenGLDebugLogger_PopGroup(@ptrCast(self));
+    pub fn PopGroup(self: QOpenGLDebugLogger) void {
+        qtc.QOpenGLDebugLogger_PopGroup(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#enableMessages)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn EnableMessages(self: ?*anyopaque) void {
-        qtc.QOpenGLDebugLogger_EnableMessages(@ptrCast(self));
+    pub fn EnableMessages(self: QOpenGLDebugLogger) void {
+        qtc.QOpenGLDebugLogger_EnableMessages(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#enableMessages)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` ids: []u32 `
     ///
-    pub fn EnableMessages2(self: ?*anyopaque, ids: []u32) void {
+    pub fn EnableMessages2(self: QOpenGLDebugLogger, ids: []u32) void {
         const ids_list = qtc.libqt_list{
             .len = ids.len,
             .data = ids.ptr,
         };
-        qtc.QOpenGLDebugLogger_EnableMessages2(@ptrCast(self), ids_list);
+        qtc.QOpenGLDebugLogger_EnableMessages2(@ptrCast(self.ptr), ids_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#disableMessages)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn DisableMessages(self: ?*anyopaque) void {
-        qtc.QOpenGLDebugLogger_DisableMessages(@ptrCast(self));
+    pub fn DisableMessages(self: QOpenGLDebugLogger) void {
+        qtc.QOpenGLDebugLogger_DisableMessages(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#disableMessages)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` ids: []u32 `
     ///
-    pub fn DisableMessages2(self: ?*anyopaque, ids: []u32) void {
+    pub fn DisableMessages2(self: QOpenGLDebugLogger, ids: []u32) void {
         const ids_list = qtc.libqt_list{
             .len = ids.len,
             .data = ids.ptr,
         };
-        qtc.QOpenGLDebugLogger_DisableMessages2(@ptrCast(self), ids_list);
+        qtc.QOpenGLDebugLogger_DisableMessages2(@ptrCast(self.ptr), ids_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#loggedMessages)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LoggedMessages(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QOpenGLDebugMessage {
-        const _arr: qtc.libqt_list = qtc.QOpenGLDebugLogger_LoggedMessages(@ptrCast(self));
+    pub fn LoggedMessages(self: QOpenGLDebugLogger, allocator: std.mem.Allocator) []QOpenGLDebugMessage {
+        const _arr: qtc.libqt_list = qtc.QOpenGLDebugLogger_LoggedMessages(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QOpenGLDebugMessage, _arr.len) catch @panic("qopengldebuglogger.LoggedMessages: Memory allocation failed");
+        const _ret = allocator.alloc(QOpenGLDebugMessage, _arr.len) catch @panic("qopengldebuglogger.LoggedMessages: Memory allocation failed");
         const _data: [*]QtC.QOpenGLDebugMessage = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -596,69 +630,71 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` debugMessage: QtC.QOpenGLDebugMessage `
+    /// ` debugMessage: QOpenGLDebugMessage `
     ///
-    pub fn LogMessage(self: ?*anyopaque, debugMessage: ?*anyopaque) void {
-        qtc.QOpenGLDebugLogger_LogMessage(@ptrCast(self), @ptrCast(debugMessage));
+    pub fn LogMessage(self: QOpenGLDebugLogger, debugMessage: anytype) void {
+        comptime _ = @TypeOf(debugMessage)._is_QOpenGLDebugMessage;
+        qtc.QOpenGLDebugLogger_LogMessage(@ptrCast(self.ptr), @ptrCast(debugMessage.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#startLogging)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn StartLogging(self: ?*anyopaque) void {
-        qtc.QOpenGLDebugLogger_StartLogging(@ptrCast(self));
+    pub fn StartLogging(self: QOpenGLDebugLogger) void {
+        qtc.QOpenGLDebugLogger_StartLogging(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#stopLogging)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn StopLogging(self: ?*anyopaque) void {
-        qtc.QOpenGLDebugLogger_StopLogging(@ptrCast(self));
+    pub fn StopLogging(self: QOpenGLDebugLogger) void {
+        qtc.QOpenGLDebugLogger_StopLogging(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#messageLogged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` debugMessage: QtC.QOpenGLDebugMessage `
+    /// ` debugMessage: QOpenGLDebugMessage `
     ///
-    pub fn MessageLogged(self: ?*anyopaque, debugMessage: ?*anyopaque) void {
-        qtc.QOpenGLDebugLogger_MessageLogged(@ptrCast(self), @ptrCast(debugMessage));
+    pub fn MessageLogged(self: QOpenGLDebugLogger, debugMessage: anytype) void {
+        comptime _ = @TypeOf(debugMessage)._is_QOpenGLDebugMessage;
+        qtc.QOpenGLDebugLogger_MessageLogged(@ptrCast(self.ptr), @ptrCast(debugMessage.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#messageLogged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, debugMessage: QtC.QOpenGLDebugMessage) callconv(.c) void `
+    /// ` callback: *const fn (self: QOpenGLDebugLogger, debugMessage: QOpenGLDebugMessage) callconv(.c) void `
     ///
-    pub fn OnMessageLogged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QOpenGLDebugLogger_Connect_MessageLogged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMessageLogged(self: QOpenGLDebugLogger, callback: *const fn (QOpenGLDebugLogger, QOpenGLDebugMessage) callconv(.c) void) void {
+        qtc.QOpenGLDebugLogger_Connect_MessageLogged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -672,15 +708,15 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -694,25 +730,25 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` name: []const u8 `
     ///
     /// ` id: u32 `
     ///
-    pub fn PushGroup2(self: ?*anyopaque, name: []const u8, id: u32) void {
+    pub fn PushGroup2(self: QOpenGLDebugLogger, name: []const u8, id: u32) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QOpenGLDebugLogger_PushGroup2(@ptrCast(self), name_str, @bitCast(id));
+        qtc.QOpenGLDebugLogger_PushGroup2(@ptrCast(self.ptr), name_str, @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#pushGroup)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` name: []const u8 `
     ///
@@ -720,45 +756,45 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` source: qopengldebug_enums.Source `
     ///
-    pub fn PushGroup3(self: ?*anyopaque, name: []const u8, id: u32, source: i32) void {
+    pub fn PushGroup3(self: QOpenGLDebugLogger, name: []const u8, id: u32, source: i32) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QOpenGLDebugLogger_PushGroup3(@ptrCast(self), name_str, @bitCast(id), @bitCast(source));
+        qtc.QOpenGLDebugLogger_PushGroup3(@ptrCast(self.ptr), name_str, @bitCast(id), @bitCast(source));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#enableMessages)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` sources: flag of qopengldebug_enums.Source `
     ///
-    pub fn EnableMessages1(self: ?*anyopaque, sources: i32) void {
-        qtc.QOpenGLDebugLogger_EnableMessages1(@ptrCast(self), @bitCast(sources));
+    pub fn EnableMessages1(self: QOpenGLDebugLogger, sources: i32) void {
+        qtc.QOpenGLDebugLogger_EnableMessages1(@ptrCast(self.ptr), @bitCast(sources));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#enableMessages)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` sources: flag of qopengldebug_enums.Source `
     ///
     /// ` types: flag of qopengldebug_enums.Type `
     ///
-    pub fn EnableMessages22(self: ?*anyopaque, sources: i32, types: i32) void {
-        qtc.QOpenGLDebugLogger_EnableMessages22(@ptrCast(self), @bitCast(sources), @bitCast(types));
+    pub fn EnableMessages22(self: QOpenGLDebugLogger, sources: i32, types: i32) void {
+        qtc.QOpenGLDebugLogger_EnableMessages22(@ptrCast(self.ptr), @bitCast(sources), @bitCast(types));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#enableMessages)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` sources: flag of qopengldebug_enums.Source `
     ///
@@ -766,33 +802,33 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` severities: flag of qopengldebug_enums.Severity `
     ///
-    pub fn EnableMessages3(self: ?*anyopaque, sources: i32, types: i32, severities: i32) void {
-        qtc.QOpenGLDebugLogger_EnableMessages3(@ptrCast(self), @bitCast(sources), @bitCast(types), @bitCast(severities));
+    pub fn EnableMessages3(self: QOpenGLDebugLogger, sources: i32, types: i32, severities: i32) void {
+        qtc.QOpenGLDebugLogger_EnableMessages3(@ptrCast(self.ptr), @bitCast(sources), @bitCast(types), @bitCast(severities));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#enableMessages)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` ids: []u32 `
     ///
     /// ` sources: flag of qopengldebug_enums.Source `
     ///
-    pub fn EnableMessages23(self: ?*anyopaque, ids: []u32, sources: i32) void {
+    pub fn EnableMessages23(self: QOpenGLDebugLogger, ids: []u32, sources: i32) void {
         const ids_list = qtc.libqt_list{
             .len = ids.len,
             .data = ids.ptr,
         };
-        qtc.QOpenGLDebugLogger_EnableMessages23(@ptrCast(self), ids_list, @bitCast(sources));
+        qtc.QOpenGLDebugLogger_EnableMessages23(@ptrCast(self.ptr), ids_list, @bitCast(sources));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#enableMessages)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` ids: []u32 `
     ///
@@ -800,45 +836,45 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` types: flag of qopengldebug_enums.Type `
     ///
-    pub fn EnableMessages32(self: ?*anyopaque, ids: []u32, sources: i32, types: i32) void {
+    pub fn EnableMessages32(self: QOpenGLDebugLogger, ids: []u32, sources: i32, types: i32) void {
         const ids_list = qtc.libqt_list{
             .len = ids.len,
             .data = ids.ptr,
         };
-        qtc.QOpenGLDebugLogger_EnableMessages32(@ptrCast(self), ids_list, @bitCast(sources), @bitCast(types));
+        qtc.QOpenGLDebugLogger_EnableMessages32(@ptrCast(self.ptr), ids_list, @bitCast(sources), @bitCast(types));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#disableMessages)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` sources: flag of qopengldebug_enums.Source `
     ///
-    pub fn DisableMessages1(self: ?*anyopaque, sources: i32) void {
-        qtc.QOpenGLDebugLogger_DisableMessages1(@ptrCast(self), @bitCast(sources));
+    pub fn DisableMessages1(self: QOpenGLDebugLogger, sources: i32) void {
+        qtc.QOpenGLDebugLogger_DisableMessages1(@ptrCast(self.ptr), @bitCast(sources));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#disableMessages)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` sources: flag of qopengldebug_enums.Source `
     ///
     /// ` types: flag of qopengldebug_enums.Type `
     ///
-    pub fn DisableMessages22(self: ?*anyopaque, sources: i32, types: i32) void {
-        qtc.QOpenGLDebugLogger_DisableMessages22(@ptrCast(self), @bitCast(sources), @bitCast(types));
+    pub fn DisableMessages22(self: QOpenGLDebugLogger, sources: i32, types: i32) void {
+        qtc.QOpenGLDebugLogger_DisableMessages22(@ptrCast(self.ptr), @bitCast(sources), @bitCast(types));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#disableMessages)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` sources: flag of qopengldebug_enums.Source `
     ///
@@ -846,33 +882,33 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` severities: flag of qopengldebug_enums.Severity `
     ///
-    pub fn DisableMessages3(self: ?*anyopaque, sources: i32, types: i32, severities: i32) void {
-        qtc.QOpenGLDebugLogger_DisableMessages3(@ptrCast(self), @bitCast(sources), @bitCast(types), @bitCast(severities));
+    pub fn DisableMessages3(self: QOpenGLDebugLogger, sources: i32, types: i32, severities: i32) void {
+        qtc.QOpenGLDebugLogger_DisableMessages3(@ptrCast(self.ptr), @bitCast(sources), @bitCast(types), @bitCast(severities));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#disableMessages)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` ids: []u32 `
     ///
     /// ` sources: flag of qopengldebug_enums.Source `
     ///
-    pub fn DisableMessages23(self: ?*anyopaque, ids: []u32, sources: i32) void {
+    pub fn DisableMessages23(self: QOpenGLDebugLogger, ids: []u32, sources: i32) void {
         const ids_list = qtc.libqt_list{
             .len = ids.len,
             .data = ids.ptr,
         };
-        qtc.QOpenGLDebugLogger_DisableMessages23(@ptrCast(self), ids_list, @bitCast(sources));
+        qtc.QOpenGLDebugLogger_DisableMessages23(@ptrCast(self.ptr), ids_list, @bitCast(sources));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#disableMessages)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` ids: []u32 `
     ///
@@ -880,24 +916,24 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` types: flag of qopengldebug_enums.Type `
     ///
-    pub fn DisableMessages32(self: ?*anyopaque, ids: []u32, sources: i32, types: i32) void {
+    pub fn DisableMessages32(self: QOpenGLDebugLogger, ids: []u32, sources: i32, types: i32) void {
         const ids_list = qtc.libqt_list{
             .len = ids.len,
             .data = ids.ptr,
         };
-        qtc.QOpenGLDebugLogger_DisableMessages32(@ptrCast(self), ids_list, @bitCast(sources), @bitCast(types));
+        qtc.QOpenGLDebugLogger_DisableMessages32(@ptrCast(self.ptr), ids_list, @bitCast(sources), @bitCast(types));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengldebuglogger.html#startLogging)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` loggingMode: qopengldebug_enums.LoggingMode `
     ///
-    pub fn StartLogging1(self: ?*anyopaque, loggingMode: i32) void {
-        qtc.QOpenGLDebugLogger_StartLogging1(@ptrCast(self), @bitCast(loggingMode));
+    pub fn StartLogging1(self: QOpenGLDebugLogger, loggingMode: i32) void {
+        qtc.QOpenGLDebugLogger_StartLogging1(@ptrCast(self.ptr), @bitCast(loggingMode));
     }
 
     /// Inherited from QObject
@@ -906,12 +942,12 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QOpenGLDebugLogger, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qopengldebuglogger.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -924,12 +960,12 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QOpenGLDebugLogger, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -938,10 +974,10 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QOpenGLDebugLogger) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -950,10 +986,10 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QOpenGLDebugLogger) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -962,10 +998,10 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QOpenGLDebugLogger) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -974,10 +1010,10 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QOpenGLDebugLogger) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -986,12 +1022,12 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QOpenGLDebugLogger, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -1000,10 +1036,10 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QOpenGLDebugLogger) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1012,12 +1048,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QOpenGLDebugLogger, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1026,12 +1063,12 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QOpenGLDebugLogger, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1040,12 +1077,12 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QOpenGLDebugLogger, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1054,12 +1091,12 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QOpenGLDebugLogger, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1068,12 +1105,12 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QOpenGLDebugLogger, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1082,16 +1119,17 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QOpenGLDebugLogger, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qopengldebuglogger.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qopengldebuglogger.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1101,12 +1139,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QOpenGLDebugLogger, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1115,12 +1154,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QOpenGLDebugLogger, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1129,12 +1169,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QOpenGLDebugLogger, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1143,18 +1184,20 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1163,16 +1206,20 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1181,18 +1228,19 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QOpenGLDebugLogger, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1201,18 +1249,20 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1221,16 +1271,20 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1239,10 +1293,10 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QOpenGLDebugLogger) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1251,12 +1305,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QOpenGLDebugLogger, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1265,10 +1320,11 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1277,10 +1333,10 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QOpenGLDebugLogger) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1289,10 +1345,10 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QOpenGLDebugLogger) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1301,15 +1357,16 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QOpenGLDebugLogger, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1318,13 +1375,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QOpenGLDebugLogger, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1333,17 +1390,16 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QOpenGLDebugLogger, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qopengldebuglogger.DynamicPropertyNames: Memory allocation failed");
@@ -1362,10 +1418,10 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QOpenGLDebugLogger) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1374,10 +1430,10 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QOpenGLDebugLogger) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1386,10 +1442,10 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QOpenGLDebugLogger) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1398,12 +1454,12 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger) callconv(.c) void `
+    /// ` callback: *const fn (self: QOpenGLDebugLogger) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QOpenGLDebugLogger, callback: *const fn (QOpenGLDebugLogger) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1412,10 +1468,10 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QOpenGLDebugLogger) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1424,13 +1480,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QOpenGLDebugLogger, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1439,10 +1495,10 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QOpenGLDebugLogger) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1451,14 +1507,14 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QOpenGLDebugLogger, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1467,14 +1523,14 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QOpenGLDebugLogger, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1483,20 +1539,22 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1505,18 +1563,22 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1525,9 +1587,9 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1535,10 +1597,11 @@ pub const qopengldebuglogger = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QOpenGLDebugLogger, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1547,13 +1610,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QOpenGLDebugLogger, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1562,15 +1625,16 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QOpenGLDebugLogger, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1579,18 +1643,19 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QOpenGLDebugLogger, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1599,15 +1664,16 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QOpenGLDebugLogger, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1616,12 +1682,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QOpenGLDebugLogger, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1630,12 +1697,12 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QOpenGLDebugLogger, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QOpenGLDebugLogger, callback: *const fn (QOpenGLDebugLogger, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1646,12 +1713,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QOpenGLDebugLogger_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QOpenGLDebugLogger, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QOpenGLDebugLogger_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1666,12 +1734,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QOpenGLDebugLogger_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QOpenGLDebugLogger, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QOpenGLDebugLogger_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1682,12 +1751,12 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QOpenGLDebugLogger`
+    /// ` self: QOpenGLDebugLogger`
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QOpenGLDebugLogger, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QOpenGLDebugLogger_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QOpenGLDebugLogger, callback: *const fn (QOpenGLDebugLogger, QEvent) callconv(.c) bool) void {
+        qtc.QOpenGLDebugLogger_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1698,14 +1767,16 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QOpenGLDebugLogger_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QOpenGLDebugLogger, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QOpenGLDebugLogger_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1720,14 +1791,16 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QOpenGLDebugLogger_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QOpenGLDebugLogger, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QOpenGLDebugLogger_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1738,12 +1811,12 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QOpenGLDebugLogger`
+    /// ` self: QOpenGLDebugLogger`
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QOpenGLDebugLogger, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QOpenGLDebugLogger_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QOpenGLDebugLogger, callback: *const fn (QOpenGLDebugLogger, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QOpenGLDebugLogger_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1754,12 +1827,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QOpenGLDebugLogger_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QOpenGLDebugLogger, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QOpenGLDebugLogger_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1774,12 +1848,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QOpenGLDebugLogger_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QOpenGLDebugLogger, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QOpenGLDebugLogger_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1790,12 +1865,12 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QOpenGLDebugLogger`
+    /// ` self: QOpenGLDebugLogger`
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QOpenGLDebugLogger, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QOpenGLDebugLogger_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QOpenGLDebugLogger, callback: *const fn (QOpenGLDebugLogger, QTimerEvent) callconv(.c) void) void {
+        qtc.QOpenGLDebugLogger_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1806,12 +1881,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QOpenGLDebugLogger_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QOpenGLDebugLogger, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QOpenGLDebugLogger_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1826,12 +1902,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QOpenGLDebugLogger_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QOpenGLDebugLogger, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QOpenGLDebugLogger_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1842,12 +1919,12 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QOpenGLDebugLogger`
+    /// ` self: QOpenGLDebugLogger`
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QOpenGLDebugLogger, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QOpenGLDebugLogger_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QOpenGLDebugLogger, callback: *const fn (QOpenGLDebugLogger, QChildEvent) callconv(.c) void) void {
+        qtc.QOpenGLDebugLogger_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1858,12 +1935,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QOpenGLDebugLogger_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QOpenGLDebugLogger, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QOpenGLDebugLogger_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1878,12 +1956,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QOpenGLDebugLogger_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QOpenGLDebugLogger, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QOpenGLDebugLogger_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1894,12 +1973,12 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QOpenGLDebugLogger`
+    /// ` self: QOpenGLDebugLogger`
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QOpenGLDebugLogger, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QOpenGLDebugLogger_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QOpenGLDebugLogger, callback: *const fn (QOpenGLDebugLogger, QEvent) callconv(.c) void) void {
+        qtc.QOpenGLDebugLogger_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1910,12 +1989,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QOpenGLDebugLogger_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QOpenGLDebugLogger, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QOpenGLDebugLogger_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1930,12 +2010,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QOpenGLDebugLogger_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QOpenGLDebugLogger, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QOpenGLDebugLogger_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1946,12 +2027,12 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QOpenGLDebugLogger`
+    /// ` self: QOpenGLDebugLogger`
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QOpenGLDebugLogger, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QOpenGLDebugLogger_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QOpenGLDebugLogger, callback: *const fn (QOpenGLDebugLogger, QMetaMethod) callconv(.c) void) void {
+        qtc.QOpenGLDebugLogger_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1962,12 +2043,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QOpenGLDebugLogger_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QOpenGLDebugLogger, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QOpenGLDebugLogger_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1982,12 +2064,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QOpenGLDebugLogger_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QOpenGLDebugLogger, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QOpenGLDebugLogger_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1998,12 +2081,12 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QOpenGLDebugLogger`
+    /// ` self: QOpenGLDebugLogger`
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QOpenGLDebugLogger, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QOpenGLDebugLogger_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QOpenGLDebugLogger, callback: *const fn (QOpenGLDebugLogger, QMetaMethod) callconv(.c) void) void {
+        qtc.QOpenGLDebugLogger_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2014,10 +2097,10 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QOpenGLDebugLogger_Sender(@ptrCast(self));
+    pub fn Sender(self: QOpenGLDebugLogger) QObject {
+        return .{ .ptr = qtc.QOpenGLDebugLogger_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -2032,10 +2115,10 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QOpenGLDebugLogger_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QOpenGLDebugLogger) QObject {
+        return .{ .ptr = qtc.QOpenGLDebugLogger_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2046,12 +2129,12 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QOpenGLDebugLogger`
+    /// ` self: QOpenGLDebugLogger`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QOpenGLDebugLogger_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QOpenGLDebugLogger, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QOpenGLDebugLogger_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2062,10 +2145,10 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QOpenGLDebugLogger_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QOpenGLDebugLogger) i32 {
+        return qtc.QOpenGLDebugLogger_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -2080,10 +2163,10 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QOpenGLDebugLogger_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QOpenGLDebugLogger) i32 {
+        return qtc.QOpenGLDebugLogger_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2094,12 +2177,12 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QOpenGLDebugLogger`
+    /// ` self: QOpenGLDebugLogger`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QOpenGLDebugLogger_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QOpenGLDebugLogger, callback: *const fn () callconv(.c) i32) void {
+        qtc.QOpenGLDebugLogger_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2110,13 +2193,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QOpenGLDebugLogger, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QOpenGLDebugLogger_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QOpenGLDebugLogger_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -2131,13 +2214,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QOpenGLDebugLogger, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QOpenGLDebugLogger_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QOpenGLDebugLogger_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2148,12 +2231,12 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QOpenGLDebugLogger`
+    /// ` self: QOpenGLDebugLogger`
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QOpenGLDebugLogger, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QOpenGLDebugLogger_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QOpenGLDebugLogger, callback: *const fn (QOpenGLDebugLogger, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QOpenGLDebugLogger_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2164,12 +2247,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QOpenGLDebugLogger_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QOpenGLDebugLogger, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QOpenGLDebugLogger_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -2184,12 +2268,13 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QOpenGLDebugLogger_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QOpenGLDebugLogger, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QOpenGLDebugLogger_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2200,12 +2285,12 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QOpenGLDebugLogger`
+    /// ` self: QOpenGLDebugLogger`
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QOpenGLDebugLogger, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QOpenGLDebugLogger_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QOpenGLDebugLogger, callback: *const fn (QOpenGLDebugLogger, QMetaMethod) callconv(.c) bool) void {
+        qtc.QOpenGLDebugLogger_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2216,12 +2301,12 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    /// ` callback: *const fn (self: QtC.QOpenGLDebugLogger, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QOpenGLDebugLogger, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QOpenGLDebugLogger, callback: *const fn (QOpenGLDebugLogger, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -2234,10 +2319,10 @@ pub const qopengldebuglogger = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QOpenGLDebugLogger `
+    /// ` self: QOpenGLDebugLogger `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QOpenGLDebugLogger_Delete(@ptrCast(self));
+    pub fn Delete(self: QOpenGLDebugLogger) void {
+        qtc.QOpenGLDebugLogger_Delete(@ptrCast(self.ptr));
     }
 };
 

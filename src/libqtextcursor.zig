@@ -1,348 +1,376 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QImage = @import("libqt6").QImage;
+const QTextBlock = @import("libqt6").QTextBlock;
+const QTextBlockFormat = @import("libqt6").QTextBlockFormat;
+const QTextCharFormat = @import("libqt6").QTextCharFormat;
+const QTextDocument = @import("libqt6").QTextDocument;
+const QTextDocumentFragment = @import("libqt6").QTextDocumentFragment;
+const QTextFrame = @import("libqt6").QTextFrame;
+const QTextFrameFormat = @import("libqt6").QTextFrameFormat;
+const QTextImageFormat = @import("libqt6").QTextImageFormat;
+const QTextList = @import("libqt6").QTextList;
+const QTextListFormat = @import("libqt6").QTextListFormat;
+const QTextTable = @import("libqt6").QTextTable;
+const QTextTableFormat = @import("libqt6").QTextTableFormat;
 const qtextcursor_enums = enums;
 const qtextdocument_enums = @import("libqtextdocument.zig").enums;
 const qtextformat_enums = @import("libqtextformat.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html)
-pub const qtextcursor = struct {
+pub const QTextCursor = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QTextCursor,
+
+    pub const _is_QTextCursor = {};
+
     /// New constructs a new QTextCursor object.
     ///
-    pub fn New() QtC.QTextCursor {
-        return qtc.QTextCursor_new();
+    pub fn New() QTextCursor {
+        return .{ .ptr = qtc.QTextCursor_new() };
     }
 
     /// New2 constructs a new QTextCursor object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` document: QtC.QTextDocument `
+    /// ` document: QTextDocument `
     ///
-    pub fn New2(document: ?*anyopaque) QtC.QTextCursor {
-        return qtc.QTextCursor_new2(@ptrCast(document));
+    pub fn New2(document: anytype) QTextCursor {
+        comptime _ = @TypeOf(document)._is_QTextDocument;
+        return .{ .ptr = qtc.QTextCursor_new2(@ptrCast(document.ptr)) };
     }
 
     /// New3 constructs a new QTextCursor object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` frame: QtC.QTextFrame `
+    /// ` frame: QTextFrame `
     ///
-    pub fn New3(frame: ?*anyopaque) QtC.QTextCursor {
-        return qtc.QTextCursor_new3(@ptrCast(frame));
+    pub fn New3(frame: anytype) QTextCursor {
+        comptime _ = @TypeOf(frame)._is_QTextFrame;
+        return .{ .ptr = qtc.QTextCursor_new3(@ptrCast(frame.ptr)) };
     }
 
     /// New4 constructs a new QTextCursor object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` block: QtC.QTextBlock `
+    /// ` block: QTextBlock `
     ///
-    pub fn New4(block: ?*anyopaque) QtC.QTextCursor {
-        return qtc.QTextCursor_new4(@ptrCast(block));
+    pub fn New4(block: anytype) QTextCursor {
+        comptime _ = @TypeOf(block)._is_QTextBlock;
+        return .{ .ptr = qtc.QTextCursor_new4(@ptrCast(block.ptr)) };
     }
 
     /// New5 constructs a new QTextCursor object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` cursor: QtC.QTextCursor `
+    /// ` cursor: QTextCursor `
     ///
-    pub fn New5(cursor: ?*anyopaque) QtC.QTextCursor {
-        return qtc.QTextCursor_new5(@ptrCast(cursor));
+    pub fn New5(cursor: anytype) QTextCursor {
+        comptime _ = @TypeOf(cursor)._is_QTextCursor;
+        return .{ .ptr = qtc.QTextCursor_new5(@ptrCast(cursor.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` other: QtC.QTextCursor `
+    /// ` other: QTextCursor `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QTextCursor_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QTextCursor, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QTextCursor;
+        qtc.QTextCursor_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` other: QtC.QTextCursor `
+    /// ` other: QTextCursor `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QTextCursor_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QTextCursor, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QTextCursor;
+        qtc.QTextCursor_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#isNull)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn IsNull(self: ?*anyopaque) bool {
-        return qtc.QTextCursor_IsNull(@ptrCast(self));
+    pub fn IsNull(self: QTextCursor) bool {
+        return qtc.QTextCursor_IsNull(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#setPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
     /// ` pos: i32 `
     ///
-    pub fn SetPosition(self: ?*anyopaque, pos: i32) void {
-        qtc.QTextCursor_SetPosition(@ptrCast(self), @bitCast(pos));
+    pub fn SetPosition(self: QTextCursor, pos: i32) void {
+        qtc.QTextCursor_SetPosition(@ptrCast(self.ptr), @bitCast(pos));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#position)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn Position(self: ?*anyopaque) i32 {
-        return qtc.QTextCursor_Position(@ptrCast(self));
+    pub fn Position(self: QTextCursor) i32 {
+        return qtc.QTextCursor_Position(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#positionInBlock)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn PositionInBlock(self: ?*anyopaque) i32 {
-        return qtc.QTextCursor_PositionInBlock(@ptrCast(self));
+    pub fn PositionInBlock(self: QTextCursor) i32 {
+        return qtc.QTextCursor_PositionInBlock(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#anchor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn Anchor(self: ?*anyopaque) i32 {
-        return qtc.QTextCursor_Anchor(@ptrCast(self));
+    pub fn Anchor(self: QTextCursor) i32 {
+        return qtc.QTextCursor_Anchor(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertText(self: ?*anyopaque, text: []const u8) void {
+    pub fn InsertText(self: QTextCursor, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QTextCursor_InsertText(@ptrCast(self), text_str);
+        qtc.QTextCursor_InsertText(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` format: QtC.QTextCharFormat `
+    /// ` format: QTextCharFormat `
     ///
-    pub fn InsertText2(self: ?*anyopaque, text: []const u8, format: ?*anyopaque) void {
+    pub fn InsertText2(self: QTextCursor, text: []const u8, format: anytype) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QTextCursor_InsertText2(@ptrCast(self), text_str, @ptrCast(format));
+        comptime _ = @TypeOf(format)._is_QTextCharFormat;
+        qtc.QTextCursor_InsertText2(@ptrCast(self.ptr), text_str, @ptrCast(format.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#movePosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
     /// ` op: qtextcursor_enums.MoveOperation `
     ///
-    pub fn MovePosition(self: ?*anyopaque, op: i32) bool {
-        return qtc.QTextCursor_MovePosition(@ptrCast(self), @bitCast(op));
+    pub fn MovePosition(self: QTextCursor, op: i32) bool {
+        return qtc.QTextCursor_MovePosition(@ptrCast(self.ptr), @bitCast(op));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#visualNavigation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn VisualNavigation(self: ?*anyopaque) bool {
-        return qtc.QTextCursor_VisualNavigation(@ptrCast(self));
+    pub fn VisualNavigation(self: QTextCursor) bool {
+        return qtc.QTextCursor_VisualNavigation(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#setVisualNavigation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
     /// ` b: bool `
     ///
-    pub fn SetVisualNavigation(self: ?*anyopaque, b: bool) void {
-        qtc.QTextCursor_SetVisualNavigation(@ptrCast(self), b);
+    pub fn SetVisualNavigation(self: QTextCursor, b: bool) void {
+        qtc.QTextCursor_SetVisualNavigation(@ptrCast(self.ptr), b);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#setVerticalMovementX)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
     /// ` x: i32 `
     ///
-    pub fn SetVerticalMovementX(self: ?*anyopaque, x: i32) void {
-        qtc.QTextCursor_SetVerticalMovementX(@ptrCast(self), @bitCast(x));
+    pub fn SetVerticalMovementX(self: QTextCursor, x: i32) void {
+        qtc.QTextCursor_SetVerticalMovementX(@ptrCast(self.ptr), @bitCast(x));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#verticalMovementX)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn VerticalMovementX(self: ?*anyopaque) i32 {
-        return qtc.QTextCursor_VerticalMovementX(@ptrCast(self));
+    pub fn VerticalMovementX(self: QTextCursor) i32 {
+        return qtc.QTextCursor_VerticalMovementX(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#setKeepPositionOnInsert)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
     /// ` b: bool `
     ///
-    pub fn SetKeepPositionOnInsert(self: ?*anyopaque, b: bool) void {
-        qtc.QTextCursor_SetKeepPositionOnInsert(@ptrCast(self), b);
+    pub fn SetKeepPositionOnInsert(self: QTextCursor, b: bool) void {
+        qtc.QTextCursor_SetKeepPositionOnInsert(@ptrCast(self.ptr), b);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#keepPositionOnInsert)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn KeepPositionOnInsert(self: ?*anyopaque) bool {
-        return qtc.QTextCursor_KeepPositionOnInsert(@ptrCast(self));
+    pub fn KeepPositionOnInsert(self: QTextCursor) bool {
+        return qtc.QTextCursor_KeepPositionOnInsert(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#deleteChar)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn DeleteChar(self: ?*anyopaque) void {
-        qtc.QTextCursor_DeleteChar(@ptrCast(self));
+    pub fn DeleteChar(self: QTextCursor) void {
+        qtc.QTextCursor_DeleteChar(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#deletePreviousChar)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn DeletePreviousChar(self: ?*anyopaque) void {
-        qtc.QTextCursor_DeletePreviousChar(@ptrCast(self));
+    pub fn DeletePreviousChar(self: QTextCursor) void {
+        qtc.QTextCursor_DeletePreviousChar(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#select)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
     /// ` selection: qtextcursor_enums.SelectionType `
     ///
-    pub fn Select(self: ?*anyopaque, selection: i32) void {
-        qtc.QTextCursor_Select(@ptrCast(self), @bitCast(selection));
+    pub fn Select(self: QTextCursor, selection: i32) void {
+        qtc.QTextCursor_Select(@ptrCast(self.ptr), @bitCast(selection));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#hasSelection)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn HasSelection(self: ?*anyopaque) bool {
-        return qtc.QTextCursor_HasSelection(@ptrCast(self));
+    pub fn HasSelection(self: QTextCursor) bool {
+        return qtc.QTextCursor_HasSelection(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#hasComplexSelection)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn HasComplexSelection(self: ?*anyopaque) bool {
-        return qtc.QTextCursor_HasComplexSelection(@ptrCast(self));
+    pub fn HasComplexSelection(self: QTextCursor) bool {
+        return qtc.QTextCursor_HasComplexSelection(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#removeSelectedText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn RemoveSelectedText(self: ?*anyopaque) void {
-        qtc.QTextCursor_RemoveSelectedText(@ptrCast(self));
+    pub fn RemoveSelectedText(self: QTextCursor) void {
+        qtc.QTextCursor_RemoveSelectedText(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#clearSelection)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn ClearSelection(self: ?*anyopaque) void {
-        qtc.QTextCursor_ClearSelection(@ptrCast(self));
+    pub fn ClearSelection(self: QTextCursor) void {
+        qtc.QTextCursor_ClearSelection(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#selectionStart)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn SelectionStart(self: ?*anyopaque) i32 {
-        return qtc.QTextCursor_SelectionStart(@ptrCast(self));
+    pub fn SelectionStart(self: QTextCursor) i32 {
+        return qtc.QTextCursor_SelectionStart(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#selectionEnd)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn SelectionEnd(self: ?*anyopaque) i32 {
-        return qtc.QTextCursor_SelectionEnd(@ptrCast(self));
+    pub fn SelectionEnd(self: QTextCursor) i32 {
+        return qtc.QTextCursor_SelectionEnd(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#selectedText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextCursor_SelectedText(@ptrCast(self));
+    pub fn SelectedText(self: QTextCursor, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTextCursor_SelectedText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextcursor.SelectedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -353,17 +381,17 @@ pub const qtextcursor = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn Selection(self: ?*anyopaque) QtC.QTextDocumentFragment {
-        return qtc.QTextCursor_Selection(@ptrCast(self));
+    pub fn Selection(self: QTextCursor) QTextDocumentFragment {
+        return .{ .ptr = qtc.QTextCursor_Selection(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#selectedTableCells)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
     /// ` firstRow: *i32 `
     ///
@@ -373,593 +401,617 @@ pub const qtextcursor = struct {
     ///
     /// ` numColumns: *i32 `
     ///
-    pub fn SelectedTableCells(self: ?*anyopaque, firstRow: *i32, numRows: *i32, firstColumn: *i32, numColumns: *i32) void {
-        qtc.QTextCursor_SelectedTableCells(@ptrCast(self), @ptrCast(firstRow), @ptrCast(numRows), @ptrCast(firstColumn), @ptrCast(numColumns));
+    pub fn SelectedTableCells(self: QTextCursor, firstRow: *i32, numRows: *i32, firstColumn: *i32, numColumns: *i32) void {
+        qtc.QTextCursor_SelectedTableCells(@ptrCast(self.ptr), @ptrCast(firstRow), @ptrCast(numRows), @ptrCast(firstColumn), @ptrCast(numColumns));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#block)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn Block(self: ?*anyopaque) QtC.QTextBlock {
-        return qtc.QTextCursor_Block(@ptrCast(self));
+    pub fn Block(self: QTextCursor) QTextBlock {
+        return .{ .ptr = qtc.QTextCursor_Block(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#charFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn CharFormat(self: ?*anyopaque) QtC.QTextCharFormat {
-        return qtc.QTextCursor_CharFormat(@ptrCast(self));
+    pub fn CharFormat(self: QTextCursor) QTextCharFormat {
+        return .{ .ptr = qtc.QTextCursor_CharFormat(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#setCharFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` format: QtC.QTextCharFormat `
+    /// ` format: QTextCharFormat `
     ///
-    pub fn SetCharFormat(self: ?*anyopaque, format: ?*anyopaque) void {
-        qtc.QTextCursor_SetCharFormat(@ptrCast(self), @ptrCast(format));
+    pub fn SetCharFormat(self: QTextCursor, format: anytype) void {
+        comptime _ = @TypeOf(format)._is_QTextCharFormat;
+        qtc.QTextCursor_SetCharFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#mergeCharFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` modifier: QtC.QTextCharFormat `
+    /// ` modifier: QTextCharFormat `
     ///
-    pub fn MergeCharFormat(self: ?*anyopaque, modifier: ?*anyopaque) void {
-        qtc.QTextCursor_MergeCharFormat(@ptrCast(self), @ptrCast(modifier));
+    pub fn MergeCharFormat(self: QTextCursor, modifier: anytype) void {
+        comptime _ = @TypeOf(modifier)._is_QTextCharFormat;
+        qtc.QTextCursor_MergeCharFormat(@ptrCast(self.ptr), @ptrCast(modifier.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#blockFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn BlockFormat(self: ?*anyopaque) QtC.QTextBlockFormat {
-        return qtc.QTextCursor_BlockFormat(@ptrCast(self));
+    pub fn BlockFormat(self: QTextCursor) QTextBlockFormat {
+        return .{ .ptr = qtc.QTextCursor_BlockFormat(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#setBlockFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` format: QtC.QTextBlockFormat `
+    /// ` format: QTextBlockFormat `
     ///
-    pub fn SetBlockFormat(self: ?*anyopaque, format: ?*anyopaque) void {
-        qtc.QTextCursor_SetBlockFormat(@ptrCast(self), @ptrCast(format));
+    pub fn SetBlockFormat(self: QTextCursor, format: anytype) void {
+        comptime _ = @TypeOf(format)._is_QTextBlockFormat;
+        qtc.QTextCursor_SetBlockFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#mergeBlockFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` modifier: QtC.QTextBlockFormat `
+    /// ` modifier: QTextBlockFormat `
     ///
-    pub fn MergeBlockFormat(self: ?*anyopaque, modifier: ?*anyopaque) void {
-        qtc.QTextCursor_MergeBlockFormat(@ptrCast(self), @ptrCast(modifier));
+    pub fn MergeBlockFormat(self: QTextCursor, modifier: anytype) void {
+        comptime _ = @TypeOf(modifier)._is_QTextBlockFormat;
+        qtc.QTextCursor_MergeBlockFormat(@ptrCast(self.ptr), @ptrCast(modifier.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#blockCharFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn BlockCharFormat(self: ?*anyopaque) QtC.QTextCharFormat {
-        return qtc.QTextCursor_BlockCharFormat(@ptrCast(self));
+    pub fn BlockCharFormat(self: QTextCursor) QTextCharFormat {
+        return .{ .ptr = qtc.QTextCursor_BlockCharFormat(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#setBlockCharFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` format: QtC.QTextCharFormat `
+    /// ` format: QTextCharFormat `
     ///
-    pub fn SetBlockCharFormat(self: ?*anyopaque, format: ?*anyopaque) void {
-        qtc.QTextCursor_SetBlockCharFormat(@ptrCast(self), @ptrCast(format));
+    pub fn SetBlockCharFormat(self: QTextCursor, format: anytype) void {
+        comptime _ = @TypeOf(format)._is_QTextCharFormat;
+        qtc.QTextCursor_SetBlockCharFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#mergeBlockCharFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` modifier: QtC.QTextCharFormat `
+    /// ` modifier: QTextCharFormat `
     ///
-    pub fn MergeBlockCharFormat(self: ?*anyopaque, modifier: ?*anyopaque) void {
-        qtc.QTextCursor_MergeBlockCharFormat(@ptrCast(self), @ptrCast(modifier));
+    pub fn MergeBlockCharFormat(self: QTextCursor, modifier: anytype) void {
+        comptime _ = @TypeOf(modifier)._is_QTextCharFormat;
+        qtc.QTextCursor_MergeBlockCharFormat(@ptrCast(self.ptr), @ptrCast(modifier.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#atBlockStart)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn AtBlockStart(self: ?*anyopaque) bool {
-        return qtc.QTextCursor_AtBlockStart(@ptrCast(self));
+    pub fn AtBlockStart(self: QTextCursor) bool {
+        return qtc.QTextCursor_AtBlockStart(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#atBlockEnd)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn AtBlockEnd(self: ?*anyopaque) bool {
-        return qtc.QTextCursor_AtBlockEnd(@ptrCast(self));
+    pub fn AtBlockEnd(self: QTextCursor) bool {
+        return qtc.QTextCursor_AtBlockEnd(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#atStart)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn AtStart(self: ?*anyopaque) bool {
-        return qtc.QTextCursor_AtStart(@ptrCast(self));
+    pub fn AtStart(self: QTextCursor) bool {
+        return qtc.QTextCursor_AtStart(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#atEnd)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn AtEnd(self: ?*anyopaque) bool {
-        return qtc.QTextCursor_AtEnd(@ptrCast(self));
+    pub fn AtEnd(self: QTextCursor) bool {
+        return qtc.QTextCursor_AtEnd(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertBlock)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn InsertBlock(self: ?*anyopaque) void {
-        qtc.QTextCursor_InsertBlock(@ptrCast(self));
+    pub fn InsertBlock(self: QTextCursor) void {
+        qtc.QTextCursor_InsertBlock(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertBlock)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` format: QtC.QTextBlockFormat `
+    /// ` format: QTextBlockFormat `
     ///
-    pub fn InsertBlock2(self: ?*anyopaque, format: ?*anyopaque) void {
-        qtc.QTextCursor_InsertBlock2(@ptrCast(self), @ptrCast(format));
+    pub fn InsertBlock2(self: QTextCursor, format: anytype) void {
+        comptime _ = @TypeOf(format)._is_QTextBlockFormat;
+        qtc.QTextCursor_InsertBlock2(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertBlock)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` format: QtC.QTextBlockFormat `
+    /// ` format: QTextBlockFormat `
     ///
-    /// ` charFormat: QtC.QTextCharFormat `
+    /// ` charFormat: QTextCharFormat `
     ///
-    pub fn InsertBlock3(self: ?*anyopaque, format: ?*anyopaque, charFormat: ?*anyopaque) void {
-        qtc.QTextCursor_InsertBlock3(@ptrCast(self), @ptrCast(format), @ptrCast(charFormat));
+    pub fn InsertBlock3(self: QTextCursor, format: anytype, charFormat: anytype) void {
+        comptime _ = @TypeOf(format)._is_QTextBlockFormat;
+        comptime _ = @TypeOf(charFormat)._is_QTextCharFormat;
+        qtc.QTextCursor_InsertBlock3(@ptrCast(self.ptr), @ptrCast(format.ptr), @ptrCast(charFormat.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertList)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` format: QtC.QTextListFormat `
+    /// ` format: QTextListFormat `
     ///
-    pub fn InsertList(self: ?*anyopaque, format: ?*anyopaque) QtC.QTextList {
-        return qtc.QTextCursor_InsertList(@ptrCast(self), @ptrCast(format));
+    pub fn InsertList(self: QTextCursor, format: anytype) QTextList {
+        comptime _ = @TypeOf(format)._is_QTextListFormat;
+        return .{ .ptr = qtc.QTextCursor_InsertList(@ptrCast(self.ptr), @ptrCast(format.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertList)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
     /// ` style: qtextformat_enums.Style `
     ///
-    pub fn InsertList2(self: ?*anyopaque, style: i32) QtC.QTextList {
-        return qtc.QTextCursor_InsertList2(@ptrCast(self), @bitCast(style));
+    pub fn InsertList2(self: QTextCursor, style: i32) QTextList {
+        return .{ .ptr = qtc.QTextCursor_InsertList2(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#createList)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` format: QtC.QTextListFormat `
+    /// ` format: QTextListFormat `
     ///
-    pub fn CreateList(self: ?*anyopaque, format: ?*anyopaque) QtC.QTextList {
-        return qtc.QTextCursor_CreateList(@ptrCast(self), @ptrCast(format));
+    pub fn CreateList(self: QTextCursor, format: anytype) QTextList {
+        comptime _ = @TypeOf(format)._is_QTextListFormat;
+        return .{ .ptr = qtc.QTextCursor_CreateList(@ptrCast(self.ptr), @ptrCast(format.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#createList)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
     /// ` style: qtextformat_enums.Style `
     ///
-    pub fn CreateList2(self: ?*anyopaque, style: i32) QtC.QTextList {
-        return qtc.QTextCursor_CreateList2(@ptrCast(self), @bitCast(style));
+    pub fn CreateList2(self: QTextCursor, style: i32) QTextList {
+        return .{ .ptr = qtc.QTextCursor_CreateList2(@ptrCast(self.ptr), @bitCast(style)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#currentList)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn CurrentList(self: ?*anyopaque) QtC.QTextList {
-        return qtc.QTextCursor_CurrentList(@ptrCast(self));
+    pub fn CurrentList(self: QTextCursor) QTextList {
+        return .{ .ptr = qtc.QTextCursor_CurrentList(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertTable)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
     /// ` rows: i32 `
     ///
     /// ` cols: i32 `
     ///
-    /// ` format: QtC.QTextTableFormat `
+    /// ` format: QTextTableFormat `
     ///
-    pub fn InsertTable(self: ?*anyopaque, rows: i32, cols: i32, format: ?*anyopaque) QtC.QTextTable {
-        return qtc.QTextCursor_InsertTable(@ptrCast(self), @bitCast(rows), @bitCast(cols), @ptrCast(format));
+    pub fn InsertTable(self: QTextCursor, rows: i32, cols: i32, format: anytype) QTextTable {
+        comptime _ = @TypeOf(format)._is_QTextTableFormat;
+        return .{ .ptr = qtc.QTextCursor_InsertTable(@ptrCast(self.ptr), @bitCast(rows), @bitCast(cols), @ptrCast(format.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertTable)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
     /// ` rows: i32 `
     ///
     /// ` cols: i32 `
     ///
-    pub fn InsertTable2(self: ?*anyopaque, rows: i32, cols: i32) QtC.QTextTable {
-        return qtc.QTextCursor_InsertTable2(@ptrCast(self), @bitCast(rows), @bitCast(cols));
+    pub fn InsertTable2(self: QTextCursor, rows: i32, cols: i32) QTextTable {
+        return .{ .ptr = qtc.QTextCursor_InsertTable2(@ptrCast(self.ptr), @bitCast(rows), @bitCast(cols)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#currentTable)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn CurrentTable(self: ?*anyopaque) QtC.QTextTable {
-        return qtc.QTextCursor_CurrentTable(@ptrCast(self));
+    pub fn CurrentTable(self: QTextCursor) QTextTable {
+        return .{ .ptr = qtc.QTextCursor_CurrentTable(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertFrame)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` format: QtC.QTextFrameFormat `
+    /// ` format: QTextFrameFormat `
     ///
-    pub fn InsertFrame(self: ?*anyopaque, format: ?*anyopaque) QtC.QTextFrame {
-        return qtc.QTextCursor_InsertFrame(@ptrCast(self), @ptrCast(format));
+    pub fn InsertFrame(self: QTextCursor, format: anytype) QTextFrame {
+        comptime _ = @TypeOf(format)._is_QTextFrameFormat;
+        return .{ .ptr = qtc.QTextCursor_InsertFrame(@ptrCast(self.ptr), @ptrCast(format.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#currentFrame)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn CurrentFrame(self: ?*anyopaque) QtC.QTextFrame {
-        return qtc.QTextCursor_CurrentFrame(@ptrCast(self));
+    pub fn CurrentFrame(self: QTextCursor) QTextFrame {
+        return .{ .ptr = qtc.QTextCursor_CurrentFrame(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertFragment)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` fragment: QtC.QTextDocumentFragment `
+    /// ` fragment: QTextDocumentFragment `
     ///
-    pub fn InsertFragment(self: ?*anyopaque, fragment: ?*anyopaque) void {
-        qtc.QTextCursor_InsertFragment(@ptrCast(self), @ptrCast(fragment));
+    pub fn InsertFragment(self: QTextCursor, fragment: anytype) void {
+        comptime _ = @TypeOf(fragment)._is_QTextDocumentFragment;
+        qtc.QTextCursor_InsertFragment(@ptrCast(self.ptr), @ptrCast(fragment.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertHtml)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
     /// ` html: []const u8 `
     ///
-    pub fn InsertHtml(self: ?*anyopaque, html: []const u8) void {
+    pub fn InsertHtml(self: QTextCursor, html: []const u8) void {
         const html_str = qtc.libqt_string{
             .len = html.len,
             .data = html.ptr,
         };
-        qtc.QTextCursor_InsertHtml(@ptrCast(self), html_str);
+        qtc.QTextCursor_InsertHtml(@ptrCast(self.ptr), html_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertMarkdown)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
     /// ` markdown: []const u8 `
     ///
-    pub fn InsertMarkdown(self: ?*anyopaque, markdown: []const u8) void {
+    pub fn InsertMarkdown(self: QTextCursor, markdown: []const u8) void {
         const markdown_str = qtc.libqt_string{
             .len = markdown.len,
             .data = markdown.ptr,
         };
-        qtc.QTextCursor_InsertMarkdown(@ptrCast(self), markdown_str);
+        qtc.QTextCursor_InsertMarkdown(@ptrCast(self.ptr), markdown_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertImage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` format: QtC.QTextImageFormat `
+    /// ` format: QTextImageFormat `
     ///
     /// ` alignment: qtextformat_enums.Position `
     ///
-    pub fn InsertImage(self: ?*anyopaque, format: ?*anyopaque, alignment: i32) void {
-        qtc.QTextCursor_InsertImage(@ptrCast(self), @ptrCast(format), @bitCast(alignment));
+    pub fn InsertImage(self: QTextCursor, format: anytype, alignment: i32) void {
+        comptime _ = @TypeOf(format)._is_QTextImageFormat;
+        qtc.QTextCursor_InsertImage(@ptrCast(self.ptr), @ptrCast(format.ptr), @bitCast(alignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertImage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` format: QtC.QTextImageFormat `
+    /// ` format: QTextImageFormat `
     ///
-    pub fn InsertImage2(self: ?*anyopaque, format: ?*anyopaque) void {
-        qtc.QTextCursor_InsertImage2(@ptrCast(self), @ptrCast(format));
+    pub fn InsertImage2(self: QTextCursor, format: anytype) void {
+        comptime _ = @TypeOf(format)._is_QTextImageFormat;
+        qtc.QTextCursor_InsertImage2(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertImage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn InsertImage3(self: ?*anyopaque, name: []const u8) void {
+    pub fn InsertImage3(self: QTextCursor, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QTextCursor_InsertImage3(@ptrCast(self), name_str);
+        qtc.QTextCursor_InsertImage3(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertImage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` image: QtC.QImage `
+    /// ` image: QImage `
     ///
-    pub fn InsertImage4(self: ?*anyopaque, image: ?*anyopaque) void {
-        qtc.QTextCursor_InsertImage4(@ptrCast(self), @ptrCast(image));
+    pub fn InsertImage4(self: QTextCursor, image: anytype) void {
+        comptime _ = @TypeOf(image)._is_QImage;
+        qtc.QTextCursor_InsertImage4(@ptrCast(self.ptr), @ptrCast(image.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#beginEditBlock)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn BeginEditBlock(self: ?*anyopaque) void {
-        qtc.QTextCursor_BeginEditBlock(@ptrCast(self));
+    pub fn BeginEditBlock(self: QTextCursor) void {
+        qtc.QTextCursor_BeginEditBlock(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#joinPreviousEditBlock)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn JoinPreviousEditBlock(self: ?*anyopaque) void {
-        qtc.QTextCursor_JoinPreviousEditBlock(@ptrCast(self));
+    pub fn JoinPreviousEditBlock(self: QTextCursor) void {
+        qtc.QTextCursor_JoinPreviousEditBlock(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#endEditBlock)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn EndEditBlock(self: ?*anyopaque) void {
-        qtc.QTextCursor_EndEditBlock(@ptrCast(self));
+    pub fn EndEditBlock(self: QTextCursor) void {
+        qtc.QTextCursor_EndEditBlock(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#operator-not-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` rhs: QtC.QTextCursor `
+    /// ` rhs: QTextCursor `
     ///
-    pub fn OperatorNotEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
-        return qtc.QTextCursor_OperatorNotEqual(@ptrCast(self), @ptrCast(rhs));
+    pub fn OperatorNotEqual(self: QTextCursor, rhs: anytype) bool {
+        comptime _ = @TypeOf(rhs)._is_QTextCursor;
+        return qtc.QTextCursor_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#operator-lt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` rhs: QtC.QTextCursor `
+    /// ` rhs: QTextCursor `
     ///
-    pub fn OperatorLesser(self: ?*anyopaque, rhs: ?*anyopaque) bool {
-        return qtc.QTextCursor_OperatorLesser(@ptrCast(self), @ptrCast(rhs));
+    pub fn OperatorLesser(self: QTextCursor, rhs: anytype) bool {
+        comptime _ = @TypeOf(rhs)._is_QTextCursor;
+        return qtc.QTextCursor_OperatorLesser(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#operator-lt-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` rhs: QtC.QTextCursor `
+    /// ` rhs: QTextCursor `
     ///
-    pub fn OperatorLesserOrEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
-        return qtc.QTextCursor_OperatorLesserOrEqual(@ptrCast(self), @ptrCast(rhs));
+    pub fn OperatorLesserOrEqual(self: QTextCursor, rhs: anytype) bool {
+        comptime _ = @TypeOf(rhs)._is_QTextCursor;
+        return qtc.QTextCursor_OperatorLesserOrEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#operator-eq-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` rhs: QtC.QTextCursor `
+    /// ` rhs: QTextCursor `
     ///
-    pub fn OperatorEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
-        return qtc.QTextCursor_OperatorEqual(@ptrCast(self), @ptrCast(rhs));
+    pub fn OperatorEqual(self: QTextCursor, rhs: anytype) bool {
+        comptime _ = @TypeOf(rhs)._is_QTextCursor;
+        return qtc.QTextCursor_OperatorEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#operator-gt-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` rhs: QtC.QTextCursor `
+    /// ` rhs: QTextCursor `
     ///
-    pub fn OperatorGreaterOrEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
-        return qtc.QTextCursor_OperatorGreaterOrEqual(@ptrCast(self), @ptrCast(rhs));
+    pub fn OperatorGreaterOrEqual(self: QTextCursor, rhs: anytype) bool {
+        comptime _ = @TypeOf(rhs)._is_QTextCursor;
+        return qtc.QTextCursor_OperatorGreaterOrEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#operator-gt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` rhs: QtC.QTextCursor `
+    /// ` rhs: QTextCursor `
     ///
-    pub fn OperatorGreater(self: ?*anyopaque, rhs: ?*anyopaque) bool {
-        return qtc.QTextCursor_OperatorGreater(@ptrCast(self), @ptrCast(rhs));
+    pub fn OperatorGreater(self: QTextCursor, rhs: anytype) bool {
+        comptime _ = @TypeOf(rhs)._is_QTextCursor;
+        return qtc.QTextCursor_OperatorGreater(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#isCopyOf)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` other: QtC.QTextCursor `
+    /// ` other: QTextCursor `
     ///
-    pub fn IsCopyOf(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QTextCursor_IsCopyOf(@ptrCast(self), @ptrCast(other));
+    pub fn IsCopyOf(self: QTextCursor, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QTextCursor;
+        return qtc.QTextCursor_IsCopyOf(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#blockNumber)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn BlockNumber(self: ?*anyopaque) i32 {
-        return qtc.QTextCursor_BlockNumber(@ptrCast(self));
+    pub fn BlockNumber(self: QTextCursor) i32 {
+        return qtc.QTextCursor_BlockNumber(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#columnNumber)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn ColumnNumber(self: ?*anyopaque) i32 {
-        return qtc.QTextCursor_ColumnNumber(@ptrCast(self));
+    pub fn ColumnNumber(self: QTextCursor) i32 {
+        return qtc.QTextCursor_ColumnNumber(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#document)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn Document(self: ?*anyopaque) QtC.QTextDocument {
-        return qtc.QTextCursor_Document(@ptrCast(self));
+    pub fn Document(self: QTextCursor) QTextDocument {
+        return .{ .ptr = qtc.QTextCursor_Document(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#setPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
     /// ` pos: i32 `
     ///
     /// ` mode: qtextcursor_enums.MoveMode `
     ///
-    pub fn SetPosition2(self: ?*anyopaque, pos: i32, mode: i32) void {
-        qtc.QTextCursor_SetPosition2(@ptrCast(self), @bitCast(pos), @bitCast(mode));
+    pub fn SetPosition2(self: QTextCursor, pos: i32, mode: i32) void {
+        qtc.QTextCursor_SetPosition2(@ptrCast(self.ptr), @bitCast(pos), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#movePosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
     /// ` op: qtextcursor_enums.MoveOperation `
     ///
     /// ` param2: qtextcursor_enums.MoveMode `
     ///
-    pub fn MovePosition2(self: ?*anyopaque, op: i32, param2: i32) bool {
-        return qtc.QTextCursor_MovePosition2(@ptrCast(self), @bitCast(op), @bitCast(param2));
+    pub fn MovePosition2(self: QTextCursor, op: i32, param2: i32) bool {
+        return qtc.QTextCursor_MovePosition2(@ptrCast(self.ptr), @bitCast(op), @bitCast(param2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#movePosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
     /// ` op: qtextcursor_enums.MoveOperation `
     ///
@@ -967,44 +1019,45 @@ pub const qtextcursor = struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn MovePosition3(self: ?*anyopaque, op: i32, param2: i32, n: i32) bool {
-        return qtc.QTextCursor_MovePosition3(@ptrCast(self), @bitCast(op), @bitCast(param2), @bitCast(n));
+    pub fn MovePosition3(self: QTextCursor, op: i32, param2: i32, n: i32) bool {
+        return qtc.QTextCursor_MovePosition3(@ptrCast(self.ptr), @bitCast(op), @bitCast(param2), @bitCast(n));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertMarkdown)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
     /// ` markdown: []const u8 `
     ///
     /// ` features: flag of qtextdocument_enums.MarkdownFeature `
     ///
-    pub fn InsertMarkdown2(self: ?*anyopaque, markdown: []const u8, features: i32) void {
+    pub fn InsertMarkdown2(self: QTextCursor, markdown: []const u8, features: i32) void {
         const markdown_str = qtc.libqt_string{
             .len = markdown.len,
             .data = markdown.ptr,
         };
-        qtc.QTextCursor_InsertMarkdown2(@ptrCast(self), markdown_str, @bitCast(features));
+        qtc.QTextCursor_InsertMarkdown2(@ptrCast(self.ptr), markdown_str, @bitCast(features));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertImage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    /// ` image: QtC.QImage `
+    /// ` image: QImage `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn InsertImage22(self: ?*anyopaque, image: ?*anyopaque, name: []const u8) void {
+    pub fn InsertImage22(self: QTextCursor, image: anytype, name: []const u8) void {
+        comptime _ = @TypeOf(image)._is_QImage;
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QTextCursor_InsertImage22(@ptrCast(self), @ptrCast(image), name_str);
+        qtc.QTextCursor_InsertImage22(@ptrCast(self.ptr), @ptrCast(image.ptr), name_str);
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1017,10 +1070,10 @@ pub const qtextcursor = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QTextCursor `
+    /// ` self: QTextCursor `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QTextCursor_Delete(@ptrCast(self));
+    pub fn Delete(self: QTextCursor) void {
+        qtc.QTextCursor_Delete(@ptrCast(self.ptr));
     }
 };
 

@@ -1,57 +1,75 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KPlotPoint = @import("libqt6").KPlotPoint;
+const KPlotWidget = @import("libqt6").KPlotWidget;
+const QBrush = @import("libqt6").QBrush;
+const QColor = @import("libqt6").QColor;
+const QPainter = @import("libqt6").QPainter;
+const QPen = @import("libqt6").QPen;
+const QPointF = @import("libqt6").QPointF;
 const kplotobject_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kplotobject.html)
-pub const kplotobject = struct {
+pub const KPlotObject = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kplotobject.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KPlotObject,
+
+    pub const _is_KPlotObject = {};
+
     /// New constructs a new KPlotObject object.
     ///
-    pub fn New() QtC.KPlotObject {
-        return qtc.KPlotObject_new();
+    pub fn New() KPlotObject {
+        return .{ .ptr = qtc.KPlotObject_new() };
     }
 
     /// New2 constructs a new KPlotObject object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn New2(color: ?*anyopaque) QtC.KPlotObject {
-        return qtc.KPlotObject_new2(@ptrCast(color));
+    pub fn New2(color: anytype) KPlotObject {
+        comptime _ = @TypeOf(color)._is_QColor;
+        return .{ .ptr = qtc.KPlotObject_new2(@ptrCast(color.ptr)) };
     }
 
     /// New3 constructs a new KPlotObject object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
     /// ` otype: kplotobject_enums.PlotType `
     ///
-    pub fn New3(color: ?*anyopaque, otype: i32) QtC.KPlotObject {
-        return qtc.KPlotObject_new3(@ptrCast(color), @bitCast(otype));
+    pub fn New3(color: anytype, otype: i32) KPlotObject {
+        comptime _ = @TypeOf(color)._is_QColor;
+        return .{ .ptr = qtc.KPlotObject_new3(@ptrCast(color.ptr), @bitCast(otype)) };
     }
 
     /// New4 constructs a new KPlotObject object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
     /// ` otype: kplotobject_enums.PlotType `
     ///
     /// ` size: f64 `
     ///
-    pub fn New4(color: ?*anyopaque, otype: i32, size: f64) QtC.KPlotObject {
-        return qtc.KPlotObject_new4(@ptrCast(color), @bitCast(otype), @bitCast(size));
+    pub fn New4(color: anytype, otype: i32, size: f64) KPlotObject {
+        comptime _ = @TypeOf(color)._is_QColor;
+        return .{ .ptr = qtc.KPlotObject_new4(@ptrCast(color.ptr), @bitCast(otype), @bitCast(size)) };
     }
 
     /// New5 constructs a new KPlotObject object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
     /// ` otype: kplotobject_enums.PlotType `
     ///
@@ -59,254 +77,262 @@ pub const kplotobject = struct {
     ///
     /// ` ps: kplotobject_enums.PointStyle `
     ///
-    pub fn New5(color: ?*anyopaque, otype: i32, size: f64, ps: i32) QtC.KPlotObject {
-        return qtc.KPlotObject_new5(@ptrCast(color), @bitCast(otype), @bitCast(size), @bitCast(ps));
+    pub fn New5(color: anytype, otype: i32, size: f64, ps: i32) KPlotObject {
+        comptime _ = @TypeOf(color)._is_QColor;
+        return .{ .ptr = qtc.KPlotObject_new5(@ptrCast(color.ptr), @bitCast(otype), @bitCast(size), @bitCast(ps)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#plotTypes)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
     /// ## Returns:
     ///
     /// ` flag of kplotobject_enums.PlotType `
     ///
-    pub fn PlotTypes(self: ?*anyopaque) i32 {
-        return qtc.KPlotObject_PlotTypes(@ptrCast(self));
+    pub fn PlotTypes(self: KPlotObject) i32 {
+        return qtc.KPlotObject_PlotTypes(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#setShowPoints)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
     /// ` b: bool `
     ///
-    pub fn SetShowPoints(self: ?*anyopaque, b: bool) void {
-        qtc.KPlotObject_SetShowPoints(@ptrCast(self), b);
+    pub fn SetShowPoints(self: KPlotObject, b: bool) void {
+        qtc.KPlotObject_SetShowPoints(@ptrCast(self.ptr), b);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#setShowLines)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
     /// ` b: bool `
     ///
-    pub fn SetShowLines(self: ?*anyopaque, b: bool) void {
-        qtc.KPlotObject_SetShowLines(@ptrCast(self), b);
+    pub fn SetShowLines(self: KPlotObject, b: bool) void {
+        qtc.KPlotObject_SetShowLines(@ptrCast(self.ptr), b);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#setShowBars)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
     /// ` b: bool `
     ///
-    pub fn SetShowBars(self: ?*anyopaque, b: bool) void {
-        qtc.KPlotObject_SetShowBars(@ptrCast(self), b);
+    pub fn SetShowBars(self: KPlotObject, b: bool) void {
+        qtc.KPlotObject_SetShowBars(@ptrCast(self.ptr), b);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#size)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
-    pub fn Size(self: ?*anyopaque) f64 {
-        return qtc.KPlotObject_Size(@ptrCast(self));
+    pub fn Size(self: KPlotObject) f64 {
+        return qtc.KPlotObject_Size(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#setSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
     /// ` s: f64 `
     ///
-    pub fn SetSize(self: ?*anyopaque, s: f64) void {
-        qtc.KPlotObject_SetSize(@ptrCast(self), @bitCast(s));
+    pub fn SetSize(self: KPlotObject, s: f64) void {
+        qtc.KPlotObject_SetSize(@ptrCast(self.ptr), @bitCast(s));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#pointStyle)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
     /// ## Returns:
     ///
     /// ` kplotobject_enums.PointStyle `
     ///
-    pub fn PointStyle(self: ?*anyopaque) i32 {
-        return qtc.KPlotObject_PointStyle(@ptrCast(self));
+    pub fn PointStyle(self: KPlotObject) i32 {
+        return qtc.KPlotObject_PointStyle(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#setPointStyle)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
     /// ` p: kplotobject_enums.PointStyle `
     ///
-    pub fn SetPointStyle(self: ?*anyopaque, p: i32) void {
-        qtc.KPlotObject_SetPointStyle(@ptrCast(self), @bitCast(p));
+    pub fn SetPointStyle(self: KPlotObject, p: i32) void {
+        qtc.KPlotObject_SetPointStyle(@ptrCast(self.ptr), @bitCast(p));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#pen)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
-    pub fn Pen(self: ?*anyopaque) QtC.QPen {
-        return qtc.KPlotObject_Pen(@ptrCast(self));
+    pub fn Pen(self: KPlotObject) QPen {
+        return .{ .ptr = qtc.KPlotObject_Pen(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#setPen)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
-    /// ` p: QtC.QPen `
+    /// ` p: QPen `
     ///
-    pub fn SetPen(self: ?*anyopaque, p: ?*anyopaque) void {
-        qtc.KPlotObject_SetPen(@ptrCast(self), @ptrCast(p));
+    pub fn SetPen(self: KPlotObject, p: anytype) void {
+        comptime _ = @TypeOf(p)._is_QPen;
+        qtc.KPlotObject_SetPen(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#linePen)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
-    pub fn LinePen(self: ?*anyopaque) QtC.QPen {
-        return qtc.KPlotObject_LinePen(@ptrCast(self));
+    pub fn LinePen(self: KPlotObject) QPen {
+        return .{ .ptr = qtc.KPlotObject_LinePen(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#setLinePen)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
-    /// ` p: QtC.QPen `
+    /// ` p: QPen `
     ///
-    pub fn SetLinePen(self: ?*anyopaque, p: ?*anyopaque) void {
-        qtc.KPlotObject_SetLinePen(@ptrCast(self), @ptrCast(p));
+    pub fn SetLinePen(self: KPlotObject, p: anytype) void {
+        comptime _ = @TypeOf(p)._is_QPen;
+        qtc.KPlotObject_SetLinePen(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#barPen)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
-    pub fn BarPen(self: ?*anyopaque) QtC.QPen {
-        return qtc.KPlotObject_BarPen(@ptrCast(self));
+    pub fn BarPen(self: KPlotObject) QPen {
+        return .{ .ptr = qtc.KPlotObject_BarPen(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#setBarPen)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
-    /// ` p: QtC.QPen `
+    /// ` p: QPen `
     ///
-    pub fn SetBarPen(self: ?*anyopaque, p: ?*anyopaque) void {
-        qtc.KPlotObject_SetBarPen(@ptrCast(self), @ptrCast(p));
+    pub fn SetBarPen(self: KPlotObject, p: anytype) void {
+        comptime _ = @TypeOf(p)._is_QPen;
+        qtc.KPlotObject_SetBarPen(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#labelPen)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
-    pub fn LabelPen(self: ?*anyopaque) QtC.QPen {
-        return qtc.KPlotObject_LabelPen(@ptrCast(self));
+    pub fn LabelPen(self: KPlotObject) QPen {
+        return .{ .ptr = qtc.KPlotObject_LabelPen(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#setLabelPen)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
-    /// ` p: QtC.QPen `
+    /// ` p: QPen `
     ///
-    pub fn SetLabelPen(self: ?*anyopaque, p: ?*anyopaque) void {
-        qtc.KPlotObject_SetLabelPen(@ptrCast(self), @ptrCast(p));
+    pub fn SetLabelPen(self: KPlotObject, p: anytype) void {
+        comptime _ = @TypeOf(p)._is_QPen;
+        qtc.KPlotObject_SetLabelPen(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#brush)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
-    pub fn Brush(self: ?*anyopaque) QtC.QBrush {
-        return qtc.KPlotObject_Brush(@ptrCast(self));
+    pub fn Brush(self: KPlotObject) QBrush {
+        return .{ .ptr = qtc.KPlotObject_Brush(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#setBrush)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
-    /// ` b: QtC.QBrush `
+    /// ` b: QBrush `
     ///
-    pub fn SetBrush(self: ?*anyopaque, b: ?*anyopaque) void {
-        qtc.KPlotObject_SetBrush(@ptrCast(self), @ptrCast(b));
+    pub fn SetBrush(self: KPlotObject, b: anytype) void {
+        comptime _ = @TypeOf(b)._is_QBrush;
+        qtc.KPlotObject_SetBrush(@ptrCast(self.ptr), @ptrCast(b.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#barBrush)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
-    pub fn BarBrush(self: ?*anyopaque) QtC.QBrush {
-        return qtc.KPlotObject_BarBrush(@ptrCast(self));
+    pub fn BarBrush(self: KPlotObject) QBrush {
+        return .{ .ptr = qtc.KPlotObject_BarBrush(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#setBarBrush)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
-    /// ` b: QtC.QBrush `
+    /// ` b: QBrush `
     ///
-    pub fn SetBarBrush(self: ?*anyopaque, b: ?*anyopaque) void {
-        qtc.KPlotObject_SetBarBrush(@ptrCast(self), @ptrCast(b));
+    pub fn SetBarBrush(self: KPlotObject, b: anytype) void {
+        comptime _ = @TypeOf(b)._is_QBrush;
+        qtc.KPlotObject_SetBarBrush(@ptrCast(self.ptr), @ptrCast(b.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#points)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Points(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KPlotPoint {
-        const _arr: qtc.libqt_list = qtc.KPlotObject_Points(@ptrCast(self));
+    pub fn Points(self: KPlotObject, allocator: std.mem.Allocator) []KPlotPoint {
+        const _arr: qtc.libqt_list = qtc.KPlotObject_Points(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KPlotPoint, _arr.len) catch @panic("kplotobject.Points: Memory allocation failed");
+        const _ret = allocator.alloc(KPlotPoint, _arr.len) catch @panic("kplotobject.Points: Memory allocation failed");
         const _data: [*]QtC.KPlotPoint = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -314,119 +340,125 @@ pub const kplotobject = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn AddPoint(self: ?*anyopaque, p: ?*anyopaque) void {
-        qtc.KPlotObject_AddPoint(@ptrCast(self), @ptrCast(p));
+    pub fn AddPoint(self: KPlotObject, p: anytype) void {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        qtc.KPlotObject_AddPoint(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#addPoint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
-    /// ` p: QtC.KPlotPoint `
+    /// ` p: KPlotPoint `
     ///
-    pub fn AddPoint2(self: ?*anyopaque, p: ?*anyopaque) void {
-        qtc.KPlotObject_AddPoint2(@ptrCast(self), @ptrCast(p));
+    pub fn AddPoint2(self: KPlotObject, p: anytype) void {
+        comptime _ = @TypeOf(p)._is_KPlotPoint;
+        qtc.KPlotObject_AddPoint2(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#addPoint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
     /// ` x: f64 `
     ///
     /// ` y: f64 `
     ///
-    pub fn AddPoint3(self: ?*anyopaque, x: f64, y: f64) void {
-        qtc.KPlotObject_AddPoint3(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn AddPoint3(self: KPlotObject, x: f64, y: f64) void {
+        qtc.KPlotObject_AddPoint3(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#removePoint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
     /// ` index: i32 `
     ///
-    pub fn RemovePoint(self: ?*anyopaque, index: i32) void {
-        qtc.KPlotObject_RemovePoint(@ptrCast(self), @bitCast(index));
+    pub fn RemovePoint(self: KPlotObject, index: i32) void {
+        qtc.KPlotObject_RemovePoint(@ptrCast(self.ptr), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#clearPoints)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
-    pub fn ClearPoints(self: ?*anyopaque) void {
-        qtc.KPlotObject_ClearPoints(@ptrCast(self));
+    pub fn ClearPoints(self: KPlotObject) void {
+        qtc.KPlotObject_ClearPoints(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#draw)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
-    /// ` p: QtC.QPainter `
+    /// ` p: QPainter `
     ///
-    /// ` pw: QtC.KPlotWidget `
+    /// ` pw: KPlotWidget `
     ///
-    pub fn Draw(self: ?*anyopaque, p: ?*anyopaque, pw: ?*anyopaque) void {
-        qtc.KPlotObject_Draw(@ptrCast(self), @ptrCast(p), @ptrCast(pw));
+    pub fn Draw(self: KPlotObject, p: anytype, pw: anytype) void {
+        comptime _ = @TypeOf(p)._is_QPainter;
+        comptime _ = @TypeOf(pw)._is_KPlotWidget;
+        qtc.KPlotObject_Draw(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(pw.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#addPoint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
     /// ` label: []const u8 `
     ///
-    pub fn AddPoint22(self: ?*anyopaque, p: ?*anyopaque, label: []const u8) void {
+    pub fn AddPoint22(self: KPlotObject, p: anytype, label: []const u8) void {
+        comptime _ = @TypeOf(p)._is_QPointF;
         const label_str = qtc.libqt_string{
             .len = label.len,
             .data = label.ptr,
         };
-        qtc.KPlotObject_AddPoint22(@ptrCast(self), @ptrCast(p), label_str);
+        qtc.KPlotObject_AddPoint22(@ptrCast(self.ptr), @ptrCast(p.ptr), label_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#addPoint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
     /// ` label: []const u8 `
     ///
     /// ` barWidth: f64 `
     ///
-    pub fn AddPoint32(self: ?*anyopaque, p: ?*anyopaque, label: []const u8, barWidth: f64) void {
+    pub fn AddPoint32(self: KPlotObject, p: anytype, label: []const u8, barWidth: f64) void {
+        comptime _ = @TypeOf(p)._is_QPointF;
         const label_str = qtc.libqt_string{
             .len = label.len,
             .data = label.ptr,
         };
-        qtc.KPlotObject_AddPoint32(@ptrCast(self), @ptrCast(p), label_str, @bitCast(barWidth));
+        qtc.KPlotObject_AddPoint32(@ptrCast(self.ptr), @ptrCast(p.ptr), label_str, @bitCast(barWidth));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#addPoint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
     /// ` x: f64 `
     ///
@@ -434,19 +466,19 @@ pub const kplotobject = struct {
     ///
     /// ` label: []const u8 `
     ///
-    pub fn AddPoint33(self: ?*anyopaque, x: f64, y: f64, label: []const u8) void {
+    pub fn AddPoint33(self: KPlotObject, x: f64, y: f64, label: []const u8) void {
         const label_str = qtc.libqt_string{
             .len = label.len,
             .data = label.ptr,
         };
-        qtc.KPlotObject_AddPoint33(@ptrCast(self), @bitCast(x), @bitCast(y), label_str);
+        qtc.KPlotObject_AddPoint33(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), label_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kplotobject.html#addPoint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
     /// ` x: f64 `
     ///
@@ -456,12 +488,12 @@ pub const kplotobject = struct {
     ///
     /// ` barWidth: f64 `
     ///
-    pub fn AddPoint4(self: ?*anyopaque, x: f64, y: f64, label: []const u8, barWidth: f64) void {
+    pub fn AddPoint4(self: KPlotObject, x: f64, y: f64, label: []const u8, barWidth: f64) void {
         const label_str = qtc.libqt_string{
             .len = label.len,
             .data = label.ptr,
         };
-        qtc.KPlotObject_AddPoint4(@ptrCast(self), @bitCast(x), @bitCast(y), label_str, @bitCast(barWidth));
+        qtc.KPlotObject_AddPoint4(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), label_str, @bitCast(barWidth));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -474,10 +506,10 @@ pub const kplotobject = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KPlotObject `
+    /// ` self: KPlotObject `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KPlotObject_Delete(@ptrCast(self));
+    pub fn Delete(self: KPlotObject) void {
+        qtc.KPlotObject_Delete(@ptrCast(self.ptr));
     }
 };
 

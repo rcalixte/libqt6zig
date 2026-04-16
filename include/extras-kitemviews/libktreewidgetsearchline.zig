@@ -1,5 +1,69 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAction = @import("libqt6").QAction;
+const QActionEvent = @import("libqt6").QActionEvent;
+const QBackingStore = @import("libqt6").QBackingStore;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBitmap = @import("libqt6").QBitmap;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QCloseEvent = @import("libqt6").QCloseEvent;
+const QCompleter = @import("libqt6").QCompleter;
+const QContextMenuEvent = @import("libqt6").QContextMenuEvent;
+const QCursor = @import("libqt6").QCursor;
+const QDragEnterEvent = @import("libqt6").QDragEnterEvent;
+const QDragLeaveEvent = @import("libqt6").QDragLeaveEvent;
+const QDragMoveEvent = @import("libqt6").QDragMoveEvent;
+const QDropEvent = @import("libqt6").QDropEvent;
+const QEnterEvent = @import("libqt6").QEnterEvent;
+const QEvent = @import("libqt6").QEvent;
+const QFocusEvent = @import("libqt6").QFocusEvent;
+const QFont = @import("libqt6").QFont;
+const QFontInfo = @import("libqt6").QFontInfo;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QGraphicsEffect = @import("libqt6").QGraphicsEffect;
+const QGraphicsProxyWidget = @import("libqt6").QGraphicsProxyWidget;
+const QHideEvent = @import("libqt6").QHideEvent;
+const QIcon = @import("libqt6").QIcon;
+const QInputMethodEvent = @import("libqt6").QInputMethodEvent;
+const QKeyEvent = @import("libqt6").QKeyEvent;
+const QKeySequence = @import("libqt6").QKeySequence;
+const QLayout = @import("libqt6").QLayout;
+const QLocale = @import("libqt6").QLocale;
+const QMargins = @import("libqt6").QMargins;
+const QMenu = @import("libqt6").QMenu;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMouseEvent = @import("libqt6").QMouseEvent;
+const QMoveEvent = @import("libqt6").QMoveEvent;
+const QObject = @import("libqt6").QObject;
+const QPaintDevice = @import("libqt6").QPaintDevice;
+const QPaintEngine = @import("libqt6").QPaintEngine;
+const QPaintEvent = @import("libqt6").QPaintEvent;
+const QPainter = @import("libqt6").QPainter;
+const QPalette = @import("libqt6").QPalette;
+const QPixmap = @import("libqt6").QPixmap;
+const QPoint = @import("libqt6").QPoint;
+const QPointF = @import("libqt6").QPointF;
+const QRect = @import("libqt6").QRect;
+const QRegion = @import("libqt6").QRegion;
+const QResizeEvent = @import("libqt6").QResizeEvent;
+const QScreen = @import("libqt6").QScreen;
+const QShowEvent = @import("libqt6").QShowEvent;
+const QSize = @import("libqt6").QSize;
+const QSizePolicy = @import("libqt6").QSizePolicy;
+const QStyle = @import("libqt6").QStyle;
+const QStyleOptionFrame = @import("libqt6").QStyleOptionFrame;
+const QTabletEvent = @import("libqt6").QTabletEvent;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QTreeWidget = @import("libqt6").QTreeWidget;
+const QTreeWidgetItem = @import("libqt6").QTreeWidgetItem;
+const QValidator = @import("libqt6").QValidator;
+const QVariant = @import("libqt6").QVariant;
+const QWheelEvent = @import("libqt6").QWheelEvent;
+const QWidget = @import("libqt6").QWidget;
+const QWindow = @import("libqt6").QWindow;
 const qlineedit_enums = @import("../libqlineedit.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
@@ -10,60 +74,75 @@ const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html)
-pub const ktreewidgetsearchline = struct {
+pub const KTreeWidgetSearchLine = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KTreeWidgetSearchLine,
+
+    pub const _is_KTreeWidgetSearchLine = {};
+    pub const _is_QLineEdit = {};
+    pub const _is_QWidget = {};
+    pub const _is_QObject = {};
+    pub const _is_QPaintDevice = {};
+
     /// New constructs a new KTreeWidgetSearchLine object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.KTreeWidgetSearchLine {
-        return qtc.KTreeWidgetSearchLine_new(@ptrCast(parent));
+    pub fn New(parent: anytype) KTreeWidgetSearchLine {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.KTreeWidgetSearchLine_new(@ptrCast(parent.ptr)) };
     }
 
     /// New2 constructs a new KTreeWidgetSearchLine object.
     ///
-    pub fn New2() QtC.KTreeWidgetSearchLine {
-        return qtc.KTreeWidgetSearchLine_new2();
+    pub fn New2() KTreeWidgetSearchLine {
+        return .{ .ptr = qtc.KTreeWidgetSearchLine_new2() };
     }
 
     /// New3 constructs a new KTreeWidgetSearchLine object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    /// ` treeWidgets: []QtC.QTreeWidget `
+    /// ` treeWidgets: []QTreeWidget `
     ///
-    pub fn New3(parent: ?*anyopaque, treeWidgets: []?*anyopaque) QtC.KTreeWidgetSearchLine {
+    pub fn New3(parent: anytype, treeWidgets: []QTreeWidget) KTreeWidgetSearchLine {
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const treeWidgets_list = qtc.libqt_list{
             .len = treeWidgets.len,
             .data = @ptrCast(treeWidgets.ptr),
         };
-
-        return qtc.KTreeWidgetSearchLine_new3(@ptrCast(parent), treeWidgets_list);
+        return .{ .ptr = qtc.KTreeWidgetSearchLine_new3(@ptrCast(parent.ptr), treeWidgets_list) };
     }
 
     /// New4 constructs a new KTreeWidgetSearchLine object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    /// ` treeWidget: QtC.QTreeWidget `
+    /// ` treeWidget: QTreeWidget `
     ///
-    pub fn New4(parent: ?*anyopaque, treeWidget: ?*anyopaque) QtC.KTreeWidgetSearchLine {
-        return qtc.KTreeWidgetSearchLine_new4(@ptrCast(parent), @ptrCast(treeWidget));
+    pub fn New4(parent: anytype, treeWidget: anytype) KTreeWidgetSearchLine {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        comptime _ = @TypeOf(treeWidget)._is_QTreeWidget;
+        return .{ .ptr = qtc.KTreeWidgetSearchLine_new4(@ptrCast(parent.ptr), @ptrCast(treeWidget.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KTreeWidgetSearchLine_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KTreeWidgetSearchLine) QMetaObject {
+        return .{ .ptr = qtc.KTreeWidgetSearchLine_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -72,12 +151,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KTreeWidgetSearchLine_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KTreeWidgetSearchLine_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -90,33 +169,33 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KTreeWidgetSearchLine_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KTreeWidgetSearchLine) QMetaObject {
+        return .{ .ptr = qtc.KTreeWidgetSearchLine_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KTreeWidgetSearchLine, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KTreeWidgetSearchLine_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KTreeWidgetSearchLine_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KTreeWidgetSearchLine_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -127,18 +206,18 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KTreeWidgetSearchLine, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KTreeWidgetSearchLine_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KTreeWidgetSearchLine_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -146,20 +225,20 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KTreeWidgetSearchLine_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KTreeWidgetSearchLine, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KTreeWidgetSearchLine_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KTreeWidgetSearchLine_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KTreeWidgetSearchLine_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -170,7 +249,7 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -178,19 +257,19 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KTreeWidgetSearchLine_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KTreeWidgetSearchLine, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KTreeWidgetSearchLine_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -203,26 +282,26 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.CaseSensitivity `
     ///
-    pub fn CaseSensitivity(self: ?*anyopaque) i32 {
-        return qtc.KTreeWidgetSearchLine_CaseSensitivity(@ptrCast(self));
+    pub fn CaseSensitivity(self: KTreeWidgetSearchLine) i32 {
+        return qtc.KTreeWidgetSearchLine_CaseSensitivity(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#searchColumns)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SearchColumns(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.libqt_list = qtc.KTreeWidgetSearchLine_SearchColumns(@ptrCast(self));
+    pub fn SearchColumns(self: KTreeWidgetSearchLine, allocator: std.mem.Allocator) []i32 {
+        const _arr: qtc.libqt_list = qtc.KTreeWidgetSearchLine_SearchColumns(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("ktreewidgetsearchline.SearchColumns: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -234,36 +313,37 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn KeepParentsVisible(self: ?*anyopaque) bool {
-        return qtc.KTreeWidgetSearchLine_KeepParentsVisible(@ptrCast(self));
+    pub fn KeepParentsVisible(self: KTreeWidgetSearchLine) bool {
+        return qtc.KTreeWidgetSearchLine_KeepParentsVisible(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#treeWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn TreeWidget(self: ?*anyopaque) QtC.QTreeWidget {
-        return qtc.KTreeWidgetSearchLine_TreeWidget(@ptrCast(self));
+    pub fn TreeWidget(self: KTreeWidgetSearchLine) QTreeWidget {
+        return .{ .ptr = qtc.KTreeWidgetSearchLine_TreeWidget(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#treeWidgets)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TreeWidgets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTreeWidget {
-        const _arr: qtc.libqt_list = qtc.KTreeWidgetSearchLine_TreeWidgets(@ptrCast(self));
+    pub fn TreeWidgets(self: KTreeWidgetSearchLine, allocator: std.mem.Allocator) []QTreeWidget {
+        const _arr: qtc.libqt_list = qtc.KTreeWidgetSearchLine_TreeWidgets(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QTreeWidget, _arr.len) catch @panic("ktreewidgetsearchline.TreeWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QTreeWidget, _arr.len) catch @panic("ktreewidgetsearchline.TreeWidgets: Memory allocation failed");
         const _data: [*]QtC.QTreeWidget = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -271,142 +351,145 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QTreeWidgetItem `
+    /// ` param1: QTreeWidgetItem `
     ///
     /// ` param2: bool `
     ///
-    pub fn HiddenChanged(self: ?*anyopaque, param1: ?*anyopaque, param2: bool) void {
-        qtc.KTreeWidgetSearchLine_HiddenChanged(@ptrCast(self), @ptrCast(param1), param2);
+    pub fn HiddenChanged(self: KTreeWidgetSearchLine, param1: anytype, param2: bool) void {
+        comptime _ = @TypeOf(param1)._is_QTreeWidgetItem;
+        qtc.KTreeWidgetSearchLine_HiddenChanged(@ptrCast(self.ptr), @ptrCast(param1.ptr), param2);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#hiddenChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: QtC.QTreeWidgetItem, param2: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: QTreeWidgetItem, param2: bool) callconv(.c) void `
     ///
-    pub fn OnHiddenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_Connect_HiddenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHiddenChanged(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QTreeWidgetItem, bool) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_Connect_HiddenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#searchUpdated)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` searchString: []const u8 `
     ///
-    pub fn SearchUpdated(self: ?*anyopaque, searchString: []const u8) void {
+    pub fn SearchUpdated(self: KTreeWidgetSearchLine, searchString: []const u8) void {
         const searchString_str = qtc.libqt_string{
             .len = searchString.len,
             .data = searchString.ptr,
         };
-        qtc.KTreeWidgetSearchLine_SearchUpdated(@ptrCast(self), searchString_str);
+        qtc.KTreeWidgetSearchLine_SearchUpdated(@ptrCast(self.ptr), searchString_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#searchUpdated)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, searchString: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, searchString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSearchUpdated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_Connect_SearchUpdated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSearchUpdated(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, [*:0]const u8) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_Connect_SearchUpdated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#caseSensitivityChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` caseSensitivity: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn CaseSensitivityChanged(self: ?*anyopaque, caseSensitivity: i32) void {
-        qtc.KTreeWidgetSearchLine_CaseSensitivityChanged(@ptrCast(self), @bitCast(caseSensitivity));
+    pub fn CaseSensitivityChanged(self: KTreeWidgetSearchLine, caseSensitivity: i32) void {
+        qtc.KTreeWidgetSearchLine_CaseSensitivityChanged(@ptrCast(self.ptr), @bitCast(caseSensitivity));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#caseSensitivityChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, caseSensitivity: qnamespace_enums.CaseSensitivity) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, caseSensitivity: qnamespace_enums.CaseSensitivity) callconv(.c) void `
     ///
-    pub fn OnCaseSensitivityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_Connect_CaseSensitivityChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCaseSensitivityChanged(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, i32) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_Connect_CaseSensitivityChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#keepParentsVisibleChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` keepParentsVisible: bool `
     ///
-    pub fn KeepParentsVisibleChanged(self: ?*anyopaque, keepParentsVisible: bool) void {
-        qtc.KTreeWidgetSearchLine_KeepParentsVisibleChanged(@ptrCast(self), keepParentsVisible);
+    pub fn KeepParentsVisibleChanged(self: KTreeWidgetSearchLine, keepParentsVisible: bool) void {
+        qtc.KTreeWidgetSearchLine_KeepParentsVisibleChanged(@ptrCast(self.ptr), keepParentsVisible);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#keepParentsVisibleChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, keepParentsVisible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, keepParentsVisible: bool) callconv(.c) void `
     ///
-    pub fn OnKeepParentsVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_Connect_KeepParentsVisibleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeepParentsVisibleChanged(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, bool) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_Connect_KeepParentsVisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#addTreeWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` treeWidget: QtC.QTreeWidget `
+    /// ` treeWidget: QTreeWidget `
     ///
-    pub fn AddTreeWidget(self: ?*anyopaque, treeWidget: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_AddTreeWidget(@ptrCast(self), @ptrCast(treeWidget));
+    pub fn AddTreeWidget(self: KTreeWidgetSearchLine, treeWidget: anytype) void {
+        comptime _ = @TypeOf(treeWidget)._is_QTreeWidget;
+        qtc.KTreeWidgetSearchLine_AddTreeWidget(@ptrCast(self.ptr), @ptrCast(treeWidget.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#removeTreeWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` treeWidget: QtC.QTreeWidget `
+    /// ` treeWidget: QTreeWidget `
     ///
-    pub fn RemoveTreeWidget(self: ?*anyopaque, treeWidget: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_RemoveTreeWidget(@ptrCast(self), @ptrCast(treeWidget));
+    pub fn RemoveTreeWidget(self: KTreeWidgetSearchLine, treeWidget: anytype) void {
+        comptime _ = @TypeOf(treeWidget)._is_QTreeWidget;
+        qtc.KTreeWidgetSearchLine_RemoveTreeWidget(@ptrCast(self.ptr), @ptrCast(treeWidget.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#updateSearch)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` pattern: []const u8 `
     ///
-    pub fn UpdateSearch(self: ?*anyopaque, pattern: []const u8) void {
+    pub fn UpdateSearch(self: KTreeWidgetSearchLine, pattern: []const u8) void {
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
         };
-        qtc.KTreeWidgetSearchLine_UpdateSearch(@ptrCast(self), pattern_str);
+        qtc.KTreeWidgetSearchLine_UpdateSearch(@ptrCast(self.ptr), pattern_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#updateSearch)
@@ -415,12 +498,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, pattern: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, pattern: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnUpdateSearch(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnUpdateSearch(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateSearch(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, [*:0]const u8) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnUpdateSearch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateSearch` instead
@@ -433,102 +516,104 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` pattern: []const u8 `
     ///
-    pub fn SuperUpdateSearch(self: ?*anyopaque, pattern: []const u8) void {
+    pub fn SuperUpdateSearch(self: KTreeWidgetSearchLine, pattern: []const u8) void {
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
         };
-        qtc.KTreeWidgetSearchLine_SuperUpdateSearch(@ptrCast(self), pattern_str);
+        qtc.KTreeWidgetSearchLine_SuperUpdateSearch(@ptrCast(self.ptr), pattern_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#setCaseSensitivity)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` caseSensitivity: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn SetCaseSensitivity(self: ?*anyopaque, caseSensitivity: i32) void {
-        qtc.KTreeWidgetSearchLine_SetCaseSensitivity(@ptrCast(self), @bitCast(caseSensitivity));
+    pub fn SetCaseSensitivity(self: KTreeWidgetSearchLine, caseSensitivity: i32) void {
+        qtc.KTreeWidgetSearchLine_SetCaseSensitivity(@ptrCast(self.ptr), @bitCast(caseSensitivity));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#setKeepParentsVisible)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` value: bool `
     ///
-    pub fn SetKeepParentsVisible(self: ?*anyopaque, value: bool) void {
-        qtc.KTreeWidgetSearchLine_SetKeepParentsVisible(@ptrCast(self), value);
+    pub fn SetKeepParentsVisible(self: KTreeWidgetSearchLine, value: bool) void {
+        qtc.KTreeWidgetSearchLine_SetKeepParentsVisible(@ptrCast(self.ptr), value);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#setSearchColumns)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` columns: []i32 `
     ///
-    pub fn SetSearchColumns(self: ?*anyopaque, columns: []i32) void {
+    pub fn SetSearchColumns(self: KTreeWidgetSearchLine, columns: []i32) void {
         const columns_list = qtc.libqt_list{
             .len = columns.len,
             .data = columns.ptr,
         };
-        qtc.KTreeWidgetSearchLine_SetSearchColumns(@ptrCast(self), columns_list);
+        qtc.KTreeWidgetSearchLine_SetSearchColumns(@ptrCast(self.ptr), columns_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#setTreeWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` treeWidget: QtC.QTreeWidget `
+    /// ` treeWidget: QTreeWidget `
     ///
-    pub fn SetTreeWidget(self: ?*anyopaque, treeWidget: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SetTreeWidget(@ptrCast(self), @ptrCast(treeWidget));
+    pub fn SetTreeWidget(self: KTreeWidgetSearchLine, treeWidget: anytype) void {
+        comptime _ = @TypeOf(treeWidget)._is_QTreeWidget;
+        qtc.KTreeWidgetSearchLine_SetTreeWidget(@ptrCast(self.ptr), @ptrCast(treeWidget.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#setTreeWidgets)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` treeWidgets: []QtC.QTreeWidget `
+    /// ` treeWidgets: []QTreeWidget `
     ///
-    pub fn SetTreeWidgets(self: ?*anyopaque, treeWidgets: []?*anyopaque) void {
+    pub fn SetTreeWidgets(self: KTreeWidgetSearchLine, treeWidgets: []QTreeWidget) void {
         const treeWidgets_list = qtc.libqt_list{
             .len = treeWidgets.len,
             .data = @ptrCast(treeWidgets.ptr),
         };
-        qtc.KTreeWidgetSearchLine_SetTreeWidgets(@ptrCast(self), treeWidgets_list);
+        qtc.KTreeWidgetSearchLine_SetTreeWidgets(@ptrCast(self.ptr), treeWidgets_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#itemMatches)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` item: QtC.QTreeWidgetItem `
+    /// ` item: QTreeWidgetItem `
     ///
     /// ` pattern: []const u8 `
     ///
-    pub fn ItemMatches(self: ?*anyopaque, item: ?*anyopaque, pattern: []const u8) bool {
+    pub fn ItemMatches(self: KTreeWidgetSearchLine, item: anytype, pattern: []const u8) bool {
+        comptime _ = @TypeOf(item)._is_QTreeWidgetItem;
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
         };
-        return qtc.KTreeWidgetSearchLine_ItemMatches(@ptrCast(self), @ptrCast(item), pattern_str);
+        return qtc.KTreeWidgetSearchLine_ItemMatches(@ptrCast(self.ptr), @ptrCast(item.ptr), pattern_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#itemMatches)
@@ -537,12 +622,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, item: QtC.QTreeWidgetItem, pattern: [*:0]const u8) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, item: QTreeWidgetItem, pattern: [*:0]const u8) callconv(.c) bool `
     ///
-    pub fn OnItemMatches(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.KTreeWidgetSearchLine_OnItemMatches(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemMatches(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QTreeWidgetItem, [*:0]const u8) callconv(.c) bool) void {
+        qtc.KTreeWidgetSearchLine_OnItemMatches(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperItemMatches` instead
@@ -555,30 +640,32 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` item: QtC.QTreeWidgetItem `
+    /// ` item: QTreeWidgetItem `
     ///
     /// ` pattern: []const u8 `
     ///
-    pub fn SuperItemMatches(self: ?*anyopaque, item: ?*anyopaque, pattern: []const u8) bool {
+    pub fn SuperItemMatches(self: KTreeWidgetSearchLine, item: anytype, pattern: []const u8) bool {
+        comptime _ = @TypeOf(item)._is_QTreeWidgetItem;
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
         };
-        return qtc.KTreeWidgetSearchLine_SuperItemMatches(@ptrCast(self), @ptrCast(item), pattern_str);
+        return qtc.KTreeWidgetSearchLine_SuperItemMatches(@ptrCast(self.ptr), @ptrCast(item.ptr), pattern_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#contextMenuEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QContextMenuEvent `
+    /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ContextMenuEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
+        qtc.KTreeWidgetSearchLine_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#contextMenuEvent)
@@ -587,12 +674,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: QtC.QContextMenuEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QContextMenuEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
@@ -605,24 +692,26 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QContextMenuEvent `
+    /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperContextMenuEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
+        qtc.KTreeWidgetSearchLine_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#updateSearch)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` treeWidget: QtC.QTreeWidget `
+    /// ` treeWidget: QTreeWidget `
     ///
-    pub fn UpdateSearch2(self: ?*anyopaque, treeWidget: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_UpdateSearch2(@ptrCast(self), @ptrCast(treeWidget));
+    pub fn UpdateSearch2(self: KTreeWidgetSearchLine, treeWidget: anytype) void {
+        comptime _ = @TypeOf(treeWidget)._is_QTreeWidget;
+        qtc.KTreeWidgetSearchLine_UpdateSearch2(@ptrCast(self.ptr), @ptrCast(treeWidget.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#updateSearch)
@@ -631,12 +720,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, treeWidget: QtC.QTreeWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, treeWidget: QTreeWidget) callconv(.c) void `
     ///
-    pub fn OnUpdateSearch2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnUpdateSearch2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateSearch2(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QTreeWidget) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnUpdateSearch2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateSearch2` instead
@@ -649,24 +738,26 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` treeWidget: QtC.QTreeWidget `
+    /// ` treeWidget: QTreeWidget `
     ///
-    pub fn SuperUpdateSearch2(self: ?*anyopaque, treeWidget: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperUpdateSearch2(@ptrCast(self), @ptrCast(treeWidget));
+    pub fn SuperUpdateSearch2(self: KTreeWidgetSearchLine, treeWidget: anytype) void {
+        comptime _ = @TypeOf(treeWidget)._is_QTreeWidget;
+        qtc.KTreeWidgetSearchLine_SuperUpdateSearch2(@ptrCast(self.ptr), @ptrCast(treeWidget.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#connectTreeWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QTreeWidget `
+    /// ` param1: QTreeWidget `
     ///
-    pub fn ConnectTreeWidget(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_ConnectTreeWidget(@ptrCast(self), @ptrCast(param1));
+    pub fn ConnectTreeWidget(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QTreeWidget;
+        qtc.KTreeWidgetSearchLine_ConnectTreeWidget(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#connectTreeWidget)
@@ -675,12 +766,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: QtC.QTreeWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: QTreeWidget) callconv(.c) void `
     ///
-    pub fn OnConnectTreeWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnConnectTreeWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectTreeWidget(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QTreeWidget) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnConnectTreeWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperConnectTreeWidget` instead
@@ -693,24 +784,26 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QTreeWidget `
+    /// ` param1: QTreeWidget `
     ///
-    pub fn SuperConnectTreeWidget(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperConnectTreeWidget(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperConnectTreeWidget(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QTreeWidget;
+        qtc.KTreeWidgetSearchLine_SuperConnectTreeWidget(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#disconnectTreeWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QTreeWidget `
+    /// ` param1: QTreeWidget `
     ///
-    pub fn DisconnectTreeWidget(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_DisconnectTreeWidget(@ptrCast(self), @ptrCast(param1));
+    pub fn DisconnectTreeWidget(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QTreeWidget;
+        qtc.KTreeWidgetSearchLine_DisconnectTreeWidget(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#disconnectTreeWidget)
@@ -719,12 +812,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: QtC.QTreeWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: QTreeWidget) callconv(.c) void `
     ///
-    pub fn OnDisconnectTreeWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnDisconnectTreeWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectTreeWidget(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QTreeWidget) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnDisconnectTreeWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectTreeWidget` instead
@@ -737,22 +830,23 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QTreeWidget `
+    /// ` param1: QTreeWidget `
     ///
-    pub fn SuperDisconnectTreeWidget(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperDisconnectTreeWidget(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDisconnectTreeWidget(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QTreeWidget;
+        qtc.KTreeWidgetSearchLine_SuperDisconnectTreeWidget(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#canChooseColumnsCheck)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn CanChooseColumnsCheck(self: ?*anyopaque) bool {
-        return qtc.KTreeWidgetSearchLine_CanChooseColumnsCheck(@ptrCast(self));
+    pub fn CanChooseColumnsCheck(self: KTreeWidgetSearchLine) bool {
+        return qtc.KTreeWidgetSearchLine_CanChooseColumnsCheck(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#canChooseColumnsCheck)
@@ -761,12 +855,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnCanChooseColumnsCheck(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KTreeWidgetSearchLine_OnCanChooseColumnsCheck(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCanChooseColumnsCheck(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) bool) void {
+        qtc.KTreeWidgetSearchLine_OnCanChooseColumnsCheck(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCanChooseColumnsCheck` instead
@@ -779,22 +873,23 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SuperCanChooseColumnsCheck(self: ?*anyopaque) bool {
-        return qtc.KTreeWidgetSearchLine_SuperCanChooseColumnsCheck(@ptrCast(self));
+    pub fn SuperCanChooseColumnsCheck(self: KTreeWidgetSearchLine) bool {
+        return qtc.KTreeWidgetSearchLine_SuperCanChooseColumnsCheck(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#event)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KTreeWidgetSearchLine_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KTreeWidgetSearchLine, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KTreeWidgetSearchLine_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktreewidgetsearchline.html#event)
@@ -803,12 +898,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTreeWidgetSearchLine_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QEvent) callconv(.c) bool) void {
+        qtc.KTreeWidgetSearchLine_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -821,25 +916,26 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KTreeWidgetSearchLine_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KTreeWidgetSearchLine, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KTreeWidgetSearchLine_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -853,15 +949,15 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -877,12 +973,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLineEdit_Text(@ptrCast(self));
+    pub fn Text(self: KTreeWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QLineEdit_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktreewidgetsearchline.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -895,12 +991,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DisplayText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLineEdit_DisplayText(@ptrCast(self));
+    pub fn DisplayText(self: KTreeWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QLineEdit_DisplayText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktreewidgetsearchline.DisplayText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -913,12 +1009,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PlaceholderText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLineEdit_PlaceholderText(@ptrCast(self));
+    pub fn PlaceholderText(self: KTreeWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QLineEdit_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktreewidgetsearchline.PlaceholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -931,16 +1027,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` placeholderText: []const u8 `
     ///
-    pub fn SetPlaceholderText(self: ?*anyopaque, placeholderText: []const u8) void {
+    pub fn SetPlaceholderText(self: KTreeWidgetSearchLine, placeholderText: []const u8) void {
         const placeholderText_str = qtc.libqt_string{
             .len = placeholderText.len,
             .data = placeholderText.ptr,
         };
-        qtc.QLineEdit_SetPlaceholderText(@ptrCast(self), placeholderText_str);
+        qtc.QLineEdit_SetPlaceholderText(@ptrCast(self.ptr), placeholderText_str);
     }
 
     /// Inherited from QLineEdit
@@ -949,10 +1045,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn MaxLength(self: ?*anyopaque) i32 {
-        return qtc.QLineEdit_MaxLength(@ptrCast(self));
+    pub fn MaxLength(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QLineEdit_MaxLength(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -961,12 +1057,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` maxLength: i32 `
     ///
-    pub fn SetMaxLength(self: ?*anyopaque, maxLength: i32) void {
-        qtc.QLineEdit_SetMaxLength(@ptrCast(self), @bitCast(maxLength));
+    pub fn SetMaxLength(self: KTreeWidgetSearchLine, maxLength: i32) void {
+        qtc.QLineEdit_SetMaxLength(@ptrCast(self.ptr), @bitCast(maxLength));
     }
 
     /// Inherited from QLineEdit
@@ -975,12 +1071,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` frame: bool `
     ///
-    pub fn SetFrame(self: ?*anyopaque, frame: bool) void {
-        qtc.QLineEdit_SetFrame(@ptrCast(self), frame);
+    pub fn SetFrame(self: KTreeWidgetSearchLine, frame: bool) void {
+        qtc.QLineEdit_SetFrame(@ptrCast(self.ptr), frame);
     }
 
     /// Inherited from QLineEdit
@@ -989,10 +1085,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn HasFrame(self: ?*anyopaque) bool {
-        return qtc.QLineEdit_HasFrame(@ptrCast(self));
+    pub fn HasFrame(self: KTreeWidgetSearchLine) bool {
+        return qtc.QLineEdit_HasFrame(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1001,12 +1097,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetClearButtonEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QLineEdit_SetClearButtonEnabled(@ptrCast(self), enable);
+    pub fn SetClearButtonEnabled(self: KTreeWidgetSearchLine, enable: bool) void {
+        qtc.QLineEdit_SetClearButtonEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QLineEdit
@@ -1015,10 +1111,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn IsClearButtonEnabled(self: ?*anyopaque) bool {
-        return qtc.QLineEdit_IsClearButtonEnabled(@ptrCast(self));
+    pub fn IsClearButtonEnabled(self: KTreeWidgetSearchLine) bool {
+        return qtc.QLineEdit_IsClearButtonEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1027,14 +1123,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ## Returns:
     ///
     /// ` qlineedit_enums.EchoMode `
     ///
-    pub fn EchoMode(self: ?*anyopaque) i32 {
-        return qtc.QLineEdit_EchoMode(@ptrCast(self));
+    pub fn EchoMode(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QLineEdit_EchoMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1043,12 +1139,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` echoMode: qlineedit_enums.EchoMode `
     ///
-    pub fn SetEchoMode(self: ?*anyopaque, echoMode: i32) void {
-        qtc.QLineEdit_SetEchoMode(@ptrCast(self), @bitCast(echoMode));
+    pub fn SetEchoMode(self: KTreeWidgetSearchLine, echoMode: i32) void {
+        qtc.QLineEdit_SetEchoMode(@ptrCast(self.ptr), @bitCast(echoMode));
     }
 
     /// Inherited from QLineEdit
@@ -1057,10 +1153,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn IsReadOnly(self: ?*anyopaque) bool {
-        return qtc.QLineEdit_IsReadOnly(@ptrCast(self));
+    pub fn IsReadOnly(self: KTreeWidgetSearchLine) bool {
+        return qtc.QLineEdit_IsReadOnly(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1069,12 +1165,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` readOnly: bool `
     ///
-    pub fn SetReadOnly(self: ?*anyopaque, readOnly: bool) void {
-        qtc.QLineEdit_SetReadOnly(@ptrCast(self), readOnly);
+    pub fn SetReadOnly(self: KTreeWidgetSearchLine, readOnly: bool) void {
+        qtc.QLineEdit_SetReadOnly(@ptrCast(self.ptr), readOnly);
     }
 
     /// Inherited from QLineEdit
@@ -1083,12 +1179,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` validator: QtC.QValidator `
+    /// ` validator: QValidator `
     ///
-    pub fn SetValidator(self: ?*anyopaque, validator: ?*anyopaque) void {
-        qtc.QLineEdit_SetValidator(@ptrCast(self), @ptrCast(validator));
+    pub fn SetValidator(self: KTreeWidgetSearchLine, validator: anytype) void {
+        comptime _ = @TypeOf(validator)._is_QValidator;
+        qtc.QLineEdit_SetValidator(@ptrCast(self.ptr), @ptrCast(validator.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1097,10 +1194,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Validator(self: ?*anyopaque) QtC.QValidator {
-        return qtc.QLineEdit_Validator(@ptrCast(self));
+    pub fn Validator(self: KTreeWidgetSearchLine) QValidator {
+        return .{ .ptr = qtc.QLineEdit_Validator(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QLineEdit
@@ -1109,12 +1206,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` completer: QtC.QCompleter `
+    /// ` completer: QCompleter `
     ///
-    pub fn SetCompleter(self: ?*anyopaque, completer: ?*anyopaque) void {
-        qtc.QLineEdit_SetCompleter(@ptrCast(self), @ptrCast(completer));
+    pub fn SetCompleter(self: KTreeWidgetSearchLine, completer: anytype) void {
+        comptime _ = @TypeOf(completer)._is_QCompleter;
+        qtc.QLineEdit_SetCompleter(@ptrCast(self.ptr), @ptrCast(completer.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1123,10 +1221,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Completer(self: ?*anyopaque) QtC.QCompleter {
-        return qtc.QLineEdit_Completer(@ptrCast(self));
+    pub fn Completer(self: KTreeWidgetSearchLine) QCompleter {
+        return .{ .ptr = qtc.QLineEdit_Completer(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QLineEdit
@@ -1135,10 +1233,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn CursorPosition(self: ?*anyopaque) i32 {
-        return qtc.QLineEdit_CursorPosition(@ptrCast(self));
+    pub fn CursorPosition(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QLineEdit_CursorPosition(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1147,12 +1245,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` cursorPosition: i32 `
     ///
-    pub fn SetCursorPosition(self: ?*anyopaque, cursorPosition: i32) void {
-        qtc.QLineEdit_SetCursorPosition(@ptrCast(self), @bitCast(cursorPosition));
+    pub fn SetCursorPosition(self: KTreeWidgetSearchLine, cursorPosition: i32) void {
+        qtc.QLineEdit_SetCursorPosition(@ptrCast(self.ptr), @bitCast(cursorPosition));
     }
 
     /// Inherited from QLineEdit
@@ -1161,12 +1259,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CursorPositionAt(self: ?*anyopaque, pos: ?*anyopaque) i32 {
-        return qtc.QLineEdit_CursorPositionAt(@ptrCast(self), @ptrCast(pos));
+    pub fn CursorPositionAt(self: KTreeWidgetSearchLine, pos: anytype) i32 {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        return qtc.QLineEdit_CursorPositionAt(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1175,12 +1274,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` flag: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment(self: ?*anyopaque, flag: i32) void {
-        qtc.QLineEdit_SetAlignment(@ptrCast(self), @bitCast(flag));
+    pub fn SetAlignment(self: KTreeWidgetSearchLine, flag: i32) void {
+        qtc.QLineEdit_SetAlignment(@ptrCast(self.ptr), @bitCast(flag));
     }
 
     /// Inherited from QLineEdit
@@ -1189,14 +1288,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: ?*anyopaque) i32 {
-        return qtc.QLineEdit_Alignment(@ptrCast(self));
+    pub fn Alignment(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QLineEdit_Alignment(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1205,12 +1304,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` mark: bool `
     ///
-    pub fn CursorForward(self: ?*anyopaque, mark: bool) void {
-        qtc.QLineEdit_CursorForward(@ptrCast(self), mark);
+    pub fn CursorForward(self: KTreeWidgetSearchLine, mark: bool) void {
+        qtc.QLineEdit_CursorForward(@ptrCast(self.ptr), mark);
     }
 
     /// Inherited from QLineEdit
@@ -1219,12 +1318,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` mark: bool `
     ///
-    pub fn CursorBackward(self: ?*anyopaque, mark: bool) void {
-        qtc.QLineEdit_CursorBackward(@ptrCast(self), mark);
+    pub fn CursorBackward(self: KTreeWidgetSearchLine, mark: bool) void {
+        qtc.QLineEdit_CursorBackward(@ptrCast(self.ptr), mark);
     }
 
     /// Inherited from QLineEdit
@@ -1233,12 +1332,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` mark: bool `
     ///
-    pub fn CursorWordForward(self: ?*anyopaque, mark: bool) void {
-        qtc.QLineEdit_CursorWordForward(@ptrCast(self), mark);
+    pub fn CursorWordForward(self: KTreeWidgetSearchLine, mark: bool) void {
+        qtc.QLineEdit_CursorWordForward(@ptrCast(self.ptr), mark);
     }
 
     /// Inherited from QLineEdit
@@ -1247,12 +1346,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` mark: bool `
     ///
-    pub fn CursorWordBackward(self: ?*anyopaque, mark: bool) void {
-        qtc.QLineEdit_CursorWordBackward(@ptrCast(self), mark);
+    pub fn CursorWordBackward(self: KTreeWidgetSearchLine, mark: bool) void {
+        qtc.QLineEdit_CursorWordBackward(@ptrCast(self.ptr), mark);
     }
 
     /// Inherited from QLineEdit
@@ -1261,10 +1360,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Backspace(self: ?*anyopaque) void {
-        qtc.QLineEdit_Backspace(@ptrCast(self));
+    pub fn Backspace(self: KTreeWidgetSearchLine) void {
+        qtc.QLineEdit_Backspace(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1273,10 +1372,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Del(self: ?*anyopaque) void {
-        qtc.QLineEdit_Del(@ptrCast(self));
+    pub fn Del(self: KTreeWidgetSearchLine) void {
+        qtc.QLineEdit_Del(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1285,12 +1384,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` mark: bool `
     ///
-    pub fn Home(self: ?*anyopaque, mark: bool) void {
-        qtc.QLineEdit_Home(@ptrCast(self), mark);
+    pub fn Home(self: KTreeWidgetSearchLine, mark: bool) void {
+        qtc.QLineEdit_Home(@ptrCast(self.ptr), mark);
     }
 
     /// Inherited from QLineEdit
@@ -1299,12 +1398,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` mark: bool `
     ///
-    pub fn End(self: ?*anyopaque, mark: bool) void {
-        qtc.QLineEdit_End(@ptrCast(self), mark);
+    pub fn End(self: KTreeWidgetSearchLine, mark: bool) void {
+        qtc.QLineEdit_End(@ptrCast(self.ptr), mark);
     }
 
     /// Inherited from QLineEdit
@@ -1313,10 +1412,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn IsModified(self: ?*anyopaque) bool {
-        return qtc.QLineEdit_IsModified(@ptrCast(self));
+    pub fn IsModified(self: KTreeWidgetSearchLine) bool {
+        return qtc.QLineEdit_IsModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1325,12 +1424,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` modified: bool `
     ///
-    pub fn SetModified(self: ?*anyopaque, modified: bool) void {
-        qtc.QLineEdit_SetModified(@ptrCast(self), modified);
+    pub fn SetModified(self: KTreeWidgetSearchLine, modified: bool) void {
+        qtc.QLineEdit_SetModified(@ptrCast(self.ptr), modified);
     }
 
     /// Inherited from QLineEdit
@@ -1339,14 +1438,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` param1: i32 `
     ///
     /// ` param2: i32 `
     ///
-    pub fn SetSelection(self: ?*anyopaque, param1: i32, param2: i32) void {
-        qtc.QLineEdit_SetSelection(@ptrCast(self), @bitCast(param1), @bitCast(param2));
+    pub fn SetSelection(self: KTreeWidgetSearchLine, param1: i32, param2: i32) void {
+        qtc.QLineEdit_SetSelection(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2));
     }
 
     /// Inherited from QLineEdit
@@ -1355,10 +1454,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn HasSelectedText(self: ?*anyopaque) bool {
-        return qtc.QLineEdit_HasSelectedText(@ptrCast(self));
+    pub fn HasSelectedText(self: KTreeWidgetSearchLine) bool {
+        return qtc.QLineEdit_HasSelectedText(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1367,12 +1466,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLineEdit_SelectedText(@ptrCast(self));
+    pub fn SelectedText(self: KTreeWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QLineEdit_SelectedText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktreewidgetsearchline.SelectedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1385,10 +1484,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SelectionStart(self: ?*anyopaque) i32 {
-        return qtc.QLineEdit_SelectionStart(@ptrCast(self));
+    pub fn SelectionStart(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QLineEdit_SelectionStart(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1397,10 +1496,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SelectionEnd(self: ?*anyopaque) i32 {
-        return qtc.QLineEdit_SelectionEnd(@ptrCast(self));
+    pub fn SelectionEnd(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QLineEdit_SelectionEnd(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1409,10 +1508,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SelectionLength(self: ?*anyopaque) i32 {
-        return qtc.QLineEdit_SelectionLength(@ptrCast(self));
+    pub fn SelectionLength(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QLineEdit_SelectionLength(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1421,10 +1520,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn IsUndoAvailable(self: ?*anyopaque) bool {
-        return qtc.QLineEdit_IsUndoAvailable(@ptrCast(self));
+    pub fn IsUndoAvailable(self: KTreeWidgetSearchLine) bool {
+        return qtc.QLineEdit_IsUndoAvailable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1433,10 +1532,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn IsRedoAvailable(self: ?*anyopaque) bool {
-        return qtc.QLineEdit_IsRedoAvailable(@ptrCast(self));
+    pub fn IsRedoAvailable(self: KTreeWidgetSearchLine) bool {
+        return qtc.QLineEdit_IsRedoAvailable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1445,12 +1544,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` b: bool `
     ///
-    pub fn SetDragEnabled(self: ?*anyopaque, b: bool) void {
-        qtc.QLineEdit_SetDragEnabled(@ptrCast(self), b);
+    pub fn SetDragEnabled(self: KTreeWidgetSearchLine, b: bool) void {
+        qtc.QLineEdit_SetDragEnabled(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QLineEdit
@@ -1459,10 +1558,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn DragEnabled(self: ?*anyopaque) bool {
-        return qtc.QLineEdit_DragEnabled(@ptrCast(self));
+    pub fn DragEnabled(self: KTreeWidgetSearchLine) bool {
+        return qtc.QLineEdit_DragEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1471,12 +1570,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` style: qnamespace_enums.CursorMoveStyle `
     ///
-    pub fn SetCursorMoveStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QLineEdit_SetCursorMoveStyle(@ptrCast(self), @bitCast(style));
+    pub fn SetCursorMoveStyle(self: KTreeWidgetSearchLine, style: i32) void {
+        qtc.QLineEdit_SetCursorMoveStyle(@ptrCast(self.ptr), @bitCast(style));
     }
 
     /// Inherited from QLineEdit
@@ -1485,14 +1584,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.CursorMoveStyle `
     ///
-    pub fn CursorMoveStyle(self: ?*anyopaque) i32 {
-        return qtc.QLineEdit_CursorMoveStyle(@ptrCast(self));
+    pub fn CursorMoveStyle(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QLineEdit_CursorMoveStyle(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1501,12 +1600,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InputMask(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLineEdit_InputMask(@ptrCast(self));
+    pub fn InputMask(self: KTreeWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QLineEdit_InputMask(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktreewidgetsearchline.InputMask: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1519,16 +1618,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` inputMask: []const u8 `
     ///
-    pub fn SetInputMask(self: ?*anyopaque, inputMask: []const u8) void {
+    pub fn SetInputMask(self: KTreeWidgetSearchLine, inputMask: []const u8) void {
         const inputMask_str = qtc.libqt_string{
             .len = inputMask.len,
             .data = inputMask.ptr,
         };
-        qtc.QLineEdit_SetInputMask(@ptrCast(self), inputMask_str);
+        qtc.QLineEdit_SetInputMask(@ptrCast(self.ptr), inputMask_str);
     }
 
     /// Inherited from QLineEdit
@@ -1537,10 +1636,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn HasAcceptableInput(self: ?*anyopaque) bool {
-        return qtc.QLineEdit_HasAcceptableInput(@ptrCast(self));
+    pub fn HasAcceptableInput(self: KTreeWidgetSearchLine) bool {
+        return qtc.QLineEdit_HasAcceptableInput(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1549,7 +1648,7 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` left: i32 `
     ///
@@ -1559,8 +1658,8 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetTextMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QLineEdit_SetTextMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetTextMargins(self: KTreeWidgetSearchLine, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QLineEdit_SetTextMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QLineEdit
@@ -1569,12 +1668,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetTextMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QLineEdit_SetTextMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetTextMargins2(self: KTreeWidgetSearchLine, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QLineEdit_SetTextMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1583,10 +1683,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn TextMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QLineEdit_TextMargins(@ptrCast(self));
+    pub fn TextMargins(self: KTreeWidgetSearchLine) QMargins {
+        return .{ .ptr = qtc.QLineEdit_TextMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QLineEdit
@@ -1595,14 +1695,15 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
     /// ` position: qlineedit_enums.ActionPosition `
     ///
-    pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque, position: i32) void {
-        qtc.QLineEdit_AddAction(@ptrCast(self), @ptrCast(action), @bitCast(position));
+    pub fn AddAction(self: KTreeWidgetSearchLine, action: anytype, position: i32) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QLineEdit_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr), @bitCast(position));
     }
 
     /// Inherited from QLineEdit
@@ -1611,14 +1712,15 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` position: qlineedit_enums.ActionPosition `
     ///
-    pub fn AddAction2(self: ?*anyopaque, icon: ?*anyopaque, position: i32) QtC.QAction {
-        return qtc.QLineEdit_AddAction2(@ptrCast(self), @ptrCast(icon), @bitCast(position));
+    pub fn AddAction2(self: KTreeWidgetSearchLine, icon: anytype, position: i32) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        return .{ .ptr = qtc.QLineEdit_AddAction2(@ptrCast(self.ptr), @ptrCast(icon.ptr), @bitCast(position)) };
     }
 
     /// Inherited from QLineEdit
@@ -1627,16 +1729,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SetText(self: KTreeWidgetSearchLine, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QLineEdit_SetText(@ptrCast(self), text_str);
+        qtc.QLineEdit_SetText(@ptrCast(self.ptr), text_str);
     }
 
     /// Inherited from QLineEdit
@@ -1645,10 +1747,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Clear(self: ?*anyopaque) void {
-        qtc.QLineEdit_Clear(@ptrCast(self));
+    pub fn Clear(self: KTreeWidgetSearchLine) void {
+        qtc.QLineEdit_Clear(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1657,10 +1759,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SelectAll(self: ?*anyopaque) void {
-        qtc.QLineEdit_SelectAll(@ptrCast(self));
+    pub fn SelectAll(self: KTreeWidgetSearchLine) void {
+        qtc.QLineEdit_SelectAll(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1669,10 +1771,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Undo(self: ?*anyopaque) void {
-        qtc.QLineEdit_Undo(@ptrCast(self));
+    pub fn Undo(self: KTreeWidgetSearchLine) void {
+        qtc.QLineEdit_Undo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1681,10 +1783,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Redo(self: ?*anyopaque) void {
-        qtc.QLineEdit_Redo(@ptrCast(self));
+    pub fn Redo(self: KTreeWidgetSearchLine) void {
+        qtc.QLineEdit_Redo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1693,10 +1795,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Cut(self: ?*anyopaque) void {
-        qtc.QLineEdit_Cut(@ptrCast(self));
+    pub fn Cut(self: KTreeWidgetSearchLine) void {
+        qtc.QLineEdit_Cut(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1705,10 +1807,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Copy(self: ?*anyopaque) void {
-        qtc.QLineEdit_Copy(@ptrCast(self));
+    pub fn Copy(self: KTreeWidgetSearchLine) void {
+        qtc.QLineEdit_Copy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1717,10 +1819,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Paste(self: ?*anyopaque) void {
-        qtc.QLineEdit_Paste(@ptrCast(self));
+    pub fn Paste(self: KTreeWidgetSearchLine) void {
+        qtc.QLineEdit_Paste(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1729,10 +1831,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Deselect(self: ?*anyopaque) void {
-        qtc.QLineEdit_Deselect(@ptrCast(self));
+    pub fn Deselect(self: KTreeWidgetSearchLine) void {
+        qtc.QLineEdit_Deselect(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1741,16 +1843,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn Insert(self: ?*anyopaque, param1: []const u8) void {
+    pub fn Insert(self: KTreeWidgetSearchLine, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        qtc.QLineEdit_Insert(@ptrCast(self), param1_str);
+        qtc.QLineEdit_Insert(@ptrCast(self.ptr), param1_str);
     }
 
     /// Inherited from QLineEdit
@@ -1759,10 +1861,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn CreateStandardContextMenu(self: ?*anyopaque) QtC.QMenu {
-        return qtc.QLineEdit_CreateStandardContextMenu(@ptrCast(self));
+    pub fn CreateStandardContextMenu(self: KTreeWidgetSearchLine) QMenu {
+        return .{ .ptr = qtc.QLineEdit_CreateStandardContextMenu(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QLineEdit
@@ -1771,16 +1873,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn TextChanged(self: ?*anyopaque, param1: []const u8) void {
+    pub fn TextChanged(self: KTreeWidgetSearchLine, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        qtc.QLineEdit_TextChanged(@ptrCast(self), param1_str);
+        qtc.QLineEdit_TextChanged(@ptrCast(self.ptr), param1_str);
     }
 
     /// Inherited from QLineEdit
@@ -1789,12 +1891,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QLineEdit_Connect_TextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTextChanged(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, [*:0]const u8) callconv(.c) void) void {
+        qtc.QLineEdit_Connect_TextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -1803,16 +1905,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn TextEdited(self: ?*anyopaque, param1: []const u8) void {
+    pub fn TextEdited(self: KTreeWidgetSearchLine, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        qtc.QLineEdit_TextEdited(@ptrCast(self), param1_str);
+        qtc.QLineEdit_TextEdited(@ptrCast(self.ptr), param1_str);
     }
 
     /// Inherited from QLineEdit
@@ -1821,12 +1923,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextEdited(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QLineEdit_Connect_TextEdited(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTextEdited(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, [*:0]const u8) callconv(.c) void) void {
+        qtc.QLineEdit_Connect_TextEdited(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -1835,14 +1937,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` param1: i32 `
     ///
     /// ` param2: i32 `
     ///
-    pub fn CursorPositionChanged(self: ?*anyopaque, param1: i32, param2: i32) void {
-        qtc.QLineEdit_CursorPositionChanged(@ptrCast(self), @bitCast(param1), @bitCast(param2));
+    pub fn CursorPositionChanged(self: KTreeWidgetSearchLine, param1: i32, param2: i32) void {
+        qtc.QLineEdit_CursorPositionChanged(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2));
     }
 
     /// Inherited from QLineEdit
@@ -1851,12 +1953,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: i32, param2: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: i32, param2: i32) callconv(.c) void `
     ///
-    pub fn OnCursorPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QLineEdit_Connect_CursorPositionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCursorPositionChanged(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, i32, i32) callconv(.c) void) void {
+        qtc.QLineEdit_Connect_CursorPositionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -1865,10 +1967,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn ReturnPressed(self: ?*anyopaque) void {
-        qtc.QLineEdit_ReturnPressed(@ptrCast(self));
+    pub fn ReturnPressed(self: KTreeWidgetSearchLine) void {
+        qtc.QLineEdit_ReturnPressed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1877,12 +1979,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine) callconv(.c) void `
     ///
-    pub fn OnReturnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QLineEdit_Connect_ReturnPressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReturnPressed(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine) callconv(.c) void) void {
+        qtc.QLineEdit_Connect_ReturnPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -1891,10 +1993,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn EditingFinished(self: ?*anyopaque) void {
-        qtc.QLineEdit_EditingFinished(@ptrCast(self));
+    pub fn EditingFinished(self: KTreeWidgetSearchLine) void {
+        qtc.QLineEdit_EditingFinished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1903,12 +2005,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine) callconv(.c) void `
     ///
-    pub fn OnEditingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QLineEdit_Connect_EditingFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEditingFinished(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine) callconv(.c) void) void {
+        qtc.QLineEdit_Connect_EditingFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -1917,10 +2019,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SelectionChanged(self: ?*anyopaque) void {
-        qtc.QLineEdit_SelectionChanged(@ptrCast(self));
+    pub fn SelectionChanged(self: KTreeWidgetSearchLine) void {
+        qtc.QLineEdit_SelectionChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1929,12 +2031,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine) callconv(.c) void `
     ///
-    pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QLineEdit_Connect_SelectionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSelectionChanged(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine) callconv(.c) void) void {
+        qtc.QLineEdit_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -1943,10 +2045,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn InputRejected(self: ?*anyopaque) void {
-        qtc.QLineEdit_InputRejected(@ptrCast(self));
+    pub fn InputRejected(self: KTreeWidgetSearchLine) void {
+        qtc.QLineEdit_InputRejected(@ptrCast(self.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -1955,12 +2057,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine) callconv(.c) void `
     ///
-    pub fn OnInputRejected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QLineEdit_Connect_InputRejected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputRejected(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine) callconv(.c) void) void {
+        qtc.QLineEdit_Connect_InputRejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -1969,14 +2071,15 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` property: qnamespace_enums.InputMethodQuery `
     ///
-    /// ` argument: QtC.QVariant `
+    /// ` argument: QVariant `
     ///
-    pub fn InputMethodQuery2(self: ?*anyopaque, property: i32, argument: QtC.QVariant) QtC.QVariant {
-        return qtc.QLineEdit_InputMethodQuery2(@ptrCast(self), @bitCast(property), @ptrCast(argument));
+    pub fn InputMethodQuery2(self: KTreeWidgetSearchLine, property: i32, argument: anytype) QVariant {
+        comptime _ = @TypeOf(argument)._is_QVariant;
+        return .{ .ptr = qtc.QLineEdit_InputMethodQuery2(@ptrCast(self.ptr), @bitCast(property), @ptrCast(argument.ptr)) };
     }
 
     /// Inherited from QLineEdit
@@ -1985,14 +2088,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` mark: bool `
     ///
     /// ` steps: i32 `
     ///
-    pub fn CursorForward2(self: ?*anyopaque, mark: bool, steps: i32) void {
-        qtc.QLineEdit_CursorForward2(@ptrCast(self), mark, @bitCast(steps));
+    pub fn CursorForward2(self: KTreeWidgetSearchLine, mark: bool, steps: i32) void {
+        qtc.QLineEdit_CursorForward2(@ptrCast(self.ptr), mark, @bitCast(steps));
     }
 
     /// Inherited from QLineEdit
@@ -2001,14 +2104,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` mark: bool `
     ///
     /// ` steps: i32 `
     ///
-    pub fn CursorBackward2(self: ?*anyopaque, mark: bool, steps: i32) void {
-        qtc.QLineEdit_CursorBackward2(@ptrCast(self), mark, @bitCast(steps));
+    pub fn CursorBackward2(self: KTreeWidgetSearchLine, mark: bool, steps: i32) void {
+        qtc.QLineEdit_CursorBackward2(@ptrCast(self.ptr), mark, @bitCast(steps));
     }
 
     /// Inherited from QWidget
@@ -2017,10 +2120,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn WinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_WinId(@ptrCast(self));
+    pub fn WinId(self: KTreeWidgetSearchLine) usize {
+        return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2029,10 +2132,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn CreateWinId(self: ?*anyopaque) void {
-        qtc.QWidget_CreateWinId(@ptrCast(self));
+    pub fn CreateWinId(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2041,10 +2144,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn InternalWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_InternalWinId(@ptrCast(self));
+    pub fn InternalWinId(self: KTreeWidgetSearchLine) usize {
+        return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2053,10 +2156,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
+    pub fn EffectiveWinId(self: KTreeWidgetSearchLine) usize {
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2065,10 +2168,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QWidget_Style(@ptrCast(self));
+    pub fn Style(self: KTreeWidgetSearchLine) QStyle {
+        return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2077,12 +2180,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetStyle(self: KTreeWidgetSearchLine, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// Inherited from QWidget
@@ -2091,10 +2195,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsTopLevel(@ptrCast(self));
+    pub fn IsTopLevel(self: KTreeWidgetSearchLine) bool {
+        return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2103,10 +2207,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn IsWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindow(@ptrCast(self));
+    pub fn IsWindow(self: KTreeWidgetSearchLine) bool {
+        return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2115,10 +2219,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn IsModal(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsModal(@ptrCast(self));
+    pub fn IsModal(self: KTreeWidgetSearchLine) bool {
+        return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2127,14 +2231,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowModality(@ptrCast(self));
+    pub fn WindowModality(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2143,12 +2247,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
+    pub fn SetWindowModality(self: KTreeWidgetSearchLine, windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -2157,10 +2261,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: KTreeWidgetSearchLine) bool {
+        return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2169,12 +2273,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsEnabledTo(self: KTreeWidgetSearchLine, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -2183,12 +2288,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: KTreeWidgetSearchLine, enabled: bool) void {
+        qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -2197,12 +2302,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
+    pub fn SetDisabled(self: KTreeWidgetSearchLine, disabled: bool) void {
+        qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
 
     /// Inherited from QWidget
@@ -2211,12 +2316,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+    pub fn SetWindowModified(self: KTreeWidgetSearchLine, windowModified: bool) void {
+        qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
 
     /// Inherited from QWidget
@@ -2225,10 +2330,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_FrameGeometry(@ptrCast(self));
+    pub fn FrameGeometry(self: KTreeWidgetSearchLine) QRect {
+        return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2237,10 +2342,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Geometry(@ptrCast(self));
+    pub fn Geometry(self: KTreeWidgetSearchLine) QRect {
+        return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2249,10 +2354,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_NormalGeometry(@ptrCast(self));
+    pub fn NormalGeometry(self: KTreeWidgetSearchLine) QRect {
+        return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2261,10 +2366,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn X(self: ?*anyopaque) i32 {
-        return qtc.QWidget_X(@ptrCast(self));
+    pub fn X(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QWidget_X(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2273,10 +2378,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Y(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Y(@ptrCast(self));
+    pub fn Y(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2285,10 +2390,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_Pos(@ptrCast(self));
+    pub fn Pos(self: KTreeWidgetSearchLine) QPoint {
+        return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2297,10 +2402,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: KTreeWidgetSearchLine) QSize {
+        return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2309,10 +2414,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_Size(@ptrCast(self));
+    pub fn Size(self: KTreeWidgetSearchLine) QSize {
+        return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2321,10 +2426,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Width(@ptrCast(self));
+    pub fn Width(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2333,10 +2438,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Height(@ptrCast(self));
+    pub fn Height(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2345,10 +2450,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: KTreeWidgetSearchLine) QRect {
+        return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2357,10 +2462,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ChildrenRect(@ptrCast(self));
+    pub fn ChildrenRect(self: KTreeWidgetSearchLine) QRect {
+        return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2369,10 +2474,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
+    pub fn ChildrenRegion(self: KTreeWidgetSearchLine) QRegion {
+        return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2381,10 +2486,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: KTreeWidgetSearchLine) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2393,10 +2498,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: KTreeWidgetSearchLine) QSize {
+        return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2405,10 +2510,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2417,10 +2522,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2429,10 +2534,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2441,10 +2546,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2453,12 +2558,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` minimumSize: QtC.QSize `
+    /// ` minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+    pub fn SetMinimumSize(self: KTreeWidgetSearchLine, minimumSize: anytype) void {
+        comptime _ = @TypeOf(minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -2467,14 +2573,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` minw: i32 `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
+    pub fn SetMinimumSize2(self: KTreeWidgetSearchLine, minw: i32, minh: i32) void {
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -2483,12 +2589,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` maximumSize: QtC.QSize `
+    /// ` maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+    pub fn SetMaximumSize(self: KTreeWidgetSearchLine, maximumSize: anytype) void {
+        comptime _ = @TypeOf(maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -2497,14 +2604,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` maxw: i32 `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
+    pub fn SetMaximumSize2(self: KTreeWidgetSearchLine, maxw: i32, maxh: i32) void {
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -2513,12 +2620,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
+    pub fn SetMinimumWidth(self: KTreeWidgetSearchLine, minw: i32) void {
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -2527,12 +2634,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
+    pub fn SetMinimumHeight(self: KTreeWidgetSearchLine, minh: i32) void {
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -2541,12 +2648,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
+    pub fn SetMaximumWidth(self: KTreeWidgetSearchLine, maxw: i32) void {
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -2555,12 +2662,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
+    pub fn SetMaximumHeight(self: KTreeWidgetSearchLine, maxh: i32) void {
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -2569,10 +2676,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeIncrement(@ptrCast(self));
+    pub fn SizeIncrement(self: KTreeWidgetSearchLine) QSize {
+        return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2581,12 +2688,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` sizeIncrement: QtC.QSize `
+    /// ` sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+    pub fn SetSizeIncrement(self: KTreeWidgetSearchLine, sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
     }
 
     /// Inherited from QWidget
@@ -2595,14 +2703,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetSizeIncrement2(self: KTreeWidgetSearchLine, w: i32, h: i32) void {
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2611,10 +2719,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_BaseSize(@ptrCast(self));
+    pub fn BaseSize(self: KTreeWidgetSearchLine) QSize {
+        return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2623,12 +2731,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` baseSize: QtC.QSize `
+    /// ` baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+    pub fn SetBaseSize(self: KTreeWidgetSearchLine, baseSize: anytype) void {
+        comptime _ = @TypeOf(baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -2637,14 +2746,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` basew: i32 `
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
+    pub fn SetBaseSize2(self: KTreeWidgetSearchLine, basew: i32, baseh: i32) void {
+        qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -2653,12 +2762,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` fixedSize: QtC.QSize `
+    /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+    pub fn SetFixedSize(self: KTreeWidgetSearchLine, fixedSize: anytype) void {
+        comptime _ = @TypeOf(fixedSize)._is_QSize;
+        qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -2667,14 +2777,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetFixedSize2(self: KTreeWidgetSearchLine, w: i32, h: i32) void {
+        qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2683,12 +2793,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetFixedWidth(self: KTreeWidgetSearchLine, w: i32) void {
+        qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -2697,12 +2807,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
+    pub fn SetFixedHeight(self: KTreeWidgetSearchLine, h: i32) void {
+        qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2711,12 +2821,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal(self: KTreeWidgetSearchLine, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2725,12 +2836,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: KTreeWidgetSearchLine, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2739,12 +2851,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal(self: KTreeWidgetSearchLine, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2753,12 +2866,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: KTreeWidgetSearchLine, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2767,12 +2881,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent(self: KTreeWidgetSearchLine, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2781,12 +2896,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: KTreeWidgetSearchLine, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2795,12 +2911,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent(self: KTreeWidgetSearchLine, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2809,12 +2926,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: KTreeWidgetSearchLine, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2823,14 +2941,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo(self: KTreeWidgetSearchLine, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2839,14 +2959,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo2(self: KTreeWidgetSearchLine, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2855,14 +2977,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom(self: KTreeWidgetSearchLine, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2871,14 +2995,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom2(self: KTreeWidgetSearchLine, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2887,10 +3013,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_Window(@ptrCast(self));
+    pub fn Window(self: KTreeWidgetSearchLine) QWidget {
+        return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2899,10 +3025,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
+    pub fn NativeParentWidget(self: KTreeWidgetSearchLine) QWidget {
+        return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2911,10 +3037,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
+    pub fn TopLevelWidget(self: KTreeWidgetSearchLine) QWidget {
+        return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2923,10 +3049,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QWidget_Palette(@ptrCast(self));
+    pub fn Palette(self: KTreeWidgetSearchLine) QPalette {
+        return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2935,12 +3061,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn SetPalette(self: KTreeWidgetSearchLine, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// Inherited from QWidget
@@ -2949,12 +3076,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
+    pub fn SetBackgroundRole(self: KTreeWidgetSearchLine, backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -2963,14 +3090,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_BackgroundRole(@ptrCast(self));
+    pub fn BackgroundRole(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2979,12 +3106,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
+    pub fn SetForegroundRole(self: KTreeWidgetSearchLine, foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -2993,14 +3120,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ForegroundRole(@ptrCast(self));
+    pub fn ForegroundRole(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3009,10 +3136,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QWidget_Font(@ptrCast(self));
+    pub fn Font(self: KTreeWidgetSearchLine) QFont {
+        return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3021,12 +3148,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: KTreeWidgetSearchLine, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QWidget
@@ -3035,10 +3163,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QWidget_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: KTreeWidgetSearchLine) QFontMetrics {
+        return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3047,10 +3175,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QWidget_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: KTreeWidgetSearchLine) QFontInfo {
+        return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3059,10 +3187,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
-        return qtc.QWidget_Cursor(@ptrCast(self));
+    pub fn Cursor(self: KTreeWidgetSearchLine) QCursor {
+        return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3071,12 +3199,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetCursor(self: KTreeWidgetSearchLine, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QWidget
@@ -3085,10 +3214,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn UnsetCursor(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetCursor(@ptrCast(self));
+    pub fn UnsetCursor(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3097,12 +3226,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
+    pub fn SetMouseTracking(self: KTreeWidgetSearchLine, enable: bool) void {
+        qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -3111,10 +3240,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
+    pub fn HasMouseTracking(self: KTreeWidgetSearchLine) bool {
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3123,10 +3252,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.QWidget_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: KTreeWidgetSearchLine) bool {
+        return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3135,12 +3264,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
+    pub fn SetTabletTracking(self: KTreeWidgetSearchLine, enable: bool) void {
+        qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -3149,10 +3278,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
+    pub fn HasTabletTracking(self: KTreeWidgetSearchLine) bool {
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3161,12 +3290,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` mask: QtC.QBitmap `
+    /// ` mask: QBitmap `
     ///
-    pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask(self: KTreeWidgetSearchLine, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -3175,12 +3305,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` mask: QtC.QRegion `
+    /// ` mask: QRegion `
     ///
-    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: KTreeWidgetSearchLine, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -3189,10 +3320,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_Mask(@ptrCast(self));
+    pub fn Mask(self: KTreeWidgetSearchLine) QRegion {
+        return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3201,10 +3332,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn ClearMask(self: ?*anyopaque) void {
-        qtc.QWidget_ClearMask(@ptrCast(self));
+    pub fn ClearMask(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3213,12 +3344,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
+    pub fn Render(self: KTreeWidgetSearchLine, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QWidget
@@ -3227,12 +3359,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: KTreeWidgetSearchLine, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -3241,10 +3374,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab(@ptrCast(self));
+    pub fn Grab(self: KTreeWidgetSearchLine) QPixmap {
+        return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3253,10 +3386,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
-        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
+    pub fn GraphicsEffect(self: KTreeWidgetSearchLine) QGraphicsEffect {
+        return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3265,12 +3398,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` effect: QtC.QGraphicsEffect `
+    /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+    pub fn SetGraphicsEffect(self: KTreeWidgetSearchLine, effect: anytype) void {
+        comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
 
     /// Inherited from QWidget
@@ -3279,12 +3413,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn GrabGesture(self: KTreeWidgetSearchLine, typeVal: i32) void {
+        qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -3293,12 +3427,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn UngrabGesture(self: KTreeWidgetSearchLine, typeVal: i32) void {
+        qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -3307,16 +3441,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
+    pub fn SetWindowTitle(self: KTreeWidgetSearchLine, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
-        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
 
     /// Inherited from QWidget
@@ -3325,16 +3459,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
+    pub fn SetStyleSheet(self: KTreeWidgetSearchLine, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
-        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
 
     /// Inherited from QWidget
@@ -3343,12 +3477,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: KTreeWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktreewidgetsearchline.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3361,12 +3495,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+    pub fn WindowTitle(self: KTreeWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktreewidgetsearchline.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3379,12 +3513,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetWindowIcon(self: KTreeWidgetSearchLine, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -3393,10 +3528,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QWidget_WindowIcon(@ptrCast(self));
+    pub fn WindowIcon(self: KTreeWidgetSearchLine) QIcon {
+        return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3405,16 +3540,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
+    pub fn SetWindowIconText(self: KTreeWidgetSearchLine, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
-        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
 
     /// Inherited from QWidget
@@ -3423,12 +3558,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+    pub fn WindowIconText(self: KTreeWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktreewidgetsearchline.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3441,16 +3576,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
+    pub fn SetWindowRole(self: KTreeWidgetSearchLine, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
-        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
 
     /// Inherited from QWidget
@@ -3459,12 +3594,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
+    pub fn WindowRole(self: KTreeWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktreewidgetsearchline.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3477,16 +3612,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
+    pub fn SetWindowFilePath(self: KTreeWidgetSearchLine, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
 
     /// Inherited from QWidget
@@ -3495,12 +3630,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+    pub fn WindowFilePath(self: KTreeWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktreewidgetsearchline.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3513,12 +3648,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetWindowOpacity(self: KTreeWidgetSearchLine, level: f64) void {
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -3527,10 +3662,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return qtc.QWidget_WindowOpacity(@ptrCast(self));
+    pub fn WindowOpacity(self: KTreeWidgetSearchLine) f64 {
+        return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3539,10 +3674,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindowModified(@ptrCast(self));
+    pub fn IsWindowModified(self: KTreeWidgetSearchLine) bool {
+        return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3551,16 +3686,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: KTreeWidgetSearchLine, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// Inherited from QWidget
@@ -3569,12 +3704,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: KTreeWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktreewidgetsearchline.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3587,12 +3722,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
+    pub fn SetToolTipDuration(self: KTreeWidgetSearchLine, msec: i32) void {
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -3601,10 +3736,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
+    pub fn ToolTipDuration(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3613,16 +3748,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: KTreeWidgetSearchLine, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QWidget
@@ -3631,12 +3766,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: KTreeWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktreewidgetsearchline.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3649,16 +3784,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: KTreeWidgetSearchLine, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// Inherited from QWidget
@@ -3667,12 +3802,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: KTreeWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktreewidgetsearchline.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3685,12 +3820,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+    pub fn AccessibleName(self: KTreeWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktreewidgetsearchline.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3703,16 +3838,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetAccessibleName(self: KTreeWidgetSearchLine, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QWidget
@@ -3721,12 +3856,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+    pub fn AccessibleDescription(self: KTreeWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktreewidgetsearchline.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3739,16 +3874,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetAccessibleDescription(self: KTreeWidgetSearchLine, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// Inherited from QWidget
@@ -3757,12 +3892,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: KTreeWidgetSearchLine, direction: i32) void {
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -3771,14 +3906,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QWidget_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3787,10 +3922,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
+    pub fn UnsetLayoutDirection(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3799,12 +3934,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: KTreeWidgetSearchLine, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// Inherited from QWidget
@@ -3813,10 +3949,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QWidget_Locale(@ptrCast(self));
+    pub fn Locale(self: KTreeWidgetSearchLine) QLocale {
+        return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3825,10 +3961,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn UnsetLocale(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLocale(@ptrCast(self));
+    pub fn UnsetLocale(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3837,10 +3973,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
+    pub fn IsRightToLeft(self: KTreeWidgetSearchLine) bool {
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3849,10 +3985,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
+    pub fn IsLeftToRight(self: KTreeWidgetSearchLine) bool {
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3861,10 +3997,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SetFocus(self: ?*anyopaque) void {
-        qtc.QWidget_SetFocus(@ptrCast(self));
+    pub fn SetFocus(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3873,10 +4009,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
+    pub fn IsActiveWindow(self: KTreeWidgetSearchLine) bool {
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3885,10 +4021,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn ActivateWindow(self: ?*anyopaque) void {
-        qtc.QWidget_ActivateWindow(@ptrCast(self));
+    pub fn ActivateWindow(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3897,10 +4033,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn ClearFocus(self: ?*anyopaque) void {
-        qtc.QWidget_ClearFocus(@ptrCast(self));
+    pub fn ClearFocus(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3909,12 +4045,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
+    pub fn SetFocus2(self: KTreeWidgetSearchLine, reason: i32) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -3923,14 +4059,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_FocusPolicy(@ptrCast(self));
+    pub fn FocusPolicy(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3939,12 +4075,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetFocusPolicy(self: KTreeWidgetSearchLine, policy: i32) void {
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -3953,10 +4089,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn HasFocus(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasFocus(@ptrCast(self));
+    pub fn HasFocus(self: KTreeWidgetSearchLine) bool {
+        return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3965,12 +4101,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QWidget `
+    /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QWidget;
+        qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidget
@@ -3979,12 +4117,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` focusProxy: QtC.QWidget `
+    /// ` focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+    pub fn SetFocusProxy(self: KTreeWidgetSearchLine, focusProxy: anytype) void {
+        comptime _ = @TypeOf(focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
     }
 
     /// Inherited from QWidget
@@ -3993,10 +4132,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusProxy(@ptrCast(self));
+    pub fn FocusProxy(self: KTreeWidgetSearchLine) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4005,14 +4144,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
+    pub fn ContextMenuPolicy(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4021,12 +4160,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetContextMenuPolicy(self: KTreeWidgetSearchLine, policy: i32) void {
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -4035,10 +4174,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn GrabMouse(self: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse(@ptrCast(self));
+    pub fn GrabMouse(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4047,12 +4186,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4061,10 +4201,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn ReleaseMouse(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseMouse(@ptrCast(self));
+    pub fn ReleaseMouse(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4073,10 +4213,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn GrabKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_GrabKeyboard(@ptrCast(self));
+    pub fn GrabKeyboard(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4085,10 +4225,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
+    pub fn ReleaseKeyboard(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4097,12 +4237,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+    pub fn GrabShortcut(self: KTreeWidgetSearchLine, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// Inherited from QWidget
@@ -4111,12 +4252,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
+    pub fn ReleaseShortcut(self: KTreeWidgetSearchLine, id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -4125,12 +4266,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutEnabled(self: KTreeWidgetSearchLine, id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -4139,28 +4280,28 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutAutoRepeat(self: KTreeWidgetSearchLine, id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QtC.QWidget {
-        return qtc.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QtC.QWidget {
-        return qtc.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
 
     /// Inherited from QWidget
@@ -4169,10 +4310,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
+    pub fn UpdatesEnabled(self: KTreeWidgetSearchLine) bool {
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4181,12 +4322,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+    pub fn SetUpdatesEnabled(self: KTreeWidgetSearchLine, enable: bool) void {
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -4195,10 +4336,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    pub fn GraphicsProxyWidget(self: KTreeWidgetSearchLine) QGraphicsProxyWidget {
+        return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4207,10 +4348,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Update(self: ?*anyopaque) void {
-        qtc.QWidget_Update(@ptrCast(self));
+    pub fn Update(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_Update(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4219,10 +4360,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Repaint(self: ?*anyopaque) void {
-        qtc.QWidget_Repaint(@ptrCast(self));
+    pub fn Repaint(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4231,7 +4372,7 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` x: i32 `
     ///
@@ -4241,8 +4382,8 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Update2(self: KTreeWidgetSearchLine, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4251,12 +4392,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4265,12 +4407,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4279,7 +4422,7 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` x: i32 `
     ///
@@ -4289,8 +4432,8 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Repaint2(self: KTreeWidgetSearchLine, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4299,12 +4442,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4313,12 +4457,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4327,12 +4472,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
+    pub fn SetHidden(self: KTreeWidgetSearchLine, hidden: bool) void {
+        qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
 
     /// Inherited from QWidget
@@ -4341,10 +4486,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QWidget_Show(@ptrCast(self));
+    pub fn Show(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4353,10 +4498,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QWidget_Hide(@ptrCast(self));
+    pub fn Hide(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4365,10 +4510,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn ShowMinimized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMinimized(@ptrCast(self));
+    pub fn ShowMinimized(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4377,10 +4522,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn ShowMaximized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMaximized(@ptrCast(self));
+    pub fn ShowMaximized(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4389,10 +4534,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn ShowFullScreen(self: ?*anyopaque) void {
-        qtc.QWidget_ShowFullScreen(@ptrCast(self));
+    pub fn ShowFullScreen(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4401,10 +4546,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn ShowNormal(self: ?*anyopaque) void {
-        qtc.QWidget_ShowNormal(@ptrCast(self));
+    pub fn ShowNormal(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4413,10 +4558,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Close(self: ?*anyopaque) bool {
-        return qtc.QWidget_Close(@ptrCast(self));
+    pub fn Close(self: KTreeWidgetSearchLine) bool {
+        return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4425,10 +4570,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Raise(self: ?*anyopaque) void {
-        qtc.QWidget_Raise(@ptrCast(self));
+    pub fn Raise(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4437,10 +4582,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Lower(self: ?*anyopaque) void {
-        qtc.QWidget_Lower(@ptrCast(self));
+    pub fn Lower(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4449,12 +4594,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+    pub fn StackUnder(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4463,14 +4609,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn Move(self: KTreeWidgetSearchLine, x: i32, y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -4479,12 +4625,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4493,14 +4640,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn Resize(self: KTreeWidgetSearchLine, w: i32, h: i32) void {
+        qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4509,12 +4656,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QSize `
+    /// ` param1: QSize `
     ///
-    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4523,7 +4671,7 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` x: i32 `
     ///
@@ -4533,8 +4681,8 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetGeometry(self: KTreeWidgetSearchLine, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4543,12 +4691,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` geometry: QtC.QRect `
+    /// ` geometry: QRect `
     ///
-    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: KTreeWidgetSearchLine, geometry: anytype) void {
+        comptime _ = @TypeOf(geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
     }
 
     /// Inherited from QWidget
@@ -4557,12 +4706,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+    pub fn SaveGeometry(self: KTreeWidgetSearchLine, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("ktreewidgetsearchline.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -4575,16 +4724,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
+    pub fn RestoreGeometry(self: KTreeWidgetSearchLine, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
-        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
 
     /// Inherited from QWidget
@@ -4593,10 +4742,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QWidget_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4605,10 +4754,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: KTreeWidgetSearchLine) bool {
+        return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4617,12 +4766,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsVisibleTo(self: KTreeWidgetSearchLine, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4631,10 +4781,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn IsHidden(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsHidden(@ptrCast(self));
+    pub fn IsHidden(self: KTreeWidgetSearchLine) bool {
+        return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4643,10 +4793,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn IsMinimized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMinimized(@ptrCast(self));
+    pub fn IsMinimized(self: KTreeWidgetSearchLine) bool {
+        return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4655,10 +4805,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn IsMaximized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMaximized(@ptrCast(self));
+    pub fn IsMaximized(self: KTreeWidgetSearchLine) bool {
+        return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4667,10 +4817,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsFullScreen(@ptrCast(self));
+    pub fn IsFullScreen(self: KTreeWidgetSearchLine) bool {
+        return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4679,14 +4829,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowState(@ptrCast(self));
+    pub fn WindowState(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4695,12 +4845,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
+    pub fn SetWindowState(self: KTreeWidgetSearchLine, state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -4709,12 +4859,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
+    pub fn OverrideWindowState(self: KTreeWidgetSearchLine, state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -4723,10 +4873,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QWidget_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: KTreeWidgetSearchLine) QSizePolicy {
+        return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4735,12 +4885,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` sizePolicy: QtC.QSizePolicy `
+    /// ` sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
-        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    pub fn SetSizePolicy(self: KTreeWidgetSearchLine, sizePolicy: anytype) void {
+        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
     }
 
     /// Inherited from QWidget
@@ -4749,14 +4900,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` horizontal: qsizepolicy_enums.Policy `
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
+    pub fn SetSizePolicy2(self: KTreeWidgetSearchLine, horizontal: i32, vertical: i32) void {
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -4765,10 +4916,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_VisibleRegion(@ptrCast(self));
+    pub fn VisibleRegion(self: KTreeWidgetSearchLine) QRegion {
+        return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4777,7 +4928,7 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` left: i32 `
     ///
@@ -4787,8 +4938,8 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: KTreeWidgetSearchLine, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -4797,12 +4948,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: KTreeWidgetSearchLine, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QWidget
@@ -4811,10 +4963,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QWidget_ContentsMargins(@ptrCast(self));
+    pub fn ContentsMargins(self: KTreeWidgetSearchLine) QMargins {
+        return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4823,10 +4975,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: KTreeWidgetSearchLine) QRect {
+        return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4835,10 +4987,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidget_Layout(@ptrCast(self));
+    pub fn Layout(self: KTreeWidgetSearchLine) QLayout {
+        return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4847,12 +4999,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` layout: QtC.QLayout `
+    /// ` layout: QLayout `
     ///
-    pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetLayout(self: KTreeWidgetSearchLine, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// Inherited from QWidget
@@ -4861,10 +5014,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QWidget_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4873,12 +5026,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KTreeWidgetSearchLine, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QWidget
@@ -4887,14 +5041,15 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
+    pub fn SetParent2(self: KTreeWidgetSearchLine, parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -4903,14 +5058,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Scroll(self: KTreeWidgetSearchLine, dx: i32, dy: i32) void {
+        qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -4919,16 +5074,17 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    /// ` param3: QtC.QRect `
+    /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
+    pub fn Scroll2(self: KTreeWidgetSearchLine, dx: i32, dy: i32, param3: anytype) void {
+        comptime _ = @TypeOf(param3)._is_QRect;
+        qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QWidget
@@ -4937,10 +5093,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusWidget(@ptrCast(self));
+    pub fn FocusWidget(self: KTreeWidgetSearchLine) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4949,10 +5105,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
+    pub fn NextInFocusChain(self: KTreeWidgetSearchLine) QWidget {
+        return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4961,10 +5117,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
+    pub fn PreviousInFocusChain(self: KTreeWidgetSearchLine) QWidget {
+        return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4973,10 +5129,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return qtc.QWidget_AcceptDrops(@ptrCast(self));
+    pub fn AcceptDrops(self: KTreeWidgetSearchLine) bool {
+        return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4985,12 +5141,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
+    pub fn SetAcceptDrops(self: KTreeWidgetSearchLine, on: bool) void {
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QWidget
@@ -4999,16 +5155,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn AddActions(self: KTreeWidgetSearchLine, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -5017,18 +5173,19 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn InsertActions(self: KTreeWidgetSearchLine, before: anytype, actions: []QAction) void {
+        comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -5037,14 +5194,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn InsertAction(self: KTreeWidgetSearchLine, before: anytype, action: anytype) void {
+        comptime _ = @TypeOf(before)._is_QAction;
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -5053,12 +5212,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn RemoveAction(self: KTreeWidgetSearchLine, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -5067,16 +5227,17 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+    pub fn Actions(self: KTreeWidgetSearchLine, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("ktreewidgetsearchline.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("ktreewidgetsearchline.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -5086,18 +5247,19 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: KTreeWidgetSearchLine, icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -5106,18 +5268,19 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: KTreeWidgetSearchLine, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5126,20 +5289,22 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: KTreeWidgetSearchLine, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5148,10 +5313,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: KTreeWidgetSearchLine) QWidget {
+        return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5160,12 +5325,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetWindowFlags(self: KTreeWidgetSearchLine, typeVal: i32) void {
+        qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -5174,14 +5339,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowFlags(@ptrCast(self));
+    pub fn WindowFlags(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5190,12 +5355,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
+    pub fn SetWindowFlag(self: KTreeWidgetSearchLine, param1: i32) void {
+        qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5204,12 +5369,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn OverrideWindowFlags(self: KTreeWidgetSearchLine, typeVal: i32) void {
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -5218,14 +5383,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowType(@ptrCast(self));
+    pub fn WindowType(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5236,8 +5401,8 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QtC.QWidget {
-        return qtc.QWidget_Find(@bitCast(param1));
+    pub fn Find(param1: usize) QWidget {
+        return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -5246,14 +5411,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: KTreeWidgetSearchLine, x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QWidget
@@ -5262,12 +5427,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: KTreeWidgetSearchLine, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5276,12 +5442,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: KTreeWidgetSearchLine, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5290,12 +5457,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn SetAttribute(self: KTreeWidgetSearchLine, param1: i32) void {
+        qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5304,12 +5471,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn TestAttribute(self: KTreeWidgetSearchLine, param1: i32) bool {
+        return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5318,10 +5485,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn EnsurePolished(self: ?*anyopaque) void {
-        qtc.QWidget_EnsurePolished(@ptrCast(self));
+    pub fn EnsurePolished(self: KTreeWidgetSearchLine) void {
+        qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5330,12 +5497,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` child: QtC.QWidget `
+    /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+    pub fn IsAncestorOf(self: KTreeWidgetSearchLine, child: anytype) bool {
+        comptime _ = @TypeOf(child)._is_QWidget;
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from QWidget
@@ -5344,10 +5512,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
+    pub fn AutoFillBackground(self: KTreeWidgetSearchLine) bool {
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5356,12 +5524,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+    pub fn SetAutoFillBackground(self: KTreeWidgetSearchLine, enabled: bool) void {
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -5370,10 +5538,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
-        return qtc.QWidget_BackingStore(@ptrCast(self));
+    pub fn BackingStore(self: KTreeWidgetSearchLine) QBackingStore {
+        return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5382,10 +5550,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QWidget_WindowHandle(@ptrCast(self));
+    pub fn WindowHandle(self: KTreeWidgetSearchLine) QWindow {
+        return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5394,10 +5562,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
-        return qtc.QWidget_Screen(@ptrCast(self));
+    pub fn Screen(self: KTreeWidgetSearchLine) QScreen {
+        return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5406,12 +5574,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+    pub fn SetScreen(self: KTreeWidgetSearchLine, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QWidget
@@ -5420,10 +5589,11 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
+    pub fn CreateWindowContainer(window: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5432,16 +5602,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn WindowTitleChanged(self: KTreeWidgetSearchLine, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QWidget
@@ -5450,12 +5620,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowTitleChanged(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5464,12 +5634,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+    pub fn WindowIconChanged(self: KTreeWidgetSearchLine, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -5478,12 +5649,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, icon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconChanged(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QIcon) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5492,16 +5663,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
+    pub fn WindowIconTextChanged(self: KTreeWidgetSearchLine, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
-        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
 
     /// Inherited from QWidget
@@ -5510,12 +5681,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, iconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconTextChanged(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5524,12 +5695,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+    pub fn CustomContextMenuRequested(self: KTreeWidgetSearchLine, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QWidget
@@ -5538,12 +5710,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomContextMenuRequested(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QPoint) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5552,14 +5724,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i32 {
-        return qtc.QWidget_InputMethodHints(@ptrCast(self));
+    pub fn InputMethodHints(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5568,12 +5740,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetInputMethodHints(self: KTreeWidgetSearchLine, hints: i32) void {
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -5582,14 +5754,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: KTreeWidgetSearchLine, target: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -5598,16 +5772,19 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render3(self: KTreeWidgetSearchLine, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -5616,18 +5793,21 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render4(self: KTreeWidgetSearchLine, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -5636,14 +5816,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: KTreeWidgetSearchLine, painter: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -5652,16 +5834,19 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render32(self: KTreeWidgetSearchLine, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -5670,18 +5855,21 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render42(self: KTreeWidgetSearchLine, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -5690,12 +5878,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Grab1(self: KTreeWidgetSearchLine, rectangle: anytype) QPixmap {
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5704,14 +5893,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
+    pub fn GrabGesture2(self: KTreeWidgetSearchLine, typeVal: i32, flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -5720,14 +5909,15 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
+    pub fn GrabShortcut2(self: KTreeWidgetSearchLine, key: anytype, context: i32) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -5736,14 +5926,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutEnabled2(self: KTreeWidgetSearchLine, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -5752,14 +5942,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutAutoRepeat2(self: KTreeWidgetSearchLine, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -5768,14 +5958,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetWindowFlag2(self: KTreeWidgetSearchLine, param1: i32, on: bool) void {
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -5784,14 +5974,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetAttribute2(self: KTreeWidgetSearchLine, param1: i32, on: bool) void {
+        qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -5800,12 +5990,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5814,14 +6006,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
+    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QObject
@@ -5830,12 +6024,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KTreeWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktreewidgetsearchline.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5848,12 +6042,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KTreeWidgetSearchLine, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -5862,10 +6056,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KTreeWidgetSearchLine) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5874,10 +6068,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KTreeWidgetSearchLine) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5886,10 +6080,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KTreeWidgetSearchLine) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5898,10 +6092,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KTreeWidgetSearchLine) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5910,12 +6104,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KTreeWidgetSearchLine, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -5924,10 +6118,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KTreeWidgetSearchLine) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5936,12 +6130,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KTreeWidgetSearchLine, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -5950,12 +6145,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KTreeWidgetSearchLine, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -5964,12 +6159,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KTreeWidgetSearchLine, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -5978,12 +6173,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KTreeWidgetSearchLine, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -5992,12 +6187,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KTreeWidgetSearchLine, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -6006,16 +6201,17 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KTreeWidgetSearchLine, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("ktreewidgetsearchline.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("ktreewidgetsearchline.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -6025,12 +6221,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KTreeWidgetSearchLine, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -6039,12 +6236,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KTreeWidgetSearchLine, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -6053,18 +6251,20 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -6073,16 +6273,20 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -6091,18 +6295,19 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KTreeWidgetSearchLine, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -6111,18 +6316,20 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -6131,16 +6338,20 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -6149,10 +6360,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KTreeWidgetSearchLine) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6161,12 +6372,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KTreeWidgetSearchLine, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -6175,10 +6387,11 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -6187,10 +6400,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KTreeWidgetSearchLine) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6199,10 +6412,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KTreeWidgetSearchLine) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6211,15 +6424,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KTreeWidgetSearchLine, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -6228,13 +6442,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KTreeWidgetSearchLine, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -6243,17 +6457,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KTreeWidgetSearchLine, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("ktreewidgetsearchline.DynamicPropertyNames: Memory allocation failed");
@@ -6272,10 +6485,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KTreeWidgetSearchLine) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -6284,10 +6497,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KTreeWidgetSearchLine) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -6296,10 +6509,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KTreeWidgetSearchLine) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6308,12 +6521,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6322,10 +6535,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: KTreeWidgetSearchLine) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -6334,13 +6547,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KTreeWidgetSearchLine, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -6349,10 +6562,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KTreeWidgetSearchLine) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6361,14 +6574,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KTreeWidgetSearchLine, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -6377,14 +6590,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KTreeWidgetSearchLine, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -6393,20 +6606,22 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -6415,18 +6630,22 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -6435,9 +6654,9 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6445,10 +6664,11 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KTreeWidgetSearchLine, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -6457,13 +6677,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KTreeWidgetSearchLine, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -6472,15 +6692,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KTreeWidgetSearchLine, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -6489,18 +6710,19 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KTreeWidgetSearchLine, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -6509,15 +6731,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KTreeWidgetSearchLine, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -6526,12 +6749,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -6540,12 +6764,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -6554,10 +6778,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: KTreeWidgetSearchLine) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6566,10 +6790,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6578,10 +6802,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6590,10 +6814,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6602,10 +6826,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6614,10 +6838,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6626,10 +6850,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6638,10 +6862,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: KTreeWidgetSearchLine) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6650,10 +6874,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: KTreeWidgetSearchLine) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6662,10 +6886,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6674,10 +6898,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: KTreeWidgetSearchLine) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6710,10 +6934,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KTreeWidgetSearchLine_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: KTreeWidgetSearchLine) QSize {
+        return .{ .ptr = qtc.KTreeWidgetSearchLine_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSizeHint` instead
@@ -6728,10 +6952,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KTreeWidgetSearchLine_SuperSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: KTreeWidgetSearchLine) QSize {
+        return .{ .ptr = qtc.KTreeWidgetSearchLine_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QLineEdit
@@ -6742,12 +6966,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.KTreeWidgetSearchLine_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHint(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) QSize) void {
+        qtc.KTreeWidgetSearchLine_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -6758,10 +6982,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KTreeWidgetSearchLine_MinimumSizeHint(@ptrCast(self));
+    pub fn MinimumSizeHint(self: KTreeWidgetSearchLine) QSize {
+        return .{ .ptr = qtc.KTreeWidgetSearchLine_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
@@ -6776,10 +7000,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KTreeWidgetSearchLine_SuperMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: KTreeWidgetSearchLine) QSize {
+        return .{ .ptr = qtc.KTreeWidgetSearchLine_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QLineEdit
@@ -6790,12 +7014,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.KTreeWidgetSearchLine_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumSizeHint(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) QSize) void {
+        qtc.KTreeWidgetSearchLine_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -6806,12 +7030,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QMouseEvent `
+    /// ` param1: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_MousePressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn MousePressEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QMouseEvent;
+        qtc.KTreeWidgetSearchLine_MousePressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMousePressEvent` instead
@@ -6826,12 +7051,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QMouseEvent `
+    /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperMousePressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMousePressEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QMouseEvent;
+        qtc.KTreeWidgetSearchLine_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -6842,12 +7068,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMousePressEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QMouseEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -6858,12 +7084,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QMouseEvent `
+    /// ` param1: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_MouseMoveEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn MouseMoveEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QMouseEvent;
+        qtc.KTreeWidgetSearchLine_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
@@ -6878,12 +7105,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QMouseEvent `
+    /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMouseMoveEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QMouseEvent;
+        qtc.KTreeWidgetSearchLine_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -6894,12 +7122,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseMoveEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QMouseEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -6910,12 +7138,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QMouseEvent `
+    /// ` param1: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_MouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn MouseReleaseEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QMouseEvent;
+        qtc.KTreeWidgetSearchLine_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
@@ -6930,12 +7159,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QMouseEvent `
+    /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMouseReleaseEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QMouseEvent;
+        qtc.KTreeWidgetSearchLine_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -6946,12 +7176,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseReleaseEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QMouseEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -6962,12 +7192,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QMouseEvent `
+    /// ` param1: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn MouseDoubleClickEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QMouseEvent;
+        qtc.KTreeWidgetSearchLine_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
@@ -6982,12 +7213,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QMouseEvent `
+    /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperMouseDoubleClickEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QMouseEvent;
+        qtc.KTreeWidgetSearchLine_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -6998,12 +7230,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseDoubleClickEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QMouseEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -7014,12 +7246,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QKeyEvent `
+    /// ` param1: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_KeyPressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn KeyPressEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QKeyEvent;
+        qtc.KTreeWidgetSearchLine_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
@@ -7034,12 +7267,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QKeyEvent `
+    /// ` param1: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperKeyPressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperKeyPressEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QKeyEvent;
+        qtc.KTreeWidgetSearchLine_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -7050,12 +7284,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyPressEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QKeyEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -7066,12 +7300,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QKeyEvent `
+    /// ` param1: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_KeyReleaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn KeyReleaseEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QKeyEvent;
+        qtc.KTreeWidgetSearchLine_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
@@ -7086,12 +7321,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QKeyEvent `
+    /// ` param1: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperKeyReleaseEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QKeyEvent;
+        qtc.KTreeWidgetSearchLine_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -7102,12 +7338,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyReleaseEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QKeyEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -7118,12 +7354,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QFocusEvent `
+    /// ` param1: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_FocusInEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn FocusInEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QFocusEvent;
+        qtc.KTreeWidgetSearchLine_FocusInEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusInEvent` instead
@@ -7138,12 +7375,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QFocusEvent `
+    /// ` param1: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperFocusInEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperFocusInEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QFocusEvent;
+        qtc.KTreeWidgetSearchLine_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -7154,12 +7392,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusInEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QFocusEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -7170,12 +7408,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QFocusEvent `
+    /// ` param1: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_FocusOutEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn FocusOutEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QFocusEvent;
+        qtc.KTreeWidgetSearchLine_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
@@ -7190,12 +7429,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QFocusEvent `
+    /// ` param1: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperFocusOutEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperFocusOutEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QFocusEvent;
+        qtc.KTreeWidgetSearchLine_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -7206,12 +7446,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusOutEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QFocusEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -7222,12 +7462,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QPaintEvent `
+    /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_PaintEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn PaintEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPaintEvent;
+        qtc.KTreeWidgetSearchLine_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperPaintEvent` instead
@@ -7242,12 +7483,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QPaintEvent `
+    /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperPaintEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperPaintEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPaintEvent;
+        qtc.KTreeWidgetSearchLine_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -7258,12 +7500,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: QtC.QPaintEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QPaintEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -7274,12 +7516,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QDragEnterEvent `
+    /// ` param1: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_DragEnterEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn DragEnterEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QDragEnterEvent;
+        qtc.KTreeWidgetSearchLine_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
@@ -7294,12 +7537,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QDragEnterEvent `
+    /// ` param1: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperDragEnterEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDragEnterEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QDragEnterEvent;
+        qtc.KTreeWidgetSearchLine_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -7310,12 +7554,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: QtC.QDragEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragEnterEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QDragEnterEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -7326,12 +7570,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` e: QtC.QDragMoveEvent `
+    /// ` e: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_DragMoveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn DragMoveEvent(self: KTreeWidgetSearchLine, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QDragMoveEvent;
+        qtc.KTreeWidgetSearchLine_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
@@ -7346,12 +7591,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` e: QtC.QDragMoveEvent `
+    /// ` e: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperDragMoveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDragMoveEvent(self: KTreeWidgetSearchLine, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QDragMoveEvent;
+        qtc.KTreeWidgetSearchLine_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -7362,12 +7608,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, e: QtC.QDragMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, e: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragMoveEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QDragMoveEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -7378,12 +7624,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` e: QtC.QDragLeaveEvent `
+    /// ` e: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_DragLeaveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn DragLeaveEvent(self: KTreeWidgetSearchLine, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QDragLeaveEvent;
+        qtc.KTreeWidgetSearchLine_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
@@ -7398,12 +7645,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` e: QtC.QDragLeaveEvent `
+    /// ` e: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDragLeaveEvent(self: KTreeWidgetSearchLine, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QDragLeaveEvent;
+        qtc.KTreeWidgetSearchLine_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -7414,12 +7662,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, e: QtC.QDragLeaveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, e: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragLeaveEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QDragLeaveEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -7430,12 +7678,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QDropEvent `
+    /// ` param1: QDropEvent `
     ///
-    pub fn DropEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_DropEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn DropEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QDropEvent;
+        qtc.KTreeWidgetSearchLine_DropEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropEvent` instead
@@ -7450,12 +7699,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QDropEvent `
+    /// ` param1: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperDropEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDropEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QDropEvent;
+        qtc.KTreeWidgetSearchLine_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -7466,12 +7716,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: QtC.QDropEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QDropEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -7482,12 +7732,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_ChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ChangeEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.KTreeWidgetSearchLine_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChangeEvent` instead
@@ -7502,12 +7753,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.KTreeWidgetSearchLine_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -7518,12 +7770,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangeEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -7534,12 +7786,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn InputMethodEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.KTreeWidgetSearchLine_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
@@ -7554,12 +7807,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.KTreeWidgetSearchLine_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -7570,12 +7824,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: QtC.QInputMethodEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QInputMethodEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -7586,12 +7840,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` option: QtC.QStyleOptionFrame `
+    /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_InitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn InitStyleOption(self: KTreeWidgetSearchLine, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
+        qtc.KTreeWidgetSearchLine_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitStyleOption` instead
@@ -7606,12 +7861,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` option: QtC.QStyleOptionFrame `
+    /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperInitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitStyleOption(self: KTreeWidgetSearchLine, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
+        qtc.KTreeWidgetSearchLine_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -7622,12 +7878,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, option: QtC.QStyleOptionFrame) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnInitStyleOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitStyleOption(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QStyleOptionFrame) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -7638,12 +7894,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.KTreeWidgetSearchLine_InputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn InputMethodQuery(self: KTreeWidgetSearchLine, param1: i32) QVariant {
+        return .{ .ptr = qtc.KTreeWidgetSearchLine_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
@@ -7658,12 +7914,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.KTreeWidgetSearchLine_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: KTreeWidgetSearchLine, param1: i32) QVariant {
+        return .{ .ptr = qtc.KTreeWidgetSearchLine_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// Inherited from QLineEdit
@@ -7674,12 +7930,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.KTreeWidgetSearchLine_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodQuery(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, i32) callconv(.c) QVariant) void {
+        qtc.KTreeWidgetSearchLine_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -7690,12 +7946,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QTimerEvent `
+    /// ` param1: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_TimerEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn TimerEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QTimerEvent;
+        qtc.KTreeWidgetSearchLine_TimerEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -7710,12 +7967,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` param1: QtC.QTimerEvent `
+    /// ` param1: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperTimerEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperTimerEvent(self: KTreeWidgetSearchLine, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QTimerEvent;
+        qtc.KTreeWidgetSearchLine_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QLineEdit
@@ -7726,12 +7984,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QTimerEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7742,10 +8000,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.KTreeWidgetSearchLine_DevType(@ptrCast(self));
+    pub fn DevType(self: KTreeWidgetSearchLine) i32 {
+        return qtc.KTreeWidgetSearchLine_DevType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDevType` instead
@@ -7760,10 +8018,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SuperDevType(self: ?*anyopaque) i32 {
-        return qtc.KTreeWidgetSearchLine_SuperDevType(@ptrCast(self));
+    pub fn SuperDevType(self: KTreeWidgetSearchLine) i32 {
+        return qtc.KTreeWidgetSearchLine_SuperDevType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7774,12 +8032,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KTreeWidgetSearchLine_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDevType(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) i32) void {
+        qtc.KTreeWidgetSearchLine_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7790,12 +8048,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.KTreeWidgetSearchLine_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: KTreeWidgetSearchLine, visible: bool) void {
+        qtc.KTreeWidgetSearchLine_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### DEPRECATED: Use `SuperSetVisible` instead
@@ -7810,12 +8068,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.KTreeWidgetSearchLine_SuperSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: KTreeWidgetSearchLine, visible: bool) void {
+        qtc.KTreeWidgetSearchLine_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QWidget
@@ -7826,12 +8084,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetVisible(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, bool) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7842,12 +8100,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KTreeWidgetSearchLine_HeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn HeightForWidth(self: KTreeWidgetSearchLine, param1: i32) i32 {
+        return qtc.KTreeWidgetSearchLine_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperHeightForWidth` instead
@@ -7862,12 +8120,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KTreeWidgetSearchLine_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: KTreeWidgetSearchLine, param1: i32) i32 {
+        return qtc.KTreeWidgetSearchLine_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7878,12 +8136,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KTreeWidgetSearchLine_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeightForWidth(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, i32) callconv(.c) i32) void {
+        qtc.KTreeWidgetSearchLine_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7894,10 +8152,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.KTreeWidgetSearchLine_HasHeightForWidth(@ptrCast(self));
+    pub fn HasHeightForWidth(self: KTreeWidgetSearchLine) bool {
+        return qtc.KTreeWidgetSearchLine_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
@@ -7912,10 +8170,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.KTreeWidgetSearchLine_SuperHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: KTreeWidgetSearchLine) bool {
+        return qtc.KTreeWidgetSearchLine_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7926,12 +8184,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KTreeWidgetSearchLine_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasHeightForWidth(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) bool) void {
+        qtc.KTreeWidgetSearchLine_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7942,10 +8200,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.KTreeWidgetSearchLine_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: KTreeWidgetSearchLine) QPaintEngine {
+        return .{ .ptr = qtc.KTreeWidgetSearchLine_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperPaintEngine` instead
@@ -7960,10 +8218,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.KTreeWidgetSearchLine_SuperPaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: KTreeWidgetSearchLine) QPaintEngine {
+        return .{ .ptr = qtc.KTreeWidgetSearchLine_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7974,12 +8232,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.KTreeWidgetSearchLine_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEngine(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) QPaintEngine) void {
+        qtc.KTreeWidgetSearchLine_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7990,12 +8248,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_WheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn WheelEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.KTreeWidgetSearchLine_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperWheelEvent` instead
@@ -8010,12 +8269,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.KTreeWidgetSearchLine_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8026,12 +8286,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, event: QtC.QWheelEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWheelEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QWheelEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8042,12 +8302,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_EnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn EnterEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.KTreeWidgetSearchLine_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEnterEvent` instead
@@ -8062,12 +8323,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.KTreeWidgetSearchLine_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8078,12 +8340,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, event: QtC.QEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnterEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QEnterEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8094,12 +8356,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_LeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn LeaveEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KTreeWidgetSearchLine_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLeaveEvent` instead
@@ -8114,12 +8377,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KTreeWidgetSearchLine_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8130,12 +8394,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeaveEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8146,12 +8410,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_MoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MoveEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.KTreeWidgetSearchLine_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMoveEvent` instead
@@ -8166,12 +8431,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.KTreeWidgetSearchLine_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8182,12 +8448,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, event: QtC.QMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QMoveEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8198,12 +8464,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_ResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ResizeEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.KTreeWidgetSearchLine_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResizeEvent` instead
@@ -8218,12 +8485,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.KTreeWidgetSearchLine_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8234,12 +8502,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, event: QtC.QResizeEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResizeEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QResizeEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8250,12 +8518,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_CloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CloseEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.KTreeWidgetSearchLine_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEvent` instead
@@ -8270,12 +8539,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.KTreeWidgetSearchLine_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8286,12 +8556,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, event: QtC.QCloseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QCloseEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8302,12 +8572,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_TabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TabletEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.KTreeWidgetSearchLine_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTabletEvent` instead
@@ -8322,12 +8593,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.KTreeWidgetSearchLine_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8338,12 +8610,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, event: QtC.QTabletEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabletEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QTabletEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8354,12 +8626,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_ActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ActionEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.KTreeWidgetSearchLine_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperActionEvent` instead
@@ -8374,12 +8647,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.KTreeWidgetSearchLine_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8390,12 +8664,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, event: QtC.QActionEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QActionEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8406,12 +8680,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_ShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ShowEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.KTreeWidgetSearchLine_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperShowEvent` instead
@@ -8426,12 +8701,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.KTreeWidgetSearchLine_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8442,12 +8718,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, event: QtC.QShowEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShowEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QShowEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8458,12 +8734,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_HideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn HideEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.KTreeWidgetSearchLine_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHideEvent` instead
@@ -8478,12 +8755,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.KTreeWidgetSearchLine_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8494,12 +8772,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, event: QtC.QHideEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHideEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QHideEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8510,7 +8788,7 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` eventType: []u8 `
     ///
@@ -8518,12 +8796,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn NativeEvent(self: KTreeWidgetSearchLine, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KTreeWidgetSearchLine_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KTreeWidgetSearchLine_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### DEPRECATED: Use `SuperNativeEvent` instead
@@ -8538,7 +8816,7 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` eventType: []u8 `
     ///
@@ -8546,12 +8824,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: KTreeWidgetSearchLine, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KTreeWidgetSearchLine_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KTreeWidgetSearchLine_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -8562,12 +8840,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.KTreeWidgetSearchLine_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNativeEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.KTreeWidgetSearchLine_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8578,12 +8856,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KTreeWidgetSearchLine_Metric(@ptrCast(self), @bitCast(param1));
+    pub fn Metric(self: KTreeWidgetSearchLine, param1: i32) i32 {
+        return qtc.KTreeWidgetSearchLine_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperMetric` instead
@@ -8598,12 +8876,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KTreeWidgetSearchLine_SuperMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: KTreeWidgetSearchLine, param1: i32) i32 {
+        return qtc.KTreeWidgetSearchLine_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -8614,12 +8892,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KTreeWidgetSearchLine_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetric(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, i32) callconv(.c) i32) void {
+        qtc.KTreeWidgetSearchLine_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8630,12 +8908,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_InitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn InitPainter(self: KTreeWidgetSearchLine, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.KTreeWidgetSearchLine_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitPainter` instead
@@ -8650,12 +8929,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: KTreeWidgetSearchLine, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.KTreeWidgetSearchLine_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -8666,12 +8946,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, painter: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitPainter(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QPainter) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8682,12 +8962,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.KTreeWidgetSearchLine_Redirected(@ptrCast(self), @ptrCast(offset));
+    pub fn Redirected(self: KTreeWidgetSearchLine, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.KTreeWidgetSearchLine_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperRedirected` instead
@@ -8702,12 +8983,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.KTreeWidgetSearchLine_SuperRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: KTreeWidgetSearchLine, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.KTreeWidgetSearchLine_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8718,12 +9000,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.KTreeWidgetSearchLine_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QPoint) callconv(.c) QPaintDevice) void {
+        qtc.KTreeWidgetSearchLine_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8734,10 +9016,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.KTreeWidgetSearchLine_SharedPainter(@ptrCast(self));
+    pub fn SharedPainter(self: KTreeWidgetSearchLine) QPainter {
+        return .{ .ptr = qtc.KTreeWidgetSearchLine_SharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSharedPainter` instead
@@ -8752,10 +9034,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.KTreeWidgetSearchLine_SuperSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: KTreeWidgetSearchLine) QPainter {
+        return .{ .ptr = qtc.KTreeWidgetSearchLine_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8766,12 +9048,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.KTreeWidgetSearchLine_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSharedPainter(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) QPainter) void {
+        qtc.KTreeWidgetSearchLine_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8782,12 +9064,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.KTreeWidgetSearchLine_FocusNextPrevChild(@ptrCast(self), next);
+    pub fn FocusNextPrevChild(self: KTreeWidgetSearchLine, next: bool) bool {
+        return qtc.KTreeWidgetSearchLine_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
@@ -8802,12 +9084,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.KTreeWidgetSearchLine_SuperFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: KTreeWidgetSearchLine, next: bool) bool {
+        return qtc.KTreeWidgetSearchLine_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// Inherited from QWidget
@@ -8818,12 +9100,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, next: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.KTreeWidgetSearchLine_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextPrevChild(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, bool) callconv(.c) bool) void {
+        qtc.KTreeWidgetSearchLine_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8834,14 +9116,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KTreeWidgetSearchLine_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KTreeWidgetSearchLine, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KTreeWidgetSearchLine_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -8856,14 +9140,16 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KTreeWidgetSearchLine_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KTreeWidgetSearchLine, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KTreeWidgetSearchLine_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -8874,12 +9160,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTreeWidgetSearchLine_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KTreeWidgetSearchLine_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8890,12 +9176,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KTreeWidgetSearchLine_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -8910,12 +9197,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KTreeWidgetSearchLine_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -8926,12 +9214,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QChildEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8942,12 +9230,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KTreeWidgetSearchLine_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -8962,12 +9251,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KTreeWidgetSearchLine, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KTreeWidgetSearchLine_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -8978,12 +9268,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QEvent) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8994,12 +9284,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KTreeWidgetSearchLine, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KTreeWidgetSearchLine_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -9014,12 +9305,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KTreeWidgetSearchLine, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KTreeWidgetSearchLine_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -9030,12 +9322,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QMetaMethod) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9046,12 +9338,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KTreeWidgetSearchLine, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KTreeWidgetSearchLine_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -9066,12 +9359,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KTreeWidgetSearchLine, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KTreeWidgetSearchLine_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -9082,12 +9376,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QMetaMethod) callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -9098,10 +9392,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn CursorRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.KTreeWidgetSearchLine_CursorRect(@ptrCast(self));
+    pub fn CursorRect(self: KTreeWidgetSearchLine) QRect {
+        return .{ .ptr = qtc.KTreeWidgetSearchLine_CursorRect(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperCursorRect` instead
@@ -9116,10 +9410,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SuperCursorRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.KTreeWidgetSearchLine_SuperCursorRect(@ptrCast(self));
+    pub fn SuperCursorRect(self: KTreeWidgetSearchLine) QRect {
+        return .{ .ptr = qtc.KTreeWidgetSearchLine_SuperCursorRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QLineEdit
@@ -9130,12 +9424,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QRect `
+    /// ` callback: *const fn () callconv(.c) QRect `
     ///
-    pub fn OnCursorRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
-        qtc.KTreeWidgetSearchLine_OnCursorRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCursorRect(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) QRect) void {
+        qtc.KTreeWidgetSearchLine_OnCursorRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9146,10 +9440,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_UpdateMicroFocus(@ptrCast(self));
+    pub fn UpdateMicroFocus(self: KTreeWidgetSearchLine) void {
+        qtc.KTreeWidgetSearchLine_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
@@ -9164,10 +9458,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: KTreeWidgetSearchLine) void {
+        qtc.KTreeWidgetSearchLine_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9178,12 +9472,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateMicroFocus(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9194,10 +9488,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Create(self: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_Create(@ptrCast(self));
+    pub fn Create(self: KTreeWidgetSearchLine) void {
+        qtc.KTreeWidgetSearchLine_Create(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -9212,10 +9506,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SuperCreate(self: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperCreate(@ptrCast(self));
+    pub fn SuperCreate(self: KTreeWidgetSearchLine) void {
+        qtc.KTreeWidgetSearchLine_SuperCreate(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9226,12 +9520,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9242,10 +9536,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Destroy(self: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_Destroy(@ptrCast(self));
+    pub fn Destroy(self: KTreeWidgetSearchLine) void {
+        qtc.KTreeWidgetSearchLine_Destroy(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDestroy` instead
@@ -9260,10 +9554,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SuperDestroy(self: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_SuperDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: KTreeWidgetSearchLine) void {
+        qtc.KTreeWidgetSearchLine_SuperDestroy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9274,12 +9568,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KTreeWidgetSearchLine_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroy(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) void) void {
+        qtc.KTreeWidgetSearchLine_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9290,10 +9584,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return qtc.KTreeWidgetSearchLine_FocusNextChild(@ptrCast(self));
+    pub fn FocusNextChild(self: KTreeWidgetSearchLine) bool {
+        return qtc.KTreeWidgetSearchLine_FocusNextChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextChild` instead
@@ -9308,10 +9602,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.KTreeWidgetSearchLine_SuperFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: KTreeWidgetSearchLine) bool {
+        return qtc.KTreeWidgetSearchLine_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9322,12 +9616,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KTreeWidgetSearchLine_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextChild(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) bool) void {
+        qtc.KTreeWidgetSearchLine_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9338,10 +9632,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.KTreeWidgetSearchLine_FocusPreviousChild(@ptrCast(self));
+    pub fn FocusPreviousChild(self: KTreeWidgetSearchLine) bool {
+        return qtc.KTreeWidgetSearchLine_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
@@ -9356,10 +9650,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.KTreeWidgetSearchLine_SuperFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: KTreeWidgetSearchLine) bool {
+        return qtc.KTreeWidgetSearchLine_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9370,12 +9664,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KTreeWidgetSearchLine_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusPreviousChild(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) bool) void {
+        qtc.KTreeWidgetSearchLine_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9386,10 +9680,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KTreeWidgetSearchLine_Sender(@ptrCast(self));
+    pub fn Sender(self: KTreeWidgetSearchLine) QObject {
+        return .{ .ptr = qtc.KTreeWidgetSearchLine_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -9404,10 +9698,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KTreeWidgetSearchLine_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KTreeWidgetSearchLine) QObject {
+        return .{ .ptr = qtc.KTreeWidgetSearchLine_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -9418,12 +9712,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KTreeWidgetSearchLine_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KTreeWidgetSearchLine_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9434,10 +9728,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KTreeWidgetSearchLine_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KTreeWidgetSearchLine) i32 {
+        return qtc.KTreeWidgetSearchLine_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -9452,10 +9746,10 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KTreeWidgetSearchLine_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KTreeWidgetSearchLine) i32 {
+        return qtc.KTreeWidgetSearchLine_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -9466,12 +9760,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KTreeWidgetSearchLine_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) i32) void {
+        qtc.KTreeWidgetSearchLine_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9482,13 +9776,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KTreeWidgetSearchLine, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KTreeWidgetSearchLine_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KTreeWidgetSearchLine_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -9503,13 +9797,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KTreeWidgetSearchLine, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KTreeWidgetSearchLine_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KTreeWidgetSearchLine_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -9520,12 +9814,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KTreeWidgetSearchLine_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KTreeWidgetSearchLine_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9536,12 +9830,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KTreeWidgetSearchLine_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KTreeWidgetSearchLine, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KTreeWidgetSearchLine_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -9556,12 +9851,13 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KTreeWidgetSearchLine_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KTreeWidgetSearchLine, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KTreeWidgetSearchLine_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -9572,12 +9868,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTreeWidgetSearchLine_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, QMetaMethod) callconv(.c) bool) void {
+        qtc.KTreeWidgetSearchLine_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -9588,14 +9884,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KTreeWidgetSearchLine_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn GetDecodedMetricF(self: KTreeWidgetSearchLine, metricA: i32, metricB: i32) f64 {
+        return qtc.KTreeWidgetSearchLine_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
@@ -9610,14 +9906,14 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KTreeWidgetSearchLine_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: KTreeWidgetSearchLine, metricA: i32, metricB: i32) f64 {
+        return qtc.KTreeWidgetSearchLine_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -9628,12 +9924,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine`
+    /// ` self: KTreeWidgetSearchLine`
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.KTreeWidgetSearchLine_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetDecodedMetricF(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, i32, i32) callconv(.c) f64) void {
+        qtc.KTreeWidgetSearchLine_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9644,12 +9940,12 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    /// ` callback: *const fn (self: QtC.KTreeWidgetSearchLine, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KTreeWidgetSearchLine, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -9662,9 +9958,9 @@ pub const ktreewidgetsearchline = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KTreeWidgetSearchLine `
+    /// ` self: KTreeWidgetSearchLine `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KTreeWidgetSearchLine_Delete(@ptrCast(self));
+    pub fn Delete(self: KTreeWidgetSearchLine) void {
+        qtc.KTreeWidgetSearchLine_Delete(@ptrCast(self.ptr));
     }
 };

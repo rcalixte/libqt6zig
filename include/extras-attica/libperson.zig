@@ -1,64 +1,76 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QDate = @import("libqt6").QDate;
+const QUrl = @import("libqt6").QUrl;
 const std = @import("std");
-const arraymap_constu8_constu8 = std.array_hash_map.String([]const u8);
+const ArrayMap_constu8_constu8 = std.array_hash_map.String([]const u8);
 
 /// ### [Upstream resources](https://api.kde.org/attica-person.html)
-pub const attica__person = struct {
+pub const Attica__Person = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/attica-person.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Attica__Person,
+
+    pub const _is_Attica__Person = {};
+
     /// New constructs a new Attica::Person object.
     ///
-    pub fn New() QtC.Attica__Person {
-        return qtc.Attica__Person_new();
+    pub fn New() Attica__Person {
+        return .{ .ptr = qtc.Attica__Person_new() };
     }
 
     /// New2 constructs a new Attica::Person object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.Attica__Person `
+    /// ` other: Attica__Person `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.Attica__Person {
-        return qtc.Attica__Person_new2(@ptrCast(other));
+    pub fn New2(other: anytype) Attica__Person {
+        comptime _ = @TypeOf(other)._is_Attica__Person;
+        return .{ .ptr = qtc.Attica__Person_new2(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-person.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
-    /// ` other: QtC.Attica__Person `
+    /// ` other: Attica__Person `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.Attica__Person_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: Attica__Person, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_Attica__Person;
+        qtc.Attica__Person_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-person.html#setId)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
     /// ` id: []const u8 `
     ///
-    pub fn SetId(self: ?*anyopaque, id: []const u8) void {
+    pub fn SetId(self: Attica__Person, id: []const u8) void {
         const id_str = qtc.libqt_string{
             .len = id.len,
             .data = id.ptr,
         };
-        qtc.Attica__Person_SetId(@ptrCast(self), id_str);
+        qtc.Attica__Person_SetId(@ptrCast(self.ptr), id_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-person.html#id)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Attica__Person_Id(@ptrCast(self));
+    pub fn Id(self: Attica__Person, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Attica__Person_Id(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__person.Id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -69,28 +81,28 @@ pub const attica__person = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
     /// ` firstName: []const u8 `
     ///
-    pub fn SetFirstName(self: ?*anyopaque, firstName: []const u8) void {
+    pub fn SetFirstName(self: Attica__Person, firstName: []const u8) void {
         const firstName_str = qtc.libqt_string{
             .len = firstName.len,
             .data = firstName.ptr,
         };
-        qtc.Attica__Person_SetFirstName(@ptrCast(self), firstName_str);
+        qtc.Attica__Person_SetFirstName(@ptrCast(self.ptr), firstName_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-person.html#firstName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FirstName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Attica__Person_FirstName(@ptrCast(self));
+    pub fn FirstName(self: Attica__Person, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Attica__Person_FirstName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__person.FirstName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -101,28 +113,28 @@ pub const attica__person = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
     /// ` lastName: []const u8 `
     ///
-    pub fn SetLastName(self: ?*anyopaque, lastName: []const u8) void {
+    pub fn SetLastName(self: Attica__Person, lastName: []const u8) void {
         const lastName_str = qtc.libqt_string{
             .len = lastName.len,
             .data = lastName.ptr,
         };
-        qtc.Attica__Person_SetLastName(@ptrCast(self), lastName_str);
+        qtc.Attica__Person_SetLastName(@ptrCast(self.ptr), lastName_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-person.html#lastName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LastName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Attica__Person_LastName(@ptrCast(self));
+    pub fn LastName(self: Attica__Person, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Attica__Person_LastName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__person.LastName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -133,50 +145,51 @@ pub const attica__person = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
-    /// ` birthday: QtC.QDate `
+    /// ` birthday: QDate `
     ///
-    pub fn SetBirthday(self: ?*anyopaque, birthday: ?*anyopaque) void {
-        qtc.Attica__Person_SetBirthday(@ptrCast(self), @ptrCast(birthday));
+    pub fn SetBirthday(self: Attica__Person, birthday: anytype) void {
+        comptime _ = @TypeOf(birthday)._is_QDate;
+        qtc.Attica__Person_SetBirthday(@ptrCast(self.ptr), @ptrCast(birthday.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-person.html#birthday)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
-    pub fn Birthday(self: ?*anyopaque) QtC.QDate {
-        return qtc.Attica__Person_Birthday(@ptrCast(self));
+    pub fn Birthday(self: Attica__Person) QDate {
+        return .{ .ptr = qtc.Attica__Person_Birthday(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-person.html#setCountry)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
     /// ` country: []const u8 `
     ///
-    pub fn SetCountry(self: ?*anyopaque, country: []const u8) void {
+    pub fn SetCountry(self: Attica__Person, country: []const u8) void {
         const country_str = qtc.libqt_string{
             .len = country.len,
             .data = country.ptr,
         };
-        qtc.Attica__Person_SetCountry(@ptrCast(self), country_str);
+        qtc.Attica__Person_SetCountry(@ptrCast(self.ptr), country_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-person.html#country)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Country(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Attica__Person_Country(@ptrCast(self));
+    pub fn Country(self: Attica__Person, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Attica__Person_Country(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__person.Country: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -187,94 +200,95 @@ pub const attica__person = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
     /// ` latitude: f64 `
     ///
-    pub fn SetLatitude(self: ?*anyopaque, latitude: f64) void {
-        qtc.Attica__Person_SetLatitude(@ptrCast(self), @bitCast(latitude));
+    pub fn SetLatitude(self: Attica__Person, latitude: f64) void {
+        qtc.Attica__Person_SetLatitude(@ptrCast(self.ptr), @bitCast(latitude));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-person.html#latitude)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
-    pub fn Latitude(self: ?*anyopaque) f64 {
-        return qtc.Attica__Person_Latitude(@ptrCast(self));
+    pub fn Latitude(self: Attica__Person) f64 {
+        return qtc.Attica__Person_Latitude(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-person.html#setLongitude)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
     /// ` longitude: f64 `
     ///
-    pub fn SetLongitude(self: ?*anyopaque, longitude: f64) void {
-        qtc.Attica__Person_SetLongitude(@ptrCast(self), @bitCast(longitude));
+    pub fn SetLongitude(self: Attica__Person, longitude: f64) void {
+        qtc.Attica__Person_SetLongitude(@ptrCast(self.ptr), @bitCast(longitude));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-person.html#longitude)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
-    pub fn Longitude(self: ?*anyopaque) f64 {
-        return qtc.Attica__Person_Longitude(@ptrCast(self));
+    pub fn Longitude(self: Attica__Person) f64 {
+        return qtc.Attica__Person_Longitude(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-person.html#setAvatarUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
-    /// ` avatarUrl: QtC.QUrl `
+    /// ` avatarUrl: QUrl `
     ///
-    pub fn SetAvatarUrl(self: ?*anyopaque, avatarUrl: ?*anyopaque) void {
-        qtc.Attica__Person_SetAvatarUrl(@ptrCast(self), @ptrCast(avatarUrl));
+    pub fn SetAvatarUrl(self: Attica__Person, avatarUrl: anytype) void {
+        comptime _ = @TypeOf(avatarUrl)._is_QUrl;
+        qtc.Attica__Person_SetAvatarUrl(@ptrCast(self.ptr), @ptrCast(avatarUrl.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-person.html#avatarUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
-    pub fn AvatarUrl(self: ?*anyopaque) QtC.QUrl {
-        return qtc.Attica__Person_AvatarUrl(@ptrCast(self));
+    pub fn AvatarUrl(self: Attica__Person) QUrl {
+        return .{ .ptr = qtc.Attica__Person_AvatarUrl(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-person.html#setHomepage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
     /// ` homepage: []const u8 `
     ///
-    pub fn SetHomepage(self: ?*anyopaque, homepage: []const u8) void {
+    pub fn SetHomepage(self: Attica__Person, homepage: []const u8) void {
         const homepage_str = qtc.libqt_string{
             .len = homepage.len,
             .data = homepage.ptr,
         };
-        qtc.Attica__Person_SetHomepage(@ptrCast(self), homepage_str);
+        qtc.Attica__Person_SetHomepage(@ptrCast(self.ptr), homepage_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-person.html#homepage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Homepage(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Attica__Person_Homepage(@ptrCast(self));
+    pub fn Homepage(self: Attica__Person, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Attica__Person_Homepage(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__person.Homepage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -285,28 +299,28 @@ pub const attica__person = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
     /// ` city: []const u8 `
     ///
-    pub fn SetCity(self: ?*anyopaque, city: []const u8) void {
+    pub fn SetCity(self: Attica__Person, city: []const u8) void {
         const city_str = qtc.libqt_string{
             .len = city.len,
             .data = city.ptr,
         };
-        qtc.Attica__Person_SetCity(@ptrCast(self), city_str);
+        qtc.Attica__Person_SetCity(@ptrCast(self.ptr), city_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-person.html#city)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn City(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Attica__Person_City(@ptrCast(self));
+    pub fn City(self: Attica__Person, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Attica__Person_City(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__person.City: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -317,13 +331,13 @@ pub const attica__person = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
     /// ` key: []const u8 `
     ///
     /// ` value: []const u8 `
     ///
-    pub fn AddExtendedAttribute(self: ?*anyopaque, key: []const u8, value: []const u8) void {
+    pub fn AddExtendedAttribute(self: Attica__Person, key: []const u8, value: []const u8) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -332,25 +346,25 @@ pub const attica__person = struct {
             .len = value.len,
             .data = value.ptr,
         };
-        qtc.Attica__Person_AddExtendedAttribute(@ptrCast(self), key_str, value_str);
+        qtc.Attica__Person_AddExtendedAttribute(@ptrCast(self.ptr), key_str, value_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-person.html#extendedAttribute)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
-    ///
-    /// ` key: []const u8 `
+    /// ` self: Attica__Person `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExtendedAttribute(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` key: []const u8 `
+    ///
+    pub fn ExtendedAttribute(self: Attica__Person, allocator: std.mem.Allocator, key: []const u8) []const u8 {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        var _str = qtc.Attica__Person_ExtendedAttribute(@ptrCast(self), key_str);
+        var _str = qtc.Attica__Person_ExtendedAttribute(@ptrCast(self.ptr), key_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__person.ExtendedAttribute: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -361,13 +375,13 @@ pub const attica__person = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExtendedAttributes(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_constu8_constu8 {
-        const _map: qtc.libqt_map = qtc.Attica__Person_ExtendedAttributes(@ptrCast(self));
-        var _ret: arraymap_constu8_constu8 = .empty;
+    pub fn ExtendedAttributes(self: Attica__Person, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
+        const _map: qtc.libqt_map = qtc.Attica__Person_ExtendedAttributes(@ptrCast(self.ptr));
+        var _ret: ArrayMap_constu8_constu8 = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -397,10 +411,10 @@ pub const attica__person = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.Attica__Person_IsValid(@ptrCast(self));
+    pub fn IsValid(self: Attica__Person) bool {
+        return qtc.Attica__Person_IsValid(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -411,9 +425,9 @@ pub const attica__person = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Attica__Person `
+    /// ` self: Attica__Person `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Attica__Person_Delete(@ptrCast(self));
+    pub fn Delete(self: Attica__Person) void {
+        qtc.Attica__Person_Delete(@ptrCast(self.ptr));
     }
 };

@@ -1,35 +1,45 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KFileMetaData__Extractor = @import("libqt6").KFileMetaData__Extractor;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractorcollection.html)
-pub const kfilemetadata__extractorcollection = struct {
+pub const KFileMetaData__ExtractorCollection = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractorcollection.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KFileMetaData__ExtractorCollection,
+
+    pub const _is_KFileMetaData__ExtractorCollection = {};
+
     /// New constructs a new KFileMetaData::ExtractorCollection object.
     ///
-    pub fn New() QtC.KFileMetaData__ExtractorCollection {
-        return qtc.KFileMetaData__ExtractorCollection_new();
+    pub fn New() KFileMetaData__ExtractorCollection {
+        return .{ .ptr = qtc.KFileMetaData__ExtractorCollection_new() };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractorcollection.html#fetchExtractors)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileMetaData__ExtractorCollection `
-    ///
-    /// ` mimetype: []const u8 `
+    /// ` self: KFileMetaData__ExtractorCollection `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FetchExtractors(self: ?*anyopaque, mimetype: []const u8, allocator: std.mem.Allocator) []QtC.KFileMetaData__Extractor {
+    /// ` mimetype: []const u8 `
+    ///
+    pub fn FetchExtractors(self: KFileMetaData__ExtractorCollection, allocator: std.mem.Allocator, mimetype: []const u8) []KFileMetaData__Extractor {
         const mimetype_str = qtc.libqt_string{
             .len = mimetype.len,
             .data = mimetype.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.KFileMetaData__ExtractorCollection_FetchExtractors(@ptrCast(self), mimetype_str);
+        const _arr: qtc.libqt_list = qtc.KFileMetaData__ExtractorCollection_FetchExtractors(@ptrCast(self.ptr), mimetype_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KFileMetaData__Extractor, _arr.len) catch @panic("kfilemetadata__extractorcollection.FetchExtractors: Memory allocation failed");
+        const _ret = allocator.alloc(KFileMetaData__Extractor, _arr.len) catch @panic("kfilemetadata__extractorcollection.FetchExtractors: Memory allocation failed");
         const _data: [*]QtC.KFileMetaData__Extractor = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -41,9 +51,9 @@ pub const kfilemetadata__extractorcollection = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KFileMetaData__ExtractorCollection `
+    /// ` self: KFileMetaData__ExtractorCollection `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KFileMetaData__ExtractorCollection_Delete(@ptrCast(self));
+    pub fn Delete(self: KFileMetaData__ExtractorCollection) void {
+        qtc.KFileMetaData__ExtractorCollection_Delete(@ptrCast(self.ptr));
     }
 };

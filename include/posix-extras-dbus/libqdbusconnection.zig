@@ -1,79 +1,95 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QDBusConnectionInterface = @import("libqt6").QDBusConnectionInterface;
+const QDBusError = @import("libqt6").QDBusError;
+const QDBusMessage = @import("libqt6").QDBusMessage;
+const QDBusPendingCall = @import("libqt6").QDBusPendingCall;
+const QDBusVirtualObject = @import("libqt6").QDBusVirtualObject;
+const QObject = @import("libqt6").QObject;
 const qdbusconnection_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html)
-pub const qdbusconnection = struct {
+pub const QDBusConnection = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QDBusConnection,
+
+    pub const _is_QDBusConnection = {};
+
     /// New constructs a new QDBusConnection object.
     ///
     /// ## Parameter(s):
     ///
     /// ` name: []const u8 `
     ///
-    pub fn New(name: []const u8) QtC.QDBusConnection {
+    pub fn New(name: []const u8) QDBusConnection {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-
-        return qtc.QDBusConnection_new(name_str);
+        return .{ .ptr = qtc.QDBusConnection_new(name_str) };
     }
 
     /// New2 constructs a new QDBusConnection object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QDBusConnection `
+    /// ` other: QDBusConnection `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QDBusConnection {
-        return qtc.QDBusConnection_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QDBusConnection {
+        comptime _ = @TypeOf(other)._is_QDBusConnection;
+        return .{ .ptr = qtc.QDBusConnection_new2(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
-    /// ` other: QtC.QDBusConnection `
+    /// ` other: QDBusConnection `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QDBusConnection_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QDBusConnection, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QDBusConnection;
+        qtc.QDBusConnection_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
-    /// ` other: QtC.QDBusConnection `
+    /// ` other: QDBusConnection `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QDBusConnection_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QDBusConnection, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QDBusConnection;
+        qtc.QDBusConnection_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#isConnected)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
-    pub fn IsConnected(self: ?*anyopaque) bool {
-        return qtc.QDBusConnection_IsConnected(@ptrCast(self));
+    pub fn IsConnected(self: QDBusConnection) bool {
+        return qtc.QDBusConnection_IsConnected(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#baseService)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn BaseService(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDBusConnection_BaseService(@ptrCast(self));
+    pub fn BaseService(self: QDBusConnection, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDBusConnection_BaseService(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusconnection.BaseService: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -84,22 +100,22 @@ pub const qdbusconnection = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
-    pub fn LastError(self: ?*anyopaque) QtC.QDBusError {
-        return qtc.QDBusConnection_LastError(@ptrCast(self));
+    pub fn LastError(self: QDBusConnection) QDBusError {
+        return .{ .ptr = qtc.QDBusConnection_LastError(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#name)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDBusConnection_Name(@ptrCast(self));
+    pub fn Name(self: QDBusConnection, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDBusConnection_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusconnection.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -110,94 +126,101 @@ pub const qdbusconnection = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
     /// ## Returns:
     ///
     /// ` flag of qdbusconnection_enums.ConnectionCapability `
     ///
-    pub fn ConnectionCapabilities(self: ?*anyopaque) i32 {
-        return qtc.QDBusConnection_ConnectionCapabilities(@ptrCast(self));
+    pub fn ConnectionCapabilities(self: QDBusConnection) i32 {
+        return qtc.QDBusConnection_ConnectionCapabilities(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#send)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
-    /// ` message: QtC.QDBusMessage `
+    /// ` message: QDBusMessage `
     ///
-    pub fn Send(self: ?*anyopaque, message: ?*anyopaque) bool {
-        return qtc.QDBusConnection_Send(@ptrCast(self), @ptrCast(message));
+    pub fn Send(self: QDBusConnection, message: anytype) bool {
+        comptime _ = @TypeOf(message)._is_QDBusMessage;
+        return qtc.QDBusConnection_Send(@ptrCast(self.ptr), @ptrCast(message.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#callWithCallback)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
-    /// ` message: QtC.QDBusMessage `
+    /// ` message: QDBusMessage `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` returnMethod: [:0]const u8 `
     ///
     /// ` errorMethod: [:0]const u8 `
     ///
-    pub fn CallWithCallback(self: ?*anyopaque, message: ?*anyopaque, receiver: ?*anyopaque, returnMethod: [:0]const u8, errorMethod: [:0]const u8) bool {
+    pub fn CallWithCallback(self: QDBusConnection, message: anytype, receiver: anytype, returnMethod: [:0]const u8, errorMethod: [:0]const u8) bool {
+        comptime _ = @TypeOf(message)._is_QDBusMessage;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const returnMethod_Cstring = returnMethod.ptr;
         const errorMethod_Cstring = errorMethod.ptr;
-        return qtc.QDBusConnection_CallWithCallback(@ptrCast(self), @ptrCast(message), @ptrCast(receiver), returnMethod_Cstring, errorMethod_Cstring);
+        return qtc.QDBusConnection_CallWithCallback(@ptrCast(self.ptr), @ptrCast(message.ptr), @ptrCast(receiver.ptr), returnMethod_Cstring, errorMethod_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#callWithCallback)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
-    /// ` message: QtC.QDBusMessage `
+    /// ` message: QDBusMessage `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` slot: [:0]const u8 `
     ///
-    pub fn CallWithCallback2(self: ?*anyopaque, message: ?*anyopaque, receiver: ?*anyopaque, slot: [:0]const u8) bool {
+    pub fn CallWithCallback2(self: QDBusConnection, message: anytype, receiver: anytype, slot: [:0]const u8) bool {
+        comptime _ = @TypeOf(message)._is_QDBusMessage;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const slot_Cstring = slot.ptr;
-        return qtc.QDBusConnection_CallWithCallback2(@ptrCast(self), @ptrCast(message), @ptrCast(receiver), slot_Cstring);
+        return qtc.QDBusConnection_CallWithCallback2(@ptrCast(self.ptr), @ptrCast(message.ptr), @ptrCast(receiver.ptr), slot_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#call)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
-    /// ` message: QtC.QDBusMessage `
+    /// ` message: QDBusMessage `
     ///
-    pub fn Call(self: ?*anyopaque, message: ?*anyopaque) QtC.QDBusMessage {
-        return qtc.QDBusConnection_Call(@ptrCast(self), @ptrCast(message));
+    pub fn Call(self: QDBusConnection, message: anytype) QDBusMessage {
+        comptime _ = @TypeOf(message)._is_QDBusMessage;
+        return .{ .ptr = qtc.QDBusConnection_Call(@ptrCast(self.ptr), @ptrCast(message.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#asyncCall)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
-    /// ` message: QtC.QDBusMessage `
+    /// ` message: QDBusMessage `
     ///
-    pub fn AsyncCall(self: ?*anyopaque, message: ?*anyopaque) QtC.QDBusPendingCall {
-        return qtc.QDBusConnection_AsyncCall(@ptrCast(self), @ptrCast(message));
+    pub fn AsyncCall(self: QDBusConnection, message: anytype) QDBusPendingCall {
+        comptime _ = @TypeOf(message)._is_QDBusMessage;
+        return .{ .ptr = qtc.QDBusConnection_AsyncCall(@ptrCast(self.ptr), @ptrCast(message.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#connect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
     /// ` service: []const u8 `
     ///
@@ -207,11 +230,11 @@ pub const qdbusconnection = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` slot: [:0]const u8 `
     ///
-    pub fn Connect(self: ?*anyopaque, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, receiver: ?*anyopaque, slot: [:0]const u8) bool {
+    pub fn Connect(self: QDBusConnection, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, receiver: anytype, slot: [:0]const u8) bool {
         const service_str = qtc.libqt_string{
             .len = service.len,
             .data = service.ptr,
@@ -228,15 +251,16 @@ pub const qdbusconnection = struct {
             .len = name.len,
             .data = name.ptr,
         };
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const slot_Cstring = slot.ptr;
-        return qtc.QDBusConnection_Connect(@ptrCast(self), service_str, path_str, interface_str, name_str, @ptrCast(receiver), slot_Cstring);
+        return qtc.QDBusConnection_Connect(@ptrCast(self.ptr), service_str, path_str, interface_str, name_str, @ptrCast(receiver.ptr), slot_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#connect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
     /// ` service: []const u8 `
     ///
@@ -248,11 +272,11 @@ pub const qdbusconnection = struct {
     ///
     /// ` signature: []const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` slot: [:0]const u8 `
     ///
-    pub fn Connect2(self: ?*anyopaque, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, signature: []const u8, receiver: ?*anyopaque, slot: [:0]const u8) bool {
+    pub fn Connect2(self: QDBusConnection, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, signature: []const u8, receiver: anytype, slot: [:0]const u8) bool {
         const service_str = qtc.libqt_string{
             .len = service.len,
             .data = service.ptr,
@@ -273,15 +297,18 @@ pub const qdbusconnection = struct {
             .len = signature.len,
             .data = signature.ptr,
         };
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const slot_Cstring = slot.ptr;
-        return qtc.QDBusConnection_Connect2(@ptrCast(self), service_str, path_str, interface_str, name_str, signature_str, @ptrCast(receiver), slot_Cstring);
+        return qtc.QDBusConnection_Connect2(@ptrCast(self.ptr), service_str, path_str, interface_str, name_str, signature_str, @ptrCast(receiver.ptr), slot_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#connect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` service: []const u8 `
     ///
@@ -295,13 +322,11 @@ pub const qdbusconnection = struct {
     ///
     /// ` signature: []const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` slot: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Connect3(self: ?*anyopaque, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, argumentMatch: []const []const u8, signature: []const u8, receiver: ?*anyopaque, slot: [:0]const u8, allocator: std.mem.Allocator) bool {
+    pub fn Connect3(self: QDBusConnection, allocator: std.mem.Allocator, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, argumentMatch: []const []const u8, signature: []const u8, receiver: anytype, slot: [:0]const u8) bool {
         const service_str = qtc.libqt_string{
             .len = service.len,
             .data = service.ptr,
@@ -320,12 +345,11 @@ pub const qdbusconnection = struct {
         };
         const argumentMatch_arr = allocator.alloc(qtc.libqt_string, argumentMatch.len) catch @panic("qdbusconnection.Connect3: Memory allocation failed");
         defer allocator.free(argumentMatch_arr);
-        for (argumentMatch, 0..argumentMatch.len) |item, i| {
+        for (argumentMatch, 0..argumentMatch.len) |item, i|
             argumentMatch_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const argumentMatch_list = qtc.libqt_list{
             .len = argumentMatch.len,
             .data = argumentMatch_arr.ptr,
@@ -334,15 +358,16 @@ pub const qdbusconnection = struct {
             .len = signature.len,
             .data = signature.ptr,
         };
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const slot_Cstring = slot.ptr;
-        return qtc.QDBusConnection_Connect3(@ptrCast(self), service_str, path_str, interface_str, name_str, argumentMatch_list, signature_str, @ptrCast(receiver), slot_Cstring);
+        return qtc.QDBusConnection_Connect3(@ptrCast(self.ptr), service_str, path_str, interface_str, name_str, argumentMatch_list, signature_str, @ptrCast(receiver.ptr), slot_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#disconnect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
     /// ` service: []const u8 `
     ///
@@ -352,11 +377,11 @@ pub const qdbusconnection = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` slot: [:0]const u8 `
     ///
-    pub fn Disconnect(self: ?*anyopaque, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, receiver: ?*anyopaque, slot: [:0]const u8) bool {
+    pub fn Disconnect(self: QDBusConnection, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, receiver: anytype, slot: [:0]const u8) bool {
         const service_str = qtc.libqt_string{
             .len = service.len,
             .data = service.ptr,
@@ -373,15 +398,16 @@ pub const qdbusconnection = struct {
             .len = name.len,
             .data = name.ptr,
         };
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const slot_Cstring = slot.ptr;
-        return qtc.QDBusConnection_Disconnect(@ptrCast(self), service_str, path_str, interface_str, name_str, @ptrCast(receiver), slot_Cstring);
+        return qtc.QDBusConnection_Disconnect(@ptrCast(self.ptr), service_str, path_str, interface_str, name_str, @ptrCast(receiver.ptr), slot_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#disconnect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
     /// ` service: []const u8 `
     ///
@@ -393,11 +419,11 @@ pub const qdbusconnection = struct {
     ///
     /// ` signature: []const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` slot: [:0]const u8 `
     ///
-    pub fn Disconnect2(self: ?*anyopaque, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, signature: []const u8, receiver: ?*anyopaque, slot: [:0]const u8) bool {
+    pub fn Disconnect2(self: QDBusConnection, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, signature: []const u8, receiver: anytype, slot: [:0]const u8) bool {
         const service_str = qtc.libqt_string{
             .len = service.len,
             .data = service.ptr,
@@ -418,15 +444,18 @@ pub const qdbusconnection = struct {
             .len = signature.len,
             .data = signature.ptr,
         };
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const slot_Cstring = slot.ptr;
-        return qtc.QDBusConnection_Disconnect2(@ptrCast(self), service_str, path_str, interface_str, name_str, signature_str, @ptrCast(receiver), slot_Cstring);
+        return qtc.QDBusConnection_Disconnect2(@ptrCast(self.ptr), service_str, path_str, interface_str, name_str, signature_str, @ptrCast(receiver.ptr), slot_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#disconnect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` service: []const u8 `
     ///
@@ -440,13 +469,11 @@ pub const qdbusconnection = struct {
     ///
     /// ` signature: []const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` slot: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Disconnect3(self: ?*anyopaque, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, argumentMatch: []const []const u8, signature: []const u8, receiver: ?*anyopaque, slot: [:0]const u8, allocator: std.mem.Allocator) bool {
+    pub fn Disconnect3(self: QDBusConnection, allocator: std.mem.Allocator, service: []const u8, path: []const u8, interface: []const u8, name: []const u8, argumentMatch: []const []const u8, signature: []const u8, receiver: anytype, slot: [:0]const u8) bool {
         const service_str = qtc.libqt_string{
             .len = service.len,
             .data = service.ptr,
@@ -465,12 +492,11 @@ pub const qdbusconnection = struct {
         };
         const argumentMatch_arr = allocator.alloc(qtc.libqt_string, argumentMatch.len) catch @panic("qdbusconnection.Disconnect3: Memory allocation failed");
         defer allocator.free(argumentMatch_arr);
-        for (argumentMatch, 0..argumentMatch.len) |item, i| {
+        for (argumentMatch, 0..argumentMatch.len) |item, i|
             argumentMatch_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const argumentMatch_list = qtc.libqt_list{
             .len = argumentMatch.len,
             .data = argumentMatch_arr.ptr,
@@ -479,41 +505,43 @@ pub const qdbusconnection = struct {
             .len = signature.len,
             .data = signature.ptr,
         };
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const slot_Cstring = slot.ptr;
-        return qtc.QDBusConnection_Disconnect3(@ptrCast(self), service_str, path_str, interface_str, name_str, argumentMatch_list, signature_str, @ptrCast(receiver), slot_Cstring);
+        return qtc.QDBusConnection_Disconnect3(@ptrCast(self.ptr), service_str, path_str, interface_str, name_str, argumentMatch_list, signature_str, @ptrCast(receiver.ptr), slot_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#registerObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
     /// ` path: []const u8 `
     ///
-    /// ` object: QtC.QObject `
+    /// ` object: QObject `
     ///
-    pub fn RegisterObject(self: ?*anyopaque, path: []const u8, object: ?*anyopaque) bool {
+    pub fn RegisterObject(self: QDBusConnection, path: []const u8, object: anytype) bool {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        return qtc.QDBusConnection_RegisterObject(@ptrCast(self), path_str, @ptrCast(object));
+        comptime _ = @TypeOf(object)._is_QObject;
+        return qtc.QDBusConnection_RegisterObject(@ptrCast(self.ptr), path_str, @ptrCast(object.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#registerObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
     /// ` path: []const u8 `
     ///
     /// ` interface: []const u8 `
     ///
-    /// ` object: QtC.QObject `
+    /// ` object: QObject `
     ///
-    pub fn RegisterObject2(self: ?*anyopaque, path: []const u8, interface: []const u8, object: ?*anyopaque) bool {
+    pub fn RegisterObject2(self: QDBusConnection, path: []const u8, interface: []const u8, object: anytype) bool {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -522,109 +550,111 @@ pub const qdbusconnection = struct {
             .len = interface.len,
             .data = interface.ptr,
         };
-        return qtc.QDBusConnection_RegisterObject2(@ptrCast(self), path_str, interface_str, @ptrCast(object));
+        comptime _ = @TypeOf(object)._is_QObject;
+        return qtc.QDBusConnection_RegisterObject2(@ptrCast(self.ptr), path_str, interface_str, @ptrCast(object.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#unregisterObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
     /// ` path: []const u8 `
     ///
-    pub fn UnregisterObject(self: ?*anyopaque, path: []const u8) void {
+    pub fn UnregisterObject(self: QDBusConnection, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        qtc.QDBusConnection_UnregisterObject(@ptrCast(self), path_str);
+        qtc.QDBusConnection_UnregisterObject(@ptrCast(self.ptr), path_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#objectRegisteredAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
     /// ` path: []const u8 `
     ///
-    pub fn ObjectRegisteredAt(self: ?*anyopaque, path: []const u8) QtC.QObject {
+    pub fn ObjectRegisteredAt(self: QDBusConnection, path: []const u8) QObject {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        return qtc.QDBusConnection_ObjectRegisteredAt(@ptrCast(self), path_str);
+        return .{ .ptr = qtc.QDBusConnection_ObjectRegisteredAt(@ptrCast(self.ptr), path_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#registerVirtualObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
     /// ` path: []const u8 `
     ///
-    /// ` object: QtC.QDBusVirtualObject `
+    /// ` object: QDBusVirtualObject `
     ///
-    pub fn RegisterVirtualObject(self: ?*anyopaque, path: []const u8, object: ?*anyopaque) bool {
+    pub fn RegisterVirtualObject(self: QDBusConnection, path: []const u8, object: anytype) bool {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        return qtc.QDBusConnection_RegisterVirtualObject(@ptrCast(self), path_str, @ptrCast(object));
+        comptime _ = @TypeOf(object)._is_QDBusVirtualObject;
+        return qtc.QDBusConnection_RegisterVirtualObject(@ptrCast(self.ptr), path_str, @ptrCast(object.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#registerService)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
     /// ` serviceName: []const u8 `
     ///
-    pub fn RegisterService(self: ?*anyopaque, serviceName: []const u8) bool {
+    pub fn RegisterService(self: QDBusConnection, serviceName: []const u8) bool {
         const serviceName_str = qtc.libqt_string{
             .len = serviceName.len,
             .data = serviceName.ptr,
         };
-        return qtc.QDBusConnection_RegisterService(@ptrCast(self), serviceName_str);
+        return qtc.QDBusConnection_RegisterService(@ptrCast(self.ptr), serviceName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#unregisterService)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
     /// ` serviceName: []const u8 `
     ///
-    pub fn UnregisterService(self: ?*anyopaque, serviceName: []const u8) bool {
+    pub fn UnregisterService(self: QDBusConnection, serviceName: []const u8) bool {
         const serviceName_str = qtc.libqt_string{
             .len = serviceName.len,
             .data = serviceName.ptr,
         };
-        return qtc.QDBusConnection_UnregisterService(@ptrCast(self), serviceName_str);
+        return qtc.QDBusConnection_UnregisterService(@ptrCast(self.ptr), serviceName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#interface)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
-    pub fn Interface(self: ?*anyopaque) QtC.QDBusConnectionInterface {
-        return qtc.QDBusConnection_Interface(@ptrCast(self));
+    pub fn Interface(self: QDBusConnection) QDBusConnectionInterface {
+        return .{ .ptr = qtc.QDBusConnection_Interface(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#internalPointer)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
-    pub fn InternalPointer(self: ?*anyopaque) ?*anyopaque {
-        return qtc.QDBusConnection_InternalPointer(@ptrCast(self));
+    pub fn InternalPointer(self: QDBusConnection) ?*anyopaque {
+        return qtc.QDBusConnection_InternalPointer(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#connectToBus)
@@ -635,12 +665,12 @@ pub const qdbusconnection = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn ConnectToBus(typeVal: i32, name: []const u8) QtC.QDBusConnection {
+    pub fn ConnectToBus(typeVal: i32, name: []const u8) QDBusConnection {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QDBusConnection_ConnectToBus(@bitCast(typeVal), name_str);
+        return .{ .ptr = qtc.QDBusConnection_ConnectToBus(@bitCast(typeVal), name_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#connectToBus)
@@ -651,7 +681,7 @@ pub const qdbusconnection = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn ConnectToBus2(address: []const u8, name: []const u8) QtC.QDBusConnection {
+    pub fn ConnectToBus2(address: []const u8, name: []const u8) QDBusConnection {
         const address_str = qtc.libqt_string{
             .len = address.len,
             .data = address.ptr,
@@ -660,7 +690,7 @@ pub const qdbusconnection = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QDBusConnection_ConnectToBus2(address_str, name_str);
+        return .{ .ptr = qtc.QDBusConnection_ConnectToBus2(address_str, name_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#connectToPeer)
@@ -671,7 +701,7 @@ pub const qdbusconnection = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn ConnectToPeer(address: []const u8, name: []const u8) QtC.QDBusConnection {
+    pub fn ConnectToPeer(address: []const u8, name: []const u8) QDBusConnection {
         const address_str = qtc.libqt_string{
             .len = address.len,
             .data = address.ptr,
@@ -680,7 +710,7 @@ pub const qdbusconnection = struct {
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QDBusConnection_ConnectToPeer(address_str, name_str);
+        return .{ .ptr = qtc.QDBusConnection_ConnectToPeer(address_str, name_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#disconnectFromBus)
@@ -727,25 +757,25 @@ pub const qdbusconnection = struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#sessionBus)
     ///
-    pub fn SessionBus() QtC.QDBusConnection {
-        return qtc.QDBusConnection_SessionBus();
+    pub fn SessionBus() QDBusConnection {
+        return .{ .ptr = qtc.QDBusConnection_SessionBus() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#systemBus)
     ///
-    pub fn SystemBus() QtC.QDBusConnection {
-        return qtc.QDBusConnection_SystemBus();
+    pub fn SystemBus() QDBusConnection {
+        return .{ .ptr = qtc.QDBusConnection_SystemBus() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#callWithCallback)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
-    /// ` message: QtC.QDBusMessage `
+    /// ` message: QDBusMessage `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` returnMethod: [:0]const u8 `
     ///
@@ -753,110 +783,118 @@ pub const qdbusconnection = struct {
     ///
     /// ` timeout: i32 `
     ///
-    pub fn CallWithCallback5(self: ?*anyopaque, message: ?*anyopaque, receiver: ?*anyopaque, returnMethod: [:0]const u8, errorMethod: [:0]const u8, timeout: i32) bool {
+    pub fn CallWithCallback5(self: QDBusConnection, message: anytype, receiver: anytype, returnMethod: [:0]const u8, errorMethod: [:0]const u8, timeout: i32) bool {
+        comptime _ = @TypeOf(message)._is_QDBusMessage;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const returnMethod_Cstring = returnMethod.ptr;
         const errorMethod_Cstring = errorMethod.ptr;
-        return qtc.QDBusConnection_CallWithCallback5(@ptrCast(self), @ptrCast(message), @ptrCast(receiver), returnMethod_Cstring, errorMethod_Cstring, @bitCast(timeout));
+        return qtc.QDBusConnection_CallWithCallback5(@ptrCast(self.ptr), @ptrCast(message.ptr), @ptrCast(receiver.ptr), returnMethod_Cstring, errorMethod_Cstring, @bitCast(timeout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#callWithCallback)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
-    /// ` message: QtC.QDBusMessage `
+    /// ` message: QDBusMessage `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` slot: [:0]const u8 `
     ///
     /// ` timeout: i32 `
     ///
-    pub fn CallWithCallback4(self: ?*anyopaque, message: ?*anyopaque, receiver: ?*anyopaque, slot: [:0]const u8, timeout: i32) bool {
+    pub fn CallWithCallback4(self: QDBusConnection, message: anytype, receiver: anytype, slot: [:0]const u8, timeout: i32) bool {
+        comptime _ = @TypeOf(message)._is_QDBusMessage;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const slot_Cstring = slot.ptr;
-        return qtc.QDBusConnection_CallWithCallback4(@ptrCast(self), @ptrCast(message), @ptrCast(receiver), slot_Cstring, @bitCast(timeout));
+        return qtc.QDBusConnection_CallWithCallback4(@ptrCast(self.ptr), @ptrCast(message.ptr), @ptrCast(receiver.ptr), slot_Cstring, @bitCast(timeout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#call)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
-    /// ` message: QtC.QDBusMessage `
+    /// ` message: QDBusMessage `
     ///
     /// ` mode: qdbusconnection_enums.CallMode `
     ///
-    pub fn Call2(self: ?*anyopaque, message: ?*anyopaque, mode: i32) QtC.QDBusMessage {
-        return qtc.QDBusConnection_Call2(@ptrCast(self), @ptrCast(message), @bitCast(mode));
+    pub fn Call2(self: QDBusConnection, message: anytype, mode: i32) QDBusMessage {
+        comptime _ = @TypeOf(message)._is_QDBusMessage;
+        return .{ .ptr = qtc.QDBusConnection_Call2(@ptrCast(self.ptr), @ptrCast(message.ptr), @bitCast(mode)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#call)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
-    /// ` message: QtC.QDBusMessage `
+    /// ` message: QDBusMessage `
     ///
     /// ` mode: qdbusconnection_enums.CallMode `
     ///
     /// ` timeout: i32 `
     ///
-    pub fn Call3(self: ?*anyopaque, message: ?*anyopaque, mode: i32, timeout: i32) QtC.QDBusMessage {
-        return qtc.QDBusConnection_Call3(@ptrCast(self), @ptrCast(message), @bitCast(mode), @bitCast(timeout));
+    pub fn Call3(self: QDBusConnection, message: anytype, mode: i32, timeout: i32) QDBusMessage {
+        comptime _ = @TypeOf(message)._is_QDBusMessage;
+        return .{ .ptr = qtc.QDBusConnection_Call3(@ptrCast(self.ptr), @ptrCast(message.ptr), @bitCast(mode), @bitCast(timeout)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#asyncCall)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
-    /// ` message: QtC.QDBusMessage `
+    /// ` message: QDBusMessage `
     ///
     /// ` timeout: i32 `
     ///
-    pub fn AsyncCall2(self: ?*anyopaque, message: ?*anyopaque, timeout: i32) QtC.QDBusPendingCall {
-        return qtc.QDBusConnection_AsyncCall2(@ptrCast(self), @ptrCast(message), @bitCast(timeout));
+    pub fn AsyncCall2(self: QDBusConnection, message: anytype, timeout: i32) QDBusPendingCall {
+        comptime _ = @TypeOf(message)._is_QDBusMessage;
+        return .{ .ptr = qtc.QDBusConnection_AsyncCall2(@ptrCast(self.ptr), @ptrCast(message.ptr), @bitCast(timeout)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#registerObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
     /// ` path: []const u8 `
     ///
-    /// ` object: QtC.QObject `
+    /// ` object: QObject `
     ///
     /// ` options: flag of qdbusconnection_enums.RegisterOption `
     ///
-    pub fn RegisterObject3(self: ?*anyopaque, path: []const u8, object: ?*anyopaque, options: i32) bool {
+    pub fn RegisterObject3(self: QDBusConnection, path: []const u8, object: anytype, options: i32) bool {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        return qtc.QDBusConnection_RegisterObject3(@ptrCast(self), path_str, @ptrCast(object), @bitCast(options));
+        comptime _ = @TypeOf(object)._is_QObject;
+        return qtc.QDBusConnection_RegisterObject3(@ptrCast(self.ptr), path_str, @ptrCast(object.ptr), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#registerObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
     /// ` path: []const u8 `
     ///
     /// ` interface: []const u8 `
     ///
-    /// ` object: QtC.QObject `
+    /// ` object: QObject `
     ///
     /// ` options: flag of qdbusconnection_enums.RegisterOption `
     ///
-    pub fn RegisterObject4(self: ?*anyopaque, path: []const u8, interface: []const u8, object: ?*anyopaque, options: i32) bool {
+    pub fn RegisterObject4(self: QDBusConnection, path: []const u8, interface: []const u8, object: anytype, options: i32) bool {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -865,45 +903,47 @@ pub const qdbusconnection = struct {
             .len = interface.len,
             .data = interface.ptr,
         };
-        return qtc.QDBusConnection_RegisterObject4(@ptrCast(self), path_str, interface_str, @ptrCast(object), @bitCast(options));
+        comptime _ = @TypeOf(object)._is_QObject;
+        return qtc.QDBusConnection_RegisterObject4(@ptrCast(self.ptr), path_str, interface_str, @ptrCast(object.ptr), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#unregisterObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
     /// ` path: []const u8 `
     ///
     /// ` mode: qdbusconnection_enums.UnregisterMode `
     ///
-    pub fn UnregisterObject2(self: ?*anyopaque, path: []const u8, mode: i32) void {
+    pub fn UnregisterObject2(self: QDBusConnection, path: []const u8, mode: i32) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        qtc.QDBusConnection_UnregisterObject2(@ptrCast(self), path_str, @bitCast(mode));
+        qtc.QDBusConnection_UnregisterObject2(@ptrCast(self.ptr), path_str, @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusconnection.html#registerVirtualObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
     /// ` path: []const u8 `
     ///
-    /// ` object: QtC.QDBusVirtualObject `
+    /// ` object: QDBusVirtualObject `
     ///
     /// ` options: qdbusconnection_enums.VirtualObjectRegisterOption `
     ///
-    pub fn RegisterVirtualObject3(self: ?*anyopaque, path: []const u8, object: ?*anyopaque, options: i32) bool {
+    pub fn RegisterVirtualObject3(self: QDBusConnection, path: []const u8, object: anytype, options: i32) bool {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        return qtc.QDBusConnection_RegisterVirtualObject3(@ptrCast(self), path_str, @ptrCast(object), @bitCast(options));
+        comptime _ = @TypeOf(object)._is_QDBusVirtualObject;
+        return qtc.QDBusConnection_RegisterVirtualObject3(@ptrCast(self.ptr), path_str, @ptrCast(object.ptr), @bitCast(options));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -916,10 +956,10 @@ pub const qdbusconnection = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QDBusConnection `
+    /// ` self: QDBusConnection `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QDBusConnection_Delete(@ptrCast(self));
+    pub fn Delete(self: QDBusConnection) void {
+        qtc.QDBusConnection_Delete(@ptrCast(self.ptr));
     }
 };
 

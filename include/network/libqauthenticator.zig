@@ -1,72 +1,85 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QVariant = @import("libqt6").QVariant;
 const std = @import("std");
-const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const Map_constu8_QVariant = std.StringHashMapUnmanaged(QVariant);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html)
-pub const qauthenticator = struct {
+pub const QAuthenticator = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QAuthenticator,
+
+    pub const _is_QAuthenticator = {};
+
     /// New constructs a new QAuthenticator object.
     ///
-    pub fn New() QtC.QAuthenticator {
-        return qtc.QAuthenticator_new();
+    pub fn New() QAuthenticator {
+        return .{ .ptr = qtc.QAuthenticator_new() };
     }
 
     /// New2 constructs a new QAuthenticator object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QAuthenticator `
+    /// ` other: QAuthenticator `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QAuthenticator {
-        return qtc.QAuthenticator_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QAuthenticator {
+        comptime _ = @TypeOf(other)._is_QAuthenticator;
+        return .{ .ptr = qtc.QAuthenticator_new2(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAuthenticator `
+    /// ` self: QAuthenticator `
     ///
-    /// ` other: QtC.QAuthenticator `
+    /// ` other: QAuthenticator `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QAuthenticator_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QAuthenticator, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QAuthenticator;
+        qtc.QAuthenticator_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#operator-eq-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAuthenticator `
+    /// ` self: QAuthenticator `
     ///
-    /// ` other: QtC.QAuthenticator `
+    /// ` other: QAuthenticator `
     ///
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QAuthenticator_OperatorEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorEqual(self: QAuthenticator, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QAuthenticator;
+        return qtc.QAuthenticator_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#operator-not-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAuthenticator `
+    /// ` self: QAuthenticator `
     ///
-    /// ` other: QtC.QAuthenticator `
+    /// ` other: QAuthenticator `
     ///
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QAuthenticator_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorNotEqual(self: QAuthenticator, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QAuthenticator;
+        return qtc.QAuthenticator_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#user)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAuthenticator `
+    /// ` self: QAuthenticator `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn User(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAuthenticator_User(@ptrCast(self));
+    pub fn User(self: QAuthenticator, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QAuthenticator_User(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qauthenticator.User: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -77,28 +90,28 @@ pub const qauthenticator = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAuthenticator `
+    /// ` self: QAuthenticator `
     ///
     /// ` user: []const u8 `
     ///
-    pub fn SetUser(self: ?*anyopaque, user: []const u8) void {
+    pub fn SetUser(self: QAuthenticator, user: []const u8) void {
         const user_str = qtc.libqt_string{
             .len = user.len,
             .data = user.ptr,
         };
-        qtc.QAuthenticator_SetUser(@ptrCast(self), user_str);
+        qtc.QAuthenticator_SetUser(@ptrCast(self.ptr), user_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#password)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAuthenticator `
+    /// ` self: QAuthenticator `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Password(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAuthenticator_Password(@ptrCast(self));
+    pub fn Password(self: QAuthenticator, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QAuthenticator_Password(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qauthenticator.Password: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -109,28 +122,28 @@ pub const qauthenticator = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAuthenticator `
+    /// ` self: QAuthenticator `
     ///
     /// ` password: []const u8 `
     ///
-    pub fn SetPassword(self: ?*anyopaque, password: []const u8) void {
+    pub fn SetPassword(self: QAuthenticator, password: []const u8) void {
         const password_str = qtc.libqt_string{
             .len = password.len,
             .data = password.ptr,
         };
-        qtc.QAuthenticator_SetPassword(@ptrCast(self), password_str);
+        qtc.QAuthenticator_SetPassword(@ptrCast(self.ptr), password_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#realm)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAuthenticator `
+    /// ` self: QAuthenticator `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Realm(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAuthenticator_Realm(@ptrCast(self));
+    pub fn Realm(self: QAuthenticator, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QAuthenticator_Realm(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qauthenticator.Realm: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -141,45 +154,45 @@ pub const qauthenticator = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAuthenticator `
+    /// ` self: QAuthenticator `
     ///
     /// ` realm: []const u8 `
     ///
-    pub fn SetRealm(self: ?*anyopaque, realm: []const u8) void {
+    pub fn SetRealm(self: QAuthenticator, realm: []const u8) void {
         const realm_str = qtc.libqt_string{
             .len = realm.len,
             .data = realm.ptr,
         };
-        qtc.QAuthenticator_SetRealm(@ptrCast(self), realm_str);
+        qtc.QAuthenticator_SetRealm(@ptrCast(self.ptr), realm_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#option)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAuthenticator `
+    /// ` self: QAuthenticator `
     ///
     /// ` opt: []const u8 `
     ///
-    pub fn Option(self: ?*anyopaque, opt: []const u8) QtC.QVariant {
+    pub fn Option(self: QAuthenticator, opt: []const u8) QVariant {
         const opt_str = qtc.libqt_string{
             .len = opt.len,
             .data = opt.ptr,
         };
-        return qtc.QAuthenticator_Option(@ptrCast(self), opt_str);
+        return .{ .ptr = qtc.QAuthenticator_Option(@ptrCast(self.ptr), opt_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#options)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAuthenticator `
+    /// ` self: QAuthenticator `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Options(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
-        const _map: qtc.libqt_map = qtc.QAuthenticator_Options(@ptrCast(self));
-        var _ret: map_constu8_qtcqvariant = .empty;
+    pub fn Options(self: QAuthenticator, allocator: std.mem.Allocator) Map_constu8_QVariant {
+        const _map: qtc.libqt_map = qtc.QAuthenticator_Options(@ptrCast(self.ptr));
+        var _ret: Map_constu8_QVariant = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -196,7 +209,7 @@ pub const qauthenticator = struct {
             const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qauthenticator.Options: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            _ret.put(allocator, _entry_slice, @ptrCast(_value)) catch @panic("qauthenticator.Options: Memory allocation failed");
+            _ret.put(allocator, _entry_slice, .{ .ptr = @ptrCast(_value) }) catch @panic("qauthenticator.Options: Memory allocation failed");
         }
         return _ret;
     }
@@ -205,38 +218,39 @@ pub const qauthenticator = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAuthenticator `
+    /// ` self: QAuthenticator `
     ///
     /// ` opt: []const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetOption(self: ?*anyopaque, opt: []const u8, value: ?*anyopaque) void {
+    pub fn SetOption(self: QAuthenticator, opt: []const u8, value: anytype) void {
         const opt_str = qtc.libqt_string{
             .len = opt.len,
             .data = opt.ptr,
         };
-        qtc.QAuthenticator_SetOption(@ptrCast(self), opt_str, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QAuthenticator_SetOption(@ptrCast(self.ptr), opt_str, @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#isNull)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAuthenticator `
+    /// ` self: QAuthenticator `
     ///
-    pub fn IsNull(self: ?*anyopaque) bool {
-        return qtc.QAuthenticator_IsNull(@ptrCast(self));
+    pub fn IsNull(self: QAuthenticator) bool {
+        return qtc.QAuthenticator_IsNull(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qauthenticator.html#detach)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAuthenticator `
+    /// ` self: QAuthenticator `
     ///
-    pub fn Detach(self: ?*anyopaque) void {
-        qtc.QAuthenticator_Detach(@ptrCast(self));
+    pub fn Detach(self: QAuthenticator) void {
+        qtc.QAuthenticator_Detach(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -249,9 +263,9 @@ pub const qauthenticator = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QAuthenticator `
+    /// ` self: QAuthenticator `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QAuthenticator_Delete(@ptrCast(self));
+    pub fn Delete(self: QAuthenticator) void {
+        qtc.QAuthenticator_Delete(@ptrCast(self.ptr));
     }
 };

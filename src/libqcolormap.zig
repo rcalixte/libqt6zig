@@ -1,18 +1,28 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QColor = @import("libqt6").QColor;
 const qcolormap_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html)
-pub const qcolormap = struct {
+pub const QColormap = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QColormap,
+
+    pub const _is_QColormap = {};
+
     /// New constructs a new QColormap object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` colormap: QtC.QColormap `
+    /// ` colormap: QColormap `
     ///
-    pub fn New(colormap: ?*anyopaque) QtC.QColormap {
-        return qtc.QColormap_new(@ptrCast(colormap));
+    pub fn New(colormap: anytype) QColormap {
+        comptime _ = @TypeOf(colormap)._is_QColormap;
+        return .{ .ptr = qtc.QColormap_new(@ptrCast(colormap.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#initialize)
@@ -29,94 +39,97 @@ pub const qcolormap = struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#instance)
     ///
-    pub fn Instance() QtC.QColormap {
-        return qtc.QColormap_Instance();
+    pub fn Instance() QColormap {
+        return .{ .ptr = qtc.QColormap_Instance() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColormap `
+    /// ` self: QColormap `
     ///
-    /// ` colormap: QtC.QColormap `
+    /// ` colormap: QColormap `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, colormap: ?*anyopaque) void {
-        qtc.QColormap_OperatorAssign(@ptrCast(self), @ptrCast(colormap));
+    pub fn OperatorAssign(self: QColormap, colormap: anytype) void {
+        comptime _ = @TypeOf(colormap)._is_QColormap;
+        qtc.QColormap_OperatorAssign(@ptrCast(self.ptr), @ptrCast(colormap.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#mode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColormap `
+    /// ` self: QColormap `
     ///
     /// ## Returns:
     ///
     /// ` qcolormap_enums.Mode `
     ///
-    pub fn Mode(self: ?*anyopaque) i32 {
-        return qtc.QColormap_Mode(@ptrCast(self));
+    pub fn Mode(self: QColormap) i32 {
+        return qtc.QColormap_Mode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#depth)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColormap `
+    /// ` self: QColormap `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QColormap_Depth(@ptrCast(self));
+    pub fn Depth(self: QColormap) i32 {
+        return qtc.QColormap_Depth(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#size)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColormap `
+    /// ` self: QColormap `
     ///
-    pub fn Size(self: ?*anyopaque) i32 {
-        return qtc.QColormap_Size(@ptrCast(self));
+    pub fn Size(self: QColormap) i32 {
+        return qtc.QColormap_Size(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#pixel)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColormap `
+    /// ` self: QColormap `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn Pixel(self: ?*anyopaque, color: ?*anyopaque) u32 {
-        return qtc.QColormap_Pixel(@ptrCast(self), @ptrCast(color));
+    pub fn Pixel(self: QColormap, color: anytype) u32 {
+        comptime _ = @TypeOf(color)._is_QColor;
+        return qtc.QColormap_Pixel(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#colorAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColormap `
+    /// ` self: QColormap `
     ///
     /// ` pixel: u32 `
     ///
-    pub fn ColorAt(self: ?*anyopaque, pixel: u32) QtC.QColor {
-        return qtc.QColormap_ColorAt(@ptrCast(self), @bitCast(pixel));
+    pub fn ColorAt(self: QColormap, pixel: u32) QColor {
+        return .{ .ptr = qtc.QColormap_ColorAt(@ptrCast(self.ptr), @bitCast(pixel)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolormap.html#colormap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColormap `
+    /// ` self: QColormap `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Colormap(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QColor {
-        const _arr: qtc.libqt_list = qtc.QColormap_Colormap(@ptrCast(self));
+    pub fn Colormap(self: QColormap, allocator: std.mem.Allocator) []QColor {
+        const _arr: qtc.libqt_list = qtc.QColormap_Colormap(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QColor, _arr.len) catch @panic("qcolormap.Colormap: Memory allocation failed");
+        const _ret = allocator.alloc(QColor, _arr.len) catch @panic("qcolormap.Colormap: Memory allocation failed");
         const _data: [*]QtC.QColor = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -126,8 +139,8 @@ pub const qcolormap = struct {
     ///
     /// ` screen: i32 `
     ///
-    pub fn Instance1(screen: i32) QtC.QColormap {
-        return qtc.QColormap_Instance1(@bitCast(screen));
+    pub fn Instance1(screen: i32) QColormap {
+        return .{ .ptr = qtc.QColormap_Instance1(@bitCast(screen)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -140,10 +153,10 @@ pub const qcolormap = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QColormap `
+    /// ` self: QColormap `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QColormap_Delete(@ptrCast(self));
+    pub fn Delete(self: QColormap) void {
+        qtc.QColormap_Delete(@ptrCast(self.ptr));
     }
 };
 

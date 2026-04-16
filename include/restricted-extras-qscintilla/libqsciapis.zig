@@ -1,30 +1,52 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
+const QsciLexer = @import("libqt6").QsciLexer;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qsciscintilla_enums = @import("libqsciscintilla.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
-pub const qsciapis = struct {
+pub const QsciAPIs = extern struct {
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QsciAPIs,
+
+    pub const _is_QsciAPIs = {};
+    pub const _is_QsciAbstractAPIs = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QsciAPIs object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` lexer: QtC.QsciLexer `
+    /// ` lexer: QsciLexer `
     ///
-    pub fn New(lexer: ?*anyopaque) QtC.QsciAPIs {
-        return qtc.QsciAPIs_new(@ptrCast(lexer));
+    pub fn New(lexer: anytype) QsciAPIs {
+        comptime _ = @TypeOf(lexer)._is_QsciLexer;
+        return .{ .ptr = qtc.QsciAPIs_new(@ptrCast(lexer.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QsciAPIs_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QsciAPIs) QMetaObject {
+        return .{ .ptr = qtc.QsciAPIs_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -33,12 +55,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QsciAPIs_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QsciAPIs, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QsciAPIs_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -51,33 +73,33 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QsciAPIs_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QsciAPIs) QMetaObject {
+        return .{ .ptr = qtc.QsciAPIs_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QsciAPIs, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QsciAPIs_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QsciAPIs_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` callback: *const fn (self: QtC.QsciAPIs, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QsciAPIs, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QsciAPIs_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QsciAPIs, callback: *const fn (QsciAPIs, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QsciAPIs_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -88,18 +110,18 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QsciAPIs, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QsciAPIs_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QsciAPIs_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -107,20 +129,20 @@ pub const qsciapis = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QsciAPIs_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QsciAPIs, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QsciAPIs_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` callback: *const fn (self: QtC.QsciAPIs, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QsciAPIs, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QsciAPIs_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QsciAPIs, callback: *const fn (QsciAPIs, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QsciAPIs_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -131,7 +153,7 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -139,19 +161,19 @@ pub const qsciapis = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QsciAPIs_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QsciAPIs, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QsciAPIs_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -164,90 +186,90 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` entry: []const u8 `
     ///
-    pub fn Add(self: ?*anyopaque, entry: []const u8) void {
+    pub fn Add(self: QsciAPIs, entry: []const u8) void {
         const entry_str = qtc.libqt_string{
             .len = entry.len,
             .data = entry.ptr,
         };
-        qtc.QsciAPIs_Add(@ptrCast(self), entry_str);
+        qtc.QsciAPIs_Add(@ptrCast(self.ptr), entry_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn Clear(self: ?*anyopaque) void {
-        qtc.QsciAPIs_Clear(@ptrCast(self));
+    pub fn Clear(self: QsciAPIs) void {
+        qtc.QsciAPIs_Clear(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` filename: []const u8 `
     ///
-    pub fn Load(self: ?*anyopaque, filename: []const u8) bool {
+    pub fn Load(self: QsciAPIs, filename: []const u8) bool {
         const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
-        return qtc.QsciAPIs_Load(@ptrCast(self), filename_str);
+        return qtc.QsciAPIs_Load(@ptrCast(self.ptr), filename_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` entry: []const u8 `
     ///
-    pub fn Remove(self: ?*anyopaque, entry: []const u8) void {
+    pub fn Remove(self: QsciAPIs, entry: []const u8) void {
         const entry_str = qtc.libqt_string{
             .len = entry.len,
             .data = entry.ptr,
         };
-        qtc.QsciAPIs_Remove(@ptrCast(self), entry_str);
+        qtc.QsciAPIs_Remove(@ptrCast(self.ptr), entry_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn Prepare(self: ?*anyopaque) void {
-        qtc.QsciAPIs_Prepare(@ptrCast(self));
+    pub fn Prepare(self: QsciAPIs) void {
+        qtc.QsciAPIs_Prepare(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn CancelPreparation(self: ?*anyopaque) void {
-        qtc.QsciAPIs_CancelPreparation(@ptrCast(self));
+    pub fn CancelPreparation(self: QsciAPIs) void {
+        qtc.QsciAPIs_CancelPreparation(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultPreparedName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QsciAPIs_DefaultPreparedName(@ptrCast(self));
+    pub fn DefaultPreparedName(self: QsciAPIs, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QsciAPIs_DefaultPreparedName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciapis.DefaultPreparedName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -258,70 +280,68 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn IsPrepared(self: ?*anyopaque) bool {
-        return qtc.QsciAPIs_IsPrepared(@ptrCast(self));
+    pub fn IsPrepared(self: QsciAPIs) bool {
+        return qtc.QsciAPIs_IsPrepared(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn LoadPrepared(self: ?*anyopaque) bool {
-        return qtc.QsciAPIs_LoadPrepared(@ptrCast(self));
+    pub fn LoadPrepared(self: QsciAPIs) bool {
+        return qtc.QsciAPIs_LoadPrepared(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn SavePrepared(self: ?*anyopaque) bool {
-        return qtc.QsciAPIs_SavePrepared(@ptrCast(self));
+    pub fn SavePrepared(self: QsciAPIs) bool {
+        return qtc.QsciAPIs_SavePrepared(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` context: []const []const u8 `
     ///
     /// ` list: []const []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn UpdateAutoCompletionList(self: ?*anyopaque, context: []const []const u8, list: []const []const u8, allocator: std.mem.Allocator) void {
+    pub fn UpdateAutoCompletionList(self: QsciAPIs, allocator: std.mem.Allocator, context: []const []const u8, list: []const []const u8) void {
         const context_arr = allocator.alloc(qtc.libqt_string, context.len) catch @panic("qsciapis.UpdateAutoCompletionList: Memory allocation failed");
         defer allocator.free(context_arr);
-        for (context, 0..context.len) |item, i| {
+        for (context, 0..context.len) |item, i|
             context_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const context_list = qtc.libqt_list{
             .len = context.len,
             .data = context_arr.ptr,
         };
         const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("qsciapis.UpdateAutoCompletionList: Memory allocation failed");
         defer allocator.free(list_arr);
-        for (list, 0..list.len) |item, i| {
+        for (list, 0..list.len) |item, i|
             list_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const list_list = qtc.libqt_list{
             .len = list.len,
             .data = list_arr.ptr,
         };
-        qtc.QsciAPIs_UpdateAutoCompletionList(@ptrCast(self), context_list, list_list);
+        qtc.QsciAPIs_UpdateAutoCompletionList(@ptrCast(self.ptr), context_list, list_list);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
@@ -330,12 +350,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` callback: *const fn (self: QtC.QsciAPIs, context: ?[*:null]?[*:0]const u8, list: ?[*:null]?[*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciAPIs, context: ?[*:null]?[*:0]const u8, list: ?[*:null]?[*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnUpdateAutoCompletionList(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
-        qtc.QsciAPIs_OnUpdateAutoCompletionList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateAutoCompletionList(self: QsciAPIs, callback: *const fn (QsciAPIs, ?[*:null]?[*:0]const u8, ?[*:null]?[*:0]const u8) callconv(.c) void) void {
+        qtc.QsciAPIs_OnUpdateAutoCompletionList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateAutoCompletionList` instead
@@ -348,56 +368,54 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` context: []const []const u8 `
     ///
     /// ` list: []const []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn SuperUpdateAutoCompletionList(self: ?*anyopaque, context: []const []const u8, list: []const []const u8, allocator: std.mem.Allocator) void {
+    pub fn SuperUpdateAutoCompletionList(self: QsciAPIs, allocator: std.mem.Allocator, context: []const []const u8, list: []const []const u8) void {
         const context_arr = allocator.alloc(qtc.libqt_string, context.len) catch @panic("qsciapis.UpdateAutoCompletionList: Memory allocation failed");
         defer allocator.free(context_arr);
-        for (context, 0..context.len) |item, i| {
+        for (context, 0..context.len) |item, i|
             context_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const context_list = qtc.libqt_list{
             .len = context.len,
             .data = context_arr.ptr,
         };
         const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("qsciapis.UpdateAutoCompletionList: Memory allocation failed");
         defer allocator.free(list_arr);
-        for (list, 0..list.len) |item, i| {
+        for (list, 0..list.len) |item, i|
             list_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const list_list = qtc.libqt_list{
             .len = list.len,
             .data = list_arr.ptr,
         };
-        qtc.QsciAPIs_SuperUpdateAutoCompletionList(@ptrCast(self), context_list, list_list);
+        qtc.QsciAPIs_SuperUpdateAutoCompletionList(@ptrCast(self.ptr), context_list, list_list);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` sel: []const u8 `
     ///
-    pub fn AutoCompletionSelected(self: ?*anyopaque, sel: []const u8) void {
+    pub fn AutoCompletionSelected(self: QsciAPIs, sel: []const u8) void {
         const sel_str = qtc.libqt_string{
             .len = sel.len,
             .data = sel.ptr,
         };
-        qtc.QsciAPIs_AutoCompletionSelected(@ptrCast(self), sel_str);
+        qtc.QsciAPIs_AutoCompletionSelected(@ptrCast(self.ptr), sel_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
@@ -406,12 +424,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` callback: *const fn (self: QtC.QsciAPIs, sel: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciAPIs, sel: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnAutoCompletionSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QsciAPIs_OnAutoCompletionSelected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAutoCompletionSelected(self: QsciAPIs, callback: *const fn (QsciAPIs, [*:0]const u8) callconv(.c) void) void {
+        qtc.QsciAPIs_OnAutoCompletionSelected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperAutoCompletionSelected` instead
@@ -424,23 +442,25 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` sel: []const u8 `
     ///
-    pub fn SuperAutoCompletionSelected(self: ?*anyopaque, sel: []const u8) void {
+    pub fn SuperAutoCompletionSelected(self: QsciAPIs, sel: []const u8) void {
         const sel_str = qtc.libqt_string{
             .len = sel.len,
             .data = sel.ptr,
         };
-        qtc.QsciAPIs_SuperAutoCompletionSelected(@ptrCast(self), sel_str);
+        qtc.QsciAPIs_SuperAutoCompletionSelected(@ptrCast(self.ptr), sel_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` context: []const []const u8 `
     ///
@@ -450,17 +470,14 @@ pub const qsciapis = struct {
     ///
     /// ` shifts: []i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn CallTips(self: ?*anyopaque, context: []const []const u8, commas: i32, style: i32, shifts: []i32, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn CallTips(self: QsciAPIs, allocator: std.mem.Allocator, context: []const []const u8, commas: i32, style: i32, shifts: []i32) []const []const u8 {
         const context_arr = allocator.alloc(qtc.libqt_string, context.len) catch @panic("qsciapis.CallTips: Memory allocation failed");
         defer allocator.free(context_arr);
-        for (context, 0..context.len) |item, i| {
+        for (context, 0..context.len) |item, i|
             context_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const context_list = qtc.libqt_list{
             .len = context.len,
             .data = context_arr.ptr,
@@ -469,12 +486,11 @@ pub const qsciapis = struct {
             .len = shifts.len,
             .data = shifts.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QsciAPIs_CallTips(@ptrCast(self), context_list, @bitCast(commas), @bitCast(style), shifts_list);
+        const _arr: qtc.libqt_list = qtc.QsciAPIs_CallTips(@ptrCast(self.ptr), context_list, @bitCast(commas), @bitCast(style), shifts_list);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qsciapis.CallTips: Memory allocation failed");
@@ -491,16 +507,16 @@ pub const qsciapis = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` callback: *const fn (self: QtC.QsciAPIs, context: ?[*:null]?[*:0]const u8, commas: i32, style: qsciscintilla_enums.CallTipsStyle, shifts: qtc.libqt_list ([]i32)) callconv(.c) ?[*:null]?[*:0]const u8 `
+    /// ` callback: *const fn (self: QsciAPIs, context: ?[*:null]?[*:0]const u8, commas: i32, style: qsciscintilla_enums.CallTipsStyle, shifts: qtc.libqt_list ([]i32)) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnCallTips(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?[*:null]?[*:0]const u8, i32, i32, qtc.libqt_list) callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.QsciAPIs_OnCallTips(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCallTips(self: QsciAPIs, callback: *const fn (QsciAPIs, ?[*:null]?[*:0]const u8, i32, i32, qtc.libqt_list) callconv(.c) ?[*:null]?[*:0]const u8) void {
+        qtc.QsciAPIs_OnCallTips(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCallTips` instead
@@ -513,7 +529,9 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` context: []const []const u8 `
     ///
@@ -523,17 +541,14 @@ pub const qsciapis = struct {
     ///
     /// ` shifts: []i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn SuperCallTips(self: ?*anyopaque, context: []const []const u8, commas: i32, style: i32, shifts: []i32, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn SuperCallTips(self: QsciAPIs, allocator: std.mem.Allocator, context: []const []const u8, commas: i32, style: i32, shifts: []i32) []const []const u8 {
         const context_arr = allocator.alloc(qtc.libqt_string, context.len) catch @panic("qsciapis.CallTips: Memory allocation failed");
         defer allocator.free(context_arr);
-        for (context, 0..context.len) |item, i| {
+        for (context, 0..context.len) |item, i|
             context_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const context_list = qtc.libqt_list{
             .len = context.len,
             .data = context_arr.ptr,
@@ -542,12 +557,11 @@ pub const qsciapis = struct {
             .len = shifts.len,
             .data = shifts.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QsciAPIs_SuperCallTips(@ptrCast(self), context_list, @bitCast(commas), @bitCast(style), shifts_list);
+        const _arr: qtc.libqt_list = qtc.QsciAPIs_SuperCallTips(@ptrCast(self.ptr), context_list, @bitCast(commas), @bitCast(style), shifts_list);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qsciapis.CallTips: Memory allocation failed");
@@ -564,12 +578,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QsciAPIs_Event(@ptrCast(self), @ptrCast(e));
+    pub fn Event(self: QsciAPIs, e: anytype) bool {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        return qtc.QsciAPIs_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
@@ -578,12 +593,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` callback: *const fn (self: QtC.QsciAPIs, e: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciAPIs, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QsciAPIs_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QsciAPIs, callback: *const fn (QsciAPIs, QEvent) callconv(.c) bool) void {
+        qtc.QsciAPIs_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -596,29 +611,29 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QsciAPIs_SuperEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperEvent(self: QsciAPIs, e: anytype) bool {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        return qtc.QsciAPIs_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InstalledAPIFiles(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QsciAPIs_InstalledAPIFiles(@ptrCast(self));
+    pub fn InstalledAPIFiles(self: QsciAPIs, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QsciAPIs_InstalledAPIFiles(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qsciapis.InstalledAPIFiles: Memory allocation failed");
@@ -635,79 +650,79 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn ApiPreparationCancelled(self: ?*anyopaque) void {
-        qtc.QsciAPIs_ApiPreparationCancelled(@ptrCast(self));
+    pub fn ApiPreparationCancelled(self: QsciAPIs) void {
+        qtc.QsciAPIs_ApiPreparationCancelled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` callback: *const fn (self: QtC.QsciAPIs) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciAPIs) callconv(.c) void `
     ///
-    pub fn OnApiPreparationCancelled(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QsciAPIs_Connect_ApiPreparationCancelled(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnApiPreparationCancelled(self: QsciAPIs, callback: *const fn (QsciAPIs) callconv(.c) void) void {
+        qtc.QsciAPIs_Connect_ApiPreparationCancelled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn ApiPreparationStarted(self: ?*anyopaque) void {
-        qtc.QsciAPIs_ApiPreparationStarted(@ptrCast(self));
+    pub fn ApiPreparationStarted(self: QsciAPIs) void {
+        qtc.QsciAPIs_ApiPreparationStarted(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` callback: *const fn (self: QtC.QsciAPIs) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciAPIs) callconv(.c) void `
     ///
-    pub fn OnApiPreparationStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QsciAPIs_Connect_ApiPreparationStarted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnApiPreparationStarted(self: QsciAPIs, callback: *const fn (QsciAPIs) callconv(.c) void) void {
+        qtc.QsciAPIs_Connect_ApiPreparationStarted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn ApiPreparationFinished(self: ?*anyopaque) void {
-        qtc.QsciAPIs_ApiPreparationFinished(@ptrCast(self));
+    pub fn ApiPreparationFinished(self: QsciAPIs) void {
+        qtc.QsciAPIs_ApiPreparationFinished(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` callback: *const fn (self: QtC.QsciAPIs) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciAPIs) callconv(.c) void `
     ///
-    pub fn OnApiPreparationFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QsciAPIs_Connect_ApiPreparationFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnApiPreparationFinished(self: QsciAPIs, callback: *const fn (QsciAPIs) callconv(.c) void) void {
+        qtc.QsciAPIs_Connect_ApiPreparationFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -721,15 +736,15 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -743,48 +758,48 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` filename: []const u8 `
     ///
-    pub fn IsPrepared1(self: ?*anyopaque, filename: []const u8) bool {
+    pub fn IsPrepared1(self: QsciAPIs, filename: []const u8) bool {
         const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
-        return qtc.QsciAPIs_IsPrepared1(@ptrCast(self), filename_str);
+        return qtc.QsciAPIs_IsPrepared1(@ptrCast(self.ptr), filename_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` filename: []const u8 `
     ///
-    pub fn LoadPrepared1(self: ?*anyopaque, filename: []const u8) bool {
+    pub fn LoadPrepared1(self: QsciAPIs, filename: []const u8) bool {
         const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
-        return qtc.QsciAPIs_LoadPrepared1(@ptrCast(self), filename_str);
+        return qtc.QsciAPIs_LoadPrepared1(@ptrCast(self.ptr), filename_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciAPIs.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` filename: []const u8 `
     ///
-    pub fn SavePrepared1(self: ?*anyopaque, filename: []const u8) bool {
+    pub fn SavePrepared1(self: QsciAPIs, filename: []const u8) bool {
         const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
-        return qtc.QsciAPIs_SavePrepared1(@ptrCast(self), filename_str);
+        return qtc.QsciAPIs_SavePrepared1(@ptrCast(self.ptr), filename_str);
     }
 
     /// Inherited from QsciAbstractAPIs
@@ -793,10 +808,10 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn Lexer(self: ?*anyopaque) QtC.QsciLexer {
-        return qtc.QsciAbstractAPIs_Lexer(@ptrCast(self));
+    pub fn Lexer(self: QsciAPIs) QsciLexer {
+        return .{ .ptr = qtc.QsciAbstractAPIs_Lexer(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -805,12 +820,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QsciAPIs, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciapis.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -823,12 +838,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QsciAPIs, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -837,10 +852,10 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QsciAPIs) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -849,10 +864,10 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QsciAPIs) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -861,10 +876,10 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QsciAPIs) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -873,10 +888,10 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QsciAPIs) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -885,12 +900,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QsciAPIs, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -899,10 +914,10 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QsciAPIs) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -911,12 +926,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QsciAPIs, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -925,12 +941,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QsciAPIs, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -939,12 +955,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QsciAPIs, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -953,12 +969,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QsciAPIs, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -967,12 +983,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QsciAPIs, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -981,16 +997,17 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QsciAPIs, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qsciapis.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qsciapis.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1000,12 +1017,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QsciAPIs, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1014,12 +1032,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QsciAPIs, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1028,12 +1047,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QsciAPIs, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1042,18 +1062,20 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1062,16 +1084,20 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1080,18 +1106,19 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QsciAPIs, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1100,18 +1127,20 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1120,16 +1149,20 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1138,10 +1171,10 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QsciAPIs) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1150,12 +1183,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QsciAPIs, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1164,10 +1198,11 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1176,10 +1211,10 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QsciAPIs) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1188,10 +1223,10 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QsciAPIs) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1200,15 +1235,16 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QsciAPIs, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1217,13 +1253,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QsciAPIs, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1232,17 +1268,16 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QsciAPIs, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qsciapis.DynamicPropertyNames: Memory allocation failed");
@@ -1261,10 +1296,10 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QsciAPIs) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1273,10 +1308,10 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QsciAPIs) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1285,10 +1320,10 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QsciAPIs) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1297,12 +1332,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` callback: *const fn (self: QtC.QsciAPIs) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciAPIs) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QsciAPIs, callback: *const fn (QsciAPIs) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1311,10 +1346,10 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QsciAPIs) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1323,13 +1358,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QsciAPIs, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1338,10 +1373,10 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QsciAPIs) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1350,14 +1385,14 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QsciAPIs, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1366,14 +1401,14 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QsciAPIs, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1382,20 +1417,22 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1404,18 +1441,22 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1424,9 +1465,9 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1434,10 +1475,11 @@ pub const qsciapis = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QsciAPIs, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1446,13 +1488,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QsciAPIs, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1461,15 +1503,16 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QsciAPIs, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1478,18 +1521,19 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QsciAPIs, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1498,15 +1542,16 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QsciAPIs, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1515,12 +1560,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QsciAPIs, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1529,12 +1575,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` callback: *const fn (self: QtC.QsciAPIs, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciAPIs, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QsciAPIs, callback: *const fn (QsciAPIs, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1545,14 +1591,16 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QsciAPIs_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QsciAPIs, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QsciAPIs_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1567,14 +1615,16 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QsciAPIs_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QsciAPIs, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QsciAPIs_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1585,12 +1635,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciAPIs`
+    /// ` self: QsciAPIs`
     ///
-    /// ` callback: *const fn (self: QtC.QsciAPIs, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciAPIs, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QsciAPIs_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QsciAPIs, callback: *const fn (QsciAPIs, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QsciAPIs_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1601,12 +1651,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciAPIs_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QsciAPIs, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QsciAPIs_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1621,12 +1672,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciAPIs_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QsciAPIs, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QsciAPIs_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1637,12 +1689,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciAPIs`
+    /// ` self: QsciAPIs`
     ///
-    /// ` callback: *const fn (self: QtC.QsciAPIs, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciAPIs, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciAPIs_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QsciAPIs, callback: *const fn (QsciAPIs, QTimerEvent) callconv(.c) void) void {
+        qtc.QsciAPIs_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1653,12 +1705,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciAPIs_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QsciAPIs, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QsciAPIs_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1673,12 +1726,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciAPIs_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QsciAPIs, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QsciAPIs_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1689,12 +1743,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciAPIs`
+    /// ` self: QsciAPIs`
     ///
-    /// ` callback: *const fn (self: QtC.QsciAPIs, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciAPIs, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciAPIs_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QsciAPIs, callback: *const fn (QsciAPIs, QChildEvent) callconv(.c) void) void {
+        qtc.QsciAPIs_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1705,12 +1759,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciAPIs_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QsciAPIs, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QsciAPIs_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1725,12 +1780,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciAPIs_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QsciAPIs, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QsciAPIs_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1741,12 +1797,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciAPIs`
+    /// ` self: QsciAPIs`
     ///
-    /// ` callback: *const fn (self: QtC.QsciAPIs, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciAPIs, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciAPIs_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QsciAPIs, callback: *const fn (QsciAPIs, QEvent) callconv(.c) void) void {
+        qtc.QsciAPIs_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1757,12 +1813,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QsciAPIs_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QsciAPIs, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QsciAPIs_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1777,12 +1834,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QsciAPIs_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QsciAPIs, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QsciAPIs_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1793,12 +1851,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciAPIs`
+    /// ` self: QsciAPIs`
     ///
-    /// ` callback: *const fn (self: QtC.QsciAPIs, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciAPIs, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciAPIs_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QsciAPIs, callback: *const fn (QsciAPIs, QMetaMethod) callconv(.c) void) void {
+        qtc.QsciAPIs_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1809,12 +1867,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QsciAPIs_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QsciAPIs, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QsciAPIs_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1829,12 +1888,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QsciAPIs_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QsciAPIs, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QsciAPIs_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1845,12 +1905,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciAPIs`
+    /// ` self: QsciAPIs`
     ///
-    /// ` callback: *const fn (self: QtC.QsciAPIs, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciAPIs, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciAPIs_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QsciAPIs, callback: *const fn (QsciAPIs, QMetaMethod) callconv(.c) void) void {
+        qtc.QsciAPIs_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1861,10 +1921,10 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QsciAPIs_Sender(@ptrCast(self));
+    pub fn Sender(self: QsciAPIs) QObject {
+        return .{ .ptr = qtc.QsciAPIs_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -1879,10 +1939,10 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QsciAPIs_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QsciAPIs) QObject {
+        return .{ .ptr = qtc.QsciAPIs_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1893,12 +1953,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciAPIs`
+    /// ` self: QsciAPIs`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QsciAPIs_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QsciAPIs, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QsciAPIs_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1909,10 +1969,10 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QsciAPIs_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QsciAPIs) i32 {
+        return qtc.QsciAPIs_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -1927,10 +1987,10 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QsciAPIs_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QsciAPIs) i32 {
+        return qtc.QsciAPIs_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1941,12 +2001,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciAPIs`
+    /// ` self: QsciAPIs`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QsciAPIs_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QsciAPIs, callback: *const fn () callconv(.c) i32) void {
+        qtc.QsciAPIs_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1957,13 +2017,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QsciAPIs, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QsciAPIs_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QsciAPIs_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -1978,13 +2038,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QsciAPIs, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QsciAPIs_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QsciAPIs_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1995,12 +2055,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciAPIs`
+    /// ` self: QsciAPIs`
     ///
-    /// ` callback: *const fn (self: QtC.QsciAPIs, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QsciAPIs, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QsciAPIs_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QsciAPIs, callback: *const fn (QsciAPIs, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QsciAPIs_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2011,12 +2071,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QsciAPIs_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QsciAPIs, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QsciAPIs_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -2031,12 +2092,13 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QsciAPIs_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QsciAPIs, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QsciAPIs_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2047,12 +2109,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciAPIs`
+    /// ` self: QsciAPIs`
     ///
-    /// ` callback: *const fn (self: QtC.QsciAPIs, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciAPIs, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QsciAPIs_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QsciAPIs, callback: *const fn (QsciAPIs, QMetaMethod) callconv(.c) bool) void {
+        qtc.QsciAPIs_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2063,12 +2125,12 @@ pub const qsciapis = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    /// ` callback: *const fn (self: QtC.QsciAPIs, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciAPIs, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QsciAPIs, callback: *const fn (QsciAPIs, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -2081,9 +2143,9 @@ pub const qsciapis = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QsciAPIs `
+    /// ` self: QsciAPIs `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QsciAPIs_Delete(@ptrCast(self));
+    pub fn Delete(self: QsciAPIs) void {
+        qtc.QsciAPIs_Delete(@ptrCast(self.ptr));
     }
 };

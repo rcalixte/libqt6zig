@@ -1,40 +1,50 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KNSCore__SearchRequest = @import("libqt6").KNSCore__SearchRequest;
 const searchpreset_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/knscore-searchpreset.html)
-pub const knscore__searchpreset = struct {
+pub const KNSCore__SearchPreset = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/knscore-searchpreset.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KNSCore__SearchPreset,
+
+    pub const _is_KNSCore__SearchPreset = {};
+
     /// New constructs a new KNSCore::SearchPreset object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.KNSCore__SearchPreset `
+    /// ` param1: KNSCore__SearchPreset `
     ///
-    pub fn New(param1: ?*anyopaque) QtC.KNSCore__SearchPreset {
-        return qtc.KNSCore__SearchPreset_new(@ptrCast(param1));
+    pub fn New(param1: anytype) KNSCore__SearchPreset {
+        comptime _ = @TypeOf(param1)._is_KNSCore__SearchPreset;
+        return .{ .ptr = qtc.KNSCore__SearchPreset_new(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-searchpreset.html#request)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__SearchPreset `
+    /// ` self: KNSCore__SearchPreset `
     ///
-    pub fn Request(self: ?*anyopaque) QtC.KNSCore__SearchRequest {
-        return qtc.KNSCore__SearchPreset_Request(@ptrCast(self));
+    pub fn Request(self: KNSCore__SearchPreset) KNSCore__SearchRequest {
+        return .{ .ptr = qtc.KNSCore__SearchPreset_Request(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-searchpreset.html#displayName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__SearchPreset `
+    /// ` self: KNSCore__SearchPreset `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DisplayName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KNSCore__SearchPreset_DisplayName(@ptrCast(self));
+    pub fn DisplayName(self: KNSCore__SearchPreset, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KNSCore__SearchPreset_DisplayName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__searchpreset.DisplayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -45,12 +55,12 @@ pub const knscore__searchpreset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__SearchPreset `
+    /// ` self: KNSCore__SearchPreset `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KNSCore__SearchPreset_IconName(@ptrCast(self));
+    pub fn IconName(self: KNSCore__SearchPreset, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KNSCore__SearchPreset_IconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__searchpreset.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -61,26 +71,26 @@ pub const knscore__searchpreset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__SearchPreset `
+    /// ` self: KNSCore__SearchPreset `
     ///
     /// ## Returns:
     ///
     /// ` searchpreset_enums.Type `
     ///
-    pub fn Type(self: ?*anyopaque) i32 {
-        return qtc.KNSCore__SearchPreset_Type(@ptrCast(self));
+    pub fn Type(self: KNSCore__SearchPreset) i32 {
+        return qtc.KNSCore__SearchPreset_Type(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-searchpreset.html#providerId)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KNSCore__SearchPreset `
+    /// ` self: KNSCore__SearchPreset `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ProviderId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KNSCore__SearchPreset_ProviderId(@ptrCast(self));
+    pub fn ProviderId(self: KNSCore__SearchPreset, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KNSCore__SearchPreset_ProviderId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__searchpreset.ProviderId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -95,10 +105,10 @@ pub const knscore__searchpreset = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KNSCore__SearchPreset `
+    /// ` self: KNSCore__SearchPreset `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KNSCore__SearchPreset_Delete(@ptrCast(self));
+    pub fn Delete(self: KNSCore__SearchPreset) void {
+        qtc.KNSCore__SearchPreset_Delete(@ptrCast(self.ptr));
     }
 };
 

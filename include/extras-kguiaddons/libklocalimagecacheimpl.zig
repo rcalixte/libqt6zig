@@ -1,60 +1,69 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QDateTime = @import("libqt6").QDateTime;
 
 /// ### [Upstream resources](https://api.kde.org/klocalimagecacheimplementation.html)
-pub const klocalimagecacheimplementation = struct {
+pub const KLocalImageCacheImplementation = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/klocalimagecacheimplementation.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KLocalImageCacheImplementation,
+
+    pub const _is_KLocalImageCacheImplementation = {};
+
     /// ### [Upstream resources](https://api.kde.org/klocalimagecacheimplementation.html#lastModifiedTime)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KLocalImageCacheImplementation `
+    /// ` self: KLocalImageCacheImplementation `
     ///
-    pub fn LastModifiedTime(self: ?*anyopaque) QtC.QDateTime {
-        return qtc.KLocalImageCacheImplementation_LastModifiedTime(@ptrCast(self));
+    pub fn LastModifiedTime(self: KLocalImageCacheImplementation) QDateTime {
+        return .{ .ptr = qtc.KLocalImageCacheImplementation_LastModifiedTime(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalimagecacheimplementation.html#pixmapCaching)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KLocalImageCacheImplementation `
+    /// ` self: KLocalImageCacheImplementation `
     ///
-    pub fn PixmapCaching(self: ?*anyopaque) bool {
-        return qtc.KLocalImageCacheImplementation_PixmapCaching(@ptrCast(self));
+    pub fn PixmapCaching(self: KLocalImageCacheImplementation) bool {
+        return qtc.KLocalImageCacheImplementation_PixmapCaching(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalimagecacheimplementation.html#setPixmapCaching)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KLocalImageCacheImplementation `
+    /// ` self: KLocalImageCacheImplementation `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetPixmapCaching(self: ?*anyopaque, enable: bool) void {
-        qtc.KLocalImageCacheImplementation_SetPixmapCaching(@ptrCast(self), enable);
+    pub fn SetPixmapCaching(self: KLocalImageCacheImplementation, enable: bool) void {
+        qtc.KLocalImageCacheImplementation_SetPixmapCaching(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalimagecacheimplementation.html#pixmapCacheLimit)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KLocalImageCacheImplementation `
+    /// ` self: KLocalImageCacheImplementation `
     ///
-    pub fn PixmapCacheLimit(self: ?*anyopaque) i32 {
-        return qtc.KLocalImageCacheImplementation_PixmapCacheLimit(@ptrCast(self));
+    pub fn PixmapCacheLimit(self: KLocalImageCacheImplementation) i32 {
+        return qtc.KLocalImageCacheImplementation_PixmapCacheLimit(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/klocalimagecacheimplementation.html#setPixmapCacheLimit)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KLocalImageCacheImplementation `
+    /// ` self: KLocalImageCacheImplementation `
     ///
     /// ` size: i32 `
     ///
-    pub fn SetPixmapCacheLimit(self: ?*anyopaque, size: i32) void {
-        qtc.KLocalImageCacheImplementation_SetPixmapCacheLimit(@ptrCast(self), @bitCast(size));
+    pub fn SetPixmapCacheLimit(self: KLocalImageCacheImplementation, size: i32) void {
+        qtc.KLocalImageCacheImplementation_SetPixmapCacheLimit(@ptrCast(self.ptr), @bitCast(size));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -67,9 +76,9 @@ pub const klocalimagecacheimplementation = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KLocalImageCacheImplementation `
+    /// ` self: KLocalImageCacheImplementation `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KLocalImageCacheImplementation_Delete(@ptrCast(self));
+    pub fn Delete(self: KLocalImageCacheImplementation) void {
+        qtc.KLocalImageCacheImplementation_Delete(@ptrCast(self.ptr));
     }
 };

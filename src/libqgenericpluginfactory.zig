@@ -1,51 +1,62 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QObject = @import("libqt6").QObject;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgenericpluginfactory.html)
-pub const qgenericpluginfactory = struct {
+pub const QGenericPluginFactory = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgenericpluginfactory.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QGenericPluginFactory,
+
+    pub const _is_QGenericPluginFactory = {};
+
     /// New constructs a new QGenericPluginFactory object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QGenericPluginFactory `
+    /// ` other: QGenericPluginFactory `
     ///
-    pub fn New(other: ?*anyopaque) QtC.QGenericPluginFactory {
-        return qtc.QGenericPluginFactory_new(@ptrCast(other));
+    pub fn New(other: anytype) QGenericPluginFactory {
+        comptime _ = @TypeOf(other)._is_QGenericPluginFactory;
+        return .{ .ptr = qtc.QGenericPluginFactory_new(@ptrCast(other.ptr)) };
     }
 
     /// New2 constructs a new QGenericPluginFactory object and invalidates the source QGenericPluginFactory object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QGenericPluginFactory `
+    /// ` other: QGenericPluginFactory `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QGenericPluginFactory {
-        return qtc.QGenericPluginFactory_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QGenericPluginFactory {
+        comptime _ = @TypeOf(other)._is_QGenericPluginFactory;
+        return .{ .ptr = qtc.QGenericPluginFactory_new2(@ptrCast(other.ptr)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGenericPluginFactory `
+    /// ` self: QGenericPluginFactory `
     ///
-    /// ` other: QtC.QGenericPluginFactory `
+    /// ` other: QGenericPluginFactory `
     ///
-    pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QGenericPluginFactory_CopyAssign(@ptrCast(self), @ptrCast(other));
+    pub fn CopyAssign(self: QGenericPluginFactory, other: QGenericPluginFactory) void {
+        qtc.QGenericPluginFactory_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGenericPluginFactory `
+    /// ` self: QGenericPluginFactory `
     ///
-    /// ` other: QtC.QGenericPluginFactory `
+    /// ` other: QGenericPluginFactory `
     ///
-    pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QGenericPluginFactory_MoveAssign(@ptrCast(self), @ptrCast(other));
+    pub fn MoveAssign(self: QGenericPluginFactory, other: QGenericPluginFactory) void {
+        qtc.QGenericPluginFactory_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgenericpluginfactory.html#keys)
@@ -58,9 +69,8 @@ pub const qgenericpluginfactory = struct {
         const _arr: qtc.libqt_list = qtc.QGenericPluginFactory_Keys();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qgenericpluginfactory.Keys: Memory allocation failed");
@@ -81,7 +91,7 @@ pub const qgenericpluginfactory = struct {
     ///
     /// ` param2: []const u8 `
     ///
-    pub fn Create(param1: []const u8, param2: []const u8) QtC.QObject {
+    pub fn Create(param1: []const u8, param2: []const u8) QObject {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -90,7 +100,7 @@ pub const qgenericpluginfactory = struct {
             .len = param2.len,
             .data = param2.ptr,
         };
-        return qtc.QGenericPluginFactory_Create(param1_str, param2_str);
+        return .{ .ptr = qtc.QGenericPluginFactory_Create(param1_str, param2_str) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -103,9 +113,9 @@ pub const qgenericpluginfactory = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QGenericPluginFactory `
+    /// ` self: QGenericPluginFactory `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QGenericPluginFactory_Delete(@ptrCast(self));
+    pub fn Delete(self: QGenericPluginFactory) void {
+        qtc.QGenericPluginFactory_Delete(@ptrCast(self.ptr));
     }
 };

@@ -1,5 +1,72 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAbstractItemDelegate = @import("libqt6").QAbstractItemDelegate;
+const QAbstractItemModel = @import("libqt6").QAbstractItemModel;
+const QAction = @import("libqt6").QAction;
+const QActionEvent = @import("libqt6").QActionEvent;
+const QBackingStore = @import("libqt6").QBackingStore;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBitmap = @import("libqt6").QBitmap;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QCloseEvent = @import("libqt6").QCloseEvent;
+const QContextMenuEvent = @import("libqt6").QContextMenuEvent;
+const QCursor = @import("libqt6").QCursor;
+const QDragEnterEvent = @import("libqt6").QDragEnterEvent;
+const QDragLeaveEvent = @import("libqt6").QDragLeaveEvent;
+const QDragMoveEvent = @import("libqt6").QDragMoveEvent;
+const QDropEvent = @import("libqt6").QDropEvent;
+const QEnterEvent = @import("libqt6").QEnterEvent;
+const QEvent = @import("libqt6").QEvent;
+const QFocusEvent = @import("libqt6").QFocusEvent;
+const QFont = @import("libqt6").QFont;
+const QFontInfo = @import("libqt6").QFontInfo;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QGraphicsEffect = @import("libqt6").QGraphicsEffect;
+const QGraphicsProxyWidget = @import("libqt6").QGraphicsProxyWidget;
+const QHeaderView = @import("libqt6").QHeaderView;
+const QHideEvent = @import("libqt6").QHideEvent;
+const QIcon = @import("libqt6").QIcon;
+const QInputMethodEvent = @import("libqt6").QInputMethodEvent;
+const QItemSelection = @import("libqt6").QItemSelection;
+const QItemSelectionModel = @import("libqt6").QItemSelectionModel;
+const QKeyEvent = @import("libqt6").QKeyEvent;
+const QKeySequence = @import("libqt6").QKeySequence;
+const QLayout = @import("libqt6").QLayout;
+const QLocale = @import("libqt6").QLocale;
+const QMargins = @import("libqt6").QMargins;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QModelIndex = @import("libqt6").QModelIndex;
+const QMouseEvent = @import("libqt6").QMouseEvent;
+const QMoveEvent = @import("libqt6").QMoveEvent;
+const QObject = @import("libqt6").QObject;
+const QPaintDevice = @import("libqt6").QPaintDevice;
+const QPaintEngine = @import("libqt6").QPaintEngine;
+const QPaintEvent = @import("libqt6").QPaintEvent;
+const QPainter = @import("libqt6").QPainter;
+const QPalette = @import("libqt6").QPalette;
+const QPixmap = @import("libqt6").QPixmap;
+const QPoint = @import("libqt6").QPoint;
+const QPointF = @import("libqt6").QPointF;
+const QRect = @import("libqt6").QRect;
+const QRegion = @import("libqt6").QRegion;
+const QResizeEvent = @import("libqt6").QResizeEvent;
+const QScreen = @import("libqt6").QScreen;
+const QScrollBar = @import("libqt6").QScrollBar;
+const QShowEvent = @import("libqt6").QShowEvent;
+const QSize = @import("libqt6").QSize;
+const QSizePolicy = @import("libqt6").QSizePolicy;
+const QStyle = @import("libqt6").QStyle;
+const QStyleOptionFrame = @import("libqt6").QStyleOptionFrame;
+const QStyleOptionViewItem = @import("libqt6").QStyleOptionViewItem;
+const QTabletEvent = @import("libqt6").QTabletEvent;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
+const QWheelEvent = @import("libqt6").QWheelEvent;
+const QWidget = @import("libqt6").QWidget;
+const QWindow = @import("libqt6").QWindow;
 const qabstractitemdelegate_enums = @import("libqabstractitemdelegate.zig").enums;
 const qabstractitemview_enums = @import("libqabstractitemview.zig").enums;
 const qabstractscrollarea_enums = @import("libqabstractscrollarea.zig").enums;
@@ -14,31 +81,46 @@ const qwidget_enums = @import("libqwidget.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html)
-pub const qtreeview = struct {
+pub const QTreeView = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QTreeView,
+
+    pub const _is_QTreeView = {};
+    pub const _is_QAbstractItemView = {};
+    pub const _is_QAbstractScrollArea = {};
+    pub const _is_QFrame = {};
+    pub const _is_QWidget = {};
+    pub const _is_QObject = {};
+    pub const _is_QPaintDevice = {};
+
     /// New constructs a new QTreeView object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.QTreeView {
-        return qtc.QTreeView_new(@ptrCast(parent));
+    pub fn New(parent: anytype) QTreeView {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QTreeView_new(@ptrCast(parent.ptr)) };
     }
 
     /// New2 constructs a new QTreeView object.
     ///
-    pub fn New2() QtC.QTreeView {
-        return qtc.QTreeView_new2();
+    pub fn New2() QTreeView {
+        return .{ .ptr = qtc.QTreeView_new2() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QTreeView_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QTreeView) QMetaObject {
+        return .{ .ptr = qtc.QTreeView_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -47,12 +129,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QTreeView_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QTreeView, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QTreeView_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -65,33 +147,33 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QTreeView_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QTreeView) QMetaObject {
+        return .{ .ptr = qtc.QTreeView_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QTreeView, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QTreeView_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QTreeView_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QTreeView, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QTreeView_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QTreeView, callback: *const fn (QTreeView, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QTreeView_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -102,18 +184,18 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QTreeView, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QTreeView_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QTreeView_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -121,20 +203,20 @@ pub const qtreeview = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTreeView_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QTreeView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QTreeView_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTreeView, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QTreeView_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QTreeView, callback: *const fn (QTreeView, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QTreeView_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -145,7 +227,7 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -153,19 +235,19 @@ pub const qtreeview = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTreeView_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QTreeView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QTreeView_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -178,12 +260,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` model: QtC.QAbstractItemModel `
+    /// ` model: QAbstractItemModel `
     ///
-    pub fn SetModel(self: ?*anyopaque, model: ?*anyopaque) void {
-        qtc.QTreeView_SetModel(@ptrCast(self), @ptrCast(model));
+    pub fn SetModel(self: QTreeView, model: anytype) void {
+        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
+        qtc.QTreeView_SetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setModel)
@@ -192,12 +275,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, model: QtC.QAbstractItemModel) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, model: QAbstractItemModel) callconv(.c) void `
     ///
-    pub fn OnSetModel(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnSetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetModel(self: QTreeView, callback: *const fn (QTreeView, QAbstractItemModel) callconv(.c) void) void {
+        qtc.QTreeView_OnSetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetModel` instead
@@ -210,24 +293,26 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` model: QtC.QAbstractItemModel `
+    /// ` model: QAbstractItemModel `
     ///
-    pub fn SuperSetModel(self: ?*anyopaque, model: ?*anyopaque) void {
-        qtc.QTreeView_SuperSetModel(@ptrCast(self), @ptrCast(model));
+    pub fn SuperSetModel(self: QTreeView, model: anytype) void {
+        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
+        qtc.QTreeView_SuperSetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setRootIndex)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SetRootIndex(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QTreeView_SetRootIndex(@ptrCast(self), @ptrCast(index));
+    pub fn SetRootIndex(self: QTreeView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QTreeView_SetRootIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setRootIndex)
@@ -236,12 +321,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnSetRootIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnSetRootIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetRootIndex(self: QTreeView, callback: *const fn (QTreeView, QModelIndex) callconv(.c) void) void {
+        qtc.QTreeView_OnSetRootIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetRootIndex` instead
@@ -254,24 +339,26 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperSetRootIndex(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QTreeView_SuperSetRootIndex(@ptrCast(self), @ptrCast(index));
+    pub fn SuperSetRootIndex(self: QTreeView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QTreeView_SuperSetRootIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setSelectionModel)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` selectionModel: QtC.QItemSelectionModel `
+    /// ` selectionModel: QItemSelectionModel `
     ///
-    pub fn SetSelectionModel(self: ?*anyopaque, selectionModel: ?*anyopaque) void {
-        qtc.QTreeView_SetSelectionModel(@ptrCast(self), @ptrCast(selectionModel));
+    pub fn SetSelectionModel(self: QTreeView, selectionModel: anytype) void {
+        comptime _ = @TypeOf(selectionModel)._is_QItemSelectionModel;
+        qtc.QTreeView_SetSelectionModel(@ptrCast(self.ptr), @ptrCast(selectionModel.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setSelectionModel)
@@ -280,12 +367,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, selectionModel: QtC.QItemSelectionModel) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, selectionModel: QItemSelectionModel) callconv(.c) void `
     ///
-    pub fn OnSetSelectionModel(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnSetSelectionModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetSelectionModel(self: QTreeView, callback: *const fn (QTreeView, QItemSelectionModel) callconv(.c) void) void {
+        qtc.QTreeView_OnSetSelectionModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetSelectionModel` instead
@@ -298,486 +385,494 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` selectionModel: QtC.QItemSelectionModel `
+    /// ` selectionModel: QItemSelectionModel `
     ///
-    pub fn SuperSetSelectionModel(self: ?*anyopaque, selectionModel: ?*anyopaque) void {
-        qtc.QTreeView_SuperSetSelectionModel(@ptrCast(self), @ptrCast(selectionModel));
+    pub fn SuperSetSelectionModel(self: QTreeView, selectionModel: anytype) void {
+        comptime _ = @TypeOf(selectionModel)._is_QItemSelectionModel;
+        qtc.QTreeView_SuperSetSelectionModel(@ptrCast(self.ptr), @ptrCast(selectionModel.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#header)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Header(self: ?*anyopaque) QtC.QHeaderView {
-        return qtc.QTreeView_Header(@ptrCast(self));
+    pub fn Header(self: QTreeView) QHeaderView {
+        return .{ .ptr = qtc.QTreeView_Header(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setHeader)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` header: QtC.QHeaderView `
+    /// ` header: QHeaderView `
     ///
-    pub fn SetHeader(self: ?*anyopaque, header: ?*anyopaque) void {
-        qtc.QTreeView_SetHeader(@ptrCast(self), @ptrCast(header));
+    pub fn SetHeader(self: QTreeView, header: anytype) void {
+        comptime _ = @TypeOf(header)._is_QHeaderView;
+        qtc.QTreeView_SetHeader(@ptrCast(self.ptr), @ptrCast(header.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#autoExpandDelay)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn AutoExpandDelay(self: ?*anyopaque) i32 {
-        return qtc.QTreeView_AutoExpandDelay(@ptrCast(self));
+    pub fn AutoExpandDelay(self: QTreeView) i32 {
+        return qtc.QTreeView_AutoExpandDelay(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setAutoExpandDelay)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` delay: i32 `
     ///
-    pub fn SetAutoExpandDelay(self: ?*anyopaque, delay: i32) void {
-        qtc.QTreeView_SetAutoExpandDelay(@ptrCast(self), @bitCast(delay));
+    pub fn SetAutoExpandDelay(self: QTreeView, delay: i32) void {
+        qtc.QTreeView_SetAutoExpandDelay(@ptrCast(self.ptr), @bitCast(delay));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#indentation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Indentation(self: ?*anyopaque) i32 {
-        return qtc.QTreeView_Indentation(@ptrCast(self));
+    pub fn Indentation(self: QTreeView) i32 {
+        return qtc.QTreeView_Indentation(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setIndentation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` i: i32 `
     ///
-    pub fn SetIndentation(self: ?*anyopaque, i: i32) void {
-        qtc.QTreeView_SetIndentation(@ptrCast(self), @bitCast(i));
+    pub fn SetIndentation(self: QTreeView, i: i32) void {
+        qtc.QTreeView_SetIndentation(@ptrCast(self.ptr), @bitCast(i));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#resetIndentation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ResetIndentation(self: ?*anyopaque) void {
-        qtc.QTreeView_ResetIndentation(@ptrCast(self));
+    pub fn ResetIndentation(self: QTreeView) void {
+        qtc.QTreeView_ResetIndentation(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#rootIsDecorated)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn RootIsDecorated(self: ?*anyopaque) bool {
-        return qtc.QTreeView_RootIsDecorated(@ptrCast(self));
+    pub fn RootIsDecorated(self: QTreeView) bool {
+        return qtc.QTreeView_RootIsDecorated(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setRootIsDecorated)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` show: bool `
     ///
-    pub fn SetRootIsDecorated(self: ?*anyopaque, show: bool) void {
-        qtc.QTreeView_SetRootIsDecorated(@ptrCast(self), show);
+    pub fn SetRootIsDecorated(self: QTreeView, show: bool) void {
+        qtc.QTreeView_SetRootIsDecorated(@ptrCast(self.ptr), show);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#uniformRowHeights)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn UniformRowHeights(self: ?*anyopaque) bool {
-        return qtc.QTreeView_UniformRowHeights(@ptrCast(self));
+    pub fn UniformRowHeights(self: QTreeView) bool {
+        return qtc.QTreeView_UniformRowHeights(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setUniformRowHeights)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` uniform: bool `
     ///
-    pub fn SetUniformRowHeights(self: ?*anyopaque, uniform: bool) void {
-        qtc.QTreeView_SetUniformRowHeights(@ptrCast(self), uniform);
+    pub fn SetUniformRowHeights(self: QTreeView, uniform: bool) void {
+        qtc.QTreeView_SetUniformRowHeights(@ptrCast(self.ptr), uniform);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#itemsExpandable)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ItemsExpandable(self: ?*anyopaque) bool {
-        return qtc.QTreeView_ItemsExpandable(@ptrCast(self));
+    pub fn ItemsExpandable(self: QTreeView) bool {
+        return qtc.QTreeView_ItemsExpandable(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setItemsExpandable)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetItemsExpandable(self: ?*anyopaque, enable: bool) void {
-        qtc.QTreeView_SetItemsExpandable(@ptrCast(self), enable);
+    pub fn SetItemsExpandable(self: QTreeView, enable: bool) void {
+        qtc.QTreeView_SetItemsExpandable(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#expandsOnDoubleClick)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ExpandsOnDoubleClick(self: ?*anyopaque) bool {
-        return qtc.QTreeView_ExpandsOnDoubleClick(@ptrCast(self));
+    pub fn ExpandsOnDoubleClick(self: QTreeView) bool {
+        return qtc.QTreeView_ExpandsOnDoubleClick(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setExpandsOnDoubleClick)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetExpandsOnDoubleClick(self: ?*anyopaque, enable: bool) void {
-        qtc.QTreeView_SetExpandsOnDoubleClick(@ptrCast(self), enable);
+    pub fn SetExpandsOnDoubleClick(self: QTreeView, enable: bool) void {
+        qtc.QTreeView_SetExpandsOnDoubleClick(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#columnViewportPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` column: i32 `
     ///
-    pub fn ColumnViewportPosition(self: ?*anyopaque, column: i32) i32 {
-        return qtc.QTreeView_ColumnViewportPosition(@ptrCast(self), @bitCast(column));
+    pub fn ColumnViewportPosition(self: QTreeView, column: i32) i32 {
+        return qtc.QTreeView_ColumnViewportPosition(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#columnWidth)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` column: i32 `
     ///
-    pub fn ColumnWidth(self: ?*anyopaque, column: i32) i32 {
-        return qtc.QTreeView_ColumnWidth(@ptrCast(self), @bitCast(column));
+    pub fn ColumnWidth(self: QTreeView, column: i32) i32 {
+        return qtc.QTreeView_ColumnWidth(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setColumnWidth)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` column: i32 `
     ///
     /// ` width: i32 `
     ///
-    pub fn SetColumnWidth(self: ?*anyopaque, column: i32, width: i32) void {
-        qtc.QTreeView_SetColumnWidth(@ptrCast(self), @bitCast(column), @bitCast(width));
+    pub fn SetColumnWidth(self: QTreeView, column: i32, width: i32) void {
+        qtc.QTreeView_SetColumnWidth(@ptrCast(self.ptr), @bitCast(column), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#columnAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` x: i32 `
     ///
-    pub fn ColumnAt(self: ?*anyopaque, x: i32) i32 {
-        return qtc.QTreeView_ColumnAt(@ptrCast(self), @bitCast(x));
+    pub fn ColumnAt(self: QTreeView, x: i32) i32 {
+        return qtc.QTreeView_ColumnAt(@ptrCast(self.ptr), @bitCast(x));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#isColumnHidden)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` column: i32 `
     ///
-    pub fn IsColumnHidden(self: ?*anyopaque, column: i32) bool {
-        return qtc.QTreeView_IsColumnHidden(@ptrCast(self), @bitCast(column));
+    pub fn IsColumnHidden(self: QTreeView, column: i32) bool {
+        return qtc.QTreeView_IsColumnHidden(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setColumnHidden)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` column: i32 `
     ///
     /// ` hide: bool `
     ///
-    pub fn SetColumnHidden(self: ?*anyopaque, column: i32, hide: bool) void {
-        qtc.QTreeView_SetColumnHidden(@ptrCast(self), @bitCast(column), hide);
+    pub fn SetColumnHidden(self: QTreeView, column: i32, hide: bool) void {
+        qtc.QTreeView_SetColumnHidden(@ptrCast(self.ptr), @bitCast(column), hide);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#isHeaderHidden)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn IsHeaderHidden(self: ?*anyopaque) bool {
-        return qtc.QTreeView_IsHeaderHidden(@ptrCast(self));
+    pub fn IsHeaderHidden(self: QTreeView) bool {
+        return qtc.QTreeView_IsHeaderHidden(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setHeaderHidden)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` hide: bool `
     ///
-    pub fn SetHeaderHidden(self: ?*anyopaque, hide: bool) void {
-        qtc.QTreeView_SetHeaderHidden(@ptrCast(self), hide);
+    pub fn SetHeaderHidden(self: QTreeView, hide: bool) void {
+        qtc.QTreeView_SetHeaderHidden(@ptrCast(self.ptr), hide);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#isRowHidden)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn IsRowHidden(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QTreeView_IsRowHidden(@ptrCast(self), @bitCast(row), @ptrCast(parent));
+    pub fn IsRowHidden(self: QTreeView, row: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QTreeView_IsRowHidden(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setRowHidden)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` hide: bool `
     ///
-    pub fn SetRowHidden(self: ?*anyopaque, row: i32, parent: ?*anyopaque, hide: bool) void {
-        qtc.QTreeView_SetRowHidden(@ptrCast(self), @bitCast(row), @ptrCast(parent), hide);
+    pub fn SetRowHidden(self: QTreeView, row: i32, parent: anytype, hide: bool) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.QTreeView_SetRowHidden(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr), hide);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#isFirstColumnSpanned)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn IsFirstColumnSpanned(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QTreeView_IsFirstColumnSpanned(@ptrCast(self), @bitCast(row), @ptrCast(parent));
+    pub fn IsFirstColumnSpanned(self: QTreeView, row: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QTreeView_IsFirstColumnSpanned(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setFirstColumnSpanned)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` span: bool `
     ///
-    pub fn SetFirstColumnSpanned(self: ?*anyopaque, row: i32, parent: ?*anyopaque, span: bool) void {
-        qtc.QTreeView_SetFirstColumnSpanned(@ptrCast(self), @bitCast(row), @ptrCast(parent), span);
+    pub fn SetFirstColumnSpanned(self: QTreeView, row: i32, parent: anytype, span: bool) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.QTreeView_SetFirstColumnSpanned(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr), span);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#isExpanded)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn IsExpanded(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.QTreeView_IsExpanded(@ptrCast(self), @ptrCast(index));
+    pub fn IsExpanded(self: QTreeView, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QTreeView_IsExpanded(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setExpanded)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` expand: bool `
     ///
-    pub fn SetExpanded(self: ?*anyopaque, index: ?*anyopaque, expand: bool) void {
-        qtc.QTreeView_SetExpanded(@ptrCast(self), @ptrCast(index), expand);
+    pub fn SetExpanded(self: QTreeView, index: anytype, expand: bool) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QTreeView_SetExpanded(@ptrCast(self.ptr), @ptrCast(index.ptr), expand);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setSortingEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetSortingEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QTreeView_SetSortingEnabled(@ptrCast(self), enable);
+    pub fn SetSortingEnabled(self: QTreeView, enable: bool) void {
+        qtc.QTreeView_SetSortingEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#isSortingEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn IsSortingEnabled(self: ?*anyopaque) bool {
-        return qtc.QTreeView_IsSortingEnabled(@ptrCast(self));
+    pub fn IsSortingEnabled(self: QTreeView) bool {
+        return qtc.QTreeView_IsSortingEnabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setAnimated)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAnimated(self: ?*anyopaque, enable: bool) void {
-        qtc.QTreeView_SetAnimated(@ptrCast(self), enable);
+    pub fn SetAnimated(self: QTreeView, enable: bool) void {
+        qtc.QTreeView_SetAnimated(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#isAnimated)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn IsAnimated(self: ?*anyopaque) bool {
-        return qtc.QTreeView_IsAnimated(@ptrCast(self));
+    pub fn IsAnimated(self: QTreeView) bool {
+        return qtc.QTreeView_IsAnimated(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setAllColumnsShowFocus)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAllColumnsShowFocus(self: ?*anyopaque, enable: bool) void {
-        qtc.QTreeView_SetAllColumnsShowFocus(@ptrCast(self), enable);
+    pub fn SetAllColumnsShowFocus(self: QTreeView, enable: bool) void {
+        qtc.QTreeView_SetAllColumnsShowFocus(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#allColumnsShowFocus)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn AllColumnsShowFocus(self: ?*anyopaque) bool {
-        return qtc.QTreeView_AllColumnsShowFocus(@ptrCast(self));
+    pub fn AllColumnsShowFocus(self: QTreeView) bool {
+        return qtc.QTreeView_AllColumnsShowFocus(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setWordWrap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWordWrap(self: ?*anyopaque, on: bool) void {
-        qtc.QTreeView_SetWordWrap(@ptrCast(self), on);
+    pub fn SetWordWrap(self: QTreeView, on: bool) void {
+        qtc.QTreeView_SetWordWrap(@ptrCast(self.ptr), on);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#wordWrap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn WordWrap(self: ?*anyopaque) bool {
-        return qtc.QTreeView_WordWrap(@ptrCast(self));
+    pub fn WordWrap(self: QTreeView) bool {
+        return qtc.QTreeView_WordWrap(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setTreePosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` logicalIndex: i32 `
     ///
-    pub fn SetTreePosition(self: ?*anyopaque, logicalIndex: i32) void {
-        qtc.QTreeView_SetTreePosition(@ptrCast(self), @bitCast(logicalIndex));
+    pub fn SetTreePosition(self: QTreeView, logicalIndex: i32) void {
+        qtc.QTreeView_SetTreePosition(@ptrCast(self.ptr), @bitCast(logicalIndex));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#treePosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn TreePosition(self: ?*anyopaque) i32 {
-        return qtc.QTreeView_TreePosition(@ptrCast(self));
+    pub fn TreePosition(self: QTreeView) i32 {
+        return qtc.QTreeView_TreePosition(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#keyboardSearch)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` search: []const u8 `
     ///
-    pub fn KeyboardSearch(self: ?*anyopaque, search: []const u8) void {
+    pub fn KeyboardSearch(self: QTreeView, search: []const u8) void {
         const search_str = qtc.libqt_string{
             .len = search.len,
             .data = search.ptr,
         };
-        qtc.QTreeView_KeyboardSearch(@ptrCast(self), search_str);
+        qtc.QTreeView_KeyboardSearch(@ptrCast(self.ptr), search_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#keyboardSearch)
@@ -786,12 +881,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, search: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, search: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnKeyboardSearch(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QTreeView_OnKeyboardSearch(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyboardSearch(self: QTreeView, callback: *const fn (QTreeView, [*:0]const u8) callconv(.c) void) void {
+        qtc.QTreeView_OnKeyboardSearch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperKeyboardSearch` instead
@@ -804,28 +899,29 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` search: []const u8 `
     ///
-    pub fn SuperKeyboardSearch(self: ?*anyopaque, search: []const u8) void {
+    pub fn SuperKeyboardSearch(self: QTreeView, search: []const u8) void {
         const search_str = qtc.libqt_string{
             .len = search.len,
             .data = search.ptr,
         };
-        qtc.QTreeView_SuperKeyboardSearch(@ptrCast(self), search_str);
+        qtc.QTreeView_SuperKeyboardSearch(@ptrCast(self.ptr), search_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#visualRect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn VisualRect(self: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
-        return qtc.QTreeView_VisualRect(@ptrCast(self), @ptrCast(index));
+    pub fn VisualRect(self: QTreeView, index: anytype) QRect {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QTreeView_VisualRect(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#visualRect)
@@ -834,12 +930,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, index: QtC.QModelIndex) callconv(.c) QtC.QRect `
+    /// ` callback: *const fn (self: QTreeView, index: QModelIndex) callconv(.c) QRect `
     ///
-    pub fn OnVisualRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.QTreeView_OnVisualRect(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVisualRect(self: QTreeView, callback: *const fn (QTreeView, QModelIndex) callconv(.c) QRect) void {
+        qtc.QTreeView_OnVisualRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperVisualRect` instead
@@ -852,26 +948,28 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperVisualRect(self: ?*anyopaque, index: ?*anyopaque) QtC.QRect {
-        return qtc.QTreeView_SuperVisualRect(@ptrCast(self), @ptrCast(index));
+    pub fn SuperVisualRect(self: QTreeView, index: anytype) QRect {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QTreeView_SuperVisualRect(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#scrollTo)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
-    pub fn ScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
-        qtc.QTreeView_ScrollTo(@ptrCast(self), @ptrCast(index), @bitCast(hint));
+    pub fn ScrollTo(self: QTreeView, index: anytype, hint: i32) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QTreeView_ScrollTo(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(hint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#scrollTo)
@@ -880,12 +978,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, index: QtC.QModelIndex, hint: qabstractitemview_enums.ScrollHint) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, index: QModelIndex, hint: qabstractitemview_enums.ScrollHint) callconv(.c) void `
     ///
-    pub fn OnScrollTo(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeView_OnScrollTo(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnScrollTo(self: QTreeView, callback: *const fn (QTreeView, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QTreeView_OnScrollTo(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperScrollTo` instead
@@ -898,26 +996,28 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
-    pub fn SuperScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
-        qtc.QTreeView_SuperScrollTo(@ptrCast(self), @ptrCast(index), @bitCast(hint));
+    pub fn SuperScrollTo(self: QTreeView, index: anytype, hint: i32) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QTreeView_SuperScrollTo(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(hint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#indexAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn IndexAt(self: ?*anyopaque, p: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QTreeView_IndexAt(@ptrCast(self), @ptrCast(p));
+    pub fn IndexAt(self: QTreeView, p: anytype) QModelIndex {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QTreeView_IndexAt(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#indexAt)
@@ -926,12 +1026,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, p: QtC.QPoint) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: QTreeView, p: QPoint) callconv(.c) QModelIndex `
     ///
-    pub fn OnIndexAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QTreeView_OnIndexAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIndexAt(self: QTreeView, callback: *const fn (QTreeView, QPoint) callconv(.c) QModelIndex) void {
+        qtc.QTreeView_OnIndexAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIndexAt` instead
@@ -944,46 +1044,49 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn SuperIndexAt(self: ?*anyopaque, p: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QTreeView_SuperIndexAt(@ptrCast(self), @ptrCast(p));
+    pub fn SuperIndexAt(self: QTreeView, p: anytype) QModelIndex {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QTreeView_SuperIndexAt(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#indexAbove)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn IndexAbove(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QTreeView_IndexAbove(@ptrCast(self), @ptrCast(index));
+    pub fn IndexAbove(self: QTreeView, index: anytype) QModelIndex {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QTreeView_IndexAbove(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#indexBelow)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn IndexBelow(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QTreeView_IndexBelow(@ptrCast(self), @ptrCast(index));
+    pub fn IndexBelow(self: QTreeView, index: anytype) QModelIndex {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QTreeView_IndexBelow(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#doItemsLayout)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn DoItemsLayout(self: ?*anyopaque) void {
-        qtc.QTreeView_DoItemsLayout(@ptrCast(self));
+    pub fn DoItemsLayout(self: QTreeView) void {
+        qtc.QTreeView_DoItemsLayout(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#doItemsLayout)
@@ -992,12 +1095,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDoItemsLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnDoItemsLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDoItemsLayout(self: QTreeView, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeView_OnDoItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDoItemsLayout` instead
@@ -1010,20 +1113,20 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperDoItemsLayout(self: ?*anyopaque) void {
-        qtc.QTreeView_SuperDoItemsLayout(@ptrCast(self));
+    pub fn SuperDoItemsLayout(self: QTreeView) void {
+        qtc.QTreeView_SuperDoItemsLayout(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#reset)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Reset(self: ?*anyopaque) void {
-        qtc.QTreeView_Reset(@ptrCast(self));
+    pub fn Reset(self: QTreeView) void {
+        qtc.QTreeView_Reset(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#reset)
@@ -1032,12 +1135,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReset(self: QTreeView, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeView_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperReset` instead
@@ -1050,30 +1153,32 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperReset(self: ?*anyopaque) void {
-        qtc.QTreeView_SuperReset(@ptrCast(self));
+    pub fn SuperReset(self: QTreeView) void {
+        qtc.QTreeView_SuperReset(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#dataChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` topLeft: QtC.QModelIndex `
+    /// ` topLeft: QModelIndex `
     ///
-    /// ` bottomRight: QtC.QModelIndex `
+    /// ` bottomRight: QModelIndex `
     ///
     /// ` roles: []i32 `
     ///
-    pub fn DataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
+    pub fn DataChanged(self: QTreeView, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+        comptime _ = @TypeOf(topLeft)._is_QModelIndex;
+        comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
-        qtc.QTreeView_DataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
+        qtc.QTreeView_DataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#dataChanged)
@@ -1082,12 +1187,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, topLeft: QModelIndex, bottomRight: QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QTreeView_OnDataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDataChanged(self: QTreeView, callback: *const fn (QTreeView, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QTreeView_OnDataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDataChanged` instead
@@ -1100,30 +1205,32 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` topLeft: QtC.QModelIndex `
+    /// ` topLeft: QModelIndex `
     ///
-    /// ` bottomRight: QtC.QModelIndex `
+    /// ` bottomRight: QModelIndex `
     ///
     /// ` roles: []i32 `
     ///
-    pub fn SuperDataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
+    pub fn SuperDataChanged(self: QTreeView, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+        comptime _ = @TypeOf(topLeft)._is_QModelIndex;
+        comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
-        qtc.QTreeView_SuperDataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
+        qtc.QTreeView_SuperDataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#selectAll)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SelectAll(self: ?*anyopaque) void {
-        qtc.QTreeView_SelectAll(@ptrCast(self));
+    pub fn SelectAll(self: QTreeView) void {
+        qtc.QTreeView_SelectAll(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#selectAll)
@@ -1132,12 +1239,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSelectAll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnSelectAll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSelectAll(self: QTreeView, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeView_OnSelectAll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSelectAll` instead
@@ -1150,183 +1257,188 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperSelectAll(self: ?*anyopaque) void {
-        qtc.QTreeView_SuperSelectAll(@ptrCast(self));
+    pub fn SuperSelectAll(self: QTreeView) void {
+        qtc.QTreeView_SuperSelectAll(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#expanded)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Expanded(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QTreeView_Expanded(@ptrCast(self), @ptrCast(index));
+    pub fn Expanded(self: QTreeView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QTreeView_Expanded(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#expanded)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnExpanded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_Connect_Expanded(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnExpanded(self: QTreeView, callback: *const fn (QTreeView, QModelIndex) callconv(.c) void) void {
+        qtc.QTreeView_Connect_Expanded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#collapsed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Collapsed(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QTreeView_Collapsed(@ptrCast(self), @ptrCast(index));
+    pub fn Collapsed(self: QTreeView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QTreeView_Collapsed(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#collapsed)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnCollapsed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_Connect_Collapsed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCollapsed(self: QTreeView, callback: *const fn (QTreeView, QModelIndex) callconv(.c) void) void {
+        qtc.QTreeView_Connect_Collapsed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#hideColumn)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` column: i32 `
     ///
-    pub fn HideColumn(self: ?*anyopaque, column: i32) void {
-        qtc.QTreeView_HideColumn(@ptrCast(self), @bitCast(column));
+    pub fn HideColumn(self: QTreeView, column: i32) void {
+        qtc.QTreeView_HideColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#showColumn)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` column: i32 `
     ///
-    pub fn ShowColumn(self: ?*anyopaque, column: i32) void {
-        qtc.QTreeView_ShowColumn(@ptrCast(self), @bitCast(column));
+    pub fn ShowColumn(self: QTreeView, column: i32) void {
+        qtc.QTreeView_ShowColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#expand)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Expand(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QTreeView_Expand(@ptrCast(self), @ptrCast(index));
+    pub fn Expand(self: QTreeView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QTreeView_Expand(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#collapse)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Collapse(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QTreeView_Collapse(@ptrCast(self), @ptrCast(index));
+    pub fn Collapse(self: QTreeView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QTreeView_Collapse(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#resizeColumnToContents)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` column: i32 `
     ///
-    pub fn ResizeColumnToContents(self: ?*anyopaque, column: i32) void {
-        qtc.QTreeView_ResizeColumnToContents(@ptrCast(self), @bitCast(column));
+    pub fn ResizeColumnToContents(self: QTreeView, column: i32) void {
+        qtc.QTreeView_ResizeColumnToContents(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#sortByColumn)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` column: i32 `
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn SortByColumn(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.QTreeView_SortByColumn(@ptrCast(self), @bitCast(column), @bitCast(order));
+    pub fn SortByColumn(self: QTreeView, column: i32, order: i32) void {
+        qtc.QTreeView_SortByColumn(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#expandAll)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ExpandAll(self: ?*anyopaque) void {
-        qtc.QTreeView_ExpandAll(@ptrCast(self));
+    pub fn ExpandAll(self: QTreeView) void {
+        qtc.QTreeView_ExpandAll(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#expandRecursively)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn ExpandRecursively(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QTreeView_ExpandRecursively(@ptrCast(self), @ptrCast(index));
+    pub fn ExpandRecursively(self: QTreeView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QTreeView_ExpandRecursively(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#collapseAll)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn CollapseAll(self: ?*anyopaque) void {
-        qtc.QTreeView_CollapseAll(@ptrCast(self));
+    pub fn CollapseAll(self: QTreeView) void {
+        qtc.QTreeView_CollapseAll(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#expandToDepth)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` depth: i32 `
     ///
-    pub fn ExpandToDepth(self: ?*anyopaque, depth: i32) void {
-        qtc.QTreeView_ExpandToDepth(@ptrCast(self), @bitCast(depth));
+    pub fn ExpandToDepth(self: QTreeView, depth: i32) void {
+        qtc.QTreeView_ExpandToDepth(@ptrCast(self.ptr), @bitCast(depth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#columnResized)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` column: i32 `
     ///
@@ -1334,8 +1446,8 @@ pub const qtreeview = struct {
     ///
     /// ` newSize: i32 `
     ///
-    pub fn ColumnResized(self: ?*anyopaque, column: i32, oldSize: i32, newSize: i32) void {
-        qtc.QTreeView_ColumnResized(@ptrCast(self), @bitCast(column), @bitCast(oldSize), @bitCast(newSize));
+    pub fn ColumnResized(self: QTreeView, column: i32, oldSize: i32, newSize: i32) void {
+        qtc.QTreeView_ColumnResized(@ptrCast(self.ptr), @bitCast(column), @bitCast(oldSize), @bitCast(newSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#columnResized)
@@ -1344,12 +1456,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, column: i32, oldSize: i32, newSize: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, column: i32, oldSize: i32, newSize: i32) callconv(.c) void `
     ///
-    pub fn OnColumnResized(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QTreeView_OnColumnResized(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnResized(self: QTreeView, callback: *const fn (QTreeView, i32, i32, i32) callconv(.c) void) void {
+        qtc.QTreeView_OnColumnResized(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperColumnResized` instead
@@ -1362,7 +1474,7 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` column: i32 `
     ///
@@ -1370,22 +1482,22 @@ pub const qtreeview = struct {
     ///
     /// ` newSize: i32 `
     ///
-    pub fn SuperColumnResized(self: ?*anyopaque, column: i32, oldSize: i32, newSize: i32) void {
-        qtc.QTreeView_SuperColumnResized(@ptrCast(self), @bitCast(column), @bitCast(oldSize), @bitCast(newSize));
+    pub fn SuperColumnResized(self: QTreeView, column: i32, oldSize: i32, newSize: i32) void {
+        qtc.QTreeView_SuperColumnResized(@ptrCast(self.ptr), @bitCast(column), @bitCast(oldSize), @bitCast(newSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#columnCountChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` oldCount: i32 `
     ///
     /// ` newCount: i32 `
     ///
-    pub fn ColumnCountChanged(self: ?*anyopaque, oldCount: i32, newCount: i32) void {
-        qtc.QTreeView_ColumnCountChanged(@ptrCast(self), @bitCast(oldCount), @bitCast(newCount));
+    pub fn ColumnCountChanged(self: QTreeView, oldCount: i32, newCount: i32) void {
+        qtc.QTreeView_ColumnCountChanged(@ptrCast(self.ptr), @bitCast(oldCount), @bitCast(newCount));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#columnCountChanged)
@@ -1394,12 +1506,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, oldCount: i32, newCount: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, oldCount: i32, newCount: i32) callconv(.c) void `
     ///
-    pub fn OnColumnCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTreeView_OnColumnCountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnCountChanged(self: QTreeView, callback: *const fn (QTreeView, i32, i32) callconv(.c) void) void {
+        qtc.QTreeView_OnColumnCountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperColumnCountChanged` instead
@@ -1412,24 +1524,24 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` oldCount: i32 `
     ///
     /// ` newCount: i32 `
     ///
-    pub fn SuperColumnCountChanged(self: ?*anyopaque, oldCount: i32, newCount: i32) void {
-        qtc.QTreeView_SuperColumnCountChanged(@ptrCast(self), @bitCast(oldCount), @bitCast(newCount));
+    pub fn SuperColumnCountChanged(self: QTreeView, oldCount: i32, newCount: i32) void {
+        qtc.QTreeView_SuperColumnCountChanged(@ptrCast(self.ptr), @bitCast(oldCount), @bitCast(newCount));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#columnMoved)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ColumnMoved(self: ?*anyopaque) void {
-        qtc.QTreeView_ColumnMoved(@ptrCast(self));
+    pub fn ColumnMoved(self: QTreeView) void {
+        qtc.QTreeView_ColumnMoved(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#columnMoved)
@@ -1438,12 +1550,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnColumnMoved(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnColumnMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnMoved(self: QTreeView, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeView_OnColumnMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperColumnMoved` instead
@@ -1456,20 +1568,20 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperColumnMoved(self: ?*anyopaque) void {
-        qtc.QTreeView_SuperColumnMoved(@ptrCast(self));
+    pub fn SuperColumnMoved(self: QTreeView) void {
+        qtc.QTreeView_SuperColumnMoved(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#reexpand)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Reexpand(self: ?*anyopaque) void {
-        qtc.QTreeView_Reexpand(@ptrCast(self));
+    pub fn Reexpand(self: QTreeView) void {
+        qtc.QTreeView_Reexpand(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#reexpand)
@@ -1478,12 +1590,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReexpand(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnReexpand(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReexpand(self: QTreeView, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeView_OnReexpand(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperReexpand` instead
@@ -1496,26 +1608,27 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperReexpand(self: ?*anyopaque) void {
-        qtc.QTreeView_SuperReexpand(@ptrCast(self));
+    pub fn SuperReexpand(self: QTreeView) void {
+        qtc.QTreeView_SuperReexpand(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#rowsRemoved)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn RowsRemoved(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QTreeView_RowsRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn RowsRemoved(self: QTreeView, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.QTreeView_RowsRemoved(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#rowsRemoved)
@@ -1524,12 +1637,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTreeView_OnRowsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsRemoved(self: QTreeView, callback: *const fn (QTreeView, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QTreeView_OnRowsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRowsRemoved` instead
@@ -1542,28 +1655,29 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperRowsRemoved(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.QTreeView_SuperRowsRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperRowsRemoved(self: QTreeView, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.QTreeView_SuperRowsRemoved(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#verticalScrollbarValueChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` value: i32 `
     ///
-    pub fn VerticalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QTreeView_VerticalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
+    pub fn VerticalScrollbarValueChanged(self: QTreeView, value: i32) void {
+        qtc.QTreeView_VerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#verticalScrollbarValueChanged)
@@ -1572,12 +1686,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, value: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, value: i32) callconv(.c) void `
     ///
-    pub fn OnVerticalScrollbarValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeView_OnVerticalScrollbarValueChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVerticalScrollbarValueChanged(self: QTreeView, callback: *const fn (QTreeView, i32) callconv(.c) void) void {
+        qtc.QTreeView_OnVerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperVerticalScrollbarValueChanged` instead
@@ -1590,26 +1704,26 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` value: i32 `
     ///
-    pub fn SuperVerticalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QTreeView_SuperVerticalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
+    pub fn SuperVerticalScrollbarValueChanged(self: QTreeView, value: i32) void {
+        qtc.QTreeView_SuperVerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#scrollContentsBy)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn ScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QTreeView_ScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn ScrollContentsBy(self: QTreeView, dx: i32, dy: i32) void {
+        qtc.QTreeView_ScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#scrollContentsBy)
@@ -1618,12 +1732,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, dx: i32, dy: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, dx: i32, dy: i32) callconv(.c) void `
     ///
-    pub fn OnScrollContentsBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTreeView_OnScrollContentsBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnScrollContentsBy(self: QTreeView, callback: *const fn (QTreeView, i32, i32) callconv(.c) void) void {
+        qtc.QTreeView_OnScrollContentsBy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperScrollContentsBy` instead
@@ -1636,30 +1750,31 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn SuperScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QTreeView_SuperScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn SuperScrollContentsBy(self: QTreeView, dx: i32, dy: i32) void {
+        qtc.QTreeView_SuperScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#rowsInserted)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn RowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QTreeView_RowsInserted(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
+    pub fn RowsInserted(self: QTreeView, parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.QTreeView_RowsInserted(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#rowsInserted)
@@ -1668,12 +1783,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, parent: QtC.QModelIndex, start: i32, end: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, parent: QModelIndex, start: i32, end: i32) callconv(.c) void `
     ///
-    pub fn OnRowsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTreeView_OnRowsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsInserted(self: QTreeView, callback: *const fn (QTreeView, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QTreeView_OnRowsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRowsInserted` instead
@@ -1686,32 +1801,34 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn SuperRowsInserted(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QTreeView_SuperRowsInserted(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
+    pub fn SuperRowsInserted(self: QTreeView, parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.QTreeView_SuperRowsInserted(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#rowsAboutToBeRemoved)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn RowsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QTreeView_RowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
+    pub fn RowsAboutToBeRemoved(self: QTreeView, parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.QTreeView_RowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#rowsAboutToBeRemoved)
@@ -1720,12 +1837,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, parent: QtC.QModelIndex, start: i32, end: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, parent: QModelIndex, start: i32, end: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTreeView_OnRowsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsAboutToBeRemoved(self: QTreeView, callback: *const fn (QTreeView, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QTreeView_OnRowsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRowsAboutToBeRemoved` instead
@@ -1738,30 +1855,31 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn SuperRowsAboutToBeRemoved(self: ?*anyopaque, parent: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QTreeView_SuperRowsAboutToBeRemoved(@ptrCast(self), @ptrCast(parent), @bitCast(start), @bitCast(end));
+    pub fn SuperRowsAboutToBeRemoved(self: QTreeView, parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.QTreeView_SuperRowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#moveCursor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` cursorAction: qabstractitemview_enums.CursorAction `
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn MoveCursor(self: ?*anyopaque, cursorAction: i32, modifiers: i32) QtC.QModelIndex {
-        return qtc.QTreeView_MoveCursor(@ptrCast(self), @bitCast(cursorAction), @bitCast(modifiers));
+    pub fn MoveCursor(self: QTreeView, cursorAction: i32, modifiers: i32) QModelIndex {
+        return .{ .ptr = qtc.QTreeView_MoveCursor(@ptrCast(self.ptr), @bitCast(cursorAction), @bitCast(modifiers)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#moveCursor)
@@ -1770,12 +1888,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: QTreeView, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier) callconv(.c) QModelIndex `
     ///
-    pub fn OnMoveCursor(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QModelIndex) void {
-        qtc.QTreeView_OnMoveCursor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveCursor(self: QTreeView, callback: *const fn (QTreeView, i32, i32) callconv(.c) QModelIndex) void {
+        qtc.QTreeView_OnMoveCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMoveCursor` instead
@@ -1788,24 +1906,24 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` cursorAction: qabstractitemview_enums.CursorAction `
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn SuperMoveCursor(self: ?*anyopaque, cursorAction: i32, modifiers: i32) QtC.QModelIndex {
-        return qtc.QTreeView_SuperMoveCursor(@ptrCast(self), @bitCast(cursorAction), @bitCast(modifiers));
+    pub fn SuperMoveCursor(self: QTreeView, cursorAction: i32, modifiers: i32) QModelIndex {
+        return .{ .ptr = qtc.QTreeView_SuperMoveCursor(@ptrCast(self.ptr), @bitCast(cursorAction), @bitCast(modifiers)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#horizontalOffset)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn HorizontalOffset(self: ?*anyopaque) i32 {
-        return qtc.QTreeView_HorizontalOffset(@ptrCast(self));
+    pub fn HorizontalOffset(self: QTreeView) i32 {
+        return qtc.QTreeView_HorizontalOffset(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#horizontalOffset)
@@ -1814,12 +1932,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnHorizontalOffset(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTreeView_OnHorizontalOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHorizontalOffset(self: QTreeView, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTreeView_OnHorizontalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperHorizontalOffset` instead
@@ -1832,20 +1950,20 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperHorizontalOffset(self: ?*anyopaque) i32 {
-        return qtc.QTreeView_SuperHorizontalOffset(@ptrCast(self));
+    pub fn SuperHorizontalOffset(self: QTreeView) i32 {
+        return qtc.QTreeView_SuperHorizontalOffset(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#verticalOffset)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn VerticalOffset(self: ?*anyopaque) i32 {
-        return qtc.QTreeView_VerticalOffset(@ptrCast(self));
+    pub fn VerticalOffset(self: QTreeView) i32 {
+        return qtc.QTreeView_VerticalOffset(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#verticalOffset)
@@ -1854,12 +1972,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnVerticalOffset(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTreeView_OnVerticalOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVerticalOffset(self: QTreeView, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTreeView_OnVerticalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperVerticalOffset` instead
@@ -1872,24 +1990,25 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperVerticalOffset(self: ?*anyopaque) i32 {
-        return qtc.QTreeView_SuperVerticalOffset(@ptrCast(self));
+    pub fn SuperVerticalOffset(self: QTreeView) i32 {
+        return qtc.QTreeView_SuperVerticalOffset(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setSelection)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` rect: QtC.QRect `
+    /// ` rect: QRect `
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i32) void {
-        qtc.QTreeView_SetSelection(@ptrCast(self), @ptrCast(rect), @bitCast(command));
+    pub fn SetSelection(self: QTreeView, rect: anytype, command: i32) void {
+        comptime _ = @TypeOf(rect)._is_QRect;
+        qtc.QTreeView_SetSelection(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(command));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#setSelection)
@@ -1898,12 +2017,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, rect: QtC.QRect, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, rect: QRect, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void `
     ///
-    pub fn OnSetSelection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeView_OnSetSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetSelection(self: QTreeView, callback: *const fn (QTreeView, QRect, i32) callconv(.c) void) void {
+        qtc.QTreeView_OnSetSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetSelection` instead
@@ -1916,26 +2035,28 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` rect: QtC.QRect `
+    /// ` rect: QRect `
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SuperSetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i32) void {
-        qtc.QTreeView_SuperSetSelection(@ptrCast(self), @ptrCast(rect), @bitCast(command));
+    pub fn SuperSetSelection(self: QTreeView, rect: anytype, command: i32) void {
+        comptime _ = @TypeOf(rect)._is_QRect;
+        qtc.QTreeView_SuperSetSelection(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(command));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#visualRegionForSelection)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` selection: QtC.QItemSelection `
+    /// ` selection: QItemSelection `
     ///
-    pub fn VisualRegionForSelection(self: ?*anyopaque, selection: ?*anyopaque) QtC.QRegion {
-        return qtc.QTreeView_VisualRegionForSelection(@ptrCast(self), @ptrCast(selection));
+    pub fn VisualRegionForSelection(self: QTreeView, selection: anytype) QRegion {
+        comptime _ = @TypeOf(selection)._is_QItemSelection;
+        return .{ .ptr = qtc.QTreeView_VisualRegionForSelection(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#visualRegionForSelection)
@@ -1944,12 +2065,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, selection: QtC.QItemSelection) callconv(.c) QtC.QRegion `
+    /// ` callback: *const fn (self: QTreeView, selection: QItemSelection) callconv(.c) QRegion `
     ///
-    pub fn OnVisualRegionForSelection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRegion) void {
-        qtc.QTreeView_OnVisualRegionForSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVisualRegionForSelection(self: QTreeView, callback: *const fn (QTreeView, QItemSelection) callconv(.c) QRegion) void {
+        qtc.QTreeView_OnVisualRegionForSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperVisualRegionForSelection` instead
@@ -1962,28 +2083,30 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` selection: QtC.QItemSelection `
+    /// ` selection: QItemSelection `
     ///
-    pub fn SuperVisualRegionForSelection(self: ?*anyopaque, selection: ?*anyopaque) QtC.QRegion {
-        return qtc.QTreeView_SuperVisualRegionForSelection(@ptrCast(self), @ptrCast(selection));
+    pub fn SuperVisualRegionForSelection(self: QTreeView, selection: anytype) QRegion {
+        comptime _ = @TypeOf(selection)._is_QItemSelection;
+        return .{ .ptr = qtc.QTreeView_SuperVisualRegionForSelection(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#selectedIndexes)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QTreeView_SelectedIndexes(@ptrCast(self));
+    pub fn SelectedIndexes(self: QTreeView, allocator: std.mem.Allocator) []QModelIndex {
+        const _arr: qtc.libqt_list = qtc.QTreeView_SelectedIndexes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qtreeview.SelectedIndexes: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("qtreeview.SelectedIndexes: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1991,20 +2114,20 @@ pub const qtreeview = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of []QtC.QModelIndex `
+    /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnSelectedIndexes(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.QTreeView_OnSelectedIndexes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSelectedIndexes(self: QTreeView, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+        qtc.QTreeView_OnSelectedIndexes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSelectedIndexes` instead
@@ -2017,16 +2140,17 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperSelectedIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.QTreeView_SuperSelectedIndexes(@ptrCast(self));
+    pub fn SuperSelectedIndexes(self: QTreeView, allocator: std.mem.Allocator) []QModelIndex {
+        const _arr: qtc.libqt_list = qtc.QTreeView_SuperSelectedIndexes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qtreeview.SelectedIndexes: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("qtreeview.SelectedIndexes: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2034,12 +2158,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn ChangeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_ChangeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChangeEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QTreeView_ChangeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#changeEvent)
@@ -2048,12 +2173,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangeEvent(self: QTreeView, callback: *const fn (QTreeView, QEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperChangeEvent` instead
@@ -2066,24 +2191,26 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperChangeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperChangeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChangeEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QTreeView_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#timerEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QTreeView_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#timerEvent)
@@ -2092,12 +2219,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QTreeView, callback: *const fn (QTreeView, QTimerEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -2110,24 +2237,26 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QTreeView_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#paintEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QPaintEvent `
+    /// ` event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_PaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn PaintEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QPaintEvent;
+        qtc.QTreeView_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#paintEvent)
@@ -2136,12 +2265,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QPaintEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEvent(self: QTreeView, callback: *const fn (QTreeView, QPaintEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperPaintEvent` instead
@@ -2154,26 +2283,29 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QPaintEvent `
+    /// ` event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperPaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperPaintEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QPaintEvent;
+        qtc.QTreeView_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#drawTree)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` region: QtC.QRegion `
+    /// ` region: QRegion `
     ///
-    pub fn DrawTree(self: ?*anyopaque, painter: ?*anyopaque, region: ?*anyopaque) void {
-        qtc.QTreeView_DrawTree(@ptrCast(self), @ptrCast(painter), @ptrCast(region));
+    pub fn DrawTree(self: QTreeView, painter: anytype, region: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(region)._is_QRegion;
+        qtc.QTreeView_DrawTree(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(region.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#drawTree)
@@ -2182,12 +2314,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, painter: QtC.QPainter, region: QtC.QRegion) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, painter: QPainter, region: QRegion) callconv(.c) void `
     ///
-    pub fn OnDrawTree(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnDrawTree(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDrawTree(self: QTreeView, callback: *const fn (QTreeView, QPainter, QRegion) callconv(.c) void) void {
+        qtc.QTreeView_OnDrawTree(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDrawTree` instead
@@ -2200,30 +2332,35 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` region: QtC.QRegion `
+    /// ` region: QRegion `
     ///
-    pub fn SuperDrawTree(self: ?*anyopaque, painter: ?*anyopaque, region: ?*anyopaque) void {
-        qtc.QTreeView_SuperDrawTree(@ptrCast(self), @ptrCast(painter), @ptrCast(region));
+    pub fn SuperDrawTree(self: QTreeView, painter: anytype, region: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(region)._is_QRegion;
+        qtc.QTreeView_SuperDrawTree(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(region.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#drawRow)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` options: QtC.QStyleOptionViewItem `
+    /// ` options: QStyleOptionViewItem `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn DrawRow(self: ?*anyopaque, painter: ?*anyopaque, options: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QTreeView_DrawRow(@ptrCast(self), @ptrCast(painter), @ptrCast(options), @ptrCast(index));
+    pub fn DrawRow(self: QTreeView, painter: anytype, options: anytype, index: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(options)._is_QStyleOptionViewItem;
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QTreeView_DrawRow(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(options.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#drawRow)
@@ -2232,12 +2369,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, painter: QtC.QPainter, options: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, painter: QPainter, options: QStyleOptionViewItem, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDrawRow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnDrawRow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDrawRow(self: QTreeView, callback: *const fn (QTreeView, QPainter, QStyleOptionViewItem, QModelIndex) callconv(.c) void) void {
+        qtc.QTreeView_OnDrawRow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDrawRow` instead
@@ -2250,32 +2387,38 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` options: QtC.QStyleOptionViewItem `
+    /// ` options: QStyleOptionViewItem `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperDrawRow(self: ?*anyopaque, painter: ?*anyopaque, options: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QTreeView_SuperDrawRow(@ptrCast(self), @ptrCast(painter), @ptrCast(options), @ptrCast(index));
+    pub fn SuperDrawRow(self: QTreeView, painter: anytype, options: anytype, index: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(options)._is_QStyleOptionViewItem;
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QTreeView_SuperDrawRow(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(options.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#drawBranches)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` rect: QtC.QRect `
+    /// ` rect: QRect `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn DrawBranches(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QTreeView_DrawBranches(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @ptrCast(index));
+    pub fn DrawBranches(self: QTreeView, painter: anytype, rect: anytype, index: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(rect)._is_QRect;
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QTreeView_DrawBranches(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#drawBranches)
@@ -2284,12 +2427,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, painter: QtC.QPainter, rect: QtC.QRect, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, painter: QPainter, rect: QRect, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDrawBranches(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnDrawBranches(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDrawBranches(self: QTreeView, callback: *const fn (QTreeView, QPainter, QRect, QModelIndex) callconv(.c) void) void {
+        qtc.QTreeView_OnDrawBranches(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDrawBranches` instead
@@ -2302,28 +2445,32 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` rect: QtC.QRect `
+    /// ` rect: QRect `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperDrawBranches(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QTreeView_SuperDrawBranches(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @ptrCast(index));
+    pub fn SuperDrawBranches(self: QTreeView, painter: anytype, rect: anytype, index: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(rect)._is_QRect;
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QTreeView_SuperDrawBranches(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#mousePressEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_MousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MousePressEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QTreeView_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#mousePressEvent)
@@ -2332,12 +2479,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMousePressEvent(self: QTreeView, callback: *const fn (QTreeView, QMouseEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMousePressEvent` instead
@@ -2350,24 +2497,26 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QTreeView_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#mouseReleaseEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseReleaseEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QTreeView_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#mouseReleaseEvent)
@@ -2376,12 +2525,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseReleaseEvent(self: QTreeView, callback: *const fn (QTreeView, QMouseEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
@@ -2394,24 +2543,26 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QTreeView_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#mouseDoubleClickEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseDoubleClickEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QTreeView_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#mouseDoubleClickEvent)
@@ -2420,12 +2571,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseDoubleClickEvent(self: QTreeView, callback: *const fn (QTreeView, QMouseEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
@@ -2438,24 +2589,26 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QTreeView_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#mouseMoveEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseMoveEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QTreeView_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#mouseMoveEvent)
@@ -2464,12 +2617,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseMoveEvent(self: QTreeView, callback: *const fn (QTreeView, QMouseEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
@@ -2482,24 +2635,26 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QTreeView_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#keyPressEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_KeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyPressEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QTreeView_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#keyPressEvent)
@@ -2508,12 +2663,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyPressEvent(self: QTreeView, callback: *const fn (QTreeView, QKeyEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
@@ -2526,24 +2681,26 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperKeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyPressEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QTreeView_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#dragMoveEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_DragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragMoveEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QTreeView_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#dragMoveEvent)
@@ -2552,12 +2709,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QDragMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragMoveEvent(self: QTreeView, callback: *const fn (QTreeView, QDragMoveEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
@@ -2570,24 +2727,26 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QTreeView_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#viewportEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn ViewportEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTreeView_ViewportEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ViewportEvent(self: QTreeView, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTreeView_ViewportEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#viewportEvent)
@@ -2596,12 +2755,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTreeView, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnViewportEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTreeView_OnViewportEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnViewportEvent(self: QTreeView, callback: *const fn (QTreeView, QEvent) callconv(.c) bool) void {
+        qtc.QTreeView_OnViewportEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperViewportEvent` instead
@@ -2614,22 +2773,23 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperViewportEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTreeView_SuperViewportEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperViewportEvent(self: QTreeView, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTreeView_SuperViewportEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#updateGeometries)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn UpdateGeometries(self: ?*anyopaque) void {
-        qtc.QTreeView_UpdateGeometries(@ptrCast(self));
+    pub fn UpdateGeometries(self: QTreeView) void {
+        qtc.QTreeView_UpdateGeometries(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#updateGeometries)
@@ -2638,12 +2798,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateGeometries(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnUpdateGeometries(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateGeometries(self: QTreeView, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeView_OnUpdateGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateGeometries` instead
@@ -2656,20 +2816,20 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperUpdateGeometries(self: ?*anyopaque) void {
-        qtc.QTreeView_SuperUpdateGeometries(@ptrCast(self));
+    pub fn SuperUpdateGeometries(self: QTreeView) void {
+        qtc.QTreeView_SuperUpdateGeometries(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#viewportSizeHint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ViewportSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTreeView_ViewportSizeHint(@ptrCast(self));
+    pub fn ViewportSizeHint(self: QTreeView) QSize {
+        return .{ .ptr = qtc.QTreeView_ViewportSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#viewportSizeHint)
@@ -2678,12 +2838,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnViewportSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QTreeView_OnViewportSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnViewportSizeHint(self: QTreeView, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QTreeView_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperViewportSizeHint` instead
@@ -2696,22 +2856,22 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperViewportSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTreeView_SuperViewportSizeHint(@ptrCast(self));
+    pub fn SuperViewportSizeHint(self: QTreeView) QSize {
+        return .{ .ptr = qtc.QTreeView_SuperViewportSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#sizeHintForColumn)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` column: i32 `
     ///
-    pub fn SizeHintForColumn(self: ?*anyopaque, column: i32) i32 {
-        return qtc.QTreeView_SizeHintForColumn(@ptrCast(self), @bitCast(column));
+    pub fn SizeHintForColumn(self: QTreeView, column: i32) i32 {
+        return qtc.QTreeView_SizeHintForColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#sizeHintForColumn)
@@ -2720,12 +2880,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, column: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTreeView, column: i32) callconv(.c) i32 `
     ///
-    pub fn OnSizeHintForColumn(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QTreeView_OnSizeHintForColumn(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHintForColumn(self: QTreeView, callback: *const fn (QTreeView, i32) callconv(.c) i32) void {
+        qtc.QTreeView_OnSizeHintForColumn(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSizeHintForColumn` instead
@@ -2738,24 +2898,25 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` column: i32 `
     ///
-    pub fn SuperSizeHintForColumn(self: ?*anyopaque, column: i32) i32 {
-        return qtc.QTreeView_SuperSizeHintForColumn(@ptrCast(self), @bitCast(column));
+    pub fn SuperSizeHintForColumn(self: QTreeView, column: i32) i32 {
+        return qtc.QTreeView_SuperSizeHintForColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#indexRowSizeHint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn IndexRowSizeHint(self: ?*anyopaque, index: ?*anyopaque) i32 {
-        return qtc.QTreeView_IndexRowSizeHint(@ptrCast(self), @ptrCast(index));
+    pub fn IndexRowSizeHint(self: QTreeView, index: anytype) i32 {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QTreeView_IndexRowSizeHint(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#indexRowSizeHint)
@@ -2764,12 +2925,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, index: QtC.QModelIndex) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTreeView, index: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnIndexRowSizeHint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QTreeView_OnIndexRowSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIndexRowSizeHint(self: QTreeView, callback: *const fn (QTreeView, QModelIndex) callconv(.c) i32) void {
+        qtc.QTreeView_OnIndexRowSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIndexRowSizeHint` instead
@@ -2782,24 +2943,26 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperIndexRowSizeHint(self: ?*anyopaque, index: ?*anyopaque) i32 {
-        return qtc.QTreeView_SuperIndexRowSizeHint(@ptrCast(self), @ptrCast(index));
+    pub fn SuperIndexRowSizeHint(self: QTreeView, index: anytype) i32 {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QTreeView_SuperIndexRowSizeHint(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#rowHeight)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn RowHeight(self: ?*anyopaque, index: ?*anyopaque) i32 {
-        return qtc.QTreeView_RowHeight(@ptrCast(self), @ptrCast(index));
+    pub fn RowHeight(self: QTreeView, index: anytype) i32 {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QTreeView_RowHeight(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#rowHeight)
@@ -2808,12 +2971,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, index: QtC.QModelIndex) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTreeView, index: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnRowHeight(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QTreeView_OnRowHeight(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowHeight(self: QTreeView, callback: *const fn (QTreeView, QModelIndex) callconv(.c) i32) void {
+        qtc.QTreeView_OnRowHeight(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRowHeight` instead
@@ -2826,24 +2989,25 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperRowHeight(self: ?*anyopaque, index: ?*anyopaque) i32 {
-        return qtc.QTreeView_SuperRowHeight(@ptrCast(self), @ptrCast(index));
+    pub fn SuperRowHeight(self: QTreeView, index: anytype) i32 {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QTreeView_SuperRowHeight(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#horizontalScrollbarAction)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` action: i32 `
     ///
-    pub fn HorizontalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QTreeView_HorizontalScrollbarAction(@ptrCast(self), @bitCast(action));
+    pub fn HorizontalScrollbarAction(self: QTreeView, action: i32) void {
+        qtc.QTreeView_HorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#horizontalScrollbarAction)
@@ -2852,12 +3016,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, action: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, action: i32) callconv(.c) void `
     ///
-    pub fn OnHorizontalScrollbarAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeView_OnHorizontalScrollbarAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHorizontalScrollbarAction(self: QTreeView, callback: *const fn (QTreeView, i32) callconv(.c) void) void {
+        qtc.QTreeView_OnHorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperHorizontalScrollbarAction` instead
@@ -2870,24 +3034,25 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` action: i32 `
     ///
-    pub fn SuperHorizontalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QTreeView_SuperHorizontalScrollbarAction(@ptrCast(self), @bitCast(action));
+    pub fn SuperHorizontalScrollbarAction(self: QTreeView, action: i32) void {
+        qtc.QTreeView_SuperHorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#isIndexHidden)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn IsIndexHidden(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.QTreeView_IsIndexHidden(@ptrCast(self), @ptrCast(index));
+    pub fn IsIndexHidden(self: QTreeView, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QTreeView_IsIndexHidden(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#isIndexHidden)
@@ -2896,12 +3061,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, index: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTreeView, index: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnIsIndexHidden(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTreeView_OnIsIndexHidden(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsIndexHidden(self: QTreeView, callback: *const fn (QTreeView, QModelIndex) callconv(.c) bool) void {
+        qtc.QTreeView_OnIsIndexHidden(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIsIndexHidden` instead
@@ -2914,26 +3079,29 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperIsIndexHidden(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.QTreeView_SuperIsIndexHidden(@ptrCast(self), @ptrCast(index));
+    pub fn SuperIsIndexHidden(self: QTreeView, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QTreeView_SuperIsIndexHidden(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#selectionChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` selected: QtC.QItemSelection `
+    /// ` selected: QItemSelection `
     ///
-    /// ` deselected: QtC.QItemSelection `
+    /// ` deselected: QItemSelection `
     ///
-    pub fn SelectionChanged(self: ?*anyopaque, selected: ?*anyopaque, deselected: ?*anyopaque) void {
-        qtc.QTreeView_SelectionChanged(@ptrCast(self), @ptrCast(selected), @ptrCast(deselected));
+    pub fn SelectionChanged(self: QTreeView, selected: anytype, deselected: anytype) void {
+        comptime _ = @TypeOf(selected)._is_QItemSelection;
+        comptime _ = @TypeOf(deselected)._is_QItemSelection;
+        qtc.QTreeView_SelectionChanged(@ptrCast(self.ptr), @ptrCast(selected.ptr), @ptrCast(deselected.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#selectionChanged)
@@ -2942,12 +3110,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, selected: QtC.QItemSelection, deselected: QtC.QItemSelection) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, selected: QItemSelection, deselected: QItemSelection) callconv(.c) void `
     ///
-    pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnSelectionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSelectionChanged(self: QTreeView, callback: *const fn (QTreeView, QItemSelection, QItemSelection) callconv(.c) void) void {
+        qtc.QTreeView_OnSelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSelectionChanged` instead
@@ -2960,28 +3128,32 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` selected: QtC.QItemSelection `
+    /// ` selected: QItemSelection `
     ///
-    /// ` deselected: QtC.QItemSelection `
+    /// ` deselected: QItemSelection `
     ///
-    pub fn SuperSelectionChanged(self: ?*anyopaque, selected: ?*anyopaque, deselected: ?*anyopaque) void {
-        qtc.QTreeView_SuperSelectionChanged(@ptrCast(self), @ptrCast(selected), @ptrCast(deselected));
+    pub fn SuperSelectionChanged(self: QTreeView, selected: anytype, deselected: anytype) void {
+        comptime _ = @TypeOf(selected)._is_QItemSelection;
+        comptime _ = @TypeOf(deselected)._is_QItemSelection;
+        qtc.QTreeView_SuperSelectionChanged(@ptrCast(self.ptr), @ptrCast(selected.ptr), @ptrCast(deselected.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#currentChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` current: QtC.QModelIndex `
+    /// ` current: QModelIndex `
     ///
-    /// ` previous: QtC.QModelIndex `
+    /// ` previous: QModelIndex `
     ///
-    pub fn CurrentChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
-        qtc.QTreeView_CurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
+    pub fn CurrentChanged(self: QTreeView, current: anytype, previous: anytype) void {
+        comptime _ = @TypeOf(current)._is_QModelIndex;
+        comptime _ = @TypeOf(previous)._is_QModelIndex;
+        qtc.QTreeView_CurrentChanged(@ptrCast(self.ptr), @ptrCast(current.ptr), @ptrCast(previous.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreeview.html#currentChanged)
@@ -2990,12 +3162,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, current: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, current: QModelIndex, previous: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnCurrentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnCurrentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCurrentChanged(self: QTreeView, callback: *const fn (QTreeView, QModelIndex, QModelIndex) callconv(.c) void) void {
+        qtc.QTreeView_OnCurrentChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCurrentChanged` instead
@@ -3008,27 +3180,29 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` current: QtC.QModelIndex `
+    /// ` current: QModelIndex `
     ///
-    /// ` previous: QtC.QModelIndex `
+    /// ` previous: QModelIndex `
     ///
-    pub fn SuperCurrentChanged(self: ?*anyopaque, current: ?*anyopaque, previous: ?*anyopaque) void {
-        qtc.QTreeView_SuperCurrentChanged(@ptrCast(self), @ptrCast(current), @ptrCast(previous));
+    pub fn SuperCurrentChanged(self: QTreeView, current: anytype, previous: anytype) void {
+        comptime _ = @TypeOf(current)._is_QModelIndex;
+        comptime _ = @TypeOf(previous)._is_QModelIndex;
+        qtc.QTreeView_SuperCurrentChanged(@ptrCast(self.ptr), @ptrCast(current.ptr), @ptrCast(previous.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -3042,15 +3216,15 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -3064,14 +3238,15 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` depth: i32 `
     ///
-    pub fn ExpandRecursively2(self: ?*anyopaque, index: ?*anyopaque, depth: i32) void {
-        qtc.QTreeView_ExpandRecursively2(@ptrCast(self), @ptrCast(index), @bitCast(depth));
+    pub fn ExpandRecursively2(self: QTreeView, index: anytype, depth: i32) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QTreeView_ExpandRecursively2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(depth));
     }
 
     /// Inherited from QAbstractItemView
@@ -3080,10 +3255,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Model(self: ?*anyopaque) QtC.QAbstractItemModel {
-        return qtc.QAbstractItemView_Model(@ptrCast(self));
+    pub fn Model(self: QTreeView) QAbstractItemModel {
+        return .{ .ptr = qtc.QAbstractItemView_Model(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -3092,10 +3267,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SelectionModel(self: ?*anyopaque) QtC.QItemSelectionModel {
-        return qtc.QAbstractItemView_SelectionModel(@ptrCast(self));
+    pub fn SelectionModel(self: QTreeView) QItemSelectionModel {
+        return .{ .ptr = qtc.QAbstractItemView_SelectionModel(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -3104,12 +3279,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` delegate: QtC.QAbstractItemDelegate `
+    /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetItemDelegate(@ptrCast(self), @ptrCast(delegate));
+    pub fn SetItemDelegate(self: QTreeView, delegate: anytype) void {
+        comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
+        qtc.QAbstractItemView_SetItemDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3118,10 +3294,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ItemDelegate(self: ?*anyopaque) QtC.QAbstractItemDelegate {
-        return qtc.QAbstractItemView_ItemDelegate(@ptrCast(self));
+    pub fn ItemDelegate(self: QTreeView) QAbstractItemDelegate {
+        return .{ .ptr = qtc.QAbstractItemView_ItemDelegate(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -3130,12 +3306,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` mode: qabstractitemview_enums.SelectionMode `
     ///
-    pub fn SetSelectionMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetSelectionMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetSelectionMode(self: QTreeView, mode: i32) void {
+        qtc.QAbstractItemView_SetSelectionMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// Inherited from QAbstractItemView
@@ -3144,14 +3320,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.SelectionMode `
     ///
-    pub fn SelectionMode(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_SelectionMode(@ptrCast(self));
+    pub fn SelectionMode(self: QTreeView) i32 {
+        return qtc.QAbstractItemView_SelectionMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3160,12 +3336,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` behavior: qabstractitemview_enums.SelectionBehavior `
     ///
-    pub fn SetSelectionBehavior(self: ?*anyopaque, behavior: i32) void {
-        qtc.QAbstractItemView_SetSelectionBehavior(@ptrCast(self), @bitCast(behavior));
+    pub fn SetSelectionBehavior(self: QTreeView, behavior: i32) void {
+        qtc.QAbstractItemView_SetSelectionBehavior(@ptrCast(self.ptr), @bitCast(behavior));
     }
 
     /// Inherited from QAbstractItemView
@@ -3174,14 +3350,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.SelectionBehavior `
     ///
-    pub fn SelectionBehavior(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_SelectionBehavior(@ptrCast(self));
+    pub fn SelectionBehavior(self: QTreeView) i32 {
+        return qtc.QAbstractItemView_SelectionBehavior(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3190,10 +3366,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn CurrentIndex(self: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractItemView_CurrentIndex(@ptrCast(self));
+    pub fn CurrentIndex(self: QTreeView) QModelIndex {
+        return .{ .ptr = qtc.QAbstractItemView_CurrentIndex(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -3202,10 +3378,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn RootIndex(self: ?*anyopaque) QtC.QModelIndex {
-        return qtc.QAbstractItemView_RootIndex(@ptrCast(self));
+    pub fn RootIndex(self: QTreeView) QModelIndex {
+        return .{ .ptr = qtc.QAbstractItemView_RootIndex(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -3214,12 +3390,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` triggers: flag of qabstractitemview_enums.EditTrigger `
     ///
-    pub fn SetEditTriggers(self: ?*anyopaque, triggers: i32) void {
-        qtc.QAbstractItemView_SetEditTriggers(@ptrCast(self), @bitCast(triggers));
+    pub fn SetEditTriggers(self: QTreeView, triggers: i32) void {
+        qtc.QAbstractItemView_SetEditTriggers(@ptrCast(self.ptr), @bitCast(triggers));
     }
 
     /// Inherited from QAbstractItemView
@@ -3228,14 +3404,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` flag of qabstractitemview_enums.EditTrigger `
     ///
-    pub fn EditTriggers(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_EditTriggers(@ptrCast(self));
+    pub fn EditTriggers(self: QTreeView) i32 {
+        return qtc.QAbstractItemView_EditTriggers(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3244,12 +3420,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` mode: qabstractitemview_enums.ScrollMode `
     ///
-    pub fn SetVerticalScrollMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetVerticalScrollMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetVerticalScrollMode(self: QTreeView, mode: i32) void {
+        qtc.QAbstractItemView_SetVerticalScrollMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// Inherited from QAbstractItemView
@@ -3258,14 +3434,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.ScrollMode `
     ///
-    pub fn VerticalScrollMode(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_VerticalScrollMode(@ptrCast(self));
+    pub fn VerticalScrollMode(self: QTreeView) i32 {
+        return qtc.QAbstractItemView_VerticalScrollMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3274,10 +3450,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ResetVerticalScrollMode(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_ResetVerticalScrollMode(@ptrCast(self));
+    pub fn ResetVerticalScrollMode(self: QTreeView) void {
+        qtc.QAbstractItemView_ResetVerticalScrollMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3286,12 +3462,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` mode: qabstractitemview_enums.ScrollMode `
     ///
-    pub fn SetHorizontalScrollMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetHorizontalScrollMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetHorizontalScrollMode(self: QTreeView, mode: i32) void {
+        qtc.QAbstractItemView_SetHorizontalScrollMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// Inherited from QAbstractItemView
@@ -3300,14 +3476,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.ScrollMode `
     ///
-    pub fn HorizontalScrollMode(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_HorizontalScrollMode(@ptrCast(self));
+    pub fn HorizontalScrollMode(self: QTreeView) i32 {
+        return qtc.QAbstractItemView_HorizontalScrollMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3316,10 +3492,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ResetHorizontalScrollMode(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_ResetHorizontalScrollMode(@ptrCast(self));
+    pub fn ResetHorizontalScrollMode(self: QTreeView) void {
+        qtc.QAbstractItemView_ResetHorizontalScrollMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3328,12 +3504,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAutoScroll(self: ?*anyopaque, enable: bool) void {
-        qtc.QAbstractItemView_SetAutoScroll(@ptrCast(self), enable);
+    pub fn SetAutoScroll(self: QTreeView, enable: bool) void {
+        qtc.QAbstractItemView_SetAutoScroll(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QAbstractItemView
@@ -3342,10 +3518,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn HasAutoScroll(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_HasAutoScroll(@ptrCast(self));
+    pub fn HasAutoScroll(self: QTreeView) bool {
+        return qtc.QAbstractItemView_HasAutoScroll(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3354,12 +3530,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` margin: i32 `
     ///
-    pub fn SetAutoScrollMargin(self: ?*anyopaque, margin: i32) void {
-        qtc.QAbstractItemView_SetAutoScrollMargin(@ptrCast(self), @bitCast(margin));
+    pub fn SetAutoScrollMargin(self: QTreeView, margin: i32) void {
+        qtc.QAbstractItemView_SetAutoScrollMargin(@ptrCast(self.ptr), @bitCast(margin));
     }
 
     /// Inherited from QAbstractItemView
@@ -3368,10 +3544,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn AutoScrollMargin(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_AutoScrollMargin(@ptrCast(self));
+    pub fn AutoScrollMargin(self: QTreeView) i32 {
+        return qtc.QAbstractItemView_AutoScrollMargin(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3380,12 +3556,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabKeyNavigation(self: ?*anyopaque, enable: bool) void {
-        qtc.QAbstractItemView_SetTabKeyNavigation(@ptrCast(self), enable);
+    pub fn SetTabKeyNavigation(self: QTreeView, enable: bool) void {
+        qtc.QAbstractItemView_SetTabKeyNavigation(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QAbstractItemView
@@ -3394,10 +3570,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn TabKeyNavigation(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_TabKeyNavigation(@ptrCast(self));
+    pub fn TabKeyNavigation(self: QTreeView) bool {
+        return qtc.QAbstractItemView_TabKeyNavigation(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3406,12 +3582,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDropIndicatorShown(self: ?*anyopaque, enable: bool) void {
-        qtc.QAbstractItemView_SetDropIndicatorShown(@ptrCast(self), enable);
+    pub fn SetDropIndicatorShown(self: QTreeView, enable: bool) void {
+        qtc.QAbstractItemView_SetDropIndicatorShown(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QAbstractItemView
@@ -3420,10 +3596,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ShowDropIndicator(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_ShowDropIndicator(@ptrCast(self));
+    pub fn ShowDropIndicator(self: QTreeView) bool {
+        return qtc.QAbstractItemView_ShowDropIndicator(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3432,12 +3608,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDragEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QAbstractItemView_SetDragEnabled(@ptrCast(self), enable);
+    pub fn SetDragEnabled(self: QTreeView, enable: bool) void {
+        qtc.QAbstractItemView_SetDragEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QAbstractItemView
@@ -3446,10 +3622,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn DragEnabled(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_DragEnabled(@ptrCast(self));
+    pub fn DragEnabled(self: QTreeView) bool {
+        return qtc.QAbstractItemView_DragEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3458,12 +3634,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` overwrite: bool `
     ///
-    pub fn SetDragDropOverwriteMode(self: ?*anyopaque, overwrite: bool) void {
-        qtc.QAbstractItemView_SetDragDropOverwriteMode(@ptrCast(self), overwrite);
+    pub fn SetDragDropOverwriteMode(self: QTreeView, overwrite: bool) void {
+        qtc.QAbstractItemView_SetDragDropOverwriteMode(@ptrCast(self.ptr), overwrite);
     }
 
     /// Inherited from QAbstractItemView
@@ -3472,10 +3648,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn DragDropOverwriteMode(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_DragDropOverwriteMode(@ptrCast(self));
+    pub fn DragDropOverwriteMode(self: QTreeView) bool {
+        return qtc.QAbstractItemView_DragDropOverwriteMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3484,12 +3660,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` behavior: qabstractitemview_enums.DragDropMode `
     ///
-    pub fn SetDragDropMode(self: ?*anyopaque, behavior: i32) void {
-        qtc.QAbstractItemView_SetDragDropMode(@ptrCast(self), @bitCast(behavior));
+    pub fn SetDragDropMode(self: QTreeView, behavior: i32) void {
+        qtc.QAbstractItemView_SetDragDropMode(@ptrCast(self.ptr), @bitCast(behavior));
     }
 
     /// Inherited from QAbstractItemView
@@ -3498,14 +3674,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.DragDropMode `
     ///
-    pub fn DragDropMode(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_DragDropMode(@ptrCast(self));
+    pub fn DragDropMode(self: QTreeView) i32 {
+        return qtc.QAbstractItemView_DragDropMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3514,12 +3690,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` dropAction: qnamespace_enums.DropAction `
     ///
-    pub fn SetDefaultDropAction(self: ?*anyopaque, dropAction: i32) void {
-        qtc.QAbstractItemView_SetDefaultDropAction(@ptrCast(self), @bitCast(dropAction));
+    pub fn SetDefaultDropAction(self: QTreeView, dropAction: i32) void {
+        qtc.QAbstractItemView_SetDefaultDropAction(@ptrCast(self.ptr), @bitCast(dropAction));
     }
 
     /// Inherited from QAbstractItemView
@@ -3528,14 +3704,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.DropAction `
     ///
-    pub fn DefaultDropAction(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_DefaultDropAction(@ptrCast(self));
+    pub fn DefaultDropAction(self: QTreeView) i32 {
+        return qtc.QAbstractItemView_DefaultDropAction(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3544,12 +3720,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAlternatingRowColors(self: ?*anyopaque, enable: bool) void {
-        qtc.QAbstractItemView_SetAlternatingRowColors(@ptrCast(self), enable);
+    pub fn SetAlternatingRowColors(self: QTreeView, enable: bool) void {
+        qtc.QAbstractItemView_SetAlternatingRowColors(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QAbstractItemView
@@ -3558,10 +3734,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn AlternatingRowColors(self: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_AlternatingRowColors(@ptrCast(self));
+    pub fn AlternatingRowColors(self: QTreeView) bool {
+        return qtc.QAbstractItemView_AlternatingRowColors(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3570,12 +3746,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` size: QtC.QSize `
+    /// ` size: QSize `
     ///
-    pub fn SetIconSize(self: ?*anyopaque, size: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetIconSize(@ptrCast(self), @ptrCast(size));
+    pub fn SetIconSize(self: QTreeView, size: anytype) void {
+        comptime _ = @TypeOf(size)._is_QSize;
+        qtc.QAbstractItemView_SetIconSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3584,10 +3761,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn IconSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractItemView_IconSize(@ptrCast(self));
+    pub fn IconSize(self: QTreeView) QSize {
+        return .{ .ptr = qtc.QAbstractItemView_IconSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -3596,12 +3773,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` mode: qnamespace_enums.TextElideMode `
     ///
-    pub fn SetTextElideMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QAbstractItemView_SetTextElideMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetTextElideMode(self: QTreeView, mode: i32) void {
+        qtc.QAbstractItemView_SetTextElideMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// Inherited from QAbstractItemView
@@ -3610,14 +3787,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.TextElideMode `
     ///
-    pub fn TextElideMode(self: ?*anyopaque) i32 {
-        return qtc.QAbstractItemView_TextElideMode(@ptrCast(self));
+    pub fn TextElideMode(self: QTreeView) i32 {
+        return qtc.QAbstractItemView_TextElideMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3626,12 +3803,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SizeHintForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractItemView_SizeHintForIndex(@ptrCast(self), @ptrCast(index));
+    pub fn SizeHintForIndex(self: QTreeView, index: anytype) QSize {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QAbstractItemView_SizeHintForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -3640,12 +3818,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn OpenPersistentEditor(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_OpenPersistentEditor(@ptrCast(self), @ptrCast(index));
+    pub fn OpenPersistentEditor(self: QTreeView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_OpenPersistentEditor(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3654,12 +3833,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn ClosePersistentEditor(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_ClosePersistentEditor(@ptrCast(self), @ptrCast(index));
+    pub fn ClosePersistentEditor(self: QTreeView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_ClosePersistentEditor(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3668,12 +3848,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn IsPersistentEditorOpen(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.QAbstractItemView_IsPersistentEditorOpen(@ptrCast(self), @ptrCast(index));
+    pub fn IsPersistentEditorOpen(self: QTreeView, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QAbstractItemView_IsPersistentEditorOpen(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3682,14 +3863,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SetIndexWidget(self: ?*anyopaque, index: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetIndexWidget(@ptrCast(self), @ptrCast(index), @ptrCast(widget));
+    pub fn SetIndexWidget(self: QTreeView, index: anytype, widget: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QAbstractItemView_SetIndexWidget(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(widget.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3698,12 +3881,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn IndexWidget(self: ?*anyopaque, index: ?*anyopaque) QtC.QWidget {
-        return qtc.QAbstractItemView_IndexWidget(@ptrCast(self), @ptrCast(index));
+    pub fn IndexWidget(self: QTreeView, index: anytype) QWidget {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QAbstractItemView_IndexWidget(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -3712,14 +3896,15 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` row: i32 `
     ///
-    /// ` delegate: QtC.QAbstractItemDelegate `
+    /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegateForRow(self: ?*anyopaque, row: i32, delegate: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetItemDelegateForRow(@ptrCast(self), @bitCast(row), @ptrCast(delegate));
+    pub fn SetItemDelegateForRow(self: QTreeView, row: i32, delegate: anytype) void {
+        comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
+        qtc.QAbstractItemView_SetItemDelegateForRow(@ptrCast(self.ptr), @bitCast(row), @ptrCast(delegate.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3728,12 +3913,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` row: i32 `
     ///
-    pub fn ItemDelegateForRow(self: ?*anyopaque, row: i32) QtC.QAbstractItemDelegate {
-        return qtc.QAbstractItemView_ItemDelegateForRow(@ptrCast(self), @bitCast(row));
+    pub fn ItemDelegateForRow(self: QTreeView, row: i32) QAbstractItemDelegate {
+        return .{ .ptr = qtc.QAbstractItemView_ItemDelegateForRow(@ptrCast(self.ptr), @bitCast(row)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -3742,14 +3927,15 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` column: i32 `
     ///
-    /// ` delegate: QtC.QAbstractItemDelegate `
+    /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegateForColumn(self: ?*anyopaque, column: i32, delegate: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetItemDelegateForColumn(@ptrCast(self), @bitCast(column), @ptrCast(delegate));
+    pub fn SetItemDelegateForColumn(self: QTreeView, column: i32, delegate: anytype) void {
+        comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
+        qtc.QAbstractItemView_SetItemDelegateForColumn(@ptrCast(self.ptr), @bitCast(column), @ptrCast(delegate.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3758,12 +3944,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` column: i32 `
     ///
-    pub fn ItemDelegateForColumn(self: ?*anyopaque, column: i32) QtC.QAbstractItemDelegate {
-        return qtc.QAbstractItemView_ItemDelegateForColumn(@ptrCast(self), @bitCast(column));
+    pub fn ItemDelegateForColumn(self: QTreeView, column: i32) QAbstractItemDelegate {
+        return .{ .ptr = qtc.QAbstractItemView_ItemDelegateForColumn(@ptrCast(self.ptr), @bitCast(column)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -3772,12 +3958,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn ItemDelegate2(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
-        return qtc.QAbstractItemView_ItemDelegate2(@ptrCast(self), @ptrCast(index));
+    pub fn ItemDelegate2(self: QTreeView, index: anytype) QAbstractItemDelegate {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QAbstractItemView_ItemDelegate2(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -3786,12 +3973,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Edit(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_Edit(@ptrCast(self), @ptrCast(index));
+    pub fn Edit(self: QTreeView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_Edit(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3800,10 +3988,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ClearSelection(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_ClearSelection(@ptrCast(self));
+    pub fn ClearSelection(self: QTreeView) void {
+        qtc.QAbstractItemView_ClearSelection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3812,12 +4000,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SetCurrentIndex(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_SetCurrentIndex(@ptrCast(self), @ptrCast(index));
+    pub fn SetCurrentIndex(self: QTreeView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_SetCurrentIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3826,10 +4015,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ScrollToTop(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_ScrollToTop(@ptrCast(self));
+    pub fn ScrollToTop(self: QTreeView) void {
+        qtc.QAbstractItemView_ScrollToTop(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3838,10 +4027,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ScrollToBottom(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_ScrollToBottom(@ptrCast(self));
+    pub fn ScrollToBottom(self: QTreeView) void {
+        qtc.QAbstractItemView_ScrollToBottom(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3850,12 +4039,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Update(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_Update(@ptrCast(self), @ptrCast(index));
+    pub fn Update(self: QTreeView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_Update(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3864,12 +4054,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Pressed(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_Pressed(@ptrCast(self), @ptrCast(index));
+    pub fn Pressed(self: QTreeView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_Pressed(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3878,12 +4069,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPressed(self: QTreeView, callback: *const fn (QTreeView, QModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -3892,12 +4083,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Clicked(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_Clicked(@ptrCast(self), @ptrCast(index));
+    pub fn Clicked(self: QTreeView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_Clicked(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3906,12 +4098,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClicked(self: QTreeView, callback: *const fn (QTreeView, QModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -3920,12 +4112,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn DoubleClicked(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_DoubleClicked(@ptrCast(self), @ptrCast(index));
+    pub fn DoubleClicked(self: QTreeView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_DoubleClicked(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3934,12 +4127,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDoubleClicked(self: QTreeView, callback: *const fn (QTreeView, QModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -3948,12 +4141,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Activated(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_Activated(@ptrCast(self), @ptrCast(index));
+    pub fn Activated(self: QTreeView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_Activated(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3962,12 +4156,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Activated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActivated(self: QTreeView, callback: *const fn (QTreeView, QModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_Activated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -3976,12 +4170,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Entered(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QAbstractItemView_Entered(@ptrCast(self), @ptrCast(index));
+    pub fn Entered(self: QTreeView, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.QAbstractItemView_Entered(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -3990,12 +4185,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Entered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEntered(self: QTreeView, callback: *const fn (QTreeView, QModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_Entered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -4004,10 +4199,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ViewportEntered(self: ?*anyopaque) void {
-        qtc.QAbstractItemView_ViewportEntered(@ptrCast(self));
+    pub fn ViewportEntered(self: QTreeView) void {
+        qtc.QAbstractItemView_ViewportEntered(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -4016,12 +4211,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView) callconv(.c) void `
     ///
-    pub fn OnViewportEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_ViewportEntered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnViewportEntered(self: QTreeView, callback: *const fn (QTreeView) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_ViewportEntered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -4030,12 +4225,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` size: QtC.QSize `
+    /// ` size: QSize `
     ///
-    pub fn IconSizeChanged(self: ?*anyopaque, size: ?*anyopaque) void {
-        qtc.QAbstractItemView_IconSizeChanged(@ptrCast(self), @ptrCast(size));
+    pub fn IconSizeChanged(self: QTreeView, size: anytype) void {
+        comptime _ = @TypeOf(size)._is_QSize;
+        qtc.QAbstractItemView_IconSizeChanged(@ptrCast(self.ptr), @ptrCast(size.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -4044,12 +4240,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, size: QtC.QSize) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, size: QSize) callconv(.c) void `
     ///
-    pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIconSizeChanged(self: QTreeView, callback: *const fn (QTreeView, QSize) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4058,14 +4254,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn VerticalScrollBarPolicy(self: ?*anyopaque) i32 {
-        return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self));
+    pub fn VerticalScrollBarPolicy(self: QTreeView) i32 {
+        return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4074,12 +4270,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self), @bitCast(verticalScrollBarPolicy));
+    pub fn SetVerticalScrollBarPolicy(self: QTreeView, verticalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(verticalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4088,10 +4284,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn VerticalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
-        return qtc.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self));
+    pub fn VerticalScrollBar(self: QTreeView) QScrollBar {
+        return .{ .ptr = qtc.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4100,12 +4296,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` scrollbar: QtC.QScrollBar `
+    /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetVerticalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self), @ptrCast(scrollbar));
+    pub fn SetVerticalScrollBar(self: QTreeView, scrollbar: anytype) void {
+        comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
+        qtc.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4114,14 +4311,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn HorizontalScrollBarPolicy(self: ?*anyopaque) i32 {
-        return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self));
+    pub fn HorizontalScrollBarPolicy(self: QTreeView) i32 {
+        return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4130,12 +4327,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self), @bitCast(horizontalScrollBarPolicy));
+    pub fn SetHorizontalScrollBarPolicy(self: QTreeView, horizontalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(horizontalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4144,10 +4341,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn HorizontalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
-        return qtc.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self));
+    pub fn HorizontalScrollBar(self: QTreeView) QScrollBar {
+        return .{ .ptr = qtc.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4156,12 +4353,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` scrollbar: QtC.QScrollBar `
+    /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetHorizontalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self), @ptrCast(scrollbar));
+    pub fn SetHorizontalScrollBar(self: QTreeView, scrollbar: anytype) void {
+        comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
+        qtc.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4170,10 +4368,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn CornerWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QAbstractScrollArea_CornerWidget(@ptrCast(self));
+    pub fn CornerWidget(self: QTreeView) QWidget {
+        return .{ .ptr = qtc.QAbstractScrollArea_CornerWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4182,12 +4380,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SetCornerWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QAbstractScrollArea_SetCornerWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn SetCornerWidget(self: QTreeView, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QAbstractScrollArea_SetCornerWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4196,14 +4395,15 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
-        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @bitCast(alignment));
+    pub fn AddScrollBarWidget(self: QTreeView, widget: anytype, alignment: i32) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr), @bitCast(alignment));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4212,18 +4412,19 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
-    ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` self: QTreeView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
-        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @bitCast(alignment));
+    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    ///
+    pub fn ScrollBarWidgets(self: QTreeView, allocator: std.mem.Allocator, alignment: i32) []QWidget {
+        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self.ptr), @bitCast(alignment));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("qtreeview.ScrollBarWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("qtreeview.ScrollBarWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -4233,10 +4434,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Viewport(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QAbstractScrollArea_Viewport(@ptrCast(self));
+    pub fn Viewport(self: QTreeView) QWidget {
+        return .{ .ptr = qtc.QAbstractScrollArea_Viewport(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4245,12 +4446,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SetViewport(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QAbstractScrollArea_SetViewport(@ptrCast(self), @ptrCast(widget));
+    pub fn SetViewport(self: QTreeView, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QAbstractScrollArea_SetViewport(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4259,10 +4461,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn MaximumViewportSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self));
+    pub fn MaximumViewportSize(self: QTreeView) QSize {
+        return .{ .ptr = qtc.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4271,14 +4473,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SizeAdjustPolicy(self: ?*anyopaque) i32 {
-        return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self));
+    pub fn SizeAdjustPolicy(self: QTreeView) i32 {
+        return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -4287,12 +4489,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` policy: qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetSizeAdjustPolicy(self: QTreeView, policy: i32) void {
+        qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QFrame
@@ -4301,10 +4503,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn FrameStyle(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameStyle(@ptrCast(self));
+    pub fn FrameStyle(self: QTreeView) i32 {
+        return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -4313,12 +4515,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self), @bitCast(frameStyle));
+    pub fn SetFrameStyle(self: QTreeView, frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
     }
 
     /// Inherited from QFrame
@@ -4327,10 +4529,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn FrameWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameWidth(@ptrCast(self));
+    pub fn FrameWidth(self: QTreeView) i32 {
+        return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -4339,14 +4541,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameShape(@ptrCast(self));
+    pub fn FrameShape(self: QTreeView) i32 {
+        return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -4355,12 +4557,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self), @bitCast(frameShape));
+    pub fn SetFrameShape(self: QTreeView, frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
     }
 
     /// Inherited from QFrame
@@ -4369,14 +4571,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameShadow(@ptrCast(self));
+    pub fn FrameShadow(self: QTreeView) i32 {
+        return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -4385,12 +4587,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self), @bitCast(frameShadow));
+    pub fn SetFrameShadow(self: QTreeView, frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
     }
 
     /// Inherited from QFrame
@@ -4399,10 +4601,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn LineWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_LineWidth(@ptrCast(self));
+    pub fn LineWidth(self: QTreeView) i32 {
+        return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -4411,12 +4613,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self), @bitCast(lineWidth));
+    pub fn SetLineWidth(self: QTreeView, lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
     }
 
     /// Inherited from QFrame
@@ -4425,10 +4627,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn MidLineWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_MidLineWidth(@ptrCast(self));
+    pub fn MidLineWidth(self: QTreeView) i32 {
+        return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -4437,12 +4639,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self), @bitCast(midLineWidth));
+    pub fn SetMidLineWidth(self: QTreeView, midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
     }
 
     /// Inherited from QFrame
@@ -4451,10 +4653,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn FrameRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QFrame_FrameRect(@ptrCast(self));
+    pub fn FrameRect(self: QTreeView) QRect {
+        return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QFrame
@@ -4463,12 +4665,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` frameRect: QtC.QRect `
+    /// ` frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: ?*anyopaque, frameRect: ?*anyopaque) void {
-        qtc.QFrame_SetFrameRect(@ptrCast(self), @ptrCast(frameRect));
+    pub fn SetFrameRect(self: QTreeView, frameRect: anytype) void {
+        comptime _ = @TypeOf(frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
     }
 
     /// Inherited from QWidget
@@ -4477,10 +4680,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn WinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_WinId(@ptrCast(self));
+    pub fn WinId(self: QTreeView) usize {
+        return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4489,10 +4692,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn CreateWinId(self: ?*anyopaque) void {
-        qtc.QWidget_CreateWinId(@ptrCast(self));
+    pub fn CreateWinId(self: QTreeView) void {
+        qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4501,10 +4704,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn InternalWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_InternalWinId(@ptrCast(self));
+    pub fn InternalWinId(self: QTreeView) usize {
+        return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4513,10 +4716,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
+    pub fn EffectiveWinId(self: QTreeView) usize {
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4525,10 +4728,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QWidget_Style(@ptrCast(self));
+    pub fn Style(self: QTreeView) QStyle {
+        return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4537,12 +4740,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetStyle(self: QTreeView, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// Inherited from QWidget
@@ -4551,10 +4755,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsTopLevel(@ptrCast(self));
+    pub fn IsTopLevel(self: QTreeView) bool {
+        return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4563,10 +4767,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn IsWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindow(@ptrCast(self));
+    pub fn IsWindow(self: QTreeView) bool {
+        return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4575,10 +4779,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn IsModal(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsModal(@ptrCast(self));
+    pub fn IsModal(self: QTreeView) bool {
+        return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4587,14 +4791,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowModality(@ptrCast(self));
+    pub fn WindowModality(self: QTreeView) i32 {
+        return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4603,12 +4807,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
+    pub fn SetWindowModality(self: QTreeView, windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -4617,10 +4821,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: QTreeView) bool {
+        return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4629,12 +4833,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsEnabledTo(self: QTreeView, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4643,12 +4848,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: QTreeView, enabled: bool) void {
+        qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -4657,12 +4862,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
+    pub fn SetDisabled(self: QTreeView, disabled: bool) void {
+        qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
 
     /// Inherited from QWidget
@@ -4671,12 +4876,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+    pub fn SetWindowModified(self: QTreeView, windowModified: bool) void {
+        qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
 
     /// Inherited from QWidget
@@ -4685,10 +4890,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_FrameGeometry(@ptrCast(self));
+    pub fn FrameGeometry(self: QTreeView) QRect {
+        return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4697,10 +4902,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Geometry(@ptrCast(self));
+    pub fn Geometry(self: QTreeView) QRect {
+        return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4709,10 +4914,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_NormalGeometry(@ptrCast(self));
+    pub fn NormalGeometry(self: QTreeView) QRect {
+        return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4721,10 +4926,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn X(self: ?*anyopaque) i32 {
-        return qtc.QWidget_X(@ptrCast(self));
+    pub fn X(self: QTreeView) i32 {
+        return qtc.QWidget_X(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4733,10 +4938,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Y(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Y(@ptrCast(self));
+    pub fn Y(self: QTreeView) i32 {
+        return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4745,10 +4950,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_Pos(@ptrCast(self));
+    pub fn Pos(self: QTreeView) QPoint {
+        return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4757,10 +4962,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: QTreeView) QSize {
+        return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4769,10 +4974,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_Size(@ptrCast(self));
+    pub fn Size(self: QTreeView) QSize {
+        return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4781,10 +4986,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Width(@ptrCast(self));
+    pub fn Width(self: QTreeView) i32 {
+        return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4793,10 +4998,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Height(@ptrCast(self));
+    pub fn Height(self: QTreeView) i32 {
+        return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4805,10 +5010,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: QTreeView) QRect {
+        return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4817,10 +5022,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ChildrenRect(@ptrCast(self));
+    pub fn ChildrenRect(self: QTreeView) QRect {
+        return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4829,10 +5034,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
+    pub fn ChildrenRegion(self: QTreeView) QRegion {
+        return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4841,10 +5046,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: QTreeView) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4853,10 +5058,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: QTreeView) QSize {
+        return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4865,10 +5070,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: QTreeView) i32 {
+        return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4877,10 +5082,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: QTreeView) i32 {
+        return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4889,10 +5094,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: QTreeView) i32 {
+        return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4901,10 +5106,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: QTreeView) i32 {
+        return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4913,12 +5118,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` minimumSize: QtC.QSize `
+    /// ` minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+    pub fn SetMinimumSize(self: QTreeView, minimumSize: anytype) void {
+        comptime _ = @TypeOf(minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -4927,14 +5133,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` minw: i32 `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
+    pub fn SetMinimumSize2(self: QTreeView, minw: i32, minh: i32) void {
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -4943,12 +5149,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` maximumSize: QtC.QSize `
+    /// ` maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+    pub fn SetMaximumSize(self: QTreeView, maximumSize: anytype) void {
+        comptime _ = @TypeOf(maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -4957,14 +5164,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` maxw: i32 `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
+    pub fn SetMaximumSize2(self: QTreeView, maxw: i32, maxh: i32) void {
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -4973,12 +5180,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
+    pub fn SetMinimumWidth(self: QTreeView, minw: i32) void {
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -4987,12 +5194,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
+    pub fn SetMinimumHeight(self: QTreeView, minh: i32) void {
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -5001,12 +5208,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
+    pub fn SetMaximumWidth(self: QTreeView, maxw: i32) void {
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -5015,12 +5222,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
+    pub fn SetMaximumHeight(self: QTreeView, maxh: i32) void {
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -5029,10 +5236,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeIncrement(@ptrCast(self));
+    pub fn SizeIncrement(self: QTreeView) QSize {
+        return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5041,12 +5248,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` sizeIncrement: QtC.QSize `
+    /// ` sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+    pub fn SetSizeIncrement(self: QTreeView, sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
     }
 
     /// Inherited from QWidget
@@ -5055,14 +5263,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetSizeIncrement2(self: QTreeView, w: i32, h: i32) void {
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -5071,10 +5279,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_BaseSize(@ptrCast(self));
+    pub fn BaseSize(self: QTreeView) QSize {
+        return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5083,12 +5291,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` baseSize: QtC.QSize `
+    /// ` baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+    pub fn SetBaseSize(self: QTreeView, baseSize: anytype) void {
+        comptime _ = @TypeOf(baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -5097,14 +5306,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` basew: i32 `
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
+    pub fn SetBaseSize2(self: QTreeView, basew: i32, baseh: i32) void {
+        qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -5113,12 +5322,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` fixedSize: QtC.QSize `
+    /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+    pub fn SetFixedSize(self: QTreeView, fixedSize: anytype) void {
+        comptime _ = @TypeOf(fixedSize)._is_QSize;
+        qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -5127,14 +5337,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetFixedSize2(self: QTreeView, w: i32, h: i32) void {
+        qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -5143,12 +5353,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetFixedWidth(self: QTreeView, w: i32) void {
+        qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -5157,12 +5367,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
+    pub fn SetFixedHeight(self: QTreeView, h: i32) void {
+        qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -5171,12 +5381,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal(self: QTreeView, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5185,12 +5396,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: QTreeView, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5199,12 +5411,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal(self: QTreeView, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5213,12 +5426,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: QTreeView, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5227,12 +5441,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent(self: QTreeView, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5241,12 +5456,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: QTreeView, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5255,12 +5471,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent(self: QTreeView, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5269,12 +5486,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: QTreeView, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5283,14 +5501,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo(self: QTreeView, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5299,14 +5519,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo2(self: QTreeView, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5315,14 +5537,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom(self: QTreeView, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5331,14 +5555,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom2(self: QTreeView, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5347,10 +5573,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_Window(@ptrCast(self));
+    pub fn Window(self: QTreeView) QWidget {
+        return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5359,10 +5585,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
+    pub fn NativeParentWidget(self: QTreeView) QWidget {
+        return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5371,10 +5597,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
+    pub fn TopLevelWidget(self: QTreeView) QWidget {
+        return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5383,10 +5609,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QWidget_Palette(@ptrCast(self));
+    pub fn Palette(self: QTreeView) QPalette {
+        return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5395,12 +5621,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn SetPalette(self: QTreeView, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// Inherited from QWidget
@@ -5409,12 +5636,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
+    pub fn SetBackgroundRole(self: QTreeView, backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -5423,14 +5650,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_BackgroundRole(@ptrCast(self));
+    pub fn BackgroundRole(self: QTreeView) i32 {
+        return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5439,12 +5666,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
+    pub fn SetForegroundRole(self: QTreeView, foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -5453,14 +5680,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ForegroundRole(@ptrCast(self));
+    pub fn ForegroundRole(self: QTreeView) i32 {
+        return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5469,10 +5696,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QWidget_Font(@ptrCast(self));
+    pub fn Font(self: QTreeView) QFont {
+        return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5481,12 +5708,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: QTreeView, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QWidget
@@ -5495,10 +5723,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QWidget_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: QTreeView) QFontMetrics {
+        return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5507,10 +5735,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QWidget_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: QTreeView) QFontInfo {
+        return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5519,10 +5747,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
-        return qtc.QWidget_Cursor(@ptrCast(self));
+    pub fn Cursor(self: QTreeView) QCursor {
+        return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5531,12 +5759,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetCursor(self: QTreeView, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QWidget
@@ -5545,10 +5774,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn UnsetCursor(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetCursor(@ptrCast(self));
+    pub fn UnsetCursor(self: QTreeView) void {
+        qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5557,12 +5786,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
+    pub fn SetMouseTracking(self: QTreeView, enable: bool) void {
+        qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -5571,10 +5800,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
+    pub fn HasMouseTracking(self: QTreeView) bool {
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5583,10 +5812,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.QWidget_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: QTreeView) bool {
+        return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5595,12 +5824,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
+    pub fn SetTabletTracking(self: QTreeView, enable: bool) void {
+        qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -5609,10 +5838,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
+    pub fn HasTabletTracking(self: QTreeView) bool {
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5621,12 +5850,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` mask: QtC.QBitmap `
+    /// ` mask: QBitmap `
     ///
-    pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask(self: QTreeView, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -5635,12 +5865,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` mask: QtC.QRegion `
+    /// ` mask: QRegion `
     ///
-    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: QTreeView, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -5649,10 +5880,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_Mask(@ptrCast(self));
+    pub fn Mask(self: QTreeView) QRegion {
+        return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5661,10 +5892,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ClearMask(self: ?*anyopaque) void {
-        qtc.QWidget_ClearMask(@ptrCast(self));
+    pub fn ClearMask(self: QTreeView) void {
+        qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5673,12 +5904,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
+    pub fn Render(self: QTreeView, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QWidget
@@ -5687,12 +5919,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: QTreeView, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -5701,10 +5934,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab(@ptrCast(self));
+    pub fn Grab(self: QTreeView) QPixmap {
+        return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5713,10 +5946,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
-        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
+    pub fn GraphicsEffect(self: QTreeView) QGraphicsEffect {
+        return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5725,12 +5958,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` effect: QtC.QGraphicsEffect `
+    /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+    pub fn SetGraphicsEffect(self: QTreeView, effect: anytype) void {
+        comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
 
     /// Inherited from QWidget
@@ -5739,12 +5973,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn GrabGesture(self: QTreeView, typeVal: i32) void {
+        qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -5753,12 +5987,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn UngrabGesture(self: QTreeView, typeVal: i32) void {
+        qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -5767,16 +6001,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
+    pub fn SetWindowTitle(self: QTreeView, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
-        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
 
     /// Inherited from QWidget
@@ -5785,16 +6019,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
+    pub fn SetStyleSheet(self: QTreeView, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
-        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
 
     /// Inherited from QWidget
@@ -5803,12 +6037,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: QTreeView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreeview.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5821,12 +6055,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+    pub fn WindowTitle(self: QTreeView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreeview.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5839,12 +6073,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetWindowIcon(self: QTreeView, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -5853,10 +6088,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QWidget_WindowIcon(@ptrCast(self));
+    pub fn WindowIcon(self: QTreeView) QIcon {
+        return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5865,16 +6100,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
+    pub fn SetWindowIconText(self: QTreeView, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
-        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
 
     /// Inherited from QWidget
@@ -5883,12 +6118,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+    pub fn WindowIconText(self: QTreeView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreeview.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5901,16 +6136,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
+    pub fn SetWindowRole(self: QTreeView, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
-        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
 
     /// Inherited from QWidget
@@ -5919,12 +6154,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
+    pub fn WindowRole(self: QTreeView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreeview.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5937,16 +6172,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
+    pub fn SetWindowFilePath(self: QTreeView, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
 
     /// Inherited from QWidget
@@ -5955,12 +6190,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+    pub fn WindowFilePath(self: QTreeView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreeview.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5973,12 +6208,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetWindowOpacity(self: QTreeView, level: f64) void {
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -5987,10 +6222,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return qtc.QWidget_WindowOpacity(@ptrCast(self));
+    pub fn WindowOpacity(self: QTreeView) f64 {
+        return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5999,10 +6234,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindowModified(@ptrCast(self));
+    pub fn IsWindowModified(self: QTreeView) bool {
+        return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6011,16 +6246,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: QTreeView, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// Inherited from QWidget
@@ -6029,12 +6264,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: QTreeView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreeview.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6047,12 +6282,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
+    pub fn SetToolTipDuration(self: QTreeView, msec: i32) void {
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -6061,10 +6296,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
+    pub fn ToolTipDuration(self: QTreeView) i32 {
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6073,16 +6308,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: QTreeView, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QWidget
@@ -6091,12 +6326,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: QTreeView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreeview.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6109,16 +6344,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: QTreeView, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// Inherited from QWidget
@@ -6127,12 +6362,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: QTreeView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreeview.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6145,12 +6380,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+    pub fn AccessibleName(self: QTreeView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreeview.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6163,16 +6398,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetAccessibleName(self: QTreeView, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QWidget
@@ -6181,12 +6416,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+    pub fn AccessibleDescription(self: QTreeView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreeview.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6199,16 +6434,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetAccessibleDescription(self: QTreeView, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// Inherited from QWidget
@@ -6217,12 +6452,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: QTreeView, direction: i32) void {
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -6231,14 +6466,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QWidget_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: QTreeView) i32 {
+        return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6247,10 +6482,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
+    pub fn UnsetLayoutDirection(self: QTreeView) void {
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6259,12 +6494,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: QTreeView, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// Inherited from QWidget
@@ -6273,10 +6509,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QWidget_Locale(@ptrCast(self));
+    pub fn Locale(self: QTreeView) QLocale {
+        return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6285,10 +6521,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn UnsetLocale(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLocale(@ptrCast(self));
+    pub fn UnsetLocale(self: QTreeView) void {
+        qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6297,10 +6533,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
+    pub fn IsRightToLeft(self: QTreeView) bool {
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6309,10 +6545,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
+    pub fn IsLeftToRight(self: QTreeView) bool {
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6321,10 +6557,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SetFocus(self: ?*anyopaque) void {
-        qtc.QWidget_SetFocus(@ptrCast(self));
+    pub fn SetFocus(self: QTreeView) void {
+        qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6333,10 +6569,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
+    pub fn IsActiveWindow(self: QTreeView) bool {
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6345,10 +6581,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ActivateWindow(self: ?*anyopaque) void {
-        qtc.QWidget_ActivateWindow(@ptrCast(self));
+    pub fn ActivateWindow(self: QTreeView) void {
+        qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6357,10 +6593,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ClearFocus(self: ?*anyopaque) void {
-        qtc.QWidget_ClearFocus(@ptrCast(self));
+    pub fn ClearFocus(self: QTreeView) void {
+        qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6369,12 +6605,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
+    pub fn SetFocus2(self: QTreeView, reason: i32) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -6383,14 +6619,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_FocusPolicy(@ptrCast(self));
+    pub fn FocusPolicy(self: QTreeView) i32 {
+        return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6399,12 +6635,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetFocusPolicy(self: QTreeView, policy: i32) void {
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -6413,10 +6649,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn HasFocus(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasFocus(@ptrCast(self));
+    pub fn HasFocus(self: QTreeView) bool {
+        return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6425,12 +6661,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QWidget `
+    /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QWidget;
+        qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidget
@@ -6439,12 +6677,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` focusProxy: QtC.QWidget `
+    /// ` focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+    pub fn SetFocusProxy(self: QTreeView, focusProxy: anytype) void {
+        comptime _ = @TypeOf(focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
     }
 
     /// Inherited from QWidget
@@ -6453,10 +6692,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusProxy(@ptrCast(self));
+    pub fn FocusProxy(self: QTreeView) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6465,14 +6704,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
+    pub fn ContextMenuPolicy(self: QTreeView) i32 {
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6481,12 +6720,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetContextMenuPolicy(self: QTreeView, policy: i32) void {
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -6495,10 +6734,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn GrabMouse(self: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse(@ptrCast(self));
+    pub fn GrabMouse(self: QTreeView) void {
+        qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6507,12 +6746,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: QTreeView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -6521,10 +6761,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ReleaseMouse(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseMouse(@ptrCast(self));
+    pub fn ReleaseMouse(self: QTreeView) void {
+        qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6533,10 +6773,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn GrabKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_GrabKeyboard(@ptrCast(self));
+    pub fn GrabKeyboard(self: QTreeView) void {
+        qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6545,10 +6785,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
+    pub fn ReleaseKeyboard(self: QTreeView) void {
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6557,12 +6797,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+    pub fn GrabShortcut(self: QTreeView, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// Inherited from QWidget
@@ -6571,12 +6812,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
+    pub fn ReleaseShortcut(self: QTreeView, id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -6585,12 +6826,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutEnabled(self: QTreeView, id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -6599,28 +6840,28 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutAutoRepeat(self: QTreeView, id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QtC.QWidget {
-        return qtc.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QtC.QWidget {
-        return qtc.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
 
     /// Inherited from QWidget
@@ -6629,10 +6870,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
+    pub fn UpdatesEnabled(self: QTreeView) bool {
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6641,12 +6882,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+    pub fn SetUpdatesEnabled(self: QTreeView, enable: bool) void {
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -6655,10 +6896,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    pub fn GraphicsProxyWidget(self: QTreeView) QGraphicsProxyWidget {
+        return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6667,10 +6908,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Repaint(self: ?*anyopaque) void {
-        qtc.QWidget_Repaint(@ptrCast(self));
+    pub fn Repaint(self: QTreeView) void {
+        qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6679,7 +6920,7 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` x: i32 `
     ///
@@ -6689,8 +6930,8 @@ pub const qtreeview = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Update2(self: QTreeView, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -6699,12 +6940,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: QTreeView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -6713,12 +6955,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: QTreeView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -6727,7 +6970,7 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` x: i32 `
     ///
@@ -6737,8 +6980,8 @@ pub const qtreeview = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Repaint2(self: QTreeView, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -6747,12 +6990,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: QTreeView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -6761,12 +7005,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: QTreeView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -6775,12 +7020,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
+    pub fn SetHidden(self: QTreeView, hidden: bool) void {
+        qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
 
     /// Inherited from QWidget
@@ -6789,10 +7034,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QWidget_Show(@ptrCast(self));
+    pub fn Show(self: QTreeView) void {
+        qtc.QWidget_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6801,10 +7046,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QWidget_Hide(@ptrCast(self));
+    pub fn Hide(self: QTreeView) void {
+        qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6813,10 +7058,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ShowMinimized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMinimized(@ptrCast(self));
+    pub fn ShowMinimized(self: QTreeView) void {
+        qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6825,10 +7070,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ShowMaximized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMaximized(@ptrCast(self));
+    pub fn ShowMaximized(self: QTreeView) void {
+        qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6837,10 +7082,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ShowFullScreen(self: ?*anyopaque) void {
-        qtc.QWidget_ShowFullScreen(@ptrCast(self));
+    pub fn ShowFullScreen(self: QTreeView) void {
+        qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6849,10 +7094,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ShowNormal(self: ?*anyopaque) void {
-        qtc.QWidget_ShowNormal(@ptrCast(self));
+    pub fn ShowNormal(self: QTreeView) void {
+        qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6861,10 +7106,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Close(self: ?*anyopaque) bool {
-        return qtc.QWidget_Close(@ptrCast(self));
+    pub fn Close(self: QTreeView) bool {
+        return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6873,10 +7118,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Raise(self: ?*anyopaque) void {
-        qtc.QWidget_Raise(@ptrCast(self));
+    pub fn Raise(self: QTreeView) void {
+        qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6885,10 +7130,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Lower(self: ?*anyopaque) void {
-        qtc.QWidget_Lower(@ptrCast(self));
+    pub fn Lower(self: QTreeView) void {
+        qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6897,12 +7142,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+    pub fn StackUnder(self: QTreeView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -6911,14 +7157,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn Move(self: QTreeView, x: i32, y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -6927,12 +7173,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: QTreeView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -6941,14 +7188,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn Resize(self: QTreeView, w: i32, h: i32) void {
+        qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -6957,12 +7204,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QSize `
+    /// ` param1: QSize `
     ///
-    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: QTreeView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -6971,7 +7219,7 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` x: i32 `
     ///
@@ -6981,8 +7229,8 @@ pub const qtreeview = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetGeometry(self: QTreeView, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -6991,12 +7239,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` geometry: QtC.QRect `
+    /// ` geometry: QRect `
     ///
-    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: QTreeView, geometry: anytype) void {
+        comptime _ = @TypeOf(geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
     }
 
     /// Inherited from QWidget
@@ -7005,12 +7254,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+    pub fn SaveGeometry(self: QTreeView, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtreeview.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -7023,16 +7272,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
+    pub fn RestoreGeometry(self: QTreeView, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
-        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
 
     /// Inherited from QWidget
@@ -7041,10 +7290,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QWidget_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: QTreeView) void {
+        qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7053,10 +7302,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: QTreeView) bool {
+        return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7065,12 +7314,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsVisibleTo(self: QTreeView, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -7079,10 +7329,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn IsHidden(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsHidden(@ptrCast(self));
+    pub fn IsHidden(self: QTreeView) bool {
+        return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7091,10 +7341,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn IsMinimized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMinimized(@ptrCast(self));
+    pub fn IsMinimized(self: QTreeView) bool {
+        return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7103,10 +7353,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn IsMaximized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMaximized(@ptrCast(self));
+    pub fn IsMaximized(self: QTreeView) bool {
+        return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7115,10 +7365,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsFullScreen(@ptrCast(self));
+    pub fn IsFullScreen(self: QTreeView) bool {
+        return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7127,14 +7377,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowState(@ptrCast(self));
+    pub fn WindowState(self: QTreeView) i32 {
+        return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7143,12 +7393,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
+    pub fn SetWindowState(self: QTreeView, state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -7157,12 +7407,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
+    pub fn OverrideWindowState(self: QTreeView, state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -7171,10 +7421,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QWidget_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: QTreeView) QSizePolicy {
+        return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7183,12 +7433,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` sizePolicy: QtC.QSizePolicy `
+    /// ` sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
-        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    pub fn SetSizePolicy(self: QTreeView, sizePolicy: anytype) void {
+        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
     }
 
     /// Inherited from QWidget
@@ -7197,14 +7448,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` horizontal: qsizepolicy_enums.Policy `
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
+    pub fn SetSizePolicy2(self: QTreeView, horizontal: i32, vertical: i32) void {
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -7213,10 +7464,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_VisibleRegion(@ptrCast(self));
+    pub fn VisibleRegion(self: QTreeView) QRegion {
+        return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7225,7 +7476,7 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` left: i32 `
     ///
@@ -7235,8 +7486,8 @@ pub const qtreeview = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: QTreeView, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -7245,12 +7496,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: QTreeView, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QWidget
@@ -7259,10 +7511,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QWidget_ContentsMargins(@ptrCast(self));
+    pub fn ContentsMargins(self: QTreeView) QMargins {
+        return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7271,10 +7523,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: QTreeView) QRect {
+        return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7283,10 +7535,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidget_Layout(@ptrCast(self));
+    pub fn Layout(self: QTreeView) QLayout {
+        return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7295,12 +7547,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` layout: QtC.QLayout `
+    /// ` layout: QLayout `
     ///
-    pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetLayout(self: QTreeView, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// Inherited from QWidget
@@ -7309,10 +7562,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QWidget_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: QTreeView) void {
+        qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7321,12 +7574,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QTreeView, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QWidget
@@ -7335,14 +7589,15 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
+    pub fn SetParent2(self: QTreeView, parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -7351,14 +7606,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Scroll(self: QTreeView, dx: i32, dy: i32) void {
+        qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -7367,16 +7622,17 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    /// ` param3: QtC.QRect `
+    /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
+    pub fn Scroll2(self: QTreeView, dx: i32, dy: i32, param3: anytype) void {
+        comptime _ = @TypeOf(param3)._is_QRect;
+        qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QWidget
@@ -7385,10 +7641,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusWidget(@ptrCast(self));
+    pub fn FocusWidget(self: QTreeView) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7397,10 +7653,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
+    pub fn NextInFocusChain(self: QTreeView) QWidget {
+        return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7409,10 +7665,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
+    pub fn PreviousInFocusChain(self: QTreeView) QWidget {
+        return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7421,10 +7677,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return qtc.QWidget_AcceptDrops(@ptrCast(self));
+    pub fn AcceptDrops(self: QTreeView) bool {
+        return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7433,12 +7689,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
+    pub fn SetAcceptDrops(self: QTreeView, on: bool) void {
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QWidget
@@ -7447,12 +7703,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+    pub fn AddAction(self: QTreeView, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -7461,16 +7718,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn AddActions(self: QTreeView, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -7479,18 +7736,19 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn InsertActions(self: QTreeView, before: anytype, actions: []QAction) void {
+        comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -7499,14 +7757,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn InsertAction(self: QTreeView, before: anytype, action: anytype) void {
+        comptime _ = @TypeOf(before)._is_QAction;
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -7515,12 +7775,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn RemoveAction(self: QTreeView, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -7529,16 +7790,17 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+    pub fn Actions(self: QTreeView, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qtreeview.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qtreeview.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -7548,16 +7810,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: QTreeView, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction2(@ptrCast(self), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -7566,18 +7828,19 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: QTreeView, icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -7586,18 +7849,19 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: QTreeView, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7606,20 +7870,22 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: QTreeView, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7628,10 +7894,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: QTreeView) QWidget {
+        return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7640,12 +7906,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetWindowFlags(self: QTreeView, typeVal: i32) void {
+        qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -7654,14 +7920,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowFlags(@ptrCast(self));
+    pub fn WindowFlags(self: QTreeView) i32 {
+        return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7670,12 +7936,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
+    pub fn SetWindowFlag(self: QTreeView, param1: i32) void {
+        qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7684,12 +7950,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn OverrideWindowFlags(self: QTreeView, typeVal: i32) void {
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -7698,14 +7964,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowType(@ptrCast(self));
+    pub fn WindowType(self: QTreeView) i32 {
+        return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7716,8 +7982,8 @@ pub const qtreeview = struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QtC.QWidget {
-        return qtc.QWidget_Find(@bitCast(param1));
+    pub fn Find(param1: usize) QWidget {
+        return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -7726,14 +7992,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: QTreeView, x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QWidget
@@ -7742,12 +8008,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: QTreeView, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7756,12 +8023,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: QTreeView, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7770,12 +8038,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn SetAttribute(self: QTreeView, param1: i32) void {
+        qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7784,12 +8052,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn TestAttribute(self: QTreeView, param1: i32) bool {
+        return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7798,10 +8066,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn EnsurePolished(self: ?*anyopaque) void {
-        qtc.QWidget_EnsurePolished(@ptrCast(self));
+    pub fn EnsurePolished(self: QTreeView) void {
+        qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7810,12 +8078,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` child: QtC.QWidget `
+    /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+    pub fn IsAncestorOf(self: QTreeView, child: anytype) bool {
+        comptime _ = @TypeOf(child)._is_QWidget;
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from QWidget
@@ -7824,10 +8093,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
+    pub fn AutoFillBackground(self: QTreeView) bool {
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7836,12 +8105,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+    pub fn SetAutoFillBackground(self: QTreeView, enabled: bool) void {
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -7850,10 +8119,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
-        return qtc.QWidget_BackingStore(@ptrCast(self));
+    pub fn BackingStore(self: QTreeView) QBackingStore {
+        return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7862,10 +8131,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QWidget_WindowHandle(@ptrCast(self));
+    pub fn WindowHandle(self: QTreeView) QWindow {
+        return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7874,10 +8143,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
-        return qtc.QWidget_Screen(@ptrCast(self));
+    pub fn Screen(self: QTreeView) QScreen {
+        return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7886,12 +8155,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+    pub fn SetScreen(self: QTreeView, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QWidget
@@ -7900,10 +8170,11 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
+    pub fn CreateWindowContainer(window: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7912,16 +8183,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn WindowTitleChanged(self: QTreeView, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QWidget
@@ -7930,12 +8201,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowTitleChanged(self: QTreeView, callback: *const fn (QTreeView, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7944,12 +8215,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+    pub fn WindowIconChanged(self: QTreeView, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -7958,12 +8230,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, icon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconChanged(self: QTreeView, callback: *const fn (QTreeView, QIcon) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7972,16 +8244,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
+    pub fn WindowIconTextChanged(self: QTreeView, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
-        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
 
     /// Inherited from QWidget
@@ -7990,12 +8262,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, iconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconTextChanged(self: QTreeView, callback: *const fn (QTreeView, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8004,12 +8276,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+    pub fn CustomContextMenuRequested(self: QTreeView, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QWidget
@@ -8018,12 +8291,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomContextMenuRequested(self: QTreeView, callback: *const fn (QTreeView, QPoint) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8032,14 +8305,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i32 {
-        return qtc.QWidget_InputMethodHints(@ptrCast(self));
+    pub fn InputMethodHints(self: QTreeView) i32 {
+        return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8048,12 +8321,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetInputMethodHints(self: QTreeView, hints: i32) void {
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -8062,14 +8335,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: QTreeView, target: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -8078,16 +8353,19 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render3(self: QTreeView, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -8096,18 +8374,21 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render4(self: QTreeView, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -8116,14 +8397,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: QTreeView, painter: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -8132,16 +8415,19 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render32(self: QTreeView, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -8150,18 +8436,21 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render42(self: QTreeView, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -8170,12 +8459,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Grab1(self: QTreeView, rectangle: anytype) QPixmap {
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8184,14 +8474,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
+    pub fn GrabGesture2(self: QTreeView, typeVal: i32, flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -8200,14 +8490,15 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
+    pub fn GrabShortcut2(self: QTreeView, key: anytype, context: i32) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -8216,14 +8507,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutEnabled2(self: QTreeView, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -8232,14 +8523,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutAutoRepeat2(self: QTreeView, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -8248,14 +8539,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetWindowFlag2(self: QTreeView, param1: i32, on: bool) void {
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -8264,14 +8555,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetAttribute2(self: QTreeView, param1: i32, on: bool) void {
+        qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -8280,12 +8571,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8294,14 +8587,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
+    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QObject
@@ -8310,12 +8605,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QTreeView, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreeview.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -8328,12 +8623,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QTreeView, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -8342,10 +8637,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QTreeView) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8354,10 +8649,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QTreeView) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8366,10 +8661,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QTreeView) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8378,10 +8673,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QTreeView) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8390,12 +8685,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QTreeView, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -8404,10 +8699,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QTreeView) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -8416,12 +8711,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QTreeView, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -8430,12 +8726,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QTreeView, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -8444,12 +8740,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QTreeView, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -8458,12 +8754,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QTreeView, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -8472,12 +8768,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QTreeView, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -8486,16 +8782,17 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QTreeView, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qtreeview.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qtreeview.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -8505,12 +8802,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QTreeView, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -8519,12 +8817,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QTreeView, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -8533,18 +8832,20 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -8553,16 +8854,20 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -8571,18 +8876,19 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QTreeView, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -8591,18 +8897,20 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -8611,16 +8919,20 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -8629,10 +8941,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QTreeView) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8641,12 +8953,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QTreeView, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -8655,10 +8968,11 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -8667,10 +8981,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QTreeView) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8679,10 +8993,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QTreeView) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8691,15 +9005,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QTreeView, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -8708,13 +9023,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QTreeView, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -8723,17 +9038,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QTreeView, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qtreeview.DynamicPropertyNames: Memory allocation failed");
@@ -8752,10 +9066,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QTreeView) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -8764,10 +9078,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QTreeView) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -8776,10 +9090,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QTreeView) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8788,12 +9102,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QTreeView, callback: *const fn (QTreeView) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8802,10 +9116,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QTreeView) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -8814,13 +9128,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QTreeView, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -8829,10 +9143,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QTreeView) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8841,14 +9155,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QTreeView, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -8857,14 +9171,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QTreeView, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -8873,20 +9187,22 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -8895,18 +9211,22 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -8915,9 +9235,9 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -8925,10 +9245,11 @@ pub const qtreeview = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QTreeView, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -8937,13 +9258,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QTreeView, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -8952,15 +9273,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QTreeView, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -8969,18 +9291,19 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QTreeView, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -8989,15 +9312,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QTreeView, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -9006,12 +9330,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QTreeView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -9020,12 +9345,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QTreeView, callback: *const fn (QTreeView, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -9034,10 +9359,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: QTreeView) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9046,10 +9371,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: QTreeView) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9058,10 +9383,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: QTreeView) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9070,10 +9395,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: QTreeView) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9082,10 +9407,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: QTreeView) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9094,10 +9419,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: QTreeView) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9106,10 +9431,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: QTreeView) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9118,10 +9443,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: QTreeView) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9130,10 +9455,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: QTreeView) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9142,10 +9467,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: QTreeView) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9154,10 +9479,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: QTreeView) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -9190,12 +9515,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` row: i32 `
     ///
-    pub fn SizeHintForRow(self: ?*anyopaque, row: i32) i32 {
-        return qtc.QTreeView_SizeHintForRow(@ptrCast(self), @bitCast(row));
+    pub fn SizeHintForRow(self: QTreeView, row: i32) i32 {
+        return qtc.QTreeView_SizeHintForRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// ### DEPRECATED: Use `SuperSizeHintForRow` instead
@@ -9210,12 +9535,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` row: i32 `
     ///
-    pub fn SuperSizeHintForRow(self: ?*anyopaque, row: i32) i32 {
-        return qtc.QTreeView_SuperSizeHintForRow(@ptrCast(self), @bitCast(row));
+    pub fn SuperSizeHintForRow(self: QTreeView, row: i32) i32 {
+        return qtc.QTreeView_SuperSizeHintForRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemView
@@ -9226,12 +9551,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, row: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTreeView, row: i32) callconv(.c) i32 `
     ///
-    pub fn OnSizeHintForRow(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QTreeView_OnSizeHintForRow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHintForRow(self: QTreeView, callback: *const fn (QTreeView, i32) callconv(.c) i32) void {
+        qtc.QTreeView_OnSizeHintForRow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9242,12 +9567,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn ItemDelegateForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
-        return qtc.QTreeView_ItemDelegateForIndex(@ptrCast(self), @ptrCast(index));
+    pub fn ItemDelegateForIndex(self: QTreeView, index: anytype) QAbstractItemDelegate {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QTreeView_ItemDelegateForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperItemDelegateForIndex` instead
@@ -9262,12 +9588,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperItemDelegateForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
-        return qtc.QTreeView_SuperItemDelegateForIndex(@ptrCast(self), @ptrCast(index));
+    pub fn SuperItemDelegateForIndex(self: QTreeView, index: anytype) QAbstractItemDelegate {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.QTreeView_SuperItemDelegateForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -9278,12 +9605,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, index: QtC.QModelIndex) callconv(.c) QtC.QAbstractItemDelegate `
+    /// ` callback: *const fn (self: QTreeView, index: QModelIndex) callconv(.c) QAbstractItemDelegate `
     ///
-    pub fn OnItemDelegateForIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAbstractItemDelegate) void {
-        qtc.QTreeView_OnItemDelegateForIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemDelegateForIndex(self: QTreeView, callback: *const fn (QTreeView, QModelIndex) callconv(.c) QAbstractItemDelegate) void {
+        qtc.QTreeView_OnItemDelegateForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9294,12 +9621,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QTreeView_InputMethodQuery(@ptrCast(self), @bitCast(query));
+    pub fn InputMethodQuery(self: QTreeView, query: i32) QVariant {
+        return .{ .ptr = qtc.QTreeView_InputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
@@ -9314,12 +9641,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QTreeView_SuperInputMethodQuery(@ptrCast(self), @bitCast(query));
+    pub fn SuperInputMethodQuery(self: QTreeView, query: i32) QVariant {
+        return .{ .ptr = qtc.QTreeView_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -9330,12 +9657,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QTreeView, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QTreeView_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodQuery(self: QTreeView, callback: *const fn (QTreeView, i32) callconv(.c) QVariant) void {
+        qtc.QTreeView_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9346,10 +9673,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn UpdateEditorData(self: ?*anyopaque) void {
-        qtc.QTreeView_UpdateEditorData(@ptrCast(self));
+    pub fn UpdateEditorData(self: QTreeView) void {
+        qtc.QTreeView_UpdateEditorData(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateEditorData` instead
@@ -9364,10 +9691,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperUpdateEditorData(self: ?*anyopaque) void {
-        qtc.QTreeView_SuperUpdateEditorData(@ptrCast(self));
+    pub fn SuperUpdateEditorData(self: QTreeView) void {
+        qtc.QTreeView_SuperUpdateEditorData(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -9378,12 +9705,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateEditorData(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnUpdateEditorData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateEditorData(self: QTreeView, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeView_OnUpdateEditorData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9394,10 +9721,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn UpdateEditorGeometries(self: ?*anyopaque) void {
-        qtc.QTreeView_UpdateEditorGeometries(@ptrCast(self));
+    pub fn UpdateEditorGeometries(self: QTreeView) void {
+        qtc.QTreeView_UpdateEditorGeometries(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateEditorGeometries` instead
@@ -9412,10 +9739,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperUpdateEditorGeometries(self: ?*anyopaque) void {
-        qtc.QTreeView_SuperUpdateEditorGeometries(@ptrCast(self));
+    pub fn SuperUpdateEditorGeometries(self: QTreeView) void {
+        qtc.QTreeView_SuperUpdateEditorGeometries(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -9426,12 +9753,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateEditorGeometries(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnUpdateEditorGeometries(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateEditorGeometries(self: QTreeView, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeView_OnUpdateEditorGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9442,12 +9769,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` action: i32 `
     ///
-    pub fn VerticalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QTreeView_VerticalScrollbarAction(@ptrCast(self), @bitCast(action));
+    pub fn VerticalScrollbarAction(self: QTreeView, action: i32) void {
+        qtc.QTreeView_VerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
     /// ### DEPRECATED: Use `SuperVerticalScrollbarAction` instead
@@ -9462,12 +9789,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` action: i32 `
     ///
-    pub fn SuperVerticalScrollbarAction(self: ?*anyopaque, action: i32) void {
-        qtc.QTreeView_SuperVerticalScrollbarAction(@ptrCast(self), @bitCast(action));
+    pub fn SuperVerticalScrollbarAction(self: QTreeView, action: i32) void {
+        qtc.QTreeView_SuperVerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
     /// Inherited from QAbstractItemView
@@ -9478,12 +9805,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, action: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, action: i32) callconv(.c) void `
     ///
-    pub fn OnVerticalScrollbarAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeView_OnVerticalScrollbarAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVerticalScrollbarAction(self: QTreeView, callback: *const fn (QTreeView, i32) callconv(.c) void) void {
+        qtc.QTreeView_OnVerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9494,12 +9821,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` value: i32 `
     ///
-    pub fn HorizontalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QTreeView_HorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
+    pub fn HorizontalScrollbarValueChanged(self: QTreeView, value: i32) void {
+        qtc.QTreeView_HorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
     /// ### DEPRECATED: Use `SuperHorizontalScrollbarValueChanged` instead
@@ -9514,12 +9841,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` value: i32 `
     ///
-    pub fn SuperHorizontalScrollbarValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QTreeView_SuperHorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(value));
+    pub fn SuperHorizontalScrollbarValueChanged(self: QTreeView, value: i32) void {
+        qtc.QTreeView_SuperHorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
     /// Inherited from QAbstractItemView
@@ -9530,12 +9857,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, value: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, value: i32) callconv(.c) void `
     ///
-    pub fn OnHorizontalScrollbarValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeView_OnHorizontalScrollbarValueChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHorizontalScrollbarValueChanged(self: QTreeView, callback: *const fn (QTreeView, i32) callconv(.c) void) void {
+        qtc.QTreeView_OnHorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9546,14 +9873,15 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` editor: QtC.QWidget `
+    /// ` editor: QWidget `
     ///
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
-    pub fn CloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
-        qtc.QTreeView_CloseEditor(@ptrCast(self), @ptrCast(editor), @bitCast(hint));
+    pub fn CloseEditor(self: QTreeView, editor: anytype, hint: i32) void {
+        comptime _ = @TypeOf(editor)._is_QWidget;
+        qtc.QTreeView_CloseEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr), @bitCast(hint));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEditor` instead
@@ -9568,14 +9896,15 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` editor: QtC.QWidget `
+    /// ` editor: QWidget `
     ///
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
-    pub fn SuperCloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
-        qtc.QTreeView_SuperCloseEditor(@ptrCast(self), @ptrCast(editor), @bitCast(hint));
+    pub fn SuperCloseEditor(self: QTreeView, editor: anytype, hint: i32) void {
+        comptime _ = @TypeOf(editor)._is_QWidget;
+        qtc.QTreeView_SuperCloseEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr), @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemView
@@ -9586,12 +9915,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, editor: QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void `
     ///
-    pub fn OnCloseEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeView_OnCloseEditor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEditor(self: QTreeView, callback: *const fn (QTreeView, QWidget, i32) callconv(.c) void) void {
+        qtc.QTreeView_OnCloseEditor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9602,12 +9931,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` editor: QtC.QWidget `
+    /// ` editor: QWidget `
     ///
-    pub fn CommitData(self: ?*anyopaque, editor: ?*anyopaque) void {
-        qtc.QTreeView_CommitData(@ptrCast(self), @ptrCast(editor));
+    pub fn CommitData(self: QTreeView, editor: anytype) void {
+        comptime _ = @TypeOf(editor)._is_QWidget;
+        qtc.QTreeView_CommitData(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCommitData` instead
@@ -9622,12 +9952,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` editor: QtC.QWidget `
+    /// ` editor: QWidget `
     ///
-    pub fn SuperCommitData(self: ?*anyopaque, editor: ?*anyopaque) void {
-        qtc.QTreeView_SuperCommitData(@ptrCast(self), @ptrCast(editor));
+    pub fn SuperCommitData(self: QTreeView, editor: anytype) void {
+        comptime _ = @TypeOf(editor)._is_QWidget;
+        qtc.QTreeView_SuperCommitData(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -9638,12 +9969,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, editor: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, editor: QWidget) callconv(.c) void `
     ///
-    pub fn OnCommitData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnCommitData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCommitData(self: QTreeView, callback: *const fn (QTreeView, QWidget) callconv(.c) void) void {
+        qtc.QTreeView_OnCommitData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9654,12 +9985,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` editor: QtC.QObject `
+    /// ` editor: QObject `
     ///
-    pub fn EditorDestroyed(self: ?*anyopaque, editor: ?*anyopaque) void {
-        qtc.QTreeView_EditorDestroyed(@ptrCast(self), @ptrCast(editor));
+    pub fn EditorDestroyed(self: QTreeView, editor: anytype) void {
+        comptime _ = @TypeOf(editor)._is_QObject;
+        qtc.QTreeView_EditorDestroyed(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEditorDestroyed` instead
@@ -9674,12 +10006,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` editor: QtC.QObject `
+    /// ` editor: QObject `
     ///
-    pub fn SuperEditorDestroyed(self: ?*anyopaque, editor: ?*anyopaque) void {
-        qtc.QTreeView_SuperEditorDestroyed(@ptrCast(self), @ptrCast(editor));
+    pub fn SuperEditorDestroyed(self: QTreeView, editor: anytype) void {
+        comptime _ = @TypeOf(editor)._is_QObject;
+        qtc.QTreeView_SuperEditorDestroyed(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -9690,12 +10023,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, editor: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, editor: QObject) callconv(.c) void `
     ///
-    pub fn OnEditorDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnEditorDestroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEditorDestroyed(self: QTreeView, callback: *const fn (QTreeView, QObject) callconv(.c) void) void {
+        qtc.QTreeView_OnEditorDestroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9706,16 +10039,18 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` trigger: qabstractitemview_enums.EditTrigger `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Edit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i32, event: ?*anyopaque) bool {
-        return qtc.QTreeView_Edit2(@ptrCast(self), @ptrCast(index), @bitCast(trigger), @ptrCast(event));
+    pub fn Edit2(self: QTreeView, index: anytype, trigger: i32, event: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTreeView_Edit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEdit2` instead
@@ -9730,16 +10065,18 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` trigger: qabstractitemview_enums.EditTrigger `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEdit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i32, event: ?*anyopaque) bool {
-        return qtc.QTreeView_SuperEdit2(@ptrCast(self), @ptrCast(index), @bitCast(trigger), @ptrCast(event));
+    pub fn SuperEdit2(self: QTreeView, index: anytype, trigger: i32, event: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTreeView_SuperEdit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -9750,12 +10087,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, index: QtC.QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTreeView, index: QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEdit2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTreeView_OnEdit2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEdit2(self: QTreeView, callback: *const fn (QTreeView, QModelIndex, i32, QEvent) callconv(.c) bool) void {
+        qtc.QTreeView_OnEdit2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9766,18 +10103,20 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
     /// ## Returns:
     ///
     /// ` flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i32 {
-        return qtc.QTreeView_SelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
+    pub fn SelectionCommand(self: QTreeView, index: anytype, event: anytype) i32 {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTreeView_SelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSelectionCommand` instead
@@ -9792,18 +10131,20 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
     /// ## Returns:
     ///
     /// ` flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SuperSelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i32 {
-        return qtc.QTreeView_SuperSelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
+    pub fn SuperSelectionCommand(self: QTreeView, index: anytype, event: anytype) i32 {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTreeView_SuperSelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -9814,12 +10155,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, index: QtC.QModelIndex, event: QtC.QEvent) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTreeView, index: QModelIndex, event: QEvent) callconv(.c) i32 `
     ///
-    pub fn OnSelectionCommand(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QTreeView_OnSelectionCommand(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSelectionCommand(self: QTreeView, callback: *const fn (QTreeView, QModelIndex, QEvent) callconv(.c) i32) void {
+        qtc.QTreeView_OnSelectionCommand(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9830,12 +10171,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
-    pub fn StartDrag(self: ?*anyopaque, supportedActions: i32) void {
-        qtc.QTreeView_StartDrag(@ptrCast(self), @bitCast(supportedActions));
+    pub fn StartDrag(self: QTreeView, supportedActions: i32) void {
+        qtc.QTreeView_StartDrag(@ptrCast(self.ptr), @bitCast(supportedActions));
     }
 
     /// ### DEPRECATED: Use `SuperStartDrag` instead
@@ -9850,12 +10191,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperStartDrag(self: ?*anyopaque, supportedActions: i32) void {
-        qtc.QTreeView_SuperStartDrag(@ptrCast(self), @bitCast(supportedActions));
+    pub fn SuperStartDrag(self: QTreeView, supportedActions: i32) void {
+        qtc.QTreeView_SuperStartDrag(@ptrCast(self.ptr), @bitCast(supportedActions));
     }
 
     /// Inherited from QAbstractItemView
@@ -9866,12 +10207,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, supportedActions: flag of qnamespace_enums.DropAction) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, supportedActions: flag of qnamespace_enums.DropAction) callconv(.c) void `
     ///
-    pub fn OnStartDrag(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeView_OnStartDrag(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStartDrag(self: QTreeView, callback: *const fn (QTreeView, i32) callconv(.c) void) void {
+        qtc.QTreeView_OnStartDrag(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9882,12 +10223,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` option: QtC.QStyleOptionViewItem `
+    /// ` option: QStyleOptionViewItem `
     ///
-    pub fn InitViewItemOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QTreeView_InitViewItemOption(@ptrCast(self), @ptrCast(option));
+    pub fn InitViewItemOption(self: QTreeView, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
+        qtc.QTreeView_InitViewItemOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitViewItemOption` instead
@@ -9902,12 +10244,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` option: QtC.QStyleOptionViewItem `
+    /// ` option: QStyleOptionViewItem `
     ///
-    pub fn SuperInitViewItemOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QTreeView_SuperInitViewItemOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitViewItemOption(self: QTreeView, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
+        qtc.QTreeView_SuperInitViewItemOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -9918,12 +10261,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, option: QtC.QStyleOptionViewItem) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, option: QStyleOptionViewItem) callconv(.c) void `
     ///
-    pub fn OnInitViewItemOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnInitViewItemOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitViewItemOption(self: QTreeView, callback: *const fn (QTreeView, QStyleOptionViewItem) callconv(.c) void) void {
+        qtc.QTreeView_OnInitViewItemOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9934,12 +10277,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QTreeView_FocusNextPrevChild(@ptrCast(self), next);
+    pub fn FocusNextPrevChild(self: QTreeView, next: bool) bool {
+        return qtc.QTreeView_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
@@ -9954,12 +10297,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QTreeView_SuperFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: QTreeView, next: bool) bool {
+        return qtc.QTreeView_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// Inherited from QAbstractItemView
@@ -9970,12 +10313,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, next: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTreeView, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QTreeView_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextPrevChild(self: QTreeView, callback: *const fn (QTreeView, bool) callconv(.c) bool) void {
+        qtc.QTreeView_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9986,12 +10329,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTreeView_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QTreeView, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTreeView_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -10006,12 +10350,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTreeView_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QTreeView, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTreeView_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -10022,12 +10367,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTreeView, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTreeView_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QTreeView, callback: *const fn (QTreeView, QEvent) callconv(.c) bool) void {
+        qtc.QTreeView_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10038,12 +10383,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_DragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragEnterEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QTreeView_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
@@ -10058,12 +10404,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QTreeView_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -10074,12 +10421,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QDragEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragEnterEvent(self: QTreeView, callback: *const fn (QTreeView, QDragEnterEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10090,12 +10437,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragLeaveEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QTreeView_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
@@ -10110,12 +10458,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QTreeView_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -10126,12 +10475,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QDragLeaveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragLeaveEvent(self: QTreeView, callback: *const fn (QTreeView, QDragLeaveEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10142,12 +10491,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_DropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DropEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QTreeView_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropEvent` instead
@@ -10162,12 +10512,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QTreeView_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -10178,12 +10529,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QDropEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropEvent(self: QTreeView, callback: *const fn (QTreeView, QDropEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10194,12 +10545,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_FocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusInEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QTreeView_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusInEvent` instead
@@ -10214,12 +10566,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QTreeView_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -10230,12 +10583,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusInEvent(self: QTreeView, callback: *const fn (QTreeView, QFocusEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10246,12 +10599,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_FocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusOutEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QTreeView_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
@@ -10266,12 +10620,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QTreeView_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -10282,12 +10637,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusOutEvent(self: QTreeView, callback: *const fn (QTreeView, QFocusEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10298,12 +10653,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_ResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ResizeEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.QTreeView_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResizeEvent` instead
@@ -10318,12 +10674,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.QTreeView_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -10334,12 +10691,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QResizeEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResizeEvent(self: QTreeView, callback: *const fn (QTreeView, QResizeEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10350,12 +10707,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QInputMethodEvent `
+    /// ` event: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_InputMethodEvent(@ptrCast(self), @ptrCast(event));
+    pub fn InputMethodEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
+        qtc.QTreeView_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
@@ -10370,12 +10728,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QInputMethodEvent `
+    /// ` event: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperInputMethodEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperInputMethodEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
+        qtc.QTreeView_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -10386,12 +10745,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QInputMethodEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodEvent(self: QTreeView, callback: *const fn (QTreeView, QInputMethodEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -10402,14 +10761,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` object: QtC.QObject `
+    /// ` object: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTreeView_EventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
+    pub fn EventFilter(self: QTreeView, object: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(object)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTreeView_EventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -10424,14 +10785,16 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` object: QtC.QObject `
+    /// ` object: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTreeView_SuperEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
+    pub fn SuperEventFilter(self: QTreeView, object: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(object)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTreeView_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -10442,12 +10805,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, object: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTreeView, object: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTreeView_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QTreeView, callback: *const fn (QTreeView, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QTreeView_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10458,10 +10821,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTreeView_MinimumSizeHint(@ptrCast(self));
+    pub fn MinimumSizeHint(self: QTreeView) QSize {
+        return .{ .ptr = qtc.QTreeView_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
@@ -10476,10 +10839,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTreeView_SuperMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: QTreeView) QSize {
+        return .{ .ptr = qtc.QTreeView_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10490,12 +10853,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QTreeView_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumSizeHint(self: QTreeView, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QTreeView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10506,10 +10869,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTreeView_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: QTreeView) QSize {
+        return .{ .ptr = qtc.QTreeView_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSizeHint` instead
@@ -10524,10 +10887,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTreeView_SuperSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: QTreeView) QSize {
+        return .{ .ptr = qtc.QTreeView_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10538,12 +10901,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QTreeView_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHint(self: QTreeView, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QTreeView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10554,12 +10917,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` viewport: QtC.QWidget `
+    /// ` viewport: QWidget `
     ///
-    pub fn SetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
-        qtc.QTreeView_SetupViewport(@ptrCast(self), @ptrCast(viewport));
+    pub fn SetupViewport(self: QTreeView, viewport: anytype) void {
+        comptime _ = @TypeOf(viewport)._is_QWidget;
+        qtc.QTreeView_SetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSetupViewport` instead
@@ -10574,12 +10938,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` viewport: QtC.QWidget `
+    /// ` viewport: QWidget `
     ///
-    pub fn SuperSetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
-        qtc.QTreeView_SuperSetupViewport(@ptrCast(self), @ptrCast(viewport));
+    pub fn SuperSetupViewport(self: QTreeView, viewport: anytype) void {
+        comptime _ = @TypeOf(viewport)._is_QWidget;
+        qtc.QTreeView_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10590,12 +10955,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, viewport: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, viewport: QWidget) callconv(.c) void `
     ///
-    pub fn OnSetupViewport(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnSetupViewport(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetupViewport(self: QTreeView, callback: *const fn (QTreeView, QWidget) callconv(.c) void) void {
+        qtc.QTreeView_OnSetupViewport(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10606,12 +10971,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QWheelEvent `
+    /// ` param1: QWheelEvent `
     ///
-    pub fn WheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTreeView_WheelEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn WheelEvent(self: QTreeView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWheelEvent;
+        qtc.QTreeView_WheelEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperWheelEvent` instead
@@ -10626,12 +10992,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QWheelEvent `
+    /// ` param1: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTreeView_SuperWheelEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperWheelEvent(self: QTreeView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWheelEvent;
+        qtc.QTreeView_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10642,12 +11009,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, param1: QtC.QWheelEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, param1: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWheelEvent(self: QTreeView, callback: *const fn (QTreeView, QWheelEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10658,12 +11025,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QContextMenuEvent `
+    /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTreeView_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ContextMenuEvent(self: QTreeView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
+        qtc.QTreeView_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
@@ -10678,12 +11046,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QContextMenuEvent `
+    /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTreeView_SuperContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperContextMenuEvent(self: QTreeView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
+        qtc.QTreeView_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10694,12 +11063,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, param1: QtC.QContextMenuEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuEvent(self: QTreeView, callback: *const fn (QTreeView, QContextMenuEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -10710,12 +11079,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` option: QtC.QStyleOptionFrame `
+    /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QTreeView_InitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn InitStyleOption(self: QTreeView, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
+        qtc.QTreeView_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitStyleOption` instead
@@ -10730,12 +11100,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` option: QtC.QStyleOptionFrame `
+    /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QTreeView_SuperInitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitStyleOption(self: QTreeView, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
+        qtc.QTreeView_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// Inherited from QFrame
@@ -10746,12 +11117,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, option: QtC.QStyleOptionFrame) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnInitStyleOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitStyleOption(self: QTreeView, callback: *const fn (QTreeView, QStyleOptionFrame) callconv(.c) void) void {
+        qtc.QTreeView_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10762,10 +11133,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.QTreeView_DevType(@ptrCast(self));
+    pub fn DevType(self: QTreeView) i32 {
+        return qtc.QTreeView_DevType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDevType` instead
@@ -10780,10 +11151,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperDevType(self: ?*anyopaque) i32 {
-        return qtc.QTreeView_SuperDevType(@ptrCast(self));
+    pub fn SuperDevType(self: QTreeView) i32 {
+        return qtc.QTreeView_SuperDevType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10794,12 +11165,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTreeView_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDevType(self: QTreeView, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTreeView_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10810,12 +11181,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QTreeView_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: QTreeView, visible: bool) void {
+        qtc.QTreeView_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### DEPRECATED: Use `SuperSetVisible` instead
@@ -10830,12 +11201,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QTreeView_SuperSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: QTreeView, visible: bool) void {
+        qtc.QTreeView_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QWidget
@@ -10846,12 +11217,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTreeView_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetVisible(self: QTreeView, callback: *const fn (QTreeView, bool) callconv(.c) void) void {
+        qtc.QTreeView_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10862,12 +11233,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTreeView_HeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn HeightForWidth(self: QTreeView, param1: i32) i32 {
+        return qtc.QTreeView_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperHeightForWidth` instead
@@ -10882,12 +11253,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTreeView_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: QTreeView, param1: i32) i32 {
+        return qtc.QTreeView_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -10898,12 +11269,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, param1: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTreeView, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QTreeView_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeightForWidth(self: QTreeView, callback: *const fn (QTreeView, i32) callconv(.c) i32) void {
+        qtc.QTreeView_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10914,10 +11285,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QTreeView_HasHeightForWidth(@ptrCast(self));
+    pub fn HasHeightForWidth(self: QTreeView) bool {
+        return qtc.QTreeView_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
@@ -10932,10 +11303,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QTreeView_SuperHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: QTreeView) bool {
+        return qtc.QTreeView_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10946,12 +11317,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTreeView_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasHeightForWidth(self: QTreeView, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTreeView_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10962,10 +11333,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QTreeView_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: QTreeView) QPaintEngine {
+        return .{ .ptr = qtc.QTreeView_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperPaintEngine` instead
@@ -10980,10 +11351,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QTreeView_SuperPaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: QTreeView) QPaintEngine {
+        return .{ .ptr = qtc.QTreeView_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10994,12 +11365,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QTreeView_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEngine(self: QTreeView, callback: *const fn () callconv(.c) QPaintEngine) void {
+        qtc.QTreeView_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11010,12 +11381,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyReleaseEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QTreeView_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
@@ -11030,12 +11402,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QTreeView_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -11046,12 +11419,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyReleaseEvent(self: QTreeView, callback: *const fn (QTreeView, QKeyEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11062,12 +11435,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_EnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn EnterEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QTreeView_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEnterEvent` instead
@@ -11082,12 +11456,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QTreeView_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -11098,12 +11473,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnterEvent(self: QTreeView, callback: *const fn (QTreeView, QEnterEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11114,12 +11489,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_LeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn LeaveEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QTreeView_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLeaveEvent` instead
@@ -11134,12 +11510,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QTreeView_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -11150,12 +11527,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeaveEvent(self: QTreeView, callback: *const fn (QTreeView, QEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11166,12 +11543,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_MoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MoveEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QTreeView_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMoveEvent` instead
@@ -11186,12 +11564,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QTreeView_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -11202,12 +11581,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveEvent(self: QTreeView, callback: *const fn (QTreeView, QMoveEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11218,12 +11597,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_CloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CloseEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QTreeView_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEvent` instead
@@ -11238,12 +11618,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QTreeView_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -11254,12 +11635,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QCloseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEvent(self: QTreeView, callback: *const fn (QTreeView, QCloseEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11270,12 +11651,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_TabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TabletEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QTreeView_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTabletEvent` instead
@@ -11290,12 +11672,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QTreeView_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -11306,12 +11689,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QTabletEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabletEvent(self: QTreeView, callback: *const fn (QTreeView, QTabletEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11322,12 +11705,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_ActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ActionEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QTreeView_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperActionEvent` instead
@@ -11342,12 +11726,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QTreeView_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -11358,12 +11743,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QActionEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionEvent(self: QTreeView, callback: *const fn (QTreeView, QActionEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11374,12 +11759,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_ShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ShowEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.QTreeView_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperShowEvent` instead
@@ -11394,12 +11780,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.QTreeView_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -11410,12 +11797,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QShowEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShowEvent(self: QTreeView, callback: *const fn (QTreeView, QShowEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11426,12 +11813,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_HideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn HideEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QTreeView_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHideEvent` instead
@@ -11446,12 +11834,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QTreeView_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -11462,12 +11851,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QHideEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHideEvent(self: QTreeView, callback: *const fn (QTreeView, QHideEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11478,7 +11867,7 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` eventType: []u8 `
     ///
@@ -11486,12 +11875,12 @@ pub const qtreeview = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn NativeEvent(self: QTreeView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QTreeView_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QTreeView_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### DEPRECATED: Use `SuperNativeEvent` instead
@@ -11506,7 +11895,7 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` eventType: []u8 `
     ///
@@ -11514,12 +11903,12 @@ pub const qtreeview = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: QTreeView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QTreeView_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QTreeView_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -11530,12 +11919,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTreeView, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QTreeView_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNativeEvent(self: QTreeView, callback: *const fn (QTreeView, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.QTreeView_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11546,12 +11935,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTreeView_Metric(@ptrCast(self), @bitCast(param1));
+    pub fn Metric(self: QTreeView, param1: i32) i32 {
+        return qtc.QTreeView_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperMetric` instead
@@ -11566,12 +11955,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTreeView_SuperMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: QTreeView, param1: i32) i32 {
+        return qtc.QTreeView_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -11582,12 +11971,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTreeView, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QTreeView_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetric(self: QTreeView, callback: *const fn (QTreeView, i32) callconv(.c) i32) void {
+        qtc.QTreeView_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11598,12 +11987,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QTreeView_InitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn InitPainter(self: QTreeView, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QTreeView_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitPainter` instead
@@ -11618,12 +12008,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QTreeView_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: QTreeView, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QTreeView_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -11634,12 +12025,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, painter: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitPainter(self: QTreeView, callback: *const fn (QTreeView, QPainter) callconv(.c) void) void {
+        qtc.QTreeView_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11650,12 +12041,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QTreeView_Redirected(@ptrCast(self), @ptrCast(offset));
+    pub fn Redirected(self: QTreeView, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QTreeView_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperRedirected` instead
@@ -11670,12 +12062,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QTreeView_SuperRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: QTreeView, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QTreeView_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11686,12 +12079,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    /// ` callback: *const fn (self: QTreeView, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QTreeView_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: QTreeView, callback: *const fn (QTreeView, QPoint) callconv(.c) QPaintDevice) void {
+        qtc.QTreeView_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11702,10 +12095,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QTreeView_SharedPainter(@ptrCast(self));
+    pub fn SharedPainter(self: QTreeView) QPainter {
+        return .{ .ptr = qtc.QTreeView_SharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSharedPainter` instead
@@ -11720,10 +12113,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QTreeView_SuperSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: QTreeView) QPainter {
+        return .{ .ptr = qtc.QTreeView_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11734,12 +12127,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QTreeView_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSharedPainter(self: QTreeView, callback: *const fn () callconv(.c) QPainter) void {
+        qtc.QTreeView_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11750,12 +12143,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QTreeView_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -11770,12 +12164,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QTreeView_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -11786,12 +12181,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QTreeView, callback: *const fn (QTreeView, QChildEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11802,12 +12197,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QTreeView_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -11822,12 +12218,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTreeView_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QTreeView, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QTreeView_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -11838,12 +12235,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QTreeView, callback: *const fn (QTreeView, QEvent) callconv(.c) void) void {
+        qtc.QTreeView_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11854,12 +12251,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTreeView_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QTreeView, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QTreeView_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -11874,12 +12272,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTreeView_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QTreeView, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QTreeView_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -11890,12 +12289,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QTreeView, callback: *const fn (QTreeView, QMetaMethod) callconv(.c) void) void {
+        qtc.QTreeView_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11906,12 +12305,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTreeView_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QTreeView, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QTreeView_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -11926,12 +12326,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTreeView_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QTreeView, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QTreeView_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -11942,12 +12343,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QTreeView, callback: *const fn (QTreeView, QMetaMethod) callconv(.c) void) void {
+        qtc.QTreeView_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -11958,14 +12359,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.State `
     ///
-    pub fn State(self: ?*anyopaque) i32 {
-        return qtc.QTreeView_State(@ptrCast(self));
+    pub fn State(self: QTreeView) i32 {
+        return qtc.QTreeView_State(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperState` instead
@@ -11980,14 +12381,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.State `
     ///
-    pub fn SuperState(self: ?*anyopaque) i32 {
-        return qtc.QTreeView_SuperState(@ptrCast(self));
+    pub fn SuperState(self: QTreeView) i32 {
+        return qtc.QTreeView_SuperState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -11998,12 +12399,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnState(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTreeView_OnState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnState(self: QTreeView, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTreeView_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12014,12 +12415,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` state: qabstractitemview_enums.State `
     ///
-    pub fn SetState(self: ?*anyopaque, state: i32) void {
-        qtc.QTreeView_SetState(@ptrCast(self), @bitCast(state));
+    pub fn SetState(self: QTreeView, state: i32) void {
+        qtc.QTreeView_SetState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// ### DEPRECATED: Use `SuperSetState` instead
@@ -12034,12 +12435,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` state: qabstractitemview_enums.State `
     ///
-    pub fn SuperSetState(self: ?*anyopaque, state: i32) void {
-        qtc.QTreeView_SuperSetState(@ptrCast(self), @bitCast(state));
+    pub fn SuperSetState(self: QTreeView, state: i32) void {
+        qtc.QTreeView_SuperSetState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QAbstractItemView
@@ -12050,12 +12451,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, state: qabstractitemview_enums.State) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, state: qabstractitemview_enums.State) callconv(.c) void `
     ///
-    pub fn OnSetState(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeView_OnSetState(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetState(self: QTreeView, callback: *const fn (QTreeView, i32) callconv(.c) void) void {
+        qtc.QTreeView_OnSetState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12066,10 +12467,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ScheduleDelayedItemsLayout(self: ?*anyopaque) void {
-        qtc.QTreeView_ScheduleDelayedItemsLayout(@ptrCast(self));
+    pub fn ScheduleDelayedItemsLayout(self: QTreeView) void {
+        qtc.QTreeView_ScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperScheduleDelayedItemsLayout` instead
@@ -12084,10 +12485,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperScheduleDelayedItemsLayout(self: ?*anyopaque) void {
-        qtc.QTreeView_SuperScheduleDelayedItemsLayout(@ptrCast(self));
+    pub fn SuperScheduleDelayedItemsLayout(self: QTreeView) void {
+        qtc.QTreeView_SuperScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -12098,12 +12499,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnScheduleDelayedItemsLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnScheduleDelayedItemsLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnScheduleDelayedItemsLayout(self: QTreeView, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeView_OnScheduleDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12114,10 +12515,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ExecuteDelayedItemsLayout(self: ?*anyopaque) void {
-        qtc.QTreeView_ExecuteDelayedItemsLayout(@ptrCast(self));
+    pub fn ExecuteDelayedItemsLayout(self: QTreeView) void {
+        qtc.QTreeView_ExecuteDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperExecuteDelayedItemsLayout` instead
@@ -12132,10 +12533,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperExecuteDelayedItemsLayout(self: ?*anyopaque) void {
-        qtc.QTreeView_SuperExecuteDelayedItemsLayout(@ptrCast(self));
+    pub fn SuperExecuteDelayedItemsLayout(self: QTreeView) void {
+        qtc.QTreeView_SuperExecuteDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -12146,12 +12547,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnExecuteDelayedItemsLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnExecuteDelayedItemsLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnExecuteDelayedItemsLayout(self: QTreeView, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeView_OnExecuteDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12162,12 +12563,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` region: QtC.QRegion `
+    /// ` region: QRegion `
     ///
-    pub fn SetDirtyRegion(self: ?*anyopaque, region: ?*anyopaque) void {
-        qtc.QTreeView_SetDirtyRegion(@ptrCast(self), @ptrCast(region));
+    pub fn SetDirtyRegion(self: QTreeView, region: anytype) void {
+        comptime _ = @TypeOf(region)._is_QRegion;
+        qtc.QTreeView_SetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSetDirtyRegion` instead
@@ -12182,12 +12584,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` region: QtC.QRegion `
+    /// ` region: QRegion `
     ///
-    pub fn SuperSetDirtyRegion(self: ?*anyopaque, region: ?*anyopaque) void {
-        qtc.QTreeView_SuperSetDirtyRegion(@ptrCast(self), @ptrCast(region));
+    pub fn SuperSetDirtyRegion(self: QTreeView, region: anytype) void {
+        comptime _ = @TypeOf(region)._is_QRegion;
+        qtc.QTreeView_SuperSetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -12198,12 +12601,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, region: QtC.QRegion) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, region: QRegion) callconv(.c) void `
     ///
-    pub fn OnSetDirtyRegion(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnSetDirtyRegion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetDirtyRegion(self: QTreeView, callback: *const fn (QTreeView, QRegion) callconv(.c) void) void {
+        qtc.QTreeView_OnSetDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12214,14 +12617,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn ScrollDirtyRegion(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QTreeView_ScrollDirtyRegion(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn ScrollDirtyRegion(self: QTreeView, dx: i32, dy: i32) void {
+        qtc.QTreeView_ScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### DEPRECATED: Use `SuperScrollDirtyRegion` instead
@@ -12236,14 +12639,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn SuperScrollDirtyRegion(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QTreeView_SuperScrollDirtyRegion(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn SuperScrollDirtyRegion(self: QTreeView, dx: i32, dy: i32) void {
+        qtc.QTreeView_SuperScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QAbstractItemView
@@ -12254,12 +12657,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, dx: i32, dy: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, dx: i32, dy: i32) callconv(.c) void `
     ///
-    pub fn OnScrollDirtyRegion(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTreeView_OnScrollDirtyRegion(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnScrollDirtyRegion(self: QTreeView, callback: *const fn (QTreeView, i32, i32) callconv(.c) void) void {
+        qtc.QTreeView_OnScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12270,10 +12673,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn DirtyRegionOffset(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QTreeView_DirtyRegionOffset(@ptrCast(self));
+    pub fn DirtyRegionOffset(self: QTreeView) QPoint {
+        return .{ .ptr = qtc.QTreeView_DirtyRegionOffset(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperDirtyRegionOffset` instead
@@ -12288,10 +12691,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperDirtyRegionOffset(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QTreeView_SuperDirtyRegionOffset(@ptrCast(self));
+    pub fn SuperDirtyRegionOffset(self: QTreeView) QPoint {
+        return .{ .ptr = qtc.QTreeView_SuperDirtyRegionOffset(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractItemView
@@ -12302,12 +12705,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPoint `
+    /// ` callback: *const fn () callconv(.c) QPoint `
     ///
-    pub fn OnDirtyRegionOffset(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPoint) void {
-        qtc.QTreeView_OnDirtyRegionOffset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDirtyRegionOffset(self: QTreeView, callback: *const fn () callconv(.c) QPoint) void {
+        qtc.QTreeView_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12318,10 +12721,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn StartAutoScroll(self: ?*anyopaque) void {
-        qtc.QTreeView_StartAutoScroll(@ptrCast(self));
+    pub fn StartAutoScroll(self: QTreeView) void {
+        qtc.QTreeView_StartAutoScroll(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperStartAutoScroll` instead
@@ -12336,10 +12739,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperStartAutoScroll(self: ?*anyopaque) void {
-        qtc.QTreeView_SuperStartAutoScroll(@ptrCast(self));
+    pub fn SuperStartAutoScroll(self: QTreeView) void {
+        qtc.QTreeView_SuperStartAutoScroll(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -12350,12 +12753,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStartAutoScroll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnStartAutoScroll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStartAutoScroll(self: QTreeView, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeView_OnStartAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12366,10 +12769,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn StopAutoScroll(self: ?*anyopaque) void {
-        qtc.QTreeView_StopAutoScroll(@ptrCast(self));
+    pub fn StopAutoScroll(self: QTreeView) void {
+        qtc.QTreeView_StopAutoScroll(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperStopAutoScroll` instead
@@ -12384,10 +12787,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperStopAutoScroll(self: ?*anyopaque) void {
-        qtc.QTreeView_SuperStopAutoScroll(@ptrCast(self));
+    pub fn SuperStopAutoScroll(self: QTreeView) void {
+        qtc.QTreeView_SuperStopAutoScroll(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -12398,12 +12801,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStopAutoScroll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnStopAutoScroll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStopAutoScroll(self: QTreeView, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeView_OnStopAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12414,10 +12817,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn DoAutoScroll(self: ?*anyopaque) void {
-        qtc.QTreeView_DoAutoScroll(@ptrCast(self));
+    pub fn DoAutoScroll(self: QTreeView) void {
+        qtc.QTreeView_DoAutoScroll(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDoAutoScroll` instead
@@ -12432,10 +12835,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperDoAutoScroll(self: ?*anyopaque) void {
-        qtc.QTreeView_SuperDoAutoScroll(@ptrCast(self));
+    pub fn SuperDoAutoScroll(self: QTreeView) void {
+        qtc.QTreeView_SuperDoAutoScroll(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -12446,12 +12849,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDoAutoScroll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnDoAutoScroll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDoAutoScroll(self: QTreeView, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeView_OnDoAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -12462,14 +12865,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.DropIndicatorPosition `
     ///
-    pub fn DropIndicatorPosition(self: ?*anyopaque) i32 {
-        return qtc.QTreeView_DropIndicatorPosition(@ptrCast(self));
+    pub fn DropIndicatorPosition(self: QTreeView) i32 {
+        return qtc.QTreeView_DropIndicatorPosition(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropIndicatorPosition` instead
@@ -12484,14 +12887,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ## Returns:
     ///
     /// ` qabstractitemview_enums.DropIndicatorPosition `
     ///
-    pub fn SuperDropIndicatorPosition(self: ?*anyopaque) i32 {
-        return qtc.QTreeView_SuperDropIndicatorPosition(@ptrCast(self));
+    pub fn SuperDropIndicatorPosition(self: QTreeView) i32 {
+        return qtc.QTreeView_SuperDropIndicatorPosition(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemView
@@ -12502,12 +12905,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDropIndicatorPosition(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTreeView_OnDropIndicatorPosition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropIndicatorPosition(self: QTreeView, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTreeView_OnDropIndicatorPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12518,7 +12921,7 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` left: i32 `
     ///
@@ -12528,8 +12931,8 @@ pub const qtreeview = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QTreeView_SetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetViewportMargins(self: QTreeView, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QTreeView_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// ### DEPRECATED: Use `SuperSetViewportMargins` instead
@@ -12544,7 +12947,7 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` left: i32 `
     ///
@@ -12554,8 +12957,8 @@ pub const qtreeview = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SuperSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QTreeView_SuperSetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SuperSetViewportMargins(self: QTreeView, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QTreeView_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12566,12 +12969,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
     ///
-    pub fn OnSetViewportMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.QTreeView_OnSetViewportMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetViewportMargins(self: QTreeView, callback: *const fn (QTreeView, i32, i32, i32, i32) callconv(.c) void) void {
+        qtc.QTreeView_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12582,10 +12985,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn ViewportMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QTreeView_ViewportMargins(@ptrCast(self));
+    pub fn ViewportMargins(self: QTreeView) QMargins {
+        return .{ .ptr = qtc.QTreeView_ViewportMargins(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperViewportMargins` instead
@@ -12600,10 +13003,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperViewportMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QTreeView_SuperViewportMargins(@ptrCast(self));
+    pub fn SuperViewportMargins(self: QTreeView) QMargins {
+        return .{ .ptr = qtc.QTreeView_SuperViewportMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -12614,12 +13017,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMargins `
+    /// ` callback: *const fn () callconv(.c) QMargins `
     ///
-    pub fn OnViewportMargins(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMargins) void {
-        qtc.QTreeView_OnViewportMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnViewportMargins(self: QTreeView, callback: *const fn () callconv(.c) QMargins) void {
+        qtc.QTreeView_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -12630,12 +13033,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QPainter `
+    /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTreeView_DrawFrame(@ptrCast(self), @ptrCast(param1));
+    pub fn DrawFrame(self: QTreeView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPainter;
+        qtc.QTreeView_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDrawFrame` instead
@@ -12650,12 +13054,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` param1: QtC.QPainter `
+    /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTreeView_SuperDrawFrame(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDrawFrame(self: QTreeView, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPainter;
+        qtc.QTreeView_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QFrame
@@ -12666,12 +13071,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, param1: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnDrawFrame(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDrawFrame(self: QTreeView, callback: *const fn (QTreeView, QPainter) callconv(.c) void) void {
+        qtc.QTreeView_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12682,10 +13087,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QTreeView_UpdateMicroFocus(@ptrCast(self));
+    pub fn UpdateMicroFocus(self: QTreeView) void {
+        qtc.QTreeView_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
@@ -12700,10 +13105,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QTreeView_SuperUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: QTreeView) void {
+        qtc.QTreeView_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12714,12 +13119,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateMicroFocus(self: QTreeView, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeView_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12730,10 +13135,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Create(self: ?*anyopaque) void {
-        qtc.QTreeView_Create(@ptrCast(self));
+    pub fn Create(self: QTreeView) void {
+        qtc.QTreeView_Create(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -12748,10 +13153,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperCreate(self: ?*anyopaque) void {
-        qtc.QTreeView_SuperCreate(@ptrCast(self));
+    pub fn SuperCreate(self: QTreeView) void {
+        qtc.QTreeView_SuperCreate(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12762,12 +13167,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: QTreeView, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeView_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12778,10 +13183,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Destroy(self: ?*anyopaque) void {
-        qtc.QTreeView_Destroy(@ptrCast(self));
+    pub fn Destroy(self: QTreeView) void {
+        qtc.QTreeView_Destroy(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDestroy` instead
@@ -12796,10 +13201,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperDestroy(self: ?*anyopaque) void {
-        qtc.QTreeView_SuperDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: QTreeView) void {
+        qtc.QTreeView_SuperDestroy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12810,12 +13215,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTreeView_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroy(self: QTreeView, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeView_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12826,10 +13231,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QTreeView_FocusNextChild(@ptrCast(self));
+    pub fn FocusNextChild(self: QTreeView) bool {
+        return qtc.QTreeView_FocusNextChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextChild` instead
@@ -12844,10 +13249,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QTreeView_SuperFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: QTreeView) bool {
+        return qtc.QTreeView_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12858,12 +13263,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTreeView_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextChild(self: QTreeView, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTreeView_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12874,10 +13279,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QTreeView_FocusPreviousChild(@ptrCast(self));
+    pub fn FocusPreviousChild(self: QTreeView) bool {
+        return qtc.QTreeView_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
@@ -12892,10 +13297,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QTreeView_SuperFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: QTreeView) bool {
+        return qtc.QTreeView_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12906,12 +13311,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTreeView_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusPreviousChild(self: QTreeView, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTreeView_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12922,10 +13327,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QTreeView_Sender(@ptrCast(self));
+    pub fn Sender(self: QTreeView) QObject {
+        return .{ .ptr = qtc.QTreeView_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -12940,10 +13345,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QTreeView_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QTreeView) QObject {
+        return .{ .ptr = qtc.QTreeView_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -12954,12 +13359,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QTreeView_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QTreeView, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QTreeView_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12970,10 +13375,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QTreeView_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QTreeView) i32 {
+        return qtc.QTreeView_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -12988,10 +13393,10 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QTreeView_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QTreeView) i32 {
+        return qtc.QTreeView_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -13002,12 +13407,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTreeView_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QTreeView, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTreeView_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -13018,13 +13423,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QTreeView, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QTreeView_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QTreeView_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -13039,13 +13444,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QTreeView, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QTreeView_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QTreeView_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -13056,12 +13461,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTreeView, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QTreeView_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QTreeView, callback: *const fn (QTreeView, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QTreeView_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -13072,12 +13477,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QTreeView_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QTreeView, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QTreeView_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -13092,12 +13498,13 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QTreeView_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QTreeView, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QTreeView_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -13108,12 +13515,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTreeView, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTreeView_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QTreeView, callback: *const fn (QTreeView, QMetaMethod) callconv(.c) bool) void {
+        qtc.QTreeView_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -13124,14 +13531,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QTreeView_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn GetDecodedMetricF(self: QTreeView, metricA: i32, metricB: i32) f64 {
+        return qtc.QTreeView_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
@@ -13146,14 +13553,14 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QTreeView_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: QTreeView, metricA: i32, metricB: i32) f64 {
+        return qtc.QTreeView_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -13164,12 +13571,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView`
+    /// ` self: QTreeView`
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    /// ` callback: *const fn (self: QTreeView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QTreeView_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetDecodedMetricF(self: QTreeView, callback: *const fn (QTreeView, i32, i32) callconv(.c) f64) void {
+        qtc.QTreeView_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -13180,12 +13587,12 @@ pub const qtreeview = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    /// ` callback: *const fn (self: QtC.QTreeView, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QTreeView, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QTreeView, callback: *const fn (QTreeView, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -13198,9 +13605,9 @@ pub const qtreeview = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QTreeView `
+    /// ` self: QTreeView `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QTreeView_Delete(@ptrCast(self));
+    pub fn Delete(self: QTreeView) void {
+        qtc.QTreeView_Delete(@ptrCast(self.ptr));
     }
 };

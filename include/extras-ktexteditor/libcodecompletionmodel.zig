@@ -1,33 +1,62 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KTextEditor__Range = @import("libqt6").KTextEditor__Range;
+const KTextEditor__View = @import("libqt6").KTextEditor__View;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QDataStream = @import("libqt6").QDataStream;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMimeData = @import("libqt6").QMimeData;
+const QModelIndex = @import("libqt6").QModelIndex;
+const QModelRoleDataSpan = @import("libqt6").QModelRoleDataSpan;
+const QObject = @import("libqt6").QObject;
+const QPersistentModelIndex = @import("libqt6").QPersistentModelIndex;
+const QSize = @import("libqt6").QSize;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const codecompletionmodel_enums = enums;
 const qabstractitemmodel_enums = @import("../libqabstractitemmodel.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const arraymap_i32_qtcqvariant = std.array_hash_map.Auto(i32, QtC.QVariant);
-const map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
+const ArrayMap_i32_QVariant = std.array_hash_map.Auto(i32, QVariant);
+const Map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
 
 /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodel.html)
-pub const ktexteditor__codecompletionmodel = struct {
+pub const KTextEditor__CodeCompletionModel = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodel.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KTextEditor__CodeCompletionModel,
+
+    pub const _is_KTextEditor__CodeCompletionModel = {};
+    pub const _is_QAbstractItemModel = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new KTextEditor::CodeCompletionModel object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.KTextEditor__CodeCompletionModel {
-        return qtc.KTextEditor__CodeCompletionModel_new(@ptrCast(parent));
+    pub fn New(parent: anytype) KTextEditor__CodeCompletionModel {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.KTextEditor__CodeCompletionModel_new(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KTextEditor__CodeCompletionModel_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KTextEditor__CodeCompletionModel) QMetaObject {
+        return .{ .ptr = qtc.KTextEditor__CodeCompletionModel_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -36,12 +65,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KTextEditor__CodeCompletionModel_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KTextEditor__CodeCompletionModel, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KTextEditor__CodeCompletionModel_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -54,33 +83,33 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KTextEditor__CodeCompletionModel_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KTextEditor__CodeCompletionModel) QMetaObject {
+        return .{ .ptr = qtc.KTextEditor__CodeCompletionModel_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KTextEditor__CodeCompletionModel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KTextEditor__CodeCompletionModel_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KTextEditor__CodeCompletionModel_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KTextEditor__CodeCompletionModel_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -91,18 +120,18 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KTextEditor__CodeCompletionModel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KTextEditor__CodeCompletionModel_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KTextEditor__CodeCompletionModel_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -110,20 +139,20 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KTextEditor__CodeCompletionModel_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KTextEditor__CodeCompletionModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KTextEditor__CodeCompletionModel_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KTextEditor__CodeCompletionModel_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KTextEditor__CodeCompletionModel_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -134,7 +163,7 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -142,19 +171,19 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KTextEditor__CodeCompletionModel_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KTextEditor__CodeCompletionModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KTextEditor__CodeCompletionModel_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -167,28 +196,30 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` rowCount: i32 `
     ///
-    pub fn SetRowCount(self: ?*anyopaque, rowCount: i32) void {
-        qtc.KTextEditor__CodeCompletionModel_SetRowCount(@ptrCast(self), @bitCast(rowCount));
+    pub fn SetRowCount(self: KTextEditor__CodeCompletionModel, rowCount: i32) void {
+        qtc.KTextEditor__CodeCompletionModel_SetRowCount(@ptrCast(self.ptr), @bitCast(rowCount));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodel.html#completionInvoked)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` view: QtC.KTextEditor__View `
+    /// ` view: KTextEditor__View `
     ///
-    /// ` range: QtC.KTextEditor__Range `
+    /// ` range: KTextEditor__Range `
     ///
     /// ` invocationType: codecompletionmodel_enums.InvocationType `
     ///
-    pub fn CompletionInvoked(self: ?*anyopaque, view: ?*anyopaque, range: ?*anyopaque, invocationType: i32) void {
-        qtc.KTextEditor__CodeCompletionModel_CompletionInvoked(@ptrCast(self), @ptrCast(view), @ptrCast(range), @bitCast(invocationType));
+    pub fn CompletionInvoked(self: KTextEditor__CodeCompletionModel, view: anytype, range: anytype, invocationType: i32) void {
+        comptime _ = @TypeOf(view)._is_KTextEditor__View;
+        comptime _ = @TypeOf(range)._is_KTextEditor__Range;
+        qtc.KTextEditor__CodeCompletionModel_CompletionInvoked(@ptrCast(self.ptr), @ptrCast(view.ptr), @ptrCast(range.ptr), @bitCast(invocationType));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodel.html#completionInvoked)
@@ -197,12 +228,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, view: QtC.KTextEditor__View, range: QtC.KTextEditor__Range, invocationType: codecompletionmodel_enums.InvocationType) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, view: KTextEditor__View, range: KTextEditor__Range, invocationType: codecompletionmodel_enums.InvocationType) callconv(.c) void `
     ///
-    pub fn OnCompletionInvoked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnCompletionInvoked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCompletionInvoked(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, KTextEditor__View, KTextEditor__Range, i32) callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnCompletionInvoked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCompletionInvoked` instead
@@ -215,32 +246,37 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` view: QtC.KTextEditor__View `
+    /// ` view: KTextEditor__View `
     ///
-    /// ` range: QtC.KTextEditor__Range `
+    /// ` range: KTextEditor__Range `
     ///
     /// ` invocationType: codecompletionmodel_enums.InvocationType `
     ///
-    pub fn SuperCompletionInvoked(self: ?*anyopaque, view: ?*anyopaque, range: ?*anyopaque, invocationType: i32) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperCompletionInvoked(@ptrCast(self), @ptrCast(view), @ptrCast(range), @bitCast(invocationType));
+    pub fn SuperCompletionInvoked(self: KTextEditor__CodeCompletionModel, view: anytype, range: anytype, invocationType: i32) void {
+        comptime _ = @TypeOf(view)._is_KTextEditor__View;
+        comptime _ = @TypeOf(range)._is_KTextEditor__Range;
+        qtc.KTextEditor__CodeCompletionModel_SuperCompletionInvoked(@ptrCast(self.ptr), @ptrCast(view.ptr), @ptrCast(range.ptr), @bitCast(invocationType));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodel.html#executeCompletionItem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` view: QtC.KTextEditor__View `
+    /// ` view: KTextEditor__View `
     ///
-    /// ` word: QtC.KTextEditor__Range `
+    /// ` word: KTextEditor__Range `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn ExecuteCompletionItem(self: ?*anyopaque, view: ?*anyopaque, word: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_ExecuteCompletionItem(@ptrCast(self), @ptrCast(view), @ptrCast(word), @ptrCast(index));
+    pub fn ExecuteCompletionItem(self: KTextEditor__CodeCompletionModel, view: anytype, word: anytype, index: anytype) void {
+        comptime _ = @TypeOf(view)._is_KTextEditor__View;
+        comptime _ = @TypeOf(word)._is_KTextEditor__Range;
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.KTextEditor__CodeCompletionModel_ExecuteCompletionItem(@ptrCast(self.ptr), @ptrCast(view.ptr), @ptrCast(word.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodel.html#executeCompletionItem)
@@ -249,12 +285,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, view: QtC.KTextEditor__View, word: QtC.KTextEditor__Range, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, view: KTextEditor__View, word: KTextEditor__Range, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnExecuteCompletionItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnExecuteCompletionItem(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnExecuteCompletionItem(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, KTextEditor__View, KTextEditor__Range, QModelIndex) callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnExecuteCompletionItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperExecuteCompletionItem` instead
@@ -267,28 +303,32 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` view: QtC.KTextEditor__View `
+    /// ` view: KTextEditor__View `
     ///
-    /// ` word: QtC.KTextEditor__Range `
+    /// ` word: KTextEditor__Range `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperExecuteCompletionItem(self: ?*anyopaque, view: ?*anyopaque, word: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperExecuteCompletionItem(@ptrCast(self), @ptrCast(view), @ptrCast(word), @ptrCast(index));
+    pub fn SuperExecuteCompletionItem(self: KTextEditor__CodeCompletionModel, view: anytype, word: anytype, index: anytype) void {
+        comptime _ = @TypeOf(view)._is_KTextEditor__View;
+        comptime _ = @TypeOf(word)._is_KTextEditor__Range;
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.KTextEditor__CodeCompletionModel_SuperExecuteCompletionItem(@ptrCast(self.ptr), @ptrCast(view.ptr), @ptrCast(word.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodel.html#columnCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn ColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KTextEditor__CodeCompletionModel_ColumnCount(@ptrCast(self), @ptrCast(parent));
+    pub fn ColumnCount(self: KTextEditor__CodeCompletionModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_ColumnCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodel.html#columnCount)
@@ -297,12 +337,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, parent: QtC.QModelIndex) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, parent: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnColumnCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KTextEditor__CodeCompletionModel_OnColumnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnCount(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex) callconv(.c) i32) void {
+        qtc.KTextEditor__CodeCompletionModel_OnColumnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperColumnCount` instead
@@ -315,28 +355,30 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KTextEditor__CodeCompletionModel_SuperColumnCount(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperColumnCount(self: KTextEditor__CodeCompletionModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_SuperColumnCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodel.html#index)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn Index(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KTextEditor__CodeCompletionModel_Index(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn Index(self: KTextEditor__CodeCompletionModel, row: i32, column: i32, parent: anytype) QModelIndex {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return .{ .ptr = qtc.KTextEditor__CodeCompletionModel_Index(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodel.html#index)
@@ -345,12 +387,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KTextEditor__CodeCompletionModel_OnIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIndex(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KTextEditor__CodeCompletionModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIndex` instead
@@ -363,31 +405,33 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperIndex(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KTextEditor__CodeCompletionModel_SuperIndex(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperIndex(self: KTextEditor__CodeCompletionModel, row: i32, column: i32, parent: anytype) QModelIndex {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return .{ .ptr = qtc.KTextEditor__CodeCompletionModel_SuperIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodel.html#itemData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
-    ///
-    /// ` index: QtC.QModelIndex `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
-        const _map: qtc.libqt_map = qtc.KTextEditor__CodeCompletionModel_ItemData(@ptrCast(self), @ptrCast(index));
-        var _ret: arraymap_i32_qtcqvariant = .empty;
+    /// ` index: QModelIndex `
+    ///
+    pub fn ItemData(self: KTextEditor__CodeCompletionModel, allocator: std.mem.Allocator, index: anytype) ArrayMap_i32_QVariant {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        const _map: qtc.libqt_map = qtc.KTextEditor__CodeCompletionModel_ItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+        var _ret: ArrayMap_i32_QVariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -398,7 +442,7 @@ pub const ktexteditor__codecompletionmodel = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("ktexteditor__codecompletionmodel.ItemData: Memory allocation failed");
+            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("ktexteditor__codecompletionmodel.ItemData: Memory allocation failed");
         }
         return _ret;
     }
@@ -409,16 +453,16 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, index: QtC.QModelIndex) callconv(.c) qtc.libqt_map `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, index: QModelIndex) callconv(.c) qtc.libqt_map `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of arraymap_i32_qtcqvariant `
+    /// ` C ABI representation of ArrayMap_i32_QVariant `
     ///
-    pub fn OnItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_map) void {
-        qtc.KTextEditor__CodeCompletionModel_OnItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemData(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex) callconv(.c) qtc.libqt_map) void {
+        qtc.KTextEditor__CodeCompletionModel_OnItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperItemData` instead
@@ -431,15 +475,16 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
-    ///
-    /// ` index: QtC.QModelIndex `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
-        const _map: qtc.libqt_map = qtc.KTextEditor__CodeCompletionModel_SuperItemData(@ptrCast(self), @ptrCast(index));
-        var _ret: arraymap_i32_qtcqvariant = .empty;
+    /// ` index: QModelIndex `
+    ///
+    pub fn SuperItemData(self: KTextEditor__CodeCompletionModel, allocator: std.mem.Allocator, index: anytype) ArrayMap_i32_QVariant {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        const _map: qtc.libqt_map = qtc.KTextEditor__CodeCompletionModel_SuperItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+        var _ret: ArrayMap_i32_QVariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -450,7 +495,7 @@ pub const ktexteditor__codecompletionmodel = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("ktexteditor__codecompletionmodel.ItemData: Memory allocation failed");
+            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("ktexteditor__codecompletionmodel.ItemData: Memory allocation failed");
         }
         return _ret;
     }
@@ -459,12 +504,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Parent(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KTextEditor__CodeCompletionModel_Parent(@ptrCast(self), @ptrCast(index));
+    pub fn Parent(self: KTextEditor__CodeCompletionModel, index: anytype) QModelIndex {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KTextEditor__CodeCompletionModel_Parent(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodel.html#parent)
@@ -473,12 +519,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, index: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnParent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KTextEditor__CodeCompletionModel_OnParent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnParent(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KTextEditor__CodeCompletionModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperParent` instead
@@ -491,24 +537,26 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperParent(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KTextEditor__CodeCompletionModel_SuperParent(@ptrCast(self), @ptrCast(index));
+    pub fn SuperParent(self: KTextEditor__CodeCompletionModel, index: anytype) QModelIndex {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KTextEditor__CodeCompletionModel_SuperParent(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodel.html#rowCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KTextEditor__CodeCompletionModel_RowCount(@ptrCast(self), @ptrCast(parent));
+    pub fn RowCount(self: KTextEditor__CodeCompletionModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_RowCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodel.html#rowCount)
@@ -517,12 +565,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, parent: QtC.QModelIndex) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, parent: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnRowCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KTextEditor__CodeCompletionModel_OnRowCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowCount(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex) callconv(.c) i32) void {
+        qtc.KTextEditor__CodeCompletionModel_OnRowCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRowCount` instead
@@ -535,82 +583,84 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperRowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KTextEditor__CodeCompletionModel_SuperRowCount(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperRowCount(self: KTextEditor__CodeCompletionModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_SuperRowCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodel.html#hasGroups)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn HasGroups(self: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_HasGroups(@ptrCast(self));
+    pub fn HasGroups(self: KTextEditor__CodeCompletionModel) bool {
+        return qtc.KTextEditor__CodeCompletionModel_HasGroups(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodel.html#waitForReset)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn WaitForReset(self: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_WaitForReset(@ptrCast(self));
+    pub fn WaitForReset(self: KTextEditor__CodeCompletionModel) void {
+        qtc.KTextEditor__CodeCompletionModel_WaitForReset(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodel.html#waitForReset)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel) callconv(.c) void `
     ///
-    pub fn OnWaitForReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_Connect_WaitForReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWaitForReset(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel) callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_Connect_WaitForReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodel.html#hasGroupsChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` model: QtC.KTextEditor__CodeCompletionModel `
+    /// ` model: KTextEditor__CodeCompletionModel `
     ///
     /// ` hasGroups: bool `
     ///
-    pub fn HasGroupsChanged(self: ?*anyopaque, model: ?*anyopaque, hasGroups: bool) void {
-        qtc.KTextEditor__CodeCompletionModel_HasGroupsChanged(@ptrCast(self), @ptrCast(model), hasGroups);
+    pub fn HasGroupsChanged(self: KTextEditor__CodeCompletionModel, model: anytype, hasGroups: bool) void {
+        comptime _ = @TypeOf(model)._is_KTextEditor__CodeCompletionModel;
+        qtc.KTextEditor__CodeCompletionModel_HasGroupsChanged(@ptrCast(self.ptr), @ptrCast(model.ptr), hasGroups);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodel.html#hasGroupsChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, model: QtC.KTextEditor__CodeCompletionModel, hasGroups: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, model: KTextEditor__CodeCompletionModel, hasGroups: bool) callconv(.c) void `
     ///
-    pub fn OnHasGroupsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_Connect_HasGroupsChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasGroupsChanged(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, KTextEditor__CodeCompletionModel, bool) callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_Connect_HasGroupsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodel.html#setHasGroups)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` hasGroups: bool `
     ///
-    pub fn SetHasGroups(self: ?*anyopaque, hasGroups: bool) void {
-        qtc.KTextEditor__CodeCompletionModel_SetHasGroups(@ptrCast(self), hasGroups);
+    pub fn SetHasGroups(self: KTextEditor__CodeCompletionModel, hasGroups: bool) void {
+        qtc.KTextEditor__CodeCompletionModel_SetHasGroups(@ptrCast(self.ptr), hasGroups);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-codecompletionmodel.html#setHasGroups)
@@ -619,12 +669,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, hasGroups: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, hasGroups: bool) callconv(.c) void `
     ///
-    pub fn OnSetHasGroups(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnSetHasGroups(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetHasGroups(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, bool) callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnSetHasGroups(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetHasGroups` instead
@@ -637,25 +687,25 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` hasGroups: bool `
     ///
-    pub fn SuperSetHasGroups(self: ?*anyopaque, hasGroups: bool) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperSetHasGroups(@ptrCast(self), hasGroups);
+    pub fn SuperSetHasGroups(self: KTextEditor__CodeCompletionModel, hasGroups: bool) void {
+        qtc.KTextEditor__CodeCompletionModel_SuperSetHasGroups(@ptrCast(self.ptr), hasGroups);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -669,15 +719,15 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -693,14 +743,14 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn HasIndex(self: ?*anyopaque, row: i32, column: i32) bool {
-        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn HasIndex(self: KTextEditor__CodeCompletionModel, row: i32, column: i32) bool {
+        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -709,12 +759,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` row: i32 `
     ///
-    pub fn InsertRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self), @bitCast(row));
+    pub fn InsertRow(self: KTextEditor__CodeCompletionModel, row: i32) bool {
+        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemModel
@@ -723,12 +773,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` column: i32 `
     ///
-    pub fn InsertColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self), @bitCast(column));
+    pub fn InsertColumn(self: KTextEditor__CodeCompletionModel, column: i32) bool {
+        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -737,12 +787,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` row: i32 `
     ///
-    pub fn RemoveRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self), @bitCast(row));
+    pub fn RemoveRow(self: KTextEditor__CodeCompletionModel, row: i32) bool {
+        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemModel
@@ -751,12 +801,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` column: i32 `
     ///
-    pub fn RemoveColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self), @bitCast(column));
+    pub fn RemoveColumn(self: KTextEditor__CodeCompletionModel, column: i32) bool {
+        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -765,18 +815,20 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceRow: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveRow(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveRow(self: KTextEditor__CodeCompletionModel, sourceParent: anytype, sourceRow: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -785,18 +837,20 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceColumn: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveColumn(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveColumn(self: KTextEditor__CodeCompletionModel, sourceParent: anytype, sourceColumn: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -805,12 +859,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn CheckIndex(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_CheckIndex(@ptrCast(self), @ptrCast(index));
+    pub fn CheckIndex(self: KTextEditor__CodeCompletionModel, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CheckIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -819,14 +874,16 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` topLeft: QtC.QModelIndex `
+    /// ` topLeft: QModelIndex `
     ///
-    /// ` bottomRight: QtC.QModelIndex `
+    /// ` bottomRight: QModelIndex `
     ///
-    pub fn DataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque) void {
-        qtc.QAbstractItemModel_DataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight));
+    pub fn DataChanged(self: KTextEditor__CodeCompletionModel, topLeft: anytype, bottomRight: anytype) void {
+        comptime _ = @TypeOf(topLeft)._is_QModelIndex;
+        comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
+        qtc.QAbstractItemModel_DataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -835,12 +892,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, topLeft: QModelIndex, bottomRight: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDataChanged(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -849,7 +906,7 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
@@ -857,8 +914,8 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i32, first: i32, last: i32) void {
-        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self), @bitCast(orientation), @bitCast(first), @bitCast(last));
+    pub fn HeaderDataChanged(self: KTextEditor__CodeCompletionModel, orientation: i32, first: i32, last: i32) void {
+        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(orientation), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -867,12 +924,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnHeaderDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeaderDataChanged(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, i32, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -881,10 +938,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn LayoutChanged(self: ?*anyopaque) void {
-        qtc.QAbstractItemModel_LayoutChanged(@ptrCast(self));
+    pub fn LayoutChanged(self: KTextEditor__CodeCompletionModel) void {
+        qtc.QAbstractItemModel_LayoutChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -893,12 +950,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutChanged(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -907,10 +964,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn LayoutAboutToBeChanged(self: ?*anyopaque) void {
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged(@ptrCast(self));
+    pub fn LayoutAboutToBeChanged(self: KTextEditor__CodeCompletionModel) void {
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -919,12 +976,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutAboutToBeChanged(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -933,16 +990,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn HasIndex3(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn HasIndex3(self: KTextEditor__CodeCompletionModel, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -951,14 +1009,15 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
+    pub fn InsertRow2(self: KTextEditor__CodeCompletionModel, row: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -967,14 +1026,15 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
+    pub fn InsertColumn2(self: KTextEditor__CodeCompletionModel, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -983,14 +1043,15 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
+    pub fn RemoveRow2(self: KTextEditor__CodeCompletionModel, row: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -999,14 +1060,15 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
+    pub fn RemoveColumn2(self: KTextEditor__CodeCompletionModel, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1015,14 +1077,15 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` options: flag of qabstractitemmodel_enums.CheckIndexOption `
     ///
-    pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
-        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @bitCast(options));
+    pub fn CheckIndex2(self: KTextEditor__CodeCompletionModel, index: anytype, options: i32) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(options));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1031,20 +1094,22 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` topLeft: QtC.QModelIndex `
+    /// ` topLeft: QModelIndex `
     ///
-    /// ` bottomRight: QtC.QModelIndex `
+    /// ` bottomRight: QModelIndex `
     ///
     /// ` roles: []i32 `
     ///
-    pub fn DataChanged3(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
+    pub fn DataChanged3(self: KTextEditor__CodeCompletionModel, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+        comptime _ = @TypeOf(topLeft)._is_QModelIndex;
+        comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
-        qtc.QAbstractItemModel_DataChanged3(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
+        qtc.QAbstractItemModel_DataChanged3(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -1053,12 +1118,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, topLeft: QModelIndex, bottomRight: QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDataChanged3(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1067,16 +1132,16 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
-    pub fn LayoutChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
+    pub fn LayoutChanged1(self: KTextEditor__CodeCompletionModel, parents: []QPersistentModelIndex) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutChanged1(@ptrCast(self), parents_list);
+        qtc.QAbstractItemModel_LayoutChanged1(@ptrCast(self.ptr), parents_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -1085,12 +1150,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, parents: qtc.libqt_list ([]QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutChanged1(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1099,18 +1164,18 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
     /// ` hint: qabstractitemmodel_enums.LayoutChangeHint `
     ///
-    pub fn LayoutChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
+    pub fn LayoutChanged2(self: KTextEditor__CodeCompletionModel, parents: []QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self), parents_list, @bitCast(hint));
+        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self.ptr), parents_list, @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1119,12 +1184,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, parents: qtc.libqt_list ([]QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutChanged2(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, qtc.libqt_list, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1133,16 +1198,16 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
-    pub fn LayoutAboutToBeChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
+    pub fn LayoutAboutToBeChanged1(self: KTextEditor__CodeCompletionModel, parents: []QPersistentModelIndex) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged1(@ptrCast(self), parents_list);
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged1(@ptrCast(self.ptr), parents_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -1151,12 +1216,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, parents: qtc.libqt_list ([]QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutAboutToBeChanged1(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1165,18 +1230,18 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
     /// ` hint: qabstractitemmodel_enums.LayoutChangeHint `
     ///
-    pub fn LayoutAboutToBeChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
+    pub fn LayoutAboutToBeChanged2(self: KTextEditor__CodeCompletionModel, parents: []QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self), parents_list, @bitCast(hint));
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self.ptr), parents_list, @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1185,12 +1250,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, parents: qtc.libqt_list ([]QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutAboutToBeChanged2(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, qtc.libqt_list, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1199,12 +1264,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KTextEditor__CodeCompletionModel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__codecompletionmodel.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1217,12 +1282,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KTextEditor__CodeCompletionModel, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1231,10 +1296,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KTextEditor__CodeCompletionModel) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1243,10 +1308,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KTextEditor__CodeCompletionModel) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1255,10 +1320,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KTextEditor__CodeCompletionModel) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1267,10 +1332,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KTextEditor__CodeCompletionModel) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1279,12 +1344,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KTextEditor__CodeCompletionModel, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -1293,10 +1358,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KTextEditor__CodeCompletionModel) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1305,12 +1370,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KTextEditor__CodeCompletionModel, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1319,12 +1385,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KTextEditor__CodeCompletionModel, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1333,12 +1399,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KTextEditor__CodeCompletionModel, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1347,12 +1413,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KTextEditor__CodeCompletionModel, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1361,12 +1427,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KTextEditor__CodeCompletionModel, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1375,16 +1441,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KTextEditor__CodeCompletionModel, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("ktexteditor__codecompletionmodel.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("ktexteditor__codecompletionmodel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1394,12 +1461,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KTextEditor__CodeCompletionModel, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1408,12 +1476,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KTextEditor__CodeCompletionModel, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1422,12 +1491,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KTextEditor__CodeCompletionModel, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1436,18 +1506,20 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1456,16 +1528,20 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1474,18 +1550,19 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KTextEditor__CodeCompletionModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1494,18 +1571,20 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1514,16 +1593,20 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1532,10 +1615,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KTextEditor__CodeCompletionModel) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1544,12 +1627,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KTextEditor__CodeCompletionModel, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1558,10 +1642,11 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1570,10 +1655,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KTextEditor__CodeCompletionModel) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1582,10 +1667,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KTextEditor__CodeCompletionModel) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1594,15 +1679,16 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KTextEditor__CodeCompletionModel, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1611,13 +1697,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KTextEditor__CodeCompletionModel, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1626,17 +1712,16 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KTextEditor__CodeCompletionModel, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("ktexteditor__codecompletionmodel.DynamicPropertyNames: Memory allocation failed");
@@ -1655,10 +1740,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KTextEditor__CodeCompletionModel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1667,10 +1752,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KTextEditor__CodeCompletionModel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1679,10 +1764,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KTextEditor__CodeCompletionModel) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1691,12 +1776,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1705,13 +1790,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KTextEditor__CodeCompletionModel, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1720,10 +1805,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KTextEditor__CodeCompletionModel) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1732,14 +1817,14 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KTextEditor__CodeCompletionModel, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1748,14 +1833,14 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KTextEditor__CodeCompletionModel, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1764,20 +1849,22 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1786,18 +1873,22 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1806,9 +1897,9 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1816,10 +1907,11 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KTextEditor__CodeCompletionModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1828,13 +1920,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KTextEditor__CodeCompletionModel, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1843,15 +1935,16 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KTextEditor__CodeCompletionModel, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1860,18 +1953,19 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KTextEditor__CodeCompletionModel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1880,15 +1974,16 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KTextEditor__CodeCompletionModel, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1897,12 +1992,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KTextEditor__CodeCompletionModel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1911,12 +2007,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1927,16 +2023,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` idx: QtC.QModelIndex `
+    /// ` idx: QModelIndex `
     ///
-    pub fn Sibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KTextEditor__CodeCompletionModel_Sibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
+    pub fn Sibling(self: KTextEditor__CodeCompletionModel, row: i32, column: i32, idx: anytype) QModelIndex {
+        comptime _ = @TypeOf(idx)._is_QModelIndex;
+        return .{ .ptr = qtc.KTextEditor__CodeCompletionModel_Sibling(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(idx.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSibling` instead
@@ -1951,16 +2048,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` idx: QtC.QModelIndex `
+    /// ` idx: QModelIndex `
     ///
-    pub fn SuperSibling(self: ?*anyopaque, row: i32, column: i32, idx: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KTextEditor__CodeCompletionModel_SuperSibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(idx));
+    pub fn SuperSibling(self: KTextEditor__CodeCompletionModel, row: i32, column: i32, idx: anytype) QModelIndex {
+        comptime _ = @TypeOf(idx)._is_QModelIndex;
+        return .{ .ptr = qtc.KTextEditor__CodeCompletionModel_SuperSibling(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(idx.ptr)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -1971,12 +2069,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, row: i32, column: i32, idx: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnSibling(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KTextEditor__CodeCompletionModel_OnSibling(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSibling(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KTextEditor__CodeCompletionModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1987,12 +2085,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn HasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_HasChildren(@ptrCast(self), @ptrCast(parent));
+    pub fn HasChildren(self: KTextEditor__CodeCompletionModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_HasChildren(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasChildren` instead
@@ -2007,12 +2106,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperHasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_SuperHasChildren(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperHasChildren(self: KTextEditor__CodeCompletionModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_SuperHasChildren(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2023,12 +2123,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnHasChildren(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModel_OnHasChildren(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasChildren(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex) callconv(.c) bool) void {
+        qtc.KTextEditor__CodeCompletionModel_OnHasChildren(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2039,14 +2139,15 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    pub fn Data(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.KTextEditor__CodeCompletionModel_Data(@ptrCast(self), @ptrCast(index), @bitCast(role));
+    pub fn Data(self: KTextEditor__CodeCompletionModel, index: anytype, role: i32) QVariant {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KTextEditor__CodeCompletionModel_Data(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(role)) };
     }
 
     /// ### DEPRECATED: Use `SuperData` instead
@@ -2061,14 +2162,15 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperData(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.KTextEditor__CodeCompletionModel_SuperData(@ptrCast(self), @ptrCast(index), @bitCast(role));
+    pub fn SuperData(self: KTextEditor__CodeCompletionModel, index: anytype, role: i32) QVariant {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KTextEditor__CodeCompletionModel_SuperData(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(role)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -2079,12 +2181,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, index: QtC.QModelIndex, role: i32) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
-    pub fn OnData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.KTextEditor__CodeCompletionModel_OnData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnData(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, i32) callconv(.c) QVariant) void {
+        qtc.KTextEditor__CodeCompletionModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2095,16 +2197,18 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.KTextEditor__CodeCompletionModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
+    pub fn SetData(self: KTextEditor__CodeCompletionModel, index: anytype, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KTextEditor__CodeCompletionModel_SetData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// ### DEPRECATED: Use `SuperSetData` instead
@@ -2119,16 +2223,18 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperSetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.KTextEditor__CodeCompletionModel_SuperSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
+    pub fn SuperSetData(self: KTextEditor__CodeCompletionModel, index: anytype, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KTextEditor__CodeCompletionModel_SuperSetData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2139,12 +2245,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, index: QtC.QModelIndex, value: QtC.QVariant, role: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, index: QModelIndex, value: QVariant, role: i32) callconv(.c) bool `
     ///
-    pub fn OnSetData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModel_OnSetData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetData(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, QVariant, i32) callconv(.c) bool) void {
+        qtc.KTextEditor__CodeCompletionModel_OnSetData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2155,7 +2261,7 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` section: i32 `
     ///
@@ -2163,8 +2269,8 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn HeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.KTextEditor__CodeCompletionModel_HeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
+    pub fn HeaderData(self: KTextEditor__CodeCompletionModel, section: i32, orientation: i32, role: i32) QVariant {
+        return .{ .ptr = qtc.KTextEditor__CodeCompletionModel_HeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @bitCast(role)) };
     }
 
     /// ### DEPRECATED: Use `SuperHeaderData` instead
@@ -2179,7 +2285,7 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` section: i32 `
     ///
@@ -2187,8 +2293,8 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperHeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.KTextEditor__CodeCompletionModel_SuperHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
+    pub fn SuperHeaderData(self: KTextEditor__CodeCompletionModel, section: i32, orientation: i32, role: i32) QVariant {
+        return .{ .ptr = qtc.KTextEditor__CodeCompletionModel_SuperHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @bitCast(role)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -2199,12 +2305,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
     ///
-    pub fn OnHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) QtC.QVariant) void {
-        qtc.KTextEditor__CodeCompletionModel_OnHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeaderData(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, i32, i32, i32) callconv(.c) QVariant) void {
+        qtc.KTextEditor__CodeCompletionModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2215,18 +2321,19 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` section: i32 `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.KTextEditor__CodeCompletionModel_SetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
+    pub fn SetHeaderData(self: KTextEditor__CodeCompletionModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KTextEditor__CodeCompletionModel_SetHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// ### DEPRECATED: Use `SuperSetHeaderData` instead
@@ -2241,18 +2348,19 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` section: i32 `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperSetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.KTextEditor__CodeCompletionModel_SuperSetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
+    pub fn SuperSetHeaderData(self: KTextEditor__CodeCompletionModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KTextEditor__CodeCompletionModel_SuperSetHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2263,12 +2371,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, section: i32, orientation: qnamespace_enums.Orientation, value: QtC.QVariant, role: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, section: i32, orientation: qnamespace_enums.Orientation, value: QVariant, role: i32) callconv(.c) bool `
     ///
-    pub fn OnSetHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModel_OnSetHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetHeaderData(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, i32, i32, QVariant, i32) callconv(.c) bool) void {
+        qtc.KTextEditor__CodeCompletionModel_OnSetHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2279,15 +2387,16 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
-    ///
-    /// ` index: QtC.QModelIndex `
-    ///
-    /// ` roles: arraymap_i32_qtcqvariant `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+    /// ` index: QModelIndex `
+    ///
+    /// ` roles: ArrayMap_i32_QVariant `
+    ///
+    pub fn SetItemData(self: KTextEditor__CodeCompletionModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
         const roles_count = roles.count();
         const roles_keys = allocator.alloc(i32, roles_count) catch @panic("ktexteditor__codecompletionmodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
@@ -2298,14 +2407,14 @@ pub const ktexteditor__codecompletionmodel = struct {
         while (roles_it.next()) |it_entry| : (i += 1) {
             const roles_key = it_entry.key_ptr.*;
             roles_keys[i] = @bitCast(roles_key);
-            roles_values[i] = @ptrCast(it_entry.value_ptr.*);
+            roles_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const roles_map = qtc.libqt_map{
             .len = roles_count,
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.KTextEditor__CodeCompletionModel_SetItemData(@ptrCast(self), @ptrCast(index), roles_map);
+        return qtc.KTextEditor__CodeCompletionModel_SetItemData(@ptrCast(self.ptr), @ptrCast(index.ptr), roles_map);
     }
 
     /// ### DEPRECATED: Use `SuperSetItemData` instead
@@ -2320,15 +2429,16 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
-    ///
-    /// ` index: QtC.QModelIndex `
-    ///
-    /// ` roles: arraymap_i32_qtcqvariant `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+    /// ` index: QModelIndex `
+    ///
+    /// ` roles: ArrayMap_i32_QVariant `
+    ///
+    pub fn SuperSetItemData(self: KTextEditor__CodeCompletionModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
         const roles_count = roles.count();
         const roles_keys = allocator.alloc(i32, roles_count) catch @panic("ktexteditor__codecompletionmodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
@@ -2339,14 +2449,14 @@ pub const ktexteditor__codecompletionmodel = struct {
         while (roles_it.next()) |it_entry| : (i += 1) {
             const roles_key = it_entry.key_ptr.*;
             roles_keys[i] = @bitCast(roles_key);
-            roles_values[i] = @ptrCast(it_entry.value_ptr.*);
+            roles_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const roles_map = qtc.libqt_map{
             .len = roles_count,
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.KTextEditor__CodeCompletionModel_SuperSetItemData(@ptrCast(self), @ptrCast(index), roles_map);
+        return qtc.KTextEditor__CodeCompletionModel_SuperSetItemData(@ptrCast(self.ptr), @ptrCast(index.ptr), roles_map);
     }
 
     /// Inherited from QAbstractItemModel
@@ -2357,12 +2467,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, index: QtC.QModelIndex, roles: qtc.libqt_map (arraymap_i32_qtcqvariant)) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, index: QModelIndex, roles: qtc.libqt_map (ArrayMap_i32_QVariant)) callconv(.c) bool `
     ///
-    pub fn OnSetItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_map) callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModel_OnSetItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetItemData(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, qtc.libqt_map) callconv(.c) bool) void {
+        qtc.KTextEditor__CodeCompletionModel_OnSetItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2373,12 +2483,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn ClearItemData(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_ClearItemData(@ptrCast(self), @ptrCast(index));
+    pub fn ClearItemData(self: KTextEditor__CodeCompletionModel, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_ClearItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperClearItemData` instead
@@ -2393,12 +2504,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperClearItemData(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_SuperClearItemData(@ptrCast(self), @ptrCast(index));
+    pub fn SuperClearItemData(self: KTextEditor__CodeCompletionModel, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_SuperClearItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2409,12 +2521,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, index: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, index: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnClearItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModel_OnClearItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClearItemData(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex) callconv(.c) bool) void {
+        qtc.KTextEditor__CodeCompletionModel_OnClearItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2425,17 +2537,16 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KTextEditor__CodeCompletionModel_MimeTypes(@ptrCast(self));
+    pub fn MimeTypes(self: KTextEditor__CodeCompletionModel, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KTextEditor__CodeCompletionModel_MimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("ktexteditor__codecompletionmodel.MimeTypes: Memory allocation failed");
@@ -2460,17 +2571,16 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KTextEditor__CodeCompletionModel_SuperMimeTypes(@ptrCast(self));
+    pub fn SuperMimeTypes(self: KTextEditor__CodeCompletionModel, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KTextEditor__CodeCompletionModel_SuperMimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("ktexteditor__codecompletionmodel.MimeTypes: Memory allocation failed");
@@ -2489,16 +2599,16 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnMimeTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.KTextEditor__CodeCompletionModel_OnMimeTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMimeTypes(self: KTextEditor__CodeCompletionModel, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+        qtc.KTextEditor__CodeCompletionModel_OnMimeTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2509,16 +2619,16 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    pub fn MimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
+    pub fn MimeData(self: KTextEditor__CodeCompletionModel, indexes: []QModelIndex) QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        return qtc.KTextEditor__CodeCompletionModel_MimeData(@ptrCast(self), indexes_list);
+        return .{ .ptr = qtc.KTextEditor__CodeCompletionModel_MimeData(@ptrCast(self.ptr), indexes_list) };
     }
 
     /// ### DEPRECATED: Use `SuperMimeData` instead
@@ -2533,16 +2643,16 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    pub fn SuperMimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
+    pub fn SuperMimeData(self: KTextEditor__CodeCompletionModel, indexes: []QModelIndex) QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        return qtc.KTextEditor__CodeCompletionModel_SuperMimeData(@ptrCast(self), indexes_list);
+        return .{ .ptr = qtc.KTextEditor__CodeCompletionModel_SuperMimeData(@ptrCast(self.ptr), indexes_list) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -2553,12 +2663,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, indexes: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) QtC.QMimeData `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, indexes: qtc.libqt_list ([]QModelIndex)) callconv(.c) QMimeData `
     ///
-    pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) QtC.QMimeData) void {
-        qtc.KTextEditor__CodeCompletionModel_OnMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMimeData(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, qtc.libqt_list) callconv(.c) QMimeData) void {
+        qtc.KTextEditor__CodeCompletionModel_OnMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2569,9 +2679,9 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -2579,10 +2689,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn CanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn CanDropMimeData(self: KTextEditor__CodeCompletionModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_CanDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCanDropMimeData` instead
@@ -2597,9 +2709,9 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -2607,10 +2719,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperCanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_SuperCanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperCanDropMimeData(self: KTextEditor__CodeCompletionModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_SuperCanDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2621,12 +2735,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, data: QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnCanDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModel_OnCanDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCanDropMimeData(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KTextEditor__CodeCompletionModel_OnCanDropMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2637,9 +2751,9 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -2647,10 +2761,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn DropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_DropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn DropMimeData(self: KTextEditor__CodeCompletionModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_DropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropMimeData` instead
@@ -2665,9 +2781,9 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -2675,10 +2791,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_SuperDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperDropMimeData(self: KTextEditor__CodeCompletionModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_SuperDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2689,12 +2807,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, data: QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModel_OnDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropMimeData(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KTextEditor__CodeCompletionModel_OnDropMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2705,14 +2823,14 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDropActions(self: ?*anyopaque) i32 {
-        return qtc.KTextEditor__CodeCompletionModel_SupportedDropActions(@ptrCast(self));
+    pub fn SupportedDropActions(self: KTextEditor__CodeCompletionModel) i32 {
+        return qtc.KTextEditor__CodeCompletionModel_SupportedDropActions(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSupportedDropActions` instead
@@ -2727,14 +2845,14 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperSupportedDropActions(self: ?*anyopaque) i32 {
-        return qtc.KTextEditor__CodeCompletionModel_SuperSupportedDropActions(@ptrCast(self));
+    pub fn SuperSupportedDropActions(self: KTextEditor__CodeCompletionModel) i32 {
+        return qtc.KTextEditor__CodeCompletionModel_SuperSupportedDropActions(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2745,12 +2863,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedDropActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KTextEditor__CodeCompletionModel_OnSupportedDropActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSupportedDropActions(self: KTextEditor__CodeCompletionModel, callback: *const fn () callconv(.c) i32) void {
+        qtc.KTextEditor__CodeCompletionModel_OnSupportedDropActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2761,14 +2879,14 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDragActions(self: ?*anyopaque) i32 {
-        return qtc.KTextEditor__CodeCompletionModel_SupportedDragActions(@ptrCast(self));
+    pub fn SupportedDragActions(self: KTextEditor__CodeCompletionModel) i32 {
+        return qtc.KTextEditor__CodeCompletionModel_SupportedDragActions(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSupportedDragActions` instead
@@ -2783,14 +2901,14 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperSupportedDragActions(self: ?*anyopaque) i32 {
-        return qtc.KTextEditor__CodeCompletionModel_SuperSupportedDragActions(@ptrCast(self));
+    pub fn SuperSupportedDragActions(self: KTextEditor__CodeCompletionModel) i32 {
+        return qtc.KTextEditor__CodeCompletionModel_SuperSupportedDragActions(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2801,12 +2919,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedDragActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KTextEditor__CodeCompletionModel_OnSupportedDragActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSupportedDragActions(self: KTextEditor__CodeCompletionModel, callback: *const fn () callconv(.c) i32) void {
+        qtc.KTextEditor__CodeCompletionModel_OnSupportedDragActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2817,16 +2935,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_InsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn InsertRows(self: KTextEditor__CodeCompletionModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_InsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInsertRows` instead
@@ -2841,16 +2960,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperInsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_SuperInsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn SuperInsertRows(self: KTextEditor__CodeCompletionModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_SuperInsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2861,12 +2981,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, row: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModel_OnInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInsertRows(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KTextEditor__CodeCompletionModel_OnInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2877,16 +2997,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_InsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn InsertColumns(self: KTextEditor__CodeCompletionModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_InsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInsertColumns` instead
@@ -2901,16 +3022,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperInsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_SuperInsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn SuperInsertColumns(self: KTextEditor__CodeCompletionModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_SuperInsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2921,12 +3043,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, column: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModel_OnInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInsertColumns(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KTextEditor__CodeCompletionModel_OnInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2937,16 +3059,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_RemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn RemoveRows(self: KTextEditor__CodeCompletionModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_RemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperRemoveRows` instead
@@ -2961,16 +3084,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperRemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_SuperRemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn SuperRemoveRows(self: KTextEditor__CodeCompletionModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_SuperRemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2981,12 +3105,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, row: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModel_OnRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRemoveRows(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KTextEditor__CodeCompletionModel_OnRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2997,16 +3121,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_RemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn RemoveColumns(self: KTextEditor__CodeCompletionModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_RemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperRemoveColumns` instead
@@ -3021,16 +3146,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperRemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_SuperRemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn SuperRemoveColumns(self: KTextEditor__CodeCompletionModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_SuperRemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3041,12 +3167,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, column: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModel_OnRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRemoveColumns(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KTextEditor__CodeCompletionModel_OnRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3057,20 +3183,22 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceRow: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KTextEditor__CodeCompletionModel_MoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveRows(self: KTextEditor__CodeCompletionModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_MoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// ### DEPRECATED: Use `SuperMoveRows` instead
@@ -3085,20 +3213,22 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceRow: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn SuperMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KTextEditor__CodeCompletionModel_SuperMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn SuperMoveRows(self: KTextEditor__CodeCompletionModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_SuperMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3109,12 +3239,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, sourceParent: QtC.QModelIndex, sourceRow: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, sourceParent: QModelIndex, sourceRow: i32, count: i32, destinationParent: QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
-    pub fn OnMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModel_OnMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveRows(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KTextEditor__CodeCompletionModel_OnMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3125,20 +3255,22 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceColumn: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KTextEditor__CodeCompletionModel_MoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveColumns(self: KTextEditor__CodeCompletionModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_MoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// ### DEPRECATED: Use `SuperMoveColumns` instead
@@ -3153,20 +3285,22 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceColumn: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn SuperMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KTextEditor__CodeCompletionModel_SuperMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn SuperMoveColumns(self: KTextEditor__CodeCompletionModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_SuperMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3177,12 +3311,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, sourceParent: QtC.QModelIndex, sourceColumn: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, sourceParent: QModelIndex, sourceColumn: i32, count: i32, destinationParent: QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
-    pub fn OnMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModel_OnMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveColumns(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KTextEditor__CodeCompletionModel_OnMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3193,12 +3327,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn FetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_FetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn FetchMore(self: KTextEditor__CodeCompletionModel, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KTextEditor__CodeCompletionModel_FetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFetchMore` instead
@@ -3213,12 +3348,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperFetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperFetchMore(self: KTextEditor__CodeCompletionModel, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KTextEditor__CodeCompletionModel_SuperFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3229,12 +3365,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, parent: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, parent: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnFetchMore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFetchMore(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex) callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnFetchMore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3245,12 +3381,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn CanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_CanFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn CanFetchMore(self: KTextEditor__CodeCompletionModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_CanFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCanFetchMore` instead
@@ -3265,12 +3402,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperCanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_SuperCanFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperCanFetchMore(self: KTextEditor__CodeCompletionModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_SuperCanFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3281,12 +3419,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnCanFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModel_OnCanFetchMore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCanFetchMore(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex) callconv(.c) bool) void {
+        qtc.KTextEditor__CodeCompletionModel_OnCanFetchMore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3297,16 +3435,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i32 {
-        return qtc.KTextEditor__CodeCompletionModel_Flags(@ptrCast(self), @ptrCast(index));
+    pub fn Flags(self: KTextEditor__CodeCompletionModel, index: anytype) i32 {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_Flags(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFlags` instead
@@ -3321,16 +3460,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn SuperFlags(self: ?*anyopaque, index: ?*anyopaque) i32 {
-        return qtc.KTextEditor__CodeCompletionModel_SuperFlags(@ptrCast(self), @ptrCast(index));
+    pub fn SuperFlags(self: KTextEditor__CodeCompletionModel, index: anytype) i32 {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_SuperFlags(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3341,12 +3481,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, index: QtC.QModelIndex) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, index: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnFlags(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KTextEditor__CodeCompletionModel_OnFlags(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFlags(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex) callconv(.c) i32) void {
+        qtc.KTextEditor__CodeCompletionModel_OnFlags(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3357,14 +3497,14 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` column: i32 `
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn Sort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.KTextEditor__CodeCompletionModel_Sort(@ptrCast(self), @bitCast(column), @bitCast(order));
+    pub fn Sort(self: KTextEditor__CodeCompletionModel, column: i32, order: i32) void {
+        qtc.KTextEditor__CodeCompletionModel_Sort(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
 
     /// ### DEPRECATED: Use `SuperSort` instead
@@ -3379,14 +3519,14 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` column: i32 `
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn SuperSort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperSort(@ptrCast(self), @bitCast(column), @bitCast(order));
+    pub fn SuperSort(self: KTextEditor__CodeCompletionModel, column: i32, order: i32) void {
+        qtc.KTextEditor__CodeCompletionModel_SuperSort(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3397,12 +3537,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
     ///
-    pub fn OnSort(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnSort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSort(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, i32, i32) callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnSort(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3413,12 +3553,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Buddy(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KTextEditor__CodeCompletionModel_Buddy(@ptrCast(self), @ptrCast(index));
+    pub fn Buddy(self: KTextEditor__CodeCompletionModel, index: anytype) QModelIndex {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KTextEditor__CodeCompletionModel_Buddy(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperBuddy` instead
@@ -3433,12 +3574,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperBuddy(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KTextEditor__CodeCompletionModel_SuperBuddy(@ptrCast(self), @ptrCast(index));
+    pub fn SuperBuddy(self: KTextEditor__CodeCompletionModel, index: anytype) QModelIndex {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KTextEditor__CodeCompletionModel_SuperBuddy(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -3449,12 +3591,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, index: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnBuddy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KTextEditor__CodeCompletionModel_OnBuddy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBuddy(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KTextEditor__CodeCompletionModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3465,26 +3607,29 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` start: QtC.QModelIndex `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` start: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` hits: i32 `
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KTextEditor__CodeCompletionModel_Match(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
+    pub fn Match(self: KTextEditor__CodeCompletionModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, flags: i32) []QModelIndex {
+        comptime _ = @TypeOf(start)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        const _arr: qtc.libqt_list = qtc.KTextEditor__CodeCompletionModel_Match(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("ktexteditor__codecompletionmodel.Match: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("ktexteditor__codecompletionmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -3500,26 +3645,29 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` start: QtC.QModelIndex `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` start: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` hits: i32 `
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn SuperMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KTextEditor__CodeCompletionModel_SuperMatch(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
+    pub fn SuperMatch(self: KTextEditor__CodeCompletionModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, flags: i32) []QModelIndex {
+        comptime _ = @TypeOf(start)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        const _arr: qtc.libqt_list = qtc.KTextEditor__CodeCompletionModel_SuperMatch(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("ktexteditor__codecompletionmodel.Match: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("ktexteditor__codecompletionmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -3529,20 +3677,20 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, start: QModelIndex, role: i32, value: QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of []QtC.QModelIndex `
+    /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) qtc.libqt_list) void {
-        qtc.KTextEditor__CodeCompletionModel_OnMatch(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMatch(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, i32, QVariant, i32, i32) callconv(.c) qtc.libqt_list) void {
+        qtc.KTextEditor__CodeCompletionModel_OnMatch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3553,12 +3701,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Span(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
-        return qtc.KTextEditor__CodeCompletionModel_Span(@ptrCast(self), @ptrCast(index));
+    pub fn Span(self: KTextEditor__CodeCompletionModel, index: anytype) QSize {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KTextEditor__CodeCompletionModel_Span(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSpan` instead
@@ -3573,12 +3722,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperSpan(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
-        return qtc.KTextEditor__CodeCompletionModel_SuperSpan(@ptrCast(self), @ptrCast(index));
+    pub fn SuperSpan(self: KTextEditor__CodeCompletionModel, index: anytype) QSize {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KTextEditor__CodeCompletionModel_SuperSpan(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -3589,12 +3739,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, index: QtC.QModelIndex) callconv(.c) QtC.QSize `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, index: QModelIndex) callconv(.c) QSize `
     ///
-    pub fn OnSpan(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QSize) void {
-        qtc.KTextEditor__CodeCompletionModel_OnSpan(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSpan(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex) callconv(.c) QSize) void {
+        qtc.KTextEditor__CodeCompletionModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3605,13 +3755,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.libqt_map = qtc.KTextEditor__CodeCompletionModel_RoleNames(@ptrCast(self));
-        var _ret: map_i32_u8 = .empty;
+    pub fn RoleNames(self: KTextEditor__CodeCompletionModel, allocator: std.mem.Allocator) Map_i32_u8 {
+        const _map: qtc.libqt_map = qtc.KTextEditor__CodeCompletionModel_RoleNames(@ptrCast(self.ptr));
+        var _ret: Map_i32_u8 = .empty;
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -3645,13 +3795,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.libqt_map = qtc.KTextEditor__CodeCompletionModel_SuperRoleNames(@ptrCast(self));
-        var _ret: map_i32_u8 = .empty;
+    pub fn SuperRoleNames(self: KTextEditor__CodeCompletionModel, allocator: std.mem.Allocator) Map_i32_u8 {
+        const _map: qtc.libqt_map = qtc.KTextEditor__CodeCompletionModel_SuperRoleNames(@ptrCast(self.ptr));
+        var _ret: Map_i32_u8 = .empty;
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -3681,16 +3831,16 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
     /// ` callback: *const fn () callconv(.c) qtc.libqt_map `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of map_i32_u8 `
+    /// ` C ABI representation of Map_i32_u8 `
     ///
-    pub fn OnRoleNames(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_map) void {
-        qtc.KTextEditor__CodeCompletionModel_OnRoleNames(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRoleNames(self: KTextEditor__CodeCompletionModel, callback: *const fn () callconv(.c) qtc.libqt_map) void {
+        qtc.KTextEditor__CodeCompletionModel_OnRoleNames(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3701,14 +3851,16 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` roleDataSpan: QtC.QModelRoleDataSpan `
+    /// ` roleDataSpan: QModelRoleDataSpan `
     ///
-    pub fn MultiData(self: ?*anyopaque, index: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
-        qtc.KTextEditor__CodeCompletionModel_MultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
+    pub fn MultiData(self: KTextEditor__CodeCompletionModel, index: anytype, roleDataSpan: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(roleDataSpan)._is_QModelRoleDataSpan;
+        qtc.KTextEditor__CodeCompletionModel_MultiData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(roleDataSpan.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMultiData` instead
@@ -3723,14 +3875,16 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` roleDataSpan: QtC.QModelRoleDataSpan `
+    /// ` roleDataSpan: QModelRoleDataSpan `
     ///
-    pub fn SuperMultiData(self: ?*anyopaque, index: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperMultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
+    pub fn SuperMultiData(self: KTextEditor__CodeCompletionModel, index: anytype, roleDataSpan: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(roleDataSpan)._is_QModelRoleDataSpan;
+        qtc.KTextEditor__CodeCompletionModel_SuperMultiData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(roleDataSpan.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3741,12 +3895,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, index: QtC.QModelIndex, roleDataSpan: QtC.QModelRoleDataSpan) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, index: QModelIndex, roleDataSpan: QModelRoleDataSpan) callconv(.c) void `
     ///
-    pub fn OnMultiData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.QModelRoleDataSpan) callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnMultiData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMultiData(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, QModelRoleDataSpan) callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnMultiData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3757,10 +3911,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn Submit(self: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_Submit(@ptrCast(self));
+    pub fn Submit(self: KTextEditor__CodeCompletionModel) bool {
+        return qtc.KTextEditor__CodeCompletionModel_Submit(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSubmit` instead
@@ -3775,10 +3929,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn SuperSubmit(self: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_SuperSubmit(@ptrCast(self));
+    pub fn SuperSubmit(self: KTextEditor__CodeCompletionModel) bool {
+        return qtc.KTextEditor__CodeCompletionModel_SuperSubmit(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3789,12 +3943,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnSubmit(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModel_OnSubmit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSubmit(self: KTextEditor__CodeCompletionModel, callback: *const fn () callconv(.c) bool) void {
+        qtc.KTextEditor__CodeCompletionModel_OnSubmit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3805,10 +3959,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn Revert(self: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_Revert(@ptrCast(self));
+    pub fn Revert(self: KTextEditor__CodeCompletionModel) void {
+        qtc.KTextEditor__CodeCompletionModel_Revert(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperRevert` instead
@@ -3823,10 +3977,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn SuperRevert(self: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperRevert(@ptrCast(self));
+    pub fn SuperRevert(self: KTextEditor__CodeCompletionModel) void {
+        qtc.KTextEditor__CodeCompletionModel_SuperRevert(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3837,12 +3991,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnRevert(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnRevert(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRevert(self: KTextEditor__CodeCompletionModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnRevert(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3853,10 +4007,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn ResetInternalData(self: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_ResetInternalData(@ptrCast(self));
+    pub fn ResetInternalData(self: KTextEditor__CodeCompletionModel) void {
+        qtc.KTextEditor__CodeCompletionModel_ResetInternalData(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResetInternalData` instead
@@ -3871,10 +4025,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn SuperResetInternalData(self: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperResetInternalData(@ptrCast(self));
+    pub fn SuperResetInternalData(self: KTextEditor__CodeCompletionModel) void {
+        qtc.KTextEditor__CodeCompletionModel_SuperResetInternalData(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3885,12 +4039,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnResetInternalData(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnResetInternalData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResetInternalData(self: KTextEditor__CodeCompletionModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnResetInternalData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3901,12 +4055,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KTextEditor__CodeCompletionModel, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KTextEditor__CodeCompletionModel_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -3921,12 +4076,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KTextEditor__CodeCompletionModel, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KTextEditor__CodeCompletionModel_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3937,12 +4093,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModel_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QEvent) callconv(.c) bool) void {
+        qtc.KTextEditor__CodeCompletionModel_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3953,14 +4109,16 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KTextEditor__CodeCompletionModel, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KTextEditor__CodeCompletionModel_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -3975,14 +4133,16 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KTextEditor__CodeCompletionModel, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KTextEditor__CodeCompletionModel_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3993,12 +4153,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModel_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KTextEditor__CodeCompletionModel_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4009,12 +4169,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KTextEditor__CodeCompletionModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KTextEditor__CodeCompletionModel_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -4029,12 +4190,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KTextEditor__CodeCompletionModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KTextEditor__CodeCompletionModel_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -4045,12 +4207,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QTimerEvent) callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4061,12 +4223,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KTextEditor__CodeCompletionModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KTextEditor__CodeCompletionModel_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -4081,12 +4244,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KTextEditor__CodeCompletionModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KTextEditor__CodeCompletionModel_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -4097,12 +4261,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QChildEvent) callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4113,12 +4277,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KTextEditor__CodeCompletionModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KTextEditor__CodeCompletionModel_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -4133,12 +4298,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KTextEditor__CodeCompletionModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KTextEditor__CodeCompletionModel_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -4149,12 +4315,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QEvent) callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4165,12 +4331,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KTextEditor__CodeCompletionModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KTextEditor__CodeCompletionModel_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -4185,12 +4352,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KTextEditor__CodeCompletionModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KTextEditor__CodeCompletionModel_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -4201,12 +4369,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QMetaMethod) callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4217,12 +4385,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KTextEditor__CodeCompletionModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KTextEditor__CodeCompletionModel_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -4237,12 +4406,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KTextEditor__CodeCompletionModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KTextEditor__CodeCompletionModel_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -4253,12 +4423,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QMetaMethod) callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4269,14 +4439,14 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn CreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.KTextEditor__CodeCompletionModel_CreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn CreateIndex(self: KTextEditor__CodeCompletionModel, row: i32, column: i32) QModelIndex {
+        return .{ .ptr = qtc.KTextEditor__CodeCompletionModel_CreateIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
 
     /// ### DEPRECATED: Use `SuperCreateIndex` instead
@@ -4291,14 +4461,14 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn SuperCreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.KTextEditor__CodeCompletionModel_SuperCreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn SuperCreateIndex(self: KTextEditor__CodeCompletionModel, row: i32, column: i32) QModelIndex {
+        return .{ .ptr = qtc.KTextEditor__CodeCompletionModel_SuperCreateIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -4309,12 +4479,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, row: i32, column: i32) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, row: i32, column: i32) callconv(.c) QModelIndex `
     ///
-    pub fn OnCreateIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QModelIndex) void {
-        qtc.KTextEditor__CodeCompletionModel_OnCreateIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreateIndex(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, i32, i32) callconv(.c) QModelIndex) void {
+        qtc.KTextEditor__CodeCompletionModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4325,18 +4495,19 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn EncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
+    pub fn EncodeData(self: KTextEditor__CodeCompletionModel, indexes: []QModelIndex, stream: anytype) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        qtc.KTextEditor__CodeCompletionModel_EncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        qtc.KTextEditor__CodeCompletionModel_EncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEncodeData` instead
@@ -4351,18 +4522,19 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn SuperEncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
+    pub fn SuperEncodeData(self: KTextEditor__CodeCompletionModel, indexes: []QModelIndex, stream: anytype) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        qtc.KTextEditor__CodeCompletionModel_SuperEncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        qtc.KTextEditor__CodeCompletionModel_SuperEncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4373,12 +4545,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, indexes: qtc.libqt_list ([]QtC.QModelIndex), stream: QtC.QDataStream) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, indexes: qtc.libqt_list ([]QModelIndex), stream: QDataStream) callconv(.c) void `
     ///
-    pub fn OnEncodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnEncodeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEncodeData(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, qtc.libqt_list, QDataStream) callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnEncodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4389,18 +4561,20 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn DecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_DecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
+    pub fn DecodeData(self: KTextEditor__CodeCompletionModel, row: i32, column: i32, parent: anytype, stream: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        return qtc.KTextEditor__CodeCompletionModel_DecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr), @ptrCast(stream.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDecodeData` instead
@@ -4415,18 +4589,20 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn SuperDecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_SuperDecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
+    pub fn SuperDecodeData(self: KTextEditor__CodeCompletionModel, row: i32, column: i32, parent: anytype, stream: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        return qtc.KTextEditor__CodeCompletionModel_SuperDecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr), @ptrCast(stream.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4437,12 +4613,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, row: i32, column: i32, parent: QtC.QModelIndex, stream: QtC.QDataStream) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, row: i32, column: i32, parent: QModelIndex, stream: QDataStream) callconv(.c) bool `
     ///
-    pub fn OnDecodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModel_OnDecodeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDecodeData(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, i32, i32, QModelIndex, QDataStream) callconv(.c) bool) void {
+        qtc.KTextEditor__CodeCompletionModel_OnDecodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4453,16 +4629,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KTextEditor__CodeCompletionModel_BeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginInsertRows(self: KTextEditor__CodeCompletionModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KTextEditor__CodeCompletionModel_BeginInsertRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginInsertRows` instead
@@ -4477,16 +4654,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperBeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginInsertRows(self: KTextEditor__CodeCompletionModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KTextEditor__CodeCompletionModel_SuperBeginInsertRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4497,12 +4675,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnBeginInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginInsertRows(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnBeginInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4513,10 +4691,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn EndInsertRows(self: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_EndInsertRows(@ptrCast(self));
+    pub fn EndInsertRows(self: KTextEditor__CodeCompletionModel) void {
+        qtc.KTextEditor__CodeCompletionModel_EndInsertRows(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndInsertRows` instead
@@ -4531,10 +4709,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn SuperEndInsertRows(self: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperEndInsertRows(@ptrCast(self));
+    pub fn SuperEndInsertRows(self: KTextEditor__CodeCompletionModel) void {
+        qtc.KTextEditor__CodeCompletionModel_SuperEndInsertRows(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4545,12 +4723,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndInsertRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnEndInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndInsertRows(self: KTextEditor__CodeCompletionModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnEndInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4561,16 +4739,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KTextEditor__CodeCompletionModel_BeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginRemoveRows(self: KTextEditor__CodeCompletionModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KTextEditor__CodeCompletionModel_BeginRemoveRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginRemoveRows` instead
@@ -4585,16 +4764,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginRemoveRows(self: KTextEditor__CodeCompletionModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KTextEditor__CodeCompletionModel_SuperBeginRemoveRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4605,12 +4785,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnBeginRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginRemoveRows(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnBeginRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4621,10 +4801,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn EndRemoveRows(self: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_EndRemoveRows(@ptrCast(self));
+    pub fn EndRemoveRows(self: KTextEditor__CodeCompletionModel) void {
+        qtc.KTextEditor__CodeCompletionModel_EndRemoveRows(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndRemoveRows` instead
@@ -4639,10 +4819,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn SuperEndRemoveRows(self: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperEndRemoveRows(@ptrCast(self));
+    pub fn SuperEndRemoveRows(self: KTextEditor__CodeCompletionModel) void {
+        qtc.KTextEditor__CodeCompletionModel_SuperEndRemoveRows(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4653,12 +4833,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndRemoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnEndRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndRemoveRows(self: KTextEditor__CodeCompletionModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnEndRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4669,20 +4849,22 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn BeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.KTextEditor__CodeCompletionModel_BeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
+    pub fn BeginMoveRows(self: KTextEditor__CodeCompletionModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_BeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
 
     /// ### DEPRECATED: Use `SuperBeginMoveRows` instead
@@ -4697,20 +4879,22 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn SuperBeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.KTextEditor__CodeCompletionModel_SuperBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
+    pub fn SuperBeginMoveRows(self: KTextEditor__CodeCompletionModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_SuperBeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4721,12 +4905,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) bool `
     ///
-    pub fn OnBeginMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModel_OnBeginMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginMoveRows(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KTextEditor__CodeCompletionModel_OnBeginMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4737,10 +4921,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn EndMoveRows(self: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_EndMoveRows(@ptrCast(self));
+    pub fn EndMoveRows(self: KTextEditor__CodeCompletionModel) void {
+        qtc.KTextEditor__CodeCompletionModel_EndMoveRows(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndMoveRows` instead
@@ -4755,10 +4939,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn SuperEndMoveRows(self: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperEndMoveRows(@ptrCast(self));
+    pub fn SuperEndMoveRows(self: KTextEditor__CodeCompletionModel) void {
+        qtc.KTextEditor__CodeCompletionModel_SuperEndMoveRows(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4769,12 +4953,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndMoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnEndMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndMoveRows(self: KTextEditor__CodeCompletionModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnEndMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4785,16 +4969,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KTextEditor__CodeCompletionModel_BeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginInsertColumns(self: KTextEditor__CodeCompletionModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KTextEditor__CodeCompletionModel_BeginInsertColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginInsertColumns` instead
@@ -4809,16 +4994,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginInsertColumns(self: KTextEditor__CodeCompletionModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KTextEditor__CodeCompletionModel_SuperBeginInsertColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4829,12 +5015,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnBeginInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginInsertColumns(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnBeginInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4845,10 +5031,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn EndInsertColumns(self: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_EndInsertColumns(@ptrCast(self));
+    pub fn EndInsertColumns(self: KTextEditor__CodeCompletionModel) void {
+        qtc.KTextEditor__CodeCompletionModel_EndInsertColumns(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndInsertColumns` instead
@@ -4863,10 +5049,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn SuperEndInsertColumns(self: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperEndInsertColumns(@ptrCast(self));
+    pub fn SuperEndInsertColumns(self: KTextEditor__CodeCompletionModel) void {
+        qtc.KTextEditor__CodeCompletionModel_SuperEndInsertColumns(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4877,12 +5063,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndInsertColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnEndInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndInsertColumns(self: KTextEditor__CodeCompletionModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnEndInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4893,16 +5079,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KTextEditor__CodeCompletionModel_BeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginRemoveColumns(self: KTextEditor__CodeCompletionModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KTextEditor__CodeCompletionModel_BeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginRemoveColumns` instead
@@ -4917,16 +5104,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginRemoveColumns(self: KTextEditor__CodeCompletionModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KTextEditor__CodeCompletionModel_SuperBeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4937,12 +5125,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnBeginRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginRemoveColumns(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnBeginRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4953,10 +5141,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn EndRemoveColumns(self: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_EndRemoveColumns(@ptrCast(self));
+    pub fn EndRemoveColumns(self: KTextEditor__CodeCompletionModel) void {
+        qtc.KTextEditor__CodeCompletionModel_EndRemoveColumns(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndRemoveColumns` instead
@@ -4971,10 +5159,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn SuperEndRemoveColumns(self: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperEndRemoveColumns(@ptrCast(self));
+    pub fn SuperEndRemoveColumns(self: KTextEditor__CodeCompletionModel) void {
+        qtc.KTextEditor__CodeCompletionModel_SuperEndRemoveColumns(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4985,12 +5173,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndRemoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnEndRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndRemoveColumns(self: KTextEditor__CodeCompletionModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnEndRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5001,20 +5189,22 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn BeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.KTextEditor__CodeCompletionModel_BeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
+    pub fn BeginMoveColumns(self: KTextEditor__CodeCompletionModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_BeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
 
     /// ### DEPRECATED: Use `SuperBeginMoveColumns` instead
@@ -5029,20 +5219,22 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn SuperBeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.KTextEditor__CodeCompletionModel_SuperBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
+    pub fn SuperBeginMoveColumns(self: KTextEditor__CodeCompletionModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KTextEditor__CodeCompletionModel_SuperBeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5053,12 +5245,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) bool `
     ///
-    pub fn OnBeginMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModel_OnBeginMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginMoveColumns(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KTextEditor__CodeCompletionModel_OnBeginMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5069,10 +5261,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn EndMoveColumns(self: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_EndMoveColumns(@ptrCast(self));
+    pub fn EndMoveColumns(self: KTextEditor__CodeCompletionModel) void {
+        qtc.KTextEditor__CodeCompletionModel_EndMoveColumns(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndMoveColumns` instead
@@ -5087,10 +5279,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn SuperEndMoveColumns(self: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperEndMoveColumns(@ptrCast(self));
+    pub fn SuperEndMoveColumns(self: KTextEditor__CodeCompletionModel) void {
+        qtc.KTextEditor__CodeCompletionModel_SuperEndMoveColumns(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5101,12 +5293,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndMoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnEndMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndMoveColumns(self: KTextEditor__CodeCompletionModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnEndMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5117,10 +5309,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn BeginResetModel(self: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_BeginResetModel(@ptrCast(self));
+    pub fn BeginResetModel(self: KTextEditor__CodeCompletionModel) void {
+        qtc.KTextEditor__CodeCompletionModel_BeginResetModel(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperBeginResetModel` instead
@@ -5135,10 +5327,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn SuperBeginResetModel(self: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperBeginResetModel(@ptrCast(self));
+    pub fn SuperBeginResetModel(self: KTextEditor__CodeCompletionModel) void {
+        qtc.KTextEditor__CodeCompletionModel_SuperBeginResetModel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5149,12 +5341,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnBeginResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnBeginResetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginResetModel(self: KTextEditor__CodeCompletionModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnBeginResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5165,10 +5357,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn EndResetModel(self: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_EndResetModel(@ptrCast(self));
+    pub fn EndResetModel(self: KTextEditor__CodeCompletionModel) void {
+        qtc.KTextEditor__CodeCompletionModel_EndResetModel(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndResetModel` instead
@@ -5183,10 +5375,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn SuperEndResetModel(self: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperEndResetModel(@ptrCast(self));
+    pub fn SuperEndResetModel(self: KTextEditor__CodeCompletionModel) void {
+        qtc.KTextEditor__CodeCompletionModel_SuperEndResetModel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5197,12 +5389,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnEndResetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndResetModel(self: KTextEditor__CodeCompletionModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnEndResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5213,14 +5405,16 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` from: QtC.QModelIndex `
+    /// ` from: QModelIndex `
     ///
-    /// ` to: QtC.QModelIndex `
+    /// ` to: QModelIndex `
     ///
-    pub fn ChangePersistentIndex(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_ChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
+    pub fn ChangePersistentIndex(self: KTextEditor__CodeCompletionModel, from: anytype, to: anytype) void {
+        comptime _ = @TypeOf(from)._is_QModelIndex;
+        comptime _ = @TypeOf(to)._is_QModelIndex;
+        qtc.KTextEditor__CodeCompletionModel_ChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChangePersistentIndex` instead
@@ -5235,14 +5429,16 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` from: QtC.QModelIndex `
+    /// ` from: QModelIndex `
     ///
-    /// ` to: QtC.QModelIndex `
+    /// ` to: QModelIndex `
     ///
-    pub fn SuperChangePersistentIndex(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_SuperChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
+    pub fn SuperChangePersistentIndex(self: KTextEditor__CodeCompletionModel, from: anytype, to: anytype) void {
+        comptime _ = @TypeOf(from)._is_QModelIndex;
+        comptime _ = @TypeOf(to)._is_QModelIndex;
+        qtc.KTextEditor__CodeCompletionModel_SuperChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5253,12 +5449,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, from: QtC.QModelIndex, to: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, from: QModelIndex, to: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnChangePersistentIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangePersistentIndex(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnChangePersistentIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5269,13 +5465,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` from: []QtC.QModelIndex `
+    /// ` from: []QModelIndex `
     ///
-    /// ` to: []QtC.QModelIndex `
+    /// ` to: []QModelIndex `
     ///
-    pub fn ChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
+    pub fn ChangePersistentIndexList(self: KTextEditor__CodeCompletionModel, from: []QModelIndex, to: []QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -5284,7 +5480,7 @@ pub const ktexteditor__codecompletionmodel = struct {
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
-        qtc.KTextEditor__CodeCompletionModel_ChangePersistentIndexList(@ptrCast(self), from_list, to_list);
+        qtc.KTextEditor__CodeCompletionModel_ChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
 
     /// ### DEPRECATED: Use `SuperChangePersistentIndexList` instead
@@ -5299,13 +5495,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` from: []QtC.QModelIndex `
+    /// ` from: []QModelIndex `
     ///
-    /// ` to: []QtC.QModelIndex `
+    /// ` to: []QModelIndex `
     ///
-    pub fn SuperChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
+    pub fn SuperChangePersistentIndexList(self: KTextEditor__CodeCompletionModel, from: []QModelIndex, to: []QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -5314,7 +5510,7 @@ pub const ktexteditor__codecompletionmodel = struct {
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
-        qtc.KTextEditor__CodeCompletionModel_SuperChangePersistentIndexList(@ptrCast(self), from_list, to_list);
+        qtc.KTextEditor__CodeCompletionModel_SuperChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -5325,12 +5521,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, from: qtc.libqt_list ([]QtC.QModelIndex), to: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, from: qtc.libqt_list ([]QModelIndex), to: qtc.libqt_list ([]QModelIndex)) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndexList(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
-        qtc.KTextEditor__CodeCompletionModel_OnChangePersistentIndexList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangePersistentIndexList(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
+        qtc.KTextEditor__CodeCompletionModel_OnChangePersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5341,16 +5537,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KTextEditor__CodeCompletionModel_PersistentIndexList(@ptrCast(self));
+    pub fn PersistentIndexList(self: KTextEditor__CodeCompletionModel, allocator: std.mem.Allocator) []QModelIndex {
+        const _arr: qtc.libqt_list = qtc.KTextEditor__CodeCompletionModel_PersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("ktexteditor__codecompletionmodel.PersistentIndexList: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("ktexteditor__codecompletionmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -5366,16 +5563,17 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperPersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KTextEditor__CodeCompletionModel_SuperPersistentIndexList(@ptrCast(self));
+    pub fn SuperPersistentIndexList(self: KTextEditor__CodeCompletionModel, allocator: std.mem.Allocator) []QModelIndex {
+        const _arr: qtc.libqt_list = qtc.KTextEditor__CodeCompletionModel_SuperPersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("ktexteditor__codecompletionmodel.PersistentIndexList: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("ktexteditor__codecompletionmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -5385,20 +5583,20 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
     /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of []QtC.QModelIndex `
+    /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnPersistentIndexList(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.KTextEditor__CodeCompletionModel_OnPersistentIndexList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPersistentIndexList(self: KTextEditor__CodeCompletionModel, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+        qtc.KTextEditor__CodeCompletionModel_OnPersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5409,10 +5607,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KTextEditor__CodeCompletionModel_Sender(@ptrCast(self));
+    pub fn Sender(self: KTextEditor__CodeCompletionModel) QObject {
+        return .{ .ptr = qtc.KTextEditor__CodeCompletionModel_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -5427,10 +5625,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KTextEditor__CodeCompletionModel_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KTextEditor__CodeCompletionModel) QObject {
+        return .{ .ptr = qtc.KTextEditor__CodeCompletionModel_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5441,12 +5639,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KTextEditor__CodeCompletionModel_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KTextEditor__CodeCompletionModel, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KTextEditor__CodeCompletionModel_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5457,10 +5655,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KTextEditor__CodeCompletionModel_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KTextEditor__CodeCompletionModel) i32 {
+        return qtc.KTextEditor__CodeCompletionModel_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -5475,10 +5673,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KTextEditor__CodeCompletionModel_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KTextEditor__CodeCompletionModel) i32 {
+        return qtc.KTextEditor__CodeCompletionModel_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5489,12 +5687,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KTextEditor__CodeCompletionModel_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KTextEditor__CodeCompletionModel, callback: *const fn () callconv(.c) i32) void {
+        qtc.KTextEditor__CodeCompletionModel_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5505,13 +5703,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KTextEditor__CodeCompletionModel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KTextEditor__CodeCompletionModel_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KTextEditor__CodeCompletionModel_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -5526,13 +5724,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KTextEditor__CodeCompletionModel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KTextEditor__CodeCompletionModel_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KTextEditor__CodeCompletionModel_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5543,12 +5741,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KTextEditor__CodeCompletionModel_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KTextEditor__CodeCompletionModel_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5559,12 +5757,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KTextEditor__CodeCompletionModel, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KTextEditor__CodeCompletionModel_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -5579,12 +5778,13 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KTextEditor__CodeCompletionModel_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KTextEditor__CodeCompletionModel, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KTextEditor__CodeCompletionModel_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -5595,12 +5795,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel`
+    /// ` self: KTextEditor__CodeCompletionModel`
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTextEditor__CodeCompletionModel_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QMetaMethod) callconv(.c) bool) void {
+        qtc.KTextEditor__CodeCompletionModel_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5611,12 +5811,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsAboutToBeInserted(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5627,12 +5827,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsInserted(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5643,12 +5843,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsAboutToBeRemoved(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5659,12 +5859,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsRemoved(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5675,12 +5875,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsAboutToBeInserted(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5691,12 +5891,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsInserted(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5707,12 +5907,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsAboutToBeRemoved(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5723,12 +5923,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsRemoved(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5739,12 +5939,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel) callconv(.c) void `
     ///
-    pub fn OnModelAboutToBeReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnModelAboutToBeReset(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5755,12 +5955,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel) callconv(.c) void `
     ///
-    pub fn OnModelReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnModelReset(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5771,12 +5971,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsAboutToBeMoved(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5787,12 +5987,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
-    pub fn OnRowsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsMoved(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5803,12 +6003,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsAboutToBeMoved(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5819,12 +6019,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsMoved(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5835,12 +6035,12 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    /// ` callback: *const fn (self: QtC.KTextEditor__CodeCompletionModel, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -5851,10 +6051,10 @@ pub const ktexteditor__codecompletionmodel = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KTextEditor__CodeCompletionModel `
+    /// ` self: KTextEditor__CodeCompletionModel `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KTextEditor__CodeCompletionModel_Delete(@ptrCast(self));
+    pub fn Delete(self: KTextEditor__CodeCompletionModel) void {
+        qtc.KTextEditor__CodeCompletionModel_Delete(@ptrCast(self.ptr));
     }
 };
 

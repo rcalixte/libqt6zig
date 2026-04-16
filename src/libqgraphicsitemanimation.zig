@@ -1,37 +1,61 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QGraphicsItem = @import("libqt6").QGraphicsItem;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QPointF = @import("libqt6").QPointF;
+const QThread = @import("libqt6").QThread;
+const QTimeLine = @import("libqt6").QTimeLine;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QTransform = @import("libqt6").QTransform;
+const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
-const struct_f64_f64 = extern struct { first: f64, second: f64 };
-const struct_f64_qtcqpointf = extern struct { first: f64, second: QtC.QPointF };
+const Struct_f64_QPointF = extern struct { first: f64, second: QPointF };
+const Struct_f64_f64 = extern struct { first: f64, second: f64 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html)
-pub const qgraphicsitemanimation = struct {
+pub const QGraphicsItemAnimation = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QGraphicsItemAnimation,
+
+    pub const _is_QGraphicsItemAnimation = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QGraphicsItemAnimation object.
     ///
-    pub fn New() QtC.QGraphicsItemAnimation {
-        return qtc.QGraphicsItemAnimation_new();
+    pub fn New() QGraphicsItemAnimation {
+        return .{ .ptr = qtc.QGraphicsItemAnimation_new() };
     }
 
     /// New2 constructs a new QGraphicsItemAnimation object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.QGraphicsItemAnimation {
-        return qtc.QGraphicsItemAnimation_new2(@ptrCast(parent));
+    pub fn New2(parent: anytype) QGraphicsItemAnimation {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QGraphicsItemAnimation_new2(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QGraphicsItemAnimation_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QGraphicsItemAnimation) QMetaObject {
+        return .{ .ptr = qtc.QGraphicsItemAnimation_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -40,12 +64,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QGraphicsItemAnimation_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QGraphicsItemAnimation, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QGraphicsItemAnimation_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -58,33 +82,33 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QGraphicsItemAnimation_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QGraphicsItemAnimation) QMetaObject {
+        return .{ .ptr = qtc.QGraphicsItemAnimation_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QGraphicsItemAnimation, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QGraphicsItemAnimation_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QGraphicsItemAnimation_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QGraphicsItemAnimation, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QGraphicsItemAnimation_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QGraphicsItemAnimation, callback: *const fn (QGraphicsItemAnimation, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QGraphicsItemAnimation_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -95,18 +119,18 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QGraphicsItemAnimation, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QGraphicsItemAnimation_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QGraphicsItemAnimation_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -114,20 +138,20 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsItemAnimation_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QGraphicsItemAnimation, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QGraphicsItemAnimation_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QGraphicsItemAnimation, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QGraphicsItemAnimation_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QGraphicsItemAnimation, callback: *const fn (QGraphicsItemAnimation, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QGraphicsItemAnimation_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -138,7 +162,7 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -146,19 +170,19 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QGraphicsItemAnimation_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QGraphicsItemAnimation, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QGraphicsItemAnimation_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -171,71 +195,73 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    pub fn Item(self: ?*anyopaque) QtC.QGraphicsItem {
-        return qtc.QGraphicsItemAnimation_Item(@ptrCast(self));
+    pub fn Item(self: QGraphicsItemAnimation) QGraphicsItem {
+        return .{ .ptr = qtc.QGraphicsItemAnimation_Item(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#setItem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` item: QtC.QGraphicsItem `
+    /// ` item: QGraphicsItem `
     ///
-    pub fn SetItem(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QGraphicsItemAnimation_SetItem(@ptrCast(self), @ptrCast(item));
+    pub fn SetItem(self: QGraphicsItemAnimation, item: anytype) void {
+        comptime _ = @TypeOf(item)._is_QGraphicsItem;
+        qtc.QGraphicsItemAnimation_SetItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#timeLine)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    pub fn TimeLine(self: ?*anyopaque) QtC.QTimeLine {
-        return qtc.QGraphicsItemAnimation_TimeLine(@ptrCast(self));
+    pub fn TimeLine(self: QGraphicsItemAnimation) QTimeLine {
+        return .{ .ptr = qtc.QGraphicsItemAnimation_TimeLine(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#setTimeLine)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` timeLine: QtC.QTimeLine `
+    /// ` timeLine: QTimeLine `
     ///
-    pub fn SetTimeLine(self: ?*anyopaque, timeLine: ?*anyopaque) void {
-        qtc.QGraphicsItemAnimation_SetTimeLine(@ptrCast(self), @ptrCast(timeLine));
+    pub fn SetTimeLine(self: QGraphicsItemAnimation, timeLine: anytype) void {
+        comptime _ = @TypeOf(timeLine)._is_QTimeLine;
+        qtc.QGraphicsItemAnimation_SetTimeLine(@ptrCast(self.ptr), @ptrCast(timeLine.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#posAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` step: f64 `
     ///
-    pub fn PosAt(self: ?*anyopaque, step: f64) QtC.QPointF {
-        return qtc.QGraphicsItemAnimation_PosAt(@ptrCast(self), @bitCast(step));
+    pub fn PosAt(self: QGraphicsItemAnimation, step: f64) QPointF {
+        return .{ .ptr = qtc.QGraphicsItemAnimation_PosAt(@ptrCast(self.ptr), @bitCast(step)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#posList)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PosList(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_f64_qtcqpointf {
-        const _arr: qtc.libqt_list = qtc.QGraphicsItemAnimation_PosList(@ptrCast(self));
-        const _data: [*]struct_f64_qtcqpointf = @ptrCast(@alignCast(_arr.data));
+    pub fn PosList(self: QGraphicsItemAnimation, allocator: std.mem.Allocator) []Struct_f64_QPointF {
+        const _arr: qtc.libqt_list = qtc.QGraphicsItemAnimation_PosList(@ptrCast(self.ptr));
+        const _data: [*]Struct_f64_QPointF = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(struct_f64_qtcqpointf, _arr.len) catch @panic("qgraphicsitemanimation.PosList: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_f64_QPointF, _arr.len) catch @panic("qgraphicsitemanimation.PosList: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -244,53 +270,54 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` step: f64 `
     ///
-    /// ` pos: QtC.QPointF `
+    /// ` pos: QPointF `
     ///
-    pub fn SetPosAt(self: ?*anyopaque, step: f64, pos: ?*anyopaque) void {
-        qtc.QGraphicsItemAnimation_SetPosAt(@ptrCast(self), @bitCast(step), @ptrCast(pos));
+    pub fn SetPosAt(self: QGraphicsItemAnimation, step: f64, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPointF;
+        qtc.QGraphicsItemAnimation_SetPosAt(@ptrCast(self.ptr), @bitCast(step), @ptrCast(pos.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#transformAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` step: f64 `
     ///
-    pub fn TransformAt(self: ?*anyopaque, step: f64) QtC.QTransform {
-        return qtc.QGraphicsItemAnimation_TransformAt(@ptrCast(self), @bitCast(step));
+    pub fn TransformAt(self: QGraphicsItemAnimation, step: f64) QTransform {
+        return .{ .ptr = qtc.QGraphicsItemAnimation_TransformAt(@ptrCast(self.ptr), @bitCast(step)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#rotationAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` step: f64 `
     ///
-    pub fn RotationAt(self: ?*anyopaque, step: f64) f64 {
-        return qtc.QGraphicsItemAnimation_RotationAt(@ptrCast(self), @bitCast(step));
+    pub fn RotationAt(self: QGraphicsItemAnimation, step: f64) f64 {
+        return qtc.QGraphicsItemAnimation_RotationAt(@ptrCast(self.ptr), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#rotationList)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RotationList(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_f64_f64 {
-        const _arr: qtc.libqt_list = qtc.QGraphicsItemAnimation_RotationList(@ptrCast(self));
-        const _data: [*]struct_f64_f64 = @ptrCast(@alignCast(_arr.data));
+    pub fn RotationList(self: QGraphicsItemAnimation, allocator: std.mem.Allocator) []Struct_f64_f64 {
+        const _arr: qtc.libqt_list = qtc.QGraphicsItemAnimation_RotationList(@ptrCast(self.ptr));
+        const _data: [*]Struct_f64_f64 = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(struct_f64_f64, _arr.len) catch @panic("qgraphicsitemanimation.RotationList: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_f64_f64, _arr.len) catch @panic("qgraphicsitemanimation.RotationList: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -299,53 +326,53 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` step: f64 `
     ///
     /// ` angle: f64 `
     ///
-    pub fn SetRotationAt(self: ?*anyopaque, step: f64, angle: f64) void {
-        qtc.QGraphicsItemAnimation_SetRotationAt(@ptrCast(self), @bitCast(step), @bitCast(angle));
+    pub fn SetRotationAt(self: QGraphicsItemAnimation, step: f64, angle: f64) void {
+        qtc.QGraphicsItemAnimation_SetRotationAt(@ptrCast(self.ptr), @bitCast(step), @bitCast(angle));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#xTranslationAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` step: f64 `
     ///
-    pub fn XTranslationAt(self: ?*anyopaque, step: f64) f64 {
-        return qtc.QGraphicsItemAnimation_XTranslationAt(@ptrCast(self), @bitCast(step));
+    pub fn XTranslationAt(self: QGraphicsItemAnimation, step: f64) f64 {
+        return qtc.QGraphicsItemAnimation_XTranslationAt(@ptrCast(self.ptr), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#yTranslationAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` step: f64 `
     ///
-    pub fn YTranslationAt(self: ?*anyopaque, step: f64) f64 {
-        return qtc.QGraphicsItemAnimation_YTranslationAt(@ptrCast(self), @bitCast(step));
+    pub fn YTranslationAt(self: QGraphicsItemAnimation, step: f64) f64 {
+        return qtc.QGraphicsItemAnimation_YTranslationAt(@ptrCast(self.ptr), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#translationList)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TranslationList(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_f64_qtcqpointf {
-        const _arr: qtc.libqt_list = qtc.QGraphicsItemAnimation_TranslationList(@ptrCast(self));
-        const _data: [*]struct_f64_qtcqpointf = @ptrCast(@alignCast(_arr.data));
+    pub fn TranslationList(self: QGraphicsItemAnimation, allocator: std.mem.Allocator) []Struct_f64_QPointF {
+        const _arr: qtc.libqt_list = qtc.QGraphicsItemAnimation_TranslationList(@ptrCast(self.ptr));
+        const _data: [*]Struct_f64_QPointF = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(struct_f64_qtcqpointf, _arr.len) catch @panic("qgraphicsitemanimation.TranslationList: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_f64_QPointF, _arr.len) catch @panic("qgraphicsitemanimation.TranslationList: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -354,7 +381,7 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` step: f64 `
     ///
@@ -362,47 +389,47 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ` dy: f64 `
     ///
-    pub fn SetTranslationAt(self: ?*anyopaque, step: f64, dx: f64, dy: f64) void {
-        qtc.QGraphicsItemAnimation_SetTranslationAt(@ptrCast(self), @bitCast(step), @bitCast(dx), @bitCast(dy));
+    pub fn SetTranslationAt(self: QGraphicsItemAnimation, step: f64, dx: f64, dy: f64) void {
+        qtc.QGraphicsItemAnimation_SetTranslationAt(@ptrCast(self.ptr), @bitCast(step), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#verticalScaleAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` step: f64 `
     ///
-    pub fn VerticalScaleAt(self: ?*anyopaque, step: f64) f64 {
-        return qtc.QGraphicsItemAnimation_VerticalScaleAt(@ptrCast(self), @bitCast(step));
+    pub fn VerticalScaleAt(self: QGraphicsItemAnimation, step: f64) f64 {
+        return qtc.QGraphicsItemAnimation_VerticalScaleAt(@ptrCast(self.ptr), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#horizontalScaleAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` step: f64 `
     ///
-    pub fn HorizontalScaleAt(self: ?*anyopaque, step: f64) f64 {
-        return qtc.QGraphicsItemAnimation_HorizontalScaleAt(@ptrCast(self), @bitCast(step));
+    pub fn HorizontalScaleAt(self: QGraphicsItemAnimation, step: f64) f64 {
+        return qtc.QGraphicsItemAnimation_HorizontalScaleAt(@ptrCast(self.ptr), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#scaleList)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ScaleList(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_f64_qtcqpointf {
-        const _arr: qtc.libqt_list = qtc.QGraphicsItemAnimation_ScaleList(@ptrCast(self));
-        const _data: [*]struct_f64_qtcqpointf = @ptrCast(@alignCast(_arr.data));
+    pub fn ScaleList(self: QGraphicsItemAnimation, allocator: std.mem.Allocator) []Struct_f64_QPointF {
+        const _arr: qtc.libqt_list = qtc.QGraphicsItemAnimation_ScaleList(@ptrCast(self.ptr));
+        const _data: [*]Struct_f64_QPointF = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(struct_f64_qtcqpointf, _arr.len) catch @panic("qgraphicsitemanimation.ScaleList: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_f64_QPointF, _arr.len) catch @panic("qgraphicsitemanimation.ScaleList: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -411,7 +438,7 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` step: f64 `
     ///
@@ -419,47 +446,47 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ` sy: f64 `
     ///
-    pub fn SetScaleAt(self: ?*anyopaque, step: f64, sx: f64, sy: f64) void {
-        qtc.QGraphicsItemAnimation_SetScaleAt(@ptrCast(self), @bitCast(step), @bitCast(sx), @bitCast(sy));
+    pub fn SetScaleAt(self: QGraphicsItemAnimation, step: f64, sx: f64, sy: f64) void {
+        qtc.QGraphicsItemAnimation_SetScaleAt(@ptrCast(self.ptr), @bitCast(step), @bitCast(sx), @bitCast(sy));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#verticalShearAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` step: f64 `
     ///
-    pub fn VerticalShearAt(self: ?*anyopaque, step: f64) f64 {
-        return qtc.QGraphicsItemAnimation_VerticalShearAt(@ptrCast(self), @bitCast(step));
+    pub fn VerticalShearAt(self: QGraphicsItemAnimation, step: f64) f64 {
+        return qtc.QGraphicsItemAnimation_VerticalShearAt(@ptrCast(self.ptr), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#horizontalShearAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` step: f64 `
     ///
-    pub fn HorizontalShearAt(self: ?*anyopaque, step: f64) f64 {
-        return qtc.QGraphicsItemAnimation_HorizontalShearAt(@ptrCast(self), @bitCast(step));
+    pub fn HorizontalShearAt(self: QGraphicsItemAnimation, step: f64) f64 {
+        return qtc.QGraphicsItemAnimation_HorizontalShearAt(@ptrCast(self.ptr), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#shearList)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ShearList(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_f64_qtcqpointf {
-        const _arr: qtc.libqt_list = qtc.QGraphicsItemAnimation_ShearList(@ptrCast(self));
-        const _data: [*]struct_f64_qtcqpointf = @ptrCast(@alignCast(_arr.data));
+    pub fn ShearList(self: QGraphicsItemAnimation, allocator: std.mem.Allocator) []Struct_f64_QPointF {
+        const _arr: qtc.libqt_list = qtc.QGraphicsItemAnimation_ShearList(@ptrCast(self.ptr));
+        const _data: [*]Struct_f64_QPointF = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(struct_f64_qtcqpointf, _arr.len) catch @panic("qgraphicsitemanimation.ShearList: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_f64_QPointF, _arr.len) catch @panic("qgraphicsitemanimation.ShearList: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -468,7 +495,7 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` step: f64 `
     ///
@@ -476,42 +503,42 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ` sv: f64 `
     ///
-    pub fn SetShearAt(self: ?*anyopaque, step: f64, sh: f64, sv: f64) void {
-        qtc.QGraphicsItemAnimation_SetShearAt(@ptrCast(self), @bitCast(step), @bitCast(sh), @bitCast(sv));
+    pub fn SetShearAt(self: QGraphicsItemAnimation, step: f64, sh: f64, sv: f64) void {
+        qtc.QGraphicsItemAnimation_SetShearAt(@ptrCast(self.ptr), @bitCast(step), @bitCast(sh), @bitCast(sv));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#clear)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    pub fn Clear(self: ?*anyopaque) void {
-        qtc.QGraphicsItemAnimation_Clear(@ptrCast(self));
+    pub fn Clear(self: QGraphicsItemAnimation) void {
+        qtc.QGraphicsItemAnimation_Clear(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#setStep)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` x: f64 `
     ///
-    pub fn SetStep(self: ?*anyopaque, x: f64) void {
-        qtc.QGraphicsItemAnimation_SetStep(@ptrCast(self), @bitCast(x));
+    pub fn SetStep(self: QGraphicsItemAnimation, x: f64) void {
+        qtc.QGraphicsItemAnimation_SetStep(@ptrCast(self.ptr), @bitCast(x));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#beforeAnimationStep)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` step: f64 `
     ///
-    pub fn BeforeAnimationStep(self: ?*anyopaque, step: f64) void {
-        qtc.QGraphicsItemAnimation_BeforeAnimationStep(@ptrCast(self), @bitCast(step));
+    pub fn BeforeAnimationStep(self: QGraphicsItemAnimation, step: f64) void {
+        qtc.QGraphicsItemAnimation_BeforeAnimationStep(@ptrCast(self.ptr), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#beforeAnimationStep)
@@ -520,12 +547,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, step: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QGraphicsItemAnimation, step: f64) callconv(.c) void `
     ///
-    pub fn OnBeforeAnimationStep(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QGraphicsItemAnimation_OnBeforeAnimationStep(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeforeAnimationStep(self: QGraphicsItemAnimation, callback: *const fn (QGraphicsItemAnimation, f64) callconv(.c) void) void {
+        qtc.QGraphicsItemAnimation_OnBeforeAnimationStep(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperBeforeAnimationStep` instead
@@ -538,24 +565,24 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` step: f64 `
     ///
-    pub fn SuperBeforeAnimationStep(self: ?*anyopaque, step: f64) void {
-        qtc.QGraphicsItemAnimation_SuperBeforeAnimationStep(@ptrCast(self), @bitCast(step));
+    pub fn SuperBeforeAnimationStep(self: QGraphicsItemAnimation, step: f64) void {
+        qtc.QGraphicsItemAnimation_SuperBeforeAnimationStep(@ptrCast(self.ptr), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#afterAnimationStep)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` step: f64 `
     ///
-    pub fn AfterAnimationStep(self: ?*anyopaque, step: f64) void {
-        qtc.QGraphicsItemAnimation_AfterAnimationStep(@ptrCast(self), @bitCast(step));
+    pub fn AfterAnimationStep(self: QGraphicsItemAnimation, step: f64) void {
+        qtc.QGraphicsItemAnimation_AfterAnimationStep(@ptrCast(self.ptr), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsitemanimation.html#afterAnimationStep)
@@ -564,12 +591,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, step: f64) callconv(.c) void `
+    /// ` callback: *const fn (self: QGraphicsItemAnimation, step: f64) callconv(.c) void `
     ///
-    pub fn OnAfterAnimationStep(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QGraphicsItemAnimation_OnAfterAnimationStep(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAfterAnimationStep(self: QGraphicsItemAnimation, callback: *const fn (QGraphicsItemAnimation, f64) callconv(.c) void) void {
+        qtc.QGraphicsItemAnimation_OnAfterAnimationStep(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperAfterAnimationStep` instead
@@ -582,25 +609,25 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` step: f64 `
     ///
-    pub fn SuperAfterAnimationStep(self: ?*anyopaque, step: f64) void {
-        qtc.QGraphicsItemAnimation_SuperAfterAnimationStep(@ptrCast(self), @bitCast(step));
+    pub fn SuperAfterAnimationStep(self: QGraphicsItemAnimation, step: f64) void {
+        qtc.QGraphicsItemAnimation_SuperAfterAnimationStep(@ptrCast(self.ptr), @bitCast(step));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -614,15 +641,15 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -638,12 +665,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QGraphicsItemAnimation, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsitemanimation.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -656,12 +683,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QGraphicsItemAnimation, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -670,10 +697,10 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QGraphicsItemAnimation) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -682,10 +709,10 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QGraphicsItemAnimation) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -694,10 +721,10 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QGraphicsItemAnimation) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -706,10 +733,10 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QGraphicsItemAnimation) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -718,12 +745,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QGraphicsItemAnimation, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -732,10 +759,10 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QGraphicsItemAnimation) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -744,12 +771,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QGraphicsItemAnimation, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -758,12 +786,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QGraphicsItemAnimation, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -772,12 +800,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QGraphicsItemAnimation, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -786,12 +814,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QGraphicsItemAnimation, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -800,12 +828,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QGraphicsItemAnimation, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -814,16 +842,17 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QGraphicsItemAnimation, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qgraphicsitemanimation.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qgraphicsitemanimation.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -833,12 +862,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QGraphicsItemAnimation, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -847,12 +877,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QGraphicsItemAnimation, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -861,12 +892,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QGraphicsItemAnimation, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -875,18 +907,20 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -895,16 +929,20 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -913,18 +951,19 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QGraphicsItemAnimation, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -933,18 +972,20 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -953,16 +994,20 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -971,10 +1016,10 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QGraphicsItemAnimation) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -983,12 +1028,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QGraphicsItemAnimation, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -997,10 +1043,11 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1009,10 +1056,10 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QGraphicsItemAnimation) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1021,10 +1068,10 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QGraphicsItemAnimation) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1033,15 +1080,16 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QGraphicsItemAnimation, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1050,13 +1098,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QGraphicsItemAnimation, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1065,17 +1113,16 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QGraphicsItemAnimation, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qgraphicsitemanimation.DynamicPropertyNames: Memory allocation failed");
@@ -1094,10 +1141,10 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QGraphicsItemAnimation) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1106,10 +1153,10 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QGraphicsItemAnimation) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1118,10 +1165,10 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QGraphicsItemAnimation) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1130,12 +1177,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation) callconv(.c) void `
+    /// ` callback: *const fn (self: QGraphicsItemAnimation) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QGraphicsItemAnimation, callback: *const fn (QGraphicsItemAnimation) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1144,10 +1191,10 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QGraphicsItemAnimation) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1156,13 +1203,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QGraphicsItemAnimation, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1171,10 +1218,10 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QGraphicsItemAnimation) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1183,14 +1230,14 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QGraphicsItemAnimation, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1199,14 +1246,14 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QGraphicsItemAnimation, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1215,20 +1262,22 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1237,18 +1286,22 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1257,9 +1310,9 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1267,10 +1320,11 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QGraphicsItemAnimation, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1279,13 +1333,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QGraphicsItemAnimation, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1294,15 +1348,16 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QGraphicsItemAnimation, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1311,18 +1366,19 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QGraphicsItemAnimation, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1331,15 +1387,16 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QGraphicsItemAnimation, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1348,12 +1405,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QGraphicsItemAnimation, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1362,12 +1420,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QGraphicsItemAnimation, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QGraphicsItemAnimation, callback: *const fn (QGraphicsItemAnimation, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1378,12 +1436,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGraphicsItemAnimation_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QGraphicsItemAnimation, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QGraphicsItemAnimation_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1398,12 +1457,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGraphicsItemAnimation_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QGraphicsItemAnimation, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QGraphicsItemAnimation_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1414,12 +1474,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsItemAnimation`
+    /// ` self: QGraphicsItemAnimation`
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QGraphicsItemAnimation, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsItemAnimation_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QGraphicsItemAnimation, callback: *const fn (QGraphicsItemAnimation, QEvent) callconv(.c) bool) void {
+        qtc.QGraphicsItemAnimation_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1430,14 +1490,16 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGraphicsItemAnimation_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QGraphicsItemAnimation, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QGraphicsItemAnimation_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1452,14 +1514,16 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QGraphicsItemAnimation_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QGraphicsItemAnimation, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QGraphicsItemAnimation_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1470,12 +1534,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsItemAnimation`
+    /// ` self: QGraphicsItemAnimation`
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QGraphicsItemAnimation, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsItemAnimation_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QGraphicsItemAnimation, callback: *const fn (QGraphicsItemAnimation, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QGraphicsItemAnimation_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1486,12 +1550,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsItemAnimation_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QGraphicsItemAnimation, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QGraphicsItemAnimation_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1506,12 +1571,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsItemAnimation_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QGraphicsItemAnimation, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QGraphicsItemAnimation_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1522,12 +1588,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsItemAnimation`
+    /// ` self: QGraphicsItemAnimation`
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QGraphicsItemAnimation, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemAnimation_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QGraphicsItemAnimation, callback: *const fn (QGraphicsItemAnimation, QTimerEvent) callconv(.c) void) void {
+        qtc.QGraphicsItemAnimation_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1538,12 +1604,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsItemAnimation_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QGraphicsItemAnimation, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QGraphicsItemAnimation_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1558,12 +1625,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsItemAnimation_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QGraphicsItemAnimation, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QGraphicsItemAnimation_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1574,12 +1642,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsItemAnimation`
+    /// ` self: QGraphicsItemAnimation`
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QGraphicsItemAnimation, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemAnimation_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QGraphicsItemAnimation, callback: *const fn (QGraphicsItemAnimation, QChildEvent) callconv(.c) void) void {
+        qtc.QGraphicsItemAnimation_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1590,12 +1658,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsItemAnimation_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QGraphicsItemAnimation, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QGraphicsItemAnimation_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1610,12 +1679,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QGraphicsItemAnimation_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QGraphicsItemAnimation, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QGraphicsItemAnimation_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1626,12 +1696,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsItemAnimation`
+    /// ` self: QGraphicsItemAnimation`
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QGraphicsItemAnimation, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemAnimation_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QGraphicsItemAnimation, callback: *const fn (QGraphicsItemAnimation, QEvent) callconv(.c) void) void {
+        qtc.QGraphicsItemAnimation_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1642,12 +1712,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGraphicsItemAnimation_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QGraphicsItemAnimation, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QGraphicsItemAnimation_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1662,12 +1733,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGraphicsItemAnimation_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QGraphicsItemAnimation, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QGraphicsItemAnimation_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1678,12 +1750,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsItemAnimation`
+    /// ` self: QGraphicsItemAnimation`
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QGraphicsItemAnimation, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemAnimation_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QGraphicsItemAnimation, callback: *const fn (QGraphicsItemAnimation, QMetaMethod) callconv(.c) void) void {
+        qtc.QGraphicsItemAnimation_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1694,12 +1766,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGraphicsItemAnimation_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QGraphicsItemAnimation, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QGraphicsItemAnimation_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1714,12 +1787,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QGraphicsItemAnimation_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QGraphicsItemAnimation, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QGraphicsItemAnimation_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1730,12 +1804,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsItemAnimation`
+    /// ` self: QGraphicsItemAnimation`
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QGraphicsItemAnimation, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemAnimation_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QGraphicsItemAnimation, callback: *const fn (QGraphicsItemAnimation, QMetaMethod) callconv(.c) void) void {
+        qtc.QGraphicsItemAnimation_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1746,10 +1820,10 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QGraphicsItemAnimation_Sender(@ptrCast(self));
+    pub fn Sender(self: QGraphicsItemAnimation) QObject {
+        return .{ .ptr = qtc.QGraphicsItemAnimation_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -1764,10 +1838,10 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QGraphicsItemAnimation_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QGraphicsItemAnimation) QObject {
+        return .{ .ptr = qtc.QGraphicsItemAnimation_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1778,12 +1852,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsItemAnimation`
+    /// ` self: QGraphicsItemAnimation`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QGraphicsItemAnimation_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QGraphicsItemAnimation, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QGraphicsItemAnimation_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1794,10 +1868,10 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QGraphicsItemAnimation_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QGraphicsItemAnimation) i32 {
+        return qtc.QGraphicsItemAnimation_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -1812,10 +1886,10 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QGraphicsItemAnimation_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QGraphicsItemAnimation) i32 {
+        return qtc.QGraphicsItemAnimation_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1826,12 +1900,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsItemAnimation`
+    /// ` self: QGraphicsItemAnimation`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QGraphicsItemAnimation_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QGraphicsItemAnimation, callback: *const fn () callconv(.c) i32) void {
+        qtc.QGraphicsItemAnimation_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1842,13 +1916,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QGraphicsItemAnimation, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QGraphicsItemAnimation_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QGraphicsItemAnimation_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -1863,13 +1937,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QGraphicsItemAnimation, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QGraphicsItemAnimation_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QGraphicsItemAnimation_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1880,12 +1954,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsItemAnimation`
+    /// ` self: QGraphicsItemAnimation`
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QGraphicsItemAnimation, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsItemAnimation_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QGraphicsItemAnimation, callback: *const fn (QGraphicsItemAnimation, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QGraphicsItemAnimation_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1896,12 +1970,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QGraphicsItemAnimation_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QGraphicsItemAnimation, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QGraphicsItemAnimation_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -1916,12 +1991,13 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QGraphicsItemAnimation_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QGraphicsItemAnimation, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QGraphicsItemAnimation_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1932,12 +2008,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsItemAnimation`
+    /// ` self: QGraphicsItemAnimation`
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QGraphicsItemAnimation, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsItemAnimation_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QGraphicsItemAnimation, callback: *const fn (QGraphicsItemAnimation, QMetaMethod) callconv(.c) bool) void {
+        qtc.QGraphicsItemAnimation_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1948,12 +2024,12 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    /// ` callback: *const fn (self: QtC.QGraphicsItemAnimation, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QGraphicsItemAnimation, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QGraphicsItemAnimation, callback: *const fn (QGraphicsItemAnimation, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1966,9 +2042,9 @@ pub const qgraphicsitemanimation = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QGraphicsItemAnimation `
+    /// ` self: QGraphicsItemAnimation `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QGraphicsItemAnimation_Delete(@ptrCast(self));
+    pub fn Delete(self: QGraphicsItemAnimation) void {
+        qtc.QGraphicsItemAnimation_Delete(@ptrCast(self.ptr));
     }
 };

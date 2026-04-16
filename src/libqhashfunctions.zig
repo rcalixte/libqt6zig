@@ -2,31 +2,41 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qhashseed.html)
-pub const qhashseed = struct {
+pub const QHashSeed = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qhashseed.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QHashSeed,
+
+    pub const _is_QHashSeed = {};
+
     /// New constructs a new QHashSeed object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QHashSeed `
+    /// ` other: QHashSeed `
     ///
-    pub fn New(other: ?*anyopaque) QtC.QHashSeed {
-        return qtc.QHashSeed_new(@ptrCast(other));
+    pub fn New(other: anytype) QHashSeed {
+        comptime _ = @TypeOf(other)._is_QHashSeed;
+        return .{ .ptr = qtc.QHashSeed_new(@ptrCast(other.ptr)) };
     }
 
     /// New2 constructs a new QHashSeed object and invalidates the source QHashSeed object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QHashSeed `
+    /// ` other: QHashSeed `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QHashSeed {
-        return qtc.QHashSeed_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QHashSeed {
+        comptime _ = @TypeOf(other)._is_QHashSeed;
+        return .{ .ptr = qtc.QHashSeed_new2(@ptrCast(other.ptr)) };
     }
 
     /// New3 constructs a new QHashSeed object.
     ///
-    pub fn New3() QtC.QHashSeed {
-        return qtc.QHashSeed_new3();
+    pub fn New3() QHashSeed {
+        return .{ .ptr = qtc.QHashSeed_new3() };
     }
 
     /// New4 constructs a new QHashSeed object.
@@ -35,48 +45,48 @@ pub const qhashseed = struct {
     ///
     /// ` d: usize `
     ///
-    pub fn New4(d: usize) QtC.QHashSeed {
-        return qtc.QHashSeed_new4(@bitCast(d));
+    pub fn New4(d: usize) QHashSeed {
+        return .{ .ptr = qtc.QHashSeed_new4(@bitCast(d)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QHashSeed `
+    /// ` self: QHashSeed `
     ///
-    /// ` other: QtC.QHashSeed `
+    /// ` other: QHashSeed `
     ///
-    pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QHashSeed_CopyAssign(@ptrCast(self), @ptrCast(other));
+    pub fn CopyAssign(self: QHashSeed, other: QHashSeed) void {
+        qtc.QHashSeed_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QHashSeed `
+    /// ` self: QHashSeed `
     ///
-    /// ` other: QtC.QHashSeed `
+    /// ` other: QHashSeed `
     ///
-    pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QHashSeed_MoveAssign(@ptrCast(self), @ptrCast(other));
+    pub fn MoveAssign(self: QHashSeed, other: QHashSeed) void {
+        qtc.QHashSeed_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhashseed.html#operator)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QHashSeed `
+    /// ` self: QHashSeed `
     ///
-    pub fn ToUnsignedLong(self: ?*anyopaque) usize {
-        return qtc.QHashSeed_ToUnsignedLong(@ptrCast(self));
+    pub fn ToUnsignedLong(self: QHashSeed) usize {
+        return qtc.QHashSeed_ToUnsignedLong(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhashseed.html#globalSeed)
     ///
-    pub fn GlobalSeed() QtC.QHashSeed {
-        return qtc.QHashSeed_GlobalSeed();
+    pub fn GlobalSeed() QHashSeed {
+        return .{ .ptr = qtc.QHashSeed_GlobalSeed() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhashseed.html#setDeterministicGlobalSeed)
@@ -101,9 +111,9 @@ pub const qhashseed = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QHashSeed `
+    /// ` self: QHashSeed `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QHashSeed_Delete(@ptrCast(self));
+    pub fn Delete(self: QHashSeed) void {
+        qtc.QHashSeed_Delete(@ptrCast(self.ptr));
     }
 };

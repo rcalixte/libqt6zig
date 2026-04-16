@@ -1,19 +1,21 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KSslErrorUiData = @import("libqt6").KSslErrorUiData;
 const sslui_enums = enums;
 
 /// ### [Upstream resources](https://api.kde.org/kio-sslui.html)
-pub const kio__sslui = struct {
+pub const KIO__SslUi = extern struct {
     /// ### [Upstream resources](https://api.kde.org/kio-sslui.html#askIgnoreSslErrors)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.KSslErrorUiData `
+    /// ` param1: KSslErrorUiData `
     ///
     /// ` param2: sslui_enums.RulesStorage `
     ///
-    pub fn AskIgnoreSslErrors(param1: ?*anyopaque, param2: i32) bool {
-        return qtc.KIO__SslUi_AskIgnoreSslErrors(@ptrCast(param1), @bitCast(param2));
+    pub fn AskIgnoreSslErrors(param1: anytype, param2: i32) bool {
+        comptime _ = @TypeOf(param1)._is_KSslErrorUiData;
+        return qtc.KIO__SslUi_AskIgnoreSslErrors(@ptrCast(param1.ptr), @bitCast(param2));
     }
 };
 

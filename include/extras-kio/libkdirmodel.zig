@@ -1,39 +1,69 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KDirLister = @import("libqt6").KDirLister;
+const KFileItem = @import("libqt6").KFileItem;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QDataStream = @import("libqt6").QDataStream;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMimeData = @import("libqt6").QMimeData;
+const QModelIndex = @import("libqt6").QModelIndex;
+const QModelRoleDataSpan = @import("libqt6").QModelRoleDataSpan;
+const QObject = @import("libqt6").QObject;
+const QPersistentModelIndex = @import("libqt6").QPersistentModelIndex;
+const QSize = @import("libqt6").QSize;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QUrl = @import("libqt6").QUrl;
+const QVariant = @import("libqt6").QVariant;
 const kdirmodel_enums = enums;
 const qabstractitemmodel_enums = @import("../libqabstractitemmodel.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-const arraymap_i32_qtcqvariant = std.array_hash_map.Auto(i32, QtC.QVariant);
-const map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
+const ArrayMap_i32_QVariant = std.array_hash_map.Auto(i32, QVariant);
+const Map_i32_u8 = std.AutoHashMapUnmanaged(i32, []u8);
 
 /// ### [Upstream resources](https://api.kde.org/kdirmodel.html)
-pub const kdirmodel = struct {
+pub const KDirModel = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kdirmodel.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KDirModel,
+
+    pub const _is_KDirModel = {};
+    pub const _is_QAbstractItemModel = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new KDirModel object.
     ///
-    pub fn New() QtC.KDirModel {
-        return qtc.KDirModel_new();
+    pub fn New() KDirModel {
+        return .{ .ptr = qtc.KDirModel_new() };
     }
 
     /// New2 constructs a new KDirModel object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.KDirModel {
-        return qtc.KDirModel_new2(@ptrCast(parent));
+    pub fn New2(parent: anytype) KDirModel {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.KDirModel_new2(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KDirModel_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KDirModel) QMetaObject {
+        return .{ .ptr = qtc.KDirModel_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -42,12 +72,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KDirModel_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KDirModel, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KDirModel_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -60,33 +90,33 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KDirModel_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KDirModel) QMetaObject {
+        return .{ .ptr = qtc.KDirModel_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KDirModel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KDirModel_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KDirModel_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KDirModel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KDirModel_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KDirModel, callback: *const fn (KDirModel, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KDirModel_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -97,18 +127,18 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KDirModel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KDirModel_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KDirModel_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -116,20 +146,20 @@ pub const kdirmodel = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KDirModel_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KDirModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KDirModel_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KDirModel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KDirModel_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KDirModel, callback: *const fn (KDirModel, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KDirModel_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -140,7 +170,7 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -148,19 +178,19 @@ pub const kdirmodel = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KDirModel_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KDirModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KDirModel_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -173,128 +203,136 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` url: QtC.QUrl `
+    /// ` url: QUrl `
     ///
-    pub fn OpenUrl(self: ?*anyopaque, url: ?*anyopaque) void {
-        qtc.KDirModel_OpenUrl(@ptrCast(self), @ptrCast(url));
+    pub fn OpenUrl(self: KDirModel, url: anytype) void {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        qtc.KDirModel_OpenUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#setDirLister)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` dirLister: QtC.KDirLister `
+    /// ` dirLister: KDirLister `
     ///
-    pub fn SetDirLister(self: ?*anyopaque, dirLister: ?*anyopaque) void {
-        qtc.KDirModel_SetDirLister(@ptrCast(self), @ptrCast(dirLister));
+    pub fn SetDirLister(self: KDirModel, dirLister: anytype) void {
+        comptime _ = @TypeOf(dirLister)._is_KDirLister;
+        qtc.KDirModel_SetDirLister(@ptrCast(self.ptr), @ptrCast(dirLister.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#dirLister)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn DirLister(self: ?*anyopaque) QtC.KDirLister {
-        return qtc.KDirModel_DirLister(@ptrCast(self));
+    pub fn DirLister(self: KDirModel) KDirLister {
+        return .{ .ptr = qtc.KDirModel_DirLister(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#itemForIndex)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn ItemForIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.KFileItem {
-        return qtc.KDirModel_ItemForIndex(@ptrCast(self), @ptrCast(index));
+    pub fn ItemForIndex(self: KDirModel, index: anytype) KFileItem {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KDirModel_ItemForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#indexForItem)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` param1: QtC.KFileItem `
+    /// ` param1: KFileItem `
     ///
-    pub fn IndexForItem(self: ?*anyopaque, param1: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KDirModel_IndexForItem(@ptrCast(self), @ptrCast(param1));
+    pub fn IndexForItem(self: KDirModel, param1: anytype) QModelIndex {
+        comptime _ = @TypeOf(param1)._is_KFileItem;
+        return .{ .ptr = qtc.KDirModel_IndexForItem(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#indexForUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` url: QtC.QUrl `
+    /// ` url: QUrl `
     ///
-    pub fn IndexForUrl(self: ?*anyopaque, url: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KDirModel_IndexForUrl(@ptrCast(self), @ptrCast(url));
+    pub fn IndexForUrl(self: KDirModel, url: anytype) QModelIndex {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return .{ .ptr = qtc.KDirModel_IndexForUrl(@ptrCast(self.ptr), @ptrCast(url.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#expandToUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` url: QtC.QUrl `
+    /// ` url: QUrl `
     ///
-    pub fn ExpandToUrl(self: ?*anyopaque, url: ?*anyopaque) void {
-        qtc.KDirModel_ExpandToUrl(@ptrCast(self), @ptrCast(url));
+    pub fn ExpandToUrl(self: KDirModel, url: anytype) void {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        qtc.KDirModel_ExpandToUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#itemChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn ItemChanged(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.KDirModel_ItemChanged(@ptrCast(self), @ptrCast(index));
+    pub fn ItemChanged(self: KDirModel, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.KDirModel_ItemChanged(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#clearAllPreviews)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn ClearAllPreviews(self: ?*anyopaque) void {
-        qtc.KDirModel_ClearAllPreviews(@ptrCast(self));
+    pub fn ClearAllPreviews(self: KDirModel) void {
+        qtc.KDirModel_ClearAllPreviews(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#setDropsAllowed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` dropsAllowed: flag of kdirmodel_enums.DropsAllowedFlag `
     ///
-    pub fn SetDropsAllowed(self: ?*anyopaque, dropsAllowed: i32) void {
-        qtc.KDirModel_SetDropsAllowed(@ptrCast(self), @bitCast(dropsAllowed));
+    pub fn SetDropsAllowed(self: KDirModel, dropsAllowed: i32) void {
+        qtc.KDirModel_SetDropsAllowed(@ptrCast(self.ptr), @bitCast(dropsAllowed));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#canFetchMore)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn CanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KDirModel_CanFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn CanFetchMore(self: KDirModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KDirModel_CanFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#canFetchMore)
@@ -303,12 +341,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KDirModel, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnCanFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KDirModel_OnCanFetchMore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCanFetchMore(self: KDirModel, callback: *const fn (KDirModel, QModelIndex) callconv(.c) bool) void {
+        qtc.KDirModel_OnCanFetchMore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCanFetchMore` instead
@@ -321,24 +359,26 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperCanFetchMore(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KDirModel_SuperCanFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperCanFetchMore(self: KDirModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KDirModel_SuperCanFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#columnCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn ColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KDirModel_ColumnCount(@ptrCast(self), @ptrCast(parent));
+    pub fn ColumnCount(self: KDirModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KDirModel_ColumnCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#columnCount)
@@ -347,12 +387,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parent: QtC.QModelIndex) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KDirModel, parent: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnColumnCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KDirModel_OnColumnCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnCount(self: KDirModel, callback: *const fn (KDirModel, QModelIndex) callconv(.c) i32) void {
+        qtc.KDirModel_OnColumnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperColumnCount` instead
@@ -365,26 +405,28 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperColumnCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KDirModel_SuperColumnCount(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperColumnCount(self: KDirModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KDirModel_SuperColumnCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#data)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    pub fn Data(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.KDirModel_Data(@ptrCast(self), @ptrCast(index), @bitCast(role));
+    pub fn Data(self: KDirModel, index: anytype, role: i32) QVariant {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KDirModel_Data(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(role)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#data)
@@ -393,12 +435,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, index: QtC.QModelIndex, role: i32) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: KDirModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
-    pub fn OnData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.KDirModel_OnData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnData(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32) callconv(.c) QVariant) void {
+        qtc.KDirModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperData` instead
@@ -411,23 +453,24 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperData(self: ?*anyopaque, index: ?*anyopaque, role: i32) QtC.QVariant {
-        return qtc.KDirModel_SuperData(@ptrCast(self), @ptrCast(index), @bitCast(role));
+    pub fn SuperData(self: KDirModel, index: anytype, role: i32) QVariant {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KDirModel_SuperData(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(role)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#dropMimeData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -435,10 +478,12 @@ pub const kdirmodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn DropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KDirModel_DropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn DropMimeData(self: KDirModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KDirModel_DropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#dropMimeData)
@@ -447,12 +492,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KDirModel, data: QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KDirModel_OnDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropMimeData(self: KDirModel, callback: *const fn (KDirModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KDirModel_OnDropMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDropMimeData` instead
@@ -465,9 +510,9 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -475,22 +520,25 @@ pub const kdirmodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KDirModel_SuperDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperDropMimeData(self: KDirModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KDirModel_SuperDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#fetchMore)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn FetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.KDirModel_FetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn FetchMore(self: KDirModel, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KDirModel_FetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#fetchMore)
@@ -499,12 +547,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parent: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, parent: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirModel_OnFetchMore(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFetchMore(self: KDirModel, callback: *const fn (KDirModel, QModelIndex) callconv(.c) void) void {
+        qtc.KDirModel_OnFetchMore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperFetchMore` instead
@@ -517,28 +565,30 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperFetchMore(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.KDirModel_SuperFetchMore(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperFetchMore(self: KDirModel, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KDirModel_SuperFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#flags)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i32 {
-        return qtc.KDirModel_Flags(@ptrCast(self), @ptrCast(index));
+    pub fn Flags(self: KDirModel, index: anytype) i32 {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KDirModel_Flags(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#flags)
@@ -547,12 +597,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, index: QtC.QModelIndex) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KDirModel, index: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnFlags(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KDirModel_OnFlags(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFlags(self: KDirModel, callback: *const fn (KDirModel, QModelIndex) callconv(.c) i32) void {
+        qtc.KDirModel_OnFlags(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperFlags` instead
@@ -565,28 +615,30 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn SuperFlags(self: ?*anyopaque, index: ?*anyopaque) i32 {
-        return qtc.KDirModel_SuperFlags(@ptrCast(self), @ptrCast(index));
+    pub fn SuperFlags(self: KDirModel, index: anytype) i32 {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KDirModel_SuperFlags(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#hasChildren)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn HasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KDirModel_HasChildren(@ptrCast(self), @ptrCast(parent));
+    pub fn HasChildren(self: KDirModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KDirModel_HasChildren(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#hasChildren)
@@ -595,12 +647,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KDirModel, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnHasChildren(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KDirModel_OnHasChildren(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasChildren(self: KDirModel, callback: *const fn (KDirModel, QModelIndex) callconv(.c) bool) void {
+        qtc.KDirModel_OnHasChildren(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperHasChildren` instead
@@ -613,19 +665,20 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperHasChildren(self: ?*anyopaque, parent: ?*anyopaque) bool {
-        return qtc.KDirModel_SuperHasChildren(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperHasChildren(self: KDirModel, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KDirModel_SuperHasChildren(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#headerData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` section: i32 `
     ///
@@ -633,8 +686,8 @@ pub const kdirmodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn HeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.KDirModel_HeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
+    pub fn HeaderData(self: KDirModel, section: i32, orientation: i32, role: i32) QVariant {
+        return .{ .ptr = qtc.KDirModel_HeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @bitCast(role)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#headerData)
@@ -643,12 +696,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: KDirModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
     ///
-    pub fn OnHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) QtC.QVariant) void {
-        qtc.KDirModel_OnHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeaderData(self: KDirModel, callback: *const fn (KDirModel, i32, i32, i32) callconv(.c) QVariant) void {
+        qtc.KDirModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperHeaderData` instead
@@ -661,7 +714,7 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` section: i32 `
     ///
@@ -669,24 +722,25 @@ pub const kdirmodel = struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperHeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
-        return qtc.KDirModel_SuperHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @bitCast(role));
+    pub fn SuperHeaderData(self: KDirModel, section: i32, orientation: i32, role: i32) QVariant {
+        return .{ .ptr = qtc.KDirModel_SuperHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @bitCast(role)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#index)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn Index(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KDirModel_Index(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn Index(self: KDirModel, row: i32, column: i32, parent: anytype) QModelIndex {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return .{ .ptr = qtc.KDirModel_Index(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#index)
@@ -695,12 +749,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KDirModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KDirModel_OnIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIndex(self: KDirModel, callback: *const fn (KDirModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KDirModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIndex` instead
@@ -713,32 +767,33 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperIndex(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KDirModel_SuperIndex(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperIndex(self: KDirModel, row: i32, column: i32, parent: anytype) QModelIndex {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return .{ .ptr = qtc.KDirModel_SuperIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#mimeData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    pub fn MimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
+    pub fn MimeData(self: KDirModel, indexes: []QModelIndex) QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        return qtc.KDirModel_MimeData(@ptrCast(self), indexes_list);
+        return .{ .ptr = qtc.KDirModel_MimeData(@ptrCast(self.ptr), indexes_list) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#mimeData)
@@ -747,12 +802,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, indexes: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) QtC.QMimeData `
+    /// ` callback: *const fn (self: KDirModel, indexes: qtc.libqt_list ([]QModelIndex)) callconv(.c) QMimeData `
     ///
-    pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) QtC.QMimeData) void {
-        qtc.KDirModel_OnMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMimeData(self: KDirModel, callback: *const fn (KDirModel, qtc.libqt_list) callconv(.c) QMimeData) void {
+        qtc.KDirModel_OnMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMimeData` instead
@@ -765,33 +820,32 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    pub fn SuperMimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
+    pub fn SuperMimeData(self: KDirModel, indexes: []QModelIndex) QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        return qtc.KDirModel_SuperMimeData(@ptrCast(self), indexes_list);
+        return .{ .ptr = qtc.KDirModel_SuperMimeData(@ptrCast(self.ptr), indexes_list) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#mimeTypes)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KDirModel_MimeTypes(@ptrCast(self));
+    pub fn MimeTypes(self: KDirModel, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KDirModel_MimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kdirmodel.MimeTypes: Memory allocation failed");
@@ -808,16 +862,16 @@ pub const kdirmodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnMimeTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.KDirModel_OnMimeTypes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMimeTypes(self: KDirModel, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+        qtc.KDirModel_OnMimeTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMimeTypes` instead
@@ -830,17 +884,16 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KDirModel_SuperMimeTypes(@ptrCast(self));
+    pub fn SuperMimeTypes(self: KDirModel, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KDirModel_SuperMimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kdirmodel.MimeTypes: Memory allocation failed");
@@ -857,12 +910,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Parent(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KDirModel_Parent(@ptrCast(self), @ptrCast(index));
+    pub fn Parent(self: KDirModel, index: anytype) QModelIndex {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KDirModel_Parent(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#parent)
@@ -871,12 +925,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, index: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KDirModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnParent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KDirModel_OnParent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnParent(self: KDirModel, callback: *const fn (KDirModel, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KDirModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperParent` instead
@@ -889,28 +943,30 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperParent(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KDirModel_SuperParent(@ptrCast(self), @ptrCast(index));
+    pub fn SuperParent(self: KDirModel, index: anytype) QModelIndex {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KDirModel_SuperParent(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#sibling)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Sibling(self: ?*anyopaque, row: i32, column: i32, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KDirModel_Sibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(index));
+    pub fn Sibling(self: KDirModel, row: i32, column: i32, index: anytype) QModelIndex {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KDirModel_Sibling(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#sibling)
@@ -919,12 +975,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, row: i32, column: i32, index: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KDirModel, row: i32, column: i32, index: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnSibling(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KDirModel_OnSibling(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSibling(self: KDirModel, callback: *const fn (KDirModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KDirModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSibling` instead
@@ -937,28 +993,30 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperSibling(self: ?*anyopaque, row: i32, column: i32, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KDirModel_SuperSibling(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(index));
+    pub fn SuperSibling(self: KDirModel, row: i32, column: i32, index: anytype) QModelIndex {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KDirModel_SuperSibling(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(index.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#rowCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KDirModel_RowCount(@ptrCast(self), @ptrCast(parent));
+    pub fn RowCount(self: KDirModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KDirModel_RowCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#rowCount)
@@ -967,12 +1025,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parent: QtC.QModelIndex) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KDirModel, parent: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnRowCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KDirModel_OnRowCount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowCount(self: KDirModel, callback: *const fn (KDirModel, QModelIndex) callconv(.c) i32) void {
+        qtc.KDirModel_OnRowCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRowCount` instead
@@ -985,28 +1043,31 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperRowCount(self: ?*anyopaque, parent: ?*anyopaque) i32 {
-        return qtc.KDirModel_SuperRowCount(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperRowCount(self: KDirModel, parent: anytype) i32 {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KDirModel_SuperRowCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#setData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.KDirModel_SetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
+    pub fn SetData(self: KDirModel, index: anytype, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KDirModel_SetData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#setData)
@@ -1015,12 +1076,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, index: QtC.QModelIndex, value: QtC.QVariant, role: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KDirModel, index: QModelIndex, value: QVariant, role: i32) callconv(.c) bool `
     ///
-    pub fn OnSetData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KDirModel_OnSetData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetData(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, QVariant, i32) callconv(.c) bool) void {
+        qtc.KDirModel_OnSetData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetData` instead
@@ -1033,30 +1094,32 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperSetData(self: ?*anyopaque, index: ?*anyopaque, value: ?*anyopaque, role: i32) bool {
-        return qtc.KDirModel_SuperSetData(@ptrCast(self), @ptrCast(index), @ptrCast(value), @bitCast(role));
+    pub fn SuperSetData(self: KDirModel, index: anytype, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KDirModel_SuperSetData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#sort)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` column: i32 `
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn Sort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.KDirModel_Sort(@ptrCast(self), @bitCast(column), @bitCast(order));
+    pub fn Sort(self: KDirModel, column: i32, order: i32) void {
+        qtc.KDirModel_Sort(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#sort)
@@ -1065,12 +1128,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
     ///
-    pub fn OnSort(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KDirModel_OnSort(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSort(self: KDirModel, callback: *const fn (KDirModel, i32, i32) callconv(.c) void) void {
+        qtc.KDirModel_OnSort(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSort` instead
@@ -1083,27 +1146,27 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` column: i32 `
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn SuperSort(self: ?*anyopaque, column: i32, order: i32) void {
-        qtc.KDirModel_SuperSort(@ptrCast(self), @bitCast(column), @bitCast(order));
+    pub fn SuperSort(self: KDirModel, column: i32, order: i32) void {
+        qtc.KDirModel_SuperSort(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#roleNames)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.libqt_map = qtc.KDirModel_RoleNames(@ptrCast(self));
-        var _ret: map_i32_u8 = .empty;
+    pub fn RoleNames(self: KDirModel, allocator: std.mem.Allocator) Map_i32_u8 {
+        const _map: qtc.libqt_map = qtc.KDirModel_RoleNames(@ptrCast(self.ptr));
+        var _ret: Map_i32_u8 = .empty;
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -1131,16 +1194,16 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` callback: *const fn () callconv(.c) qtc.libqt_map `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of map_i32_u8 `
+    /// ` C ABI representation of Map_i32_u8 `
     ///
-    pub fn OnRoleNames(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_map) void {
-        qtc.KDirModel_OnRoleNames(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRoleNames(self: KDirModel, callback: *const fn () callconv(.c) qtc.libqt_map) void {
+        qtc.KDirModel_OnRoleNames(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRoleNames` instead
@@ -1153,13 +1216,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.libqt_map = qtc.KDirModel_SuperRoleNames(@ptrCast(self));
-        var _ret: map_i32_u8 = .empty;
+    pub fn SuperRoleNames(self: KDirModel, allocator: std.mem.Allocator) Map_i32_u8 {
+        const _map: qtc.libqt_map = qtc.KDirModel_SuperRoleNames(@ptrCast(self.ptr));
+        var _ret: Map_i32_u8 = .empty;
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -1185,20 +1248,21 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` urls: []QtC.QUrl `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SimplifiedUrlList(urls: []QtC.QUrl, allocator: std.mem.Allocator) []QtC.QUrl {
+    /// ` urls: []QUrl `
+    ///
+    pub fn SimplifiedUrlList(allocator: std.mem.Allocator, urls: []QUrl) []QUrl {
         const urls_list = qtc.libqt_list{
             .len = urls.len,
             .data = @ptrCast(urls.ptr),
         };
         const _arr: qtc.libqt_list = qtc.KDirModel_SimplifiedUrlList(urls_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("kdirmodel.SimplifiedUrlList: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("kdirmodel.SimplifiedUrlList: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1206,50 +1270,51 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` sequenceIndex: i32 `
     ///
-    pub fn RequestSequenceIcon(self: ?*anyopaque, index: ?*anyopaque, sequenceIndex: i32) void {
-        qtc.KDirModel_RequestSequenceIcon(@ptrCast(self), @ptrCast(index), @bitCast(sequenceIndex));
+    pub fn RequestSequenceIcon(self: KDirModel, index: anytype, sequenceIndex: i32) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.KDirModel_RequestSequenceIcon(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(sequenceIndex));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#setJobTransfersVisible)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` show: bool `
     ///
-    pub fn SetJobTransfersVisible(self: ?*anyopaque, show: bool) void {
-        qtc.KDirModel_SetJobTransfersVisible(@ptrCast(self), show);
+    pub fn SetJobTransfersVisible(self: KDirModel, show: bool) void {
+        qtc.KDirModel_SetJobTransfersVisible(@ptrCast(self.ptr), show);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#jobTransfersVisible)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn JobTransfersVisible(self: ?*anyopaque) bool {
-        return qtc.KDirModel_JobTransfersVisible(@ptrCast(self));
+    pub fn JobTransfersVisible(self: KDirModel) bool {
+        return qtc.KDirModel_JobTransfersVisible(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#supportedDropActions)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDropActions(self: ?*anyopaque) i32 {
-        return qtc.KDirModel_SupportedDropActions(@ptrCast(self));
+    pub fn SupportedDropActions(self: KDirModel) i32 {
+        return qtc.KDirModel_SupportedDropActions(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#supportedDropActions)
@@ -1258,12 +1323,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedDropActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KDirModel_OnSupportedDropActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSupportedDropActions(self: KDirModel, callback: *const fn () callconv(.c) i32) void {
+        qtc.KDirModel_OnSupportedDropActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSupportedDropActions` instead
@@ -1276,77 +1341,79 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperSupportedDropActions(self: ?*anyopaque) i32 {
-        return qtc.KDirModel_SuperSupportedDropActions(@ptrCast(self));
+    pub fn SuperSupportedDropActions(self: KDirModel) i32 {
+        return qtc.KDirModel_SuperSupportedDropActions(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#expand)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Expand(self: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.KDirModel_Expand(@ptrCast(self), @ptrCast(index));
+    pub fn Expand(self: KDirModel, index: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.KDirModel_Expand(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#expand)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, index: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnExpand(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirModel_Connect_Expand(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnExpand(self: KDirModel, callback: *const fn (KDirModel, QModelIndex) callconv(.c) void) void {
+        qtc.KDirModel_Connect_Expand(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#needSequenceIcon)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` sequenceIndex: i32 `
     ///
-    pub fn NeedSequenceIcon(self: ?*anyopaque, index: ?*anyopaque, sequenceIndex: i32) void {
-        qtc.KDirModel_NeedSequenceIcon(@ptrCast(self), @ptrCast(index), @bitCast(sequenceIndex));
+    pub fn NeedSequenceIcon(self: KDirModel, index: anytype, sequenceIndex: i32) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        qtc.KDirModel_NeedSequenceIcon(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(sequenceIndex));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kdirmodel.html#needSequenceIcon)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, index: QtC.QModelIndex, sequenceIndex: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, index: QModelIndex, sequenceIndex: i32) callconv(.c) void `
     ///
-    pub fn OnNeedSequenceIcon(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KDirModel_Connect_NeedSequenceIcon(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNeedSequenceIcon(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32) callconv(.c) void) void {
+        qtc.KDirModel_Connect_NeedSequenceIcon(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -1360,15 +1427,15 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -1382,14 +1449,15 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` url: QtC.QUrl `
+    /// ` url: QUrl `
     ///
     /// ` flags: flag of kdirmodel_enums.OpenUrlFlag `
     ///
-    pub fn OpenUrl2(self: ?*anyopaque, url: ?*anyopaque, flags: i32) void {
-        qtc.KDirModel_OpenUrl2(@ptrCast(self), @ptrCast(url), @bitCast(flags));
+    pub fn OpenUrl2(self: KDirModel, url: anytype, flags: i32) void {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        qtc.KDirModel_OpenUrl2(@ptrCast(self.ptr), @ptrCast(url.ptr), @bitCast(flags));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1398,14 +1466,14 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn HasIndex(self: ?*anyopaque, row: i32, column: i32) bool {
-        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn HasIndex(self: KDirModel, row: i32, column: i32) bool {
+        return qtc.QAbstractItemModel_HasIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1414,16 +1482,17 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn InsertRows(self: KDirModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1434,12 +1503,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KDirModel, row: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInsertRows(self: KDirModel, callback: *const fn (KDirModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.QAbstractItemModel_OnInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperInsertRows` instead
@@ -1454,16 +1523,17 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperInsertRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_SuperInsertRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn SuperInsertRows(self: KDirModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_SuperInsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1472,16 +1542,17 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn InsertColumns(self: KDirModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1492,12 +1563,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KDirModel, column: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInsertColumns(self: KDirModel, callback: *const fn (KDirModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.QAbstractItemModel_OnInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperInsertColumns` instead
@@ -1512,16 +1583,17 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperInsertColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_SuperInsertColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn SuperInsertColumns(self: KDirModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_SuperInsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1530,16 +1602,17 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn RemoveRows(self: KDirModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1550,12 +1623,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KDirModel, row: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRemoveRows(self: KDirModel, callback: *const fn (KDirModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.QAbstractItemModel_OnRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRemoveRows` instead
@@ -1570,16 +1643,17 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` row: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperRemoveRows(self: ?*anyopaque, row: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_SuperRemoveRows(@ptrCast(self), @bitCast(row), @bitCast(count), @ptrCast(parent));
+    pub fn SuperRemoveRows(self: KDirModel, row: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_SuperRemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1588,16 +1662,17 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn RemoveColumns(self: KDirModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1608,12 +1683,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KDirModel, column: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRemoveColumns(self: KDirModel, callback: *const fn (KDirModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.QAbstractItemModel_OnRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRemoveColumns` instead
@@ -1628,16 +1703,17 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` column: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperRemoveColumns(self: ?*anyopaque, column: i32, count: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_SuperRemoveColumns(@ptrCast(self), @bitCast(column), @bitCast(count), @ptrCast(parent));
+    pub fn SuperRemoveColumns(self: KDirModel, column: i32, count: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_SuperRemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1646,12 +1722,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` row: i32 `
     ///
-    pub fn InsertRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self), @bitCast(row));
+    pub fn InsertRow(self: KDirModel, row: i32) bool {
+        return qtc.QAbstractItemModel_InsertRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1660,12 +1736,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` column: i32 `
     ///
-    pub fn InsertColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self), @bitCast(column));
+    pub fn InsertColumn(self: KDirModel, column: i32) bool {
+        return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1674,12 +1750,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` row: i32 `
     ///
-    pub fn RemoveRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self), @bitCast(row));
+    pub fn RemoveRow(self: KDirModel, row: i32) bool {
+        return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1688,12 +1764,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` column: i32 `
     ///
-    pub fn RemoveColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self), @bitCast(column));
+    pub fn RemoveColumn(self: KDirModel, column: i32) bool {
+        return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1702,18 +1778,20 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceRow: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveRow(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveRow(self: KDirModel, sourceParent: anytype, sourceRow: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_MoveRow(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1722,18 +1800,20 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceColumn: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveColumn(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveColumn(self: KDirModel, sourceParent: anytype, sourceColumn: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1742,12 +1822,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn CheckIndex(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_CheckIndex(@ptrCast(self), @ptrCast(index));
+    pub fn CheckIndex(self: KDirModel, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CheckIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1756,14 +1837,16 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` topLeft: QtC.QModelIndex `
+    /// ` topLeft: QModelIndex `
     ///
-    /// ` bottomRight: QtC.QModelIndex `
+    /// ` bottomRight: QModelIndex `
     ///
-    pub fn DataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque) void {
-        qtc.QAbstractItemModel_DataChanged(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight));
+    pub fn DataChanged(self: KDirModel, topLeft: anytype, bottomRight: anytype) void {
+        comptime _ = @TypeOf(topLeft)._is_QModelIndex;
+        comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
+        qtc.QAbstractItemModel_DataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1772,12 +1855,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, topLeft: QModelIndex, bottomRight: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDataChanged(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1786,7 +1869,7 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
@@ -1794,8 +1877,8 @@ pub const kdirmodel = struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i32, first: i32, last: i32) void {
-        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self), @bitCast(orientation), @bitCast(first), @bitCast(last));
+    pub fn HeaderDataChanged(self: KDirModel, orientation: i32, first: i32, last: i32) void {
+        qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(orientation), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1804,12 +1887,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnHeaderDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeaderDataChanged(self: KDirModel, callback: *const fn (KDirModel, i32, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1818,10 +1901,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn LayoutChanged(self: ?*anyopaque) void {
-        qtc.QAbstractItemModel_LayoutChanged(@ptrCast(self));
+    pub fn LayoutChanged(self: KDirModel) void {
+        qtc.QAbstractItemModel_LayoutChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1830,12 +1913,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutChanged(self: KDirModel, callback: *const fn (KDirModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1844,10 +1927,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn LayoutAboutToBeChanged(self: ?*anyopaque) void {
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged(@ptrCast(self));
+    pub fn LayoutAboutToBeChanged(self: KDirModel) void {
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1856,12 +1939,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutAboutToBeChanged(self: KDirModel, callback: *const fn (KDirModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1870,16 +1953,17 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn HasIndex3(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn HasIndex3(self: KDirModel, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1888,14 +1972,15 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
+    pub fn InsertRow2(self: KDirModel, row: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1904,14 +1989,15 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn InsertColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
+    pub fn InsertColumn2(self: KDirModel, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1920,14 +2006,15 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveRow2(self: ?*anyopaque, row: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self), @bitCast(row), @ptrCast(parent));
+    pub fn RemoveRow2(self: KDirModel, row: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1936,14 +2023,15 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn RemoveColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self), @bitCast(column), @ptrCast(parent));
+    pub fn RemoveColumn2(self: KDirModel, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1952,14 +2040,15 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
     /// ` options: flag of qabstractitemmodel_enums.CheckIndexOption `
     ///
-    pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i32) bool {
-        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @bitCast(options));
+    pub fn CheckIndex2(self: KDirModel, index: anytype, options: i32) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(options));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1968,20 +2057,22 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` topLeft: QtC.QModelIndex `
+    /// ` topLeft: QModelIndex `
     ///
-    /// ` bottomRight: QtC.QModelIndex `
+    /// ` bottomRight: QModelIndex `
     ///
     /// ` roles: []i32 `
     ///
-    pub fn DataChanged3(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
+    pub fn DataChanged3(self: KDirModel, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+        comptime _ = @TypeOf(topLeft)._is_QModelIndex;
+        comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
-        qtc.QAbstractItemModel_DataChanged3(@ptrCast(self), @ptrCast(topLeft), @ptrCast(bottomRight), roles_list);
+        qtc.QAbstractItemModel_DataChanged3(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -1990,12 +2081,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, topLeft: QModelIndex, bottomRight: QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDataChanged3(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2004,16 +2095,16 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
-    pub fn LayoutChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
+    pub fn LayoutChanged1(self: KDirModel, parents: []QPersistentModelIndex) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutChanged1(@ptrCast(self), parents_list);
+        qtc.QAbstractItemModel_LayoutChanged1(@ptrCast(self.ptr), parents_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -2022,12 +2113,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, parents: qtc.libqt_list ([]QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutChanged1(self: KDirModel, callback: *const fn (KDirModel, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2036,18 +2127,18 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
     /// ` hint: qabstractitemmodel_enums.LayoutChangeHint `
     ///
-    pub fn LayoutChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
+    pub fn LayoutChanged2(self: KDirModel, parents: []QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self), parents_list, @bitCast(hint));
+        qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self.ptr), parents_list, @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2056,12 +2147,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, parents: qtc.libqt_list ([]QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutChanged2(self: KDirModel, callback: *const fn (KDirModel, qtc.libqt_list, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2070,16 +2161,16 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
-    pub fn LayoutAboutToBeChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
+    pub fn LayoutAboutToBeChanged1(self: KDirModel, parents: []QPersistentModelIndex) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged1(@ptrCast(self), parents_list);
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged1(@ptrCast(self.ptr), parents_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -2088,12 +2179,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex)) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, parents: qtc.libqt_list ([]QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutAboutToBeChanged1(self: KDirModel, callback: *const fn (KDirModel, qtc.libqt_list) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2102,18 +2193,18 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` parents: []QtC.QPersistentModelIndex `
+    /// ` parents: []QPersistentModelIndex `
     ///
     /// ` hint: qabstractitemmodel_enums.LayoutChangeHint `
     ///
-    pub fn LayoutAboutToBeChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
+    pub fn LayoutAboutToBeChanged2(self: KDirModel, parents: []QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
-        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self), parents_list, @bitCast(hint));
+        qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self.ptr), parents_list, @bitCast(hint));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2122,12 +2213,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parents: qtc.libqt_list ([]QtC.QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, parents: qtc.libqt_list ([]QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLayoutAboutToBeChanged2(self: KDirModel, callback: *const fn (KDirModel, qtc.libqt_list, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2136,12 +2227,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KDirModel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kdirmodel.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2154,12 +2245,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KDirModel, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -2168,10 +2259,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KDirModel) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2180,10 +2271,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KDirModel) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2192,10 +2283,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KDirModel) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2204,10 +2295,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KDirModel) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2216,12 +2307,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KDirModel, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -2230,10 +2321,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KDirModel) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2242,12 +2333,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KDirModel, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -2256,12 +2348,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KDirModel, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -2270,12 +2362,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KDirModel, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -2284,12 +2376,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KDirModel, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2298,12 +2390,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KDirModel, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -2312,16 +2404,17 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KDirModel, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kdirmodel.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kdirmodel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2331,12 +2424,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KDirModel, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -2345,12 +2439,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KDirModel, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -2359,12 +2454,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KDirModel, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -2373,18 +2469,20 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -2393,16 +2491,20 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2411,18 +2513,19 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KDirModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -2431,18 +2534,20 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2451,16 +2556,20 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -2469,10 +2578,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KDirModel) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2481,12 +2590,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KDirModel, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -2495,10 +2605,11 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -2507,10 +2618,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KDirModel) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2519,10 +2630,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KDirModel) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2531,15 +2642,16 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KDirModel, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -2548,13 +2660,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KDirModel, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -2563,17 +2675,16 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KDirModel, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kdirmodel.DynamicPropertyNames: Memory allocation failed");
@@ -2592,10 +2703,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KDirModel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2604,10 +2715,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KDirModel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2616,10 +2727,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KDirModel) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2628,12 +2739,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KDirModel, callback: *const fn (KDirModel) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2642,13 +2753,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KDirModel, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -2657,10 +2768,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KDirModel) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2669,14 +2780,14 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KDirModel, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2685,14 +2796,14 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KDirModel, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2701,20 +2812,22 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -2723,18 +2836,22 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2743,9 +2860,9 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2753,10 +2870,11 @@ pub const kdirmodel = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KDirModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2765,13 +2883,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KDirModel, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2780,15 +2898,16 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KDirModel, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -2797,18 +2916,19 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KDirModel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2817,15 +2937,16 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KDirModel, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2834,12 +2955,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KDirModel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -2848,12 +2970,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KDirModel, callback: *const fn (KDirModel, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2864,18 +2986,19 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` section: i32 `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.KDirModel_SetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
+    pub fn SetHeaderData(self: KDirModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KDirModel_SetHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// ### DEPRECATED: Use `SuperSetHeaderData` instead
@@ -2890,18 +3013,19 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` section: i32 `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperSetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
-        return qtc.KDirModel_SuperSetHeaderData(@ptrCast(self), @bitCast(section), @bitCast(orientation), @ptrCast(value), @bitCast(role));
+    pub fn SuperSetHeaderData(self: KDirModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.KDirModel_SuperSetHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @ptrCast(value.ptr), @bitCast(role));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2912,12 +3036,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, section: i32, orientation: qnamespace_enums.Orientation, value: QtC.QVariant, role: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KDirModel, section: i32, orientation: qnamespace_enums.Orientation, value: QVariant, role: i32) callconv(.c) bool `
     ///
-    pub fn OnSetHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KDirModel_OnSetHeaderData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetHeaderData(self: KDirModel, callback: *const fn (KDirModel, i32, i32, QVariant, i32) callconv(.c) bool) void {
+        qtc.KDirModel_OnSetHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2928,15 +3052,16 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
-    ///
-    /// ` index: QtC.QModelIndex `
+    /// ` self: KDirModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
-        const _map: qtc.libqt_map = qtc.KDirModel_ItemData(@ptrCast(self), @ptrCast(index));
-        var _ret: arraymap_i32_qtcqvariant = .empty;
+    /// ` index: QModelIndex `
+    ///
+    pub fn ItemData(self: KDirModel, allocator: std.mem.Allocator, index: anytype) ArrayMap_i32_QVariant {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        const _map: qtc.libqt_map = qtc.KDirModel_ItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+        var _ret: ArrayMap_i32_QVariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -2947,7 +3072,7 @@ pub const kdirmodel = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("kdirmodel.ItemData: Memory allocation failed");
+            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("kdirmodel.ItemData: Memory allocation failed");
         }
         return _ret;
     }
@@ -2964,15 +3089,16 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
-    ///
-    /// ` index: QtC.QModelIndex `
+    /// ` self: KDirModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) arraymap_i32_qtcqvariant {
-        const _map: qtc.libqt_map = qtc.KDirModel_SuperItemData(@ptrCast(self), @ptrCast(index));
-        var _ret: arraymap_i32_qtcqvariant = .empty;
+    /// ` index: QModelIndex `
+    ///
+    pub fn SuperItemData(self: KDirModel, allocator: std.mem.Allocator, index: anytype) ArrayMap_i32_QVariant {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        const _map: qtc.libqt_map = qtc.KDirModel_SuperItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+        var _ret: ArrayMap_i32_QVariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -2983,7 +3109,7 @@ pub const kdirmodel = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("kdirmodel.ItemData: Memory allocation failed");
+            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("kdirmodel.ItemData: Memory allocation failed");
         }
         return _ret;
     }
@@ -2996,16 +3122,16 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, index: QtC.QModelIndex) callconv(.c) qtc.libqt_map `
+    /// ` callback: *const fn (self: KDirModel, index: QModelIndex) callconv(.c) qtc.libqt_map `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of arraymap_i32_qtcqvariant `
+    /// ` C ABI representation of ArrayMap_i32_QVariant `
     ///
-    pub fn OnItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) qtc.libqt_map) void {
-        qtc.KDirModel_OnItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnItemData(self: KDirModel, callback: *const fn (KDirModel, QModelIndex) callconv(.c) qtc.libqt_map) void {
+        qtc.KDirModel_OnItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3016,15 +3142,16 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
-    ///
-    /// ` index: QtC.QModelIndex `
-    ///
-    /// ` roles: arraymap_i32_qtcqvariant `
+    /// ` self: KDirModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+    /// ` index: QModelIndex `
+    ///
+    /// ` roles: ArrayMap_i32_QVariant `
+    ///
+    pub fn SetItemData(self: KDirModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
         const roles_count = roles.count();
         const roles_keys = allocator.alloc(i32, roles_count) catch @panic("kdirmodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
@@ -3035,14 +3162,14 @@ pub const kdirmodel = struct {
         while (roles_it.next()) |it_entry| : (i += 1) {
             const roles_key = it_entry.key_ptr.*;
             roles_keys[i] = @bitCast(roles_key);
-            roles_values[i] = @ptrCast(it_entry.value_ptr.*);
+            roles_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const roles_map = qtc.libqt_map{
             .len = roles_count,
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.KDirModel_SetItemData(@ptrCast(self), @ptrCast(index), roles_map);
+        return qtc.KDirModel_SetItemData(@ptrCast(self.ptr), @ptrCast(index.ptr), roles_map);
     }
 
     /// ### DEPRECATED: Use `SuperSetItemData` instead
@@ -3057,15 +3184,16 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
-    ///
-    /// ` index: QtC.QModelIndex `
-    ///
-    /// ` roles: arraymap_i32_qtcqvariant `
+    /// ` self: KDirModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: arraymap_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
+    /// ` index: QModelIndex `
+    ///
+    /// ` roles: ArrayMap_i32_QVariant `
+    ///
+    pub fn SuperSetItemData(self: KDirModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
         const roles_count = roles.count();
         const roles_keys = allocator.alloc(i32, roles_count) catch @panic("kdirmodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
@@ -3076,14 +3204,14 @@ pub const kdirmodel = struct {
         while (roles_it.next()) |it_entry| : (i += 1) {
             const roles_key = it_entry.key_ptr.*;
             roles_keys[i] = @bitCast(roles_key);
-            roles_values[i] = @ptrCast(it_entry.value_ptr.*);
+            roles_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const roles_map = qtc.libqt_map{
             .len = roles_count,
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.KDirModel_SuperSetItemData(@ptrCast(self), @ptrCast(index), roles_map);
+        return qtc.KDirModel_SuperSetItemData(@ptrCast(self.ptr), @ptrCast(index.ptr), roles_map);
     }
 
     /// Inherited from QAbstractItemModel
@@ -3094,12 +3222,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, index: QtC.QModelIndex, roles: qtc.libqt_map (arraymap_i32_qtcqvariant)) callconv(.c) bool `
+    /// ` callback: *const fn (self: KDirModel, index: QModelIndex, roles: qtc.libqt_map (ArrayMap_i32_QVariant)) callconv(.c) bool `
     ///
-    pub fn OnSetItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, qtc.libqt_map) callconv(.c) bool) void {
-        qtc.KDirModel_OnSetItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetItemData(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, qtc.libqt_map) callconv(.c) bool) void {
+        qtc.KDirModel_OnSetItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3110,12 +3238,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn ClearItemData(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.KDirModel_ClearItemData(@ptrCast(self), @ptrCast(index));
+    pub fn ClearItemData(self: KDirModel, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KDirModel_ClearItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperClearItemData` instead
@@ -3130,12 +3259,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperClearItemData(self: ?*anyopaque, index: ?*anyopaque) bool {
-        return qtc.KDirModel_SuperClearItemData(@ptrCast(self), @ptrCast(index));
+    pub fn SuperClearItemData(self: KDirModel, index: anytype) bool {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return qtc.KDirModel_SuperClearItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3146,12 +3276,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, index: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KDirModel, index: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnClearItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KDirModel_OnClearItemData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClearItemData(self: KDirModel, callback: *const fn (KDirModel, QModelIndex) callconv(.c) bool) void {
+        qtc.KDirModel_OnClearItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3162,9 +3292,9 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -3172,10 +3302,12 @@ pub const kdirmodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn CanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KDirModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn CanDropMimeData(self: KDirModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KDirModel_CanDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCanDropMimeData` instead
@@ -3190,9 +3322,9 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` data: QtC.QMimeData `
+    /// ` data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -3200,10 +3332,12 @@ pub const kdirmodel = struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    pub fn SuperCanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
-        return qtc.KDirModel_SuperCanDropMimeData(@ptrCast(self), @ptrCast(data), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent));
+    pub fn SuperCanDropMimeData(self: KDirModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        return qtc.KDirModel_SuperCanDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3214,12 +3348,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool `
+    /// ` callback: *const fn (self: KDirModel, data: QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnCanDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KDirModel_OnCanDropMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCanDropMimeData(self: KDirModel, callback: *const fn (KDirModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
+        qtc.KDirModel_OnCanDropMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3230,14 +3364,14 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDragActions(self: ?*anyopaque) i32 {
-        return qtc.KDirModel_SupportedDragActions(@ptrCast(self));
+    pub fn SupportedDragActions(self: KDirModel) i32 {
+        return qtc.KDirModel_SupportedDragActions(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSupportedDragActions` instead
@@ -3252,14 +3386,14 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperSupportedDragActions(self: ?*anyopaque) i32 {
-        return qtc.KDirModel_SuperSupportedDragActions(@ptrCast(self));
+    pub fn SuperSupportedDragActions(self: KDirModel) i32 {
+        return qtc.KDirModel_SuperSupportedDragActions(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3270,12 +3404,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedDragActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KDirModel_OnSupportedDragActions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSupportedDragActions(self: KDirModel, callback: *const fn () callconv(.c) i32) void {
+        qtc.KDirModel_OnSupportedDragActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3286,20 +3420,22 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceRow: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KDirModel_MoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveRows(self: KDirModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KDirModel_MoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// ### DEPRECATED: Use `SuperMoveRows` instead
@@ -3314,20 +3450,22 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceRow: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn SuperMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceRow: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KDirModel_SuperMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn SuperMoveRows(self: KDirModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KDirModel_SuperMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3338,12 +3476,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, sourceParent: QtC.QModelIndex, sourceRow: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KDirModel, sourceParent: QModelIndex, sourceRow: i32, count: i32, destinationParent: QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
-    pub fn OnMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KDirModel_OnMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveRows(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KDirModel_OnMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3354,20 +3492,22 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceColumn: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KDirModel_MoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn MoveColumns(self: KDirModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KDirModel_MoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// ### DEPRECATED: Use `SuperMoveColumns` instead
@@ -3382,20 +3522,22 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceColumn: i32 `
     ///
     /// ` count: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn SuperMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceColumn: i32, count: i32, destinationParent: ?*anyopaque, destinationChild: i32) bool {
-        return qtc.KDirModel_SuperMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent), @bitCast(destinationChild));
+    pub fn SuperMoveColumns(self: KDirModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KDirModel_SuperMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3406,12 +3548,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, sourceParent: QtC.QModelIndex, sourceColumn: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KDirModel, sourceParent: QModelIndex, sourceColumn: i32, count: i32, destinationParent: QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
-    pub fn OnMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KDirModel_OnMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveColumns(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KDirModel_OnMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3422,12 +3564,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Buddy(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KDirModel_Buddy(@ptrCast(self), @ptrCast(index));
+    pub fn Buddy(self: KDirModel, index: anytype) QModelIndex {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KDirModel_Buddy(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperBuddy` instead
@@ -3442,12 +3585,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperBuddy(self: ?*anyopaque, index: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KDirModel_SuperBuddy(@ptrCast(self), @ptrCast(index));
+    pub fn SuperBuddy(self: KDirModel, index: anytype) QModelIndex {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KDirModel_SuperBuddy(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -3458,12 +3602,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, index: QtC.QModelIndex) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KDirModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
-    pub fn OnBuddy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.KDirModel_OnBuddy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBuddy(self: KDirModel, callback: *const fn (KDirModel, QModelIndex) callconv(.c) QModelIndex) void {
+        qtc.KDirModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3474,26 +3618,29 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` start: QtC.QModelIndex `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` start: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` hits: i32 `
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KDirModel_Match(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
+    pub fn Match(self: KDirModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, flags: i32) []QModelIndex {
+        comptime _ = @TypeOf(start)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        const _arr: qtc.libqt_list = qtc.KDirModel_Match(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("kdirmodel.Match: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("kdirmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -3509,26 +3656,29 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` start: QtC.QModelIndex `
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` start: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` hits: i32 `
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn SuperMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KDirModel_SuperMatch(@ptrCast(self), @ptrCast(start), @bitCast(role), @ptrCast(value), @bitCast(hits), @bitCast(flags));
+    pub fn SuperMatch(self: KDirModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, flags: i32) []QModelIndex {
+        comptime _ = @TypeOf(start)._is_QModelIndex;
+        comptime _ = @TypeOf(value)._is_QVariant;
+        const _arr: qtc.libqt_list = qtc.KDirModel_SuperMatch(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("kdirmodel.Match: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("kdirmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -3538,20 +3688,20 @@ pub const kdirmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: KDirModel, start: QModelIndex, role: i32, value: QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of []QtC.QModelIndex `
+    /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) qtc.libqt_list) void {
-        qtc.KDirModel_OnMatch(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMatch(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32, QVariant, i32, i32) callconv(.c) qtc.libqt_list) void {
+        qtc.KDirModel_OnMatch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3562,12 +3712,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn Span(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
-        return qtc.KDirModel_Span(@ptrCast(self), @ptrCast(index));
+    pub fn Span(self: KDirModel, index: anytype) QSize {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KDirModel_Span(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSpan` instead
@@ -3582,12 +3733,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    pub fn SuperSpan(self: ?*anyopaque, index: ?*anyopaque) QtC.QSize {
-        return qtc.KDirModel_SuperSpan(@ptrCast(self), @ptrCast(index));
+    pub fn SuperSpan(self: KDirModel, index: anytype) QSize {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        return .{ .ptr = qtc.KDirModel_SuperSpan(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -3598,12 +3750,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, index: QtC.QModelIndex) callconv(.c) QtC.QSize `
+    /// ` callback: *const fn (self: KDirModel, index: QModelIndex) callconv(.c) QSize `
     ///
-    pub fn OnSpan(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QSize) void {
-        qtc.KDirModel_OnSpan(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSpan(self: KDirModel, callback: *const fn (KDirModel, QModelIndex) callconv(.c) QSize) void {
+        qtc.KDirModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3614,14 +3766,16 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` roleDataSpan: QtC.QModelRoleDataSpan `
+    /// ` roleDataSpan: QModelRoleDataSpan `
     ///
-    pub fn MultiData(self: ?*anyopaque, index: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
-        qtc.KDirModel_MultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
+    pub fn MultiData(self: KDirModel, index: anytype, roleDataSpan: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(roleDataSpan)._is_QModelRoleDataSpan;
+        qtc.KDirModel_MultiData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(roleDataSpan.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMultiData` instead
@@ -3636,14 +3790,16 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` index: QtC.QModelIndex `
+    /// ` index: QModelIndex `
     ///
-    /// ` roleDataSpan: QtC.QModelRoleDataSpan `
+    /// ` roleDataSpan: QModelRoleDataSpan `
     ///
-    pub fn SuperMultiData(self: ?*anyopaque, index: ?*anyopaque, roleDataSpan: QtC.QModelRoleDataSpan) void {
-        qtc.KDirModel_SuperMultiData(@ptrCast(self), @ptrCast(index), @ptrCast(roleDataSpan));
+    pub fn SuperMultiData(self: KDirModel, index: anytype, roleDataSpan: anytype) void {
+        comptime _ = @TypeOf(index)._is_QModelIndex;
+        comptime _ = @TypeOf(roleDataSpan)._is_QModelRoleDataSpan;
+        qtc.KDirModel_SuperMultiData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(roleDataSpan.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3654,12 +3810,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, index: QtC.QModelIndex, roleDataSpan: QtC.QModelRoleDataSpan) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, index: QModelIndex, roleDataSpan: QModelRoleDataSpan) callconv(.c) void `
     ///
-    pub fn OnMultiData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.QModelRoleDataSpan) callconv(.c) void) void {
-        qtc.KDirModel_OnMultiData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMultiData(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, QModelRoleDataSpan) callconv(.c) void) void {
+        qtc.KDirModel_OnMultiData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3670,10 +3826,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn Submit(self: ?*anyopaque) bool {
-        return qtc.KDirModel_Submit(@ptrCast(self));
+    pub fn Submit(self: KDirModel) bool {
+        return qtc.KDirModel_Submit(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSubmit` instead
@@ -3688,10 +3844,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn SuperSubmit(self: ?*anyopaque) bool {
-        return qtc.KDirModel_SuperSubmit(@ptrCast(self));
+    pub fn SuperSubmit(self: KDirModel) bool {
+        return qtc.KDirModel_SuperSubmit(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3702,12 +3858,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnSubmit(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KDirModel_OnSubmit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSubmit(self: KDirModel, callback: *const fn () callconv(.c) bool) void {
+        qtc.KDirModel_OnSubmit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3718,10 +3874,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn Revert(self: ?*anyopaque) void {
-        qtc.KDirModel_Revert(@ptrCast(self));
+    pub fn Revert(self: KDirModel) void {
+        qtc.KDirModel_Revert(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperRevert` instead
@@ -3736,10 +3892,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn SuperRevert(self: ?*anyopaque) void {
-        qtc.KDirModel_SuperRevert(@ptrCast(self));
+    pub fn SuperRevert(self: KDirModel) void {
+        qtc.KDirModel_SuperRevert(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3750,12 +3906,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnRevert(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirModel_OnRevert(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRevert(self: KDirModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirModel_OnRevert(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3766,10 +3922,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn ResetInternalData(self: ?*anyopaque) void {
-        qtc.KDirModel_ResetInternalData(@ptrCast(self));
+    pub fn ResetInternalData(self: KDirModel) void {
+        qtc.KDirModel_ResetInternalData(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResetInternalData` instead
@@ -3784,10 +3940,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn SuperResetInternalData(self: ?*anyopaque) void {
-        qtc.KDirModel_SuperResetInternalData(@ptrCast(self));
+    pub fn SuperResetInternalData(self: KDirModel) void {
+        qtc.KDirModel_SuperResetInternalData(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3798,12 +3954,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnResetInternalData(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirModel_OnResetInternalData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResetInternalData(self: KDirModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirModel_OnResetInternalData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3814,12 +3970,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KDirModel_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KDirModel, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KDirModel_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -3834,12 +3991,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KDirModel_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KDirModel, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KDirModel_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3850,12 +4008,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KDirModel, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KDirModel_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KDirModel, callback: *const fn (KDirModel, QEvent) callconv(.c) bool) void {
+        qtc.KDirModel_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3866,14 +4024,16 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KDirModel_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KDirModel, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KDirModel_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -3888,14 +4048,16 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KDirModel_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KDirModel, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KDirModel_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3906,12 +4068,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KDirModel, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KDirModel_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KDirModel, callback: *const fn (KDirModel, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KDirModel_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3922,12 +4084,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDirModel_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KDirModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KDirModel_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -3942,12 +4105,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDirModel_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KDirModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KDirModel_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3958,12 +4122,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirModel_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KDirModel, callback: *const fn (KDirModel, QTimerEvent) callconv(.c) void) void {
+        qtc.KDirModel_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3974,12 +4138,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDirModel_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KDirModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KDirModel_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -3994,12 +4159,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDirModel_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KDirModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KDirModel_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -4010,12 +4176,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirModel_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KDirModel, callback: *const fn (KDirModel, QChildEvent) callconv(.c) void) void {
+        qtc.KDirModel_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4026,12 +4192,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDirModel_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KDirModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KDirModel_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -4046,12 +4213,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDirModel_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KDirModel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KDirModel_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -4062,12 +4230,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirModel_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KDirModel, callback: *const fn (KDirModel, QEvent) callconv(.c) void) void {
+        qtc.KDirModel_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4078,12 +4246,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KDirModel_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KDirModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KDirModel_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -4098,12 +4267,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KDirModel_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KDirModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KDirModel_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -4114,12 +4284,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirModel_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KDirModel, callback: *const fn (KDirModel, QMetaMethod) callconv(.c) void) void {
+        qtc.KDirModel_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4130,12 +4300,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KDirModel_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KDirModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KDirModel_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -4150,12 +4321,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KDirModel_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KDirModel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KDirModel_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -4166,12 +4338,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirModel_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KDirModel, callback: *const fn (KDirModel, QMetaMethod) callconv(.c) void) void {
+        qtc.KDirModel_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4182,14 +4354,14 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn CreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.KDirModel_CreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn CreateIndex(self: KDirModel, row: i32, column: i32) QModelIndex {
+        return .{ .ptr = qtc.KDirModel_CreateIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
 
     /// ### DEPRECATED: Use `SuperCreateIndex` instead
@@ -4204,14 +4376,14 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn SuperCreateIndex(self: ?*anyopaque, row: i32, column: i32) QtC.QModelIndex {
-        return qtc.KDirModel_SuperCreateIndex(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn SuperCreateIndex(self: KDirModel, row: i32, column: i32) QModelIndex {
+        return .{ .ptr = qtc.KDirModel_SuperCreateIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
 
     /// Inherited from QAbstractItemModel
@@ -4222,12 +4394,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, row: i32, column: i32) callconv(.c) QtC.QModelIndex `
+    /// ` callback: *const fn (self: KDirModel, row: i32, column: i32) callconv(.c) QModelIndex `
     ///
-    pub fn OnCreateIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QModelIndex) void {
-        qtc.KDirModel_OnCreateIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreateIndex(self: KDirModel, callback: *const fn (KDirModel, i32, i32) callconv(.c) QModelIndex) void {
+        qtc.KDirModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4238,18 +4410,19 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn EncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
+    pub fn EncodeData(self: KDirModel, indexes: []QModelIndex, stream: anytype) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        qtc.KDirModel_EncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        qtc.KDirModel_EncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEncodeData` instead
@@ -4264,18 +4437,19 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` indexes: []QtC.QModelIndex `
+    /// ` indexes: []QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn SuperEncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
+    pub fn SuperEncodeData(self: KDirModel, indexes: []QModelIndex, stream: anytype) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
-        qtc.KDirModel_SuperEncodeData(@ptrCast(self), indexes_list, @ptrCast(stream));
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        qtc.KDirModel_SuperEncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4286,12 +4460,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, indexes: qtc.libqt_list ([]QtC.QModelIndex), stream: QtC.QDataStream) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, indexes: qtc.libqt_list ([]QModelIndex), stream: QDataStream) callconv(.c) void `
     ///
-    pub fn OnEncodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirModel_OnEncodeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEncodeData(self: KDirModel, callback: *const fn (KDirModel, qtc.libqt_list, QDataStream) callconv(.c) void) void {
+        qtc.KDirModel_OnEncodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4302,18 +4476,20 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn DecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.KDirModel_DecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
+    pub fn DecodeData(self: KDirModel, row: i32, column: i32, parent: anytype, stream: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        return qtc.KDirModel_DecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr), @ptrCast(stream.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDecodeData` instead
@@ -4328,18 +4504,20 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
-    /// ` stream: QtC.QDataStream `
+    /// ` stream: QDataStream `
     ///
-    pub fn SuperDecodeData(self: ?*anyopaque, row: i32, column: i32, parent: ?*anyopaque, stream: ?*anyopaque) bool {
-        return qtc.KDirModel_SuperDecodeData(@ptrCast(self), @bitCast(row), @bitCast(column), @ptrCast(parent), @ptrCast(stream));
+    pub fn SuperDecodeData(self: KDirModel, row: i32, column: i32, parent: anytype, stream: anytype) bool {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        comptime _ = @TypeOf(stream)._is_QDataStream;
+        return qtc.KDirModel_SuperDecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr), @ptrCast(stream.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4350,12 +4528,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, row: i32, column: i32, parent: QtC.QModelIndex, stream: QtC.QDataStream) callconv(.c) bool `
+    /// ` callback: *const fn (self: KDirModel, row: i32, column: i32, parent: QModelIndex, stream: QDataStream) callconv(.c) bool `
     ///
-    pub fn OnDecodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KDirModel_OnDecodeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDecodeData(self: KDirModel, callback: *const fn (KDirModel, i32, i32, QModelIndex, QDataStream) callconv(.c) bool) void {
+        qtc.KDirModel_OnDecodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4366,16 +4544,17 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KDirModel_BeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginInsertRows(self: KDirModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KDirModel_BeginInsertRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginInsertRows` instead
@@ -4390,16 +4569,17 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginInsertRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KDirModel_SuperBeginInsertRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginInsertRows(self: KDirModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KDirModel_SuperBeginInsertRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4410,12 +4590,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KDirModel_OnBeginInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginInsertRows(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KDirModel_OnBeginInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4426,10 +4606,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn EndInsertRows(self: ?*anyopaque) void {
-        qtc.KDirModel_EndInsertRows(@ptrCast(self));
+    pub fn EndInsertRows(self: KDirModel) void {
+        qtc.KDirModel_EndInsertRows(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndInsertRows` instead
@@ -4444,10 +4624,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn SuperEndInsertRows(self: ?*anyopaque) void {
-        qtc.KDirModel_SuperEndInsertRows(@ptrCast(self));
+    pub fn SuperEndInsertRows(self: KDirModel) void {
+        qtc.KDirModel_SuperEndInsertRows(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4458,12 +4638,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndInsertRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirModel_OnEndInsertRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndInsertRows(self: KDirModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirModel_OnEndInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4474,16 +4654,17 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KDirModel_BeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginRemoveRows(self: KDirModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KDirModel_BeginRemoveRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginRemoveRows` instead
@@ -4498,16 +4679,17 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginRemoveRows(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KDirModel_SuperBeginRemoveRows(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginRemoveRows(self: KDirModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KDirModel_SuperBeginRemoveRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4518,12 +4700,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KDirModel_OnBeginRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginRemoveRows(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KDirModel_OnBeginRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4534,10 +4716,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn EndRemoveRows(self: ?*anyopaque) void {
-        qtc.KDirModel_EndRemoveRows(@ptrCast(self));
+    pub fn EndRemoveRows(self: KDirModel) void {
+        qtc.KDirModel_EndRemoveRows(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndRemoveRows` instead
@@ -4552,10 +4734,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn SuperEndRemoveRows(self: ?*anyopaque) void {
-        qtc.KDirModel_SuperEndRemoveRows(@ptrCast(self));
+    pub fn SuperEndRemoveRows(self: KDirModel) void {
+        qtc.KDirModel_SuperEndRemoveRows(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4566,12 +4748,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndRemoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirModel_OnEndRemoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndRemoveRows(self: KDirModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirModel_OnEndRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4582,20 +4764,22 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn BeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.KDirModel_BeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
+    pub fn BeginMoveRows(self: KDirModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KDirModel_BeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
 
     /// ### DEPRECATED: Use `SuperBeginMoveRows` instead
@@ -4610,20 +4794,22 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn SuperBeginMoveRows(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationRow: i32) bool {
-        return qtc.KDirModel_SuperBeginMoveRows(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationRow));
+    pub fn SuperBeginMoveRows(self: KDirModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KDirModel_SuperBeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4634,12 +4820,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KDirModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) bool `
     ///
-    pub fn OnBeginMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KDirModel_OnBeginMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginMoveRows(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KDirModel_OnBeginMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4650,10 +4836,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn EndMoveRows(self: ?*anyopaque) void {
-        qtc.KDirModel_EndMoveRows(@ptrCast(self));
+    pub fn EndMoveRows(self: KDirModel) void {
+        qtc.KDirModel_EndMoveRows(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndMoveRows` instead
@@ -4668,10 +4854,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn SuperEndMoveRows(self: ?*anyopaque) void {
-        qtc.KDirModel_SuperEndMoveRows(@ptrCast(self));
+    pub fn SuperEndMoveRows(self: KDirModel) void {
+        qtc.KDirModel_SuperEndMoveRows(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4682,12 +4868,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndMoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirModel_OnEndMoveRows(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndMoveRows(self: KDirModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirModel_OnEndMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4698,16 +4884,17 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KDirModel_BeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginInsertColumns(self: KDirModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KDirModel_BeginInsertColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginInsertColumns` instead
@@ -4722,16 +4909,17 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginInsertColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KDirModel_SuperBeginInsertColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginInsertColumns(self: KDirModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KDirModel_SuperBeginInsertColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4742,12 +4930,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KDirModel_OnBeginInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginInsertColumns(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KDirModel_OnBeginInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4758,10 +4946,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn EndInsertColumns(self: ?*anyopaque) void {
-        qtc.KDirModel_EndInsertColumns(@ptrCast(self));
+    pub fn EndInsertColumns(self: KDirModel) void {
+        qtc.KDirModel_EndInsertColumns(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndInsertColumns` instead
@@ -4776,10 +4964,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn SuperEndInsertColumns(self: ?*anyopaque) void {
-        qtc.KDirModel_SuperEndInsertColumns(@ptrCast(self));
+    pub fn SuperEndInsertColumns(self: KDirModel) void {
+        qtc.KDirModel_SuperEndInsertColumns(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4790,12 +4978,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndInsertColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirModel_OnEndInsertColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndInsertColumns(self: KDirModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirModel_OnEndInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4806,16 +4994,17 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KDirModel_BeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn BeginRemoveColumns(self: KDirModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KDirModel_BeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// ### DEPRECATED: Use `SuperBeginRemoveColumns` instead
@@ -4830,16 +5019,17 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` parent: QtC.QModelIndex `
+    /// ` parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginRemoveColumns(self: ?*anyopaque, parent: ?*anyopaque, first: i32, last: i32) void {
-        qtc.KDirModel_SuperBeginRemoveColumns(@ptrCast(self), @ptrCast(parent), @bitCast(first), @bitCast(last));
+    pub fn SuperBeginRemoveColumns(self: KDirModel, parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(parent)._is_QModelIndex;
+        qtc.KDirModel_SuperBeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4850,12 +5040,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KDirModel_OnBeginRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginRemoveColumns(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.KDirModel_OnBeginRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4866,10 +5056,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn EndRemoveColumns(self: ?*anyopaque) void {
-        qtc.KDirModel_EndRemoveColumns(@ptrCast(self));
+    pub fn EndRemoveColumns(self: KDirModel) void {
+        qtc.KDirModel_EndRemoveColumns(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndRemoveColumns` instead
@@ -4884,10 +5074,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn SuperEndRemoveColumns(self: ?*anyopaque) void {
-        qtc.KDirModel_SuperEndRemoveColumns(@ptrCast(self));
+    pub fn SuperEndRemoveColumns(self: KDirModel) void {
+        qtc.KDirModel_SuperEndRemoveColumns(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4898,12 +5088,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndRemoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirModel_OnEndRemoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndRemoveColumns(self: KDirModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirModel_OnEndRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4914,20 +5104,22 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn BeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.KDirModel_BeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
+    pub fn BeginMoveColumns(self: KDirModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KDirModel_BeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
 
     /// ### DEPRECATED: Use `SuperBeginMoveColumns` instead
@@ -4942,20 +5134,22 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` sourceParent: QtC.QModelIndex `
+    /// ` sourceParent: QModelIndex `
     ///
     /// ` sourceFirst: i32 `
     ///
     /// ` sourceLast: i32 `
     ///
-    /// ` destinationParent: QtC.QModelIndex `
+    /// ` destinationParent: QModelIndex `
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn SuperBeginMoveColumns(self: ?*anyopaque, sourceParent: ?*anyopaque, sourceFirst: i32, sourceLast: i32, destinationParent: ?*anyopaque, destinationColumn: i32) bool {
-        return qtc.KDirModel_SuperBeginMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent), @bitCast(destinationColumn));
+    pub fn SuperBeginMoveColumns(self: KDirModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
+        comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
+        comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
+        return qtc.KDirModel_SuperBeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4966,12 +5160,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KDirModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) bool `
     ///
-    pub fn OnBeginMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KDirModel_OnBeginMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginMoveColumns(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+        qtc.KDirModel_OnBeginMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -4982,10 +5176,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn EndMoveColumns(self: ?*anyopaque) void {
-        qtc.KDirModel_EndMoveColumns(@ptrCast(self));
+    pub fn EndMoveColumns(self: KDirModel) void {
+        qtc.KDirModel_EndMoveColumns(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndMoveColumns` instead
@@ -5000,10 +5194,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn SuperEndMoveColumns(self: ?*anyopaque) void {
-        qtc.KDirModel_SuperEndMoveColumns(@ptrCast(self));
+    pub fn SuperEndMoveColumns(self: KDirModel) void {
+        qtc.KDirModel_SuperEndMoveColumns(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5014,12 +5208,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndMoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirModel_OnEndMoveColumns(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndMoveColumns(self: KDirModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirModel_OnEndMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5030,10 +5224,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn BeginResetModel(self: ?*anyopaque) void {
-        qtc.KDirModel_BeginResetModel(@ptrCast(self));
+    pub fn BeginResetModel(self: KDirModel) void {
+        qtc.KDirModel_BeginResetModel(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperBeginResetModel` instead
@@ -5048,10 +5242,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn SuperBeginResetModel(self: ?*anyopaque) void {
-        qtc.KDirModel_SuperBeginResetModel(@ptrCast(self));
+    pub fn SuperBeginResetModel(self: KDirModel) void {
+        qtc.KDirModel_SuperBeginResetModel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5062,12 +5256,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnBeginResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirModel_OnBeginResetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBeginResetModel(self: KDirModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirModel_OnBeginResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5078,10 +5272,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn EndResetModel(self: ?*anyopaque) void {
-        qtc.KDirModel_EndResetModel(@ptrCast(self));
+    pub fn EndResetModel(self: KDirModel) void {
+        qtc.KDirModel_EndResetModel(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEndResetModel` instead
@@ -5096,10 +5290,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn SuperEndResetModel(self: ?*anyopaque) void {
-        qtc.KDirModel_SuperEndResetModel(@ptrCast(self));
+    pub fn SuperEndResetModel(self: KDirModel) void {
+        qtc.KDirModel_SuperEndResetModel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5110,12 +5304,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KDirModel_OnEndResetModel(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEndResetModel(self: KDirModel, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirModel_OnEndResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5126,14 +5320,16 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` from: QtC.QModelIndex `
+    /// ` from: QModelIndex `
     ///
-    /// ` to: QtC.QModelIndex `
+    /// ` to: QModelIndex `
     ///
-    pub fn ChangePersistentIndex(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque) void {
-        qtc.KDirModel_ChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
+    pub fn ChangePersistentIndex(self: KDirModel, from: anytype, to: anytype) void {
+        comptime _ = @TypeOf(from)._is_QModelIndex;
+        comptime _ = @TypeOf(to)._is_QModelIndex;
+        qtc.KDirModel_ChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChangePersistentIndex` instead
@@ -5148,14 +5344,16 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` from: QtC.QModelIndex `
+    /// ` from: QModelIndex `
     ///
-    /// ` to: QtC.QModelIndex `
+    /// ` to: QModelIndex `
     ///
-    pub fn SuperChangePersistentIndex(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque) void {
-        qtc.KDirModel_SuperChangePersistentIndex(@ptrCast(self), @ptrCast(from), @ptrCast(to));
+    pub fn SuperChangePersistentIndex(self: KDirModel, from: anytype, to: anytype) void {
+        comptime _ = @TypeOf(from)._is_QModelIndex;
+        comptime _ = @TypeOf(to)._is_QModelIndex;
+        qtc.KDirModel_SuperChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5166,12 +5364,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, from: QtC.QModelIndex, to: QtC.QModelIndex) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, from: QModelIndex, to: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirModel_OnChangePersistentIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangePersistentIndex(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+        qtc.KDirModel_OnChangePersistentIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5182,13 +5380,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` from: []QtC.QModelIndex `
+    /// ` from: []QModelIndex `
     ///
-    /// ` to: []QtC.QModelIndex `
+    /// ` to: []QModelIndex `
     ///
-    pub fn ChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
+    pub fn ChangePersistentIndexList(self: KDirModel, from: []QModelIndex, to: []QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -5197,7 +5395,7 @@ pub const kdirmodel = struct {
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
-        qtc.KDirModel_ChangePersistentIndexList(@ptrCast(self), from_list, to_list);
+        qtc.KDirModel_ChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
 
     /// ### DEPRECATED: Use `SuperChangePersistentIndexList` instead
@@ -5212,13 +5410,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` from: []QtC.QModelIndex `
+    /// ` from: []QModelIndex `
     ///
-    /// ` to: []QtC.QModelIndex `
+    /// ` to: []QModelIndex `
     ///
-    pub fn SuperChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
+    pub fn SuperChangePersistentIndexList(self: KDirModel, from: []QModelIndex, to: []QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -5227,7 +5425,7 @@ pub const kdirmodel = struct {
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
-        qtc.KDirModel_SuperChangePersistentIndexList(@ptrCast(self), from_list, to_list);
+        qtc.KDirModel_SuperChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
 
     /// Inherited from QAbstractItemModel
@@ -5238,12 +5436,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, from: qtc.libqt_list ([]QtC.QModelIndex), to: qtc.libqt_list ([]QtC.QModelIndex)) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, from: qtc.libqt_list ([]QModelIndex), to: qtc.libqt_list ([]QModelIndex)) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndexList(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
-        qtc.KDirModel_OnChangePersistentIndexList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangePersistentIndexList(self: KDirModel, callback: *const fn (KDirModel, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
+        qtc.KDirModel_OnChangePersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5254,16 +5452,17 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KDirModel_PersistentIndexList(@ptrCast(self));
+    pub fn PersistentIndexList(self: KDirModel, allocator: std.mem.Allocator) []QModelIndex {
+        const _arr: qtc.libqt_list = qtc.KDirModel_PersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("kdirmodel.PersistentIndexList: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("kdirmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -5279,16 +5478,17 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperPersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.libqt_list = qtc.KDirModel_SuperPersistentIndexList(@ptrCast(self));
+    pub fn SuperPersistentIndexList(self: KDirModel, allocator: std.mem.Allocator) []QModelIndex {
+        const _arr: qtc.libqt_list = qtc.KDirModel_SuperPersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("kdirmodel.PersistentIndexList: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("kdirmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -5298,20 +5498,20 @@ pub const kdirmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
     /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of []QtC.QModelIndex `
+    /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnPersistentIndexList(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.KDirModel_OnPersistentIndexList(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPersistentIndexList(self: KDirModel, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+        qtc.KDirModel_OnPersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5322,10 +5522,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KDirModel_Sender(@ptrCast(self));
+    pub fn Sender(self: KDirModel) QObject {
+        return .{ .ptr = qtc.KDirModel_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -5340,10 +5540,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KDirModel_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KDirModel) QObject {
+        return .{ .ptr = qtc.KDirModel_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5354,12 +5554,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KDirModel_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KDirModel, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KDirModel_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5370,10 +5570,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KDirModel_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KDirModel) i32 {
+        return qtc.KDirModel_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -5388,10 +5588,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KDirModel_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KDirModel) i32 {
+        return qtc.KDirModel_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5402,12 +5602,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KDirModel_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KDirModel, callback: *const fn () callconv(.c) i32) void {
+        qtc.KDirModel_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5418,13 +5618,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KDirModel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KDirModel_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KDirModel_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -5439,13 +5639,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KDirModel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KDirModel_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KDirModel_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5456,12 +5656,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KDirModel, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KDirModel_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KDirModel, callback: *const fn (KDirModel, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KDirModel_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5472,12 +5672,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KDirModel_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KDirModel, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KDirModel_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -5492,12 +5693,13 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KDirModel_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KDirModel, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KDirModel_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -5508,12 +5710,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel`
+    /// ` self: KDirModel`
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KDirModel, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KDirModel_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KDirModel, callback: *const fn (KDirModel, QMetaMethod) callconv(.c) bool) void {
+        qtc.KDirModel_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5524,12 +5726,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsAboutToBeInserted(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5540,12 +5742,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsInserted(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5556,12 +5758,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsAboutToBeRemoved(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5572,12 +5774,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsRemoved(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5588,12 +5790,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsAboutToBeInserted(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5604,12 +5806,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsInserted(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5620,12 +5822,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsAboutToBeRemoved(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5636,12 +5838,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsRemoved(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5652,12 +5854,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel) callconv(.c) void `
     ///
-    pub fn OnModelAboutToBeReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnModelAboutToBeReset(self: KDirModel, callback: *const fn (KDirModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5668,12 +5870,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel) callconv(.c) void `
     ///
-    pub fn OnModelReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnModelReset(self: KDirModel, callback: *const fn (KDirModel) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5684,12 +5886,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsAboutToBeMoved(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5700,12 +5902,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
-    pub fn OnRowsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRowsMoved(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5716,12 +5918,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsAboutToBeMoved(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -5732,12 +5934,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColumnsMoved(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5748,12 +5950,12 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    /// ` callback: *const fn (self: QtC.KDirModel, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KDirModel, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KDirModel, callback: *const fn (KDirModel, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -5766,10 +5968,10 @@ pub const kdirmodel = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KDirModel `
+    /// ` self: KDirModel `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KDirModel_Delete(@ptrCast(self));
+    pub fn Delete(self: KDirModel) void {
+        qtc.KDirModel_Delete(@ptrCast(self.ptr));
     }
 };
 

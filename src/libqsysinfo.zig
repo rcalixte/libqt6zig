@@ -3,49 +3,59 @@ const qtc = @import("qt6c");
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html)
-pub const qsysinfo = struct {
+pub const QSysInfo = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QSysInfo,
+
+    pub const _is_QSysInfo = {};
+
     /// New constructs a new QSysInfo object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QSysInfo `
+    /// ` other: QSysInfo `
     ///
-    pub fn New(other: ?*anyopaque) QtC.QSysInfo {
-        return qtc.QSysInfo_new(@ptrCast(other));
+    pub fn New(other: anytype) QSysInfo {
+        comptime _ = @TypeOf(other)._is_QSysInfo;
+        return .{ .ptr = qtc.QSysInfo_new(@ptrCast(other.ptr)) };
     }
 
     /// New2 constructs a new QSysInfo object and invalidates the source QSysInfo object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QSysInfo `
+    /// ` other: QSysInfo `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QSysInfo {
-        return qtc.QSysInfo_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QSysInfo {
+        comptime _ = @TypeOf(other)._is_QSysInfo;
+        return .{ .ptr = qtc.QSysInfo_new2(@ptrCast(other.ptr)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSysInfo `
+    /// ` self: QSysInfo `
     ///
-    /// ` other: QtC.QSysInfo `
+    /// ` other: QSysInfo `
     ///
-    pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QSysInfo_CopyAssign(@ptrCast(self), @ptrCast(other));
+    pub fn CopyAssign(self: QSysInfo, other: QSysInfo) void {
+        qtc.QSysInfo_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSysInfo `
+    /// ` self: QSysInfo `
     ///
-    /// ` other: QtC.QSysInfo `
+    /// ` other: QSysInfo `
     ///
-    pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QSysInfo_MoveAssign(@ptrCast(self), @ptrCast(other));
+    pub fn MoveAssign(self: QSysInfo, other: QSysInfo) void {
+        qtc.QSysInfo_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsysinfo.html#buildCpuArchitecture)
@@ -212,10 +222,10 @@ pub const qsysinfo = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QSysInfo `
+    /// ` self: QSysInfo `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QSysInfo_Delete(@ptrCast(self));
+    pub fn Delete(self: QSysInfo) void {
+        qtc.QSysInfo_Delete(@ptrCast(self.ptr));
     }
 };
 

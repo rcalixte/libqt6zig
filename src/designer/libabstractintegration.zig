@@ -1,42 +1,68 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QDesignerFormEditorInterface = @import("libqt6").QDesignerFormEditorInterface;
+const QDesignerFormWindowInterface = @import("libqt6").QDesignerFormWindowInterface;
+const QDesignerResourceBrowserInterface = @import("libqt6").QDesignerResourceBrowserInterface;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
+const QWidget = @import("libqt6").QWidget;
 const abstractintegration_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html)
-pub const qdesignerintegrationinterface = struct {
+pub const QDesignerIntegrationInterface = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QDesignerIntegrationInterface,
+
+    pub const _is_QDesignerIntegrationInterface = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QDesignerIntegrationInterface object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` core: QtC.QDesignerFormEditorInterface `
+    /// ` core: QDesignerFormEditorInterface `
     ///
-    pub fn New(core: ?*anyopaque) QtC.QDesignerIntegrationInterface {
-        return qtc.QDesignerIntegrationInterface_new(@ptrCast(core));
+    pub fn New(core: anytype) QDesignerIntegrationInterface {
+        comptime _ = @TypeOf(core)._is_QDesignerFormEditorInterface;
+        return .{ .ptr = qtc.QDesignerIntegrationInterface_new(@ptrCast(core.ptr)) };
     }
 
     /// New2 constructs a new QDesignerIntegrationInterface object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` core: QtC.QDesignerFormEditorInterface `
+    /// ` core: QDesignerFormEditorInterface `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(core: ?*anyopaque, parent: ?*anyopaque) QtC.QDesignerIntegrationInterface {
-        return qtc.QDesignerIntegrationInterface_new2(@ptrCast(core), @ptrCast(parent));
+    pub fn New2(core: anytype, parent: anytype) QDesignerIntegrationInterface {
+        comptime _ = @TypeOf(core)._is_QDesignerFormEditorInterface;
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QDesignerIntegrationInterface_new2(@ptrCast(core.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QDesignerIntegrationInterface_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QDesignerIntegrationInterface) QMetaObject {
+        return .{ .ptr = qtc.QDesignerIntegrationInterface_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -45,12 +71,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QDesignerIntegrationInterface_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QDesignerIntegrationInterface, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QDesignerIntegrationInterface_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -63,33 +89,33 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QDesignerIntegrationInterface_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QDesignerIntegrationInterface) QMetaObject {
+        return .{ .ptr = qtc.QDesignerIntegrationInterface_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QDesignerIntegrationInterface, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QDesignerIntegrationInterface_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QDesignerIntegrationInterface_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QDesignerIntegrationInterface_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -100,18 +126,18 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QDesignerIntegrationInterface, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QDesignerIntegrationInterface_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QDesignerIntegrationInterface_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -119,20 +145,20 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDesignerIntegrationInterface_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QDesignerIntegrationInterface, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QDesignerIntegrationInterface_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QDesignerIntegrationInterface_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QDesignerIntegrationInterface_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -143,7 +169,7 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -151,19 +177,19 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDesignerIntegrationInterface_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QDesignerIntegrationInterface, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QDesignerIntegrationInterface_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -176,22 +202,23 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn Core(self: ?*anyopaque) QtC.QDesignerFormEditorInterface {
-        return qtc.QDesignerIntegrationInterface_Core(@ptrCast(self));
+    pub fn Core(self: QDesignerIntegrationInterface) QDesignerFormEditorInterface {
+        return .{ .ptr = qtc.QDesignerIntegrationInterface_Core(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#containerWindow)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn ContainerWindow(self: ?*anyopaque, widget: ?*anyopaque) QtC.QWidget {
-        return qtc.QDesignerIntegrationInterface_ContainerWindow(@ptrCast(self), @ptrCast(widget));
+    pub fn ContainerWindow(self: QDesignerIntegrationInterface, widget: anytype) QWidget {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return .{ .ptr = qtc.QDesignerIntegrationInterface_ContainerWindow(@ptrCast(self.ptr), @ptrCast(widget.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#containerWindow)
@@ -200,12 +227,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, widget: QtC.QWidget) callconv(.c) QtC.QWidget `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, widget: QWidget) callconv(.c) QWidget `
     ///
-    pub fn OnContainerWindow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
-        qtc.QDesignerIntegrationInterface_OnContainerWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContainerWindow(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, QWidget) callconv(.c) QWidget) void {
+        qtc.QDesignerIntegrationInterface_OnContainerWindow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperContainerWindow` instead
@@ -218,24 +245,26 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SuperContainerWindow(self: ?*anyopaque, widget: ?*anyopaque) QtC.QWidget {
-        return qtc.QDesignerIntegrationInterface_SuperContainerWindow(@ptrCast(self), @ptrCast(widget));
+    pub fn SuperContainerWindow(self: QDesignerIntegrationInterface, widget: anytype) QWidget {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return .{ .ptr = qtc.QDesignerIntegrationInterface_SuperContainerWindow(@ptrCast(self.ptr), @ptrCast(widget.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#createResourceBrowser)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateResourceBrowser(self: ?*anyopaque, parent: ?*anyopaque) QtC.QDesignerResourceBrowserInterface {
-        return qtc.QDesignerIntegrationInterface_CreateResourceBrowser(@ptrCast(self), @ptrCast(parent));
+    pub fn CreateResourceBrowser(self: QDesignerIntegrationInterface, parent: anytype) QDesignerResourceBrowserInterface {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QDesignerIntegrationInterface_CreateResourceBrowser(@ptrCast(self.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#createResourceBrowser)
@@ -244,12 +273,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, parent: QtC.QWidget) callconv(.c) QtC.QDesignerResourceBrowserInterface `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, parent: QWidget) callconv(.c) QDesignerResourceBrowserInterface `
     ///
-    pub fn OnCreateResourceBrowser(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QDesignerResourceBrowserInterface) void {
-        qtc.QDesignerIntegrationInterface_OnCreateResourceBrowser(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreateResourceBrowser(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, QWidget) callconv(.c) QDesignerResourceBrowserInterface) void {
+        qtc.QDesignerIntegrationInterface_OnCreateResourceBrowser(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCreateResourceBrowser` instead
@@ -262,24 +291,25 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SuperCreateResourceBrowser(self: ?*anyopaque, parent: ?*anyopaque) QtC.QDesignerResourceBrowserInterface {
-        return qtc.QDesignerIntegrationInterface_SuperCreateResourceBrowser(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperCreateResourceBrowser(self: QDesignerIntegrationInterface, parent: anytype) QDesignerResourceBrowserInterface {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QDesignerIntegrationInterface_SuperCreateResourceBrowser(@ptrCast(self.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#headerSuffix)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn HeaderSuffix(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerIntegrationInterface_HeaderSuffix(@ptrCast(self));
+    pub fn HeaderSuffix(self: QDesignerIntegrationInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerIntegrationInterface_HeaderSuffix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegrationinterface.HeaderSuffix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -290,16 +320,16 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnHeaderSuffix(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.QDesignerIntegrationInterface_OnHeaderSuffix(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeaderSuffix(self: QDesignerIntegrationInterface, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.QDesignerIntegrationInterface_OnHeaderSuffix(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperHeaderSuffix` instead
@@ -312,12 +342,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperHeaderSuffix(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerIntegrationInterface_SuperHeaderSuffix(@ptrCast(self));
+    pub fn SuperHeaderSuffix(self: QDesignerIntegrationInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerIntegrationInterface_SuperHeaderSuffix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegrationinterface.HeaderSuffix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -328,16 +358,16 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` headerSuffix: []const u8 `
     ///
-    pub fn SetHeaderSuffix(self: ?*anyopaque, headerSuffix: []const u8) void {
+    pub fn SetHeaderSuffix(self: QDesignerIntegrationInterface, headerSuffix: []const u8) void {
         const headerSuffix_str = qtc.libqt_string{
             .len = headerSuffix.len,
             .data = headerSuffix.ptr,
         };
-        qtc.QDesignerIntegrationInterface_SetHeaderSuffix(@ptrCast(self), headerSuffix_str);
+        qtc.QDesignerIntegrationInterface_SetHeaderSuffix(@ptrCast(self.ptr), headerSuffix_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setHeaderSuffix)
@@ -346,12 +376,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, headerSuffix: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, headerSuffix: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetHeaderSuffix(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnSetHeaderSuffix(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetHeaderSuffix(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_OnSetHeaderSuffix(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetHeaderSuffix` instead
@@ -364,26 +394,26 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` headerSuffix: []const u8 `
     ///
-    pub fn SuperSetHeaderSuffix(self: ?*anyopaque, headerSuffix: []const u8) void {
+    pub fn SuperSetHeaderSuffix(self: QDesignerIntegrationInterface, headerSuffix: []const u8) void {
         const headerSuffix_str = qtc.libqt_string{
             .len = headerSuffix.len,
             .data = headerSuffix.ptr,
         };
-        qtc.QDesignerIntegrationInterface_SuperSetHeaderSuffix(@ptrCast(self), headerSuffix_str);
+        qtc.QDesignerIntegrationInterface_SuperSetHeaderSuffix(@ptrCast(self.ptr), headerSuffix_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#isHeaderLowercase)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn IsHeaderLowercase(self: ?*anyopaque) bool {
-        return qtc.QDesignerIntegrationInterface_IsHeaderLowercase(@ptrCast(self));
+    pub fn IsHeaderLowercase(self: QDesignerIntegrationInterface) bool {
+        return qtc.QDesignerIntegrationInterface_IsHeaderLowercase(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#isHeaderLowercase)
@@ -392,12 +422,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsHeaderLowercase(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDesignerIntegrationInterface_OnIsHeaderLowercase(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsHeaderLowercase(self: QDesignerIntegrationInterface, callback: *const fn () callconv(.c) bool) void {
+        qtc.QDesignerIntegrationInterface_OnIsHeaderLowercase(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIsHeaderLowercase` instead
@@ -410,22 +440,22 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn SuperIsHeaderLowercase(self: ?*anyopaque) bool {
-        return qtc.QDesignerIntegrationInterface_SuperIsHeaderLowercase(@ptrCast(self));
+    pub fn SuperIsHeaderLowercase(self: QDesignerIntegrationInterface) bool {
+        return qtc.QDesignerIntegrationInterface_SuperIsHeaderLowercase(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setHeaderLowercase)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` headerLowerCase: bool `
     ///
-    pub fn SetHeaderLowercase(self: ?*anyopaque, headerLowerCase: bool) void {
-        qtc.QDesignerIntegrationInterface_SetHeaderLowercase(@ptrCast(self), headerLowerCase);
+    pub fn SetHeaderLowercase(self: QDesignerIntegrationInterface, headerLowerCase: bool) void {
+        qtc.QDesignerIntegrationInterface_SetHeaderLowercase(@ptrCast(self.ptr), headerLowerCase);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setHeaderLowercase)
@@ -434,12 +464,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, headerLowerCase: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, headerLowerCase: bool) callconv(.c) void `
     ///
-    pub fn OnSetHeaderLowercase(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnSetHeaderLowercase(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetHeaderLowercase(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, bool) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_OnSetHeaderLowercase(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetHeaderLowercase` instead
@@ -452,26 +482,26 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` headerLowerCase: bool `
     ///
-    pub fn SuperSetHeaderLowercase(self: ?*anyopaque, headerLowerCase: bool) void {
-        qtc.QDesignerIntegrationInterface_SuperSetHeaderLowercase(@ptrCast(self), headerLowerCase);
+    pub fn SuperSetHeaderLowercase(self: QDesignerIntegrationInterface, headerLowerCase: bool) void {
+        qtc.QDesignerIntegrationInterface_SuperSetHeaderLowercase(@ptrCast(self.ptr), headerLowerCase);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#features)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ## Returns:
     ///
     /// ` flag of abstractintegration_enums.FeatureFlag `
     ///
-    pub fn Features(self: ?*anyopaque) i32 {
-        return qtc.QDesignerIntegrationInterface_Features(@ptrCast(self));
+    pub fn Features(self: QDesignerIntegrationInterface) i32 {
+        return qtc.QDesignerIntegrationInterface_Features(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#features)
@@ -480,12 +510,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnFeatures(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerIntegrationInterface_OnFeatures(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFeatures(self: QDesignerIntegrationInterface, callback: *const fn () callconv(.c) i32) void {
+        qtc.QDesignerIntegrationInterface_OnFeatures(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperFeatures` instead
@@ -498,40 +528,40 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ## Returns:
     ///
     /// ` flag of abstractintegration_enums.FeatureFlag `
     ///
-    pub fn SuperFeatures(self: ?*anyopaque) i32 {
-        return qtc.QDesignerIntegrationInterface_SuperFeatures(@ptrCast(self));
+    pub fn SuperFeatures(self: QDesignerIntegrationInterface) i32 {
+        return qtc.QDesignerIntegrationInterface_SuperFeatures(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#hasFeature)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` f: flag of abstractintegration_enums.FeatureFlag `
     ///
-    pub fn HasFeature(self: ?*anyopaque, f: i32) bool {
-        return qtc.QDesignerIntegrationInterface_HasFeature(@ptrCast(self), @bitCast(f));
+    pub fn HasFeature(self: QDesignerIntegrationInterface, f: i32) bool {
+        return qtc.QDesignerIntegrationInterface_HasFeature(@ptrCast(self.ptr), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#resourceFileWatcherBehaviour)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ## Returns:
     ///
     /// ` abstractintegration_enums.ResourceFileWatcherBehaviour `
     ///
-    pub fn ResourceFileWatcherBehaviour(self: ?*anyopaque) i32 {
-        return qtc.QDesignerIntegrationInterface_ResourceFileWatcherBehaviour(@ptrCast(self));
+    pub fn ResourceFileWatcherBehaviour(self: QDesignerIntegrationInterface) i32 {
+        return qtc.QDesignerIntegrationInterface_ResourceFileWatcherBehaviour(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#resourceFileWatcherBehaviour)
@@ -540,12 +570,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnResourceFileWatcherBehaviour(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerIntegrationInterface_OnResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResourceFileWatcherBehaviour(self: QDesignerIntegrationInterface, callback: *const fn () callconv(.c) i32) void {
+        qtc.QDesignerIntegrationInterface_OnResourceFileWatcherBehaviour(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperResourceFileWatcherBehaviour` instead
@@ -558,26 +588,26 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ## Returns:
     ///
     /// ` abstractintegration_enums.ResourceFileWatcherBehaviour `
     ///
-    pub fn SuperResourceFileWatcherBehaviour(self: ?*anyopaque) i32 {
-        return qtc.QDesignerIntegrationInterface_SuperResourceFileWatcherBehaviour(@ptrCast(self));
+    pub fn SuperResourceFileWatcherBehaviour(self: QDesignerIntegrationInterface) i32 {
+        return qtc.QDesignerIntegrationInterface_SuperResourceFileWatcherBehaviour(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setResourceFileWatcherBehaviour)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` behaviour: abstractintegration_enums.ResourceFileWatcherBehaviour `
     ///
-    pub fn SetResourceFileWatcherBehaviour(self: ?*anyopaque, behaviour: i32) void {
-        qtc.QDesignerIntegrationInterface_SetResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(behaviour));
+    pub fn SetResourceFileWatcherBehaviour(self: QDesignerIntegrationInterface, behaviour: i32) void {
+        qtc.QDesignerIntegrationInterface_SetResourceFileWatcherBehaviour(@ptrCast(self.ptr), @bitCast(behaviour));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setResourceFileWatcherBehaviour)
@@ -586,12 +616,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, behaviour: abstractintegration_enums.ResourceFileWatcherBehaviour) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, behaviour: abstractintegration_enums.ResourceFileWatcherBehaviour) callconv(.c) void `
     ///
-    pub fn OnSetResourceFileWatcherBehaviour(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnSetResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetResourceFileWatcherBehaviour(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, i32) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_OnSetResourceFileWatcherBehaviour(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetResourceFileWatcherBehaviour` instead
@@ -604,24 +634,24 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` behaviour: abstractintegration_enums.ResourceFileWatcherBehaviour `
     ///
-    pub fn SuperSetResourceFileWatcherBehaviour(self: ?*anyopaque, behaviour: i32) void {
-        qtc.QDesignerIntegrationInterface_SuperSetResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(behaviour));
+    pub fn SuperSetResourceFileWatcherBehaviour(self: QDesignerIntegrationInterface, behaviour: i32) void {
+        qtc.QDesignerIntegrationInterface_SuperSetResourceFileWatcherBehaviour(@ptrCast(self.ptr), @bitCast(behaviour));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#contextHelpId)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ContextHelpId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerIntegrationInterface_ContextHelpId(@ptrCast(self));
+    pub fn ContextHelpId(self: QDesignerIntegrationInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerIntegrationInterface_ContextHelpId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegrationinterface.ContextHelpId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -632,16 +662,16 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnContextHelpId(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.QDesignerIntegrationInterface_OnContextHelpId(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextHelpId(self: QDesignerIntegrationInterface, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.QDesignerIntegrationInterface_OnContextHelpId(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperContextHelpId` instead
@@ -654,12 +684,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperContextHelpId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerIntegrationInterface_SuperContextHelpId(@ptrCast(self));
+    pub fn SuperContextHelpId(self: QDesignerIntegrationInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerIntegrationInterface_SuperContextHelpId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegrationinterface.ContextHelpId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -670,17 +700,19 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` formWindow: QtC.QDesignerFormWindowInterface `
+    /// ` formWindow: QDesignerFormWindowInterface `
     ///
-    /// ` object: QtC.QObject `
+    /// ` object: QObject `
     ///
     /// ` newName: []const u8 `
     ///
     /// ` oldName: []const u8 `
     ///
-    pub fn EmitObjectNameChanged(self: ?*anyopaque, formWindow: ?*anyopaque, object: ?*anyopaque, newName: []const u8, oldName: []const u8) void {
+    pub fn EmitObjectNameChanged(self: QDesignerIntegrationInterface, formWindow: anytype, object: anytype, newName: []const u8, oldName: []const u8) void {
+        comptime _ = @TypeOf(formWindow)._is_QDesignerFormWindowInterface;
+        comptime _ = @TypeOf(object)._is_QObject;
         const newName_str = qtc.libqt_string{
             .len = newName.len,
             .data = newName.ptr,
@@ -689,14 +721,16 @@ pub const qdesignerintegrationinterface = struct {
             .len = oldName.len,
             .data = oldName.ptr,
         };
-        qtc.QDesignerIntegrationInterface_EmitObjectNameChanged(@ptrCast(self), @ptrCast(formWindow), @ptrCast(object), newName_str, oldName_str);
+        qtc.QDesignerIntegrationInterface_EmitObjectNameChanged(@ptrCast(self.ptr), @ptrCast(formWindow.ptr), @ptrCast(object.ptr), newName_str, oldName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#emitNavigateToSlot)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` objectName: []const u8 `
     ///
@@ -704,9 +738,7 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` parameterNames: []const []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn EmitNavigateToSlot(self: ?*anyopaque, objectName: []const u8, signalSignature: []const u8, parameterNames: []const []const u8, allocator: std.mem.Allocator) void {
+    pub fn EmitNavigateToSlot(self: QDesignerIntegrationInterface, allocator: std.mem.Allocator, objectName: []const u8, signalSignature: []const u8, parameterNames: []const []const u8) void {
         const objectName_str = qtc.libqt_string{
             .len = objectName.len,
             .data = objectName.ptr,
@@ -717,46 +749,45 @@ pub const qdesignerintegrationinterface = struct {
         };
         const parameterNames_arr = allocator.alloc(qtc.libqt_string, parameterNames.len) catch @panic("qdesignerintegrationinterface.EmitNavigateToSlot: Memory allocation failed");
         defer allocator.free(parameterNames_arr);
-        for (parameterNames, 0..parameterNames.len) |item, i| {
+        for (parameterNames, 0..parameterNames.len) |item, i|
             parameterNames_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const parameterNames_list = qtc.libqt_list{
             .len = parameterNames.len,
             .data = parameterNames_arr.ptr,
         };
-        qtc.QDesignerIntegrationInterface_EmitNavigateToSlot(@ptrCast(self), objectName_str, signalSignature_str, parameterNames_list);
+        qtc.QDesignerIntegrationInterface_EmitNavigateToSlot(@ptrCast(self.ptr), objectName_str, signalSignature_str, parameterNames_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#emitNavigateToSlot)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` slotSignature: []const u8 `
     ///
-    pub fn EmitNavigateToSlot2(self: ?*anyopaque, slotSignature: []const u8) void {
+    pub fn EmitNavigateToSlot2(self: QDesignerIntegrationInterface, slotSignature: []const u8) void {
         const slotSignature_str = qtc.libqt_string{
             .len = slotSignature.len,
             .data = slotSignature.ptr,
         };
-        qtc.QDesignerIntegrationInterface_EmitNavigateToSlot2(@ptrCast(self), slotSignature_str);
+        qtc.QDesignerIntegrationInterface_EmitNavigateToSlot2(@ptrCast(self.ptr), slotSignature_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#emitHelpRequested)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` manual: []const u8 `
     ///
     /// ` document: []const u8 `
     ///
-    pub fn EmitHelpRequested(self: ?*anyopaque, manual: []const u8, document: []const u8) void {
+    pub fn EmitHelpRequested(self: QDesignerIntegrationInterface, manual: []const u8, document: []const u8) void {
         const manual_str = qtc.libqt_string{
             .len = manual.len,
             .data = manual.ptr,
@@ -765,44 +796,48 @@ pub const qdesignerintegrationinterface = struct {
             .len = document.len,
             .data = document.ptr,
         };
-        qtc.QDesignerIntegrationInterface_EmitHelpRequested(@ptrCast(self), manual_str, document_str);
+        qtc.QDesignerIntegrationInterface_EmitHelpRequested(@ptrCast(self.ptr), manual_str, document_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#propertyChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` formWindow: QtC.QDesignerFormWindowInterface `
+    /// ` formWindow: QDesignerFormWindowInterface `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn PropertyChanged(self: ?*anyopaque, formWindow: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn PropertyChanged(self: QDesignerIntegrationInterface, formWindow: anytype, name: []const u8, value: anytype) void {
+        comptime _ = @TypeOf(formWindow)._is_QDesignerFormWindowInterface;
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegrationInterface_PropertyChanged(@ptrCast(self), @ptrCast(formWindow), name_str, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QDesignerIntegrationInterface_PropertyChanged(@ptrCast(self.ptr), @ptrCast(formWindow.ptr), name_str, @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#objectNameChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` formWindow: QtC.QDesignerFormWindowInterface `
+    /// ` formWindow: QDesignerFormWindowInterface `
     ///
-    /// ` object: QtC.QObject `
+    /// ` object: QObject `
     ///
     /// ` newName: []const u8 `
     ///
     /// ` oldName: []const u8 `
     ///
-    pub fn ObjectNameChanged(self: ?*anyopaque, formWindow: ?*anyopaque, object: ?*anyopaque, newName: []const u8, oldName: []const u8) void {
+    pub fn ObjectNameChanged(self: QDesignerIntegrationInterface, formWindow: anytype, object: anytype, newName: []const u8, oldName: []const u8) void {
+        comptime _ = @TypeOf(formWindow)._is_QDesignerFormWindowInterface;
+        comptime _ = @TypeOf(object)._is_QObject;
         const newName_str = qtc.libqt_string{
             .len = newName.len,
             .data = newName.ptr,
@@ -811,20 +846,20 @@ pub const qdesignerintegrationinterface = struct {
             .len = oldName.len,
             .data = oldName.ptr,
         };
-        qtc.QDesignerIntegrationInterface_ObjectNameChanged(@ptrCast(self), @ptrCast(formWindow), @ptrCast(object), newName_str, oldName_str);
+        qtc.QDesignerIntegrationInterface_ObjectNameChanged(@ptrCast(self.ptr), @ptrCast(formWindow.ptr), @ptrCast(object.ptr), newName_str, oldName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#helpRequested)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` manual: []const u8 `
     ///
     /// ` document: []const u8 `
     ///
-    pub fn HelpRequested(self: ?*anyopaque, manual: []const u8, document: []const u8) void {
+    pub fn HelpRequested(self: QDesignerIntegrationInterface, manual: []const u8, document: []const u8) void {
         const manual_str = qtc.libqt_string{
             .len = manual.len,
             .data = manual.ptr,
@@ -833,14 +868,16 @@ pub const qdesignerintegrationinterface = struct {
             .len = document.len,
             .data = document.ptr,
         };
-        qtc.QDesignerIntegrationInterface_HelpRequested(@ptrCast(self), manual_str, document_str);
+        qtc.QDesignerIntegrationInterface_HelpRequested(@ptrCast(self.ptr), manual_str, document_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#navigateToSlot)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` objectName: []const u8 `
     ///
@@ -848,9 +885,7 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` parameterNames: []const []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn NavigateToSlot(self: ?*anyopaque, objectName: []const u8, signalSignature: []const u8, parameterNames: []const []const u8, allocator: std.mem.Allocator) void {
+    pub fn NavigateToSlot(self: QDesignerIntegrationInterface, allocator: std.mem.Allocator, objectName: []const u8, signalSignature: []const u8, parameterNames: []const []const u8) void {
         const objectName_str = qtc.libqt_string{
             .len = objectName.len,
             .data = objectName.ptr,
@@ -861,45 +896,44 @@ pub const qdesignerintegrationinterface = struct {
         };
         const parameterNames_arr = allocator.alloc(qtc.libqt_string, parameterNames.len) catch @panic("qdesignerintegrationinterface.NavigateToSlot: Memory allocation failed");
         defer allocator.free(parameterNames_arr);
-        for (parameterNames, 0..parameterNames.len) |item, i| {
+        for (parameterNames, 0..parameterNames.len) |item, i|
             parameterNames_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const parameterNames_list = qtc.libqt_list{
             .len = parameterNames.len,
             .data = parameterNames_arr.ptr,
         };
-        qtc.QDesignerIntegrationInterface_NavigateToSlot(@ptrCast(self), objectName_str, signalSignature_str, parameterNames_list);
+        qtc.QDesignerIntegrationInterface_NavigateToSlot(@ptrCast(self.ptr), objectName_str, signalSignature_str, parameterNames_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#navigateToSlot)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` slotSignature: []const u8 `
     ///
-    pub fn NavigateToSlot2(self: ?*anyopaque, slotSignature: []const u8) void {
+    pub fn NavigateToSlot2(self: QDesignerIntegrationInterface, slotSignature: []const u8) void {
         const slotSignature_str = qtc.libqt_string{
             .len = slotSignature.len,
             .data = slotSignature.ptr,
         };
-        qtc.QDesignerIntegrationInterface_NavigateToSlot2(@ptrCast(self), slotSignature_str);
+        qtc.QDesignerIntegrationInterface_NavigateToSlot2(@ptrCast(self.ptr), slotSignature_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setFeatures)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` f: flag of abstractintegration_enums.FeatureFlag `
     ///
-    pub fn SetFeatures(self: ?*anyopaque, f: i32) void {
-        qtc.QDesignerIntegrationInterface_SetFeatures(@ptrCast(self), @bitCast(f));
+    pub fn SetFeatures(self: QDesignerIntegrationInterface, f: i32) void {
+        qtc.QDesignerIntegrationInterface_SetFeatures(@ptrCast(self.ptr), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setFeatures)
@@ -908,12 +942,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, f: flag of abstractintegration_enums.FeatureFlag) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, f: flag of abstractintegration_enums.FeatureFlag) callconv(.c) void `
     ///
-    pub fn OnSetFeatures(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnSetFeatures(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetFeatures(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, i32) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_OnSetFeatures(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetFeatures` instead
@@ -926,32 +960,33 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` f: flag of abstractintegration_enums.FeatureFlag `
     ///
-    pub fn SuperSetFeatures(self: ?*anyopaque, f: i32) void {
-        qtc.QDesignerIntegrationInterface_SuperSetFeatures(@ptrCast(self), @bitCast(f));
+    pub fn SuperSetFeatures(self: QDesignerIntegrationInterface, f: i32) void {
+        qtc.QDesignerIntegrationInterface_SuperSetFeatures(@ptrCast(self.ptr), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateProperty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` enableSubPropertyHandling: bool `
     ///
-    pub fn UpdateProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque, enableSubPropertyHandling: bool) void {
+    pub fn UpdateProperty(self: QDesignerIntegrationInterface, name: []const u8, value: anytype, enableSubPropertyHandling: bool) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegrationInterface_UpdateProperty(@ptrCast(self), name_str, @ptrCast(value), enableSubPropertyHandling);
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QDesignerIntegrationInterface_UpdateProperty(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr), enableSubPropertyHandling);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateProperty)
@@ -960,12 +995,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, name: [*:0]const u8, value: QtC.QVariant, enableSubPropertyHandling: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, name: [*:0]const u8, value: QVariant, enableSubPropertyHandling: bool) callconv(.c) void `
     ///
-    pub fn OnUpdateProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnUpdateProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateProperty(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, [*:0]const u8, QVariant, bool) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_OnUpdateProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateProperty` instead
@@ -978,38 +1013,40 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` enableSubPropertyHandling: bool `
     ///
-    pub fn SuperUpdateProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque, enableSubPropertyHandling: bool) void {
+    pub fn SuperUpdateProperty(self: QDesignerIntegrationInterface, name: []const u8, value: anytype, enableSubPropertyHandling: bool) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegrationInterface_SuperUpdateProperty(@ptrCast(self), name_str, @ptrCast(value), enableSubPropertyHandling);
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QDesignerIntegrationInterface_SuperUpdateProperty(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr), enableSubPropertyHandling);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateProperty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn UpdateProperty2(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn UpdateProperty2(self: QDesignerIntegrationInterface, name: []const u8, value: anytype) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegrationInterface_UpdateProperty2(@ptrCast(self), name_str, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QDesignerIntegrationInterface_UpdateProperty2(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateProperty)
@@ -1018,12 +1055,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, name: [*:0]const u8, value: QtC.QVariant) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, name: [*:0]const u8, value: QVariant) callconv(.c) void `
     ///
-    pub fn OnUpdateProperty2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnUpdateProperty2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateProperty2(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, [*:0]const u8, QVariant) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_OnUpdateProperty2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateProperty2` instead
@@ -1036,34 +1073,35 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SuperUpdateProperty2(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn SuperUpdateProperty2(self: QDesignerIntegrationInterface, name: []const u8, value: anytype) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegrationInterface_SuperUpdateProperty2(@ptrCast(self), name_str, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QDesignerIntegrationInterface_SuperUpdateProperty2(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#resetProperty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn ResetProperty(self: ?*anyopaque, name: []const u8) void {
+    pub fn ResetProperty(self: QDesignerIntegrationInterface, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegrationInterface_ResetProperty(@ptrCast(self), name_str);
+        qtc.QDesignerIntegrationInterface_ResetProperty(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#resetProperty)
@@ -1072,12 +1110,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, name: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, name: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnResetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnResetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResetProperty(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_OnResetProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperResetProperty` instead
@@ -1090,34 +1128,35 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SuperResetProperty(self: ?*anyopaque, name: []const u8) void {
+    pub fn SuperResetProperty(self: QDesignerIntegrationInterface, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegrationInterface_SuperResetProperty(@ptrCast(self), name_str);
+        qtc.QDesignerIntegrationInterface_SuperResetProperty(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#addDynamicProperty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn AddDynamicProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn AddDynamicProperty(self: QDesignerIntegrationInterface, name: []const u8, value: anytype) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegrationInterface_AddDynamicProperty(@ptrCast(self), name_str, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QDesignerIntegrationInterface_AddDynamicProperty(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#addDynamicProperty)
@@ -1126,12 +1165,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, name: [*:0]const u8, value: QtC.QVariant) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, name: [*:0]const u8, value: QVariant) callconv(.c) void `
     ///
-    pub fn OnAddDynamicProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnAddDynamicProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAddDynamicProperty(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, [*:0]const u8, QVariant) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_OnAddDynamicProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperAddDynamicProperty` instead
@@ -1144,34 +1183,35 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SuperAddDynamicProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn SuperAddDynamicProperty(self: QDesignerIntegrationInterface, name: []const u8, value: anytype) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegrationInterface_SuperAddDynamicProperty(@ptrCast(self), name_str, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QDesignerIntegrationInterface_SuperAddDynamicProperty(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#removeDynamicProperty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn RemoveDynamicProperty(self: ?*anyopaque, name: []const u8) void {
+    pub fn RemoveDynamicProperty(self: QDesignerIntegrationInterface, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegrationInterface_RemoveDynamicProperty(@ptrCast(self), name_str);
+        qtc.QDesignerIntegrationInterface_RemoveDynamicProperty(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#removeDynamicProperty)
@@ -1180,12 +1220,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, name: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, name: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnRemoveDynamicProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnRemoveDynamicProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRemoveDynamicProperty(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_OnRemoveDynamicProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRemoveDynamicProperty` instead
@@ -1198,28 +1238,29 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SuperRemoveDynamicProperty(self: ?*anyopaque, name: []const u8) void {
+    pub fn SuperRemoveDynamicProperty(self: QDesignerIntegrationInterface, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegrationInterface_SuperRemoveDynamicProperty(@ptrCast(self), name_str);
+        qtc.QDesignerIntegrationInterface_SuperRemoveDynamicProperty(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateActiveFormWindow)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` formWindow: QtC.QDesignerFormWindowInterface `
+    /// ` formWindow: QDesignerFormWindowInterface `
     ///
-    pub fn UpdateActiveFormWindow(self: ?*anyopaque, formWindow: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_UpdateActiveFormWindow(@ptrCast(self), @ptrCast(formWindow));
+    pub fn UpdateActiveFormWindow(self: QDesignerIntegrationInterface, formWindow: anytype) void {
+        comptime _ = @TypeOf(formWindow)._is_QDesignerFormWindowInterface;
+        qtc.QDesignerIntegrationInterface_UpdateActiveFormWindow(@ptrCast(self.ptr), @ptrCast(formWindow.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateActiveFormWindow)
@@ -1228,12 +1269,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, formWindow: QtC.QDesignerFormWindowInterface) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, formWindow: QDesignerFormWindowInterface) callconv(.c) void `
     ///
-    pub fn OnUpdateActiveFormWindow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnUpdateActiveFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateActiveFormWindow(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, QDesignerFormWindowInterface) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_OnUpdateActiveFormWindow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateActiveFormWindow` instead
@@ -1246,24 +1287,26 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` formWindow: QtC.QDesignerFormWindowInterface `
+    /// ` formWindow: QDesignerFormWindowInterface `
     ///
-    pub fn SuperUpdateActiveFormWindow(self: ?*anyopaque, formWindow: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_SuperUpdateActiveFormWindow(@ptrCast(self), @ptrCast(formWindow));
+    pub fn SuperUpdateActiveFormWindow(self: QDesignerIntegrationInterface, formWindow: anytype) void {
+        comptime _ = @TypeOf(formWindow)._is_QDesignerFormWindowInterface;
+        qtc.QDesignerIntegrationInterface_SuperUpdateActiveFormWindow(@ptrCast(self.ptr), @ptrCast(formWindow.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setupFormWindow)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` formWindow: QtC.QDesignerFormWindowInterface `
+    /// ` formWindow: QDesignerFormWindowInterface `
     ///
-    pub fn SetupFormWindow(self: ?*anyopaque, formWindow: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_SetupFormWindow(@ptrCast(self), @ptrCast(formWindow));
+    pub fn SetupFormWindow(self: QDesignerIntegrationInterface, formWindow: anytype) void {
+        comptime _ = @TypeOf(formWindow)._is_QDesignerFormWindowInterface;
+        qtc.QDesignerIntegrationInterface_SetupFormWindow(@ptrCast(self.ptr), @ptrCast(formWindow.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#setupFormWindow)
@@ -1272,12 +1315,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, formWindow: QtC.QDesignerFormWindowInterface) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, formWindow: QDesignerFormWindowInterface) callconv(.c) void `
     ///
-    pub fn OnSetupFormWindow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnSetupFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetupFormWindow(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, QDesignerFormWindowInterface) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_OnSetupFormWindow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetupFormWindow` instead
@@ -1290,22 +1333,23 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` formWindow: QtC.QDesignerFormWindowInterface `
+    /// ` formWindow: QDesignerFormWindowInterface `
     ///
-    pub fn SuperSetupFormWindow(self: ?*anyopaque, formWindow: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_SuperSetupFormWindow(@ptrCast(self), @ptrCast(formWindow));
+    pub fn SuperSetupFormWindow(self: QDesignerIntegrationInterface, formWindow: anytype) void {
+        comptime _ = @TypeOf(formWindow)._is_QDesignerFormWindowInterface;
+        qtc.QDesignerIntegrationInterface_SuperSetupFormWindow(@ptrCast(self.ptr), @ptrCast(formWindow.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateSelection)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn UpdateSelection(self: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_UpdateSelection(@ptrCast(self));
+    pub fn UpdateSelection(self: QDesignerIntegrationInterface) void {
+        qtc.QDesignerIntegrationInterface_UpdateSelection(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateSelection)
@@ -1314,12 +1358,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateSelection(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnUpdateSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateSelection(self: QDesignerIntegrationInterface, callback: *const fn () callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_OnUpdateSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateSelection` instead
@@ -1332,20 +1376,20 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn SuperUpdateSelection(self: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_SuperUpdateSelection(@ptrCast(self));
+    pub fn SuperUpdateSelection(self: QDesignerIntegrationInterface) void {
+        qtc.QDesignerIntegrationInterface_SuperUpdateSelection(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateCustomWidgetPlugins)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn UpdateCustomWidgetPlugins(self: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_UpdateCustomWidgetPlugins(@ptrCast(self));
+    pub fn UpdateCustomWidgetPlugins(self: QDesignerIntegrationInterface) void {
+        qtc.QDesignerIntegrationInterface_UpdateCustomWidgetPlugins(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegrationinterface.html#updateCustomWidgetPlugins)
@@ -1354,12 +1398,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateCustomWidgetPlugins(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnUpdateCustomWidgetPlugins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateCustomWidgetPlugins(self: QDesignerIntegrationInterface, callback: *const fn () callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_OnUpdateCustomWidgetPlugins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateCustomWidgetPlugins` instead
@@ -1372,23 +1416,23 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn SuperUpdateCustomWidgetPlugins(self: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_SuperUpdateCustomWidgetPlugins(@ptrCast(self));
+    pub fn SuperUpdateCustomWidgetPlugins(self: QDesignerIntegrationInterface) void {
+        qtc.QDesignerIntegrationInterface_SuperUpdateCustomWidgetPlugins(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -1402,15 +1446,15 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -1426,12 +1470,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QDesignerIntegrationInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegrationinterface.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1444,12 +1488,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QDesignerIntegrationInterface, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1458,10 +1502,10 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QDesignerIntegrationInterface) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1470,10 +1514,10 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QDesignerIntegrationInterface) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1482,10 +1526,10 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QDesignerIntegrationInterface) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1494,10 +1538,10 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QDesignerIntegrationInterface) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1506,12 +1550,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QDesignerIntegrationInterface, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -1520,10 +1564,10 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QDesignerIntegrationInterface) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1532,12 +1576,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QDesignerIntegrationInterface, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1546,12 +1591,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QDesignerIntegrationInterface, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1560,12 +1605,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QDesignerIntegrationInterface, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1574,12 +1619,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QDesignerIntegrationInterface, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1588,12 +1633,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QDesignerIntegrationInterface, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1602,16 +1647,17 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QDesignerIntegrationInterface, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qdesignerintegrationinterface.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qdesignerintegrationinterface.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1621,12 +1667,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QDesignerIntegrationInterface, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1635,12 +1682,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QDesignerIntegrationInterface, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1649,12 +1697,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QDesignerIntegrationInterface, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1663,18 +1712,20 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1683,16 +1734,20 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1701,18 +1756,19 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QDesignerIntegrationInterface, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1721,18 +1777,20 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1741,16 +1799,20 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1759,10 +1821,10 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QDesignerIntegrationInterface) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1771,12 +1833,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QDesignerIntegrationInterface, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1785,10 +1848,11 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1797,10 +1861,10 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QDesignerIntegrationInterface) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1809,10 +1873,10 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QDesignerIntegrationInterface) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1821,15 +1885,16 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QDesignerIntegrationInterface, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1838,13 +1903,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QDesignerIntegrationInterface, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1853,17 +1918,16 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QDesignerIntegrationInterface, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qdesignerintegrationinterface.DynamicPropertyNames: Memory allocation failed");
@@ -1882,10 +1946,10 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QDesignerIntegrationInterface) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1894,10 +1958,10 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QDesignerIntegrationInterface) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1906,10 +1970,10 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QDesignerIntegrationInterface) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1918,12 +1982,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1932,10 +1996,10 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QDesignerIntegrationInterface) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1944,13 +2008,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QDesignerIntegrationInterface, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1959,10 +2023,10 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QDesignerIntegrationInterface) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1971,14 +2035,14 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QDesignerIntegrationInterface, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1987,14 +2051,14 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QDesignerIntegrationInterface, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2003,20 +2067,22 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -2025,18 +2091,22 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2045,9 +2115,9 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2055,10 +2125,11 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QDesignerIntegrationInterface, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2067,13 +2138,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QDesignerIntegrationInterface, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2082,15 +2153,16 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QDesignerIntegrationInterface, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -2099,18 +2171,19 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QDesignerIntegrationInterface, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2119,15 +2192,16 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QDesignerIntegrationInterface, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2136,12 +2210,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QDesignerIntegrationInterface, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -2150,12 +2225,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2166,12 +2241,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QDesignerIntegrationInterface_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QDesignerIntegrationInterface, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QDesignerIntegrationInterface_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -2186,12 +2262,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QDesignerIntegrationInterface_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QDesignerIntegrationInterface, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QDesignerIntegrationInterface_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2202,12 +2279,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface`
+    /// ` self: QDesignerIntegrationInterface`
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDesignerIntegrationInterface_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, QEvent) callconv(.c) bool) void {
+        qtc.QDesignerIntegrationInterface_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2218,14 +2295,16 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QDesignerIntegrationInterface_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QDesignerIntegrationInterface, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QDesignerIntegrationInterface_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -2240,14 +2319,16 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QDesignerIntegrationInterface_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QDesignerIntegrationInterface, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QDesignerIntegrationInterface_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2258,12 +2339,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface`
+    /// ` self: QDesignerIntegrationInterface`
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDesignerIntegrationInterface_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QDesignerIntegrationInterface_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2274,12 +2355,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QDesignerIntegrationInterface, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QDesignerIntegrationInterface_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -2294,12 +2376,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QDesignerIntegrationInterface, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QDesignerIntegrationInterface_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2310,12 +2393,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface`
+    /// ` self: QDesignerIntegrationInterface`
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, QTimerEvent) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2326,12 +2409,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QDesignerIntegrationInterface, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QDesignerIntegrationInterface_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -2346,12 +2430,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QDesignerIntegrationInterface, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QDesignerIntegrationInterface_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2362,12 +2447,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface`
+    /// ` self: QDesignerIntegrationInterface`
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, QChildEvent) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2378,12 +2463,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QDesignerIntegrationInterface, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QDesignerIntegrationInterface_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -2398,12 +2484,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QDesignerIntegrationInterface, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QDesignerIntegrationInterface_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2414,12 +2501,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface`
+    /// ` self: QDesignerIntegrationInterface`
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, QEvent) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2430,12 +2517,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QDesignerIntegrationInterface, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QDesignerIntegrationInterface_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -2450,12 +2538,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QDesignerIntegrationInterface, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QDesignerIntegrationInterface_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2466,12 +2555,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface`
+    /// ` self: QDesignerIntegrationInterface`
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, QMetaMethod) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2482,12 +2571,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QDesignerIntegrationInterface, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QDesignerIntegrationInterface_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -2502,12 +2592,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QDesignerIntegrationInterface, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QDesignerIntegrationInterface_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2518,12 +2609,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface`
+    /// ` self: QDesignerIntegrationInterface`
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegrationInterface_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, QMetaMethod) callconv(.c) void) void {
+        qtc.QDesignerIntegrationInterface_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2534,10 +2625,10 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QDesignerIntegrationInterface_Sender(@ptrCast(self));
+    pub fn Sender(self: QDesignerIntegrationInterface) QObject {
+        return .{ .ptr = qtc.QDesignerIntegrationInterface_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -2552,10 +2643,10 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QDesignerIntegrationInterface_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QDesignerIntegrationInterface) QObject {
+        return .{ .ptr = qtc.QDesignerIntegrationInterface_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2566,12 +2657,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface`
+    /// ` self: QDesignerIntegrationInterface`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QDesignerIntegrationInterface_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QDesignerIntegrationInterface, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QDesignerIntegrationInterface_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2582,10 +2673,10 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QDesignerIntegrationInterface_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QDesignerIntegrationInterface) i32 {
+        return qtc.QDesignerIntegrationInterface_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -2600,10 +2691,10 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QDesignerIntegrationInterface_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QDesignerIntegrationInterface) i32 {
+        return qtc.QDesignerIntegrationInterface_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2614,12 +2705,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface`
+    /// ` self: QDesignerIntegrationInterface`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerIntegrationInterface_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QDesignerIntegrationInterface, callback: *const fn () callconv(.c) i32) void {
+        qtc.QDesignerIntegrationInterface_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2630,13 +2721,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QDesignerIntegrationInterface, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QDesignerIntegrationInterface_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QDesignerIntegrationInterface_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -2651,13 +2742,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QDesignerIntegrationInterface, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QDesignerIntegrationInterface_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QDesignerIntegrationInterface_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2668,12 +2759,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface`
+    /// ` self: QDesignerIntegrationInterface`
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDesignerIntegrationInterface_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QDesignerIntegrationInterface_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2684,12 +2775,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QDesignerIntegrationInterface_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QDesignerIntegrationInterface, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QDesignerIntegrationInterface_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -2704,12 +2796,13 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QDesignerIntegrationInterface_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QDesignerIntegrationInterface, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QDesignerIntegrationInterface_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2720,12 +2813,12 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface`
+    /// ` self: QDesignerIntegrationInterface`
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegrationInterface, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QDesignerIntegrationInterface, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDesignerIntegrationInterface_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QDesignerIntegrationInterface, callback: *const fn (QDesignerIntegrationInterface, QMetaMethod) callconv(.c) bool) void {
+        qtc.QDesignerIntegrationInterface_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -2738,45 +2831,58 @@ pub const qdesignerintegrationinterface = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QDesignerIntegrationInterface `
+    /// ` self: QDesignerIntegrationInterface `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QDesignerIntegrationInterface_Delete(@ptrCast(self));
+    pub fn Delete(self: QDesignerIntegrationInterface) void {
+        qtc.QDesignerIntegrationInterface_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html)
-pub const qdesignerintegration = struct {
+pub const QDesignerIntegration = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QDesignerIntegration,
+
+    pub const _is_QDesignerIntegration = {};
+    pub const _is_QDesignerIntegrationInterface = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QDesignerIntegration object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` core: QtC.QDesignerFormEditorInterface `
+    /// ` core: QDesignerFormEditorInterface `
     ///
-    pub fn New(core: ?*anyopaque) QtC.QDesignerIntegration {
-        return qtc.QDesignerIntegration_new(@ptrCast(core));
+    pub fn New(core: anytype) QDesignerIntegration {
+        comptime _ = @TypeOf(core)._is_QDesignerFormEditorInterface;
+        return .{ .ptr = qtc.QDesignerIntegration_new(@ptrCast(core.ptr)) };
     }
 
     /// New2 constructs a new QDesignerIntegration object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` core: QtC.QDesignerFormEditorInterface `
+    /// ` core: QDesignerFormEditorInterface `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(core: ?*anyopaque, parent: ?*anyopaque) QtC.QDesignerIntegration {
-        return qtc.QDesignerIntegration_new2(@ptrCast(core), @ptrCast(parent));
+    pub fn New2(core: anytype, parent: anytype) QDesignerIntegration {
+        comptime _ = @TypeOf(core)._is_QDesignerFormEditorInterface;
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QDesignerIntegration_new2(@ptrCast(core.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QDesignerIntegration_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QDesignerIntegration) QMetaObject {
+        return .{ .ptr = qtc.QDesignerIntegration_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -2785,12 +2891,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QDesignerIntegration_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QDesignerIntegration, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QDesignerIntegration_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -2803,33 +2909,33 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QDesignerIntegration_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QDesignerIntegration) QMetaObject {
+        return .{ .ptr = qtc.QDesignerIntegration_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QDesignerIntegration, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QDesignerIntegration_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QDesignerIntegration_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QDesignerIntegration, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QDesignerIntegration_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QDesignerIntegration_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -2840,18 +2946,18 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QDesignerIntegration, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QDesignerIntegration_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QDesignerIntegration_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -2859,20 +2965,20 @@ pub const qdesignerintegration = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDesignerIntegration_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QDesignerIntegration, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QDesignerIntegration_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QDesignerIntegration, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QDesignerIntegration_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QDesignerIntegration_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -2883,7 +2989,7 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -2891,19 +2997,19 @@ pub const qdesignerintegration = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QDesignerIntegration_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QDesignerIntegration, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QDesignerIntegration_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -2916,12 +3022,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn HeaderSuffix(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerIntegration_HeaderSuffix(@ptrCast(self));
+    pub fn HeaderSuffix(self: QDesignerIntegration, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerIntegration_HeaderSuffix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegration.HeaderSuffix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2932,16 +3038,16 @@ pub const qdesignerintegration = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnHeaderSuffix(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.QDesignerIntegration_OnHeaderSuffix(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeaderSuffix(self: QDesignerIntegration, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.QDesignerIntegration_OnHeaderSuffix(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperHeaderSuffix` instead
@@ -2954,12 +3060,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperHeaderSuffix(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerIntegration_SuperHeaderSuffix(@ptrCast(self));
+    pub fn SuperHeaderSuffix(self: QDesignerIntegration, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerIntegration_SuperHeaderSuffix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegration.HeaderSuffix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2970,16 +3076,16 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` headerSuffix: []const u8 `
     ///
-    pub fn SetHeaderSuffix(self: ?*anyopaque, headerSuffix: []const u8) void {
+    pub fn SetHeaderSuffix(self: QDesignerIntegration, headerSuffix: []const u8) void {
         const headerSuffix_str = qtc.libqt_string{
             .len = headerSuffix.len,
             .data = headerSuffix.ptr,
         };
-        qtc.QDesignerIntegration_SetHeaderSuffix(@ptrCast(self), headerSuffix_str);
+        qtc.QDesignerIntegration_SetHeaderSuffix(@ptrCast(self.ptr), headerSuffix_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setHeaderSuffix)
@@ -2988,12 +3094,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, headerSuffix: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegration, headerSuffix: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetHeaderSuffix(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnSetHeaderSuffix(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetHeaderSuffix(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDesignerIntegration_OnSetHeaderSuffix(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetHeaderSuffix` instead
@@ -3006,26 +3112,26 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` headerSuffix: []const u8 `
     ///
-    pub fn SuperSetHeaderSuffix(self: ?*anyopaque, headerSuffix: []const u8) void {
+    pub fn SuperSetHeaderSuffix(self: QDesignerIntegration, headerSuffix: []const u8) void {
         const headerSuffix_str = qtc.libqt_string{
             .len = headerSuffix.len,
             .data = headerSuffix.ptr,
         };
-        qtc.QDesignerIntegration_SuperSetHeaderSuffix(@ptrCast(self), headerSuffix_str);
+        qtc.QDesignerIntegration_SuperSetHeaderSuffix(@ptrCast(self.ptr), headerSuffix_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#isHeaderLowercase)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn IsHeaderLowercase(self: ?*anyopaque) bool {
-        return qtc.QDesignerIntegration_IsHeaderLowercase(@ptrCast(self));
+    pub fn IsHeaderLowercase(self: QDesignerIntegration) bool {
+        return qtc.QDesignerIntegration_IsHeaderLowercase(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#isHeaderLowercase)
@@ -3034,12 +3140,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsHeaderLowercase(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QDesignerIntegration_OnIsHeaderLowercase(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsHeaderLowercase(self: QDesignerIntegration, callback: *const fn () callconv(.c) bool) void {
+        qtc.QDesignerIntegration_OnIsHeaderLowercase(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIsHeaderLowercase` instead
@@ -3052,22 +3158,22 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn SuperIsHeaderLowercase(self: ?*anyopaque) bool {
-        return qtc.QDesignerIntegration_SuperIsHeaderLowercase(@ptrCast(self));
+    pub fn SuperIsHeaderLowercase(self: QDesignerIntegration) bool {
+        return qtc.QDesignerIntegration_SuperIsHeaderLowercase(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setHeaderLowercase)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` headerLowerCase: bool `
     ///
-    pub fn SetHeaderLowercase(self: ?*anyopaque, headerLowerCase: bool) void {
-        qtc.QDesignerIntegration_SetHeaderLowercase(@ptrCast(self), headerLowerCase);
+    pub fn SetHeaderLowercase(self: QDesignerIntegration, headerLowerCase: bool) void {
+        qtc.QDesignerIntegration_SetHeaderLowercase(@ptrCast(self.ptr), headerLowerCase);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setHeaderLowercase)
@@ -3076,12 +3182,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, headerLowerCase: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegration, headerLowerCase: bool) callconv(.c) void `
     ///
-    pub fn OnSetHeaderLowercase(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnSetHeaderLowercase(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetHeaderLowercase(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, bool) callconv(.c) void) void {
+        qtc.QDesignerIntegration_OnSetHeaderLowercase(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetHeaderLowercase` instead
@@ -3094,26 +3200,26 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` headerLowerCase: bool `
     ///
-    pub fn SuperSetHeaderLowercase(self: ?*anyopaque, headerLowerCase: bool) void {
-        qtc.QDesignerIntegration_SuperSetHeaderLowercase(@ptrCast(self), headerLowerCase);
+    pub fn SuperSetHeaderLowercase(self: QDesignerIntegration, headerLowerCase: bool) void {
+        qtc.QDesignerIntegration_SuperSetHeaderLowercase(@ptrCast(self.ptr), headerLowerCase);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#features)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ## Returns:
     ///
     /// ` flag of abstractintegration_enums.FeatureFlag `
     ///
-    pub fn Features(self: ?*anyopaque) i32 {
-        return qtc.QDesignerIntegration_Features(@ptrCast(self));
+    pub fn Features(self: QDesignerIntegration) i32 {
+        return qtc.QDesignerIntegration_Features(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#features)
@@ -3122,12 +3228,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnFeatures(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerIntegration_OnFeatures(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFeatures(self: QDesignerIntegration, callback: *const fn () callconv(.c) i32) void {
+        qtc.QDesignerIntegration_OnFeatures(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperFeatures` instead
@@ -3140,26 +3246,26 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ## Returns:
     ///
     /// ` flag of abstractintegration_enums.FeatureFlag `
     ///
-    pub fn SuperFeatures(self: ?*anyopaque) i32 {
-        return qtc.QDesignerIntegration_SuperFeatures(@ptrCast(self));
+    pub fn SuperFeatures(self: QDesignerIntegration) i32 {
+        return qtc.QDesignerIntegration_SuperFeatures(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setFeatures)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` f: flag of abstractintegration_enums.FeatureFlag `
     ///
-    pub fn SetFeatures(self: ?*anyopaque, f: i32) void {
-        qtc.QDesignerIntegration_SetFeatures(@ptrCast(self), @bitCast(f));
+    pub fn SetFeatures(self: QDesignerIntegration, f: i32) void {
+        qtc.QDesignerIntegration_SetFeatures(@ptrCast(self.ptr), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setFeatures)
@@ -3168,12 +3274,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, f: flag of abstractintegration_enums.FeatureFlag) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegration, f: flag of abstractintegration_enums.FeatureFlag) callconv(.c) void `
     ///
-    pub fn OnSetFeatures(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnSetFeatures(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetFeatures(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, i32) callconv(.c) void) void {
+        qtc.QDesignerIntegration_OnSetFeatures(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetFeatures` instead
@@ -3186,26 +3292,26 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` f: flag of abstractintegration_enums.FeatureFlag `
     ///
-    pub fn SuperSetFeatures(self: ?*anyopaque, f: i32) void {
-        qtc.QDesignerIntegration_SuperSetFeatures(@ptrCast(self), @bitCast(f));
+    pub fn SuperSetFeatures(self: QDesignerIntegration, f: i32) void {
+        qtc.QDesignerIntegration_SuperSetFeatures(@ptrCast(self.ptr), @bitCast(f));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#resourceFileWatcherBehaviour)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ## Returns:
     ///
     /// ` abstractintegration_enums.ResourceFileWatcherBehaviour `
     ///
-    pub fn ResourceFileWatcherBehaviour(self: ?*anyopaque) i32 {
-        return qtc.QDesignerIntegration_ResourceFileWatcherBehaviour(@ptrCast(self));
+    pub fn ResourceFileWatcherBehaviour(self: QDesignerIntegration) i32 {
+        return qtc.QDesignerIntegration_ResourceFileWatcherBehaviour(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#resourceFileWatcherBehaviour)
@@ -3214,12 +3320,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnResourceFileWatcherBehaviour(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerIntegration_OnResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResourceFileWatcherBehaviour(self: QDesignerIntegration, callback: *const fn () callconv(.c) i32) void {
+        qtc.QDesignerIntegration_OnResourceFileWatcherBehaviour(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperResourceFileWatcherBehaviour` instead
@@ -3232,26 +3338,26 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ## Returns:
     ///
     /// ` abstractintegration_enums.ResourceFileWatcherBehaviour `
     ///
-    pub fn SuperResourceFileWatcherBehaviour(self: ?*anyopaque) i32 {
-        return qtc.QDesignerIntegration_SuperResourceFileWatcherBehaviour(@ptrCast(self));
+    pub fn SuperResourceFileWatcherBehaviour(self: QDesignerIntegration) i32 {
+        return qtc.QDesignerIntegration_SuperResourceFileWatcherBehaviour(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setResourceFileWatcherBehaviour)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` behaviour: abstractintegration_enums.ResourceFileWatcherBehaviour `
     ///
-    pub fn SetResourceFileWatcherBehaviour(self: ?*anyopaque, behaviour: i32) void {
-        qtc.QDesignerIntegration_SetResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(behaviour));
+    pub fn SetResourceFileWatcherBehaviour(self: QDesignerIntegration, behaviour: i32) void {
+        qtc.QDesignerIntegration_SetResourceFileWatcherBehaviour(@ptrCast(self.ptr), @bitCast(behaviour));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setResourceFileWatcherBehaviour)
@@ -3260,12 +3366,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, behaviour: abstractintegration_enums.ResourceFileWatcherBehaviour) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegration, behaviour: abstractintegration_enums.ResourceFileWatcherBehaviour) callconv(.c) void `
     ///
-    pub fn OnSetResourceFileWatcherBehaviour(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnSetResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetResourceFileWatcherBehaviour(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, i32) callconv(.c) void) void {
+        qtc.QDesignerIntegration_OnSetResourceFileWatcherBehaviour(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetResourceFileWatcherBehaviour` instead
@@ -3278,24 +3384,25 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` behaviour: abstractintegration_enums.ResourceFileWatcherBehaviour `
     ///
-    pub fn SuperSetResourceFileWatcherBehaviour(self: ?*anyopaque, behaviour: i32) void {
-        qtc.QDesignerIntegration_SuperSetResourceFileWatcherBehaviour(@ptrCast(self), @bitCast(behaviour));
+    pub fn SuperSetResourceFileWatcherBehaviour(self: QDesignerIntegration, behaviour: i32) void {
+        qtc.QDesignerIntegration_SuperSetResourceFileWatcherBehaviour(@ptrCast(self.ptr), @bitCast(behaviour));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#containerWindow)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn ContainerWindow(self: ?*anyopaque, widget: ?*anyopaque) QtC.QWidget {
-        return qtc.QDesignerIntegration_ContainerWindow(@ptrCast(self), @ptrCast(widget));
+    pub fn ContainerWindow(self: QDesignerIntegration, widget: anytype) QWidget {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return .{ .ptr = qtc.QDesignerIntegration_ContainerWindow(@ptrCast(self.ptr), @ptrCast(widget.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#containerWindow)
@@ -3304,12 +3411,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, widget: QtC.QWidget) callconv(.c) QtC.QWidget `
+    /// ` callback: *const fn (self: QDesignerIntegration, widget: QWidget) callconv(.c) QWidget `
     ///
-    pub fn OnContainerWindow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
-        qtc.QDesignerIntegration_OnContainerWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContainerWindow(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, QWidget) callconv(.c) QWidget) void {
+        qtc.QDesignerIntegration_OnContainerWindow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperContainerWindow` instead
@@ -3322,34 +3429,37 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SuperContainerWindow(self: ?*anyopaque, widget: ?*anyopaque) QtC.QWidget {
-        return qtc.QDesignerIntegration_SuperContainerWindow(@ptrCast(self), @ptrCast(widget));
+    pub fn SuperContainerWindow(self: QDesignerIntegration, widget: anytype) QWidget {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return .{ .ptr = qtc.QDesignerIntegration_SuperContainerWindow(@ptrCast(self.ptr), @ptrCast(widget.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#initializePlugins)
     ///
     /// ## Parameter(s):
     ///
-    /// ` formEditor: QtC.QDesignerFormEditorInterface `
+    /// ` formEditor: QDesignerFormEditorInterface `
     ///
-    pub fn InitializePlugins(formEditor: ?*anyopaque) void {
-        qtc.QDesignerIntegration_InitializePlugins(@ptrCast(formEditor));
+    pub fn InitializePlugins(formEditor: anytype) void {
+        comptime _ = @TypeOf(formEditor)._is_QDesignerFormEditorInterface;
+        qtc.QDesignerIntegration_InitializePlugins(@ptrCast(formEditor.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#createResourceBrowser)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateResourceBrowser(self: ?*anyopaque, parent: ?*anyopaque) QtC.QDesignerResourceBrowserInterface {
-        return qtc.QDesignerIntegration_CreateResourceBrowser(@ptrCast(self), @ptrCast(parent));
+    pub fn CreateResourceBrowser(self: QDesignerIntegration, parent: anytype) QDesignerResourceBrowserInterface {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QDesignerIntegration_CreateResourceBrowser(@ptrCast(self.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#createResourceBrowser)
@@ -3358,12 +3468,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, parent: QtC.QWidget) callconv(.c) QtC.QDesignerResourceBrowserInterface `
+    /// ` callback: *const fn (self: QDesignerIntegration, parent: QWidget) callconv(.c) QDesignerResourceBrowserInterface `
     ///
-    pub fn OnCreateResourceBrowser(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QDesignerResourceBrowserInterface) void {
-        qtc.QDesignerIntegration_OnCreateResourceBrowser(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreateResourceBrowser(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, QWidget) callconv(.c) QDesignerResourceBrowserInterface) void {
+        qtc.QDesignerIntegration_OnCreateResourceBrowser(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCreateResourceBrowser` instead
@@ -3376,24 +3486,25 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SuperCreateResourceBrowser(self: ?*anyopaque, parent: ?*anyopaque) QtC.QDesignerResourceBrowserInterface {
-        return qtc.QDesignerIntegration_SuperCreateResourceBrowser(@ptrCast(self), @ptrCast(parent));
+    pub fn SuperCreateResourceBrowser(self: QDesignerIntegration, parent: anytype) QDesignerResourceBrowserInterface {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QDesignerIntegration_SuperCreateResourceBrowser(@ptrCast(self.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#contextHelpId)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ContextHelpId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerIntegration_ContextHelpId(@ptrCast(self));
+    pub fn ContextHelpId(self: QDesignerIntegration, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerIntegration_ContextHelpId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegration.ContextHelpId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3404,16 +3515,16 @@ pub const qdesignerintegration = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnContextHelpId(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.QDesignerIntegration_OnContextHelpId(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextHelpId(self: QDesignerIntegration, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.QDesignerIntegration_OnContextHelpId(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperContextHelpId` instead
@@ -3426,12 +3537,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperContextHelpId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QDesignerIntegration_SuperContextHelpId(@ptrCast(self));
+    pub fn SuperContextHelpId(self: QDesignerIntegration, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QDesignerIntegration_SuperContextHelpId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegration.ContextHelpId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3442,20 +3553,21 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` enableSubPropertyHandling: bool `
     ///
-    pub fn UpdateProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque, enableSubPropertyHandling: bool) void {
+    pub fn UpdateProperty(self: QDesignerIntegration, name: []const u8, value: anytype, enableSubPropertyHandling: bool) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegration_UpdateProperty(@ptrCast(self), name_str, @ptrCast(value), enableSubPropertyHandling);
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QDesignerIntegration_UpdateProperty(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr), enableSubPropertyHandling);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#updateProperty)
@@ -3464,12 +3576,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, name: [*:0]const u8, value: QtC.QVariant, enableSubPropertyHandling: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegration, name: [*:0]const u8, value: QVariant, enableSubPropertyHandling: bool) callconv(.c) void `
     ///
-    pub fn OnUpdateProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnUpdateProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateProperty(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, [*:0]const u8, QVariant, bool) callconv(.c) void) void {
+        qtc.QDesignerIntegration_OnUpdateProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateProperty` instead
@@ -3482,38 +3594,40 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
     /// ` enableSubPropertyHandling: bool `
     ///
-    pub fn SuperUpdateProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque, enableSubPropertyHandling: bool) void {
+    pub fn SuperUpdateProperty(self: QDesignerIntegration, name: []const u8, value: anytype, enableSubPropertyHandling: bool) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegration_SuperUpdateProperty(@ptrCast(self), name_str, @ptrCast(value), enableSubPropertyHandling);
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QDesignerIntegration_SuperUpdateProperty(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr), enableSubPropertyHandling);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#updateProperty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn UpdateProperty2(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn UpdateProperty2(self: QDesignerIntegration, name: []const u8, value: anytype) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegration_UpdateProperty2(@ptrCast(self), name_str, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QDesignerIntegration_UpdateProperty2(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#updateProperty)
@@ -3522,12 +3636,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, name: [*:0]const u8, value: QtC.QVariant) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegration, name: [*:0]const u8, value: QVariant) callconv(.c) void `
     ///
-    pub fn OnUpdateProperty2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnUpdateProperty2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateProperty2(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, [*:0]const u8, QVariant) callconv(.c) void) void {
+        qtc.QDesignerIntegration_OnUpdateProperty2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateProperty2` instead
@@ -3540,34 +3654,35 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SuperUpdateProperty2(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn SuperUpdateProperty2(self: QDesignerIntegration, name: []const u8, value: anytype) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegration_SuperUpdateProperty2(@ptrCast(self), name_str, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QDesignerIntegration_SuperUpdateProperty2(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#resetProperty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn ResetProperty(self: ?*anyopaque, name: []const u8) void {
+    pub fn ResetProperty(self: QDesignerIntegration, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegration_ResetProperty(@ptrCast(self), name_str);
+        qtc.QDesignerIntegration_ResetProperty(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#resetProperty)
@@ -3576,12 +3691,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, name: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegration, name: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnResetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnResetProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResetProperty(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDesignerIntegration_OnResetProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperResetProperty` instead
@@ -3594,34 +3709,35 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SuperResetProperty(self: ?*anyopaque, name: []const u8) void {
+    pub fn SuperResetProperty(self: QDesignerIntegration, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegration_SuperResetProperty(@ptrCast(self), name_str);
+        qtc.QDesignerIntegration_SuperResetProperty(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#addDynamicProperty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn AddDynamicProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn AddDynamicProperty(self: QDesignerIntegration, name: []const u8, value: anytype) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegration_AddDynamicProperty(@ptrCast(self), name_str, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QDesignerIntegration_AddDynamicProperty(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#addDynamicProperty)
@@ -3630,12 +3746,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, name: [*:0]const u8, value: QtC.QVariant) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegration, name: [*:0]const u8, value: QVariant) callconv(.c) void `
     ///
-    pub fn OnAddDynamicProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnAddDynamicProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAddDynamicProperty(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, [*:0]const u8, QVariant) callconv(.c) void) void {
+        qtc.QDesignerIntegration_OnAddDynamicProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperAddDynamicProperty` instead
@@ -3648,34 +3764,35 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SuperAddDynamicProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn SuperAddDynamicProperty(self: QDesignerIntegration, name: []const u8, value: anytype) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegration_SuperAddDynamicProperty(@ptrCast(self), name_str, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QDesignerIntegration_SuperAddDynamicProperty(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#removeDynamicProperty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn RemoveDynamicProperty(self: ?*anyopaque, name: []const u8) void {
+    pub fn RemoveDynamicProperty(self: QDesignerIntegration, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegration_RemoveDynamicProperty(@ptrCast(self), name_str);
+        qtc.QDesignerIntegration_RemoveDynamicProperty(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#removeDynamicProperty)
@@ -3684,12 +3801,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, name: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegration, name: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnRemoveDynamicProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnRemoveDynamicProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRemoveDynamicProperty(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDesignerIntegration_OnRemoveDynamicProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRemoveDynamicProperty` instead
@@ -3702,28 +3819,29 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SuperRemoveDynamicProperty(self: ?*anyopaque, name: []const u8) void {
+    pub fn SuperRemoveDynamicProperty(self: QDesignerIntegration, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegration_SuperRemoveDynamicProperty(@ptrCast(self), name_str);
+        qtc.QDesignerIntegration_SuperRemoveDynamicProperty(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#updateActiveFormWindow)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` formWindow: QtC.QDesignerFormWindowInterface `
+    /// ` formWindow: QDesignerFormWindowInterface `
     ///
-    pub fn UpdateActiveFormWindow(self: ?*anyopaque, formWindow: ?*anyopaque) void {
-        qtc.QDesignerIntegration_UpdateActiveFormWindow(@ptrCast(self), @ptrCast(formWindow));
+    pub fn UpdateActiveFormWindow(self: QDesignerIntegration, formWindow: anytype) void {
+        comptime _ = @TypeOf(formWindow)._is_QDesignerFormWindowInterface;
+        qtc.QDesignerIntegration_UpdateActiveFormWindow(@ptrCast(self.ptr), @ptrCast(formWindow.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#updateActiveFormWindow)
@@ -3732,12 +3850,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, formWindow: QtC.QDesignerFormWindowInterface) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegration, formWindow: QDesignerFormWindowInterface) callconv(.c) void `
     ///
-    pub fn OnUpdateActiveFormWindow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnUpdateActiveFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateActiveFormWindow(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, QDesignerFormWindowInterface) callconv(.c) void) void {
+        qtc.QDesignerIntegration_OnUpdateActiveFormWindow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateActiveFormWindow` instead
@@ -3750,24 +3868,26 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` formWindow: QtC.QDesignerFormWindowInterface `
+    /// ` formWindow: QDesignerFormWindowInterface `
     ///
-    pub fn SuperUpdateActiveFormWindow(self: ?*anyopaque, formWindow: ?*anyopaque) void {
-        qtc.QDesignerIntegration_SuperUpdateActiveFormWindow(@ptrCast(self), @ptrCast(formWindow));
+    pub fn SuperUpdateActiveFormWindow(self: QDesignerIntegration, formWindow: anytype) void {
+        comptime _ = @TypeOf(formWindow)._is_QDesignerFormWindowInterface;
+        qtc.QDesignerIntegration_SuperUpdateActiveFormWindow(@ptrCast(self.ptr), @ptrCast(formWindow.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setupFormWindow)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` formWindow: QtC.QDesignerFormWindowInterface `
+    /// ` formWindow: QDesignerFormWindowInterface `
     ///
-    pub fn SetupFormWindow(self: ?*anyopaque, formWindow: ?*anyopaque) void {
-        qtc.QDesignerIntegration_SetupFormWindow(@ptrCast(self), @ptrCast(formWindow));
+    pub fn SetupFormWindow(self: QDesignerIntegration, formWindow: anytype) void {
+        comptime _ = @TypeOf(formWindow)._is_QDesignerFormWindowInterface;
+        qtc.QDesignerIntegration_SetupFormWindow(@ptrCast(self.ptr), @ptrCast(formWindow.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#setupFormWindow)
@@ -3776,12 +3896,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, formWindow: QtC.QDesignerFormWindowInterface) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegration, formWindow: QDesignerFormWindowInterface) callconv(.c) void `
     ///
-    pub fn OnSetupFormWindow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnSetupFormWindow(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetupFormWindow(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, QDesignerFormWindowInterface) callconv(.c) void) void {
+        qtc.QDesignerIntegration_OnSetupFormWindow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetupFormWindow` instead
@@ -3794,22 +3914,23 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` formWindow: QtC.QDesignerFormWindowInterface `
+    /// ` formWindow: QDesignerFormWindowInterface `
     ///
-    pub fn SuperSetupFormWindow(self: ?*anyopaque, formWindow: ?*anyopaque) void {
-        qtc.QDesignerIntegration_SuperSetupFormWindow(@ptrCast(self), @ptrCast(formWindow));
+    pub fn SuperSetupFormWindow(self: QDesignerIntegration, formWindow: anytype) void {
+        comptime _ = @TypeOf(formWindow)._is_QDesignerFormWindowInterface;
+        qtc.QDesignerIntegration_SuperSetupFormWindow(@ptrCast(self.ptr), @ptrCast(formWindow.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#updateSelection)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn UpdateSelection(self: ?*anyopaque) void {
-        qtc.QDesignerIntegration_UpdateSelection(@ptrCast(self));
+    pub fn UpdateSelection(self: QDesignerIntegration) void {
+        qtc.QDesignerIntegration_UpdateSelection(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#updateSelection)
@@ -3818,12 +3939,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateSelection(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnUpdateSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateSelection(self: QDesignerIntegration, callback: *const fn () callconv(.c) void) void {
+        qtc.QDesignerIntegration_OnUpdateSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateSelection` instead
@@ -3836,20 +3957,20 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn SuperUpdateSelection(self: ?*anyopaque) void {
-        qtc.QDesignerIntegration_SuperUpdateSelection(@ptrCast(self));
+    pub fn SuperUpdateSelection(self: QDesignerIntegration) void {
+        qtc.QDesignerIntegration_SuperUpdateSelection(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#updateCustomWidgetPlugins)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn UpdateCustomWidgetPlugins(self: ?*anyopaque) void {
-        qtc.QDesignerIntegration_UpdateCustomWidgetPlugins(@ptrCast(self));
+    pub fn UpdateCustomWidgetPlugins(self: QDesignerIntegration) void {
+        qtc.QDesignerIntegration_UpdateCustomWidgetPlugins(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerintegration.html#updateCustomWidgetPlugins)
@@ -3858,12 +3979,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateCustomWidgetPlugins(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnUpdateCustomWidgetPlugins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateCustomWidgetPlugins(self: QDesignerIntegration, callback: *const fn () callconv(.c) void) void {
+        qtc.QDesignerIntegration_OnUpdateCustomWidgetPlugins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateCustomWidgetPlugins` instead
@@ -3876,23 +3997,23 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn SuperUpdateCustomWidgetPlugins(self: ?*anyopaque) void {
-        qtc.QDesignerIntegration_SuperUpdateCustomWidgetPlugins(@ptrCast(self));
+    pub fn SuperUpdateCustomWidgetPlugins(self: QDesignerIntegration) void {
+        qtc.QDesignerIntegration_SuperUpdateCustomWidgetPlugins(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -3906,15 +4027,15 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -3930,10 +4051,10 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn Core(self: ?*anyopaque) QtC.QDesignerFormEditorInterface {
-        return qtc.QDesignerIntegrationInterface_Core(@ptrCast(self));
+    pub fn Core(self: QDesignerIntegration) QDesignerFormEditorInterface {
+        return .{ .ptr = qtc.QDesignerIntegrationInterface_Core(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QDesignerIntegrationInterface
@@ -3942,12 +4063,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` f: flag of abstractintegration_enums.FeatureFlag `
     ///
-    pub fn HasFeature(self: ?*anyopaque, f: i32) bool {
-        return qtc.QDesignerIntegrationInterface_HasFeature(@ptrCast(self), @bitCast(f));
+    pub fn HasFeature(self: QDesignerIntegration, f: i32) bool {
+        return qtc.QDesignerIntegrationInterface_HasFeature(@ptrCast(self.ptr), @bitCast(f));
     }
 
     /// Inherited from QDesignerIntegrationInterface
@@ -3956,17 +4077,19 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` formWindow: QtC.QDesignerFormWindowInterface `
+    /// ` formWindow: QDesignerFormWindowInterface `
     ///
-    /// ` object: QtC.QObject `
+    /// ` object: QObject `
     ///
     /// ` newName: []const u8 `
     ///
     /// ` oldName: []const u8 `
     ///
-    pub fn EmitObjectNameChanged(self: ?*anyopaque, formWindow: ?*anyopaque, object: ?*anyopaque, newName: []const u8, oldName: []const u8) void {
+    pub fn EmitObjectNameChanged(self: QDesignerIntegration, formWindow: anytype, object: anytype, newName: []const u8, oldName: []const u8) void {
+        comptime _ = @TypeOf(formWindow)._is_QDesignerFormWindowInterface;
+        comptime _ = @TypeOf(object)._is_QObject;
         const newName_str = qtc.libqt_string{
             .len = newName.len,
             .data = newName.ptr,
@@ -3975,7 +4098,7 @@ pub const qdesignerintegration = struct {
             .len = oldName.len,
             .data = oldName.ptr,
         };
-        qtc.QDesignerIntegrationInterface_EmitObjectNameChanged(@ptrCast(self), @ptrCast(formWindow), @ptrCast(object), newName_str, oldName_str);
+        qtc.QDesignerIntegrationInterface_EmitObjectNameChanged(@ptrCast(self.ptr), @ptrCast(formWindow.ptr), @ptrCast(object.ptr), newName_str, oldName_str);
     }
 
     /// Inherited from QDesignerIntegrationInterface
@@ -3984,7 +4107,9 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` objectName: []const u8 `
     ///
@@ -3992,9 +4117,7 @@ pub const qdesignerintegration = struct {
     ///
     /// ` parameterNames: []const []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn EmitNavigateToSlot(self: ?*anyopaque, objectName: []const u8, signalSignature: []const u8, parameterNames: []const []const u8, allocator: std.mem.Allocator) void {
+    pub fn EmitNavigateToSlot(self: QDesignerIntegration, allocator: std.mem.Allocator, objectName: []const u8, signalSignature: []const u8, parameterNames: []const []const u8) void {
         const objectName_str = qtc.libqt_string{
             .len = objectName.len,
             .data = objectName.ptr,
@@ -4005,17 +4128,16 @@ pub const qdesignerintegration = struct {
         };
         const parameterNames_arr = allocator.alloc(qtc.libqt_string, parameterNames.len) catch @panic("qdesignerintegration.EmitNavigateToSlot: Memory allocation failed");
         defer allocator.free(parameterNames_arr);
-        for (parameterNames, 0..parameterNames.len) |item, i| {
+        for (parameterNames, 0..parameterNames.len) |item, i|
             parameterNames_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const parameterNames_list = qtc.libqt_list{
             .len = parameterNames.len,
             .data = parameterNames_arr.ptr,
         };
-        qtc.QDesignerIntegrationInterface_EmitNavigateToSlot(@ptrCast(self), objectName_str, signalSignature_str, parameterNames_list);
+        qtc.QDesignerIntegrationInterface_EmitNavigateToSlot(@ptrCast(self.ptr), objectName_str, signalSignature_str, parameterNames_list);
     }
 
     /// Inherited from QDesignerIntegrationInterface
@@ -4024,16 +4146,16 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` slotSignature: []const u8 `
     ///
-    pub fn EmitNavigateToSlot2(self: ?*anyopaque, slotSignature: []const u8) void {
+    pub fn EmitNavigateToSlot2(self: QDesignerIntegration, slotSignature: []const u8) void {
         const slotSignature_str = qtc.libqt_string{
             .len = slotSignature.len,
             .data = slotSignature.ptr,
         };
-        qtc.QDesignerIntegrationInterface_EmitNavigateToSlot2(@ptrCast(self), slotSignature_str);
+        qtc.QDesignerIntegrationInterface_EmitNavigateToSlot2(@ptrCast(self.ptr), slotSignature_str);
     }
 
     /// Inherited from QDesignerIntegrationInterface
@@ -4042,13 +4164,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` manual: []const u8 `
     ///
     /// ` document: []const u8 `
     ///
-    pub fn EmitHelpRequested(self: ?*anyopaque, manual: []const u8, document: []const u8) void {
+    pub fn EmitHelpRequested(self: QDesignerIntegration, manual: []const u8, document: []const u8) void {
         const manual_str = qtc.libqt_string{
             .len = manual.len,
             .data = manual.ptr,
@@ -4057,7 +4179,7 @@ pub const qdesignerintegration = struct {
             .len = document.len,
             .data = document.ptr,
         };
-        qtc.QDesignerIntegrationInterface_EmitHelpRequested(@ptrCast(self), manual_str, document_str);
+        qtc.QDesignerIntegrationInterface_EmitHelpRequested(@ptrCast(self.ptr), manual_str, document_str);
     }
 
     /// Inherited from QDesignerIntegrationInterface
@@ -4066,20 +4188,22 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` formWindow: QtC.QDesignerFormWindowInterface `
+    /// ` formWindow: QDesignerFormWindowInterface `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn PropertyChanged(self: ?*anyopaque, formWindow: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn PropertyChanged(self: QDesignerIntegration, formWindow: anytype, name: []const u8, value: anytype) void {
+        comptime _ = @TypeOf(formWindow)._is_QDesignerFormWindowInterface;
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QDesignerIntegrationInterface_PropertyChanged(@ptrCast(self), @ptrCast(formWindow), name_str, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QDesignerIntegrationInterface_PropertyChanged(@ptrCast(self.ptr), @ptrCast(formWindow.ptr), name_str, @ptrCast(value.ptr));
     }
 
     /// Inherited from QDesignerIntegrationInterface
@@ -4088,17 +4212,19 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` formWindow: QtC.QDesignerFormWindowInterface `
+    /// ` formWindow: QDesignerFormWindowInterface `
     ///
-    /// ` object: QtC.QObject `
+    /// ` object: QObject `
     ///
     /// ` newName: []const u8 `
     ///
     /// ` oldName: []const u8 `
     ///
-    pub fn ObjectNameChanged(self: ?*anyopaque, formWindow: ?*anyopaque, object: ?*anyopaque, newName: []const u8, oldName: []const u8) void {
+    pub fn ObjectNameChanged(self: QDesignerIntegration, formWindow: anytype, object: anytype, newName: []const u8, oldName: []const u8) void {
+        comptime _ = @TypeOf(formWindow)._is_QDesignerFormWindowInterface;
+        comptime _ = @TypeOf(object)._is_QObject;
         const newName_str = qtc.libqt_string{
             .len = newName.len,
             .data = newName.ptr,
@@ -4107,7 +4233,7 @@ pub const qdesignerintegration = struct {
             .len = oldName.len,
             .data = oldName.ptr,
         };
-        qtc.QDesignerIntegrationInterface_ObjectNameChanged(@ptrCast(self), @ptrCast(formWindow), @ptrCast(object), newName_str, oldName_str);
+        qtc.QDesignerIntegrationInterface_ObjectNameChanged(@ptrCast(self.ptr), @ptrCast(formWindow.ptr), @ptrCast(object.ptr), newName_str, oldName_str);
     }
 
     /// Inherited from QDesignerIntegrationInterface
@@ -4116,13 +4242,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` manual: []const u8 `
     ///
     /// ` document: []const u8 `
     ///
-    pub fn HelpRequested(self: ?*anyopaque, manual: []const u8, document: []const u8) void {
+    pub fn HelpRequested(self: QDesignerIntegration, manual: []const u8, document: []const u8) void {
         const manual_str = qtc.libqt_string{
             .len = manual.len,
             .data = manual.ptr,
@@ -4131,7 +4257,7 @@ pub const qdesignerintegration = struct {
             .len = document.len,
             .data = document.ptr,
         };
-        qtc.QDesignerIntegrationInterface_HelpRequested(@ptrCast(self), manual_str, document_str);
+        qtc.QDesignerIntegrationInterface_HelpRequested(@ptrCast(self.ptr), manual_str, document_str);
     }
 
     /// Inherited from QDesignerIntegrationInterface
@@ -4140,7 +4266,9 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` objectName: []const u8 `
     ///
@@ -4148,9 +4276,7 @@ pub const qdesignerintegration = struct {
     ///
     /// ` parameterNames: []const []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn NavigateToSlot(self: ?*anyopaque, objectName: []const u8, signalSignature: []const u8, parameterNames: []const []const u8, allocator: std.mem.Allocator) void {
+    pub fn NavigateToSlot(self: QDesignerIntegration, allocator: std.mem.Allocator, objectName: []const u8, signalSignature: []const u8, parameterNames: []const []const u8) void {
         const objectName_str = qtc.libqt_string{
             .len = objectName.len,
             .data = objectName.ptr,
@@ -4161,17 +4287,16 @@ pub const qdesignerintegration = struct {
         };
         const parameterNames_arr = allocator.alloc(qtc.libqt_string, parameterNames.len) catch @panic("qdesignerintegration.NavigateToSlot: Memory allocation failed");
         defer allocator.free(parameterNames_arr);
-        for (parameterNames, 0..parameterNames.len) |item, i| {
+        for (parameterNames, 0..parameterNames.len) |item, i|
             parameterNames_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const parameterNames_list = qtc.libqt_list{
             .len = parameterNames.len,
             .data = parameterNames_arr.ptr,
         };
-        qtc.QDesignerIntegrationInterface_NavigateToSlot(@ptrCast(self), objectName_str, signalSignature_str, parameterNames_list);
+        qtc.QDesignerIntegrationInterface_NavigateToSlot(@ptrCast(self.ptr), objectName_str, signalSignature_str, parameterNames_list);
     }
 
     /// Inherited from QDesignerIntegrationInterface
@@ -4180,16 +4305,16 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` slotSignature: []const u8 `
     ///
-    pub fn NavigateToSlot2(self: ?*anyopaque, slotSignature: []const u8) void {
+    pub fn NavigateToSlot2(self: QDesignerIntegration, slotSignature: []const u8) void {
         const slotSignature_str = qtc.libqt_string{
             .len = slotSignature.len,
             .data = slotSignature.ptr,
         };
-        qtc.QDesignerIntegrationInterface_NavigateToSlot2(@ptrCast(self), slotSignature_str);
+        qtc.QDesignerIntegrationInterface_NavigateToSlot2(@ptrCast(self.ptr), slotSignature_str);
     }
 
     /// Inherited from QObject
@@ -4198,12 +4323,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QDesignerIntegration, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegration.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4216,12 +4341,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QDesignerIntegration, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -4230,10 +4355,10 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QDesignerIntegration) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4242,10 +4367,10 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QDesignerIntegration) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4254,10 +4379,10 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QDesignerIntegration) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4266,10 +4391,10 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QDesignerIntegration) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4278,12 +4403,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QDesignerIntegration, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -4292,10 +4417,10 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QDesignerIntegration) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -4304,12 +4429,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QDesignerIntegration, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -4318,12 +4444,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QDesignerIntegration, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -4332,12 +4458,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QDesignerIntegration, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -4346,12 +4472,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QDesignerIntegration, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4360,12 +4486,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QDesignerIntegration, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4374,16 +4500,17 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QDesignerIntegration, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qdesignerintegration.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qdesignerintegration.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -4393,12 +4520,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QDesignerIntegration, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -4407,12 +4535,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QDesignerIntegration, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -4421,12 +4550,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QDesignerIntegration, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -4435,18 +4565,20 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -4455,16 +4587,20 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -4473,18 +4609,19 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QDesignerIntegration, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -4493,18 +4630,20 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -4513,16 +4652,20 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -4531,10 +4674,10 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QDesignerIntegration) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4543,12 +4686,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QDesignerIntegration, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -4557,10 +4701,11 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -4569,10 +4714,10 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QDesignerIntegration) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4581,10 +4726,10 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QDesignerIntegration) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4593,15 +4738,16 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QDesignerIntegration, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -4610,13 +4756,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QDesignerIntegration, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -4625,17 +4771,16 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QDesignerIntegration, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qdesignerintegration.DynamicPropertyNames: Memory allocation failed");
@@ -4654,10 +4799,10 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QDesignerIntegration) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -4666,10 +4811,10 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QDesignerIntegration) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -4678,10 +4823,10 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QDesignerIntegration) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4690,12 +4835,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegration) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4704,10 +4849,10 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QDesignerIntegration) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -4716,13 +4861,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QDesignerIntegration, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -4731,10 +4876,10 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QDesignerIntegration) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4743,14 +4888,14 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QDesignerIntegration, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -4759,14 +4904,14 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QDesignerIntegration, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -4775,20 +4920,22 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -4797,18 +4944,22 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -4817,9 +4968,9 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4827,10 +4978,11 @@ pub const qdesignerintegration = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QDesignerIntegration, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -4839,13 +4991,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QDesignerIntegration, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -4854,15 +5006,16 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QDesignerIntegration, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -4871,18 +5024,19 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QDesignerIntegration, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -4891,15 +5045,16 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QDesignerIntegration, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -4908,12 +5063,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QDesignerIntegration, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -4922,12 +5078,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegration, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4938,12 +5094,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QDesignerIntegration_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QDesignerIntegration, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QDesignerIntegration_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -4958,12 +5115,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QDesignerIntegration_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QDesignerIntegration, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QDesignerIntegration_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -4974,12 +5132,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration`
+    /// ` self: QDesignerIntegration`
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QDesignerIntegration, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDesignerIntegration_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, QEvent) callconv(.c) bool) void {
+        qtc.QDesignerIntegration_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4990,14 +5148,16 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QDesignerIntegration_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QDesignerIntegration, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QDesignerIntegration_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -5012,14 +5172,16 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QDesignerIntegration_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QDesignerIntegration, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QDesignerIntegration_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -5030,12 +5192,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration`
+    /// ` self: QDesignerIntegration`
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QDesignerIntegration, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDesignerIntegration_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QDesignerIntegration_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5046,12 +5208,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerIntegration_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QDesignerIntegration, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QDesignerIntegration_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -5066,12 +5229,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerIntegration_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QDesignerIntegration, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QDesignerIntegration_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -5082,12 +5246,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration`
+    /// ` self: QDesignerIntegration`
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegration, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, QTimerEvent) callconv(.c) void) void {
+        qtc.QDesignerIntegration_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5098,12 +5262,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerIntegration_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QDesignerIntegration, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QDesignerIntegration_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -5118,12 +5283,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerIntegration_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QDesignerIntegration, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QDesignerIntegration_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -5134,12 +5300,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration`
+    /// ` self: QDesignerIntegration`
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegration, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, QChildEvent) callconv(.c) void) void {
+        qtc.QDesignerIntegration_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5150,12 +5316,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerIntegration_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QDesignerIntegration, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QDesignerIntegration_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -5170,12 +5337,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QDesignerIntegration_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QDesignerIntegration, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QDesignerIntegration_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -5186,12 +5354,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration`
+    /// ` self: QDesignerIntegration`
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegration, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, QEvent) callconv(.c) void) void {
+        qtc.QDesignerIntegration_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5202,12 +5370,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QDesignerIntegration_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QDesignerIntegration, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QDesignerIntegration_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -5222,12 +5391,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QDesignerIntegration_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QDesignerIntegration, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QDesignerIntegration_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -5238,12 +5408,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration`
+    /// ` self: QDesignerIntegration`
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegration, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, QMetaMethod) callconv(.c) void) void {
+        qtc.QDesignerIntegration_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5254,12 +5424,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QDesignerIntegration_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QDesignerIntegration, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QDesignerIntegration_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -5274,12 +5445,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QDesignerIntegration_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QDesignerIntegration, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QDesignerIntegration_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -5290,12 +5462,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration`
+    /// ` self: QDesignerIntegration`
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QDesignerIntegration, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDesignerIntegration_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, QMetaMethod) callconv(.c) void) void {
+        qtc.QDesignerIntegration_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5306,10 +5478,10 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QDesignerIntegration_Sender(@ptrCast(self));
+    pub fn Sender(self: QDesignerIntegration) QObject {
+        return .{ .ptr = qtc.QDesignerIntegration_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -5324,10 +5496,10 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QDesignerIntegration_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QDesignerIntegration) QObject {
+        return .{ .ptr = qtc.QDesignerIntegration_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5338,12 +5510,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration`
+    /// ` self: QDesignerIntegration`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QDesignerIntegration_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QDesignerIntegration, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QDesignerIntegration_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5354,10 +5526,10 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QDesignerIntegration_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QDesignerIntegration) i32 {
+        return qtc.QDesignerIntegration_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -5372,10 +5544,10 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QDesignerIntegration_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QDesignerIntegration) i32 {
+        return qtc.QDesignerIntegration_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5386,12 +5558,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration`
+    /// ` self: QDesignerIntegration`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QDesignerIntegration_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QDesignerIntegration, callback: *const fn () callconv(.c) i32) void {
+        qtc.QDesignerIntegration_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5402,13 +5574,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QDesignerIntegration, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QDesignerIntegration_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QDesignerIntegration_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -5423,13 +5595,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QDesignerIntegration, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QDesignerIntegration_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QDesignerIntegration_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5440,12 +5612,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration`
+    /// ` self: QDesignerIntegration`
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QDesignerIntegration, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDesignerIntegration_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QDesignerIntegration_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5456,12 +5628,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QDesignerIntegration_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QDesignerIntegration, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QDesignerIntegration_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -5476,12 +5649,13 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QDesignerIntegration_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QDesignerIntegration, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QDesignerIntegration_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -5492,12 +5666,12 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QDesignerIntegration`
+    /// ` self: QDesignerIntegration`
     ///
-    /// ` callback: *const fn (self: QtC.QDesignerIntegration, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QDesignerIntegration, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDesignerIntegration_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QDesignerIntegration, callback: *const fn (QDesignerIntegration, QMetaMethod) callconv(.c) bool) void {
+        qtc.QDesignerIntegration_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -5510,10 +5684,10 @@ pub const qdesignerintegration = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QDesignerIntegration `
+    /// ` self: QDesignerIntegration `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QDesignerIntegration_Delete(@ptrCast(self));
+    pub fn Delete(self: QDesignerIntegration) void {
+        qtc.QDesignerIntegration_Delete(@ptrCast(self.ptr));
     }
 };
 

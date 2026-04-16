@@ -1,66 +1,92 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAbstractAnimation = @import("libqt6").QAbstractAnimation;
+const QAbstractState = @import("libqt6").QAbstractState;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QState = @import("libqt6").QState;
+const QStateMachine = @import("libqt6").QStateMachine;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qabstracttransition_enums = @import("libqabstracttransition.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignaltransition.html)
-pub const qsignaltransition = struct {
+pub const QSignalTransition = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignaltransition.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QSignalTransition,
+
+    pub const _is_QSignalTransition = {};
+    pub const _is_QAbstractTransition = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QSignalTransition object.
     ///
-    pub fn New() QtC.QSignalTransition {
-        return qtc.QSignalTransition_new();
+    pub fn New() QSignalTransition {
+        return .{ .ptr = qtc.QSignalTransition_new() };
     }
 
     /// New2 constructs a new QSignalTransition object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn New2(sender: ?*anyopaque, signal: [:0]const u8) QtC.QSignalTransition {
+    pub fn New2(sender: anytype, signal: [:0]const u8) QSignalTransition {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
-
-        return qtc.QSignalTransition_new2(@ptrCast(sender), signal_Cstring);
+        return .{ .ptr = qtc.QSignalTransition_new2(@ptrCast(sender.ptr), signal_Cstring) };
     }
 
     /// New3 constructs a new QSignalTransition object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` sourceState: QtC.QState `
+    /// ` sourceState: QState `
     ///
-    pub fn New3(sourceState: ?*anyopaque) QtC.QSignalTransition {
-        return qtc.QSignalTransition_new3(@ptrCast(sourceState));
+    pub fn New3(sourceState: anytype) QSignalTransition {
+        comptime _ = @TypeOf(sourceState)._is_QState;
+        return .{ .ptr = qtc.QSignalTransition_new3(@ptrCast(sourceState.ptr)) };
     }
 
     /// New4 constructs a new QSignalTransition object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` sourceState: QtC.QState `
+    /// ` sourceState: QState `
     ///
-    pub fn New4(sender: ?*anyopaque, signal: [:0]const u8, sourceState: ?*anyopaque) QtC.QSignalTransition {
+    pub fn New4(sender: anytype, signal: [:0]const u8, sourceState: anytype) QSignalTransition {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
-
-        return qtc.QSignalTransition_new4(@ptrCast(sender), signal_Cstring, @ptrCast(sourceState));
+        comptime _ = @TypeOf(sourceState)._is_QState;
+        return .{ .ptr = qtc.QSignalTransition_new4(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(sourceState.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QSignalTransition_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QSignalTransition) QMetaObject {
+        return .{ .ptr = qtc.QSignalTransition_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -69,12 +95,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QSignalTransition_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QSignalTransition, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QSignalTransition_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -87,33 +113,33 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QSignalTransition_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QSignalTransition) QMetaObject {
+        return .{ .ptr = qtc.QSignalTransition_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QSignalTransition, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QSignalTransition_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QSignalTransition_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` callback: *const fn (self: QtC.QSignalTransition, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QSignalTransition, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QSignalTransition_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QSignalTransition, callback: *const fn (QSignalTransition, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QSignalTransition_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -124,18 +150,18 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QSignalTransition, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QSignalTransition_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QSignalTransition_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -143,20 +169,20 @@ pub const qsignaltransition = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QSignalTransition_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QSignalTransition, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QSignalTransition_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` callback: *const fn (self: QtC.QSignalTransition, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSignalTransition, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QSignalTransition_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QSignalTransition, callback: *const fn (QSignalTransition, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QSignalTransition_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -167,7 +193,7 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -175,19 +201,19 @@ pub const qsignaltransition = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QSignalTransition_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QSignalTransition, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QSignalTransition_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -200,34 +226,35 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn SenderObject(self: ?*anyopaque) QtC.QObject {
-        return qtc.QSignalTransition_SenderObject(@ptrCast(self));
+    pub fn SenderObject(self: QSignalTransition) QObject {
+        return .{ .ptr = qtc.QSignalTransition_SenderObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignaltransition.html#setSenderObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    pub fn SetSenderObject(self: ?*anyopaque, sender: ?*anyopaque) void {
-        qtc.QSignalTransition_SetSenderObject(@ptrCast(self), @ptrCast(sender));
+    pub fn SetSenderObject(self: QSignalTransition, sender: anytype) void {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        qtc.QSignalTransition_SetSenderObject(@ptrCast(self.ptr), @ptrCast(sender.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignaltransition.html#signal)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Signal(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QSignalTransition_Signal(@ptrCast(self));
+    pub fn Signal(self: QSignalTransition, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QSignalTransition_Signal(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsignaltransition.Signal: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -238,28 +265,29 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` signal: []u8 `
     ///
-    pub fn SetSignal(self: ?*anyopaque, signal: []u8) void {
+    pub fn SetSignal(self: QSignalTransition, signal: []u8) void {
         const signal_str = qtc.libqt_string{
             .len = signal.len,
             .data = signal.ptr,
         };
-        qtc.QSignalTransition_SetSignal(@ptrCast(self), signal_str);
+        qtc.QSignalTransition_SetSignal(@ptrCast(self.ptr), signal_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignaltransition.html#eventTest)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventTest(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSignalTransition_EventTest(@ptrCast(self), @ptrCast(event));
+    pub fn EventTest(self: QSignalTransition, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QSignalTransition_EventTest(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignaltransition.html#eventTest)
@@ -268,12 +296,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` callback: *const fn (self: QtC.QSignalTransition, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSignalTransition, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventTest(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSignalTransition_OnEventTest(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventTest(self: QSignalTransition, callback: *const fn (QSignalTransition, QEvent) callconv(.c) bool) void {
+        qtc.QSignalTransition_OnEventTest(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEventTest` instead
@@ -286,24 +314,26 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventTest(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSignalTransition_SuperEventTest(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEventTest(self: QSignalTransition, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QSignalTransition_SuperEventTest(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignaltransition.html#onTransition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn OnTransition(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSignalTransition_OnTransition(@ptrCast(self), @ptrCast(event));
+    pub fn OnTransition(self: QSignalTransition, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QSignalTransition_OnTransition(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignaltransition.html#onTransition)
@@ -312,12 +342,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` callback: *const fn (self: QtC.QSignalTransition, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSignalTransition, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnOnTransition(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSignalTransition_OnOnTransition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnOnTransition(self: QSignalTransition, callback: *const fn (QSignalTransition, QEvent) callconv(.c) void) void {
+        qtc.QSignalTransition_OnOnTransition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperOnTransition` instead
@@ -330,24 +360,26 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperOnTransition(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSignalTransition_SuperOnTransition(@ptrCast(self), @ptrCast(event));
+    pub fn SuperOnTransition(self: QSignalTransition, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QSignalTransition_SuperOnTransition(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignaltransition.html#event)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QSignalTransition_Event(@ptrCast(self), @ptrCast(e));
+    pub fn Event(self: QSignalTransition, e: anytype) bool {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        return qtc.QSignalTransition_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignaltransition.html#event)
@@ -356,12 +388,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` callback: *const fn (self: QtC.QSignalTransition, e: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSignalTransition, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSignalTransition_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QSignalTransition, callback: *const fn (QSignalTransition, QEvent) callconv(.c) bool) void {
+        qtc.QSignalTransition_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -374,25 +406,26 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QSignalTransition_SuperEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperEvent(self: QSignalTransition, e: anytype) bool {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        return qtc.QSignalTransition_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -406,15 +439,15 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -430,10 +463,10 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn SourceState(self: ?*anyopaque) QtC.QState {
-        return qtc.QAbstractTransition_SourceState(@ptrCast(self));
+    pub fn SourceState(self: QSignalTransition) QState {
+        return .{ .ptr = qtc.QAbstractTransition_SourceState(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractTransition
@@ -442,10 +475,10 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn TargetState(self: ?*anyopaque) QtC.QAbstractState {
-        return qtc.QAbstractTransition_TargetState(@ptrCast(self));
+    pub fn TargetState(self: QSignalTransition) QAbstractState {
+        return .{ .ptr = qtc.QAbstractTransition_TargetState(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractTransition
@@ -454,12 +487,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` target: QtC.QAbstractState `
+    /// ` target: QAbstractState `
     ///
-    pub fn SetTargetState(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QAbstractTransition_SetTargetState(@ptrCast(self), @ptrCast(target));
+    pub fn SetTargetState(self: QSignalTransition, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QAbstractState;
+        qtc.QAbstractTransition_SetTargetState(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QAbstractTransition
@@ -468,16 +502,17 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TargetStates(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractState {
-        const _arr: qtc.libqt_list = qtc.QAbstractTransition_TargetStates(@ptrCast(self));
+    pub fn TargetStates(self: QSignalTransition, allocator: std.mem.Allocator) []QAbstractState {
+        const _arr: qtc.libqt_list = qtc.QAbstractTransition_TargetStates(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAbstractState, _arr.len) catch @panic("qsignaltransition.TargetStates: Memory allocation failed");
+        const _ret = allocator.alloc(QAbstractState, _arr.len) catch @panic("qsignaltransition.TargetStates: Memory allocation failed");
         const _data: [*]QtC.QAbstractState = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -487,16 +522,16 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` targets: []QtC.QAbstractState `
+    /// ` targets: []QAbstractState `
     ///
-    pub fn SetTargetStates(self: ?*anyopaque, targets: []?*anyopaque) void {
+    pub fn SetTargetStates(self: QSignalTransition, targets: []QAbstractState) void {
         const targets_list = qtc.libqt_list{
             .len = targets.len,
             .data = @ptrCast(targets.ptr),
         };
-        qtc.QAbstractTransition_SetTargetStates(@ptrCast(self), targets_list);
+        qtc.QAbstractTransition_SetTargetStates(@ptrCast(self.ptr), targets_list);
     }
 
     /// Inherited from QAbstractTransition
@@ -505,14 +540,14 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ## Returns:
     ///
     /// ` qabstracttransition_enums.TransitionType `
     ///
-    pub fn TransitionType(self: ?*anyopaque) i32 {
-        return qtc.QAbstractTransition_TransitionType(@ptrCast(self));
+    pub fn TransitionType(self: QSignalTransition) i32 {
+        return qtc.QAbstractTransition_TransitionType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractTransition
@@ -521,12 +556,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` typeVal: qabstracttransition_enums.TransitionType `
     ///
-    pub fn SetTransitionType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QAbstractTransition_SetTransitionType(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetTransitionType(self: QSignalTransition, typeVal: i32) void {
+        qtc.QAbstractTransition_SetTransitionType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QAbstractTransition
@@ -535,10 +570,10 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn Machine(self: ?*anyopaque) QtC.QStateMachine {
-        return qtc.QAbstractTransition_Machine(@ptrCast(self));
+    pub fn Machine(self: QSignalTransition) QStateMachine {
+        return .{ .ptr = qtc.QAbstractTransition_Machine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractTransition
@@ -547,12 +582,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` animation: QtC.QAbstractAnimation `
+    /// ` animation: QAbstractAnimation `
     ///
-    pub fn AddAnimation(self: ?*anyopaque, animation: ?*anyopaque) void {
-        qtc.QAbstractTransition_AddAnimation(@ptrCast(self), @ptrCast(animation));
+    pub fn AddAnimation(self: QSignalTransition, animation: anytype) void {
+        comptime _ = @TypeOf(animation)._is_QAbstractAnimation;
+        qtc.QAbstractTransition_AddAnimation(@ptrCast(self.ptr), @ptrCast(animation.ptr));
     }
 
     /// Inherited from QAbstractTransition
@@ -561,12 +597,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` animation: QtC.QAbstractAnimation `
+    /// ` animation: QAbstractAnimation `
     ///
-    pub fn RemoveAnimation(self: ?*anyopaque, animation: ?*anyopaque) void {
-        qtc.QAbstractTransition_RemoveAnimation(@ptrCast(self), @ptrCast(animation));
+    pub fn RemoveAnimation(self: QSignalTransition, animation: anytype) void {
+        comptime _ = @TypeOf(animation)._is_QAbstractAnimation;
+        qtc.QAbstractTransition_RemoveAnimation(@ptrCast(self.ptr), @ptrCast(animation.ptr));
     }
 
     /// Inherited from QAbstractTransition
@@ -575,16 +612,17 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Animations(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractAnimation {
-        const _arr: qtc.libqt_list = qtc.QAbstractTransition_Animations(@ptrCast(self));
+    pub fn Animations(self: QSignalTransition, allocator: std.mem.Allocator) []QAbstractAnimation {
+        const _arr: qtc.libqt_list = qtc.QAbstractTransition_Animations(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAbstractAnimation, _arr.len) catch @panic("qsignaltransition.Animations: Memory allocation failed");
+        const _ret = allocator.alloc(QAbstractAnimation, _arr.len) catch @panic("qsignaltransition.Animations: Memory allocation failed");
         const _data: [*]QtC.QAbstractAnimation = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -594,12 +632,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QSignalTransition, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsignaltransition.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -612,12 +650,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QSignalTransition, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -626,10 +664,10 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QSignalTransition) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -638,10 +676,10 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QSignalTransition) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -650,10 +688,10 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QSignalTransition) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -662,10 +700,10 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QSignalTransition) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -674,12 +712,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QSignalTransition, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -688,10 +726,10 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QSignalTransition) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -700,12 +738,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QSignalTransition, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -714,12 +753,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QSignalTransition, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -728,12 +767,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QSignalTransition, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -742,12 +781,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QSignalTransition, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -756,12 +795,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QSignalTransition, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -770,16 +809,17 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QSignalTransition, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qsignaltransition.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qsignaltransition.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -789,12 +829,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QSignalTransition, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -803,12 +844,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QSignalTransition, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -817,12 +859,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QSignalTransition, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -831,18 +874,20 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -851,16 +896,20 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -869,18 +918,19 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QSignalTransition, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -889,18 +939,20 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -909,16 +961,20 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -927,10 +983,10 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QSignalTransition) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -939,12 +995,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QSignalTransition, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -953,10 +1010,11 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -965,10 +1023,10 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QSignalTransition) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -977,10 +1035,10 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QSignalTransition) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -989,15 +1047,16 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QSignalTransition, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1006,13 +1065,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QSignalTransition, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1021,17 +1080,16 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QSignalTransition, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qsignaltransition.DynamicPropertyNames: Memory allocation failed");
@@ -1050,10 +1108,10 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QSignalTransition) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1062,10 +1120,10 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QSignalTransition) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1074,10 +1132,10 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QSignalTransition) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1086,12 +1144,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` callback: *const fn (self: QtC.QSignalTransition) callconv(.c) void `
+    /// ` callback: *const fn (self: QSignalTransition) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QSignalTransition, callback: *const fn (QSignalTransition) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1100,10 +1158,10 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QSignalTransition) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1112,13 +1170,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QSignalTransition, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1127,10 +1185,10 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QSignalTransition) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1139,14 +1197,14 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QSignalTransition, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1155,14 +1213,14 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QSignalTransition, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1171,20 +1229,22 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1193,18 +1253,22 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1213,9 +1277,9 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1223,10 +1287,11 @@ pub const qsignaltransition = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QSignalTransition, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1235,13 +1300,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QSignalTransition, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1250,15 +1315,16 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QSignalTransition, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1267,18 +1333,19 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QSignalTransition, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1287,15 +1354,16 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QSignalTransition, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1304,12 +1372,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QSignalTransition, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1318,12 +1387,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` callback: *const fn (self: QtC.QSignalTransition, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QSignalTransition, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QSignalTransition, callback: *const fn (QSignalTransition, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1334,14 +1403,16 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSignalTransition_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QSignalTransition, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QSignalTransition_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1356,14 +1427,16 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QSignalTransition_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QSignalTransition, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QSignalTransition_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1374,12 +1447,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition`
+    /// ` self: QSignalTransition`
     ///
-    /// ` callback: *const fn (self: QtC.QSignalTransition, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSignalTransition, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSignalTransition_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QSignalTransition, callback: *const fn (QSignalTransition, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QSignalTransition_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1390,12 +1463,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSignalTransition_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QSignalTransition, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QSignalTransition_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1410,12 +1484,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSignalTransition_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QSignalTransition, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QSignalTransition_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1426,12 +1501,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition`
+    /// ` self: QSignalTransition`
     ///
-    /// ` callback: *const fn (self: QtC.QSignalTransition, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSignalTransition, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSignalTransition_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QSignalTransition, callback: *const fn (QSignalTransition, QTimerEvent) callconv(.c) void) void {
+        qtc.QSignalTransition_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1442,12 +1517,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSignalTransition_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QSignalTransition, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QSignalTransition_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1462,12 +1538,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSignalTransition_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QSignalTransition, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QSignalTransition_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1478,12 +1555,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition`
+    /// ` self: QSignalTransition`
     ///
-    /// ` callback: *const fn (self: QtC.QSignalTransition, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSignalTransition, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSignalTransition_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QSignalTransition, callback: *const fn (QSignalTransition, QChildEvent) callconv(.c) void) void {
+        qtc.QSignalTransition_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1494,12 +1571,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSignalTransition_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QSignalTransition, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QSignalTransition_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1514,12 +1592,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QSignalTransition_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QSignalTransition, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QSignalTransition_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1530,12 +1609,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition`
+    /// ` self: QSignalTransition`
     ///
-    /// ` callback: *const fn (self: QtC.QSignalTransition, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QSignalTransition, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSignalTransition_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QSignalTransition, callback: *const fn (QSignalTransition, QEvent) callconv(.c) void) void {
+        qtc.QSignalTransition_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1546,12 +1625,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSignalTransition_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QSignalTransition, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSignalTransition_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1566,12 +1646,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSignalTransition_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QSignalTransition, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSignalTransition_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1582,12 +1663,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition`
+    /// ` self: QSignalTransition`
     ///
-    /// ` callback: *const fn (self: QtC.QSignalTransition, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QSignalTransition, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSignalTransition_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QSignalTransition, callback: *const fn (QSignalTransition, QMetaMethod) callconv(.c) void) void {
+        qtc.QSignalTransition_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1598,12 +1679,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSignalTransition_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QSignalTransition, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSignalTransition_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1618,12 +1700,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QSignalTransition_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QSignalTransition, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QSignalTransition_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1634,12 +1717,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition`
+    /// ` self: QSignalTransition`
     ///
-    /// ` callback: *const fn (self: QtC.QSignalTransition, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QSignalTransition, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSignalTransition_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QSignalTransition, callback: *const fn (QSignalTransition, QMetaMethod) callconv(.c) void) void {
+        qtc.QSignalTransition_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1650,10 +1733,10 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QSignalTransition_Sender(@ptrCast(self));
+    pub fn Sender(self: QSignalTransition) QObject {
+        return .{ .ptr = qtc.QSignalTransition_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -1668,10 +1751,10 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QSignalTransition_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QSignalTransition) QObject {
+        return .{ .ptr = qtc.QSignalTransition_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1682,12 +1765,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition`
+    /// ` self: QSignalTransition`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QSignalTransition_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QSignalTransition, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QSignalTransition_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1698,10 +1781,10 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QSignalTransition_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QSignalTransition) i32 {
+        return qtc.QSignalTransition_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -1716,10 +1799,10 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QSignalTransition_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QSignalTransition) i32 {
+        return qtc.QSignalTransition_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1730,12 +1813,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition`
+    /// ` self: QSignalTransition`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QSignalTransition_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QSignalTransition, callback: *const fn () callconv(.c) i32) void {
+        qtc.QSignalTransition_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1746,13 +1829,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QSignalTransition, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QSignalTransition_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QSignalTransition_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -1767,13 +1850,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QSignalTransition, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QSignalTransition_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QSignalTransition_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1784,12 +1867,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition`
+    /// ` self: QSignalTransition`
     ///
-    /// ` callback: *const fn (self: QtC.QSignalTransition, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QSignalTransition, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QSignalTransition_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QSignalTransition, callback: *const fn (QSignalTransition, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QSignalTransition_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1800,12 +1883,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QSignalTransition_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QSignalTransition, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QSignalTransition_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -1820,12 +1904,13 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QSignalTransition_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QSignalTransition, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QSignalTransition_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1836,12 +1921,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition`
+    /// ` self: QSignalTransition`
     ///
-    /// ` callback: *const fn (self: QtC.QSignalTransition, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QSignalTransition, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSignalTransition_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QSignalTransition, callback: *const fn (QSignalTransition, QMetaMethod) callconv(.c) bool) void {
+        qtc.QSignalTransition_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignaltransition.html#senderObjectChanged)
@@ -1850,12 +1935,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` callback: *const fn (self: QtC.QSignalTransition) callconv(.c) void `
+    /// ` callback: *const fn (self: QSignalTransition) callconv(.c) void `
     ///
-    pub fn OnSenderObjectChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSignalTransition_Connect_SenderObjectChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderObjectChanged(self: QSignalTransition, callback: *const fn (QSignalTransition) callconv(.c) void) void {
+        qtc.QSignalTransition_Connect_SenderObjectChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignaltransition.html#signalChanged)
@@ -1864,12 +1949,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` callback: *const fn (self: QtC.QSignalTransition) callconv(.c) void `
+    /// ` callback: *const fn (self: QSignalTransition) callconv(.c) void `
     ///
-    pub fn OnSignalChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSignalTransition_Connect_SignalChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSignalChanged(self: QSignalTransition, callback: *const fn (QSignalTransition) callconv(.c) void) void {
+        qtc.QSignalTransition_Connect_SignalChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractTransition
@@ -1880,12 +1965,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` callback: *const fn (self: QtC.QSignalTransition) callconv(.c) void `
+    /// ` callback: *const fn (self: QSignalTransition) callconv(.c) void `
     ///
-    pub fn OnTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTransition_Connect_Triggered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTriggered(self: QSignalTransition, callback: *const fn (QSignalTransition) callconv(.c) void) void {
+        qtc.QAbstractTransition_Connect_Triggered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractTransition
@@ -1896,12 +1981,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` callback: *const fn (self: QtC.QSignalTransition) callconv(.c) void `
+    /// ` callback: *const fn (self: QSignalTransition) callconv(.c) void `
     ///
-    pub fn OnTargetStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTransition_Connect_TargetStateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTargetStateChanged(self: QSignalTransition, callback: *const fn (QSignalTransition) callconv(.c) void) void {
+        qtc.QAbstractTransition_Connect_TargetStateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractTransition
@@ -1912,12 +1997,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` callback: *const fn (self: QtC.QSignalTransition) callconv(.c) void `
+    /// ` callback: *const fn (self: QSignalTransition) callconv(.c) void `
     ///
-    pub fn OnTargetStatesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractTransition_Connect_TargetStatesChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTargetStatesChanged(self: QSignalTransition, callback: *const fn (QSignalTransition) callconv(.c) void) void {
+        qtc.QAbstractTransition_Connect_TargetStatesChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1928,12 +2013,12 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    /// ` callback: *const fn (self: QtC.QSignalTransition, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QSignalTransition, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QSignalTransition, callback: *const fn (QSignalTransition, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1946,9 +2031,9 @@ pub const qsignaltransition = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QSignalTransition `
+    /// ` self: QSignalTransition `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QSignalTransition_Delete(@ptrCast(self));
+    pub fn Delete(self: QSignalTransition) void {
+        qtc.QSignalTransition_Delete(@ptrCast(self.ptr));
     }
 };

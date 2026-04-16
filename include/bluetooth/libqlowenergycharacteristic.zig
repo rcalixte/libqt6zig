@@ -1,48 +1,60 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBluetoothUuid = @import("libqt6").QBluetoothUuid;
+const QLowEnergyDescriptor = @import("libqt6").QLowEnergyDescriptor;
 const qlowenergycharacteristic_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergycharacteristic.html)
-pub const qlowenergycharacteristic = struct {
+pub const QLowEnergyCharacteristic = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergycharacteristic.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QLowEnergyCharacteristic,
+
+    pub const _is_QLowEnergyCharacteristic = {};
+
     /// New constructs a new QLowEnergyCharacteristic object.
     ///
-    pub fn New() QtC.QLowEnergyCharacteristic {
-        return qtc.QLowEnergyCharacteristic_new();
+    pub fn New() QLowEnergyCharacteristic {
+        return .{ .ptr = qtc.QLowEnergyCharacteristic_new() };
     }
 
     /// New2 constructs a new QLowEnergyCharacteristic object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QLowEnergyCharacteristic `
+    /// ` other: QLowEnergyCharacteristic `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QLowEnergyCharacteristic {
-        return qtc.QLowEnergyCharacteristic_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QLowEnergyCharacteristic {
+        comptime _ = @TypeOf(other)._is_QLowEnergyCharacteristic;
+        return .{ .ptr = qtc.QLowEnergyCharacteristic_new2(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergycharacteristic.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLowEnergyCharacteristic `
+    /// ` self: QLowEnergyCharacteristic `
     ///
-    /// ` other: QtC.QLowEnergyCharacteristic `
+    /// ` other: QLowEnergyCharacteristic `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QLowEnergyCharacteristic_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QLowEnergyCharacteristic, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QLowEnergyCharacteristic;
+        qtc.QLowEnergyCharacteristic_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergycharacteristic.html#name)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLowEnergyCharacteristic `
+    /// ` self: QLowEnergyCharacteristic `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLowEnergyCharacteristic_Name(@ptrCast(self));
+    pub fn Name(self: QLowEnergyCharacteristic, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QLowEnergyCharacteristic_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlowenergycharacteristic.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -53,22 +65,22 @@ pub const qlowenergycharacteristic = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLowEnergyCharacteristic `
+    /// ` self: QLowEnergyCharacteristic `
     ///
-    pub fn Uuid(self: ?*anyopaque) QtC.QBluetoothUuid {
-        return qtc.QLowEnergyCharacteristic_Uuid(@ptrCast(self));
+    pub fn Uuid(self: QLowEnergyCharacteristic) QBluetoothUuid {
+        return .{ .ptr = qtc.QLowEnergyCharacteristic_Uuid(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergycharacteristic.html#value)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLowEnergyCharacteristic `
+    /// ` self: QLowEnergyCharacteristic `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Value(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QLowEnergyCharacteristic_Value(@ptrCast(self));
+    pub fn Value(self: QLowEnergyCharacteristic, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QLowEnergyCharacteristic_Value(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qlowenergycharacteristic.Value: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -79,42 +91,44 @@ pub const qlowenergycharacteristic = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLowEnergyCharacteristic `
+    /// ` self: QLowEnergyCharacteristic `
     ///
     /// ## Returns:
     ///
     /// ` flag of qlowenergycharacteristic_enums.PropertyType `
     ///
-    pub fn Properties(self: ?*anyopaque) i32 {
-        return qtc.QLowEnergyCharacteristic_Properties(@ptrCast(self));
+    pub fn Properties(self: QLowEnergyCharacteristic) i32 {
+        return qtc.QLowEnergyCharacteristic_Properties(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergycharacteristic.html#descriptor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLowEnergyCharacteristic `
+    /// ` self: QLowEnergyCharacteristic `
     ///
-    /// ` uuid: QtC.QBluetoothUuid `
+    /// ` uuid: QBluetoothUuid `
     ///
-    pub fn Descriptor(self: ?*anyopaque, uuid: ?*anyopaque) QtC.QLowEnergyDescriptor {
-        return qtc.QLowEnergyCharacteristic_Descriptor(@ptrCast(self), @ptrCast(uuid));
+    pub fn Descriptor(self: QLowEnergyCharacteristic, uuid: anytype) QLowEnergyDescriptor {
+        comptime _ = @TypeOf(uuid)._is_QBluetoothUuid;
+        return .{ .ptr = qtc.QLowEnergyCharacteristic_Descriptor(@ptrCast(self.ptr), @ptrCast(uuid.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergycharacteristic.html#descriptors)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLowEnergyCharacteristic `
+    /// ` self: QLowEnergyCharacteristic `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Descriptors(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QLowEnergyDescriptor {
-        const _arr: qtc.libqt_list = qtc.QLowEnergyCharacteristic_Descriptors(@ptrCast(self));
+    pub fn Descriptors(self: QLowEnergyCharacteristic, allocator: std.mem.Allocator) []QLowEnergyDescriptor {
+        const _arr: qtc.libqt_list = qtc.QLowEnergyCharacteristic_Descriptors(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QLowEnergyDescriptor, _arr.len) catch @panic("qlowenergycharacteristic.Descriptors: Memory allocation failed");
+        const _ret = allocator.alloc(QLowEnergyDescriptor, _arr.len) catch @panic("qlowenergycharacteristic.Descriptors: Memory allocation failed");
         const _data: [*]QtC.QLowEnergyDescriptor = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -122,20 +136,20 @@ pub const qlowenergycharacteristic = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLowEnergyCharacteristic `
+    /// ` self: QLowEnergyCharacteristic `
     ///
-    pub fn ClientCharacteristicConfiguration(self: ?*anyopaque) QtC.QLowEnergyDescriptor {
-        return qtc.QLowEnergyCharacteristic_ClientCharacteristicConfiguration(@ptrCast(self));
+    pub fn ClientCharacteristicConfiguration(self: QLowEnergyCharacteristic) QLowEnergyDescriptor {
+        return .{ .ptr = qtc.QLowEnergyCharacteristic_ClientCharacteristicConfiguration(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergycharacteristic.html#isValid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLowEnergyCharacteristic `
+    /// ` self: QLowEnergyCharacteristic `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.QLowEnergyCharacteristic_IsValid(@ptrCast(self));
+    pub fn IsValid(self: QLowEnergyCharacteristic) bool {
+        return qtc.QLowEnergyCharacteristic_IsValid(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -148,10 +162,10 @@ pub const qlowenergycharacteristic = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QLowEnergyCharacteristic `
+    /// ` self: QLowEnergyCharacteristic `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QLowEnergyCharacteristic_Delete(@ptrCast(self));
+    pub fn Delete(self: QLowEnergyCharacteristic) void {
+        qtc.QLowEnergyCharacteristic_Delete(@ptrCast(self.ptr));
     }
 };
 

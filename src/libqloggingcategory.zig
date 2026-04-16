@@ -3,67 +3,74 @@ const qtc = @import("qt6c");
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html)
-pub const qloggingcategory = struct {
+pub const QLoggingCategory = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QLoggingCategory,
+
+    pub const _is_QLoggingCategory = {};
+
     /// New constructs a new QLoggingCategory object.
     ///
     /// ## Parameter(s):
     ///
     /// ` category: [:0]const u8 `
     ///
-    pub fn New(category: [:0]const u8) QtC.QLoggingCategory {
+    pub fn New(category: [:0]const u8) QLoggingCategory {
         const category_Cstring = category.ptr;
-
-        return qtc.QLoggingCategory_new(category_Cstring);
+        return .{ .ptr = qtc.QLoggingCategory_new(category_Cstring) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#isDebugEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLoggingCategory `
+    /// ` self: QLoggingCategory `
     ///
-    pub fn IsDebugEnabled(self: ?*anyopaque) bool {
-        return qtc.QLoggingCategory_IsDebugEnabled(@ptrCast(self));
+    pub fn IsDebugEnabled(self: QLoggingCategory) bool {
+        return qtc.QLoggingCategory_IsDebugEnabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#isInfoEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLoggingCategory `
+    /// ` self: QLoggingCategory `
     ///
-    pub fn IsInfoEnabled(self: ?*anyopaque) bool {
-        return qtc.QLoggingCategory_IsInfoEnabled(@ptrCast(self));
+    pub fn IsInfoEnabled(self: QLoggingCategory) bool {
+        return qtc.QLoggingCategory_IsInfoEnabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#isWarningEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLoggingCategory `
+    /// ` self: QLoggingCategory `
     ///
-    pub fn IsWarningEnabled(self: ?*anyopaque) bool {
-        return qtc.QLoggingCategory_IsWarningEnabled(@ptrCast(self));
+    pub fn IsWarningEnabled(self: QLoggingCategory) bool {
+        return qtc.QLoggingCategory_IsWarningEnabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#isCriticalEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLoggingCategory `
+    /// ` self: QLoggingCategory `
     ///
-    pub fn IsCriticalEnabled(self: ?*anyopaque) bool {
-        return qtc.QLoggingCategory_IsCriticalEnabled(@ptrCast(self));
+    pub fn IsCriticalEnabled(self: QLoggingCategory) bool {
+        return qtc.QLoggingCategory_IsCriticalEnabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#categoryName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLoggingCategory `
+    /// ` self: QLoggingCategory `
     ///
-    pub fn CategoryName(self: ?*anyopaque) [:0]const u8 {
-        const _ret = qtc.QLoggingCategory_CategoryName(@ptrCast(self));
+    pub fn CategoryName(self: QLoggingCategory) [:0]const u8 {
+        const _ret = qtc.QLoggingCategory_CategoryName(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
 
@@ -71,39 +78,39 @@ pub const qloggingcategory = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLoggingCategory `
+    /// ` self: QLoggingCategory `
     ///
-    pub fn OperatorCall(self: ?*anyopaque) QtC.QLoggingCategory {
-        return qtc.QLoggingCategory_OperatorCall(@ptrCast(self));
+    pub fn OperatorCall(self: QLoggingCategory) QLoggingCategory {
+        return .{ .ptr = qtc.QLoggingCategory_OperatorCall(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#operator-28-29)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLoggingCategory `
+    /// ` self: QLoggingCategory `
     ///
-    pub fn OperatorCall2(self: ?*anyopaque) QtC.QLoggingCategory {
-        return qtc.QLoggingCategory_OperatorCall2(@ptrCast(self));
+    pub fn OperatorCall2(self: QLoggingCategory) QLoggingCategory {
+        return .{ .ptr = qtc.QLoggingCategory_OperatorCall2(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#defaultCategory)
     ///
-    pub fn DefaultCategory() QtC.QLoggingCategory {
-        return qtc.QLoggingCategory_DefaultCategory();
+    pub fn DefaultCategory() QLoggingCategory {
+        return .{ .ptr = qtc.QLoggingCategory_DefaultCategory() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qloggingcategory.html#installFilter)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: *const fn (funcparam1: QtC.QLoggingCategory) callconv(.c) void `
+    /// ` param1: *const fn (funcparam1: QLoggingCategory) callconv(.c) void `
     ///
     /// ## Returns:
     ///
-    /// ` ?*const fn (funcparam1: QtC.QLoggingCategory) callconv(.c) void `
+    /// ` ?*const fn (funcparam1: QLoggingCategory) callconv(.c) void `
     ///
-    pub fn InstallFilter(param1: *const fn (?*anyopaque) callconv(.c) void) ?*const fn (?*anyopaque) callconv(.c) void {
+    pub fn InstallFilter(param1: *const fn (QLoggingCategory) callconv(.c) void) ?*const fn (QLoggingCategory) callconv(.c) void {
         return @ptrFromInt(@as(usize, @bitCast(qtc.QLoggingCategory_InstallFilter(@bitCast(@intFromPtr(param1))))));
     }
 
@@ -131,9 +138,9 @@ pub const qloggingcategory = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QLoggingCategory `
+    /// ` self: QLoggingCategory `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QLoggingCategory_Delete(@ptrCast(self));
+    pub fn Delete(self: QLoggingCategory) void {
+        qtc.QLoggingCategory_Delete(@ptrCast(self.ptr));
     }
 };

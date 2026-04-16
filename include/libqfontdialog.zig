@@ -1,5 +1,63 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAction = @import("libqt6").QAction;
+const QActionEvent = @import("libqt6").QActionEvent;
+const QBackingStore = @import("libqt6").QBackingStore;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBitmap = @import("libqt6").QBitmap;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QCloseEvent = @import("libqt6").QCloseEvent;
+const QContextMenuEvent = @import("libqt6").QContextMenuEvent;
+const QCursor = @import("libqt6").QCursor;
+const QDragEnterEvent = @import("libqt6").QDragEnterEvent;
+const QDragLeaveEvent = @import("libqt6").QDragLeaveEvent;
+const QDragMoveEvent = @import("libqt6").QDragMoveEvent;
+const QDropEvent = @import("libqt6").QDropEvent;
+const QEnterEvent = @import("libqt6").QEnterEvent;
+const QEvent = @import("libqt6").QEvent;
+const QFocusEvent = @import("libqt6").QFocusEvent;
+const QFont = @import("libqt6").QFont;
+const QFontInfo = @import("libqt6").QFontInfo;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QGraphicsEffect = @import("libqt6").QGraphicsEffect;
+const QGraphicsProxyWidget = @import("libqt6").QGraphicsProxyWidget;
+const QHideEvent = @import("libqt6").QHideEvent;
+const QIcon = @import("libqt6").QIcon;
+const QInputMethodEvent = @import("libqt6").QInputMethodEvent;
+const QKeyEvent = @import("libqt6").QKeyEvent;
+const QKeySequence = @import("libqt6").QKeySequence;
+const QLayout = @import("libqt6").QLayout;
+const QLocale = @import("libqt6").QLocale;
+const QMargins = @import("libqt6").QMargins;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMouseEvent = @import("libqt6").QMouseEvent;
+const QMoveEvent = @import("libqt6").QMoveEvent;
+const QObject = @import("libqt6").QObject;
+const QPaintDevice = @import("libqt6").QPaintDevice;
+const QPaintEngine = @import("libqt6").QPaintEngine;
+const QPaintEvent = @import("libqt6").QPaintEvent;
+const QPainter = @import("libqt6").QPainter;
+const QPalette = @import("libqt6").QPalette;
+const QPixmap = @import("libqt6").QPixmap;
+const QPoint = @import("libqt6").QPoint;
+const QPointF = @import("libqt6").QPointF;
+const QRect = @import("libqt6").QRect;
+const QRegion = @import("libqt6").QRegion;
+const QResizeEvent = @import("libqt6").QResizeEvent;
+const QScreen = @import("libqt6").QScreen;
+const QShowEvent = @import("libqt6").QShowEvent;
+const QSize = @import("libqt6").QSize;
+const QSizePolicy = @import("libqt6").QSizePolicy;
+const QStyle = @import("libqt6").QStyle;
+const QTabletEvent = @import("libqt6").QTabletEvent;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
+const QWheelEvent = @import("libqt6").QWheelEvent;
+const QWidget = @import("libqt6").QWidget;
+const QWindow = @import("libqt6").QWindow;
 const qfontdialog_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
@@ -10,53 +68,69 @@ const qwidget_enums = @import("libqwidget.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html)
-pub const qfontdialog = struct {
+pub const QFontDialog = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QFontDialog,
+
+    pub const _is_QFontDialog = {};
+    pub const _is_QDialog = {};
+    pub const _is_QWidget = {};
+    pub const _is_QObject = {};
+    pub const _is_QPaintDevice = {};
+
     /// New constructs a new QFontDialog object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.QFontDialog {
-        return qtc.QFontDialog_new(@ptrCast(parent));
+    pub fn New(parent: anytype) QFontDialog {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QFontDialog_new(@ptrCast(parent.ptr)) };
     }
 
     /// New2 constructs a new QFontDialog object.
     ///
-    pub fn New2() QtC.QFontDialog {
-        return qtc.QFontDialog_new2();
+    pub fn New2() QFontDialog {
+        return .{ .ptr = qtc.QFontDialog_new2() };
     }
 
     /// New3 constructs a new QFontDialog object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` initial: QtC.QFont `
+    /// ` initial: QFont `
     ///
-    pub fn New3(initial: ?*anyopaque) QtC.QFontDialog {
-        return qtc.QFontDialog_new3(@ptrCast(initial));
+    pub fn New3(initial: anytype) QFontDialog {
+        comptime _ = @TypeOf(initial)._is_QFont;
+        return .{ .ptr = qtc.QFontDialog_new3(@ptrCast(initial.ptr)) };
     }
 
     /// New4 constructs a new QFontDialog object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` initial: QtC.QFont `
+    /// ` initial: QFont `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New4(initial: ?*anyopaque, parent: ?*anyopaque) QtC.QFontDialog {
-        return qtc.QFontDialog_new4(@ptrCast(initial), @ptrCast(parent));
+    pub fn New4(initial: anytype, parent: anytype) QFontDialog {
+        comptime _ = @TypeOf(initial)._is_QFont;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QFontDialog_new4(@ptrCast(initial.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QFontDialog_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QFontDialog) QMetaObject {
+        return .{ .ptr = qtc.QFontDialog_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -65,12 +139,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QFontDialog_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QFontDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QFontDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -83,33 +157,33 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QFontDialog_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QFontDialog) QMetaObject {
+        return .{ .ptr = qtc.QFontDialog_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QFontDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QFontDialog_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QFontDialog_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QFontDialog, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QFontDialog_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QFontDialog, callback: *const fn (QFontDialog, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QFontDialog_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -120,18 +194,18 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QFontDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QFontDialog_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QFontDialog_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -139,20 +213,20 @@ pub const qfontdialog = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QFontDialog_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QFontDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QFontDialog_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QFontDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QFontDialog_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QFontDialog, callback: *const fn (QFontDialog, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QFontDialog_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -163,7 +237,7 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -171,19 +245,19 @@ pub const qfontdialog = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QFontDialog_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QFontDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QFontDialog_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -196,94 +270,95 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetCurrentFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QFontDialog_SetCurrentFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetCurrentFont(self: QFontDialog, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QFontDialog_SetCurrentFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#currentFont)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn CurrentFont(self: ?*anyopaque) QtC.QFont {
-        return qtc.QFontDialog_CurrentFont(@ptrCast(self));
+    pub fn CurrentFont(self: QFontDialog) QFont {
+        return .{ .ptr = qtc.QFontDialog_CurrentFont(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#selectedFont)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SelectedFont(self: ?*anyopaque) QtC.QFont {
-        return qtc.QFontDialog_SelectedFont(@ptrCast(self));
+    pub fn SelectedFont(self: QFontDialog) QFont {
+        return .{ .ptr = qtc.QFontDialog_SelectedFont(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#setOption)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` option: qfontdialog_enums.FontDialogOption `
     ///
-    pub fn SetOption(self: ?*anyopaque, option: i32) void {
-        qtc.QFontDialog_SetOption(@ptrCast(self), @bitCast(option));
+    pub fn SetOption(self: QFontDialog, option: i32) void {
+        qtc.QFontDialog_SetOption(@ptrCast(self.ptr), @bitCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#testOption)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` option: qfontdialog_enums.FontDialogOption `
     ///
-    pub fn TestOption(self: ?*anyopaque, option: i32) bool {
-        return qtc.QFontDialog_TestOption(@ptrCast(self), @bitCast(option));
+    pub fn TestOption(self: QFontDialog, option: i32) bool {
+        return qtc.QFontDialog_TestOption(@ptrCast(self.ptr), @bitCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#setOptions)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` options: flag of qfontdialog_enums.FontDialogOption `
     ///
-    pub fn SetOptions(self: ?*anyopaque, options: i32) void {
-        qtc.QFontDialog_SetOptions(@ptrCast(self), @bitCast(options));
+    pub fn SetOptions(self: QFontDialog, options: i32) void {
+        qtc.QFontDialog_SetOptions(@ptrCast(self.ptr), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#options)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ## Returns:
     ///
     /// ` flag of qfontdialog_enums.FontDialogOption `
     ///
-    pub fn Options(self: ?*anyopaque) i32 {
-        return qtc.QFontDialog_Options(@ptrCast(self));
+    pub fn Options(self: QFontDialog) i32 {
+        return qtc.QFontDialog_Options(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#setVisible)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QFontDialog_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: QFontDialog, visible: bool) void {
+        qtc.QFontDialog_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#setVisible)
@@ -292,12 +367,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QFontDialog_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetVisible(self: QFontDialog, callback: *const fn (QFontDialog, bool) callconv(.c) void) void {
+        qtc.QFontDialog_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetVisible` instead
@@ -310,12 +385,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QFontDialog_SuperSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: QFontDialog, visible: bool) void {
+        qtc.QFontDialog_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#getFont)
@@ -324,8 +399,8 @@ pub const qfontdialog = struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn GetFont(ok: *bool) QtC.QFont {
-        return qtc.QFontDialog_GetFont(@ptrCast(ok));
+    pub fn GetFont(ok: *bool) QFont {
+        return .{ .ptr = qtc.QFontDialog_GetFont(@ptrCast(ok)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#getFont)
@@ -334,70 +409,74 @@ pub const qfontdialog = struct {
     ///
     /// ` ok: *bool `
     ///
-    /// ` initial: QtC.QFont `
+    /// ` initial: QFont `
     ///
-    pub fn GetFont2(ok: *bool, initial: ?*anyopaque) QtC.QFont {
-        return qtc.QFontDialog_GetFont2(@ptrCast(ok), @ptrCast(initial));
+    pub fn GetFont2(ok: *bool, initial: anytype) QFont {
+        comptime _ = @TypeOf(initial)._is_QFont;
+        return .{ .ptr = qtc.QFontDialog_GetFont2(@ptrCast(ok), @ptrCast(initial.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#currentFontChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn CurrentFontChanged(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QFontDialog_CurrentFontChanged(@ptrCast(self), @ptrCast(font));
+    pub fn CurrentFontChanged(self: QFontDialog, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QFontDialog_CurrentFontChanged(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#currentFontChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, font: QtC.QFont) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, font: QFont) callconv(.c) void `
     ///
-    pub fn OnCurrentFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_Connect_CurrentFontChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCurrentFontChanged(self: QFontDialog, callback: *const fn (QFontDialog, QFont) callconv(.c) void) void {
+        qtc.QFontDialog_Connect_CurrentFontChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#fontSelected)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn FontSelected(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QFontDialog_FontSelected(@ptrCast(self), @ptrCast(font));
+    pub fn FontSelected(self: QFontDialog, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QFontDialog_FontSelected(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#fontSelected)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, font: QtC.QFont) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, font: QFont) callconv(.c) void `
     ///
-    pub fn OnFontSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_Connect_FontSelected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFontSelected(self: QFontDialog, callback: *const fn (QFontDialog, QFont) callconv(.c) void) void {
+        qtc.QFontDialog_Connect_FontSelected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#changeEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn ChangeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_ChangeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChangeEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QFontDialog_ChangeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#changeEvent)
@@ -406,12 +485,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangeEvent(self: QFontDialog, callback: *const fn (QFontDialog, QEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperChangeEvent` instead
@@ -424,24 +503,25 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperChangeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_SuperChangeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChangeEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QFontDialog_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#done)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` result: i32 `
     ///
-    pub fn Done(self: ?*anyopaque, result: i32) void {
-        qtc.QFontDialog_Done(@ptrCast(self), @bitCast(result));
+    pub fn Done(self: QFontDialog, result: i32) void {
+        qtc.QFontDialog_Done(@ptrCast(self.ptr), @bitCast(result));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#done)
@@ -450,12 +530,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, result: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, result: i32) callconv(.c) void `
     ///
-    pub fn OnDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QFontDialog_OnDone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDone(self: QFontDialog, callback: *const fn (QFontDialog, i32) callconv(.c) void) void {
+        qtc.QFontDialog_OnDone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDone` instead
@@ -468,26 +548,28 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` result: i32 `
     ///
-    pub fn SuperDone(self: ?*anyopaque, result: i32) void {
-        qtc.QFontDialog_SuperDone(@ptrCast(self), @bitCast(result));
+    pub fn SuperDone(self: QFontDialog, result: i32) void {
+        qtc.QFontDialog_SuperDone(@ptrCast(self.ptr), @bitCast(result));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#eventFilter)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` object: QtC.QObject `
+    /// ` object: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QFontDialog_EventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
+    pub fn EventFilter(self: QFontDialog, object: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(object)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QFontDialog_EventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#eventFilter)
@@ -496,12 +578,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, object: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFontDialog, object: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFontDialog_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QFontDialog, callback: *const fn (QFontDialog, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QFontDialog_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -514,27 +596,29 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` object: QtC.QObject `
+    /// ` object: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, object: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QFontDialog_SuperEventFilter(@ptrCast(self), @ptrCast(object), @ptrCast(event));
+    pub fn SuperEventFilter(self: QFontDialog, object: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(object)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QFontDialog_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -548,15 +632,15 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -570,14 +654,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` option: qfontdialog_enums.FontDialogOption `
     ///
     /// ` on: bool `
     ///
-    pub fn SetOption2(self: ?*anyopaque, option: i32, on: bool) void {
-        qtc.QFontDialog_SetOption2(@ptrCast(self), @bitCast(option), on);
+    pub fn SetOption2(self: QFontDialog, option: i32, on: bool) void {
+        qtc.QFontDialog_SetOption2(@ptrCast(self.ptr), @bitCast(option), on);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#getFont)
@@ -586,10 +670,11 @@ pub const qfontdialog = struct {
     ///
     /// ` ok: *bool `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn GetFont22(ok: *bool, parent: ?*anyopaque) QtC.QFont {
-        return qtc.QFontDialog_GetFont22(@ptrCast(ok), @ptrCast(parent));
+    pub fn GetFont22(ok: *bool, parent: anytype) QFont {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QFontDialog_GetFont22(@ptrCast(ok), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#getFont)
@@ -598,12 +683,14 @@ pub const qfontdialog = struct {
     ///
     /// ` ok: *bool `
     ///
-    /// ` initial: QtC.QFont `
+    /// ` initial: QFont `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn GetFont3(ok: *bool, initial: ?*anyopaque, parent: ?*anyopaque) QtC.QFont {
-        return qtc.QFontDialog_GetFont3(@ptrCast(ok), @ptrCast(initial), @ptrCast(parent));
+    pub fn GetFont3(ok: *bool, initial: anytype, parent: anytype) QFont {
+        comptime _ = @TypeOf(initial)._is_QFont;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QFontDialog_GetFont3(@ptrCast(ok), @ptrCast(initial.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#getFont)
@@ -612,18 +699,20 @@ pub const qfontdialog = struct {
     ///
     /// ` ok: *bool `
     ///
-    /// ` initial: QtC.QFont `
+    /// ` initial: QFont `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn GetFont4(ok: *bool, initial: ?*anyopaque, parent: ?*anyopaque, title: []const u8) QtC.QFont {
+    pub fn GetFont4(ok: *bool, initial: anytype, parent: anytype, title: []const u8) QFont {
+        comptime _ = @TypeOf(initial)._is_QFont;
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        return qtc.QFontDialog_GetFont4(@ptrCast(ok), @ptrCast(initial), @ptrCast(parent), title_str);
+        return .{ .ptr = qtc.QFontDialog_GetFont4(@ptrCast(ok), @ptrCast(initial.ptr), @ptrCast(parent.ptr), title_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontdialog.html#getFont)
@@ -632,20 +721,22 @@ pub const qfontdialog = struct {
     ///
     /// ` ok: *bool `
     ///
-    /// ` initial: QtC.QFont `
+    /// ` initial: QFont `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
     /// ` options: flag of qfontdialog_enums.FontDialogOption `
     ///
-    pub fn GetFont5(ok: *bool, initial: ?*anyopaque, parent: ?*anyopaque, title: []const u8, options: i32) QtC.QFont {
+    pub fn GetFont5(ok: *bool, initial: anytype, parent: anytype, title: []const u8, options: i32) QFont {
+        comptime _ = @TypeOf(initial)._is_QFont;
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        return qtc.QFontDialog_GetFont5(@ptrCast(ok), @ptrCast(initial), @ptrCast(parent), title_str, @bitCast(options));
+        return .{ .ptr = qtc.QFontDialog_GetFont5(@ptrCast(ok), @ptrCast(initial.ptr), @ptrCast(parent.ptr), title_str, @bitCast(options)) };
     }
 
     /// Inherited from QDialog
@@ -654,10 +745,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Result(self: ?*anyopaque) i32 {
-        return qtc.QDialog_Result(@ptrCast(self));
+    pub fn Result(self: QFontDialog) i32 {
+        return qtc.QDialog_Result(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -666,12 +757,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` sizeGripEnabled: bool `
     ///
-    pub fn SetSizeGripEnabled(self: ?*anyopaque, sizeGripEnabled: bool) void {
-        qtc.QDialog_SetSizeGripEnabled(@ptrCast(self), sizeGripEnabled);
+    pub fn SetSizeGripEnabled(self: QFontDialog, sizeGripEnabled: bool) void {
+        qtc.QDialog_SetSizeGripEnabled(@ptrCast(self.ptr), sizeGripEnabled);
     }
 
     /// Inherited from QDialog
@@ -680,10 +771,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn IsSizeGripEnabled(self: ?*anyopaque) bool {
-        return qtc.QDialog_IsSizeGripEnabled(@ptrCast(self));
+    pub fn IsSizeGripEnabled(self: QFontDialog) bool {
+        return qtc.QDialog_IsSizeGripEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -692,12 +783,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` modal: bool `
     ///
-    pub fn SetModal(self: ?*anyopaque, modal: bool) void {
-        qtc.QDialog_SetModal(@ptrCast(self), modal);
+    pub fn SetModal(self: QFontDialog, modal: bool) void {
+        qtc.QDialog_SetModal(@ptrCast(self.ptr), modal);
     }
 
     /// Inherited from QDialog
@@ -706,12 +797,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` r: i32 `
     ///
-    pub fn SetResult(self: ?*anyopaque, r: i32) void {
-        qtc.QDialog_SetResult(@ptrCast(self), @bitCast(r));
+    pub fn SetResult(self: QFontDialog, r: i32) void {
+        qtc.QDialog_SetResult(@ptrCast(self.ptr), @bitCast(r));
     }
 
     /// Inherited from QDialog
@@ -720,12 +811,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` result: i32 `
     ///
-    pub fn Finished(self: ?*anyopaque, result: i32) void {
-        qtc.QDialog_Finished(@ptrCast(self), @bitCast(result));
+    pub fn Finished(self: QFontDialog, result: i32) void {
+        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(result));
     }
 
     /// Inherited from QDialog
@@ -734,12 +825,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, result: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, result: i32) callconv(.c) void `
     ///
-    pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDialog_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFinished(self: QFontDialog, callback: *const fn (QFontDialog, i32) callconv(.c) void) void {
+        qtc.QDialog_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -748,10 +839,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Accepted(self: ?*anyopaque) void {
-        qtc.QDialog_Accepted(@ptrCast(self));
+    pub fn Accepted(self: QFontDialog) void {
+        qtc.QDialog_Accepted(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -760,12 +851,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog) callconv(.c) void `
     ///
-    pub fn OnAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QDialog_Connect_Accepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAccepted(self: QFontDialog, callback: *const fn (QFontDialog) callconv(.c) void) void {
+        qtc.QDialog_Connect_Accepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -774,10 +865,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Rejected(self: ?*anyopaque) void {
-        qtc.QDialog_Rejected(@ptrCast(self));
+    pub fn Rejected(self: QFontDialog) void {
+        qtc.QDialog_Rejected(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -786,12 +877,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog) callconv(.c) void `
     ///
-    pub fn OnRejected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QDialog_Connect_Rejected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRejected(self: QFontDialog, callback: *const fn (QFontDialog) callconv(.c) void) void {
+        qtc.QDialog_Connect_Rejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -800,10 +891,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn WinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_WinId(@ptrCast(self));
+    pub fn WinId(self: QFontDialog) usize {
+        return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -812,10 +903,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn CreateWinId(self: ?*anyopaque) void {
-        qtc.QWidget_CreateWinId(@ptrCast(self));
+    pub fn CreateWinId(self: QFontDialog) void {
+        qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -824,10 +915,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn InternalWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_InternalWinId(@ptrCast(self));
+    pub fn InternalWinId(self: QFontDialog) usize {
+        return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -836,10 +927,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
+    pub fn EffectiveWinId(self: QFontDialog) usize {
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -848,10 +939,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QWidget_Style(@ptrCast(self));
+    pub fn Style(self: QFontDialog) QStyle {
+        return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -860,12 +951,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetStyle(self: QFontDialog, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// Inherited from QWidget
@@ -874,10 +966,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsTopLevel(@ptrCast(self));
+    pub fn IsTopLevel(self: QFontDialog) bool {
+        return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -886,10 +978,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn IsWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindow(@ptrCast(self));
+    pub fn IsWindow(self: QFontDialog) bool {
+        return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -898,10 +990,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn IsModal(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsModal(@ptrCast(self));
+    pub fn IsModal(self: QFontDialog) bool {
+        return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -910,14 +1002,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowModality(@ptrCast(self));
+    pub fn WindowModality(self: QFontDialog) i32 {
+        return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -926,12 +1018,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
+    pub fn SetWindowModality(self: QFontDialog, windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -940,10 +1032,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: QFontDialog) bool {
+        return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -952,12 +1044,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsEnabledTo(self: QFontDialog, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -966,12 +1059,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: QFontDialog, enabled: bool) void {
+        qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -980,12 +1073,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
+    pub fn SetDisabled(self: QFontDialog, disabled: bool) void {
+        qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
 
     /// Inherited from QWidget
@@ -994,12 +1087,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+    pub fn SetWindowModified(self: QFontDialog, windowModified: bool) void {
+        qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
 
     /// Inherited from QWidget
@@ -1008,10 +1101,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_FrameGeometry(@ptrCast(self));
+    pub fn FrameGeometry(self: QFontDialog) QRect {
+        return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1020,10 +1113,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Geometry(@ptrCast(self));
+    pub fn Geometry(self: QFontDialog) QRect {
+        return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1032,10 +1125,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_NormalGeometry(@ptrCast(self));
+    pub fn NormalGeometry(self: QFontDialog) QRect {
+        return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1044,10 +1137,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn X(self: ?*anyopaque) i32 {
-        return qtc.QWidget_X(@ptrCast(self));
+    pub fn X(self: QFontDialog) i32 {
+        return qtc.QWidget_X(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1056,10 +1149,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Y(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Y(@ptrCast(self));
+    pub fn Y(self: QFontDialog) i32 {
+        return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1068,10 +1161,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_Pos(@ptrCast(self));
+    pub fn Pos(self: QFontDialog) QPoint {
+        return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1080,10 +1173,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: QFontDialog) QSize {
+        return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1092,10 +1185,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_Size(@ptrCast(self));
+    pub fn Size(self: QFontDialog) QSize {
+        return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1104,10 +1197,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Width(@ptrCast(self));
+    pub fn Width(self: QFontDialog) i32 {
+        return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1116,10 +1209,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Height(@ptrCast(self));
+    pub fn Height(self: QFontDialog) i32 {
+        return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1128,10 +1221,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: QFontDialog) QRect {
+        return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1140,10 +1233,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ChildrenRect(@ptrCast(self));
+    pub fn ChildrenRect(self: QFontDialog) QRect {
+        return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1152,10 +1245,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
+    pub fn ChildrenRegion(self: QFontDialog) QRegion {
+        return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1164,10 +1257,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: QFontDialog) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1176,10 +1269,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: QFontDialog) QSize {
+        return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1188,10 +1281,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: QFontDialog) i32 {
+        return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1200,10 +1293,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: QFontDialog) i32 {
+        return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1212,10 +1305,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: QFontDialog) i32 {
+        return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1224,10 +1317,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: QFontDialog) i32 {
+        return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1236,12 +1329,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` minimumSize: QtC.QSize `
+    /// ` minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+    pub fn SetMinimumSize(self: QFontDialog, minimumSize: anytype) void {
+        comptime _ = @TypeOf(minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1250,14 +1344,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` minw: i32 `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
+    pub fn SetMinimumSize2(self: QFontDialog, minw: i32, minh: i32) void {
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -1266,12 +1360,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` maximumSize: QtC.QSize `
+    /// ` maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+    pub fn SetMaximumSize(self: QFontDialog, maximumSize: anytype) void {
+        comptime _ = @TypeOf(maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1280,14 +1375,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` maxw: i32 `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
+    pub fn SetMaximumSize2(self: QFontDialog, maxw: i32, maxh: i32) void {
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -1296,12 +1391,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
+    pub fn SetMinimumWidth(self: QFontDialog, minw: i32) void {
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -1310,12 +1405,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
+    pub fn SetMinimumHeight(self: QFontDialog, minh: i32) void {
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -1324,12 +1419,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
+    pub fn SetMaximumWidth(self: QFontDialog, maxw: i32) void {
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -1338,12 +1433,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
+    pub fn SetMaximumHeight(self: QFontDialog, maxh: i32) void {
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -1352,10 +1447,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeIncrement(@ptrCast(self));
+    pub fn SizeIncrement(self: QFontDialog) QSize {
+        return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1364,12 +1459,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` sizeIncrement: QtC.QSize `
+    /// ` sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+    pub fn SetSizeIncrement(self: QFontDialog, sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
     }
 
     /// Inherited from QWidget
@@ -1378,14 +1474,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetSizeIncrement2(self: QFontDialog, w: i32, h: i32) void {
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1394,10 +1490,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_BaseSize(@ptrCast(self));
+    pub fn BaseSize(self: QFontDialog) QSize {
+        return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1406,12 +1502,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` baseSize: QtC.QSize `
+    /// ` baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+    pub fn SetBaseSize(self: QFontDialog, baseSize: anytype) void {
+        comptime _ = @TypeOf(baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1420,14 +1517,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` basew: i32 `
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
+    pub fn SetBaseSize2(self: QFontDialog, basew: i32, baseh: i32) void {
+        qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -1436,12 +1533,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` fixedSize: QtC.QSize `
+    /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+    pub fn SetFixedSize(self: QFontDialog, fixedSize: anytype) void {
+        comptime _ = @TypeOf(fixedSize)._is_QSize;
+        qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1450,14 +1548,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetFixedSize2(self: QFontDialog, w: i32, h: i32) void {
+        qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1466,12 +1564,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetFixedWidth(self: QFontDialog, w: i32) void {
+        qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -1480,12 +1578,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
+    pub fn SetFixedHeight(self: QFontDialog, h: i32) void {
+        qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1494,12 +1592,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal(self: QFontDialog, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1508,12 +1607,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: QFontDialog, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1522,12 +1622,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal(self: QFontDialog, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1536,12 +1637,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: QFontDialog, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1550,12 +1652,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent(self: QFontDialog, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1564,12 +1667,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: QFontDialog, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1578,12 +1682,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent(self: QFontDialog, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1592,12 +1697,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: QFontDialog, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1606,14 +1712,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo(self: QFontDialog, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1622,14 +1730,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo2(self: QFontDialog, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1638,14 +1748,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom(self: QFontDialog, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1654,14 +1766,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom2(self: QFontDialog, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1670,10 +1784,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_Window(@ptrCast(self));
+    pub fn Window(self: QFontDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1682,10 +1796,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
+    pub fn NativeParentWidget(self: QFontDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1694,10 +1808,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
+    pub fn TopLevelWidget(self: QFontDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1706,10 +1820,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QWidget_Palette(@ptrCast(self));
+    pub fn Palette(self: QFontDialog) QPalette {
+        return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1718,12 +1832,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn SetPalette(self: QFontDialog, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// Inherited from QWidget
@@ -1732,12 +1847,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
+    pub fn SetBackgroundRole(self: QFontDialog, backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -1746,14 +1861,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_BackgroundRole(@ptrCast(self));
+    pub fn BackgroundRole(self: QFontDialog) i32 {
+        return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1762,12 +1877,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
+    pub fn SetForegroundRole(self: QFontDialog, foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -1776,14 +1891,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ForegroundRole(@ptrCast(self));
+    pub fn ForegroundRole(self: QFontDialog) i32 {
+        return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1792,10 +1907,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QWidget_Font(@ptrCast(self));
+    pub fn Font(self: QFontDialog) QFont {
+        return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1804,12 +1919,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: QFontDialog, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QWidget
@@ -1818,10 +1934,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QWidget_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: QFontDialog) QFontMetrics {
+        return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1830,10 +1946,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QWidget_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: QFontDialog) QFontInfo {
+        return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1842,10 +1958,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
-        return qtc.QWidget_Cursor(@ptrCast(self));
+    pub fn Cursor(self: QFontDialog) QCursor {
+        return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1854,12 +1970,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetCursor(self: QFontDialog, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QWidget
@@ -1868,10 +1985,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn UnsetCursor(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetCursor(@ptrCast(self));
+    pub fn UnsetCursor(self: QFontDialog) void {
+        qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1880,12 +1997,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
+    pub fn SetMouseTracking(self: QFontDialog, enable: bool) void {
+        qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -1894,10 +2011,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
+    pub fn HasMouseTracking(self: QFontDialog) bool {
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1906,10 +2023,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.QWidget_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: QFontDialog) bool {
+        return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1918,12 +2035,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
+    pub fn SetTabletTracking(self: QFontDialog, enable: bool) void {
+        qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -1932,10 +2049,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
+    pub fn HasTabletTracking(self: QFontDialog) bool {
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1944,12 +2061,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` mask: QtC.QBitmap `
+    /// ` mask: QBitmap `
     ///
-    pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask(self: QFontDialog, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -1958,12 +2076,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` mask: QtC.QRegion `
+    /// ` mask: QRegion `
     ///
-    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: QFontDialog, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -1972,10 +2091,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_Mask(@ptrCast(self));
+    pub fn Mask(self: QFontDialog) QRegion {
+        return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1984,10 +2103,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn ClearMask(self: ?*anyopaque) void {
-        qtc.QWidget_ClearMask(@ptrCast(self));
+    pub fn ClearMask(self: QFontDialog) void {
+        qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1996,12 +2115,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
+    pub fn Render(self: QFontDialog, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QWidget
@@ -2010,12 +2130,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: QFontDialog, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -2024,10 +2145,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab(@ptrCast(self));
+    pub fn Grab(self: QFontDialog) QPixmap {
+        return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2036,10 +2157,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
-        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
+    pub fn GraphicsEffect(self: QFontDialog) QGraphicsEffect {
+        return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2048,12 +2169,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` effect: QtC.QGraphicsEffect `
+    /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+    pub fn SetGraphicsEffect(self: QFontDialog, effect: anytype) void {
+        comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
 
     /// Inherited from QWidget
@@ -2062,12 +2184,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn GrabGesture(self: QFontDialog, typeVal: i32) void {
+        qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -2076,12 +2198,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn UngrabGesture(self: QFontDialog, typeVal: i32) void {
+        qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -2090,16 +2212,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
+    pub fn SetWindowTitle(self: QFontDialog, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
-        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
 
     /// Inherited from QWidget
@@ -2108,16 +2230,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
+    pub fn SetStyleSheet(self: QFontDialog, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
-        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
 
     /// Inherited from QWidget
@@ -2126,12 +2248,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: QFontDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontdialog.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2144,12 +2266,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+    pub fn WindowTitle(self: QFontDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontdialog.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2162,12 +2284,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetWindowIcon(self: QFontDialog, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -2176,10 +2299,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QWidget_WindowIcon(@ptrCast(self));
+    pub fn WindowIcon(self: QFontDialog) QIcon {
+        return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2188,16 +2311,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
+    pub fn SetWindowIconText(self: QFontDialog, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
-        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
 
     /// Inherited from QWidget
@@ -2206,12 +2329,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+    pub fn WindowIconText(self: QFontDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontdialog.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2224,16 +2347,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
+    pub fn SetWindowRole(self: QFontDialog, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
-        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
 
     /// Inherited from QWidget
@@ -2242,12 +2365,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
+    pub fn WindowRole(self: QFontDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontdialog.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2260,16 +2383,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
+    pub fn SetWindowFilePath(self: QFontDialog, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
 
     /// Inherited from QWidget
@@ -2278,12 +2401,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+    pub fn WindowFilePath(self: QFontDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontdialog.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2296,12 +2419,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetWindowOpacity(self: QFontDialog, level: f64) void {
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -2310,10 +2433,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return qtc.QWidget_WindowOpacity(@ptrCast(self));
+    pub fn WindowOpacity(self: QFontDialog) f64 {
+        return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2322,10 +2445,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindowModified(@ptrCast(self));
+    pub fn IsWindowModified(self: QFontDialog) bool {
+        return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2334,16 +2457,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: QFontDialog, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// Inherited from QWidget
@@ -2352,12 +2475,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: QFontDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontdialog.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2370,12 +2493,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
+    pub fn SetToolTipDuration(self: QFontDialog, msec: i32) void {
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -2384,10 +2507,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
+    pub fn ToolTipDuration(self: QFontDialog) i32 {
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2396,16 +2519,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: QFontDialog, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QWidget
@@ -2414,12 +2537,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: QFontDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontdialog.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2432,16 +2555,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: QFontDialog, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// Inherited from QWidget
@@ -2450,12 +2573,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: QFontDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontdialog.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2468,12 +2591,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+    pub fn AccessibleName(self: QFontDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontdialog.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2486,16 +2609,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetAccessibleName(self: QFontDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QWidget
@@ -2504,12 +2627,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+    pub fn AccessibleDescription(self: QFontDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontdialog.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2522,16 +2645,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetAccessibleDescription(self: QFontDialog, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// Inherited from QWidget
@@ -2540,12 +2663,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: QFontDialog, direction: i32) void {
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -2554,14 +2677,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QWidget_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: QFontDialog) i32 {
+        return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2570,10 +2693,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
+    pub fn UnsetLayoutDirection(self: QFontDialog) void {
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2582,12 +2705,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: QFontDialog, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// Inherited from QWidget
@@ -2596,10 +2720,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QWidget_Locale(@ptrCast(self));
+    pub fn Locale(self: QFontDialog) QLocale {
+        return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2608,10 +2732,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn UnsetLocale(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLocale(@ptrCast(self));
+    pub fn UnsetLocale(self: QFontDialog) void {
+        qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2620,10 +2744,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
+    pub fn IsRightToLeft(self: QFontDialog) bool {
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2632,10 +2756,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
+    pub fn IsLeftToRight(self: QFontDialog) bool {
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2644,10 +2768,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SetFocus(self: ?*anyopaque) void {
-        qtc.QWidget_SetFocus(@ptrCast(self));
+    pub fn SetFocus(self: QFontDialog) void {
+        qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2656,10 +2780,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
+    pub fn IsActiveWindow(self: QFontDialog) bool {
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2668,10 +2792,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn ActivateWindow(self: ?*anyopaque) void {
-        qtc.QWidget_ActivateWindow(@ptrCast(self));
+    pub fn ActivateWindow(self: QFontDialog) void {
+        qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2680,10 +2804,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn ClearFocus(self: ?*anyopaque) void {
-        qtc.QWidget_ClearFocus(@ptrCast(self));
+    pub fn ClearFocus(self: QFontDialog) void {
+        qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2692,12 +2816,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
+    pub fn SetFocus2(self: QFontDialog, reason: i32) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -2706,14 +2830,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_FocusPolicy(@ptrCast(self));
+    pub fn FocusPolicy(self: QFontDialog) i32 {
+        return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2722,12 +2846,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetFocusPolicy(self: QFontDialog, policy: i32) void {
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -2736,10 +2860,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn HasFocus(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasFocus(@ptrCast(self));
+    pub fn HasFocus(self: QFontDialog) bool {
+        return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2748,12 +2872,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QWidget `
+    /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QWidget;
+        qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidget
@@ -2762,12 +2888,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` focusProxy: QtC.QWidget `
+    /// ` focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+    pub fn SetFocusProxy(self: QFontDialog, focusProxy: anytype) void {
+        comptime _ = @TypeOf(focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
     }
 
     /// Inherited from QWidget
@@ -2776,10 +2903,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusProxy(@ptrCast(self));
+    pub fn FocusProxy(self: QFontDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2788,14 +2915,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
+    pub fn ContextMenuPolicy(self: QFontDialog) i32 {
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2804,12 +2931,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetContextMenuPolicy(self: QFontDialog, policy: i32) void {
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -2818,10 +2945,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn GrabMouse(self: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse(@ptrCast(self));
+    pub fn GrabMouse(self: QFontDialog) void {
+        qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2830,12 +2957,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: QFontDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -2844,10 +2972,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn ReleaseMouse(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseMouse(@ptrCast(self));
+    pub fn ReleaseMouse(self: QFontDialog) void {
+        qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2856,10 +2984,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn GrabKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_GrabKeyboard(@ptrCast(self));
+    pub fn GrabKeyboard(self: QFontDialog) void {
+        qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2868,10 +2996,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
+    pub fn ReleaseKeyboard(self: QFontDialog) void {
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2880,12 +3008,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+    pub fn GrabShortcut(self: QFontDialog, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// Inherited from QWidget
@@ -2894,12 +3023,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
+    pub fn ReleaseShortcut(self: QFontDialog, id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -2908,12 +3037,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutEnabled(self: QFontDialog, id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -2922,28 +3051,28 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutAutoRepeat(self: QFontDialog, id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QtC.QWidget {
-        return qtc.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QtC.QWidget {
-        return qtc.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
 
     /// Inherited from QWidget
@@ -2952,10 +3081,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
+    pub fn UpdatesEnabled(self: QFontDialog) bool {
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2964,12 +3093,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+    pub fn SetUpdatesEnabled(self: QFontDialog, enable: bool) void {
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -2978,10 +3107,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    pub fn GraphicsProxyWidget(self: QFontDialog) QGraphicsProxyWidget {
+        return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2990,10 +3119,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Update(self: ?*anyopaque) void {
-        qtc.QWidget_Update(@ptrCast(self));
+    pub fn Update(self: QFontDialog) void {
+        qtc.QWidget_Update(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3002,10 +3131,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Repaint(self: ?*anyopaque) void {
-        qtc.QWidget_Repaint(@ptrCast(self));
+    pub fn Repaint(self: QFontDialog) void {
+        qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3014,7 +3143,7 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` x: i32 `
     ///
@@ -3024,8 +3153,8 @@ pub const qfontdialog = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Update2(self: QFontDialog, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3034,12 +3163,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: QFontDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3048,12 +3178,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: QFontDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3062,7 +3193,7 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` x: i32 `
     ///
@@ -3072,8 +3203,8 @@ pub const qfontdialog = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Repaint2(self: QFontDialog, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3082,12 +3213,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: QFontDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3096,12 +3228,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: QFontDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3110,12 +3243,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
+    pub fn SetHidden(self: QFontDialog, hidden: bool) void {
+        qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
 
     /// Inherited from QWidget
@@ -3124,10 +3257,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QWidget_Show(@ptrCast(self));
+    pub fn Show(self: QFontDialog) void {
+        qtc.QWidget_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3136,10 +3269,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QWidget_Hide(@ptrCast(self));
+    pub fn Hide(self: QFontDialog) void {
+        qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3148,10 +3281,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn ShowMinimized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMinimized(@ptrCast(self));
+    pub fn ShowMinimized(self: QFontDialog) void {
+        qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3160,10 +3293,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn ShowMaximized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMaximized(@ptrCast(self));
+    pub fn ShowMaximized(self: QFontDialog) void {
+        qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3172,10 +3305,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn ShowFullScreen(self: ?*anyopaque) void {
-        qtc.QWidget_ShowFullScreen(@ptrCast(self));
+    pub fn ShowFullScreen(self: QFontDialog) void {
+        qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3184,10 +3317,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn ShowNormal(self: ?*anyopaque) void {
-        qtc.QWidget_ShowNormal(@ptrCast(self));
+    pub fn ShowNormal(self: QFontDialog) void {
+        qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3196,10 +3329,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Close(self: ?*anyopaque) bool {
-        return qtc.QWidget_Close(@ptrCast(self));
+    pub fn Close(self: QFontDialog) bool {
+        return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3208,10 +3341,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Raise(self: ?*anyopaque) void {
-        qtc.QWidget_Raise(@ptrCast(self));
+    pub fn Raise(self: QFontDialog) void {
+        qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3220,10 +3353,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Lower(self: ?*anyopaque) void {
-        qtc.QWidget_Lower(@ptrCast(self));
+    pub fn Lower(self: QFontDialog) void {
+        qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3232,12 +3365,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+    pub fn StackUnder(self: QFontDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3246,14 +3380,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn Move(self: QFontDialog, x: i32, y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -3262,12 +3396,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: QFontDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3276,14 +3411,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn Resize(self: QFontDialog, w: i32, h: i32) void {
+        qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3292,12 +3427,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QSize `
+    /// ` param1: QSize `
     ///
-    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: QFontDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3306,7 +3442,7 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` x: i32 `
     ///
@@ -3316,8 +3452,8 @@ pub const qfontdialog = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetGeometry(self: QFontDialog, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3326,12 +3462,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` geometry: QtC.QRect `
+    /// ` geometry: QRect `
     ///
-    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: QFontDialog, geometry: anytype) void {
+        comptime _ = @TypeOf(geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
     }
 
     /// Inherited from QWidget
@@ -3340,12 +3477,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+    pub fn SaveGeometry(self: QFontDialog, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfontdialog.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3358,16 +3495,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
+    pub fn RestoreGeometry(self: QFontDialog, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
-        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
 
     /// Inherited from QWidget
@@ -3376,10 +3513,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QWidget_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: QFontDialog) void {
+        qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3388,10 +3525,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: QFontDialog) bool {
+        return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3400,12 +3537,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsVisibleTo(self: QFontDialog, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3414,10 +3552,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn IsHidden(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsHidden(@ptrCast(self));
+    pub fn IsHidden(self: QFontDialog) bool {
+        return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3426,10 +3564,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn IsMinimized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMinimized(@ptrCast(self));
+    pub fn IsMinimized(self: QFontDialog) bool {
+        return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3438,10 +3576,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn IsMaximized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMaximized(@ptrCast(self));
+    pub fn IsMaximized(self: QFontDialog) bool {
+        return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3450,10 +3588,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsFullScreen(@ptrCast(self));
+    pub fn IsFullScreen(self: QFontDialog) bool {
+        return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3462,14 +3600,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowState(@ptrCast(self));
+    pub fn WindowState(self: QFontDialog) i32 {
+        return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3478,12 +3616,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
+    pub fn SetWindowState(self: QFontDialog, state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -3492,12 +3630,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
+    pub fn OverrideWindowState(self: QFontDialog, state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -3506,10 +3644,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QWidget_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: QFontDialog) QSizePolicy {
+        return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3518,12 +3656,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` sizePolicy: QtC.QSizePolicy `
+    /// ` sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
-        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    pub fn SetSizePolicy(self: QFontDialog, sizePolicy: anytype) void {
+        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
     }
 
     /// Inherited from QWidget
@@ -3532,14 +3671,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` horizontal: qsizepolicy_enums.Policy `
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
+    pub fn SetSizePolicy2(self: QFontDialog, horizontal: i32, vertical: i32) void {
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -3548,10 +3687,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_VisibleRegion(@ptrCast(self));
+    pub fn VisibleRegion(self: QFontDialog) QRegion {
+        return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3560,7 +3699,7 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` left: i32 `
     ///
@@ -3570,8 +3709,8 @@ pub const qfontdialog = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: QFontDialog, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -3580,12 +3719,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: QFontDialog, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QWidget
@@ -3594,10 +3734,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QWidget_ContentsMargins(@ptrCast(self));
+    pub fn ContentsMargins(self: QFontDialog) QMargins {
+        return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3606,10 +3746,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: QFontDialog) QRect {
+        return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3618,10 +3758,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidget_Layout(@ptrCast(self));
+    pub fn Layout(self: QFontDialog) QLayout {
+        return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3630,12 +3770,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` layout: QtC.QLayout `
+    /// ` layout: QLayout `
     ///
-    pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetLayout(self: QFontDialog, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// Inherited from QWidget
@@ -3644,10 +3785,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QWidget_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: QFontDialog) void {
+        qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3656,12 +3797,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QFontDialog, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QWidget
@@ -3670,14 +3812,15 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
+    pub fn SetParent2(self: QFontDialog, parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -3686,14 +3829,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Scroll(self: QFontDialog, dx: i32, dy: i32) void {
+        qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -3702,16 +3845,17 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    /// ` param3: QtC.QRect `
+    /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
+    pub fn Scroll2(self: QFontDialog, dx: i32, dy: i32, param3: anytype) void {
+        comptime _ = @TypeOf(param3)._is_QRect;
+        qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QWidget
@@ -3720,10 +3864,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusWidget(@ptrCast(self));
+    pub fn FocusWidget(self: QFontDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3732,10 +3876,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
+    pub fn NextInFocusChain(self: QFontDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3744,10 +3888,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
+    pub fn PreviousInFocusChain(self: QFontDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3756,10 +3900,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return qtc.QWidget_AcceptDrops(@ptrCast(self));
+    pub fn AcceptDrops(self: QFontDialog) bool {
+        return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3768,12 +3912,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
+    pub fn SetAcceptDrops(self: QFontDialog, on: bool) void {
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QWidget
@@ -3782,12 +3926,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+    pub fn AddAction(self: QFontDialog, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -3796,16 +3941,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn AddActions(self: QFontDialog, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -3814,18 +3959,19 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn InsertActions(self: QFontDialog, before: anytype, actions: []QAction) void {
+        comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -3834,14 +3980,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn InsertAction(self: QFontDialog, before: anytype, action: anytype) void {
+        comptime _ = @TypeOf(before)._is_QAction;
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -3850,12 +3998,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn RemoveAction(self: QFontDialog, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -3864,16 +4013,17 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+    pub fn Actions(self: QFontDialog, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qfontdialog.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qfontdialog.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -3883,16 +4033,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: QFontDialog, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction2(@ptrCast(self), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -3901,18 +4051,19 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: QFontDialog, icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -3921,18 +4072,19 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: QFontDialog, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3941,20 +4093,22 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: QFontDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3963,10 +4117,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: QFontDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3975,12 +4129,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetWindowFlags(self: QFontDialog, typeVal: i32) void {
+        qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -3989,14 +4143,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowFlags(@ptrCast(self));
+    pub fn WindowFlags(self: QFontDialog) i32 {
+        return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4005,12 +4159,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
+    pub fn SetWindowFlag(self: QFontDialog, param1: i32) void {
+        qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4019,12 +4173,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn OverrideWindowFlags(self: QFontDialog, typeVal: i32) void {
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -4033,14 +4187,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowType(@ptrCast(self));
+    pub fn WindowType(self: QFontDialog) i32 {
+        return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4051,8 +4205,8 @@ pub const qfontdialog = struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QtC.QWidget {
-        return qtc.QWidget_Find(@bitCast(param1));
+    pub fn Find(param1: usize) QWidget {
+        return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -4061,14 +4215,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: QFontDialog, x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QWidget
@@ -4077,12 +4231,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: QFontDialog, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4091,12 +4246,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: QFontDialog, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4105,12 +4261,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn SetAttribute(self: QFontDialog, param1: i32) void {
+        qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4119,12 +4275,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn TestAttribute(self: QFontDialog, param1: i32) bool {
+        return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4133,10 +4289,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn EnsurePolished(self: ?*anyopaque) void {
-        qtc.QWidget_EnsurePolished(@ptrCast(self));
+    pub fn EnsurePolished(self: QFontDialog) void {
+        qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4145,12 +4301,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` child: QtC.QWidget `
+    /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+    pub fn IsAncestorOf(self: QFontDialog, child: anytype) bool {
+        comptime _ = @TypeOf(child)._is_QWidget;
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from QWidget
@@ -4159,10 +4316,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
+    pub fn AutoFillBackground(self: QFontDialog) bool {
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4171,12 +4328,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+    pub fn SetAutoFillBackground(self: QFontDialog, enabled: bool) void {
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -4185,10 +4342,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
-        return qtc.QWidget_BackingStore(@ptrCast(self));
+    pub fn BackingStore(self: QFontDialog) QBackingStore {
+        return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4197,10 +4354,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QWidget_WindowHandle(@ptrCast(self));
+    pub fn WindowHandle(self: QFontDialog) QWindow {
+        return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4209,10 +4366,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
-        return qtc.QWidget_Screen(@ptrCast(self));
+    pub fn Screen(self: QFontDialog) QScreen {
+        return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4221,12 +4378,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+    pub fn SetScreen(self: QFontDialog, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QWidget
@@ -4235,10 +4393,11 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
+    pub fn CreateWindowContainer(window: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4247,16 +4406,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn WindowTitleChanged(self: QFontDialog, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QWidget
@@ -4265,12 +4424,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowTitleChanged(self: QFontDialog, callback: *const fn (QFontDialog, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4279,12 +4438,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+    pub fn WindowIconChanged(self: QFontDialog, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -4293,12 +4453,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, icon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconChanged(self: QFontDialog, callback: *const fn (QFontDialog, QIcon) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4307,16 +4467,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
+    pub fn WindowIconTextChanged(self: QFontDialog, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
-        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
 
     /// Inherited from QWidget
@@ -4325,12 +4485,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, iconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconTextChanged(self: QFontDialog, callback: *const fn (QFontDialog, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4339,12 +4499,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+    pub fn CustomContextMenuRequested(self: QFontDialog, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QWidget
@@ -4353,12 +4514,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomContextMenuRequested(self: QFontDialog, callback: *const fn (QFontDialog, QPoint) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4367,14 +4528,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i32 {
-        return qtc.QWidget_InputMethodHints(@ptrCast(self));
+    pub fn InputMethodHints(self: QFontDialog) i32 {
+        return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4383,12 +4544,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetInputMethodHints(self: QFontDialog, hints: i32) void {
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -4397,14 +4558,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: QFontDialog, target: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -4413,16 +4576,19 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render3(self: QFontDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -4431,18 +4597,21 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render4(self: QFontDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -4451,14 +4620,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: QFontDialog, painter: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -4467,16 +4638,19 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render32(self: QFontDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -4485,18 +4659,21 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render42(self: QFontDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -4505,12 +4682,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Grab1(self: QFontDialog, rectangle: anytype) QPixmap {
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4519,14 +4697,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
+    pub fn GrabGesture2(self: QFontDialog, typeVal: i32, flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -4535,14 +4713,15 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
+    pub fn GrabShortcut2(self: QFontDialog, key: anytype, context: i32) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -4551,14 +4730,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutEnabled2(self: QFontDialog, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -4567,14 +4746,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutAutoRepeat2(self: QFontDialog, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -4583,14 +4762,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetWindowFlag2(self: QFontDialog, param1: i32, on: bool) void {
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -4599,14 +4778,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetAttribute2(self: QFontDialog, param1: i32, on: bool) void {
+        qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -4615,12 +4794,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4629,14 +4810,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
+    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QObject
@@ -4645,12 +4828,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QFontDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontdialog.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4663,12 +4846,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QFontDialog, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -4677,10 +4860,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QFontDialog) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4689,10 +4872,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QFontDialog) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4701,10 +4884,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QFontDialog) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4713,10 +4896,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QFontDialog) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4725,12 +4908,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QFontDialog, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -4739,10 +4922,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QFontDialog) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -4751,12 +4934,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QFontDialog, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -4765,12 +4949,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QFontDialog, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -4779,12 +4963,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QFontDialog, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -4793,12 +4977,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QFontDialog, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4807,12 +4991,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QFontDialog, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4821,16 +5005,17 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QFontDialog, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qfontdialog.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qfontdialog.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -4840,12 +5025,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QFontDialog, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -4854,12 +5040,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QFontDialog, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -4868,18 +5055,20 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -4888,16 +5077,20 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -4906,18 +5099,19 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QFontDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -4926,18 +5120,20 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -4946,16 +5142,20 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -4964,10 +5164,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QFontDialog) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4976,12 +5176,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QFontDialog, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -4990,10 +5191,11 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -5002,10 +5204,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QFontDialog) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5014,10 +5216,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QFontDialog) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5026,15 +5228,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QFontDialog, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -5043,13 +5246,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QFontDialog, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -5058,17 +5261,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QFontDialog, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qfontdialog.DynamicPropertyNames: Memory allocation failed");
@@ -5087,10 +5289,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QFontDialog) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5099,10 +5301,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QFontDialog) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5111,10 +5313,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QFontDialog) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5123,12 +5325,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QFontDialog, callback: *const fn (QFontDialog) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5137,10 +5339,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QFontDialog) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5149,13 +5351,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QFontDialog, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -5164,10 +5366,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QFontDialog) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5176,14 +5378,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QFontDialog, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -5192,14 +5394,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QFontDialog, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -5208,20 +5410,22 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -5230,18 +5434,22 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -5250,9 +5458,9 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5260,10 +5468,11 @@ pub const qfontdialog = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QFontDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -5272,13 +5481,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QFontDialog, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5287,15 +5496,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QFontDialog, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -5304,18 +5514,19 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QFontDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5324,15 +5535,16 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QFontDialog, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5341,12 +5553,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QFontDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -5355,12 +5568,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QFontDialog, callback: *const fn (QFontDialog, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -5369,10 +5582,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: QFontDialog) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5381,10 +5594,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: QFontDialog) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5393,10 +5606,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: QFontDialog) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5405,10 +5618,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: QFontDialog) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5417,10 +5630,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: QFontDialog) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5429,10 +5642,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: QFontDialog) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5441,10 +5654,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: QFontDialog) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5453,10 +5666,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: QFontDialog) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5465,10 +5678,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: QFontDialog) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5477,10 +5690,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: QFontDialog) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5489,10 +5702,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: QFontDialog) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5525,10 +5738,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QFontDialog_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: QFontDialog) QSize {
+        return .{ .ptr = qtc.QFontDialog_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSizeHint` instead
@@ -5543,10 +5756,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QFontDialog_SuperSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: QFontDialog) QSize {
+        return .{ .ptr = qtc.QFontDialog_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QDialog
@@ -5557,12 +5770,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QFontDialog_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHint(self: QFontDialog, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QFontDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5573,10 +5786,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QFontDialog_MinimumSizeHint(@ptrCast(self));
+    pub fn MinimumSizeHint(self: QFontDialog) QSize {
+        return .{ .ptr = qtc.QFontDialog_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
@@ -5591,10 +5804,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QFontDialog_SuperMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: QFontDialog) QSize {
+        return .{ .ptr = qtc.QFontDialog_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QDialog
@@ -5605,12 +5818,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QFontDialog_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumSizeHint(self: QFontDialog, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QFontDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5621,10 +5834,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Open(self: ?*anyopaque) void {
-        qtc.QFontDialog_Open(@ptrCast(self));
+    pub fn Open(self: QFontDialog) void {
+        qtc.QFontDialog_Open(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperOpen` instead
@@ -5639,10 +5852,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SuperOpen(self: ?*anyopaque) void {
-        qtc.QFontDialog_SuperOpen(@ptrCast(self));
+    pub fn SuperOpen(self: QFontDialog) void {
+        qtc.QFontDialog_SuperOpen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -5653,12 +5866,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnOpen(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFontDialog_OnOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnOpen(self: QFontDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QFontDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5669,10 +5882,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Exec(self: ?*anyopaque) i32 {
-        return qtc.QFontDialog_Exec(@ptrCast(self));
+    pub fn Exec(self: QFontDialog) i32 {
+        return qtc.QFontDialog_Exec(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperExec` instead
@@ -5687,10 +5900,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SuperExec(self: ?*anyopaque) i32 {
-        return qtc.QFontDialog_SuperExec(@ptrCast(self));
+    pub fn SuperExec(self: QFontDialog) i32 {
+        return qtc.QFontDialog_SuperExec(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -5701,12 +5914,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnExec(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QFontDialog_OnExec(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnExec(self: QFontDialog, callback: *const fn () callconv(.c) i32) void {
+        qtc.QFontDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5717,10 +5930,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Accept(self: ?*anyopaque) void {
-        qtc.QFontDialog_Accept(@ptrCast(self));
+    pub fn Accept(self: QFontDialog) void {
+        qtc.QFontDialog_Accept(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperAccept` instead
@@ -5735,10 +5948,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SuperAccept(self: ?*anyopaque) void {
-        qtc.QFontDialog_SuperAccept(@ptrCast(self));
+    pub fn SuperAccept(self: QFontDialog) void {
+        qtc.QFontDialog_SuperAccept(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -5749,12 +5962,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAccept(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFontDialog_OnAccept(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAccept(self: QFontDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QFontDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5765,10 +5978,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Reject(self: ?*anyopaque) void {
-        qtc.QFontDialog_Reject(@ptrCast(self));
+    pub fn Reject(self: QFontDialog) void {
+        qtc.QFontDialog_Reject(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperReject` instead
@@ -5783,10 +5996,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SuperReject(self: ?*anyopaque) void {
-        qtc.QFontDialog_SuperReject(@ptrCast(self));
+    pub fn SuperReject(self: QFontDialog) void {
+        qtc.QFontDialog_SuperReject(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -5797,12 +6010,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReject(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFontDialog_OnReject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReject(self: QFontDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QFontDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5813,12 +6026,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QKeyEvent `
+    /// ` param1: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFontDialog_KeyPressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn KeyPressEvent(self: QFontDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QKeyEvent;
+        qtc.QFontDialog_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
@@ -5833,12 +6047,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QKeyEvent `
+    /// ` param1: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFontDialog_SuperKeyPressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperKeyPressEvent(self: QFontDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QKeyEvent;
+        qtc.QFontDialog_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -5849,12 +6064,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, param1: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, param1: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyPressEvent(self: QFontDialog, callback: *const fn (QFontDialog, QKeyEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5865,12 +6080,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QCloseEvent `
+    /// ` param1: QCloseEvent `
     ///
-    pub fn CloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFontDialog_CloseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn CloseEvent(self: QFontDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCloseEvent;
+        qtc.QFontDialog_CloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEvent` instead
@@ -5885,12 +6101,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QCloseEvent `
+    /// ` param1: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFontDialog_SuperCloseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperCloseEvent(self: QFontDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCloseEvent;
+        qtc.QFontDialog_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -5901,12 +6118,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, param1: QtC.QCloseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, param1: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEvent(self: QFontDialog, callback: *const fn (QFontDialog, QCloseEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5917,12 +6134,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QShowEvent `
+    /// ` param1: QShowEvent `
     ///
-    pub fn ShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFontDialog_ShowEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ShowEvent(self: QFontDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QShowEvent;
+        qtc.QFontDialog_ShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperShowEvent` instead
@@ -5937,12 +6155,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QShowEvent `
+    /// ` param1: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFontDialog_SuperShowEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperShowEvent(self: QFontDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QShowEvent;
+        qtc.QFontDialog_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -5953,12 +6172,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, param1: QtC.QShowEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, param1: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShowEvent(self: QFontDialog, callback: *const fn (QFontDialog, QShowEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5969,12 +6188,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QResizeEvent `
+    /// ` param1: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFontDialog_ResizeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ResizeEvent(self: QFontDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QResizeEvent;
+        qtc.QFontDialog_ResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResizeEvent` instead
@@ -5989,12 +6209,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QResizeEvent `
+    /// ` param1: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFontDialog_SuperResizeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperResizeEvent(self: QFontDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QResizeEvent;
+        qtc.QFontDialog_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -6005,12 +6226,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, param1: QtC.QResizeEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, param1: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResizeEvent(self: QFontDialog, callback: *const fn (QFontDialog, QResizeEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -6021,12 +6242,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QContextMenuEvent `
+    /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFontDialog_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ContextMenuEvent(self: QFontDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
+        qtc.QFontDialog_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
@@ -6041,12 +6263,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QContextMenuEvent `
+    /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFontDialog_SuperContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperContextMenuEvent(self: QFontDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
+        qtc.QFontDialog_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -6057,12 +6280,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, param1: QtC.QContextMenuEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuEvent(self: QFontDialog, callback: *const fn (QFontDialog, QContextMenuEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6073,10 +6296,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.QFontDialog_DevType(@ptrCast(self));
+    pub fn DevType(self: QFontDialog) i32 {
+        return qtc.QFontDialog_DevType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDevType` instead
@@ -6091,10 +6314,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SuperDevType(self: ?*anyopaque) i32 {
-        return qtc.QFontDialog_SuperDevType(@ptrCast(self));
+    pub fn SuperDevType(self: QFontDialog) i32 {
+        return qtc.QFontDialog_SuperDevType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6105,12 +6328,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QFontDialog_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDevType(self: QFontDialog, callback: *const fn () callconv(.c) i32) void {
+        qtc.QFontDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6121,12 +6344,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QFontDialog_HeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn HeightForWidth(self: QFontDialog, param1: i32) i32 {
+        return qtc.QFontDialog_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperHeightForWidth` instead
@@ -6141,12 +6364,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QFontDialog_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: QFontDialog, param1: i32) i32 {
+        return qtc.QFontDialog_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6157,12 +6380,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, param1: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QFontDialog, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QFontDialog_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeightForWidth(self: QFontDialog, callback: *const fn (QFontDialog, i32) callconv(.c) i32) void {
+        qtc.QFontDialog_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6173,10 +6396,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QFontDialog_HasHeightForWidth(@ptrCast(self));
+    pub fn HasHeightForWidth(self: QFontDialog) bool {
+        return qtc.QFontDialog_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
@@ -6191,10 +6414,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QFontDialog_SuperHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: QFontDialog) bool {
+        return qtc.QFontDialog_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6205,12 +6428,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QFontDialog_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasHeightForWidth(self: QFontDialog, callback: *const fn () callconv(.c) bool) void {
+        qtc.QFontDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6221,10 +6444,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QFontDialog_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: QFontDialog) QPaintEngine {
+        return .{ .ptr = qtc.QFontDialog_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperPaintEngine` instead
@@ -6239,10 +6462,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QFontDialog_SuperPaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: QFontDialog) QPaintEngine {
+        return .{ .ptr = qtc.QFontDialog_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6253,12 +6476,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QFontDialog_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEngine(self: QFontDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+        qtc.QFontDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6269,12 +6492,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QFontDialog_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QFontDialog, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QFontDialog_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -6289,12 +6513,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QFontDialog_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QFontDialog, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QFontDialog_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6305,12 +6530,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFontDialog, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFontDialog_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QFontDialog, callback: *const fn (QFontDialog, QEvent) callconv(.c) bool) void {
+        qtc.QFontDialog_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6321,12 +6546,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_MousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MousePressEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QFontDialog_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMousePressEvent` instead
@@ -6341,12 +6567,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QFontDialog_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6357,12 +6584,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMousePressEvent(self: QFontDialog, callback: *const fn (QFontDialog, QMouseEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6373,12 +6600,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseReleaseEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QFontDialog_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
@@ -6393,12 +6621,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QFontDialog_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6409,12 +6638,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseReleaseEvent(self: QFontDialog, callback: *const fn (QFontDialog, QMouseEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6425,12 +6654,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseDoubleClickEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QFontDialog_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
@@ -6445,12 +6675,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QFontDialog_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6461,12 +6692,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseDoubleClickEvent(self: QFontDialog, callback: *const fn (QFontDialog, QMouseEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6477,12 +6708,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseMoveEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QFontDialog_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
@@ -6497,12 +6729,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QFontDialog_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6513,12 +6746,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseMoveEvent(self: QFontDialog, callback: *const fn (QFontDialog, QMouseEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6529,12 +6762,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_WheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn WheelEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.QFontDialog_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperWheelEvent` instead
@@ -6549,12 +6783,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.QFontDialog_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6565,12 +6800,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QWheelEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWheelEvent(self: QFontDialog, callback: *const fn (QFontDialog, QWheelEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6581,12 +6816,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyReleaseEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QFontDialog_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
@@ -6601,12 +6837,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QFontDialog_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6617,12 +6854,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyReleaseEvent(self: QFontDialog, callback: *const fn (QFontDialog, QKeyEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6633,12 +6870,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_FocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusInEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QFontDialog_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusInEvent` instead
@@ -6653,12 +6891,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QFontDialog_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6669,12 +6908,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusInEvent(self: QFontDialog, callback: *const fn (QFontDialog, QFocusEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6685,12 +6924,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_FocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusOutEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QFontDialog_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
@@ -6705,12 +6945,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QFontDialog_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6721,12 +6962,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusOutEvent(self: QFontDialog, callback: *const fn (QFontDialog, QFocusEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6737,12 +6978,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_EnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn EnterEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QFontDialog_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEnterEvent` instead
@@ -6757,12 +6999,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QFontDialog_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6773,12 +7016,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnterEvent(self: QFontDialog, callback: *const fn (QFontDialog, QEnterEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6789,12 +7032,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_LeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn LeaveEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QFontDialog_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLeaveEvent` instead
@@ -6809,12 +7053,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QFontDialog_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6825,12 +7070,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeaveEvent(self: QFontDialog, callback: *const fn (QFontDialog, QEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6841,12 +7086,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QPaintEvent `
+    /// ` event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_PaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn PaintEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QPaintEvent;
+        qtc.QFontDialog_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperPaintEvent` instead
@@ -6861,12 +7107,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QPaintEvent `
+    /// ` event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_SuperPaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperPaintEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QPaintEvent;
+        qtc.QFontDialog_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6877,12 +7124,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QPaintEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEvent(self: QFontDialog, callback: *const fn (QFontDialog, QPaintEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6893,12 +7140,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_MoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MoveEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QFontDialog_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMoveEvent` instead
@@ -6913,12 +7161,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QFontDialog_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6929,12 +7178,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveEvent(self: QFontDialog, callback: *const fn (QFontDialog, QMoveEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6945,12 +7194,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_TabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TabletEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QFontDialog_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTabletEvent` instead
@@ -6965,12 +7215,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QFontDialog_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6981,12 +7232,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QTabletEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabletEvent(self: QFontDialog, callback: *const fn (QFontDialog, QTabletEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6997,12 +7248,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_ActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ActionEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QFontDialog_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperActionEvent` instead
@@ -7017,12 +7269,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_SuperActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QFontDialog_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7033,12 +7286,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QActionEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionEvent(self: QFontDialog, callback: *const fn (QFontDialog, QActionEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7049,12 +7302,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_DragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragEnterEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QFontDialog_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
@@ -7069,12 +7323,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QFontDialog_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7085,12 +7340,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QDragEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragEnterEvent(self: QFontDialog, callback: *const fn (QFontDialog, QDragEnterEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7101,12 +7356,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_DragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragMoveEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QFontDialog_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
@@ -7121,12 +7377,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QFontDialog_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7137,12 +7394,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QDragMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragMoveEvent(self: QFontDialog, callback: *const fn (QFontDialog, QDragMoveEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7153,12 +7410,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragLeaveEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QFontDialog_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
@@ -7173,12 +7431,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QFontDialog_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7189,12 +7448,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QDragLeaveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragLeaveEvent(self: QFontDialog, callback: *const fn (QFontDialog, QDragLeaveEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7205,12 +7464,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_DropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DropEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QFontDialog_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropEvent` instead
@@ -7225,12 +7485,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_SuperDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QFontDialog_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7241,12 +7502,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QDropEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropEvent(self: QFontDialog, callback: *const fn (QFontDialog, QDropEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7257,12 +7518,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_HideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn HideEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QFontDialog_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHideEvent` instead
@@ -7277,12 +7539,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_SuperHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QFontDialog_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7293,12 +7556,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QHideEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHideEvent(self: QFontDialog, callback: *const fn (QFontDialog, QHideEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7309,7 +7572,7 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` eventType: []u8 `
     ///
@@ -7317,12 +7580,12 @@ pub const qfontdialog = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn NativeEvent(self: QFontDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QFontDialog_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QFontDialog_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### DEPRECATED: Use `SuperNativeEvent` instead
@@ -7337,7 +7600,7 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` eventType: []u8 `
     ///
@@ -7345,12 +7608,12 @@ pub const qfontdialog = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: QFontDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QFontDialog_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QFontDialog_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -7361,12 +7624,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFontDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QFontDialog_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNativeEvent(self: QFontDialog, callback: *const fn (QFontDialog, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.QFontDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7377,12 +7640,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QFontDialog_Metric(@ptrCast(self), @bitCast(param1));
+    pub fn Metric(self: QFontDialog, param1: i32) i32 {
+        return qtc.QFontDialog_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperMetric` instead
@@ -7397,12 +7660,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QFontDialog_SuperMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: QFontDialog, param1: i32) i32 {
+        return qtc.QFontDialog_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7413,12 +7676,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QFontDialog, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QFontDialog_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetric(self: QFontDialog, callback: *const fn (QFontDialog, i32) callconv(.c) i32) void {
+        qtc.QFontDialog_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7429,12 +7692,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QFontDialog_InitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn InitPainter(self: QFontDialog, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QFontDialog_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitPainter` instead
@@ -7449,12 +7713,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QFontDialog_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: QFontDialog, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QFontDialog_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -7465,12 +7730,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, painter: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitPainter(self: QFontDialog, callback: *const fn (QFontDialog, QPainter) callconv(.c) void) void {
+        qtc.QFontDialog_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7481,12 +7746,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QFontDialog_Redirected(@ptrCast(self), @ptrCast(offset));
+    pub fn Redirected(self: QFontDialog, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QFontDialog_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperRedirected` instead
@@ -7501,12 +7767,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QFontDialog_SuperRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: QFontDialog, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QFontDialog_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7517,12 +7784,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    /// ` callback: *const fn (self: QFontDialog, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QFontDialog_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: QFontDialog, callback: *const fn (QFontDialog, QPoint) callconv(.c) QPaintDevice) void {
+        qtc.QFontDialog_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7533,10 +7800,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QFontDialog_SharedPainter(@ptrCast(self));
+    pub fn SharedPainter(self: QFontDialog) QPainter {
+        return .{ .ptr = qtc.QFontDialog_SharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSharedPainter` instead
@@ -7551,10 +7818,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QFontDialog_SuperSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: QFontDialog) QPainter {
+        return .{ .ptr = qtc.QFontDialog_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7565,12 +7832,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QFontDialog_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSharedPainter(self: QFontDialog, callback: *const fn () callconv(.c) QPainter) void {
+        qtc.QFontDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7581,12 +7848,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFontDialog_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn InputMethodEvent(self: QFontDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QFontDialog_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
@@ -7601,12 +7869,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFontDialog_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: QFontDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QFontDialog_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -7617,12 +7886,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, param1: QtC.QInputMethodEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodEvent(self: QFontDialog, callback: *const fn (QFontDialog, QInputMethodEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7633,12 +7902,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QFontDialog_InputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn InputMethodQuery(self: QFontDialog, param1: i32) QVariant {
+        return .{ .ptr = qtc.QFontDialog_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
@@ -7653,12 +7922,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QFontDialog_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: QFontDialog, param1: i32) QVariant {
+        return .{ .ptr = qtc.QFontDialog_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -7669,12 +7938,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QFontDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QFontDialog_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodQuery(self: QFontDialog, callback: *const fn (QFontDialog, i32) callconv(.c) QVariant) void {
+        qtc.QFontDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7685,12 +7954,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QFontDialog_FocusNextPrevChild(@ptrCast(self), next);
+    pub fn FocusNextPrevChild(self: QFontDialog, next: bool) bool {
+        return qtc.QFontDialog_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
@@ -7705,12 +7974,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QFontDialog_SuperFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: QFontDialog, next: bool) bool {
+        return qtc.QFontDialog_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// Inherited from QWidget
@@ -7721,12 +7990,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, next: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFontDialog, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QFontDialog_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextPrevChild(self: QFontDialog, callback: *const fn (QFontDialog, bool) callconv(.c) bool) void {
+        qtc.QFontDialog_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7737,12 +8006,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QFontDialog_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -7757,12 +8027,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QFontDialog_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7773,12 +8044,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QFontDialog, callback: *const fn (QFontDialog, QTimerEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7789,12 +8060,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QFontDialog_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -7809,12 +8081,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QFontDialog_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7825,12 +8098,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QFontDialog, callback: *const fn (QFontDialog, QChildEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7841,12 +8114,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QFontDialog_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -7861,12 +8135,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFontDialog_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QFontDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QFontDialog_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7877,12 +8152,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QFontDialog, callback: *const fn (QFontDialog, QEvent) callconv(.c) void) void {
+        qtc.QFontDialog_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7893,12 +8168,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QFontDialog_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QFontDialog, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QFontDialog_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -7913,12 +8189,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QFontDialog_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QFontDialog, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QFontDialog_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -7929,12 +8206,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QFontDialog, callback: *const fn (QFontDialog, QMetaMethod) callconv(.c) void) void {
+        qtc.QFontDialog_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7945,12 +8222,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QFontDialog_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QFontDialog, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QFontDialog_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -7965,12 +8243,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QFontDialog_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QFontDialog, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QFontDialog_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -7981,12 +8260,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QFontDialog, callback: *const fn (QFontDialog, QMetaMethod) callconv(.c) void) void {
+        qtc.QFontDialog_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -7997,12 +8276,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn AdjustPosition(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFontDialog_AdjustPosition(@ptrCast(self), @ptrCast(param1));
+    pub fn AdjustPosition(self: QFontDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QFontDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperAdjustPosition` instead
@@ -8017,12 +8297,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn SuperAdjustPosition(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFontDialog_SuperAdjustPosition(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperAdjustPosition(self: QFontDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QFontDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -8033,12 +8314,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, param1: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, param1: QWidget) callconv(.c) void `
     ///
-    pub fn OnAdjustPosition(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFontDialog_OnAdjustPosition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAdjustPosition(self: QFontDialog, callback: *const fn (QFontDialog, QWidget) callconv(.c) void) void {
+        qtc.QFontDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8049,10 +8330,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QFontDialog_UpdateMicroFocus(@ptrCast(self));
+    pub fn UpdateMicroFocus(self: QFontDialog) void {
+        qtc.QFontDialog_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
@@ -8067,10 +8348,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QFontDialog_SuperUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: QFontDialog) void {
+        qtc.QFontDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8081,12 +8362,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFontDialog_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateMicroFocus(self: QFontDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QFontDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8097,10 +8378,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Create(self: ?*anyopaque) void {
-        qtc.QFontDialog_Create(@ptrCast(self));
+    pub fn Create(self: QFontDialog) void {
+        qtc.QFontDialog_Create(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -8115,10 +8396,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SuperCreate(self: ?*anyopaque) void {
-        qtc.QFontDialog_SuperCreate(@ptrCast(self));
+    pub fn SuperCreate(self: QFontDialog) void {
+        qtc.QFontDialog_SuperCreate(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8129,12 +8410,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFontDialog_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: QFontDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QFontDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8145,10 +8426,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Destroy(self: ?*anyopaque) void {
-        qtc.QFontDialog_Destroy(@ptrCast(self));
+    pub fn Destroy(self: QFontDialog) void {
+        qtc.QFontDialog_Destroy(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDestroy` instead
@@ -8163,10 +8444,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SuperDestroy(self: ?*anyopaque) void {
-        qtc.QFontDialog_SuperDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: QFontDialog) void {
+        qtc.QFontDialog_SuperDestroy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8177,12 +8458,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFontDialog_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroy(self: QFontDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QFontDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8193,10 +8474,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QFontDialog_FocusNextChild(@ptrCast(self));
+    pub fn FocusNextChild(self: QFontDialog) bool {
+        return qtc.QFontDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextChild` instead
@@ -8211,10 +8492,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QFontDialog_SuperFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: QFontDialog) bool {
+        return qtc.QFontDialog_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8225,12 +8506,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QFontDialog_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextChild(self: QFontDialog, callback: *const fn () callconv(.c) bool) void {
+        qtc.QFontDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8241,10 +8522,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QFontDialog_FocusPreviousChild(@ptrCast(self));
+    pub fn FocusPreviousChild(self: QFontDialog) bool {
+        return qtc.QFontDialog_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
@@ -8259,10 +8540,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QFontDialog_SuperFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: QFontDialog) bool {
+        return qtc.QFontDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8273,12 +8554,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QFontDialog_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusPreviousChild(self: QFontDialog, callback: *const fn () callconv(.c) bool) void {
+        qtc.QFontDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8289,10 +8570,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QFontDialog_Sender(@ptrCast(self));
+    pub fn Sender(self: QFontDialog) QObject {
+        return .{ .ptr = qtc.QFontDialog_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -8307,10 +8588,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QFontDialog_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QFontDialog) QObject {
+        return .{ .ptr = qtc.QFontDialog_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -8321,12 +8602,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QFontDialog_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QFontDialog, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QFontDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8337,10 +8618,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QFontDialog_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QFontDialog) i32 {
+        return qtc.QFontDialog_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -8355,10 +8636,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QFontDialog_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QFontDialog) i32 {
+        return qtc.QFontDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8369,12 +8650,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QFontDialog_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QFontDialog, callback: *const fn () callconv(.c) i32) void {
+        qtc.QFontDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8385,13 +8666,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QFontDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QFontDialog_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QFontDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -8406,13 +8687,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QFontDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QFontDialog_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QFontDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -8423,12 +8704,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QFontDialog, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QFontDialog_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QFontDialog, callback: *const fn (QFontDialog, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QFontDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8439,12 +8720,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QFontDialog_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QFontDialog, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QFontDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -8459,12 +8741,13 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QFontDialog_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QFontDialog, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QFontDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -8475,12 +8758,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFontDialog, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFontDialog_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QFontDialog, callback: *const fn (QFontDialog, QMetaMethod) callconv(.c) bool) void {
+        qtc.QFontDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -8491,14 +8774,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QFontDialog_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn GetDecodedMetricF(self: QFontDialog, metricA: i32, metricB: i32) f64 {
+        return qtc.QFontDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
@@ -8513,14 +8796,14 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QFontDialog_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: QFontDialog, metricA: i32, metricB: i32) f64 {
+        return qtc.QFontDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -8531,12 +8814,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog`
+    /// ` self: QFontDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    /// ` callback: *const fn (self: QFontDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QFontDialog_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetDecodedMetricF(self: QFontDialog, callback: *const fn (QFontDialog, i32, i32) callconv(.c) f64) void {
+        qtc.QFontDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8547,12 +8830,12 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QFontDialog, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QFontDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QFontDialog, callback: *const fn (QFontDialog, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -8565,10 +8848,10 @@ pub const qfontdialog = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QFontDialog `
+    /// ` self: QFontDialog `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QFontDialog_Delete(@ptrCast(self));
+    pub fn Delete(self: QFontDialog) void {
+        qtc.QFontDialog_Delete(@ptrCast(self.ptr));
     }
 };
 

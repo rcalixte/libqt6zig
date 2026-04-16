@@ -1,5 +1,63 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAction = @import("libqt6").QAction;
+const QActionEvent = @import("libqt6").QActionEvent;
+const QBackingStore = @import("libqt6").QBackingStore;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBitmap = @import("libqt6").QBitmap;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QCloseEvent = @import("libqt6").QCloseEvent;
+const QContextMenuEvent = @import("libqt6").QContextMenuEvent;
+const QCursor = @import("libqt6").QCursor;
+const QDragEnterEvent = @import("libqt6").QDragEnterEvent;
+const QDragLeaveEvent = @import("libqt6").QDragLeaveEvent;
+const QDragMoveEvent = @import("libqt6").QDragMoveEvent;
+const QDropEvent = @import("libqt6").QDropEvent;
+const QEnterEvent = @import("libqt6").QEnterEvent;
+const QEvent = @import("libqt6").QEvent;
+const QFocusEvent = @import("libqt6").QFocusEvent;
+const QFont = @import("libqt6").QFont;
+const QFontInfo = @import("libqt6").QFontInfo;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QGraphicsEffect = @import("libqt6").QGraphicsEffect;
+const QGraphicsProxyWidget = @import("libqt6").QGraphicsProxyWidget;
+const QHideEvent = @import("libqt6").QHideEvent;
+const QIcon = @import("libqt6").QIcon;
+const QInputMethodEvent = @import("libqt6").QInputMethodEvent;
+const QKeyEvent = @import("libqt6").QKeyEvent;
+const QKeySequence = @import("libqt6").QKeySequence;
+const QLayout = @import("libqt6").QLayout;
+const QLocale = @import("libqt6").QLocale;
+const QMargins = @import("libqt6").QMargins;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMouseEvent = @import("libqt6").QMouseEvent;
+const QMoveEvent = @import("libqt6").QMoveEvent;
+const QObject = @import("libqt6").QObject;
+const QPaintDevice = @import("libqt6").QPaintDevice;
+const QPaintEngine = @import("libqt6").QPaintEngine;
+const QPaintEvent = @import("libqt6").QPaintEvent;
+const QPainter = @import("libqt6").QPainter;
+const QPalette = @import("libqt6").QPalette;
+const QPixmap = @import("libqt6").QPixmap;
+const QPoint = @import("libqt6").QPoint;
+const QPointF = @import("libqt6").QPointF;
+const QRect = @import("libqt6").QRect;
+const QRegion = @import("libqt6").QRegion;
+const QResizeEvent = @import("libqt6").QResizeEvent;
+const QScreen = @import("libqt6").QScreen;
+const QShowEvent = @import("libqt6").QShowEvent;
+const QSize = @import("libqt6").QSize;
+const QSizePolicy = @import("libqt6").QSizePolicy;
+const QStyle = @import("libqt6").QStyle;
+const QTabletEvent = @import("libqt6").QTabletEvent;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
+const QWheelEvent = @import("libqt6").QWheelEvent;
+const QWidget = @import("libqt6").QWidget;
+const QWindow = @import("libqt6").QWindow;
 const qabstractslider_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
@@ -10,31 +68,43 @@ const qwidget_enums = @import("libqwidget.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html)
-pub const qabstractslider = struct {
+pub const QAbstractSlider = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QAbstractSlider,
+
+    pub const _is_QAbstractSlider = {};
+    pub const _is_QWidget = {};
+    pub const _is_QObject = {};
+    pub const _is_QPaintDevice = {};
+
     /// New constructs a new QAbstractSlider object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.QAbstractSlider {
-        return qtc.QAbstractSlider_new(@ptrCast(parent));
+    pub fn New(parent: anytype) QAbstractSlider {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QAbstractSlider_new(@ptrCast(parent.ptr)) };
     }
 
     /// New2 constructs a new QAbstractSlider object.
     ///
-    pub fn New2() QtC.QAbstractSlider {
-        return qtc.QAbstractSlider_new2();
+    pub fn New2() QAbstractSlider {
+        return .{ .ptr = qtc.QAbstractSlider_new2() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QAbstractSlider_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QAbstractSlider) QMetaObject {
+        return .{ .ptr = qtc.QAbstractSlider_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -43,12 +113,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QAbstractSlider_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QAbstractSlider, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QAbstractSlider_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -61,33 +131,33 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QAbstractSlider_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QAbstractSlider) QMetaObject {
+        return .{ .ptr = qtc.QAbstractSlider_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QAbstractSlider, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QAbstractSlider_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QAbstractSlider_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QAbstractSlider, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QAbstractSlider_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QAbstractSlider, callback: *const fn (QAbstractSlider, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QAbstractSlider_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -98,18 +168,18 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QAbstractSlider, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QAbstractSlider_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QAbstractSlider_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -117,20 +187,20 @@ pub const qabstractslider = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAbstractSlider_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QAbstractSlider, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QAbstractSlider_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractSlider, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QAbstractSlider_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QAbstractSlider_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -141,7 +211,7 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -149,19 +219,19 @@ pub const qabstractslider = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QAbstractSlider_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QAbstractSlider, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QAbstractSlider_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -174,426 +244,427 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn Orientation(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSlider_Orientation(@ptrCast(self));
+    pub fn Orientation(self: QAbstractSlider) i32 {
+        return qtc.QAbstractSlider_Orientation(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setMinimum)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` minimum: i32 `
     ///
-    pub fn SetMinimum(self: ?*anyopaque, minimum: i32) void {
-        qtc.QAbstractSlider_SetMinimum(@ptrCast(self), @bitCast(minimum));
+    pub fn SetMinimum(self: QAbstractSlider, minimum: i32) void {
+        qtc.QAbstractSlider_SetMinimum(@ptrCast(self.ptr), @bitCast(minimum));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#minimum)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Minimum(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSlider_Minimum(@ptrCast(self));
+    pub fn Minimum(self: QAbstractSlider) i32 {
+        return qtc.QAbstractSlider_Minimum(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setMaximum)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` maximum: i32 `
     ///
-    pub fn SetMaximum(self: ?*anyopaque, maximum: i32) void {
-        qtc.QAbstractSlider_SetMaximum(@ptrCast(self), @bitCast(maximum));
+    pub fn SetMaximum(self: QAbstractSlider, maximum: i32) void {
+        qtc.QAbstractSlider_SetMaximum(@ptrCast(self.ptr), @bitCast(maximum));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#maximum)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Maximum(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSlider_Maximum(@ptrCast(self));
+    pub fn Maximum(self: QAbstractSlider) i32 {
+        return qtc.QAbstractSlider_Maximum(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setSingleStep)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` singleStep: i32 `
     ///
-    pub fn SetSingleStep(self: ?*anyopaque, singleStep: i32) void {
-        qtc.QAbstractSlider_SetSingleStep(@ptrCast(self), @bitCast(singleStep));
+    pub fn SetSingleStep(self: QAbstractSlider, singleStep: i32) void {
+        qtc.QAbstractSlider_SetSingleStep(@ptrCast(self.ptr), @bitCast(singleStep));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#singleStep)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SingleStep(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSlider_SingleStep(@ptrCast(self));
+    pub fn SingleStep(self: QAbstractSlider) i32 {
+        return qtc.QAbstractSlider_SingleStep(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setPageStep)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` pageStep: i32 `
     ///
-    pub fn SetPageStep(self: ?*anyopaque, pageStep: i32) void {
-        qtc.QAbstractSlider_SetPageStep(@ptrCast(self), @bitCast(pageStep));
+    pub fn SetPageStep(self: QAbstractSlider, pageStep: i32) void {
+        qtc.QAbstractSlider_SetPageStep(@ptrCast(self.ptr), @bitCast(pageStep));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#pageStep)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn PageStep(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSlider_PageStep(@ptrCast(self));
+    pub fn PageStep(self: QAbstractSlider) i32 {
+        return qtc.QAbstractSlider_PageStep(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setTracking)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QAbstractSlider_SetTracking(@ptrCast(self), enable);
+    pub fn SetTracking(self: QAbstractSlider, enable: bool) void {
+        qtc.QAbstractSlider_SetTracking(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#hasTracking)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn HasTracking(self: ?*anyopaque) bool {
-        return qtc.QAbstractSlider_HasTracking(@ptrCast(self));
+    pub fn HasTracking(self: QAbstractSlider) bool {
+        return qtc.QAbstractSlider_HasTracking(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setSliderDown)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` sliderDown: bool `
     ///
-    pub fn SetSliderDown(self: ?*anyopaque, sliderDown: bool) void {
-        qtc.QAbstractSlider_SetSliderDown(@ptrCast(self), sliderDown);
+    pub fn SetSliderDown(self: QAbstractSlider, sliderDown: bool) void {
+        qtc.QAbstractSlider_SetSliderDown(@ptrCast(self.ptr), sliderDown);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#isSliderDown)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn IsSliderDown(self: ?*anyopaque) bool {
-        return qtc.QAbstractSlider_IsSliderDown(@ptrCast(self));
+    pub fn IsSliderDown(self: QAbstractSlider) bool {
+        return qtc.QAbstractSlider_IsSliderDown(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setSliderPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` sliderPosition: i32 `
     ///
-    pub fn SetSliderPosition(self: ?*anyopaque, sliderPosition: i32) void {
-        qtc.QAbstractSlider_SetSliderPosition(@ptrCast(self), @bitCast(sliderPosition));
+    pub fn SetSliderPosition(self: QAbstractSlider, sliderPosition: i32) void {
+        qtc.QAbstractSlider_SetSliderPosition(@ptrCast(self.ptr), @bitCast(sliderPosition));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#sliderPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SliderPosition(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSlider_SliderPosition(@ptrCast(self));
+    pub fn SliderPosition(self: QAbstractSlider) i32 {
+        return qtc.QAbstractSlider_SliderPosition(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setInvertedAppearance)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` invertedAppearance: bool `
     ///
-    pub fn SetInvertedAppearance(self: ?*anyopaque, invertedAppearance: bool) void {
-        qtc.QAbstractSlider_SetInvertedAppearance(@ptrCast(self), invertedAppearance);
+    pub fn SetInvertedAppearance(self: QAbstractSlider, invertedAppearance: bool) void {
+        qtc.QAbstractSlider_SetInvertedAppearance(@ptrCast(self.ptr), invertedAppearance);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#invertedAppearance)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn InvertedAppearance(self: ?*anyopaque) bool {
-        return qtc.QAbstractSlider_InvertedAppearance(@ptrCast(self));
+    pub fn InvertedAppearance(self: QAbstractSlider) bool {
+        return qtc.QAbstractSlider_InvertedAppearance(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setInvertedControls)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` invertedControls: bool `
     ///
-    pub fn SetInvertedControls(self: ?*anyopaque, invertedControls: bool) void {
-        qtc.QAbstractSlider_SetInvertedControls(@ptrCast(self), invertedControls);
+    pub fn SetInvertedControls(self: QAbstractSlider, invertedControls: bool) void {
+        qtc.QAbstractSlider_SetInvertedControls(@ptrCast(self.ptr), invertedControls);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#invertedControls)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn InvertedControls(self: ?*anyopaque) bool {
-        return qtc.QAbstractSlider_InvertedControls(@ptrCast(self));
+    pub fn InvertedControls(self: QAbstractSlider) bool {
+        return qtc.QAbstractSlider_InvertedControls(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#value)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Value(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSlider_Value(@ptrCast(self));
+    pub fn Value(self: QAbstractSlider) i32 {
+        return qtc.QAbstractSlider_Value(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#triggerAction)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` action: qabstractslider_enums.SliderAction `
     ///
-    pub fn TriggerAction(self: ?*anyopaque, action: i32) void {
-        qtc.QAbstractSlider_TriggerAction(@ptrCast(self), @bitCast(action));
+    pub fn TriggerAction(self: QAbstractSlider, action: i32) void {
+        qtc.QAbstractSlider_TriggerAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setValue)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` value: i32 `
     ///
-    pub fn SetValue(self: ?*anyopaque, value: i32) void {
-        qtc.QAbstractSlider_SetValue(@ptrCast(self), @bitCast(value));
+    pub fn SetValue(self: QAbstractSlider, value: i32) void {
+        qtc.QAbstractSlider_SetValue(@ptrCast(self.ptr), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setOrientation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    pub fn SetOrientation(self: ?*anyopaque, orientation: i32) void {
-        qtc.QAbstractSlider_SetOrientation(@ptrCast(self), @bitCast(orientation));
+    pub fn SetOrientation(self: QAbstractSlider, orientation: i32) void {
+        qtc.QAbstractSlider_SetOrientation(@ptrCast(self.ptr), @bitCast(orientation));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRange)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` min: i32 `
     ///
     /// ` max: i32 `
     ///
-    pub fn SetRange(self: ?*anyopaque, min: i32, max: i32) void {
-        qtc.QAbstractSlider_SetRange(@ptrCast(self), @bitCast(min), @bitCast(max));
+    pub fn SetRange(self: QAbstractSlider, min: i32, max: i32) void {
+        qtc.QAbstractSlider_SetRange(@ptrCast(self.ptr), @bitCast(min), @bitCast(max));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#valueChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` value: i32 `
     ///
-    pub fn ValueChanged(self: ?*anyopaque, value: i32) void {
-        qtc.QAbstractSlider_ValueChanged(@ptrCast(self), @bitCast(value));
+    pub fn ValueChanged(self: QAbstractSlider, value: i32) void {
+        qtc.QAbstractSlider_ValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#valueChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, value: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, value: i32) callconv(.c) void `
     ///
-    pub fn OnValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractSlider_Connect_ValueChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnValueChanged(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) void) void {
+        qtc.QAbstractSlider_Connect_ValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#sliderPressed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SliderPressed(self: ?*anyopaque) void {
-        qtc.QAbstractSlider_SliderPressed(@ptrCast(self));
+    pub fn SliderPressed(self: QAbstractSlider) void {
+        qtc.QAbstractSlider_SliderPressed(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#sliderPressed)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider) callconv(.c) void `
     ///
-    pub fn OnSliderPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_Connect_SliderPressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSliderPressed(self: QAbstractSlider, callback: *const fn (QAbstractSlider) callconv(.c) void) void {
+        qtc.QAbstractSlider_Connect_SliderPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#sliderMoved)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` position: i32 `
     ///
-    pub fn SliderMoved(self: ?*anyopaque, position: i32) void {
-        qtc.QAbstractSlider_SliderMoved(@ptrCast(self), @bitCast(position));
+    pub fn SliderMoved(self: QAbstractSlider, position: i32) void {
+        qtc.QAbstractSlider_SliderMoved(@ptrCast(self.ptr), @bitCast(position));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#sliderMoved)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, position: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, position: i32) callconv(.c) void `
     ///
-    pub fn OnSliderMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractSlider_Connect_SliderMoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSliderMoved(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) void) void {
+        qtc.QAbstractSlider_Connect_SliderMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#sliderReleased)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SliderReleased(self: ?*anyopaque) void {
-        qtc.QAbstractSlider_SliderReleased(@ptrCast(self));
+    pub fn SliderReleased(self: QAbstractSlider) void {
+        qtc.QAbstractSlider_SliderReleased(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#sliderReleased)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider) callconv(.c) void `
     ///
-    pub fn OnSliderReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_Connect_SliderReleased(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSliderReleased(self: QAbstractSlider, callback: *const fn (QAbstractSlider) callconv(.c) void) void {
+        qtc.QAbstractSlider_Connect_SliderReleased(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#rangeChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` min: i32 `
     ///
     /// ` max: i32 `
     ///
-    pub fn RangeChanged(self: ?*anyopaque, min: i32, max: i32) void {
-        qtc.QAbstractSlider_RangeChanged(@ptrCast(self), @bitCast(min), @bitCast(max));
+    pub fn RangeChanged(self: QAbstractSlider, min: i32, max: i32) void {
+        qtc.QAbstractSlider_RangeChanged(@ptrCast(self.ptr), @bitCast(min), @bitCast(max));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#rangeChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, min: i32, max: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, min: i32, max: i32) callconv(.c) void `
     ///
-    pub fn OnRangeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractSlider_Connect_RangeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRangeChanged(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractSlider_Connect_RangeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#actionTriggered)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` action: i32 `
     ///
-    pub fn ActionTriggered(self: ?*anyopaque, action: i32) void {
-        qtc.QAbstractSlider_ActionTriggered(@ptrCast(self), @bitCast(action));
+    pub fn ActionTriggered(self: QAbstractSlider, action: i32) void {
+        qtc.QAbstractSlider_ActionTriggered(@ptrCast(self.ptr), @bitCast(action));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#actionTriggered)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, action: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, action: i32) callconv(.c) void `
     ///
-    pub fn OnActionTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractSlider_Connect_ActionTriggered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionTriggered(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) void) void {
+        qtc.QAbstractSlider_Connect_ActionTriggered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#event)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QAbstractSlider_Event(@ptrCast(self), @ptrCast(e));
+    pub fn Event(self: QAbstractSlider, e: anytype) bool {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        return qtc.QAbstractSlider_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#event)
@@ -602,12 +673,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, e: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractSlider, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractSlider_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QEvent) callconv(.c) bool) void {
+        qtc.QAbstractSlider_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -620,24 +691,25 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QAbstractSlider_SuperEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperEvent(self: QAbstractSlider, e: anytype) bool {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        return qtc.QAbstractSlider_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` action: qabstractslider_enums.SliderAction `
     ///
-    pub fn SetRepeatAction(self: ?*anyopaque, action: i32) void {
-        qtc.QAbstractSlider_SetRepeatAction(@ptrCast(self), @bitCast(action));
+    pub fn SetRepeatAction(self: QAbstractSlider, action: i32) void {
+        qtc.QAbstractSlider_SetRepeatAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
@@ -646,12 +718,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, action: qabstractslider_enums.SliderAction) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, action: qabstractslider_enums.SliderAction) callconv(.c) void `
     ///
-    pub fn OnSetRepeatAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnSetRepeatAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetRepeatAction(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnSetRepeatAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetRepeatAction` instead
@@ -664,26 +736,26 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` action: qabstractslider_enums.SliderAction `
     ///
-    pub fn SuperSetRepeatAction(self: ?*anyopaque, action: i32) void {
-        qtc.QAbstractSlider_SuperSetRepeatAction(@ptrCast(self), @bitCast(action));
+    pub fn SuperSetRepeatAction(self: QAbstractSlider, action: i32) void {
+        qtc.QAbstractSlider_SuperSetRepeatAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#repeatAction)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ## Returns:
     ///
     /// ` qabstractslider_enums.SliderAction `
     ///
-    pub fn RepeatAction(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSlider_RepeatAction(@ptrCast(self));
+    pub fn RepeatAction(self: QAbstractSlider) i32 {
+        return qtc.QAbstractSlider_RepeatAction(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#repeatAction)
@@ -692,12 +764,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnRepeatAction(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractSlider_OnRepeatAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRepeatAction(self: QAbstractSlider, callback: *const fn () callconv(.c) i32) void {
+        qtc.QAbstractSlider_OnRepeatAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRepeatAction` instead
@@ -710,26 +782,26 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ## Returns:
     ///
     /// ` qabstractslider_enums.SliderAction `
     ///
-    pub fn SuperRepeatAction(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSlider_SuperRepeatAction(@ptrCast(self));
+    pub fn SuperRepeatAction(self: QAbstractSlider) i32 {
+        return qtc.QAbstractSlider_SuperRepeatAction(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#sliderChange)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` change: qabstractslider_enums.SliderChange `
     ///
-    pub fn SliderChange(self: ?*anyopaque, change: i32) void {
-        qtc.QAbstractSlider_SliderChange(@ptrCast(self), @bitCast(change));
+    pub fn SliderChange(self: QAbstractSlider, change: i32) void {
+        qtc.QAbstractSlider_SliderChange(@ptrCast(self.ptr), @bitCast(change));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#sliderChange)
@@ -738,12 +810,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, change: qabstractslider_enums.SliderChange) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, change: qabstractslider_enums.SliderChange) callconv(.c) void `
     ///
-    pub fn OnSliderChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnSliderChange(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSliderChange(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnSliderChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSliderChange` instead
@@ -756,24 +828,25 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` change: qabstractslider_enums.SliderChange `
     ///
-    pub fn SuperSliderChange(self: ?*anyopaque, change: i32) void {
-        qtc.QAbstractSlider_SuperSliderChange(@ptrCast(self), @bitCast(change));
+    pub fn SuperSliderChange(self: QAbstractSlider, change: i32) void {
+        qtc.QAbstractSlider_SuperSliderChange(@ptrCast(self.ptr), @bitCast(change));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#keyPressEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` ev: QtC.QKeyEvent `
+    /// ` ev: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QAbstractSlider_KeyPressEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn KeyPressEvent(self: QAbstractSlider, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QKeyEvent;
+        qtc.QAbstractSlider_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#keyPressEvent)
@@ -782,12 +855,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, ev: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, ev: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyPressEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QKeyEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
@@ -800,24 +873,26 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` ev: QtC.QKeyEvent `
+    /// ` ev: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperKeyPressEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperKeyPressEvent(self: QAbstractSlider, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QKeyEvent;
+        qtc.QAbstractSlider_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#timerEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QTimerEvent `
+    /// ` param1: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QAbstractSlider_TimerEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn TimerEvent(self: QAbstractSlider, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QTimerEvent;
+        qtc.QAbstractSlider_TimerEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#timerEvent)
@@ -826,12 +901,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, param1: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, param1: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QTimerEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -844,24 +919,26 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QTimerEvent `
+    /// ` param1: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperTimerEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperTimerEvent(self: QAbstractSlider, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QTimerEvent;
+        qtc.QAbstractSlider_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#wheelEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` e: QtC.QWheelEvent `
+    /// ` e: QWheelEvent `
     ///
-    pub fn WheelEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QAbstractSlider_WheelEvent(@ptrCast(self), @ptrCast(e));
+    pub fn WheelEvent(self: QAbstractSlider, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QWheelEvent;
+        qtc.QAbstractSlider_WheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#wheelEvent)
@@ -870,12 +947,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, e: QtC.QWheelEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, e: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWheelEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QWheelEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperWheelEvent` instead
@@ -888,24 +965,26 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` e: QtC.QWheelEvent `
+    /// ` e: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperWheelEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperWheelEvent(self: QAbstractSlider, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QWheelEvent;
+        qtc.QAbstractSlider_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#changeEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn ChangeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QAbstractSlider_ChangeEvent(@ptrCast(self), @ptrCast(e));
+    pub fn ChangeEvent(self: QAbstractSlider, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        qtc.QAbstractSlider_ChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#changeEvent)
@@ -914,12 +993,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, e: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, e: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangeEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperChangeEvent` instead
@@ -932,25 +1011,26 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn SuperChangeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperChangeEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperChangeEvent(self: QAbstractSlider, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        qtc.QAbstractSlider_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -964,15 +1044,15 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -986,14 +1066,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` action: qabstractslider_enums.SliderAction `
     ///
     /// ` thresholdTime: i32 `
     ///
-    pub fn SetRepeatAction2(self: ?*anyopaque, action: i32, thresholdTime: i32) void {
-        qtc.QAbstractSlider_SetRepeatAction2(@ptrCast(self), @bitCast(action), @bitCast(thresholdTime));
+    pub fn SetRepeatAction2(self: QAbstractSlider, action: i32, thresholdTime: i32) void {
+        qtc.QAbstractSlider_SetRepeatAction2(@ptrCast(self.ptr), @bitCast(action), @bitCast(thresholdTime));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
@@ -1002,12 +1082,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, action: qabstractslider_enums.SliderAction, thresholdTime: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, action: qabstractslider_enums.SliderAction, thresholdTime: i32) callconv(.c) void `
     ///
-    pub fn OnSetRepeatAction2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnSetRepeatAction2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetRepeatAction2(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnSetRepeatAction2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetRepeatAction2` instead
@@ -1020,21 +1100,21 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` action: qabstractslider_enums.SliderAction `
     ///
     /// ` thresholdTime: i32 `
     ///
-    pub fn SuperSetRepeatAction2(self: ?*anyopaque, action: i32, thresholdTime: i32) void {
-        qtc.QAbstractSlider_SuperSetRepeatAction2(@ptrCast(self), @bitCast(action), @bitCast(thresholdTime));
+    pub fn SuperSetRepeatAction2(self: QAbstractSlider, action: i32, thresholdTime: i32) void {
+        qtc.QAbstractSlider_SuperSetRepeatAction2(@ptrCast(self.ptr), @bitCast(action), @bitCast(thresholdTime));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` action: qabstractslider_enums.SliderAction `
     ///
@@ -1042,8 +1122,8 @@ pub const qabstractslider = struct {
     ///
     /// ` repeatTime: i32 `
     ///
-    pub fn SetRepeatAction3(self: ?*anyopaque, action: i32, thresholdTime: i32, repeatTime: i32) void {
-        qtc.QAbstractSlider_SetRepeatAction3(@ptrCast(self), @bitCast(action), @bitCast(thresholdTime), @bitCast(repeatTime));
+    pub fn SetRepeatAction3(self: QAbstractSlider, action: i32, thresholdTime: i32, repeatTime: i32) void {
+        qtc.QAbstractSlider_SetRepeatAction3(@ptrCast(self.ptr), @bitCast(action), @bitCast(thresholdTime), @bitCast(repeatTime));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractslider.html#setRepeatAction)
@@ -1052,12 +1132,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, action: qabstractslider_enums.SliderAction, thresholdTime: i32, repeatTime: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, action: qabstractslider_enums.SliderAction, thresholdTime: i32, repeatTime: i32) callconv(.c) void `
     ///
-    pub fn OnSetRepeatAction3(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnSetRepeatAction3(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetRepeatAction3(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnSetRepeatAction3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetRepeatAction3` instead
@@ -1070,7 +1150,7 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` action: qabstractslider_enums.SliderAction `
     ///
@@ -1078,8 +1158,8 @@ pub const qabstractslider = struct {
     ///
     /// ` repeatTime: i32 `
     ///
-    pub fn SuperSetRepeatAction3(self: ?*anyopaque, action: i32, thresholdTime: i32, repeatTime: i32) void {
-        qtc.QAbstractSlider_SuperSetRepeatAction3(@ptrCast(self), @bitCast(action), @bitCast(thresholdTime), @bitCast(repeatTime));
+    pub fn SuperSetRepeatAction3(self: QAbstractSlider, action: i32, thresholdTime: i32, repeatTime: i32) void {
+        qtc.QAbstractSlider_SuperSetRepeatAction3(@ptrCast(self.ptr), @bitCast(action), @bitCast(thresholdTime), @bitCast(repeatTime));
     }
 
     /// Inherited from QWidget
@@ -1088,10 +1168,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn WinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_WinId(@ptrCast(self));
+    pub fn WinId(self: QAbstractSlider) usize {
+        return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1100,10 +1180,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn CreateWinId(self: ?*anyopaque) void {
-        qtc.QWidget_CreateWinId(@ptrCast(self));
+    pub fn CreateWinId(self: QAbstractSlider) void {
+        qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1112,10 +1192,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn InternalWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_InternalWinId(@ptrCast(self));
+    pub fn InternalWinId(self: QAbstractSlider) usize {
+        return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1124,10 +1204,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
+    pub fn EffectiveWinId(self: QAbstractSlider) usize {
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1136,10 +1216,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QWidget_Style(@ptrCast(self));
+    pub fn Style(self: QAbstractSlider) QStyle {
+        return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1148,12 +1228,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetStyle(self: QAbstractSlider, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// Inherited from QWidget
@@ -1162,10 +1243,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsTopLevel(@ptrCast(self));
+    pub fn IsTopLevel(self: QAbstractSlider) bool {
+        return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1174,10 +1255,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn IsWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindow(@ptrCast(self));
+    pub fn IsWindow(self: QAbstractSlider) bool {
+        return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1186,10 +1267,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn IsModal(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsModal(@ptrCast(self));
+    pub fn IsModal(self: QAbstractSlider) bool {
+        return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1198,14 +1279,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowModality(@ptrCast(self));
+    pub fn WindowModality(self: QAbstractSlider) i32 {
+        return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1214,12 +1295,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
+    pub fn SetWindowModality(self: QAbstractSlider, windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -1228,10 +1309,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: QAbstractSlider) bool {
+        return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1240,12 +1321,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsEnabledTo(self: QAbstractSlider, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -1254,12 +1336,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: QAbstractSlider, enabled: bool) void {
+        qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -1268,12 +1350,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
+    pub fn SetDisabled(self: QAbstractSlider, disabled: bool) void {
+        qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
 
     /// Inherited from QWidget
@@ -1282,12 +1364,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+    pub fn SetWindowModified(self: QAbstractSlider, windowModified: bool) void {
+        qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
 
     /// Inherited from QWidget
@@ -1296,10 +1378,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_FrameGeometry(@ptrCast(self));
+    pub fn FrameGeometry(self: QAbstractSlider) QRect {
+        return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1308,10 +1390,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Geometry(@ptrCast(self));
+    pub fn Geometry(self: QAbstractSlider) QRect {
+        return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1320,10 +1402,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_NormalGeometry(@ptrCast(self));
+    pub fn NormalGeometry(self: QAbstractSlider) QRect {
+        return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1332,10 +1414,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn X(self: ?*anyopaque) i32 {
-        return qtc.QWidget_X(@ptrCast(self));
+    pub fn X(self: QAbstractSlider) i32 {
+        return qtc.QWidget_X(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1344,10 +1426,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Y(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Y(@ptrCast(self));
+    pub fn Y(self: QAbstractSlider) i32 {
+        return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1356,10 +1438,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_Pos(@ptrCast(self));
+    pub fn Pos(self: QAbstractSlider) QPoint {
+        return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1368,10 +1450,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: QAbstractSlider) QSize {
+        return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1380,10 +1462,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_Size(@ptrCast(self));
+    pub fn Size(self: QAbstractSlider) QSize {
+        return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1392,10 +1474,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Width(@ptrCast(self));
+    pub fn Width(self: QAbstractSlider) i32 {
+        return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1404,10 +1486,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Height(@ptrCast(self));
+    pub fn Height(self: QAbstractSlider) i32 {
+        return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1416,10 +1498,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: QAbstractSlider) QRect {
+        return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1428,10 +1510,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ChildrenRect(@ptrCast(self));
+    pub fn ChildrenRect(self: QAbstractSlider) QRect {
+        return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1440,10 +1522,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
+    pub fn ChildrenRegion(self: QAbstractSlider) QRegion {
+        return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1452,10 +1534,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: QAbstractSlider) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1464,10 +1546,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: QAbstractSlider) QSize {
+        return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1476,10 +1558,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: QAbstractSlider) i32 {
+        return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1488,10 +1570,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: QAbstractSlider) i32 {
+        return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1500,10 +1582,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: QAbstractSlider) i32 {
+        return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1512,10 +1594,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: QAbstractSlider) i32 {
+        return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1524,12 +1606,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` minimumSize: QtC.QSize `
+    /// ` minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+    pub fn SetMinimumSize(self: QAbstractSlider, minimumSize: anytype) void {
+        comptime _ = @TypeOf(minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1538,14 +1621,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` minw: i32 `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
+    pub fn SetMinimumSize2(self: QAbstractSlider, minw: i32, minh: i32) void {
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -1554,12 +1637,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` maximumSize: QtC.QSize `
+    /// ` maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+    pub fn SetMaximumSize(self: QAbstractSlider, maximumSize: anytype) void {
+        comptime _ = @TypeOf(maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1568,14 +1652,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` maxw: i32 `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
+    pub fn SetMaximumSize2(self: QAbstractSlider, maxw: i32, maxh: i32) void {
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -1584,12 +1668,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
+    pub fn SetMinimumWidth(self: QAbstractSlider, minw: i32) void {
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -1598,12 +1682,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
+    pub fn SetMinimumHeight(self: QAbstractSlider, minh: i32) void {
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -1612,12 +1696,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
+    pub fn SetMaximumWidth(self: QAbstractSlider, maxw: i32) void {
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -1626,12 +1710,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
+    pub fn SetMaximumHeight(self: QAbstractSlider, maxh: i32) void {
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -1640,10 +1724,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeIncrement(@ptrCast(self));
+    pub fn SizeIncrement(self: QAbstractSlider) QSize {
+        return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1652,12 +1736,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` sizeIncrement: QtC.QSize `
+    /// ` sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+    pub fn SetSizeIncrement(self: QAbstractSlider, sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
     }
 
     /// Inherited from QWidget
@@ -1666,14 +1751,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetSizeIncrement2(self: QAbstractSlider, w: i32, h: i32) void {
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1682,10 +1767,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_BaseSize(@ptrCast(self));
+    pub fn BaseSize(self: QAbstractSlider) QSize {
+        return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1694,12 +1779,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` baseSize: QtC.QSize `
+    /// ` baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+    pub fn SetBaseSize(self: QAbstractSlider, baseSize: anytype) void {
+        comptime _ = @TypeOf(baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1708,14 +1794,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` basew: i32 `
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
+    pub fn SetBaseSize2(self: QAbstractSlider, basew: i32, baseh: i32) void {
+        qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -1724,12 +1810,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` fixedSize: QtC.QSize `
+    /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+    pub fn SetFixedSize(self: QAbstractSlider, fixedSize: anytype) void {
+        comptime _ = @TypeOf(fixedSize)._is_QSize;
+        qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1738,14 +1825,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetFixedSize2(self: QAbstractSlider, w: i32, h: i32) void {
+        qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1754,12 +1841,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetFixedWidth(self: QAbstractSlider, w: i32) void {
+        qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -1768,12 +1855,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
+    pub fn SetFixedHeight(self: QAbstractSlider, h: i32) void {
+        qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1782,12 +1869,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal(self: QAbstractSlider, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1796,12 +1884,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: QAbstractSlider, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1810,12 +1899,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal(self: QAbstractSlider, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1824,12 +1914,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: QAbstractSlider, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1838,12 +1929,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent(self: QAbstractSlider, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1852,12 +1944,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: QAbstractSlider, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1866,12 +1959,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent(self: QAbstractSlider, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1880,12 +1974,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: QAbstractSlider, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1894,14 +1989,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo(self: QAbstractSlider, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1910,14 +2007,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo2(self: QAbstractSlider, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1926,14 +2025,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom(self: QAbstractSlider, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1942,14 +2043,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom2(self: QAbstractSlider, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1958,10 +2061,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_Window(@ptrCast(self));
+    pub fn Window(self: QAbstractSlider) QWidget {
+        return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1970,10 +2073,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
+    pub fn NativeParentWidget(self: QAbstractSlider) QWidget {
+        return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1982,10 +2085,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
+    pub fn TopLevelWidget(self: QAbstractSlider) QWidget {
+        return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1994,10 +2097,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QWidget_Palette(@ptrCast(self));
+    pub fn Palette(self: QAbstractSlider) QPalette {
+        return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2006,12 +2109,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn SetPalette(self: QAbstractSlider, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// Inherited from QWidget
@@ -2020,12 +2124,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
+    pub fn SetBackgroundRole(self: QAbstractSlider, backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -2034,14 +2138,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_BackgroundRole(@ptrCast(self));
+    pub fn BackgroundRole(self: QAbstractSlider) i32 {
+        return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2050,12 +2154,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
+    pub fn SetForegroundRole(self: QAbstractSlider, foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -2064,14 +2168,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ForegroundRole(@ptrCast(self));
+    pub fn ForegroundRole(self: QAbstractSlider) i32 {
+        return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2080,10 +2184,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QWidget_Font(@ptrCast(self));
+    pub fn Font(self: QAbstractSlider) QFont {
+        return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2092,12 +2196,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: QAbstractSlider, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QWidget
@@ -2106,10 +2211,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QWidget_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: QAbstractSlider) QFontMetrics {
+        return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2118,10 +2223,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QWidget_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: QAbstractSlider) QFontInfo {
+        return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2130,10 +2235,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
-        return qtc.QWidget_Cursor(@ptrCast(self));
+    pub fn Cursor(self: QAbstractSlider) QCursor {
+        return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2142,12 +2247,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetCursor(self: QAbstractSlider, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QWidget
@@ -2156,10 +2262,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn UnsetCursor(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetCursor(@ptrCast(self));
+    pub fn UnsetCursor(self: QAbstractSlider) void {
+        qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2168,12 +2274,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
+    pub fn SetMouseTracking(self: QAbstractSlider, enable: bool) void {
+        qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -2182,10 +2288,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
+    pub fn HasMouseTracking(self: QAbstractSlider) bool {
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2194,10 +2300,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.QWidget_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: QAbstractSlider) bool {
+        return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2206,12 +2312,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
+    pub fn SetTabletTracking(self: QAbstractSlider, enable: bool) void {
+        qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -2220,10 +2326,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
+    pub fn HasTabletTracking(self: QAbstractSlider) bool {
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2232,12 +2338,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` mask: QtC.QBitmap `
+    /// ` mask: QBitmap `
     ///
-    pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask(self: QAbstractSlider, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -2246,12 +2353,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` mask: QtC.QRegion `
+    /// ` mask: QRegion `
     ///
-    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: QAbstractSlider, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -2260,10 +2368,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_Mask(@ptrCast(self));
+    pub fn Mask(self: QAbstractSlider) QRegion {
+        return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2272,10 +2380,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn ClearMask(self: ?*anyopaque) void {
-        qtc.QWidget_ClearMask(@ptrCast(self));
+    pub fn ClearMask(self: QAbstractSlider) void {
+        qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2284,12 +2392,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
+    pub fn Render(self: QAbstractSlider, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QWidget
@@ -2298,12 +2407,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: QAbstractSlider, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -2312,10 +2422,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab(@ptrCast(self));
+    pub fn Grab(self: QAbstractSlider) QPixmap {
+        return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2324,10 +2434,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
-        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
+    pub fn GraphicsEffect(self: QAbstractSlider) QGraphicsEffect {
+        return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2336,12 +2446,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` effect: QtC.QGraphicsEffect `
+    /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+    pub fn SetGraphicsEffect(self: QAbstractSlider, effect: anytype) void {
+        comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
 
     /// Inherited from QWidget
@@ -2350,12 +2461,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn GrabGesture(self: QAbstractSlider, typeVal: i32) void {
+        qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -2364,12 +2475,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn UngrabGesture(self: QAbstractSlider, typeVal: i32) void {
+        qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -2378,16 +2489,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
+    pub fn SetWindowTitle(self: QAbstractSlider, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
-        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
 
     /// Inherited from QWidget
@@ -2396,16 +2507,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
+    pub fn SetStyleSheet(self: QAbstractSlider, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
-        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
 
     /// Inherited from QWidget
@@ -2414,12 +2525,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractslider.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2432,12 +2543,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+    pub fn WindowTitle(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractslider.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2450,12 +2561,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetWindowIcon(self: QAbstractSlider, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -2464,10 +2576,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QWidget_WindowIcon(@ptrCast(self));
+    pub fn WindowIcon(self: QAbstractSlider) QIcon {
+        return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2476,16 +2588,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
+    pub fn SetWindowIconText(self: QAbstractSlider, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
-        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
 
     /// Inherited from QWidget
@@ -2494,12 +2606,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+    pub fn WindowIconText(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractslider.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2512,16 +2624,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
+    pub fn SetWindowRole(self: QAbstractSlider, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
-        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
 
     /// Inherited from QWidget
@@ -2530,12 +2642,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
+    pub fn WindowRole(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractslider.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2548,16 +2660,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
+    pub fn SetWindowFilePath(self: QAbstractSlider, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
 
     /// Inherited from QWidget
@@ -2566,12 +2678,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+    pub fn WindowFilePath(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractslider.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2584,12 +2696,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetWindowOpacity(self: QAbstractSlider, level: f64) void {
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -2598,10 +2710,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return qtc.QWidget_WindowOpacity(@ptrCast(self));
+    pub fn WindowOpacity(self: QAbstractSlider) f64 {
+        return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2610,10 +2722,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindowModified(@ptrCast(self));
+    pub fn IsWindowModified(self: QAbstractSlider) bool {
+        return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2622,16 +2734,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: QAbstractSlider, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// Inherited from QWidget
@@ -2640,12 +2752,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractslider.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2658,12 +2770,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
+    pub fn SetToolTipDuration(self: QAbstractSlider, msec: i32) void {
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -2672,10 +2784,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
+    pub fn ToolTipDuration(self: QAbstractSlider) i32 {
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2684,16 +2796,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: QAbstractSlider, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QWidget
@@ -2702,12 +2814,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractslider.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2720,16 +2832,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: QAbstractSlider, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// Inherited from QWidget
@@ -2738,12 +2850,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractslider.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2756,12 +2868,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+    pub fn AccessibleName(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractslider.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2774,16 +2886,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetAccessibleName(self: QAbstractSlider, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QWidget
@@ -2792,12 +2904,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+    pub fn AccessibleDescription(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractslider.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2810,16 +2922,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetAccessibleDescription(self: QAbstractSlider, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// Inherited from QWidget
@@ -2828,12 +2940,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: QAbstractSlider, direction: i32) void {
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -2842,14 +2954,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QWidget_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: QAbstractSlider) i32 {
+        return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2858,10 +2970,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
+    pub fn UnsetLayoutDirection(self: QAbstractSlider) void {
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2870,12 +2982,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: QAbstractSlider, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// Inherited from QWidget
@@ -2884,10 +2997,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QWidget_Locale(@ptrCast(self));
+    pub fn Locale(self: QAbstractSlider) QLocale {
+        return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2896,10 +3009,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn UnsetLocale(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLocale(@ptrCast(self));
+    pub fn UnsetLocale(self: QAbstractSlider) void {
+        qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2908,10 +3021,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
+    pub fn IsRightToLeft(self: QAbstractSlider) bool {
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2920,10 +3033,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
+    pub fn IsLeftToRight(self: QAbstractSlider) bool {
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2932,10 +3045,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SetFocus(self: ?*anyopaque) void {
-        qtc.QWidget_SetFocus(@ptrCast(self));
+    pub fn SetFocus(self: QAbstractSlider) void {
+        qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2944,10 +3057,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
+    pub fn IsActiveWindow(self: QAbstractSlider) bool {
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2956,10 +3069,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn ActivateWindow(self: ?*anyopaque) void {
-        qtc.QWidget_ActivateWindow(@ptrCast(self));
+    pub fn ActivateWindow(self: QAbstractSlider) void {
+        qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2968,10 +3081,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn ClearFocus(self: ?*anyopaque) void {
-        qtc.QWidget_ClearFocus(@ptrCast(self));
+    pub fn ClearFocus(self: QAbstractSlider) void {
+        qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2980,12 +3093,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
+    pub fn SetFocus2(self: QAbstractSlider, reason: i32) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -2994,14 +3107,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_FocusPolicy(@ptrCast(self));
+    pub fn FocusPolicy(self: QAbstractSlider) i32 {
+        return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3010,12 +3123,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetFocusPolicy(self: QAbstractSlider, policy: i32) void {
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -3024,10 +3137,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn HasFocus(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasFocus(@ptrCast(self));
+    pub fn HasFocus(self: QAbstractSlider) bool {
+        return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3036,12 +3149,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QWidget `
+    /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QWidget;
+        qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidget
@@ -3050,12 +3165,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` focusProxy: QtC.QWidget `
+    /// ` focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+    pub fn SetFocusProxy(self: QAbstractSlider, focusProxy: anytype) void {
+        comptime _ = @TypeOf(focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
     }
 
     /// Inherited from QWidget
@@ -3064,10 +3180,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusProxy(@ptrCast(self));
+    pub fn FocusProxy(self: QAbstractSlider) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3076,14 +3192,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
+    pub fn ContextMenuPolicy(self: QAbstractSlider) i32 {
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3092,12 +3208,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetContextMenuPolicy(self: QAbstractSlider, policy: i32) void {
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -3106,10 +3222,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn GrabMouse(self: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse(@ptrCast(self));
+    pub fn GrabMouse(self: QAbstractSlider) void {
+        qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3118,12 +3234,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: QAbstractSlider, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3132,10 +3249,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn ReleaseMouse(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseMouse(@ptrCast(self));
+    pub fn ReleaseMouse(self: QAbstractSlider) void {
+        qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3144,10 +3261,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn GrabKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_GrabKeyboard(@ptrCast(self));
+    pub fn GrabKeyboard(self: QAbstractSlider) void {
+        qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3156,10 +3273,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
+    pub fn ReleaseKeyboard(self: QAbstractSlider) void {
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3168,12 +3285,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+    pub fn GrabShortcut(self: QAbstractSlider, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// Inherited from QWidget
@@ -3182,12 +3300,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
+    pub fn ReleaseShortcut(self: QAbstractSlider, id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -3196,12 +3314,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutEnabled(self: QAbstractSlider, id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -3210,28 +3328,28 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutAutoRepeat(self: QAbstractSlider, id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QtC.QWidget {
-        return qtc.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QtC.QWidget {
-        return qtc.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
 
     /// Inherited from QWidget
@@ -3240,10 +3358,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
+    pub fn UpdatesEnabled(self: QAbstractSlider) bool {
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3252,12 +3370,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+    pub fn SetUpdatesEnabled(self: QAbstractSlider, enable: bool) void {
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -3266,10 +3384,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    pub fn GraphicsProxyWidget(self: QAbstractSlider) QGraphicsProxyWidget {
+        return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3278,10 +3396,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Update(self: ?*anyopaque) void {
-        qtc.QWidget_Update(@ptrCast(self));
+    pub fn Update(self: QAbstractSlider) void {
+        qtc.QWidget_Update(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3290,10 +3408,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Repaint(self: ?*anyopaque) void {
-        qtc.QWidget_Repaint(@ptrCast(self));
+    pub fn Repaint(self: QAbstractSlider) void {
+        qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3302,7 +3420,7 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` x: i32 `
     ///
@@ -3312,8 +3430,8 @@ pub const qabstractslider = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Update2(self: QAbstractSlider, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3322,12 +3440,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: QAbstractSlider, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3336,12 +3455,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: QAbstractSlider, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3350,7 +3470,7 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` x: i32 `
     ///
@@ -3360,8 +3480,8 @@ pub const qabstractslider = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Repaint2(self: QAbstractSlider, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3370,12 +3490,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: QAbstractSlider, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3384,12 +3505,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: QAbstractSlider, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3398,12 +3520,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
+    pub fn SetHidden(self: QAbstractSlider, hidden: bool) void {
+        qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
 
     /// Inherited from QWidget
@@ -3412,10 +3534,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QWidget_Show(@ptrCast(self));
+    pub fn Show(self: QAbstractSlider) void {
+        qtc.QWidget_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3424,10 +3546,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QWidget_Hide(@ptrCast(self));
+    pub fn Hide(self: QAbstractSlider) void {
+        qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3436,10 +3558,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn ShowMinimized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMinimized(@ptrCast(self));
+    pub fn ShowMinimized(self: QAbstractSlider) void {
+        qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3448,10 +3570,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn ShowMaximized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMaximized(@ptrCast(self));
+    pub fn ShowMaximized(self: QAbstractSlider) void {
+        qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3460,10 +3582,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn ShowFullScreen(self: ?*anyopaque) void {
-        qtc.QWidget_ShowFullScreen(@ptrCast(self));
+    pub fn ShowFullScreen(self: QAbstractSlider) void {
+        qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3472,10 +3594,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn ShowNormal(self: ?*anyopaque) void {
-        qtc.QWidget_ShowNormal(@ptrCast(self));
+    pub fn ShowNormal(self: QAbstractSlider) void {
+        qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3484,10 +3606,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Close(self: ?*anyopaque) bool {
-        return qtc.QWidget_Close(@ptrCast(self));
+    pub fn Close(self: QAbstractSlider) bool {
+        return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3496,10 +3618,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Raise(self: ?*anyopaque) void {
-        qtc.QWidget_Raise(@ptrCast(self));
+    pub fn Raise(self: QAbstractSlider) void {
+        qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3508,10 +3630,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Lower(self: ?*anyopaque) void {
-        qtc.QWidget_Lower(@ptrCast(self));
+    pub fn Lower(self: QAbstractSlider) void {
+        qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3520,12 +3642,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+    pub fn StackUnder(self: QAbstractSlider, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3534,14 +3657,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn Move(self: QAbstractSlider, x: i32, y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -3550,12 +3673,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: QAbstractSlider, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3564,14 +3688,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn Resize(self: QAbstractSlider, w: i32, h: i32) void {
+        qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3580,12 +3704,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QSize `
+    /// ` param1: QSize `
     ///
-    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: QAbstractSlider, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3594,7 +3719,7 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` x: i32 `
     ///
@@ -3604,8 +3729,8 @@ pub const qabstractslider = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetGeometry(self: QAbstractSlider, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3614,12 +3739,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` geometry: QtC.QRect `
+    /// ` geometry: QRect `
     ///
-    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: QAbstractSlider, geometry: anytype) void {
+        comptime _ = @TypeOf(geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
     }
 
     /// Inherited from QWidget
@@ -3628,12 +3754,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+    pub fn SaveGeometry(self: QAbstractSlider, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qabstractslider.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3646,16 +3772,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
+    pub fn RestoreGeometry(self: QAbstractSlider, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
-        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
 
     /// Inherited from QWidget
@@ -3664,10 +3790,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QWidget_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: QAbstractSlider) void {
+        qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3676,10 +3802,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: QAbstractSlider) bool {
+        return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3688,12 +3814,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsVisibleTo(self: QAbstractSlider, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3702,10 +3829,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn IsHidden(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsHidden(@ptrCast(self));
+    pub fn IsHidden(self: QAbstractSlider) bool {
+        return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3714,10 +3841,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn IsMinimized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMinimized(@ptrCast(self));
+    pub fn IsMinimized(self: QAbstractSlider) bool {
+        return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3726,10 +3853,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn IsMaximized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMaximized(@ptrCast(self));
+    pub fn IsMaximized(self: QAbstractSlider) bool {
+        return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3738,10 +3865,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsFullScreen(@ptrCast(self));
+    pub fn IsFullScreen(self: QAbstractSlider) bool {
+        return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3750,14 +3877,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowState(@ptrCast(self));
+    pub fn WindowState(self: QAbstractSlider) i32 {
+        return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3766,12 +3893,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
+    pub fn SetWindowState(self: QAbstractSlider, state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -3780,12 +3907,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
+    pub fn OverrideWindowState(self: QAbstractSlider, state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -3794,10 +3921,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QWidget_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: QAbstractSlider) QSizePolicy {
+        return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3806,12 +3933,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` sizePolicy: QtC.QSizePolicy `
+    /// ` sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
-        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    pub fn SetSizePolicy(self: QAbstractSlider, sizePolicy: anytype) void {
+        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
     }
 
     /// Inherited from QWidget
@@ -3820,14 +3948,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` horizontal: qsizepolicy_enums.Policy `
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
+    pub fn SetSizePolicy2(self: QAbstractSlider, horizontal: i32, vertical: i32) void {
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -3836,10 +3964,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_VisibleRegion(@ptrCast(self));
+    pub fn VisibleRegion(self: QAbstractSlider) QRegion {
+        return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3848,7 +3976,7 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` left: i32 `
     ///
@@ -3858,8 +3986,8 @@ pub const qabstractslider = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: QAbstractSlider, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -3868,12 +3996,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: QAbstractSlider, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QWidget
@@ -3882,10 +4011,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QWidget_ContentsMargins(@ptrCast(self));
+    pub fn ContentsMargins(self: QAbstractSlider) QMargins {
+        return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3894,10 +4023,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: QAbstractSlider) QRect {
+        return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3906,10 +4035,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidget_Layout(@ptrCast(self));
+    pub fn Layout(self: QAbstractSlider) QLayout {
+        return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3918,12 +4047,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` layout: QtC.QLayout `
+    /// ` layout: QLayout `
     ///
-    pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetLayout(self: QAbstractSlider, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// Inherited from QWidget
@@ -3932,10 +4062,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QWidget_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: QAbstractSlider) void {
+        qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3944,12 +4074,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QAbstractSlider, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QWidget
@@ -3958,14 +4089,15 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
+    pub fn SetParent2(self: QAbstractSlider, parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -3974,14 +4106,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Scroll(self: QAbstractSlider, dx: i32, dy: i32) void {
+        qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -3990,16 +4122,17 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    /// ` param3: QtC.QRect `
+    /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
+    pub fn Scroll2(self: QAbstractSlider, dx: i32, dy: i32, param3: anytype) void {
+        comptime _ = @TypeOf(param3)._is_QRect;
+        qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QWidget
@@ -4008,10 +4141,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusWidget(@ptrCast(self));
+    pub fn FocusWidget(self: QAbstractSlider) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4020,10 +4153,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
+    pub fn NextInFocusChain(self: QAbstractSlider) QWidget {
+        return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4032,10 +4165,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
+    pub fn PreviousInFocusChain(self: QAbstractSlider) QWidget {
+        return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4044,10 +4177,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return qtc.QWidget_AcceptDrops(@ptrCast(self));
+    pub fn AcceptDrops(self: QAbstractSlider) bool {
+        return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4056,12 +4189,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
+    pub fn SetAcceptDrops(self: QAbstractSlider, on: bool) void {
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QWidget
@@ -4070,12 +4203,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+    pub fn AddAction(self: QAbstractSlider, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -4084,16 +4218,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn AddActions(self: QAbstractSlider, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -4102,18 +4236,19 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn InsertActions(self: QAbstractSlider, before: anytype, actions: []QAction) void {
+        comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -4122,14 +4257,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn InsertAction(self: QAbstractSlider, before: anytype, action: anytype) void {
+        comptime _ = @TypeOf(before)._is_QAction;
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -4138,12 +4275,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn RemoveAction(self: QAbstractSlider, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -4152,16 +4290,17 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+    pub fn Actions(self: QAbstractSlider, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qabstractslider.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qabstractslider.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -4171,16 +4310,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: QAbstractSlider, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction2(@ptrCast(self), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -4189,18 +4328,19 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: QAbstractSlider, icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -4209,18 +4349,19 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: QAbstractSlider, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4229,20 +4370,22 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: QAbstractSlider, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4251,10 +4394,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: QAbstractSlider) QWidget {
+        return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4263,12 +4406,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetWindowFlags(self: QAbstractSlider, typeVal: i32) void {
+        qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -4277,14 +4420,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowFlags(@ptrCast(self));
+    pub fn WindowFlags(self: QAbstractSlider) i32 {
+        return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4293,12 +4436,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
+    pub fn SetWindowFlag(self: QAbstractSlider, param1: i32) void {
+        qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4307,12 +4450,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn OverrideWindowFlags(self: QAbstractSlider, typeVal: i32) void {
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -4321,14 +4464,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowType(@ptrCast(self));
+    pub fn WindowType(self: QAbstractSlider) i32 {
+        return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4339,8 +4482,8 @@ pub const qabstractslider = struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QtC.QWidget {
-        return qtc.QWidget_Find(@bitCast(param1));
+    pub fn Find(param1: usize) QWidget {
+        return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -4349,14 +4492,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: QAbstractSlider, x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QWidget
@@ -4365,12 +4508,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: QAbstractSlider, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4379,12 +4523,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: QAbstractSlider, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4393,12 +4538,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn SetAttribute(self: QAbstractSlider, param1: i32) void {
+        qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4407,12 +4552,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn TestAttribute(self: QAbstractSlider, param1: i32) bool {
+        return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4421,10 +4566,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn EnsurePolished(self: ?*anyopaque) void {
-        qtc.QWidget_EnsurePolished(@ptrCast(self));
+    pub fn EnsurePolished(self: QAbstractSlider) void {
+        qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4433,12 +4578,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` child: QtC.QWidget `
+    /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+    pub fn IsAncestorOf(self: QAbstractSlider, child: anytype) bool {
+        comptime _ = @TypeOf(child)._is_QWidget;
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from QWidget
@@ -4447,10 +4593,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
+    pub fn AutoFillBackground(self: QAbstractSlider) bool {
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4459,12 +4605,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+    pub fn SetAutoFillBackground(self: QAbstractSlider, enabled: bool) void {
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -4473,10 +4619,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
-        return qtc.QWidget_BackingStore(@ptrCast(self));
+    pub fn BackingStore(self: QAbstractSlider) QBackingStore {
+        return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4485,10 +4631,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QWidget_WindowHandle(@ptrCast(self));
+    pub fn WindowHandle(self: QAbstractSlider) QWindow {
+        return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4497,10 +4643,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
-        return qtc.QWidget_Screen(@ptrCast(self));
+    pub fn Screen(self: QAbstractSlider) QScreen {
+        return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4509,12 +4655,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+    pub fn SetScreen(self: QAbstractSlider, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QWidget
@@ -4523,10 +4670,11 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
+    pub fn CreateWindowContainer(window: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4535,16 +4683,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn WindowTitleChanged(self: QAbstractSlider, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QWidget
@@ -4553,12 +4701,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowTitleChanged(self: QAbstractSlider, callback: *const fn (QAbstractSlider, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4567,12 +4715,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+    pub fn WindowIconChanged(self: QAbstractSlider, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -4581,12 +4730,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, icon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconChanged(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QIcon) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4595,16 +4744,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
+    pub fn WindowIconTextChanged(self: QAbstractSlider, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
-        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
 
     /// Inherited from QWidget
@@ -4613,12 +4762,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, iconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconTextChanged(self: QAbstractSlider, callback: *const fn (QAbstractSlider, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4627,12 +4776,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+    pub fn CustomContextMenuRequested(self: QAbstractSlider, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QWidget
@@ -4641,12 +4791,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomContextMenuRequested(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QPoint) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4655,14 +4805,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i32 {
-        return qtc.QWidget_InputMethodHints(@ptrCast(self));
+    pub fn InputMethodHints(self: QAbstractSlider) i32 {
+        return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4671,12 +4821,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetInputMethodHints(self: QAbstractSlider, hints: i32) void {
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -4685,14 +4835,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: QAbstractSlider, target: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -4701,16 +4853,19 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render3(self: QAbstractSlider, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -4719,18 +4874,21 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render4(self: QAbstractSlider, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -4739,14 +4897,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: QAbstractSlider, painter: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -4755,16 +4915,19 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render32(self: QAbstractSlider, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -4773,18 +4936,21 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render42(self: QAbstractSlider, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -4793,12 +4959,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Grab1(self: QAbstractSlider, rectangle: anytype) QPixmap {
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4807,14 +4974,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
+    pub fn GrabGesture2(self: QAbstractSlider, typeVal: i32, flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -4823,14 +4990,15 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
+    pub fn GrabShortcut2(self: QAbstractSlider, key: anytype, context: i32) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -4839,14 +5007,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutEnabled2(self: QAbstractSlider, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -4855,14 +5023,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutAutoRepeat2(self: QAbstractSlider, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -4871,14 +5039,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetWindowFlag2(self: QAbstractSlider, param1: i32, on: bool) void {
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -4887,14 +5055,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetAttribute2(self: QAbstractSlider, param1: i32, on: bool) void {
+        qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -4903,12 +5071,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4917,14 +5087,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
+    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QObject
@@ -4933,12 +5105,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QAbstractSlider, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractslider.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4951,12 +5123,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QAbstractSlider, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -4965,10 +5137,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QAbstractSlider) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4977,10 +5149,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QAbstractSlider) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4989,10 +5161,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QAbstractSlider) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5001,10 +5173,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QAbstractSlider) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5013,12 +5185,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QAbstractSlider, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -5027,10 +5199,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QAbstractSlider) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5039,12 +5211,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QAbstractSlider, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -5053,12 +5226,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QAbstractSlider, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -5067,12 +5240,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QAbstractSlider, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -5081,12 +5254,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QAbstractSlider, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -5095,12 +5268,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QAbstractSlider, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -5109,16 +5282,17 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QAbstractSlider, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qabstractslider.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qabstractslider.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -5128,12 +5302,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QAbstractSlider, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -5142,12 +5317,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QAbstractSlider, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -5156,18 +5332,20 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -5176,16 +5354,20 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5194,18 +5376,19 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QAbstractSlider, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -5214,18 +5397,20 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5234,16 +5419,20 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -5252,10 +5441,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QAbstractSlider) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5264,12 +5453,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QAbstractSlider, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -5278,10 +5468,11 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -5290,10 +5481,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QAbstractSlider) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5302,10 +5493,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QAbstractSlider) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5314,15 +5505,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QAbstractSlider, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -5331,13 +5523,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QAbstractSlider, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -5346,17 +5538,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QAbstractSlider, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qabstractslider.DynamicPropertyNames: Memory allocation failed");
@@ -5375,10 +5566,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QAbstractSlider) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5387,10 +5578,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QAbstractSlider) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5399,10 +5590,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QAbstractSlider) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5411,12 +5602,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QAbstractSlider, callback: *const fn (QAbstractSlider) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5425,10 +5616,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QAbstractSlider) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5437,13 +5628,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QAbstractSlider, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -5452,10 +5643,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QAbstractSlider) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5464,14 +5655,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QAbstractSlider, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -5480,14 +5671,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QAbstractSlider, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -5496,20 +5687,22 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -5518,18 +5711,22 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -5538,9 +5735,9 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5548,10 +5745,11 @@ pub const qabstractslider = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QAbstractSlider, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -5560,13 +5758,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QAbstractSlider, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5575,15 +5773,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QAbstractSlider, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -5592,18 +5791,19 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QAbstractSlider, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5612,15 +5812,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QAbstractSlider, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5629,12 +5830,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QAbstractSlider, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -5643,12 +5845,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -5657,10 +5859,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: QAbstractSlider) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5669,10 +5871,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: QAbstractSlider) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5681,10 +5883,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: QAbstractSlider) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5693,10 +5895,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: QAbstractSlider) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5705,10 +5907,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: QAbstractSlider) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5717,10 +5919,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: QAbstractSlider) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5729,10 +5931,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: QAbstractSlider) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5741,10 +5943,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: QAbstractSlider) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5753,10 +5955,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: QAbstractSlider) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5765,10 +5967,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: QAbstractSlider) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5777,10 +5979,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: QAbstractSlider) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5813,10 +6015,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSlider_DevType(@ptrCast(self));
+    pub fn DevType(self: QAbstractSlider) i32 {
+        return qtc.QAbstractSlider_DevType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDevType` instead
@@ -5831,10 +6033,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SuperDevType(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSlider_SuperDevType(@ptrCast(self));
+    pub fn SuperDevType(self: QAbstractSlider) i32 {
+        return qtc.QAbstractSlider_SuperDevType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5845,12 +6047,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractSlider_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDevType(self: QAbstractSlider, callback: *const fn () callconv(.c) i32) void {
+        qtc.QAbstractSlider_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5861,12 +6063,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QAbstractSlider_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: QAbstractSlider, visible: bool) void {
+        qtc.QAbstractSlider_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### DEPRECATED: Use `SuperSetVisible` instead
@@ -5881,12 +6083,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QAbstractSlider_SuperSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: QAbstractSlider, visible: bool) void {
+        qtc.QAbstractSlider_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QWidget
@@ -5897,12 +6099,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetVisible(self: QAbstractSlider, callback: *const fn (QAbstractSlider, bool) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5913,10 +6115,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractSlider_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: QAbstractSlider) QSize {
+        return .{ .ptr = qtc.QAbstractSlider_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSizeHint` instead
@@ -5931,10 +6133,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractSlider_SuperSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: QAbstractSlider) QSize {
+        return .{ .ptr = qtc.QAbstractSlider_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5945,12 +6147,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QAbstractSlider_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHint(self: QAbstractSlider, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QAbstractSlider_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5961,10 +6163,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractSlider_MinimumSizeHint(@ptrCast(self));
+    pub fn MinimumSizeHint(self: QAbstractSlider) QSize {
+        return .{ .ptr = qtc.QAbstractSlider_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
@@ -5979,10 +6181,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractSlider_SuperMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: QAbstractSlider) QSize {
+        return .{ .ptr = qtc.QAbstractSlider_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5993,12 +6195,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QAbstractSlider_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumSizeHint(self: QAbstractSlider, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QAbstractSlider_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6009,12 +6211,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QAbstractSlider_HeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn HeightForWidth(self: QAbstractSlider, param1: i32) i32 {
+        return qtc.QAbstractSlider_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperHeightForWidth` instead
@@ -6029,12 +6231,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QAbstractSlider_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: QAbstractSlider, param1: i32) i32 {
+        return qtc.QAbstractSlider_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6045,12 +6247,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, param1: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractSlider, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QAbstractSlider_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeightForWidth(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) i32) void {
+        qtc.QAbstractSlider_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6061,10 +6263,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QAbstractSlider_HasHeightForWidth(@ptrCast(self));
+    pub fn HasHeightForWidth(self: QAbstractSlider) bool {
+        return qtc.QAbstractSlider_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
@@ -6079,10 +6281,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QAbstractSlider_SuperHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: QAbstractSlider) bool {
+        return qtc.QAbstractSlider_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6093,12 +6295,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QAbstractSlider_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasHeightForWidth(self: QAbstractSlider, callback: *const fn () callconv(.c) bool) void {
+        qtc.QAbstractSlider_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6109,10 +6311,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QAbstractSlider_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: QAbstractSlider) QPaintEngine {
+        return .{ .ptr = qtc.QAbstractSlider_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperPaintEngine` instead
@@ -6127,10 +6329,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QAbstractSlider_SuperPaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: QAbstractSlider) QPaintEngine {
+        return .{ .ptr = qtc.QAbstractSlider_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6141,12 +6343,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QAbstractSlider_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEngine(self: QAbstractSlider, callback: *const fn () callconv(.c) QPaintEngine) void {
+        qtc.QAbstractSlider_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6157,12 +6359,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_MousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MousePressEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QAbstractSlider_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMousePressEvent` instead
@@ -6177,12 +6380,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QAbstractSlider_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6193,12 +6397,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMousePressEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMouseEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6209,12 +6413,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseReleaseEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QAbstractSlider_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
@@ -6229,12 +6434,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QAbstractSlider_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6245,12 +6451,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseReleaseEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMouseEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6261,12 +6467,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseDoubleClickEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QAbstractSlider_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
@@ -6281,12 +6488,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QAbstractSlider_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6297,12 +6505,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseDoubleClickEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMouseEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6313,12 +6521,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseMoveEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QAbstractSlider_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
@@ -6333,12 +6542,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QAbstractSlider_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6349,12 +6559,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseMoveEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMouseEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6365,12 +6575,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyReleaseEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QAbstractSlider_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
@@ -6385,12 +6596,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QAbstractSlider_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6401,12 +6613,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyReleaseEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QKeyEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6417,12 +6629,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_FocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusInEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QAbstractSlider_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusInEvent` instead
@@ -6437,12 +6650,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QAbstractSlider_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6453,12 +6667,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusInEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QFocusEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6469,12 +6683,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_FocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusOutEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QAbstractSlider_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
@@ -6489,12 +6704,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QAbstractSlider_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6505,12 +6721,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusOutEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QFocusEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6521,12 +6737,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_EnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn EnterEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QAbstractSlider_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEnterEvent` instead
@@ -6541,12 +6758,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QAbstractSlider_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6557,12 +6775,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnterEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QEnterEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6573,12 +6791,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_LeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn LeaveEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QAbstractSlider_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLeaveEvent` instead
@@ -6593,12 +6812,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QAbstractSlider_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6609,12 +6829,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeaveEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6625,12 +6845,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QPaintEvent `
+    /// ` event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_PaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn PaintEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QPaintEvent;
+        qtc.QAbstractSlider_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperPaintEvent` instead
@@ -6645,12 +6866,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QPaintEvent `
+    /// ` event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperPaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperPaintEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QPaintEvent;
+        qtc.QAbstractSlider_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6661,12 +6883,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QPaintEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QPaintEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6677,12 +6899,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_MoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MoveEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QAbstractSlider_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMoveEvent` instead
@@ -6697,12 +6920,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QAbstractSlider_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6713,12 +6937,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMoveEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6729,12 +6953,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_ResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ResizeEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.QAbstractSlider_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResizeEvent` instead
@@ -6749,12 +6974,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.QAbstractSlider_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6765,12 +6991,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QResizeEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResizeEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QResizeEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6781,12 +7007,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_CloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CloseEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QAbstractSlider_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEvent` instead
@@ -6801,12 +7028,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QAbstractSlider_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6817,12 +7045,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QCloseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QCloseEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6833,12 +7061,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QContextMenuEvent `
+    /// ` event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_ContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ContextMenuEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
+        qtc.QAbstractSlider_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
@@ -6853,12 +7082,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QContextMenuEvent `
+    /// ` event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperContextMenuEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
+        qtc.QAbstractSlider_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6869,12 +7099,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QContextMenuEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QContextMenuEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6885,12 +7115,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_TabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TabletEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QAbstractSlider_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTabletEvent` instead
@@ -6905,12 +7136,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QAbstractSlider_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6921,12 +7153,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QTabletEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabletEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QTabletEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6937,12 +7169,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_ActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ActionEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QAbstractSlider_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperActionEvent` instead
@@ -6957,12 +7190,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QAbstractSlider_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6973,12 +7207,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QActionEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QActionEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6989,12 +7223,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_DragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragEnterEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QAbstractSlider_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
@@ -7009,12 +7244,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QAbstractSlider_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7025,12 +7261,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QDragEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragEnterEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QDragEnterEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7041,12 +7277,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_DragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragMoveEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QAbstractSlider_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
@@ -7061,12 +7298,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QAbstractSlider_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7077,12 +7315,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QDragMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragMoveEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QDragMoveEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7093,12 +7331,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragLeaveEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QAbstractSlider_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
@@ -7113,12 +7352,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QAbstractSlider_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7129,12 +7369,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QDragLeaveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragLeaveEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QDragLeaveEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7145,12 +7385,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_DropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DropEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QAbstractSlider_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropEvent` instead
@@ -7165,12 +7406,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QAbstractSlider_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7181,12 +7423,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QDropEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QDropEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7197,12 +7439,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_ShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ShowEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.QAbstractSlider_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperShowEvent` instead
@@ -7217,12 +7460,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.QAbstractSlider_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7233,12 +7477,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QShowEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShowEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QShowEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7249,12 +7493,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_HideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn HideEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QAbstractSlider_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHideEvent` instead
@@ -7269,12 +7514,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QAbstractSlider_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7285,12 +7531,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QHideEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHideEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QHideEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7301,7 +7547,7 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` eventType: []u8 `
     ///
@@ -7309,12 +7555,12 @@ pub const qabstractslider = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn NativeEvent(self: QAbstractSlider, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QAbstractSlider_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QAbstractSlider_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### DEPRECATED: Use `SuperNativeEvent` instead
@@ -7329,7 +7575,7 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` eventType: []u8 `
     ///
@@ -7337,12 +7583,12 @@ pub const qabstractslider = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: QAbstractSlider, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QAbstractSlider_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QAbstractSlider_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -7353,12 +7599,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractSlider, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QAbstractSlider_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNativeEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.QAbstractSlider_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7369,12 +7615,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QAbstractSlider_Metric(@ptrCast(self), @bitCast(param1));
+    pub fn Metric(self: QAbstractSlider, param1: i32) i32 {
+        return qtc.QAbstractSlider_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperMetric` instead
@@ -7389,12 +7635,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QAbstractSlider_SuperMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: QAbstractSlider, param1: i32) i32 {
+        return qtc.QAbstractSlider_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7405,12 +7651,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractSlider, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QAbstractSlider_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetric(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) i32) void {
+        qtc.QAbstractSlider_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7421,12 +7667,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QAbstractSlider_InitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn InitPainter(self: QAbstractSlider, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QAbstractSlider_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitPainter` instead
@@ -7441,12 +7688,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: QAbstractSlider, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QAbstractSlider_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -7457,12 +7705,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, painter: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitPainter(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QPainter) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7473,12 +7721,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QAbstractSlider_Redirected(@ptrCast(self), @ptrCast(offset));
+    pub fn Redirected(self: QAbstractSlider, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QAbstractSlider_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperRedirected` instead
@@ -7493,12 +7742,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QAbstractSlider_SuperRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: QAbstractSlider, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QAbstractSlider_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7509,12 +7759,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    /// ` callback: *const fn (self: QAbstractSlider, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QAbstractSlider_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QPoint) callconv(.c) QPaintDevice) void {
+        qtc.QAbstractSlider_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7525,10 +7775,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QAbstractSlider_SharedPainter(@ptrCast(self));
+    pub fn SharedPainter(self: QAbstractSlider) QPainter {
+        return .{ .ptr = qtc.QAbstractSlider_SharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSharedPainter` instead
@@ -7543,10 +7793,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QAbstractSlider_SuperSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: QAbstractSlider) QPainter {
+        return .{ .ptr = qtc.QAbstractSlider_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7557,12 +7807,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QAbstractSlider_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSharedPainter(self: QAbstractSlider, callback: *const fn () callconv(.c) QPainter) void {
+        qtc.QAbstractSlider_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7573,12 +7823,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QAbstractSlider_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn InputMethodEvent(self: QAbstractSlider, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QAbstractSlider_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
@@ -7593,12 +7844,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: QAbstractSlider, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QAbstractSlider_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -7609,12 +7861,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, param1: QtC.QInputMethodEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QInputMethodEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7625,12 +7877,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QAbstractSlider_InputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn InputMethodQuery(self: QAbstractSlider, param1: i32) QVariant {
+        return .{ .ptr = qtc.QAbstractSlider_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
@@ -7645,12 +7897,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QAbstractSlider_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: QAbstractSlider, param1: i32) QVariant {
+        return .{ .ptr = qtc.QAbstractSlider_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -7661,12 +7913,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QAbstractSlider, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QAbstractSlider_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodQuery(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32) callconv(.c) QVariant) void {
+        qtc.QAbstractSlider_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7677,12 +7929,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QAbstractSlider_FocusNextPrevChild(@ptrCast(self), next);
+    pub fn FocusNextPrevChild(self: QAbstractSlider, next: bool) bool {
+        return qtc.QAbstractSlider_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
@@ -7697,12 +7949,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QAbstractSlider_SuperFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: QAbstractSlider, next: bool) bool {
+        return qtc.QAbstractSlider_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// Inherited from QWidget
@@ -7713,12 +7965,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, next: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractSlider, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QAbstractSlider_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextPrevChild(self: QAbstractSlider, callback: *const fn (QAbstractSlider, bool) callconv(.c) bool) void {
+        qtc.QAbstractSlider_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7729,14 +7981,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QAbstractSlider_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QAbstractSlider, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QAbstractSlider_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -7751,14 +8005,16 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QAbstractSlider_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QAbstractSlider, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QAbstractSlider_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7769,12 +8025,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractSlider, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractSlider_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QAbstractSlider_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7785,12 +8041,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QAbstractSlider_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -7805,12 +8062,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QAbstractSlider_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7821,12 +8079,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QChildEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7837,12 +8095,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QAbstractSlider_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -7857,12 +8116,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QAbstractSlider, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QAbstractSlider_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7873,12 +8133,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QEvent) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7889,12 +8149,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QAbstractSlider_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QAbstractSlider, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QAbstractSlider_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -7909,12 +8170,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QAbstractSlider, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QAbstractSlider_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -7925,12 +8187,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMetaMethod) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7941,12 +8203,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QAbstractSlider_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QAbstractSlider, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QAbstractSlider_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -7961,12 +8224,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QAbstractSlider, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QAbstractSlider_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -7977,12 +8241,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSlider_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMetaMethod) callconv(.c) void) void {
+        qtc.QAbstractSlider_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7993,10 +8257,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QAbstractSlider_UpdateMicroFocus(@ptrCast(self));
+    pub fn UpdateMicroFocus(self: QAbstractSlider) void {
+        qtc.QAbstractSlider_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
@@ -8011,10 +8275,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: QAbstractSlider) void {
+        qtc.QAbstractSlider_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8025,12 +8289,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractSlider_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateMicroFocus(self: QAbstractSlider, callback: *const fn () callconv(.c) void) void {
+        qtc.QAbstractSlider_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8041,10 +8305,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Create(self: ?*anyopaque) void {
-        qtc.QAbstractSlider_Create(@ptrCast(self));
+    pub fn Create(self: QAbstractSlider) void {
+        qtc.QAbstractSlider_Create(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -8059,10 +8323,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SuperCreate(self: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperCreate(@ptrCast(self));
+    pub fn SuperCreate(self: QAbstractSlider) void {
+        qtc.QAbstractSlider_SuperCreate(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8073,12 +8337,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractSlider_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: QAbstractSlider, callback: *const fn () callconv(.c) void) void {
+        qtc.QAbstractSlider_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8089,10 +8353,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Destroy(self: ?*anyopaque) void {
-        qtc.QAbstractSlider_Destroy(@ptrCast(self));
+    pub fn Destroy(self: QAbstractSlider) void {
+        qtc.QAbstractSlider_Destroy(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDestroy` instead
@@ -8107,10 +8371,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SuperDestroy(self: ?*anyopaque) void {
-        qtc.QAbstractSlider_SuperDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: QAbstractSlider) void {
+        qtc.QAbstractSlider_SuperDestroy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8121,12 +8385,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractSlider_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroy(self: QAbstractSlider, callback: *const fn () callconv(.c) void) void {
+        qtc.QAbstractSlider_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8137,10 +8401,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QAbstractSlider_FocusNextChild(@ptrCast(self));
+    pub fn FocusNextChild(self: QAbstractSlider) bool {
+        return qtc.QAbstractSlider_FocusNextChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextChild` instead
@@ -8155,10 +8419,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QAbstractSlider_SuperFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: QAbstractSlider) bool {
+        return qtc.QAbstractSlider_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8169,12 +8433,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QAbstractSlider_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextChild(self: QAbstractSlider, callback: *const fn () callconv(.c) bool) void {
+        qtc.QAbstractSlider_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8185,10 +8449,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QAbstractSlider_FocusPreviousChild(@ptrCast(self));
+    pub fn FocusPreviousChild(self: QAbstractSlider) bool {
+        return qtc.QAbstractSlider_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
@@ -8203,10 +8467,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QAbstractSlider_SuperFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: QAbstractSlider) bool {
+        return qtc.QAbstractSlider_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8217,12 +8481,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QAbstractSlider_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusPreviousChild(self: QAbstractSlider, callback: *const fn () callconv(.c) bool) void {
+        qtc.QAbstractSlider_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8233,10 +8497,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QAbstractSlider_Sender(@ptrCast(self));
+    pub fn Sender(self: QAbstractSlider) QObject {
+        return .{ .ptr = qtc.QAbstractSlider_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -8251,10 +8515,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QAbstractSlider_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QAbstractSlider) QObject {
+        return .{ .ptr = qtc.QAbstractSlider_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -8265,12 +8529,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QAbstractSlider_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QAbstractSlider, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QAbstractSlider_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8281,10 +8545,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSlider_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QAbstractSlider) i32 {
+        return qtc.QAbstractSlider_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -8299,10 +8563,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QAbstractSlider_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QAbstractSlider) i32 {
+        return qtc.QAbstractSlider_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8313,12 +8577,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QAbstractSlider_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QAbstractSlider, callback: *const fn () callconv(.c) i32) void {
+        qtc.QAbstractSlider_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8329,13 +8593,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QAbstractSlider, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QAbstractSlider_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QAbstractSlider_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -8350,13 +8614,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QAbstractSlider, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QAbstractSlider_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QAbstractSlider_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -8367,12 +8631,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QAbstractSlider, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QAbstractSlider_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QAbstractSlider, callback: *const fn (QAbstractSlider, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QAbstractSlider_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8383,12 +8647,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QAbstractSlider_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QAbstractSlider, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QAbstractSlider_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -8403,12 +8668,13 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QAbstractSlider_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QAbstractSlider, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QAbstractSlider_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -8419,12 +8685,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractSlider, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractSlider_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QAbstractSlider, callback: *const fn (QAbstractSlider, QMetaMethod) callconv(.c) bool) void {
+        qtc.QAbstractSlider_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -8435,14 +8701,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QAbstractSlider_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn GetDecodedMetricF(self: QAbstractSlider, metricA: i32, metricB: i32) f64 {
+        return qtc.QAbstractSlider_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
@@ -8457,14 +8723,14 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QAbstractSlider_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: QAbstractSlider, metricA: i32, metricB: i32) f64 {
+        return qtc.QAbstractSlider_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -8475,12 +8741,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider`
+    /// ` self: QAbstractSlider`
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    /// ` callback: *const fn (self: QAbstractSlider, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QAbstractSlider_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetDecodedMetricF(self: QAbstractSlider, callback: *const fn (QAbstractSlider, i32, i32) callconv(.c) f64) void {
+        qtc.QAbstractSlider_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8491,12 +8757,12 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractSlider, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractSlider, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QAbstractSlider, callback: *const fn (QAbstractSlider, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -8509,10 +8775,10 @@ pub const qabstractslider = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QAbstractSlider `
+    /// ` self: QAbstractSlider `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QAbstractSlider_Delete(@ptrCast(self));
+    pub fn Delete(self: QAbstractSlider) void {
+        qtc.QAbstractSlider_Delete(@ptrCast(self.ptr));
     }
 };
 

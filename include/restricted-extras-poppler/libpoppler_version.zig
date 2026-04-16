@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 const std = @import("std");
 
 /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Version.html)
-pub const poppler__version = struct {
+pub const Poppler__Version = extern struct {
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Version.html)
     ///
     /// ## Parameter(s):

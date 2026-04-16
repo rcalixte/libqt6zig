@@ -1,5 +1,80 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KActionCollection = @import("libqt6").KActionCollection;
+const KConfig = @import("libqt6").KConfig;
+const KConfigGroup = @import("libqt6").KConfigGroup;
+const KMainWindow = @import("libqt6").KMainWindow;
+const KParts__Part = @import("libqt6").KParts__Part;
+const KToolBar = @import("libqt6").KToolBar;
+const KXMLGUIBuilder = @import("libqt6").KXMLGUIBuilder;
+const KXMLGUIClient = @import("libqt6").KXMLGUIClient;
+const KXMLGUIClient__StateChange = @import("libqt6").KXMLGUIClient__StateChange;
+const KXMLGUIFactory = @import("libqt6").KXMLGUIFactory;
+const QAction = @import("libqt6").QAction;
+const QActionEvent = @import("libqt6").QActionEvent;
+const QBackingStore = @import("libqt6").QBackingStore;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBitmap = @import("libqt6").QBitmap;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QCloseEvent = @import("libqt6").QCloseEvent;
+const QContextMenuEvent = @import("libqt6").QContextMenuEvent;
+const QCursor = @import("libqt6").QCursor;
+const QDockWidget = @import("libqt6").QDockWidget;
+const QDomDocument = @import("libqt6").QDomDocument;
+const QDomElement = @import("libqt6").QDomElement;
+const QDragEnterEvent = @import("libqt6").QDragEnterEvent;
+const QDragLeaveEvent = @import("libqt6").QDragLeaveEvent;
+const QDragMoveEvent = @import("libqt6").QDragMoveEvent;
+const QDropEvent = @import("libqt6").QDropEvent;
+const QEnterEvent = @import("libqt6").QEnterEvent;
+const QEvent = @import("libqt6").QEvent;
+const QFocusEvent = @import("libqt6").QFocusEvent;
+const QFont = @import("libqt6").QFont;
+const QFontInfo = @import("libqt6").QFontInfo;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QGraphicsEffect = @import("libqt6").QGraphicsEffect;
+const QGraphicsProxyWidget = @import("libqt6").QGraphicsProxyWidget;
+const QHideEvent = @import("libqt6").QHideEvent;
+const QIcon = @import("libqt6").QIcon;
+const QInputMethodEvent = @import("libqt6").QInputMethodEvent;
+const QKeyEvent = @import("libqt6").QKeyEvent;
+const QKeySequence = @import("libqt6").QKeySequence;
+const QLayout = @import("libqt6").QLayout;
+const QLocale = @import("libqt6").QLocale;
+const QMargins = @import("libqt6").QMargins;
+const QMenu = @import("libqt6").QMenu;
+const QMenuBar = @import("libqt6").QMenuBar;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMouseEvent = @import("libqt6").QMouseEvent;
+const QMoveEvent = @import("libqt6").QMoveEvent;
+const QObject = @import("libqt6").QObject;
+const QPaintDevice = @import("libqt6").QPaintDevice;
+const QPaintEngine = @import("libqt6").QPaintEngine;
+const QPaintEvent = @import("libqt6").QPaintEvent;
+const QPainter = @import("libqt6").QPainter;
+const QPalette = @import("libqt6").QPalette;
+const QPixmap = @import("libqt6").QPixmap;
+const QPoint = @import("libqt6").QPoint;
+const QPointF = @import("libqt6").QPointF;
+const QRect = @import("libqt6").QRect;
+const QRegion = @import("libqt6").QRegion;
+const QResizeEvent = @import("libqt6").QResizeEvent;
+const QScreen = @import("libqt6").QScreen;
+const QShowEvent = @import("libqt6").QShowEvent;
+const QSize = @import("libqt6").QSize;
+const QSizePolicy = @import("libqt6").QSizePolicy;
+const QStatusBar = @import("libqt6").QStatusBar;
+const QStyle = @import("libqt6").QStyle;
+const QTabletEvent = @import("libqt6").QTabletEvent;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QToolBar = @import("libqt6").QToolBar;
+const QVariant = @import("libqt6").QVariant;
+const QWheelEvent = @import("libqt6").QWheelEvent;
+const QWidget = @import("libqt6").QWidget;
+const QWindow = @import("libqt6").QWindow;
 const kxmlguiclient_enums = @import("../extras-kxmlgui/libkxmlguiclient.zig").enums;
 const kxmlguiwindow_enums = @import("../extras-kxmlgui/libkxmlguiwindow.zig").enums;
 const qmainwindow_enums = @import("../libqmainwindow.zig").enums;
@@ -13,43 +88,62 @@ const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kparts-mainwindow.html)
-pub const kparts__mainwindow = struct {
+pub const KParts__MainWindow = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kparts-mainwindow.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KParts__MainWindow,
+
+    pub const _is_KParts__MainWindow = {};
+    pub const _is_KXmlGuiWindow = {};
+    pub const _is_KMainWindow = {};
+    pub const _is_QMainWindow = {};
+    pub const _is_QWidget = {};
+    pub const _is_QObject = {};
+    pub const _is_QPaintDevice = {};
+    pub const _is_KXMLGUIBuilder = {};
+    pub const _is_KXMLGUIClient = {};
+    pub const _is_KParts__PartBase = {};
+
     /// New constructs a new KParts::MainWindow object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.KParts__MainWindow {
-        return qtc.KParts__MainWindow_new(@ptrCast(parent));
+    pub fn New(parent: anytype) KParts__MainWindow {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.KParts__MainWindow_new(@ptrCast(parent.ptr)) };
     }
 
     /// New2 constructs a new KParts::MainWindow object.
     ///
-    pub fn New2() QtC.KParts__MainWindow {
-        return qtc.KParts__MainWindow_new2();
+    pub fn New2() KParts__MainWindow {
+        return .{ .ptr = qtc.KParts__MainWindow_new2() };
     }
 
     /// New3 constructs a new KParts::MainWindow object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn New3(parent: ?*anyopaque, f: i32) QtC.KParts__MainWindow {
-        return qtc.KParts__MainWindow_new3(@ptrCast(parent), @bitCast(f));
+    pub fn New3(parent: anytype, f: i32) KParts__MainWindow {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.KParts__MainWindow_new3(@ptrCast(parent.ptr), @bitCast(f)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KParts__MainWindow_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KParts__MainWindow) QMetaObject {
+        return .{ .ptr = qtc.KParts__MainWindow_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -58,12 +152,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KParts__MainWindow_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KParts__MainWindow, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KParts__MainWindow_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -76,33 +170,33 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KParts__MainWindow_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KParts__MainWindow) QMetaObject {
+        return .{ .ptr = qtc.KParts__MainWindow_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KParts__MainWindow, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KParts__MainWindow_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KParts__MainWindow_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KParts__MainWindow, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KParts__MainWindow_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KParts__MainWindow_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -113,18 +207,18 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KParts__MainWindow, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KParts__MainWindow_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KParts__MainWindow_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -132,20 +226,20 @@ pub const kparts__mainwindow = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KParts__MainWindow_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KParts__MainWindow, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KParts__MainWindow_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KParts__MainWindow, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KParts__MainWindow_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KParts__MainWindow_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -156,7 +250,7 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -164,19 +258,19 @@ pub const kparts__mainwindow = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KParts__MainWindow_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KParts__MainWindow, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KParts__MainWindow_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -189,10 +283,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ConfigureToolbars(self: ?*anyopaque) void {
-        qtc.KParts__MainWindow_ConfigureToolbars(@ptrCast(self));
+    pub fn ConfigureToolbars(self: KParts__MainWindow) void {
+        qtc.KParts__MainWindow_ConfigureToolbars(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-mainwindow.html#configureToolbars)
@@ -201,12 +295,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnConfigureToolbars(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnConfigureToolbars(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConfigureToolbars(self: KParts__MainWindow, callback: *const fn () callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnConfigureToolbars(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperConfigureToolbars` instead
@@ -219,22 +313,23 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperConfigureToolbars(self: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperConfigureToolbars(@ptrCast(self));
+    pub fn SuperConfigureToolbars(self: KParts__MainWindow) void {
+        qtc.KParts__MainWindow_SuperConfigureToolbars(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-mainwindow.html#createGUI)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` part: QtC.KParts__Part `
+    /// ` part: KParts__Part `
     ///
-    pub fn CreateGUI(self: ?*anyopaque, part: ?*anyopaque) void {
-        qtc.KParts__MainWindow_CreateGUI(@ptrCast(self), @ptrCast(part));
+    pub fn CreateGUI(self: KParts__MainWindow, part: anytype) void {
+        comptime _ = @TypeOf(part)._is_KParts__Part;
+        qtc.KParts__MainWindow_CreateGUI(@ptrCast(self.ptr), @ptrCast(part.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-mainwindow.html#createGUI)
@@ -243,12 +338,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, part: QtC.KParts__Part) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, part: KParts__Part) callconv(.c) void `
     ///
-    pub fn OnCreateGUI(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnCreateGUI(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreateGUI(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, KParts__Part) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnCreateGUI(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCreateGUI` instead
@@ -261,24 +356,25 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` part: QtC.KParts__Part `
+    /// ` part: KParts__Part `
     ///
-    pub fn SuperCreateGUI(self: ?*anyopaque, part: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperCreateGUI(@ptrCast(self), @ptrCast(part));
+    pub fn SuperCreateGUI(self: KParts__MainWindow, part: anytype) void {
+        comptime _ = @TypeOf(part)._is_KParts__Part;
+        qtc.KParts__MainWindow_SuperCreateGUI(@ptrCast(self.ptr), @ptrCast(part.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-mainwindow.html#setWindowTitleHandling)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetWindowTitleHandling(self: ?*anyopaque, enabled: bool) void {
-        qtc.KParts__MainWindow_SetWindowTitleHandling(@ptrCast(self), enabled);
+    pub fn SetWindowTitleHandling(self: KParts__MainWindow, enabled: bool) void {
+        qtc.KParts__MainWindow_SetWindowTitleHandling(@ptrCast(self.ptr), enabled);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-mainwindow.html#setWindowTitleHandling)
@@ -287,12 +383,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, enabled: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, enabled: bool) callconv(.c) void `
     ///
-    pub fn OnSetWindowTitleHandling(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnSetWindowTitleHandling(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetWindowTitleHandling(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, bool) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnSetWindowTitleHandling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetWindowTitleHandling` instead
@@ -305,28 +401,28 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SuperSetWindowTitleHandling(self: ?*anyopaque, enabled: bool) void {
-        qtc.KParts__MainWindow_SuperSetWindowTitleHandling(@ptrCast(self), enabled);
+    pub fn SuperSetWindowTitleHandling(self: KParts__MainWindow, enabled: bool) void {
+        qtc.KParts__MainWindow_SuperSetWindowTitleHandling(@ptrCast(self.ptr), enabled);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-mainwindow.html#slotSetStatusBarText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn SlotSetStatusBarText(self: ?*anyopaque, param1: []const u8) void {
+    pub fn SlotSetStatusBarText(self: KParts__MainWindow, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        qtc.KParts__MainWindow_SlotSetStatusBarText(@ptrCast(self), param1_str);
+        qtc.KParts__MainWindow_SlotSetStatusBarText(@ptrCast(self.ptr), param1_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-mainwindow.html#slotSetStatusBarText)
@@ -335,12 +431,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, param1: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSlotSetStatusBarText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnSlotSetStatusBarText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSlotSetStatusBarText(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, [*:0]const u8) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnSlotSetStatusBarText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSlotSetStatusBarText` instead
@@ -353,26 +449,26 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn SuperSlotSetStatusBarText(self: ?*anyopaque, param1: []const u8) void {
+    pub fn SuperSlotSetStatusBarText(self: KParts__MainWindow, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        qtc.KParts__MainWindow_SuperSlotSetStatusBarText(@ptrCast(self), param1_str);
+        qtc.KParts__MainWindow_SuperSlotSetStatusBarText(@ptrCast(self.ptr), param1_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-mainwindow.html#saveNewToolbarConfig)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SaveNewToolbarConfig(self: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SaveNewToolbarConfig(@ptrCast(self));
+    pub fn SaveNewToolbarConfig(self: KParts__MainWindow) void {
+        qtc.KParts__MainWindow_SaveNewToolbarConfig(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-mainwindow.html#saveNewToolbarConfig)
@@ -381,12 +477,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSaveNewToolbarConfig(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnSaveNewToolbarConfig(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSaveNewToolbarConfig(self: KParts__MainWindow, callback: *const fn () callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnSaveNewToolbarConfig(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSaveNewToolbarConfig` instead
@@ -399,22 +495,22 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperSaveNewToolbarConfig(self: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperSaveNewToolbarConfig(@ptrCast(self));
+    pub fn SuperSaveNewToolbarConfig(self: KParts__MainWindow) void {
+        qtc.KParts__MainWindow_SuperSaveNewToolbarConfig(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-mainwindow.html#createShellGUI)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` create: bool `
     ///
-    pub fn CreateShellGUI(self: ?*anyopaque, create: bool) void {
-        qtc.KParts__MainWindow_CreateShellGUI(@ptrCast(self), create);
+    pub fn CreateShellGUI(self: KParts__MainWindow, create: bool) void {
+        qtc.KParts__MainWindow_CreateShellGUI(@ptrCast(self.ptr), create);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-mainwindow.html#createShellGUI)
@@ -423,12 +519,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, create: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, create: bool) callconv(.c) void `
     ///
-    pub fn OnCreateShellGUI(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnCreateShellGUI(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreateShellGUI(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, bool) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnCreateShellGUI(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCreateShellGUI` instead
@@ -441,25 +537,25 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` create: bool `
     ///
-    pub fn SuperCreateShellGUI(self: ?*anyopaque, create: bool) void {
-        qtc.KParts__MainWindow_SuperCreateShellGUI(@ptrCast(self), create);
+    pub fn SuperCreateShellGUI(self: KParts__MainWindow, create: bool) void {
+        qtc.KParts__MainWindow_SuperCreateShellGUI(@ptrCast(self.ptr), create);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -473,15 +569,15 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -497,10 +593,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SetHelpMenuEnabled(self: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_SetHelpMenuEnabled(@ptrCast(self));
+    pub fn SetHelpMenuEnabled(self: KParts__MainWindow) void {
+        qtc.KXmlGuiWindow_SetHelpMenuEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from KXmlGuiWindow
@@ -509,10 +605,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn IsHelpMenuEnabled(self: ?*anyopaque) bool {
-        return qtc.KXmlGuiWindow_IsHelpMenuEnabled(@ptrCast(self));
+    pub fn IsHelpMenuEnabled(self: KParts__MainWindow) bool {
+        return qtc.KXmlGuiWindow_IsHelpMenuEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from KXmlGuiWindow
@@ -521,12 +617,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` showToolBarMenu: bool `
     ///
-    pub fn SetStandardToolBarMenuEnabled(self: ?*anyopaque, showToolBarMenu: bool) void {
-        qtc.KXmlGuiWindow_SetStandardToolBarMenuEnabled(@ptrCast(self), showToolBarMenu);
+    pub fn SetStandardToolBarMenuEnabled(self: KParts__MainWindow, showToolBarMenu: bool) void {
+        qtc.KXmlGuiWindow_SetStandardToolBarMenuEnabled(@ptrCast(self.ptr), showToolBarMenu);
     }
 
     /// Inherited from KXmlGuiWindow
@@ -535,10 +631,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn IsStandardToolBarMenuEnabled(self: ?*anyopaque) bool {
-        return qtc.KXmlGuiWindow_IsStandardToolBarMenuEnabled(@ptrCast(self));
+    pub fn IsStandardToolBarMenuEnabled(self: KParts__MainWindow) bool {
+        return qtc.KXmlGuiWindow_IsStandardToolBarMenuEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from KXmlGuiWindow
@@ -547,10 +643,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn CreateStandardStatusBarAction(self: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_CreateStandardStatusBarAction(@ptrCast(self));
+    pub fn CreateStandardStatusBarAction(self: KParts__MainWindow) void {
+        qtc.KXmlGuiWindow_CreateStandardStatusBarAction(@ptrCast(self.ptr));
     }
 
     /// Inherited from KXmlGuiWindow
@@ -559,10 +655,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SetupGUI(self: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_SetupGUI(@ptrCast(self));
+    pub fn SetupGUI(self: KParts__MainWindow) void {
+        qtc.KXmlGuiWindow_SetupGUI(@ptrCast(self.ptr));
     }
 
     /// Inherited from KXmlGuiWindow
@@ -571,12 +667,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` defaultSize: QtC.QSize `
+    /// ` defaultSize: QSize `
     ///
-    pub fn SetupGUI2(self: ?*anyopaque, defaultSize: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_SetupGUI2(@ptrCast(self), @ptrCast(defaultSize));
+    pub fn SetupGUI2(self: KParts__MainWindow, defaultSize: anytype) void {
+        comptime _ = @TypeOf(defaultSize)._is_QSize;
+        qtc.KXmlGuiWindow_SetupGUI2(@ptrCast(self.ptr), @ptrCast(defaultSize.ptr));
     }
 
     /// Inherited from KXmlGuiWindow
@@ -585,10 +682,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ToolBarMenuAction(self: ?*anyopaque) QtC.QAction {
-        return qtc.KXmlGuiWindow_ToolBarMenuAction(@ptrCast(self));
+    pub fn ToolBarMenuAction(self: KParts__MainWindow) QAction {
+        return .{ .ptr = qtc.KXmlGuiWindow_ToolBarMenuAction(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXmlGuiWindow
@@ -597,10 +694,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SetupToolbarMenuActions(self: ?*anyopaque) void {
-        qtc.KXmlGuiWindow_SetupToolbarMenuActions(@ptrCast(self));
+    pub fn SetupToolbarMenuActions(self: KParts__MainWindow) void {
+        qtc.KXmlGuiWindow_SetupToolbarMenuActions(@ptrCast(self.ptr));
     }
 
     /// Inherited from KXmlGuiWindow
@@ -609,17 +706,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolBarNames(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KXmlGuiWindow_ToolBarNames(@ptrCast(self));
+    pub fn ToolBarNames(self: KParts__MainWindow, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KXmlGuiWindow_ToolBarNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kparts__mainwindow.ToolBarNames: Memory allocation failed");
@@ -638,12 +734,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` showCommandBar: bool `
     ///
-    pub fn SetCommandBarEnabled(self: ?*anyopaque, showCommandBar: bool) void {
-        qtc.KXmlGuiWindow_SetCommandBarEnabled(@ptrCast(self), showCommandBar);
+    pub fn SetCommandBarEnabled(self: KParts__MainWindow, showCommandBar: bool) void {
+        qtc.KXmlGuiWindow_SetCommandBarEnabled(@ptrCast(self.ptr), showCommandBar);
     }
 
     /// Inherited from KXmlGuiWindow
@@ -652,10 +748,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn IsCommandBarEnabled(self: ?*anyopaque) bool {
-        return qtc.KXmlGuiWindow_IsCommandBarEnabled(@ptrCast(self));
+    pub fn IsCommandBarEnabled(self: KParts__MainWindow) bool {
+        return qtc.KXmlGuiWindow_IsCommandBarEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from KXmlGuiWindow
@@ -664,18 +760,18 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` newstate: []const u8 `
     ///
     /// ` reverse: bool `
     ///
-    pub fn SlotStateChanged2(self: ?*anyopaque, newstate: []const u8, reverse: bool) void {
+    pub fn SlotStateChanged2(self: KParts__MainWindow, newstate: []const u8, reverse: bool) void {
         const newstate_str = qtc.libqt_string{
             .len = newstate.len,
             .data = newstate.ptr,
         };
-        qtc.KXmlGuiWindow_SlotStateChanged2(@ptrCast(self), newstate_str, reverse);
+        qtc.KXmlGuiWindow_SlotStateChanged2(@ptrCast(self.ptr), newstate_str, reverse);
     }
 
     /// Inherited from KXmlGuiWindow
@@ -684,16 +780,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn IsToolBarVisible(self: ?*anyopaque, name: []const u8) bool {
+    pub fn IsToolBarVisible(self: KParts__MainWindow, name: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KXmlGuiWindow_IsToolBarVisible(@ptrCast(self), name_str);
+        return qtc.KXmlGuiWindow_IsToolBarVisible(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from KXmlGuiWindow
@@ -702,18 +798,18 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` name: []const u8 `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetToolBarVisible(self: ?*anyopaque, name: []const u8, visible: bool) void {
+    pub fn SetToolBarVisible(self: KParts__MainWindow, name: []const u8, visible: bool) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.KXmlGuiWindow_SetToolBarVisible(@ptrCast(self), name_str, visible);
+        qtc.KXmlGuiWindow_SetToolBarVisible(@ptrCast(self.ptr), name_str, visible);
     }
 
     /// Inherited from KXmlGuiWindow
@@ -722,12 +818,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` showHelpMenu: bool `
     ///
-    pub fn SetHelpMenuEnabled1(self: ?*anyopaque, showHelpMenu: bool) void {
-        qtc.KXmlGuiWindow_SetHelpMenuEnabled1(@ptrCast(self), showHelpMenu);
+    pub fn SetHelpMenuEnabled1(self: KParts__MainWindow, showHelpMenu: bool) void {
+        qtc.KXmlGuiWindow_SetHelpMenuEnabled1(@ptrCast(self.ptr), showHelpMenu);
     }
 
     /// Inherited from KXmlGuiWindow
@@ -736,16 +832,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` xmlfile: []const u8 `
     ///
-    pub fn CreateGUI1(self: ?*anyopaque, xmlfile: []const u8) void {
+    pub fn CreateGUI1(self: KParts__MainWindow, xmlfile: []const u8) void {
         const xmlfile_str = qtc.libqt_string{
             .len = xmlfile.len,
             .data = xmlfile.ptr,
         };
-        qtc.KXmlGuiWindow_CreateGUI1(@ptrCast(self), xmlfile_str);
+        qtc.KXmlGuiWindow_CreateGUI1(@ptrCast(self.ptr), xmlfile_str);
     }
 
     /// Inherited from KXmlGuiWindow
@@ -754,12 +850,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` options: flag of kxmlguiwindow_enums.StandardWindowOption `
     ///
-    pub fn SetupGUI1(self: ?*anyopaque, options: i32) void {
-        qtc.KXmlGuiWindow_SetupGUI1(@ptrCast(self), @bitCast(options));
+    pub fn SetupGUI1(self: KParts__MainWindow, options: i32) void {
+        qtc.KXmlGuiWindow_SetupGUI1(@ptrCast(self.ptr), @bitCast(options));
     }
 
     /// Inherited from KXmlGuiWindow
@@ -768,56 +864,58 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
-    ///
-    /// ` options: flag of kxmlguiwindow_enums.StandardWindowOption `
-    ///
-    /// ` xmlfile: []const u8 `
-    ///
-    pub fn SetupGUI22(self: ?*anyopaque, options: i32, xmlfile: []const u8) void {
-        const xmlfile_str = qtc.libqt_string{
-            .len = xmlfile.len,
-            .data = xmlfile.ptr,
-        };
-        qtc.KXmlGuiWindow_SetupGUI22(@ptrCast(self), @bitCast(options), xmlfile_str);
-    }
-
-    /// Inherited from KXmlGuiWindow
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setupGUI)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.KParts__MainWindow `
-    ///
-    /// ` defaultSize: QtC.QSize `
-    ///
-    /// ` options: flag of kxmlguiwindow_enums.StandardWindowOption `
-    ///
-    pub fn SetupGUI23(self: ?*anyopaque, defaultSize: ?*anyopaque, options: i32) void {
-        qtc.KXmlGuiWindow_SetupGUI23(@ptrCast(self), @ptrCast(defaultSize), @bitCast(options));
-    }
-
-    /// Inherited from KXmlGuiWindow
-    ///
-    /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setupGUI)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.KParts__MainWindow `
-    ///
-    /// ` defaultSize: QtC.QSize `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` options: flag of kxmlguiwindow_enums.StandardWindowOption `
     ///
     /// ` xmlfile: []const u8 `
     ///
-    pub fn SetupGUI3(self: ?*anyopaque, defaultSize: ?*anyopaque, options: i32, xmlfile: []const u8) void {
+    pub fn SetupGUI22(self: KParts__MainWindow, options: i32, xmlfile: []const u8) void {
         const xmlfile_str = qtc.libqt_string{
             .len = xmlfile.len,
             .data = xmlfile.ptr,
         };
-        qtc.KXmlGuiWindow_SetupGUI3(@ptrCast(self), @ptrCast(defaultSize), @bitCast(options), xmlfile_str);
+        qtc.KXmlGuiWindow_SetupGUI22(@ptrCast(self.ptr), @bitCast(options), xmlfile_str);
+    }
+
+    /// Inherited from KXmlGuiWindow
+    ///
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setupGUI)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KParts__MainWindow `
+    ///
+    /// ` defaultSize: QSize `
+    ///
+    /// ` options: flag of kxmlguiwindow_enums.StandardWindowOption `
+    ///
+    pub fn SetupGUI23(self: KParts__MainWindow, defaultSize: anytype, options: i32) void {
+        comptime _ = @TypeOf(defaultSize)._is_QSize;
+        qtc.KXmlGuiWindow_SetupGUI23(@ptrCast(self.ptr), @ptrCast(defaultSize.ptr), @bitCast(options));
+    }
+
+    /// Inherited from KXmlGuiWindow
+    ///
+    /// ### [Upstream resources](https://api.kde.org/kxmlguiwindow.html#setupGUI)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KParts__MainWindow `
+    ///
+    /// ` defaultSize: QSize `
+    ///
+    /// ` options: flag of kxmlguiwindow_enums.StandardWindowOption `
+    ///
+    /// ` xmlfile: []const u8 `
+    ///
+    pub fn SetupGUI3(self: KParts__MainWindow, defaultSize: anytype, options: i32, xmlfile: []const u8) void {
+        comptime _ = @TypeOf(defaultSize)._is_QSize;
+        const xmlfile_str = qtc.libqt_string{
+            .len = xmlfile.len,
+            .data = xmlfile.ptr,
+        };
+        qtc.KXmlGuiWindow_SetupGUI3(@ptrCast(self.ptr), @ptrCast(defaultSize.ptr), @bitCast(options), xmlfile_str);
     }
 
     /// Inherited from KMainWindow
@@ -838,11 +936,11 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` instanceNumber: i32 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ClassNameOfToplevel(instanceNumber: i32, allocator: std.mem.Allocator) []const u8 {
+    /// ` instanceNumber: i32 `
+    ///
+    pub fn ClassNameOfToplevel(allocator: std.mem.Allocator, instanceNumber: i32) []const u8 {
         var _str = qtc.KMainWindow_ClassNameOfToplevel(@bitCast(instanceNumber));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__mainwindow.ClassNameOfToplevel: Memory allocation failed");
@@ -856,12 +954,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` numberOfInstances: i32 `
     ///
-    pub fn Restore(self: ?*anyopaque, numberOfInstances: i32) bool {
-        return qtc.KMainWindow_Restore(@ptrCast(self), @bitCast(numberOfInstances));
+    pub fn Restore(self: KParts__MainWindow, numberOfInstances: i32) bool {
+        return qtc.KMainWindow_Restore(@ptrCast(self.ptr), @bitCast(numberOfInstances));
     }
 
     /// Inherited from KMainWindow
@@ -870,10 +968,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn HasMenuBar(self: ?*anyopaque) bool {
-        return qtc.KMainWindow_HasMenuBar(@ptrCast(self));
+    pub fn HasMenuBar(self: KParts__MainWindow) bool {
+        return qtc.KMainWindow_HasMenuBar(@ptrCast(self.ptr));
     }
 
     /// Inherited from KMainWindow
@@ -884,12 +982,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MemberList(allocator: std.mem.Allocator) []QtC.KMainWindow {
+    pub fn MemberList(allocator: std.mem.Allocator) []KMainWindow {
         const _arr: qtc.libqt_list = qtc.KMainWindow_MemberList();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KMainWindow, _arr.len) catch @panic("kparts__mainwindow.MemberList: Memory allocation failed");
+        const _ret = allocator.alloc(KMainWindow, _arr.len) catch @panic("kparts__mainwindow.MemberList: Memory allocation failed");
         const _data: [*]QtC.KMainWindow = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -899,10 +998,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ToolBar(self: ?*anyopaque) QtC.KToolBar {
-        return qtc.KMainWindow_ToolBar(@ptrCast(self));
+    pub fn ToolBar(self: KParts__MainWindow) KToolBar {
+        return .{ .ptr = qtc.KMainWindow_ToolBar(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KMainWindow
@@ -911,16 +1010,17 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolBars(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KToolBar {
-        const _arr: qtc.libqt_list = qtc.KMainWindow_ToolBars(@ptrCast(self));
+    pub fn ToolBars(self: KParts__MainWindow, allocator: std.mem.Allocator) []KToolBar {
+        const _arr: qtc.libqt_list = qtc.KMainWindow_ToolBars(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KToolBar, _arr.len) catch @panic("kparts__mainwindow.ToolBars: Memory allocation failed");
+        const _ret = allocator.alloc(KToolBar, _arr.len) catch @panic("kparts__mainwindow.ToolBars: Memory allocation failed");
         const _data: [*]QtC.KToolBar = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -930,10 +1030,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SetAutoSaveSettings(self: ?*anyopaque) void {
-        qtc.KMainWindow_SetAutoSaveSettings(@ptrCast(self));
+    pub fn SetAutoSaveSettings(self: KParts__MainWindow) void {
+        qtc.KMainWindow_SetAutoSaveSettings(@ptrCast(self.ptr));
     }
 
     /// Inherited from KMainWindow
@@ -942,12 +1042,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` group: QtC.KConfigGroup `
+    /// ` group: KConfigGroup `
     ///
-    pub fn SetAutoSaveSettings2(self: ?*anyopaque, group: ?*anyopaque) void {
-        qtc.KMainWindow_SetAutoSaveSettings2(@ptrCast(self), @ptrCast(group));
+    pub fn SetAutoSaveSettings2(self: KParts__MainWindow, group: anytype) void {
+        comptime _ = @TypeOf(group)._is_KConfigGroup;
+        qtc.KMainWindow_SetAutoSaveSettings2(@ptrCast(self.ptr), @ptrCast(group.ptr));
     }
 
     /// Inherited from KMainWindow
@@ -956,10 +1057,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ResetAutoSaveSettings(self: ?*anyopaque) void {
-        qtc.KMainWindow_ResetAutoSaveSettings(@ptrCast(self));
+    pub fn ResetAutoSaveSettings(self: KParts__MainWindow) void {
+        qtc.KMainWindow_ResetAutoSaveSettings(@ptrCast(self.ptr));
     }
 
     /// Inherited from KMainWindow
@@ -968,10 +1069,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn AutoSaveSettings(self: ?*anyopaque) bool {
-        return qtc.KMainWindow_AutoSaveSettings(@ptrCast(self));
+    pub fn AutoSaveSettings(self: KParts__MainWindow) bool {
+        return qtc.KMainWindow_AutoSaveSettings(@ptrCast(self.ptr));
     }
 
     /// Inherited from KMainWindow
@@ -980,12 +1081,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AutoSaveGroup(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KMainWindow_AutoSaveGroup(@ptrCast(self));
+    pub fn AutoSaveGroup(self: KParts__MainWindow, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KMainWindow_AutoSaveGroup(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__mainwindow.AutoSaveGroup: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -998,10 +1099,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn AutoSaveConfigGroup(self: ?*anyopaque) QtC.KConfigGroup {
-        return qtc.KMainWindow_AutoSaveConfigGroup(@ptrCast(self));
+    pub fn AutoSaveConfigGroup(self: KParts__MainWindow) KConfigGroup {
+        return .{ .ptr = qtc.KMainWindow_AutoSaveConfigGroup(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KMainWindow
@@ -1010,16 +1111,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` configGroup: []const u8 `
     ///
-    pub fn SetStateConfigGroup(self: ?*anyopaque, configGroup: []const u8) void {
+    pub fn SetStateConfigGroup(self: KParts__MainWindow, configGroup: []const u8) void {
         const configGroup_str = qtc.libqt_string{
             .len = configGroup.len,
             .data = configGroup.ptr,
         };
-        qtc.KMainWindow_SetStateConfigGroup(@ptrCast(self), configGroup_str);
+        qtc.KMainWindow_SetStateConfigGroup(@ptrCast(self.ptr), configGroup_str);
     }
 
     /// Inherited from KMainWindow
@@ -1028,10 +1129,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn StateConfigGroup(self: ?*anyopaque) QtC.KConfigGroup {
-        return qtc.KMainWindow_StateConfigGroup(@ptrCast(self));
+    pub fn StateConfigGroup(self: KParts__MainWindow) KConfigGroup {
+        return .{ .ptr = qtc.KMainWindow_StateConfigGroup(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KMainWindow
@@ -1040,12 +1141,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` config: QtC.KConfigGroup `
+    /// ` config: KConfigGroup `
     ///
-    pub fn SaveMainWindowSettings(self: ?*anyopaque, config: ?*anyopaque) void {
-        qtc.KMainWindow_SaveMainWindowSettings(@ptrCast(self), @ptrCast(config));
+    pub fn SaveMainWindowSettings(self: KParts__MainWindow, config: anytype) void {
+        comptime _ = @TypeOf(config)._is_KConfigGroup;
+        qtc.KMainWindow_SaveMainWindowSettings(@ptrCast(self.ptr), @ptrCast(config.ptr));
     }
 
     /// Inherited from KMainWindow
@@ -1054,12 +1156,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DbusName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KMainWindow_DbusName(@ptrCast(self));
+    pub fn DbusName(self: KParts__MainWindow, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KMainWindow_DbusName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__mainwindow.DbusName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1072,18 +1174,18 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` caption: []const u8 `
     ///
     /// ` modified: bool `
     ///
-    pub fn SetCaption2(self: ?*anyopaque, caption: []const u8, modified: bool) void {
+    pub fn SetCaption2(self: KParts__MainWindow, caption: []const u8, modified: bool) void {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        qtc.KMainWindow_SetCaption2(@ptrCast(self), caption_str, modified);
+        qtc.KMainWindow_SetCaption2(@ptrCast(self.ptr), caption_str, modified);
     }
 
     /// Inherited from KMainWindow
@@ -1094,12 +1196,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, caption: [*:0]const u8, modified: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, caption: [*:0]const u8, modified: bool) callconv(.c) void `
     ///
-    pub fn OnSetCaption2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool) callconv(.c) void) void {
-        qtc.KMainWindow_OnSetCaption2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetCaption2(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, [*:0]const u8, bool) callconv(.c) void) void {
+        qtc.KMainWindow_OnSetCaption2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetCaption2` instead
@@ -1114,18 +1216,18 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` caption: []const u8 `
     ///
     /// ` modified: bool `
     ///
-    pub fn SuperSetCaption2(self: ?*anyopaque, caption: []const u8, modified: bool) void {
+    pub fn SuperSetCaption2(self: KParts__MainWindow, caption: []const u8, modified: bool) void {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        qtc.KMainWindow_SuperSetCaption2(@ptrCast(self), caption_str, modified);
+        qtc.KMainWindow_SuperSetCaption2(@ptrCast(self.ptr), caption_str, modified);
     }
 
     /// Inherited from KMainWindow
@@ -1134,10 +1236,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn AppHelpActivated(self: ?*anyopaque) void {
-        qtc.KMainWindow_AppHelpActivated(@ptrCast(self));
+    pub fn AppHelpActivated(self: KParts__MainWindow) void {
+        qtc.KMainWindow_AppHelpActivated(@ptrCast(self.ptr));
     }
 
     /// Inherited from KMainWindow
@@ -1146,10 +1248,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SetSettingsDirty(self: ?*anyopaque) void {
-        qtc.KMainWindow_SetSettingsDirty(@ptrCast(self));
+    pub fn SetSettingsDirty(self: KParts__MainWindow) void {
+        qtc.KMainWindow_SetSettingsDirty(@ptrCast(self.ptr));
     }
 
     /// Inherited from KMainWindow
@@ -1158,14 +1260,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` numberOfInstances: i32 `
     ///
     /// ` show: bool `
     ///
-    pub fn Restore2(self: ?*anyopaque, numberOfInstances: i32, show: bool) bool {
-        return qtc.KMainWindow_Restore2(@ptrCast(self), @bitCast(numberOfInstances), show);
+    pub fn Restore2(self: KParts__MainWindow, numberOfInstances: i32, show: bool) bool {
+        return qtc.KMainWindow_Restore2(@ptrCast(self.ptr), @bitCast(numberOfInstances), show);
     }
 
     /// Inherited from KMainWindow
@@ -1174,16 +1276,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn ToolBar1(self: ?*anyopaque, name: []const u8) QtC.KToolBar {
+    pub fn ToolBar1(self: KParts__MainWindow, name: []const u8) KToolBar {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KMainWindow_ToolBar1(@ptrCast(self), name_str);
+        return .{ .ptr = qtc.KMainWindow_ToolBar1(@ptrCast(self.ptr), name_str) };
     }
 
     /// Inherited from KMainWindow
@@ -1192,16 +1294,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` groupName: []const u8 `
     ///
-    pub fn SetAutoSaveSettings1(self: ?*anyopaque, groupName: []const u8) void {
+    pub fn SetAutoSaveSettings1(self: KParts__MainWindow, groupName: []const u8) void {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
-        qtc.KMainWindow_SetAutoSaveSettings1(@ptrCast(self), groupName_str);
+        qtc.KMainWindow_SetAutoSaveSettings1(@ptrCast(self.ptr), groupName_str);
     }
 
     /// Inherited from KMainWindow
@@ -1210,18 +1312,18 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` groupName: []const u8 `
     ///
     /// ` saveWindowSize: bool `
     ///
-    pub fn SetAutoSaveSettings22(self: ?*anyopaque, groupName: []const u8, saveWindowSize: bool) void {
+    pub fn SetAutoSaveSettings22(self: KParts__MainWindow, groupName: []const u8, saveWindowSize: bool) void {
         const groupName_str = qtc.libqt_string{
             .len = groupName.len,
             .data = groupName.ptr,
         };
-        qtc.KMainWindow_SetAutoSaveSettings22(@ptrCast(self), groupName_str, saveWindowSize);
+        qtc.KMainWindow_SetAutoSaveSettings22(@ptrCast(self.ptr), groupName_str, saveWindowSize);
     }
 
     /// Inherited from KMainWindow
@@ -1230,14 +1332,15 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` group: QtC.KConfigGroup `
+    /// ` group: KConfigGroup `
     ///
     /// ` saveWindowSize: bool `
     ///
-    pub fn SetAutoSaveSettings23(self: ?*anyopaque, group: ?*anyopaque, saveWindowSize: bool) void {
-        qtc.KMainWindow_SetAutoSaveSettings23(@ptrCast(self), @ptrCast(group), saveWindowSize);
+    pub fn SetAutoSaveSettings23(self: KParts__MainWindow, group: anytype, saveWindowSize: bool) void {
+        comptime _ = @TypeOf(group)._is_KConfigGroup;
+        qtc.KMainWindow_SetAutoSaveSettings23(@ptrCast(self.ptr), @ptrCast(group.ptr), saveWindowSize);
     }
 
     /// Inherited from QMainWindow
@@ -1246,10 +1349,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn IconSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QMainWindow_IconSize(@ptrCast(self));
+    pub fn IconSize(self: KParts__MainWindow) QSize {
+        return .{ .ptr = qtc.QMainWindow_IconSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QMainWindow
@@ -1258,12 +1361,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` iconSize: QtC.QSize `
+    /// ` iconSize: QSize `
     ///
-    pub fn SetIconSize(self: ?*anyopaque, iconSize: ?*anyopaque) void {
-        qtc.QMainWindow_SetIconSize(@ptrCast(self), @ptrCast(iconSize));
+    pub fn SetIconSize(self: KParts__MainWindow, iconSize: anytype) void {
+        comptime _ = @TypeOf(iconSize)._is_QSize;
+        qtc.QMainWindow_SetIconSize(@ptrCast(self.ptr), @ptrCast(iconSize.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1272,14 +1376,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ToolButtonStyle `
     ///
-    pub fn ToolButtonStyle(self: ?*anyopaque) i32 {
-        return qtc.QMainWindow_ToolButtonStyle(@ptrCast(self));
+    pub fn ToolButtonStyle(self: KParts__MainWindow) i32 {
+        return qtc.QMainWindow_ToolButtonStyle(@ptrCast(self.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1288,12 +1392,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` toolButtonStyle: qnamespace_enums.ToolButtonStyle `
     ///
-    pub fn SetToolButtonStyle(self: ?*anyopaque, toolButtonStyle: i32) void {
-        qtc.QMainWindow_SetToolButtonStyle(@ptrCast(self), @bitCast(toolButtonStyle));
+    pub fn SetToolButtonStyle(self: KParts__MainWindow, toolButtonStyle: i32) void {
+        qtc.QMainWindow_SetToolButtonStyle(@ptrCast(self.ptr), @bitCast(toolButtonStyle));
     }
 
     /// Inherited from QMainWindow
@@ -1302,10 +1406,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn IsAnimated(self: ?*anyopaque) bool {
-        return qtc.QMainWindow_IsAnimated(@ptrCast(self));
+    pub fn IsAnimated(self: KParts__MainWindow) bool {
+        return qtc.QMainWindow_IsAnimated(@ptrCast(self.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1314,10 +1418,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn IsDockNestingEnabled(self: ?*anyopaque) bool {
-        return qtc.QMainWindow_IsDockNestingEnabled(@ptrCast(self));
+    pub fn IsDockNestingEnabled(self: KParts__MainWindow) bool {
+        return qtc.QMainWindow_IsDockNestingEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1326,10 +1430,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn DocumentMode(self: ?*anyopaque) bool {
-        return qtc.QMainWindow_DocumentMode(@ptrCast(self));
+    pub fn DocumentMode(self: KParts__MainWindow) bool {
+        return qtc.QMainWindow_DocumentMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1338,12 +1442,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetDocumentMode(self: ?*anyopaque, enabled: bool) void {
-        qtc.QMainWindow_SetDocumentMode(@ptrCast(self), enabled);
+    pub fn SetDocumentMode(self: KParts__MainWindow, enabled: bool) void {
+        qtc.QMainWindow_SetDocumentMode(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QMainWindow
@@ -1352,14 +1456,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ## Returns:
     ///
     /// ` qtabwidget_enums.TabShape `
     ///
-    pub fn TabShape(self: ?*anyopaque) i32 {
-        return qtc.QMainWindow_TabShape(@ptrCast(self));
+    pub fn TabShape(self: KParts__MainWindow) i32 {
+        return qtc.QMainWindow_TabShape(@ptrCast(self.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1368,12 +1472,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` tabShape: qtabwidget_enums.TabShape `
     ///
-    pub fn SetTabShape(self: ?*anyopaque, tabShape: i32) void {
-        qtc.QMainWindow_SetTabShape(@ptrCast(self), @bitCast(tabShape));
+    pub fn SetTabShape(self: KParts__MainWindow, tabShape: i32) void {
+        qtc.QMainWindow_SetTabShape(@ptrCast(self.ptr), @bitCast(tabShape));
     }
 
     /// Inherited from QMainWindow
@@ -1382,7 +1486,7 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` area: qnamespace_enums.DockWidgetArea `
     ///
@@ -1390,8 +1494,8 @@ pub const kparts__mainwindow = struct {
     ///
     /// ` qtabwidget_enums.TabPosition `
     ///
-    pub fn TabPosition(self: ?*anyopaque, area: i32) i32 {
-        return qtc.QMainWindow_TabPosition(@ptrCast(self), @bitCast(area));
+    pub fn TabPosition(self: KParts__MainWindow, area: i32) i32 {
+        return qtc.QMainWindow_TabPosition(@ptrCast(self.ptr), @bitCast(area));
     }
 
     /// Inherited from QMainWindow
@@ -1400,14 +1504,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` areas: flag of qnamespace_enums.DockWidgetArea `
     ///
     /// ` tabPosition: qtabwidget_enums.TabPosition `
     ///
-    pub fn SetTabPosition(self: ?*anyopaque, areas: i32, tabPosition: i32) void {
-        qtc.QMainWindow_SetTabPosition(@ptrCast(self), @bitCast(areas), @bitCast(tabPosition));
+    pub fn SetTabPosition(self: KParts__MainWindow, areas: i32, tabPosition: i32) void {
+        qtc.QMainWindow_SetTabPosition(@ptrCast(self.ptr), @bitCast(areas), @bitCast(tabPosition));
     }
 
     /// Inherited from QMainWindow
@@ -1416,12 +1520,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` options: flag of qmainwindow_enums.DockOption `
     ///
-    pub fn SetDockOptions(self: ?*anyopaque, options: i32) void {
-        qtc.QMainWindow_SetDockOptions(@ptrCast(self), @bitCast(options));
+    pub fn SetDockOptions(self: KParts__MainWindow, options: i32) void {
+        qtc.QMainWindow_SetDockOptions(@ptrCast(self.ptr), @bitCast(options));
     }
 
     /// Inherited from QMainWindow
@@ -1430,14 +1534,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ## Returns:
     ///
     /// ` flag of qmainwindow_enums.DockOption `
     ///
-    pub fn DockOptions(self: ?*anyopaque) i32 {
-        return qtc.QMainWindow_DockOptions(@ptrCast(self));
+    pub fn DockOptions(self: KParts__MainWindow) i32 {
+        return qtc.QMainWindow_DockOptions(@ptrCast(self.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1446,12 +1550,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn IsSeparator(self: ?*anyopaque, pos: ?*anyopaque) bool {
-        return qtc.QMainWindow_IsSeparator(@ptrCast(self), @ptrCast(pos));
+    pub fn IsSeparator(self: KParts__MainWindow, pos: anytype) bool {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        return qtc.QMainWindow_IsSeparator(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1460,10 +1565,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn MenuBar(self: ?*anyopaque) QtC.QMenuBar {
-        return qtc.QMainWindow_MenuBar(@ptrCast(self));
+    pub fn MenuBar(self: KParts__MainWindow) QMenuBar {
+        return .{ .ptr = qtc.QMainWindow_MenuBar(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QMainWindow
@@ -1472,12 +1577,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` menubar: QtC.QMenuBar `
+    /// ` menubar: QMenuBar `
     ///
-    pub fn SetMenuBar(self: ?*anyopaque, menubar: ?*anyopaque) void {
-        qtc.QMainWindow_SetMenuBar(@ptrCast(self), @ptrCast(menubar));
+    pub fn SetMenuBar(self: KParts__MainWindow, menubar: anytype) void {
+        comptime _ = @TypeOf(menubar)._is_QMenuBar;
+        qtc.QMainWindow_SetMenuBar(@ptrCast(self.ptr), @ptrCast(menubar.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1486,10 +1592,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn MenuWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QMainWindow_MenuWidget(@ptrCast(self));
+    pub fn MenuWidget(self: KParts__MainWindow) QWidget {
+        return .{ .ptr = qtc.QMainWindow_MenuWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QMainWindow
@@ -1498,12 +1604,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` menubar: QtC.QWidget `
+    /// ` menubar: QWidget `
     ///
-    pub fn SetMenuWidget(self: ?*anyopaque, menubar: ?*anyopaque) void {
-        qtc.QMainWindow_SetMenuWidget(@ptrCast(self), @ptrCast(menubar));
+    pub fn SetMenuWidget(self: KParts__MainWindow, menubar: anytype) void {
+        comptime _ = @TypeOf(menubar)._is_QWidget;
+        qtc.QMainWindow_SetMenuWidget(@ptrCast(self.ptr), @ptrCast(menubar.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1512,10 +1619,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn StatusBar(self: ?*anyopaque) QtC.QStatusBar {
-        return qtc.QMainWindow_StatusBar(@ptrCast(self));
+    pub fn StatusBar(self: KParts__MainWindow) QStatusBar {
+        return .{ .ptr = qtc.QMainWindow_StatusBar(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QMainWindow
@@ -1524,12 +1631,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` statusbar: QtC.QStatusBar `
+    /// ` statusbar: QStatusBar `
     ///
-    pub fn SetStatusBar(self: ?*anyopaque, statusbar: ?*anyopaque) void {
-        qtc.QMainWindow_SetStatusBar(@ptrCast(self), @ptrCast(statusbar));
+    pub fn SetStatusBar(self: KParts__MainWindow, statusbar: anytype) void {
+        comptime _ = @TypeOf(statusbar)._is_QStatusBar;
+        qtc.QMainWindow_SetStatusBar(@ptrCast(self.ptr), @ptrCast(statusbar.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1538,10 +1646,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn CentralWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QMainWindow_CentralWidget(@ptrCast(self));
+    pub fn CentralWidget(self: KParts__MainWindow) QWidget {
+        return .{ .ptr = qtc.QMainWindow_CentralWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QMainWindow
@@ -1550,12 +1658,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SetCentralWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QMainWindow_SetCentralWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn SetCentralWidget(self: KParts__MainWindow, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QMainWindow_SetCentralWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1564,10 +1673,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn TakeCentralWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QMainWindow_TakeCentralWidget(@ptrCast(self));
+    pub fn TakeCentralWidget(self: KParts__MainWindow) QWidget {
+        return .{ .ptr = qtc.QMainWindow_TakeCentralWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QMainWindow
@@ -1576,14 +1685,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` corner: qnamespace_enums.Corner `
     ///
     /// ` area: qnamespace_enums.DockWidgetArea `
     ///
-    pub fn SetCorner(self: ?*anyopaque, corner: i32, area: i32) void {
-        qtc.QMainWindow_SetCorner(@ptrCast(self), @bitCast(corner), @bitCast(area));
+    pub fn SetCorner(self: KParts__MainWindow, corner: i32, area: i32) void {
+        qtc.QMainWindow_SetCorner(@ptrCast(self.ptr), @bitCast(corner), @bitCast(area));
     }
 
     /// Inherited from QMainWindow
@@ -1592,7 +1701,7 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` corner: qnamespace_enums.Corner `
     ///
@@ -1600,8 +1709,8 @@ pub const kparts__mainwindow = struct {
     ///
     /// ` qnamespace_enums.DockWidgetArea `
     ///
-    pub fn Corner(self: ?*anyopaque, corner: i32) i32 {
-        return qtc.QMainWindow_Corner(@ptrCast(self), @bitCast(corner));
+    pub fn Corner(self: KParts__MainWindow, corner: i32) i32 {
+        return qtc.QMainWindow_Corner(@ptrCast(self.ptr), @bitCast(corner));
     }
 
     /// Inherited from QMainWindow
@@ -1610,10 +1719,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn AddToolBarBreak(self: ?*anyopaque) void {
-        qtc.QMainWindow_AddToolBarBreak(@ptrCast(self));
+    pub fn AddToolBarBreak(self: KParts__MainWindow) void {
+        qtc.QMainWindow_AddToolBarBreak(@ptrCast(self.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1622,12 +1731,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` before: QtC.QToolBar `
+    /// ` before: QToolBar `
     ///
-    pub fn InsertToolBarBreak(self: ?*anyopaque, before: ?*anyopaque) void {
-        qtc.QMainWindow_InsertToolBarBreak(@ptrCast(self), @ptrCast(before));
+    pub fn InsertToolBarBreak(self: KParts__MainWindow, before: anytype) void {
+        comptime _ = @TypeOf(before)._is_QToolBar;
+        qtc.QMainWindow_InsertToolBarBreak(@ptrCast(self.ptr), @ptrCast(before.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1636,14 +1746,15 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` area: qnamespace_enums.ToolBarArea `
     ///
-    /// ` toolbar: QtC.QToolBar `
+    /// ` toolbar: QToolBar `
     ///
-    pub fn AddToolBar(self: ?*anyopaque, area: i32, toolbar: ?*anyopaque) void {
-        qtc.QMainWindow_AddToolBar(@ptrCast(self), @bitCast(area), @ptrCast(toolbar));
+    pub fn AddToolBar(self: KParts__MainWindow, area: i32, toolbar: anytype) void {
+        comptime _ = @TypeOf(toolbar)._is_QToolBar;
+        qtc.QMainWindow_AddToolBar(@ptrCast(self.ptr), @bitCast(area), @ptrCast(toolbar.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1652,12 +1763,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` toolbar: QtC.QToolBar `
+    /// ` toolbar: QToolBar `
     ///
-    pub fn AddToolBar2(self: ?*anyopaque, toolbar: ?*anyopaque) void {
-        qtc.QMainWindow_AddToolBar2(@ptrCast(self), @ptrCast(toolbar));
+    pub fn AddToolBar2(self: KParts__MainWindow, toolbar: anytype) void {
+        comptime _ = @TypeOf(toolbar)._is_QToolBar;
+        qtc.QMainWindow_AddToolBar2(@ptrCast(self.ptr), @ptrCast(toolbar.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1666,16 +1778,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn AddToolBar3(self: ?*anyopaque, title: []const u8) QtC.QToolBar {
+    pub fn AddToolBar3(self: KParts__MainWindow, title: []const u8) QToolBar {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        return qtc.QMainWindow_AddToolBar3(@ptrCast(self), title_str);
+        return .{ .ptr = qtc.QMainWindow_AddToolBar3(@ptrCast(self.ptr), title_str) };
     }
 
     /// Inherited from QMainWindow
@@ -1684,14 +1796,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` before: QtC.QToolBar `
+    /// ` before: QToolBar `
     ///
-    /// ` toolbar: QtC.QToolBar `
+    /// ` toolbar: QToolBar `
     ///
-    pub fn InsertToolBar(self: ?*anyopaque, before: ?*anyopaque, toolbar: ?*anyopaque) void {
-        qtc.QMainWindow_InsertToolBar(@ptrCast(self), @ptrCast(before), @ptrCast(toolbar));
+    pub fn InsertToolBar(self: KParts__MainWindow, before: anytype, toolbar: anytype) void {
+        comptime _ = @TypeOf(before)._is_QToolBar;
+        comptime _ = @TypeOf(toolbar)._is_QToolBar;
+        qtc.QMainWindow_InsertToolBar(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(toolbar.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1700,12 +1814,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` toolbar: QtC.QToolBar `
+    /// ` toolbar: QToolBar `
     ///
-    pub fn RemoveToolBar(self: ?*anyopaque, toolbar: ?*anyopaque) void {
-        qtc.QMainWindow_RemoveToolBar(@ptrCast(self), @ptrCast(toolbar));
+    pub fn RemoveToolBar(self: KParts__MainWindow, toolbar: anytype) void {
+        comptime _ = @TypeOf(toolbar)._is_QToolBar;
+        qtc.QMainWindow_RemoveToolBar(@ptrCast(self.ptr), @ptrCast(toolbar.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1714,12 +1829,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` before: QtC.QToolBar `
+    /// ` before: QToolBar `
     ///
-    pub fn RemoveToolBarBreak(self: ?*anyopaque, before: ?*anyopaque) void {
-        qtc.QMainWindow_RemoveToolBarBreak(@ptrCast(self), @ptrCast(before));
+    pub fn RemoveToolBarBreak(self: KParts__MainWindow, before: anytype) void {
+        comptime _ = @TypeOf(before)._is_QToolBar;
+        qtc.QMainWindow_RemoveToolBarBreak(@ptrCast(self.ptr), @ptrCast(before.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1728,10 +1844,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn UnifiedTitleAndToolBarOnMac(self: ?*anyopaque) bool {
-        return qtc.QMainWindow_UnifiedTitleAndToolBarOnMac(@ptrCast(self));
+    pub fn UnifiedTitleAndToolBarOnMac(self: KParts__MainWindow) bool {
+        return qtc.QMainWindow_UnifiedTitleAndToolBarOnMac(@ptrCast(self.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1740,16 +1856,17 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` toolbar: QtC.QToolBar `
+    /// ` toolbar: QToolBar `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ToolBarArea `
     ///
-    pub fn ToolBarArea(self: ?*anyopaque, toolbar: ?*anyopaque) i32 {
-        return qtc.QMainWindow_ToolBarArea(@ptrCast(self), @ptrCast(toolbar));
+    pub fn ToolBarArea(self: KParts__MainWindow, toolbar: anytype) i32 {
+        comptime _ = @TypeOf(toolbar)._is_QToolBar;
+        return qtc.QMainWindow_ToolBarArea(@ptrCast(self.ptr), @ptrCast(toolbar.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1758,12 +1875,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` toolbar: QtC.QToolBar `
+    /// ` toolbar: QToolBar `
     ///
-    pub fn ToolBarBreak(self: ?*anyopaque, toolbar: ?*anyopaque) bool {
-        return qtc.QMainWindow_ToolBarBreak(@ptrCast(self), @ptrCast(toolbar));
+    pub fn ToolBarBreak(self: KParts__MainWindow, toolbar: anytype) bool {
+        comptime _ = @TypeOf(toolbar)._is_QToolBar;
+        return qtc.QMainWindow_ToolBarBreak(@ptrCast(self.ptr), @ptrCast(toolbar.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1772,14 +1890,15 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` area: qnamespace_enums.DockWidgetArea `
     ///
-    /// ` dockwidget: QtC.QDockWidget `
+    /// ` dockwidget: QDockWidget `
     ///
-    pub fn AddDockWidget(self: ?*anyopaque, area: i32, dockwidget: ?*anyopaque) void {
-        qtc.QMainWindow_AddDockWidget(@ptrCast(self), @bitCast(area), @ptrCast(dockwidget));
+    pub fn AddDockWidget(self: KParts__MainWindow, area: i32, dockwidget: anytype) void {
+        comptime _ = @TypeOf(dockwidget)._is_QDockWidget;
+        qtc.QMainWindow_AddDockWidget(@ptrCast(self.ptr), @bitCast(area), @ptrCast(dockwidget.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1788,16 +1907,17 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` area: qnamespace_enums.DockWidgetArea `
     ///
-    /// ` dockwidget: QtC.QDockWidget `
+    /// ` dockwidget: QDockWidget `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    pub fn AddDockWidget2(self: ?*anyopaque, area: i32, dockwidget: ?*anyopaque, orientation: i32) void {
-        qtc.QMainWindow_AddDockWidget2(@ptrCast(self), @bitCast(area), @ptrCast(dockwidget), @bitCast(orientation));
+    pub fn AddDockWidget2(self: KParts__MainWindow, area: i32, dockwidget: anytype, orientation: i32) void {
+        comptime _ = @TypeOf(dockwidget)._is_QDockWidget;
+        qtc.QMainWindow_AddDockWidget2(@ptrCast(self.ptr), @bitCast(area), @ptrCast(dockwidget.ptr), @bitCast(orientation));
     }
 
     /// Inherited from QMainWindow
@@ -1806,16 +1926,18 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` after: QtC.QDockWidget `
+    /// ` after: QDockWidget `
     ///
-    /// ` dockwidget: QtC.QDockWidget `
+    /// ` dockwidget: QDockWidget `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    pub fn SplitDockWidget(self: ?*anyopaque, after: ?*anyopaque, dockwidget: ?*anyopaque, orientation: i32) void {
-        qtc.QMainWindow_SplitDockWidget(@ptrCast(self), @ptrCast(after), @ptrCast(dockwidget), @bitCast(orientation));
+    pub fn SplitDockWidget(self: KParts__MainWindow, after: anytype, dockwidget: anytype, orientation: i32) void {
+        comptime _ = @TypeOf(after)._is_QDockWidget;
+        comptime _ = @TypeOf(dockwidget)._is_QDockWidget;
+        qtc.QMainWindow_SplitDockWidget(@ptrCast(self.ptr), @ptrCast(after.ptr), @ptrCast(dockwidget.ptr), @bitCast(orientation));
     }
 
     /// Inherited from QMainWindow
@@ -1824,14 +1946,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` first: QtC.QDockWidget `
+    /// ` first: QDockWidget `
     ///
-    /// ` second: QtC.QDockWidget `
+    /// ` second: QDockWidget `
     ///
-    pub fn TabifyDockWidget(self: ?*anyopaque, first: ?*anyopaque, second: ?*anyopaque) void {
-        qtc.QMainWindow_TabifyDockWidget(@ptrCast(self), @ptrCast(first), @ptrCast(second));
+    pub fn TabifyDockWidget(self: KParts__MainWindow, first: anytype, second: anytype) void {
+        comptime _ = @TypeOf(first)._is_QDockWidget;
+        comptime _ = @TypeOf(second)._is_QDockWidget;
+        qtc.QMainWindow_TabifyDockWidget(@ptrCast(self.ptr), @ptrCast(first.ptr), @ptrCast(second.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1840,18 +1964,20 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
-    ///
-    /// ` dockwidget: QtC.QDockWidget `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TabifiedDockWidgets(self: ?*anyopaque, dockwidget: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QDockWidget {
-        const _arr: qtc.libqt_list = qtc.QMainWindow_TabifiedDockWidgets(@ptrCast(self), @ptrCast(dockwidget));
+    /// ` dockwidget: QDockWidget `
+    ///
+    pub fn TabifiedDockWidgets(self: KParts__MainWindow, allocator: std.mem.Allocator, dockwidget: anytype) []QDockWidget {
+        comptime _ = @TypeOf(dockwidget)._is_QDockWidget;
+        const _arr: qtc.libqt_list = qtc.QMainWindow_TabifiedDockWidgets(@ptrCast(self.ptr), @ptrCast(dockwidget.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QDockWidget, _arr.len) catch @panic("kparts__mainwindow.TabifiedDockWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QDockWidget, _arr.len) catch @panic("kparts__mainwindow.TabifiedDockWidgets: Memory allocation failed");
         const _data: [*]QtC.QDockWidget = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1861,12 +1987,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` dockwidget: QtC.QDockWidget `
+    /// ` dockwidget: QDockWidget `
     ///
-    pub fn RemoveDockWidget(self: ?*anyopaque, dockwidget: ?*anyopaque) void {
-        qtc.QMainWindow_RemoveDockWidget(@ptrCast(self), @ptrCast(dockwidget));
+    pub fn RemoveDockWidget(self: KParts__MainWindow, dockwidget: anytype) void {
+        comptime _ = @TypeOf(dockwidget)._is_QDockWidget;
+        qtc.QMainWindow_RemoveDockWidget(@ptrCast(self.ptr), @ptrCast(dockwidget.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1875,12 +2002,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` dockwidget: QtC.QDockWidget `
+    /// ` dockwidget: QDockWidget `
     ///
-    pub fn RestoreDockWidget(self: ?*anyopaque, dockwidget: ?*anyopaque) bool {
-        return qtc.QMainWindow_RestoreDockWidget(@ptrCast(self), @ptrCast(dockwidget));
+    pub fn RestoreDockWidget(self: KParts__MainWindow, dockwidget: anytype) bool {
+        comptime _ = @TypeOf(dockwidget)._is_QDockWidget;
+        return qtc.QMainWindow_RestoreDockWidget(@ptrCast(self.ptr), @ptrCast(dockwidget.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1889,16 +2017,17 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` dockwidget: QtC.QDockWidget `
+    /// ` dockwidget: QDockWidget `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.DockWidgetArea `
     ///
-    pub fn DockWidgetArea(self: ?*anyopaque, dockwidget: ?*anyopaque) i32 {
-        return qtc.QMainWindow_DockWidgetArea(@ptrCast(self), @ptrCast(dockwidget));
+    pub fn DockWidgetArea(self: KParts__MainWindow, dockwidget: anytype) i32 {
+        comptime _ = @TypeOf(dockwidget)._is_QDockWidget;
+        return qtc.QMainWindow_DockWidgetArea(@ptrCast(self.ptr), @ptrCast(dockwidget.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -1907,15 +2036,15 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` docks: []QtC.QDockWidget `
+    /// ` docks: []QDockWidget `
     ///
     /// ` sizes: []i32 `
     ///
     /// ` orientation: qnamespace_enums.Orientation `
     ///
-    pub fn ResizeDocks(self: ?*anyopaque, docks: []?*anyopaque, sizes: []i32, orientation: i32) void {
+    pub fn ResizeDocks(self: KParts__MainWindow, docks: []QDockWidget, sizes: []i32, orientation: i32) void {
         const docks_list = qtc.libqt_list{
             .len = docks.len,
             .data = @ptrCast(docks.ptr),
@@ -1924,7 +2053,7 @@ pub const kparts__mainwindow = struct {
             .len = sizes.len,
             .data = sizes.ptr,
         };
-        qtc.QMainWindow_ResizeDocks(@ptrCast(self), docks_list, sizes_list, @bitCast(orientation));
+        qtc.QMainWindow_ResizeDocks(@ptrCast(self.ptr), docks_list, sizes_list, @bitCast(orientation));
     }
 
     /// Inherited from QMainWindow
@@ -1933,12 +2062,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveState(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QMainWindow_SaveState(@ptrCast(self));
+    pub fn SaveState(self: KParts__MainWindow, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QMainWindow_SaveState(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kparts__mainwindow.SaveState: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1951,16 +2080,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` state: []u8 `
     ///
-    pub fn RestoreState(self: ?*anyopaque, state: []u8) bool {
+    pub fn RestoreState(self: KParts__MainWindow, state: []u8) bool {
         const state_str = qtc.libqt_string{
             .len = state.len,
             .data = state.ptr,
         };
-        return qtc.QMainWindow_RestoreState(@ptrCast(self), state_str);
+        return qtc.QMainWindow_RestoreState(@ptrCast(self.ptr), state_str);
     }
 
     /// Inherited from QMainWindow
@@ -1969,12 +2098,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAnimated(self: ?*anyopaque, enabled: bool) void {
-        qtc.QMainWindow_SetAnimated(@ptrCast(self), enabled);
+    pub fn SetAnimated(self: KParts__MainWindow, enabled: bool) void {
+        qtc.QMainWindow_SetAnimated(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QMainWindow
@@ -1983,12 +2112,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetDockNestingEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QMainWindow_SetDockNestingEnabled(@ptrCast(self), enabled);
+    pub fn SetDockNestingEnabled(self: KParts__MainWindow, enabled: bool) void {
+        qtc.QMainWindow_SetDockNestingEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QMainWindow
@@ -1997,12 +2126,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` set: bool `
     ///
-    pub fn SetUnifiedTitleAndToolBarOnMac(self: ?*anyopaque, set: bool) void {
-        qtc.QMainWindow_SetUnifiedTitleAndToolBarOnMac(@ptrCast(self), set);
+    pub fn SetUnifiedTitleAndToolBarOnMac(self: KParts__MainWindow, set: bool) void {
+        qtc.QMainWindow_SetUnifiedTitleAndToolBarOnMac(@ptrCast(self.ptr), set);
     }
 
     /// Inherited from QMainWindow
@@ -2011,12 +2140,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` iconSize: QtC.QSize `
+    /// ` iconSize: QSize `
     ///
-    pub fn IconSizeChanged(self: ?*anyopaque, iconSize: ?*anyopaque) void {
-        qtc.QMainWindow_IconSizeChanged(@ptrCast(self), @ptrCast(iconSize));
+    pub fn IconSizeChanged(self: KParts__MainWindow, iconSize: anytype) void {
+        comptime _ = @TypeOf(iconSize)._is_QSize;
+        qtc.QMainWindow_IconSizeChanged(@ptrCast(self.ptr), @ptrCast(iconSize.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -2025,12 +2155,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, iconSize: QtC.QSize) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, iconSize: QSize) callconv(.c) void `
     ///
-    pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QMainWindow_Connect_IconSizeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIconSizeChanged(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QSize) callconv(.c) void) void {
+        qtc.QMainWindow_Connect_IconSizeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QMainWindow
@@ -2039,12 +2169,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` toolButtonStyle: qnamespace_enums.ToolButtonStyle `
     ///
-    pub fn ToolButtonStyleChanged(self: ?*anyopaque, toolButtonStyle: i32) void {
-        qtc.QMainWindow_ToolButtonStyleChanged(@ptrCast(self), @bitCast(toolButtonStyle));
+    pub fn ToolButtonStyleChanged(self: KParts__MainWindow, toolButtonStyle: i32) void {
+        qtc.QMainWindow_ToolButtonStyleChanged(@ptrCast(self.ptr), @bitCast(toolButtonStyle));
     }
 
     /// Inherited from QMainWindow
@@ -2053,12 +2183,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, toolButtonStyle: qnamespace_enums.ToolButtonStyle) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, toolButtonStyle: qnamespace_enums.ToolButtonStyle) callconv(.c) void `
     ///
-    pub fn OnToolButtonStyleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QMainWindow_Connect_ToolButtonStyleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnToolButtonStyleChanged(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, i32) callconv(.c) void) void {
+        qtc.QMainWindow_Connect_ToolButtonStyleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QMainWindow
@@ -2067,12 +2197,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` dockWidget: QtC.QDockWidget `
+    /// ` dockWidget: QDockWidget `
     ///
-    pub fn TabifiedDockWidgetActivated(self: ?*anyopaque, dockWidget: ?*anyopaque) void {
-        qtc.QMainWindow_TabifiedDockWidgetActivated(@ptrCast(self), @ptrCast(dockWidget));
+    pub fn TabifiedDockWidgetActivated(self: KParts__MainWindow, dockWidget: anytype) void {
+        comptime _ = @TypeOf(dockWidget)._is_QDockWidget;
+        qtc.QMainWindow_TabifiedDockWidgetActivated(@ptrCast(self.ptr), @ptrCast(dockWidget.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -2081,12 +2212,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, dockWidget: QtC.QDockWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, dockWidget: QDockWidget) callconv(.c) void `
     ///
-    pub fn OnTabifiedDockWidgetActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QMainWindow_Connect_TabifiedDockWidgetActivated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabifiedDockWidgetActivated(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QDockWidget) callconv(.c) void) void {
+        qtc.QMainWindow_Connect_TabifiedDockWidgetActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QMainWindow
@@ -2095,12 +2226,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` area: qnamespace_enums.ToolBarArea `
     ///
-    pub fn AddToolBarBreak1(self: ?*anyopaque, area: i32) void {
-        qtc.QMainWindow_AddToolBarBreak1(@ptrCast(self), @bitCast(area));
+    pub fn AddToolBarBreak1(self: KParts__MainWindow, area: i32) void {
+        qtc.QMainWindow_AddToolBarBreak1(@ptrCast(self.ptr), @bitCast(area));
     }
 
     /// Inherited from QMainWindow
@@ -2109,14 +2240,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
-    ///
-    /// ` version: i32 `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveState1(self: ?*anyopaque, version: i32, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QMainWindow_SaveState1(@ptrCast(self), @bitCast(version));
+    /// ` version: i32 `
+    ///
+    pub fn SaveState1(self: KParts__MainWindow, allocator: std.mem.Allocator, version: i32) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QMainWindow_SaveState1(@ptrCast(self.ptr), @bitCast(version));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kparts__mainwindow.SaveState1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -2129,18 +2260,18 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` state: []u8 `
     ///
     /// ` version: i32 `
     ///
-    pub fn RestoreState2(self: ?*anyopaque, state: []u8, version: i32) bool {
+    pub fn RestoreState2(self: KParts__MainWindow, state: []u8, version: i32) bool {
         const state_str = qtc.libqt_string{
             .len = state.len,
             .data = state.ptr,
         };
-        return qtc.QMainWindow_RestoreState2(@ptrCast(self), state_str, @bitCast(version));
+        return qtc.QMainWindow_RestoreState2(@ptrCast(self.ptr), state_str, @bitCast(version));
     }
 
     /// Inherited from QWidget
@@ -2149,10 +2280,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn WinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_WinId(@ptrCast(self));
+    pub fn WinId(self: KParts__MainWindow) usize {
+        return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2161,10 +2292,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn CreateWinId(self: ?*anyopaque) void {
-        qtc.QWidget_CreateWinId(@ptrCast(self));
+    pub fn CreateWinId(self: KParts__MainWindow) void {
+        qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2173,10 +2304,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn InternalWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_InternalWinId(@ptrCast(self));
+    pub fn InternalWinId(self: KParts__MainWindow) usize {
+        return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2185,10 +2316,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
+    pub fn EffectiveWinId(self: KParts__MainWindow) usize {
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2197,10 +2328,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QWidget_Style(@ptrCast(self));
+    pub fn Style(self: KParts__MainWindow) QStyle {
+        return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2209,12 +2340,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetStyle(self: KParts__MainWindow, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// Inherited from QWidget
@@ -2223,10 +2355,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsTopLevel(@ptrCast(self));
+    pub fn IsTopLevel(self: KParts__MainWindow) bool {
+        return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2235,10 +2367,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn IsWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindow(@ptrCast(self));
+    pub fn IsWindow(self: KParts__MainWindow) bool {
+        return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2247,10 +2379,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn IsModal(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsModal(@ptrCast(self));
+    pub fn IsModal(self: KParts__MainWindow) bool {
+        return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2259,14 +2391,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowModality(@ptrCast(self));
+    pub fn WindowModality(self: KParts__MainWindow) i32 {
+        return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2275,12 +2407,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
+    pub fn SetWindowModality(self: KParts__MainWindow, windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -2289,10 +2421,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: KParts__MainWindow) bool {
+        return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2301,12 +2433,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsEnabledTo(self: KParts__MainWindow, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -2315,12 +2448,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: KParts__MainWindow, enabled: bool) void {
+        qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -2329,12 +2462,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
+    pub fn SetDisabled(self: KParts__MainWindow, disabled: bool) void {
+        qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
 
     /// Inherited from QWidget
@@ -2343,12 +2476,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+    pub fn SetWindowModified(self: KParts__MainWindow, windowModified: bool) void {
+        qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
 
     /// Inherited from QWidget
@@ -2357,10 +2490,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_FrameGeometry(@ptrCast(self));
+    pub fn FrameGeometry(self: KParts__MainWindow) QRect {
+        return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2369,10 +2502,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Geometry(@ptrCast(self));
+    pub fn Geometry(self: KParts__MainWindow) QRect {
+        return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2381,10 +2514,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_NormalGeometry(@ptrCast(self));
+    pub fn NormalGeometry(self: KParts__MainWindow) QRect {
+        return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2393,10 +2526,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn X(self: ?*anyopaque) i32 {
-        return qtc.QWidget_X(@ptrCast(self));
+    pub fn X(self: KParts__MainWindow) i32 {
+        return qtc.QWidget_X(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2405,10 +2538,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Y(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Y(@ptrCast(self));
+    pub fn Y(self: KParts__MainWindow) i32 {
+        return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2417,10 +2550,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_Pos(@ptrCast(self));
+    pub fn Pos(self: KParts__MainWindow) QPoint {
+        return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2429,10 +2562,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: KParts__MainWindow) QSize {
+        return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2441,10 +2574,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_Size(@ptrCast(self));
+    pub fn Size(self: KParts__MainWindow) QSize {
+        return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2453,10 +2586,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Width(@ptrCast(self));
+    pub fn Width(self: KParts__MainWindow) i32 {
+        return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2465,10 +2598,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Height(@ptrCast(self));
+    pub fn Height(self: KParts__MainWindow) i32 {
+        return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2477,10 +2610,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: KParts__MainWindow) QRect {
+        return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2489,10 +2622,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ChildrenRect(@ptrCast(self));
+    pub fn ChildrenRect(self: KParts__MainWindow) QRect {
+        return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2501,10 +2634,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
+    pub fn ChildrenRegion(self: KParts__MainWindow) QRegion {
+        return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2513,10 +2646,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: KParts__MainWindow) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2525,10 +2658,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: KParts__MainWindow) QSize {
+        return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2537,10 +2670,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: KParts__MainWindow) i32 {
+        return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2549,10 +2682,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: KParts__MainWindow) i32 {
+        return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2561,10 +2694,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: KParts__MainWindow) i32 {
+        return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2573,10 +2706,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: KParts__MainWindow) i32 {
+        return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2585,12 +2718,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` minimumSize: QtC.QSize `
+    /// ` minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+    pub fn SetMinimumSize(self: KParts__MainWindow, minimumSize: anytype) void {
+        comptime _ = @TypeOf(minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -2599,14 +2733,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` minw: i32 `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
+    pub fn SetMinimumSize2(self: KParts__MainWindow, minw: i32, minh: i32) void {
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -2615,12 +2749,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` maximumSize: QtC.QSize `
+    /// ` maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+    pub fn SetMaximumSize(self: KParts__MainWindow, maximumSize: anytype) void {
+        comptime _ = @TypeOf(maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -2629,14 +2764,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` maxw: i32 `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
+    pub fn SetMaximumSize2(self: KParts__MainWindow, maxw: i32, maxh: i32) void {
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -2645,12 +2780,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
+    pub fn SetMinimumWidth(self: KParts__MainWindow, minw: i32) void {
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -2659,12 +2794,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
+    pub fn SetMinimumHeight(self: KParts__MainWindow, minh: i32) void {
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -2673,12 +2808,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
+    pub fn SetMaximumWidth(self: KParts__MainWindow, maxw: i32) void {
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -2687,12 +2822,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
+    pub fn SetMaximumHeight(self: KParts__MainWindow, maxh: i32) void {
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -2701,10 +2836,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeIncrement(@ptrCast(self));
+    pub fn SizeIncrement(self: KParts__MainWindow) QSize {
+        return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2713,12 +2848,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` sizeIncrement: QtC.QSize `
+    /// ` sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+    pub fn SetSizeIncrement(self: KParts__MainWindow, sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
     }
 
     /// Inherited from QWidget
@@ -2727,14 +2863,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetSizeIncrement2(self: KParts__MainWindow, w: i32, h: i32) void {
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2743,10 +2879,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_BaseSize(@ptrCast(self));
+    pub fn BaseSize(self: KParts__MainWindow) QSize {
+        return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2755,12 +2891,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` baseSize: QtC.QSize `
+    /// ` baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+    pub fn SetBaseSize(self: KParts__MainWindow, baseSize: anytype) void {
+        comptime _ = @TypeOf(baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -2769,14 +2906,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` basew: i32 `
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
+    pub fn SetBaseSize2(self: KParts__MainWindow, basew: i32, baseh: i32) void {
+        qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -2785,12 +2922,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` fixedSize: QtC.QSize `
+    /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+    pub fn SetFixedSize(self: KParts__MainWindow, fixedSize: anytype) void {
+        comptime _ = @TypeOf(fixedSize)._is_QSize;
+        qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -2799,14 +2937,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetFixedSize2(self: KParts__MainWindow, w: i32, h: i32) void {
+        qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2815,12 +2953,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetFixedWidth(self: KParts__MainWindow, w: i32) void {
+        qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -2829,12 +2967,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
+    pub fn SetFixedHeight(self: KParts__MainWindow, h: i32) void {
+        qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2843,12 +2981,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal(self: KParts__MainWindow, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2857,12 +2996,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: KParts__MainWindow, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2871,12 +3011,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal(self: KParts__MainWindow, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2885,12 +3026,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: KParts__MainWindow, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2899,12 +3041,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent(self: KParts__MainWindow, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2913,12 +3056,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: KParts__MainWindow, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2927,12 +3071,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent(self: KParts__MainWindow, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2941,12 +3086,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: KParts__MainWindow, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2955,14 +3101,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo(self: KParts__MainWindow, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2971,14 +3119,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo2(self: KParts__MainWindow, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2987,14 +3137,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom(self: KParts__MainWindow, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3003,14 +3155,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom2(self: KParts__MainWindow, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3019,10 +3173,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_Window(@ptrCast(self));
+    pub fn Window(self: KParts__MainWindow) QWidget {
+        return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3031,10 +3185,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
+    pub fn NativeParentWidget(self: KParts__MainWindow) QWidget {
+        return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3043,10 +3197,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
+    pub fn TopLevelWidget(self: KParts__MainWindow) QWidget {
+        return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3055,10 +3209,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QWidget_Palette(@ptrCast(self));
+    pub fn Palette(self: KParts__MainWindow) QPalette {
+        return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3067,12 +3221,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn SetPalette(self: KParts__MainWindow, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// Inherited from QWidget
@@ -3081,12 +3236,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
+    pub fn SetBackgroundRole(self: KParts__MainWindow, backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -3095,14 +3250,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_BackgroundRole(@ptrCast(self));
+    pub fn BackgroundRole(self: KParts__MainWindow) i32 {
+        return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3111,12 +3266,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
+    pub fn SetForegroundRole(self: KParts__MainWindow, foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -3125,14 +3280,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ForegroundRole(@ptrCast(self));
+    pub fn ForegroundRole(self: KParts__MainWindow) i32 {
+        return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3141,10 +3296,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QWidget_Font(@ptrCast(self));
+    pub fn Font(self: KParts__MainWindow) QFont {
+        return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3153,12 +3308,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: KParts__MainWindow, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QWidget
@@ -3167,10 +3323,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QWidget_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: KParts__MainWindow) QFontMetrics {
+        return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3179,10 +3335,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QWidget_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: KParts__MainWindow) QFontInfo {
+        return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3191,10 +3347,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
-        return qtc.QWidget_Cursor(@ptrCast(self));
+    pub fn Cursor(self: KParts__MainWindow) QCursor {
+        return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3203,12 +3359,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetCursor(self: KParts__MainWindow, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QWidget
@@ -3217,10 +3374,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn UnsetCursor(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetCursor(@ptrCast(self));
+    pub fn UnsetCursor(self: KParts__MainWindow) void {
+        qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3229,12 +3386,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
+    pub fn SetMouseTracking(self: KParts__MainWindow, enable: bool) void {
+        qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -3243,10 +3400,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
+    pub fn HasMouseTracking(self: KParts__MainWindow) bool {
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3255,10 +3412,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.QWidget_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: KParts__MainWindow) bool {
+        return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3267,12 +3424,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
+    pub fn SetTabletTracking(self: KParts__MainWindow, enable: bool) void {
+        qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -3281,10 +3438,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
+    pub fn HasTabletTracking(self: KParts__MainWindow) bool {
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3293,12 +3450,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` mask: QtC.QBitmap `
+    /// ` mask: QBitmap `
     ///
-    pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask(self: KParts__MainWindow, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -3307,12 +3465,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` mask: QtC.QRegion `
+    /// ` mask: QRegion `
     ///
-    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: KParts__MainWindow, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -3321,10 +3480,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_Mask(@ptrCast(self));
+    pub fn Mask(self: KParts__MainWindow) QRegion {
+        return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3333,10 +3492,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ClearMask(self: ?*anyopaque) void {
-        qtc.QWidget_ClearMask(@ptrCast(self));
+    pub fn ClearMask(self: KParts__MainWindow) void {
+        qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3345,12 +3504,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
+    pub fn Render(self: KParts__MainWindow, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QWidget
@@ -3359,12 +3519,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: KParts__MainWindow, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -3373,10 +3534,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab(@ptrCast(self));
+    pub fn Grab(self: KParts__MainWindow) QPixmap {
+        return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3385,10 +3546,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
-        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
+    pub fn GraphicsEffect(self: KParts__MainWindow) QGraphicsEffect {
+        return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3397,12 +3558,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` effect: QtC.QGraphicsEffect `
+    /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+    pub fn SetGraphicsEffect(self: KParts__MainWindow, effect: anytype) void {
+        comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
 
     /// Inherited from QWidget
@@ -3411,12 +3573,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn GrabGesture(self: KParts__MainWindow, typeVal: i32) void {
+        qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -3425,12 +3587,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn UngrabGesture(self: KParts__MainWindow, typeVal: i32) void {
+        qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -3439,16 +3601,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
+    pub fn SetWindowTitle(self: KParts__MainWindow, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
-        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
 
     /// Inherited from QWidget
@@ -3457,16 +3619,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
+    pub fn SetStyleSheet(self: KParts__MainWindow, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
-        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
 
     /// Inherited from QWidget
@@ -3475,12 +3637,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: KParts__MainWindow, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__mainwindow.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3493,12 +3655,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+    pub fn WindowTitle(self: KParts__MainWindow, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__mainwindow.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3511,12 +3673,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetWindowIcon(self: KParts__MainWindow, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -3525,10 +3688,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QWidget_WindowIcon(@ptrCast(self));
+    pub fn WindowIcon(self: KParts__MainWindow) QIcon {
+        return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3537,16 +3700,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
+    pub fn SetWindowIconText(self: KParts__MainWindow, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
-        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
 
     /// Inherited from QWidget
@@ -3555,12 +3718,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+    pub fn WindowIconText(self: KParts__MainWindow, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__mainwindow.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3573,16 +3736,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
+    pub fn SetWindowRole(self: KParts__MainWindow, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
-        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
 
     /// Inherited from QWidget
@@ -3591,12 +3754,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
+    pub fn WindowRole(self: KParts__MainWindow, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__mainwindow.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3609,16 +3772,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
+    pub fn SetWindowFilePath(self: KParts__MainWindow, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
 
     /// Inherited from QWidget
@@ -3627,12 +3790,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+    pub fn WindowFilePath(self: KParts__MainWindow, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__mainwindow.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3645,12 +3808,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetWindowOpacity(self: KParts__MainWindow, level: f64) void {
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -3659,10 +3822,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return qtc.QWidget_WindowOpacity(@ptrCast(self));
+    pub fn WindowOpacity(self: KParts__MainWindow) f64 {
+        return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3671,10 +3834,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindowModified(@ptrCast(self));
+    pub fn IsWindowModified(self: KParts__MainWindow) bool {
+        return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3683,16 +3846,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: KParts__MainWindow, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// Inherited from QWidget
@@ -3701,12 +3864,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: KParts__MainWindow, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__mainwindow.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3719,12 +3882,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
+    pub fn SetToolTipDuration(self: KParts__MainWindow, msec: i32) void {
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -3733,10 +3896,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
+    pub fn ToolTipDuration(self: KParts__MainWindow) i32 {
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3745,16 +3908,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: KParts__MainWindow, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QWidget
@@ -3763,12 +3926,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: KParts__MainWindow, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__mainwindow.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3781,16 +3944,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: KParts__MainWindow, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// Inherited from QWidget
@@ -3799,12 +3962,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: KParts__MainWindow, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__mainwindow.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3817,12 +3980,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+    pub fn AccessibleName(self: KParts__MainWindow, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__mainwindow.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3835,16 +3998,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetAccessibleName(self: KParts__MainWindow, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QWidget
@@ -3853,12 +4016,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+    pub fn AccessibleDescription(self: KParts__MainWindow, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__mainwindow.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3871,16 +4034,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetAccessibleDescription(self: KParts__MainWindow, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// Inherited from QWidget
@@ -3889,12 +4052,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: KParts__MainWindow, direction: i32) void {
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -3903,14 +4066,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QWidget_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: KParts__MainWindow) i32 {
+        return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3919,10 +4082,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
+    pub fn UnsetLayoutDirection(self: KParts__MainWindow) void {
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3931,12 +4094,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: KParts__MainWindow, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// Inherited from QWidget
@@ -3945,10 +4109,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QWidget_Locale(@ptrCast(self));
+    pub fn Locale(self: KParts__MainWindow) QLocale {
+        return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3957,10 +4121,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn UnsetLocale(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLocale(@ptrCast(self));
+    pub fn UnsetLocale(self: KParts__MainWindow) void {
+        qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3969,10 +4133,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
+    pub fn IsRightToLeft(self: KParts__MainWindow) bool {
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3981,10 +4145,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
+    pub fn IsLeftToRight(self: KParts__MainWindow) bool {
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3993,10 +4157,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SetFocus(self: ?*anyopaque) void {
-        qtc.QWidget_SetFocus(@ptrCast(self));
+    pub fn SetFocus(self: KParts__MainWindow) void {
+        qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4005,10 +4169,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
+    pub fn IsActiveWindow(self: KParts__MainWindow) bool {
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4017,10 +4181,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ActivateWindow(self: ?*anyopaque) void {
-        qtc.QWidget_ActivateWindow(@ptrCast(self));
+    pub fn ActivateWindow(self: KParts__MainWindow) void {
+        qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4029,10 +4193,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ClearFocus(self: ?*anyopaque) void {
-        qtc.QWidget_ClearFocus(@ptrCast(self));
+    pub fn ClearFocus(self: KParts__MainWindow) void {
+        qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4041,12 +4205,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
+    pub fn SetFocus2(self: KParts__MainWindow, reason: i32) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -4055,14 +4219,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_FocusPolicy(@ptrCast(self));
+    pub fn FocusPolicy(self: KParts__MainWindow) i32 {
+        return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4071,12 +4235,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetFocusPolicy(self: KParts__MainWindow, policy: i32) void {
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -4085,10 +4249,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn HasFocus(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasFocus(@ptrCast(self));
+    pub fn HasFocus(self: KParts__MainWindow) bool {
+        return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4097,12 +4261,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QWidget `
+    /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QWidget;
+        qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidget
@@ -4111,12 +4277,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` focusProxy: QtC.QWidget `
+    /// ` focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+    pub fn SetFocusProxy(self: KParts__MainWindow, focusProxy: anytype) void {
+        comptime _ = @TypeOf(focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
     }
 
     /// Inherited from QWidget
@@ -4125,10 +4292,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusProxy(@ptrCast(self));
+    pub fn FocusProxy(self: KParts__MainWindow) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4137,14 +4304,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
+    pub fn ContextMenuPolicy(self: KParts__MainWindow) i32 {
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4153,12 +4320,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetContextMenuPolicy(self: KParts__MainWindow, policy: i32) void {
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -4167,10 +4334,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn GrabMouse(self: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse(@ptrCast(self));
+    pub fn GrabMouse(self: KParts__MainWindow) void {
+        qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4179,12 +4346,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: KParts__MainWindow, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4193,10 +4361,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ReleaseMouse(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseMouse(@ptrCast(self));
+    pub fn ReleaseMouse(self: KParts__MainWindow) void {
+        qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4205,10 +4373,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn GrabKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_GrabKeyboard(@ptrCast(self));
+    pub fn GrabKeyboard(self: KParts__MainWindow) void {
+        qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4217,10 +4385,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
+    pub fn ReleaseKeyboard(self: KParts__MainWindow) void {
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4229,12 +4397,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+    pub fn GrabShortcut(self: KParts__MainWindow, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// Inherited from QWidget
@@ -4243,12 +4412,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
+    pub fn ReleaseShortcut(self: KParts__MainWindow, id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -4257,12 +4426,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutEnabled(self: KParts__MainWindow, id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -4271,28 +4440,28 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutAutoRepeat(self: KParts__MainWindow, id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QtC.QWidget {
-        return qtc.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QtC.QWidget {
-        return qtc.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
 
     /// Inherited from QWidget
@@ -4301,10 +4470,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
+    pub fn UpdatesEnabled(self: KParts__MainWindow) bool {
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4313,12 +4482,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+    pub fn SetUpdatesEnabled(self: KParts__MainWindow, enable: bool) void {
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -4327,10 +4496,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    pub fn GraphicsProxyWidget(self: KParts__MainWindow) QGraphicsProxyWidget {
+        return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4339,10 +4508,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Update(self: ?*anyopaque) void {
-        qtc.QWidget_Update(@ptrCast(self));
+    pub fn Update(self: KParts__MainWindow) void {
+        qtc.QWidget_Update(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4351,10 +4520,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Repaint(self: ?*anyopaque) void {
-        qtc.QWidget_Repaint(@ptrCast(self));
+    pub fn Repaint(self: KParts__MainWindow) void {
+        qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4363,7 +4532,7 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` x: i32 `
     ///
@@ -4373,8 +4542,8 @@ pub const kparts__mainwindow = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Update2(self: KParts__MainWindow, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4383,12 +4552,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: KParts__MainWindow, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4397,12 +4567,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: KParts__MainWindow, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4411,7 +4582,7 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` x: i32 `
     ///
@@ -4421,8 +4592,8 @@ pub const kparts__mainwindow = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Repaint2(self: KParts__MainWindow, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4431,12 +4602,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: KParts__MainWindow, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4445,12 +4617,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: KParts__MainWindow, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4459,12 +4632,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
+    pub fn SetHidden(self: KParts__MainWindow, hidden: bool) void {
+        qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
 
     /// Inherited from QWidget
@@ -4473,10 +4646,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QWidget_Show(@ptrCast(self));
+    pub fn Show(self: KParts__MainWindow) void {
+        qtc.QWidget_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4485,10 +4658,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QWidget_Hide(@ptrCast(self));
+    pub fn Hide(self: KParts__MainWindow) void {
+        qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4497,10 +4670,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ShowMinimized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMinimized(@ptrCast(self));
+    pub fn ShowMinimized(self: KParts__MainWindow) void {
+        qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4509,10 +4682,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ShowMaximized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMaximized(@ptrCast(self));
+    pub fn ShowMaximized(self: KParts__MainWindow) void {
+        qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4521,10 +4694,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ShowFullScreen(self: ?*anyopaque) void {
-        qtc.QWidget_ShowFullScreen(@ptrCast(self));
+    pub fn ShowFullScreen(self: KParts__MainWindow) void {
+        qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4533,10 +4706,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ShowNormal(self: ?*anyopaque) void {
-        qtc.QWidget_ShowNormal(@ptrCast(self));
+    pub fn ShowNormal(self: KParts__MainWindow) void {
+        qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4545,10 +4718,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Close(self: ?*anyopaque) bool {
-        return qtc.QWidget_Close(@ptrCast(self));
+    pub fn Close(self: KParts__MainWindow) bool {
+        return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4557,10 +4730,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Raise(self: ?*anyopaque) void {
-        qtc.QWidget_Raise(@ptrCast(self));
+    pub fn Raise(self: KParts__MainWindow) void {
+        qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4569,10 +4742,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Lower(self: ?*anyopaque) void {
-        qtc.QWidget_Lower(@ptrCast(self));
+    pub fn Lower(self: KParts__MainWindow) void {
+        qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4581,12 +4754,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+    pub fn StackUnder(self: KParts__MainWindow, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4595,14 +4769,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn Move(self: KParts__MainWindow, x: i32, y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -4611,12 +4785,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: KParts__MainWindow, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4625,14 +4800,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn Resize(self: KParts__MainWindow, w: i32, h: i32) void {
+        qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4641,12 +4816,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QSize `
+    /// ` param1: QSize `
     ///
-    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: KParts__MainWindow, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4655,7 +4831,7 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` x: i32 `
     ///
@@ -4665,8 +4841,8 @@ pub const kparts__mainwindow = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetGeometry(self: KParts__MainWindow, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4675,12 +4851,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` geometry: QtC.QRect `
+    /// ` geometry: QRect `
     ///
-    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: KParts__MainWindow, geometry: anytype) void {
+        comptime _ = @TypeOf(geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
     }
 
     /// Inherited from QWidget
@@ -4689,12 +4866,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+    pub fn SaveGeometry(self: KParts__MainWindow, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kparts__mainwindow.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -4707,16 +4884,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
+    pub fn RestoreGeometry(self: KParts__MainWindow, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
-        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
 
     /// Inherited from QWidget
@@ -4725,10 +4902,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QWidget_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: KParts__MainWindow) void {
+        qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4737,10 +4914,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: KParts__MainWindow) bool {
+        return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4749,12 +4926,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsVisibleTo(self: KParts__MainWindow, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4763,10 +4941,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn IsHidden(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsHidden(@ptrCast(self));
+    pub fn IsHidden(self: KParts__MainWindow) bool {
+        return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4775,10 +4953,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn IsMinimized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMinimized(@ptrCast(self));
+    pub fn IsMinimized(self: KParts__MainWindow) bool {
+        return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4787,10 +4965,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn IsMaximized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMaximized(@ptrCast(self));
+    pub fn IsMaximized(self: KParts__MainWindow) bool {
+        return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4799,10 +4977,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsFullScreen(@ptrCast(self));
+    pub fn IsFullScreen(self: KParts__MainWindow) bool {
+        return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4811,14 +4989,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowState(@ptrCast(self));
+    pub fn WindowState(self: KParts__MainWindow) i32 {
+        return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4827,12 +5005,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
+    pub fn SetWindowState(self: KParts__MainWindow, state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -4841,12 +5019,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
+    pub fn OverrideWindowState(self: KParts__MainWindow, state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -4855,10 +5033,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QWidget_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: KParts__MainWindow) QSizePolicy {
+        return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4867,12 +5045,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` sizePolicy: QtC.QSizePolicy `
+    /// ` sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
-        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    pub fn SetSizePolicy(self: KParts__MainWindow, sizePolicy: anytype) void {
+        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
     }
 
     /// Inherited from QWidget
@@ -4881,14 +5060,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` horizontal: qsizepolicy_enums.Policy `
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
+    pub fn SetSizePolicy2(self: KParts__MainWindow, horizontal: i32, vertical: i32) void {
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -4897,10 +5076,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_VisibleRegion(@ptrCast(self));
+    pub fn VisibleRegion(self: KParts__MainWindow) QRegion {
+        return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4909,7 +5088,7 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` left: i32 `
     ///
@@ -4919,8 +5098,8 @@ pub const kparts__mainwindow = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: KParts__MainWindow, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -4929,12 +5108,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: KParts__MainWindow, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QWidget
@@ -4943,10 +5123,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QWidget_ContentsMargins(@ptrCast(self));
+    pub fn ContentsMargins(self: KParts__MainWindow) QMargins {
+        return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4955,10 +5135,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: KParts__MainWindow) QRect {
+        return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4967,10 +5147,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidget_Layout(@ptrCast(self));
+    pub fn Layout(self: KParts__MainWindow) QLayout {
+        return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4979,12 +5159,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` layout: QtC.QLayout `
+    /// ` layout: QLayout `
     ///
-    pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetLayout(self: KParts__MainWindow, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// Inherited from QWidget
@@ -4993,10 +5174,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QWidget_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: KParts__MainWindow) void {
+        qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5005,12 +5186,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KParts__MainWindow, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QWidget
@@ -5019,14 +5201,15 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
+    pub fn SetParent2(self: KParts__MainWindow, parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -5035,14 +5218,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Scroll(self: KParts__MainWindow, dx: i32, dy: i32) void {
+        qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -5051,16 +5234,17 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    /// ` param3: QtC.QRect `
+    /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
+    pub fn Scroll2(self: KParts__MainWindow, dx: i32, dy: i32, param3: anytype) void {
+        comptime _ = @TypeOf(param3)._is_QRect;
+        qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QWidget
@@ -5069,10 +5253,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusWidget(@ptrCast(self));
+    pub fn FocusWidget(self: KParts__MainWindow) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5081,10 +5265,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
+    pub fn NextInFocusChain(self: KParts__MainWindow) QWidget {
+        return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5093,10 +5277,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
+    pub fn PreviousInFocusChain(self: KParts__MainWindow) QWidget {
+        return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5105,10 +5289,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return qtc.QWidget_AcceptDrops(@ptrCast(self));
+    pub fn AcceptDrops(self: KParts__MainWindow) bool {
+        return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5117,12 +5301,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
+    pub fn SetAcceptDrops(self: KParts__MainWindow, on: bool) void {
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QWidget
@@ -5131,12 +5315,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+    pub fn AddAction(self: KParts__MainWindow, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -5145,16 +5330,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn AddActions(self: KParts__MainWindow, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -5163,18 +5348,19 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn InsertActions(self: KParts__MainWindow, before: anytype, actions: []QAction) void {
+        comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -5183,14 +5369,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn InsertAction(self: KParts__MainWindow, before: anytype, action: anytype) void {
+        comptime _ = @TypeOf(before)._is_QAction;
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -5199,12 +5387,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn RemoveAction(self: KParts__MainWindow, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -5213,16 +5402,17 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+    pub fn Actions(self: KParts__MainWindow, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("kparts__mainwindow.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("kparts__mainwindow.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -5232,16 +5422,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: KParts__MainWindow, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction2(@ptrCast(self), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -5250,18 +5440,19 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: KParts__MainWindow, icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -5270,18 +5461,19 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: KParts__MainWindow, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5290,20 +5482,22 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: KParts__MainWindow, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5312,10 +5506,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: KParts__MainWindow) QWidget {
+        return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5324,12 +5518,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetWindowFlags(self: KParts__MainWindow, typeVal: i32) void {
+        qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -5338,14 +5532,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowFlags(@ptrCast(self));
+    pub fn WindowFlags(self: KParts__MainWindow) i32 {
+        return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5354,12 +5548,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
+    pub fn SetWindowFlag(self: KParts__MainWindow, param1: i32) void {
+        qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5368,12 +5562,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn OverrideWindowFlags(self: KParts__MainWindow, typeVal: i32) void {
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -5382,14 +5576,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowType(@ptrCast(self));
+    pub fn WindowType(self: KParts__MainWindow) i32 {
+        return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5400,8 +5594,8 @@ pub const kparts__mainwindow = struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QtC.QWidget {
-        return qtc.QWidget_Find(@bitCast(param1));
+    pub fn Find(param1: usize) QWidget {
+        return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -5410,14 +5604,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: KParts__MainWindow, x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QWidget
@@ -5426,12 +5620,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: KParts__MainWindow, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5440,12 +5635,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: KParts__MainWindow, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5454,12 +5650,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn SetAttribute(self: KParts__MainWindow, param1: i32) void {
+        qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5468,12 +5664,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn TestAttribute(self: KParts__MainWindow, param1: i32) bool {
+        return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5482,10 +5678,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn EnsurePolished(self: ?*anyopaque) void {
-        qtc.QWidget_EnsurePolished(@ptrCast(self));
+    pub fn EnsurePolished(self: KParts__MainWindow) void {
+        qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5494,12 +5690,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` child: QtC.QWidget `
+    /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+    pub fn IsAncestorOf(self: KParts__MainWindow, child: anytype) bool {
+        comptime _ = @TypeOf(child)._is_QWidget;
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from QWidget
@@ -5508,10 +5705,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
+    pub fn AutoFillBackground(self: KParts__MainWindow) bool {
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5520,12 +5717,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+    pub fn SetAutoFillBackground(self: KParts__MainWindow, enabled: bool) void {
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -5534,10 +5731,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
-        return qtc.QWidget_BackingStore(@ptrCast(self));
+    pub fn BackingStore(self: KParts__MainWindow) QBackingStore {
+        return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5546,10 +5743,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QWidget_WindowHandle(@ptrCast(self));
+    pub fn WindowHandle(self: KParts__MainWindow) QWindow {
+        return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5558,10 +5755,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
-        return qtc.QWidget_Screen(@ptrCast(self));
+    pub fn Screen(self: KParts__MainWindow) QScreen {
+        return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5570,12 +5767,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+    pub fn SetScreen(self: KParts__MainWindow, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QWidget
@@ -5584,10 +5782,11 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
+    pub fn CreateWindowContainer(window: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5596,16 +5795,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn WindowTitleChanged(self: KParts__MainWindow, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QWidget
@@ -5614,12 +5813,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowTitleChanged(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5628,12 +5827,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+    pub fn WindowIconChanged(self: KParts__MainWindow, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -5642,12 +5842,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, icon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconChanged(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QIcon) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5656,16 +5856,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
+    pub fn WindowIconTextChanged(self: KParts__MainWindow, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
-        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
 
     /// Inherited from QWidget
@@ -5674,12 +5874,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, iconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconTextChanged(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5688,12 +5888,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+    pub fn CustomContextMenuRequested(self: KParts__MainWindow, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QWidget
@@ -5702,12 +5903,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomContextMenuRequested(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QPoint) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5716,14 +5917,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i32 {
-        return qtc.QWidget_InputMethodHints(@ptrCast(self));
+    pub fn InputMethodHints(self: KParts__MainWindow) i32 {
+        return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5732,12 +5933,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetInputMethodHints(self: KParts__MainWindow, hints: i32) void {
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -5746,14 +5947,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: KParts__MainWindow, target: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -5762,16 +5965,19 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render3(self: KParts__MainWindow, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -5780,18 +5986,21 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render4(self: KParts__MainWindow, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -5800,14 +6009,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: KParts__MainWindow, painter: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -5816,16 +6027,19 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render32(self: KParts__MainWindow, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -5834,18 +6048,21 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render42(self: KParts__MainWindow, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -5854,12 +6071,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Grab1(self: KParts__MainWindow, rectangle: anytype) QPixmap {
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5868,14 +6086,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
+    pub fn GrabGesture2(self: KParts__MainWindow, typeVal: i32, flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -5884,14 +6102,15 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
+    pub fn GrabShortcut2(self: KParts__MainWindow, key: anytype, context: i32) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -5900,14 +6119,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutEnabled2(self: KParts__MainWindow, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -5916,14 +6135,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutAutoRepeat2(self: KParts__MainWindow, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -5932,14 +6151,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetWindowFlag2(self: KParts__MainWindow, param1: i32, on: bool) void {
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -5948,14 +6167,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetAttribute2(self: KParts__MainWindow, param1: i32, on: bool) void {
+        qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -5964,12 +6183,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5978,14 +6199,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
+    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QObject
@@ -5994,12 +6217,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KParts__MainWindow, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__mainwindow.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -6012,12 +6235,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KParts__MainWindow, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -6026,10 +6249,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KParts__MainWindow) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6038,10 +6261,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KParts__MainWindow) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6050,10 +6273,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KParts__MainWindow) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6062,10 +6285,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KParts__MainWindow) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6074,12 +6297,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KParts__MainWindow, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -6088,10 +6311,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KParts__MainWindow) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -6100,12 +6323,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KParts__MainWindow, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -6114,12 +6338,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KParts__MainWindow, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -6128,12 +6352,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KParts__MainWindow, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -6142,12 +6366,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KParts__MainWindow, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -6156,12 +6380,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KParts__MainWindow, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -6170,16 +6394,17 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KParts__MainWindow, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kparts__mainwindow.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kparts__mainwindow.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -6189,12 +6414,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KParts__MainWindow, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -6203,12 +6429,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KParts__MainWindow, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -6217,18 +6444,20 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -6237,16 +6466,20 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -6255,18 +6488,19 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KParts__MainWindow, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -6275,18 +6509,20 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -6295,16 +6531,20 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -6313,10 +6553,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KParts__MainWindow) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6325,12 +6565,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KParts__MainWindow, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -6339,10 +6580,11 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -6351,10 +6593,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KParts__MainWindow) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6363,10 +6605,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KParts__MainWindow) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6375,15 +6617,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KParts__MainWindow, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -6392,13 +6635,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KParts__MainWindow, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -6407,17 +6650,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KParts__MainWindow, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kparts__mainwindow.DynamicPropertyNames: Memory allocation failed");
@@ -6436,10 +6678,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KParts__MainWindow) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -6448,10 +6690,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KParts__MainWindow) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -6460,10 +6702,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KParts__MainWindow) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6472,12 +6714,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6486,10 +6728,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: KParts__MainWindow) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -6498,13 +6740,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KParts__MainWindow, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -6513,10 +6755,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KParts__MainWindow) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -6525,14 +6767,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KParts__MainWindow, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -6541,14 +6783,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KParts__MainWindow, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -6557,20 +6799,22 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -6579,18 +6823,22 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -6599,9 +6847,9 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6609,10 +6857,11 @@ pub const kparts__mainwindow = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KParts__MainWindow, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -6621,13 +6870,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KParts__MainWindow, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -6636,15 +6885,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KParts__MainWindow, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -6653,18 +6903,19 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KParts__MainWindow, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -6673,15 +6924,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KParts__MainWindow, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -6690,12 +6942,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KParts__MainWindow, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -6704,12 +6957,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -6718,10 +6971,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: KParts__MainWindow) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6730,10 +6983,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: KParts__MainWindow) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6742,10 +6995,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: KParts__MainWindow) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6754,10 +7007,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: KParts__MainWindow) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6766,10 +7019,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: KParts__MainWindow) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6778,10 +7031,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: KParts__MainWindow) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6790,10 +7043,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: KParts__MainWindow) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6802,10 +7055,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: KParts__MainWindow) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6814,10 +7067,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: KParts__MainWindow) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6826,10 +7079,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: KParts__MainWindow) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6838,10 +7091,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: KParts__MainWindow) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6872,10 +7125,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn BuilderClient(self: ?*anyopaque) QtC.KXMLGUIClient {
-        return qtc.KXMLGUIBuilder_BuilderClient(@ptrCast(self));
+    pub fn BuilderClient(self: KParts__MainWindow) KXMLGUIClient {
+        return .{ .ptr = qtc.KXMLGUIBuilder_BuilderClient(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXMLGUIBuilder
@@ -6884,12 +7137,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` client: QtC.KXMLGUIClient `
+    /// ` client: KXMLGUIClient `
     ///
-    pub fn SetBuilderClient(self: ?*anyopaque, client: ?*anyopaque) void {
-        qtc.KXMLGUIBuilder_SetBuilderClient(@ptrCast(self), @ptrCast(client));
+    pub fn SetBuilderClient(self: KParts__MainWindow, client: anytype) void {
+        comptime _ = @TypeOf(client)._is_KXMLGUIClient;
+        qtc.KXMLGUIBuilder_SetBuilderClient(@ptrCast(self.ptr), @ptrCast(client.ptr));
     }
 
     /// Inherited from KXMLGUIBuilder
@@ -6898,10 +7152,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Widget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.KXMLGUIBuilder_Widget(@ptrCast(self));
+    pub fn Widget(self: KParts__MainWindow) QWidget {
+        return .{ .ptr = qtc.KXMLGUIBuilder_Widget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -6910,16 +7164,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn Action(self: ?*anyopaque, name: []const u8) QtC.QAction {
+    pub fn Action(self: KParts__MainWindow, name: []const u8) QAction {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.KXMLGUIClient_Action(@ptrCast(self), name_str);
+        return .{ .ptr = qtc.KXMLGUIClient_Action(@ptrCast(self.ptr), name_str) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -6928,12 +7182,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` doc: QtC.QDomDocument `
+    /// ` doc: QDomDocument `
     ///
-    pub fn SetXMLGUIBuildDocument(self: ?*anyopaque, doc: ?*anyopaque) void {
-        qtc.KXMLGUIClient_SetXMLGUIBuildDocument(@ptrCast(self), @ptrCast(doc));
+    pub fn SetXMLGUIBuildDocument(self: KParts__MainWindow, doc: anytype) void {
+        comptime _ = @TypeOf(doc)._is_QDomDocument;
+        qtc.KXMLGUIClient_SetXMLGUIBuildDocument(@ptrCast(self.ptr), @ptrCast(doc.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -6942,10 +7197,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn XmlguiBuildDocument(self: ?*anyopaque) QtC.QDomDocument {
-        return qtc.KXMLGUIClient_XmlguiBuildDocument(@ptrCast(self));
+    pub fn XmlguiBuildDocument(self: KParts__MainWindow) QDomDocument {
+        return .{ .ptr = qtc.KXMLGUIClient_XmlguiBuildDocument(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -6954,12 +7209,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` factory: QtC.KXMLGUIFactory `
+    /// ` factory: KXMLGUIFactory `
     ///
-    pub fn SetFactory(self: ?*anyopaque, factory: ?*anyopaque) void {
-        qtc.KXMLGUIClient_SetFactory(@ptrCast(self), @ptrCast(factory));
+    pub fn SetFactory(self: KParts__MainWindow, factory: anytype) void {
+        comptime _ = @TypeOf(factory)._is_KXMLGUIFactory;
+        qtc.KXMLGUIClient_SetFactory(@ptrCast(self.ptr), @ptrCast(factory.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -6968,10 +7224,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Factory(self: ?*anyopaque) QtC.KXMLGUIFactory {
-        return qtc.KXMLGUIClient_Factory(@ptrCast(self));
+    pub fn Factory(self: KParts__MainWindow) KXMLGUIFactory {
+        return .{ .ptr = qtc.KXMLGUIClient_Factory(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -6980,10 +7236,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ParentClient(self: ?*anyopaque) QtC.KXMLGUIClient {
-        return qtc.KXMLGUIClient_ParentClient(@ptrCast(self));
+    pub fn ParentClient(self: KParts__MainWindow) KXMLGUIClient {
+        return .{ .ptr = qtc.KXMLGUIClient_ParentClient(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -6992,12 +7248,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` child: QtC.KXMLGUIClient `
+    /// ` child: KXMLGUIClient `
     ///
-    pub fn InsertChildClient(self: ?*anyopaque, child: ?*anyopaque) void {
-        qtc.KXMLGUIClient_InsertChildClient(@ptrCast(self), @ptrCast(child));
+    pub fn InsertChildClient(self: KParts__MainWindow, child: anytype) void {
+        comptime _ = @TypeOf(child)._is_KXMLGUIClient;
+        qtc.KXMLGUIClient_InsertChildClient(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -7006,12 +7263,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` child: QtC.KXMLGUIClient `
+    /// ` child: KXMLGUIClient `
     ///
-    pub fn RemoveChildClient(self: ?*anyopaque, child: ?*anyopaque) void {
-        qtc.KXMLGUIClient_RemoveChildClient(@ptrCast(self), @ptrCast(child));
+    pub fn RemoveChildClient(self: KParts__MainWindow, child: anytype) void {
+        comptime _ = @TypeOf(child)._is_KXMLGUIClient;
+        qtc.KXMLGUIClient_RemoveChildClient(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -7020,16 +7278,17 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ChildClients(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KXMLGUIClient {
-        const _arr: qtc.libqt_list = qtc.KXMLGUIClient_ChildClients(@ptrCast(self));
+    pub fn ChildClients(self: KParts__MainWindow, allocator: std.mem.Allocator) []KXMLGUIClient {
+        const _arr: qtc.libqt_list = qtc.KXMLGUIClient_ChildClients(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KXMLGUIClient, _arr.len) catch @panic("kparts__mainwindow.ChildClients: Memory allocation failed");
+        const _ret = allocator.alloc(KXMLGUIClient, _arr.len) catch @panic("kparts__mainwindow.ChildClients: Memory allocation failed");
         const _data: [*]QtC.KXMLGUIClient = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -7039,12 +7298,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` builder: QtC.KXMLGUIBuilder `
+    /// ` builder: KXMLGUIBuilder `
     ///
-    pub fn SetClientBuilder(self: ?*anyopaque, builder: ?*anyopaque) void {
-        qtc.KXMLGUIClient_SetClientBuilder(@ptrCast(self), @ptrCast(builder));
+    pub fn SetClientBuilder(self: KParts__MainWindow, builder: anytype) void {
+        comptime _ = @TypeOf(builder)._is_KXMLGUIBuilder;
+        qtc.KXMLGUIClient_SetClientBuilder(@ptrCast(self.ptr), @ptrCast(builder.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -7053,10 +7313,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ClientBuilder(self: ?*anyopaque) QtC.KXMLGUIBuilder {
-        return qtc.KXMLGUIClient_ClientBuilder(@ptrCast(self));
+    pub fn ClientBuilder(self: KParts__MainWindow) KXMLGUIBuilder {
+        return .{ .ptr = qtc.KXMLGUIClient_ClientBuilder(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -7065,10 +7325,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ReloadXML(self: ?*anyopaque) void {
-        qtc.KXMLGUIClient_ReloadXML(@ptrCast(self));
+    pub fn ReloadXML(self: KParts__MainWindow) void {
+        qtc.KXMLGUIClient_ReloadXML(@ptrCast(self.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -7077,13 +7337,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` actionList: []QtC.QAction `
+    /// ` actionList: []QAction `
     ///
-    pub fn PlugActionList(self: ?*anyopaque, name: []const u8, actionList: []?*anyopaque) void {
+    pub fn PlugActionList(self: KParts__MainWindow, name: []const u8, actionList: []QAction) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -7092,7 +7352,7 @@ pub const kparts__mainwindow = struct {
             .len = actionList.len,
             .data = @ptrCast(actionList.ptr),
         };
-        qtc.KXMLGUIClient_PlugActionList(@ptrCast(self), name_str, actionList_list);
+        qtc.KXMLGUIClient_PlugActionList(@ptrCast(self.ptr), name_str, actionList_list);
     }
 
     /// Inherited from KXMLGUIClient
@@ -7101,16 +7361,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn UnplugActionList(self: ?*anyopaque, name: []const u8) void {
+    pub fn UnplugActionList(self: KParts__MainWindow, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.KXMLGUIClient_UnplugActionList(@ptrCast(self), name_str);
+        qtc.KXMLGUIClient_UnplugActionList(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from KXMLGUIClient
@@ -7119,21 +7379,20 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` files: []const []const u8 `
     ///
     /// ` doc: []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn FindMostRecentXMLFile(files: []const []const u8, doc: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn FindMostRecentXMLFile(allocator: std.mem.Allocator, files: []const []const u8, doc: []const u8) []const u8 {
         const files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("kparts__mainwindow.FindMostRecentXMLFile: Memory allocation failed");
         defer allocator.free(files_arr);
-        for (files, 0..files.len) |item, i| {
+        for (files, 0..files.len) |item, i|
             files_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const files_list = qtc.libqt_list{
             .len = files.len,
             .data = files_arr.ptr,
@@ -7155,13 +7414,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` state: []const u8 `
     ///
     /// ` action: []const u8 `
     ///
-    pub fn AddStateActionEnabled(self: ?*anyopaque, state: []const u8, action: []const u8) void {
+    pub fn AddStateActionEnabled(self: KParts__MainWindow, state: []const u8, action: []const u8) void {
         const state_str = qtc.libqt_string{
             .len = state.len,
             .data = state.ptr,
@@ -7170,7 +7429,7 @@ pub const kparts__mainwindow = struct {
             .len = action.len,
             .data = action.ptr,
         };
-        qtc.KXMLGUIClient_AddStateActionEnabled(@ptrCast(self), state_str, action_str);
+        qtc.KXMLGUIClient_AddStateActionEnabled(@ptrCast(self.ptr), state_str, action_str);
     }
 
     /// Inherited from KXMLGUIClient
@@ -7179,13 +7438,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` state: []const u8 `
     ///
     /// ` action: []const u8 `
     ///
-    pub fn AddStateActionDisabled(self: ?*anyopaque, state: []const u8, action: []const u8) void {
+    pub fn AddStateActionDisabled(self: KParts__MainWindow, state: []const u8, action: []const u8) void {
         const state_str = qtc.libqt_string{
             .len = state.len,
             .data = state.ptr,
@@ -7194,7 +7453,7 @@ pub const kparts__mainwindow = struct {
             .len = action.len,
             .data = action.ptr,
         };
-        qtc.KXMLGUIClient_AddStateActionDisabled(@ptrCast(self), state_str, action_str);
+        qtc.KXMLGUIClient_AddStateActionDisabled(@ptrCast(self.ptr), state_str, action_str);
     }
 
     /// Inherited from KXMLGUIClient
@@ -7203,16 +7462,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` state: []const u8 `
     ///
-    pub fn GetActionsToChangeForState(self: ?*anyopaque, state: []const u8) QtC.KXMLGUIClient__StateChange {
+    pub fn GetActionsToChangeForState(self: KParts__MainWindow, state: []const u8) KXMLGUIClient__StateChange {
         const state_str = qtc.libqt_string{
             .len = state.len,
             .data = state.ptr,
         };
-        return qtc.KXMLGUIClient_GetActionsToChangeForState(@ptrCast(self), state_str);
+        return .{ .ptr = qtc.KXMLGUIClient_GetActionsToChangeForState(@ptrCast(self.ptr), state_str) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -7221,12 +7480,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn BeginXMLPlug(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KXMLGUIClient_BeginXMLPlug(@ptrCast(self), @ptrCast(param1));
+    pub fn BeginXMLPlug(self: KParts__MainWindow, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.KXMLGUIClient_BeginXMLPlug(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -7235,10 +7495,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn EndXMLPlug(self: ?*anyopaque) void {
-        qtc.KXMLGUIClient_EndXMLPlug(@ptrCast(self));
+    pub fn EndXMLPlug(self: KParts__MainWindow) void {
+        qtc.KXMLGUIClient_EndXMLPlug(@ptrCast(self.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -7247,12 +7507,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn PrepareXMLUnplug(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KXMLGUIClient_PrepareXMLUnplug(@ptrCast(self), @ptrCast(param1));
+    pub fn PrepareXMLUnplug(self: KParts__MainWindow, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.KXMLGUIClient_PrepareXMLUnplug(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -7261,13 +7522,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` xmlfile: []const u8 `
     ///
     /// ` localxmlfile: []const u8 `
     ///
-    pub fn ReplaceXMLFile(self: ?*anyopaque, xmlfile: []const u8, localxmlfile: []const u8) void {
+    pub fn ReplaceXMLFile(self: KParts__MainWindow, xmlfile: []const u8, localxmlfile: []const u8) void {
         const xmlfile_str = qtc.libqt_string{
             .len = xmlfile.len,
             .data = xmlfile.ptr,
@@ -7276,7 +7537,7 @@ pub const kparts__mainwindow = struct {
             .len = localxmlfile.len,
             .data = localxmlfile.ptr,
         };
-        qtc.KXMLGUIClient_ReplaceXMLFile(@ptrCast(self), xmlfile_str, localxmlfile_str);
+        qtc.KXMLGUIClient_ReplaceXMLFile(@ptrCast(self.ptr), xmlfile_str, localxmlfile_str);
     }
 
     /// Inherited from KXMLGUIClient
@@ -7285,11 +7546,11 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` xml: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FindVersionNumber(xml: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` xml: []const u8 `
+    ///
+    pub fn FindVersionNumber(allocator: std.mem.Allocator, xml: []const u8) []const u8 {
         const xml_str = qtc.libqt_string{
             .len = xml.len,
             .data = xml.ptr,
@@ -7307,7 +7568,7 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` xmlfile: []const u8 `
     ///
@@ -7315,7 +7576,7 @@ pub const kparts__mainwindow = struct {
     ///
     /// ` merge: bool `
     ///
-    pub fn ReplaceXMLFile3(self: ?*anyopaque, xmlfile: []const u8, localxmlfile: []const u8, merge: bool) void {
+    pub fn ReplaceXMLFile3(self: KParts__MainWindow, xmlfile: []const u8, localxmlfile: []const u8, merge: bool) void {
         const xmlfile_str = qtc.libqt_string{
             .len = xmlfile.len,
             .data = xmlfile.ptr,
@@ -7324,7 +7585,7 @@ pub const kparts__mainwindow = struct {
             .len = localxmlfile.len,
             .data = localxmlfile.ptr,
         };
-        qtc.KXMLGUIClient_ReplaceXMLFile3(@ptrCast(self), xmlfile_str, localxmlfile_str, merge);
+        qtc.KXMLGUIClient_ReplaceXMLFile3(@ptrCast(self.ptr), xmlfile_str, localxmlfile_str, merge);
     }
 
     /// Inherited from KParts::PartBase
@@ -7333,12 +7594,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` object: QtC.QObject `
+    /// ` object: QObject `
     ///
-    pub fn SetPartObject(self: ?*anyopaque, object: ?*anyopaque) void {
-        qtc.KParts__PartBase_SetPartObject(@ptrCast(self), @ptrCast(object));
+    pub fn SetPartObject(self: KParts__MainWindow, object: anytype) void {
+        comptime _ = @TypeOf(object)._is_QObject;
+        qtc.KParts__PartBase_SetPartObject(@ptrCast(self.ptr), @ptrCast(object.ptr));
     }
 
     /// Inherited from KParts::PartBase
@@ -7347,10 +7609,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn PartObject(self: ?*anyopaque) QtC.QObject {
-        return qtc.KParts__PartBase_PartObject(@ptrCast(self));
+    pub fn PartObject(self: KParts__MainWindow) QObject {
+        return .{ .ptr = qtc.KParts__PartBase_PartObject(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXmlGuiWindow
@@ -7361,10 +7623,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn GuiFactory(self: ?*anyopaque) QtC.KXMLGUIFactory {
-        return qtc.KParts__MainWindow_GuiFactory(@ptrCast(self));
+    pub fn GuiFactory(self: KParts__MainWindow) KXMLGUIFactory {
+        return .{ .ptr = qtc.KParts__MainWindow_GuiFactory(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperGuiFactory` instead
@@ -7379,10 +7641,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperGuiFactory(self: ?*anyopaque) QtC.KXMLGUIFactory {
-        return qtc.KParts__MainWindow_SuperGuiFactory(@ptrCast(self));
+    pub fn SuperGuiFactory(self: KParts__MainWindow) KXMLGUIFactory {
+        return .{ .ptr = qtc.KParts__MainWindow_SuperGuiFactory(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXmlGuiWindow
@@ -7393,12 +7655,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.KXMLGUIFactory `
+    /// ` callback: *const fn () callconv(.c) KXMLGUIFactory `
     ///
-    pub fn OnGuiFactory(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KXMLGUIFactory) void {
-        qtc.KParts__MainWindow_OnGuiFactory(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGuiFactory(self: KParts__MainWindow, callback: *const fn () callconv(.c) KXMLGUIFactory) void {
+        qtc.KParts__MainWindow_OnGuiFactory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXmlGuiWindow
@@ -7409,12 +7671,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` config: QtC.KConfigGroup `
+    /// ` config: KConfigGroup `
     ///
-    pub fn ApplyMainWindowSettings(self: ?*anyopaque, config: ?*anyopaque) void {
-        qtc.KParts__MainWindow_ApplyMainWindowSettings(@ptrCast(self), @ptrCast(config));
+    pub fn ApplyMainWindowSettings(self: KParts__MainWindow, config: anytype) void {
+        comptime _ = @TypeOf(config)._is_KConfigGroup;
+        qtc.KParts__MainWindow_ApplyMainWindowSettings(@ptrCast(self.ptr), @ptrCast(config.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperApplyMainWindowSettings` instead
@@ -7429,12 +7692,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` config: QtC.KConfigGroup `
+    /// ` config: KConfigGroup `
     ///
-    pub fn SuperApplyMainWindowSettings(self: ?*anyopaque, config: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperApplyMainWindowSettings(@ptrCast(self), @ptrCast(config));
+    pub fn SuperApplyMainWindowSettings(self: KParts__MainWindow, config: anytype) void {
+        comptime _ = @TypeOf(config)._is_KConfigGroup;
+        qtc.KParts__MainWindow_SuperApplyMainWindowSettings(@ptrCast(self.ptr), @ptrCast(config.ptr));
     }
 
     /// Inherited from KXmlGuiWindow
@@ -7445,12 +7709,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, config: QtC.KConfigGroup) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, config: KConfigGroup) callconv(.c) void `
     ///
-    pub fn OnApplyMainWindowSettings(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnApplyMainWindowSettings(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnApplyMainWindowSettings(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, KConfigGroup) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnApplyMainWindowSettings(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXmlGuiWindow
@@ -7461,16 +7725,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` newstate: []const u8 `
     ///
-    pub fn SlotStateChanged(self: ?*anyopaque, newstate: []const u8) void {
+    pub fn SlotStateChanged(self: KParts__MainWindow, newstate: []const u8) void {
         const newstate_str = qtc.libqt_string{
             .len = newstate.len,
             .data = newstate.ptr,
         };
-        qtc.KParts__MainWindow_SlotStateChanged(@ptrCast(self), newstate_str);
+        qtc.KParts__MainWindow_SlotStateChanged(@ptrCast(self.ptr), newstate_str);
     }
 
     /// ### DEPRECATED: Use `SuperSlotStateChanged` instead
@@ -7485,16 +7749,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` newstate: []const u8 `
     ///
-    pub fn SuperSlotStateChanged(self: ?*anyopaque, newstate: []const u8) void {
+    pub fn SuperSlotStateChanged(self: KParts__MainWindow, newstate: []const u8) void {
         const newstate_str = qtc.libqt_string{
             .len = newstate.len,
             .data = newstate.ptr,
         };
-        qtc.KParts__MainWindow_SuperSlotStateChanged(@ptrCast(self), newstate_str);
+        qtc.KParts__MainWindow_SuperSlotStateChanged(@ptrCast(self.ptr), newstate_str);
     }
 
     /// Inherited from KXmlGuiWindow
@@ -7505,12 +7769,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, newstate: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, newstate: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSlotStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnSlotStateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSlotStateChanged(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, [*:0]const u8) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnSlotStateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXmlGuiWindow
@@ -7521,12 +7785,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KParts__MainWindow_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KParts__MainWindow, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KParts__MainWindow_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -7541,12 +7806,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KParts__MainWindow_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KParts__MainWindow, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KParts__MainWindow_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from KXmlGuiWindow
@@ -7557,12 +7823,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KParts__MainWindow_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QEvent) callconv(.c) bool) void {
+        qtc.KParts__MainWindow_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -7573,16 +7839,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` caption: []const u8 `
     ///
-    pub fn SetCaption(self: ?*anyopaque, caption: []const u8) void {
+    pub fn SetCaption(self: KParts__MainWindow, caption: []const u8) void {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        qtc.KParts__MainWindow_SetCaption(@ptrCast(self), caption_str);
+        qtc.KParts__MainWindow_SetCaption(@ptrCast(self.ptr), caption_str);
     }
 
     /// ### DEPRECATED: Use `SuperSetCaption` instead
@@ -7597,16 +7863,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` caption: []const u8 `
     ///
-    pub fn SuperSetCaption(self: ?*anyopaque, caption: []const u8) void {
+    pub fn SuperSetCaption(self: KParts__MainWindow, caption: []const u8) void {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        qtc.KParts__MainWindow_SuperSetCaption(@ptrCast(self), caption_str);
+        qtc.KParts__MainWindow_SuperSetCaption(@ptrCast(self.ptr), caption_str);
     }
 
     /// Inherited from KMainWindow
@@ -7617,12 +7883,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, caption: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, caption: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetCaption(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnSetCaption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetCaption(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, [*:0]const u8) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnSetCaption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -7633,16 +7899,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` caption: []const u8 `
     ///
-    pub fn SetPlainCaption(self: ?*anyopaque, caption: []const u8) void {
+    pub fn SetPlainCaption(self: KParts__MainWindow, caption: []const u8) void {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        qtc.KParts__MainWindow_SetPlainCaption(@ptrCast(self), caption_str);
+        qtc.KParts__MainWindow_SetPlainCaption(@ptrCast(self.ptr), caption_str);
     }
 
     /// ### DEPRECATED: Use `SuperSetPlainCaption` instead
@@ -7657,16 +7923,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` caption: []const u8 `
     ///
-    pub fn SuperSetPlainCaption(self: ?*anyopaque, caption: []const u8) void {
+    pub fn SuperSetPlainCaption(self: KParts__MainWindow, caption: []const u8) void {
         const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        qtc.KParts__MainWindow_SuperSetPlainCaption(@ptrCast(self), caption_str);
+        qtc.KParts__MainWindow_SuperSetPlainCaption(@ptrCast(self.ptr), caption_str);
     }
 
     /// Inherited from KMainWindow
@@ -7677,12 +7943,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, caption: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, caption: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetPlainCaption(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnSetPlainCaption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetPlainCaption(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, [*:0]const u8) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnSetPlainCaption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -7693,12 +7959,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` keyEvent: QtC.QKeyEvent `
+    /// ` keyEvent: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: ?*anyopaque, keyEvent: ?*anyopaque) void {
-        qtc.KParts__MainWindow_KeyPressEvent(@ptrCast(self), @ptrCast(keyEvent));
+    pub fn KeyPressEvent(self: KParts__MainWindow, keyEvent: anytype) void {
+        comptime _ = @TypeOf(keyEvent)._is_QKeyEvent;
+        qtc.KParts__MainWindow_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(keyEvent.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
@@ -7713,12 +7980,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` keyEvent: QtC.QKeyEvent `
+    /// ` keyEvent: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: ?*anyopaque, keyEvent: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperKeyPressEvent(@ptrCast(self), @ptrCast(keyEvent));
+    pub fn SuperKeyPressEvent(self: KParts__MainWindow, keyEvent: anytype) void {
+        comptime _ = @TypeOf(keyEvent)._is_QKeyEvent;
+        qtc.KParts__MainWindow_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(keyEvent.ptr));
     }
 
     /// Inherited from KMainWindow
@@ -7729,12 +7997,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, keyEvent: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, keyEvent: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyPressEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QKeyEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -7745,12 +8013,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QCloseEvent `
+    /// ` param1: QCloseEvent `
     ///
-    pub fn CloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KParts__MainWindow_CloseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn CloseEvent(self: KParts__MainWindow, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCloseEvent;
+        qtc.KParts__MainWindow_CloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEvent` instead
@@ -7765,12 +8034,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QCloseEvent `
+    /// ` param1: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperCloseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperCloseEvent(self: KParts__MainWindow, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCloseEvent;
+        qtc.KParts__MainWindow_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from KMainWindow
@@ -7781,12 +8051,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, param1: QtC.QCloseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, param1: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QCloseEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -7797,10 +8067,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn QueryClose(self: ?*anyopaque) bool {
-        return qtc.KParts__MainWindow_QueryClose(@ptrCast(self));
+    pub fn QueryClose(self: KParts__MainWindow) bool {
+        return qtc.KParts__MainWindow_QueryClose(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperQueryClose` instead
@@ -7815,10 +8085,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperQueryClose(self: ?*anyopaque) bool {
-        return qtc.KParts__MainWindow_SuperQueryClose(@ptrCast(self));
+    pub fn SuperQueryClose(self: KParts__MainWindow) bool {
+        return qtc.KParts__MainWindow_SuperQueryClose(@ptrCast(self.ptr));
     }
 
     /// Inherited from KMainWindow
@@ -7829,12 +8099,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnQueryClose(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KParts__MainWindow_OnQueryClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnQueryClose(self: KParts__MainWindow, callback: *const fn () callconv(.c) bool) void {
+        qtc.KParts__MainWindow_OnQueryClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -7845,12 +8115,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.KConfigGroup `
+    /// ` param1: KConfigGroup `
     ///
-    pub fn SaveProperties(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SaveProperties(@ptrCast(self), @ptrCast(param1));
+    pub fn SaveProperties(self: KParts__MainWindow, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_KConfigGroup;
+        qtc.KParts__MainWindow_SaveProperties(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSaveProperties` instead
@@ -7865,12 +8136,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.KConfigGroup `
+    /// ` param1: KConfigGroup `
     ///
-    pub fn SuperSaveProperties(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperSaveProperties(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperSaveProperties(self: KParts__MainWindow, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_KConfigGroup;
+        qtc.KParts__MainWindow_SuperSaveProperties(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from KMainWindow
@@ -7881,12 +8153,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, param1: QtC.KConfigGroup) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, param1: KConfigGroup) callconv(.c) void `
     ///
-    pub fn OnSaveProperties(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnSaveProperties(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSaveProperties(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, KConfigGroup) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnSaveProperties(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -7897,12 +8169,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.KConfigGroup `
+    /// ` param1: KConfigGroup `
     ///
-    pub fn ReadProperties(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KParts__MainWindow_ReadProperties(@ptrCast(self), @ptrCast(param1));
+    pub fn ReadProperties(self: KParts__MainWindow, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_KConfigGroup;
+        qtc.KParts__MainWindow_ReadProperties(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperReadProperties` instead
@@ -7917,12 +8190,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.KConfigGroup `
+    /// ` param1: KConfigGroup `
     ///
-    pub fn SuperReadProperties(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperReadProperties(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperReadProperties(self: KParts__MainWindow, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_KConfigGroup;
+        qtc.KParts__MainWindow_SuperReadProperties(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from KMainWindow
@@ -7933,12 +8207,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, param1: QtC.KConfigGroup) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, param1: KConfigGroup) callconv(.c) void `
     ///
-    pub fn OnReadProperties(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnReadProperties(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadProperties(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, KConfigGroup) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnReadProperties(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -7949,12 +8223,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` sessionConfig: QtC.KConfig `
+    /// ` sessionConfig: KConfig `
     ///
-    pub fn SaveGlobalProperties(self: ?*anyopaque, sessionConfig: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SaveGlobalProperties(@ptrCast(self), @ptrCast(sessionConfig));
+    pub fn SaveGlobalProperties(self: KParts__MainWindow, sessionConfig: anytype) void {
+        comptime _ = @TypeOf(sessionConfig)._is_KConfig;
+        qtc.KParts__MainWindow_SaveGlobalProperties(@ptrCast(self.ptr), @ptrCast(sessionConfig.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSaveGlobalProperties` instead
@@ -7969,12 +8244,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` sessionConfig: QtC.KConfig `
+    /// ` sessionConfig: KConfig `
     ///
-    pub fn SuperSaveGlobalProperties(self: ?*anyopaque, sessionConfig: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperSaveGlobalProperties(@ptrCast(self), @ptrCast(sessionConfig));
+    pub fn SuperSaveGlobalProperties(self: KParts__MainWindow, sessionConfig: anytype) void {
+        comptime _ = @TypeOf(sessionConfig)._is_KConfig;
+        qtc.KParts__MainWindow_SuperSaveGlobalProperties(@ptrCast(self.ptr), @ptrCast(sessionConfig.ptr));
     }
 
     /// Inherited from KMainWindow
@@ -7985,12 +8261,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, sessionConfig: QtC.KConfig) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, sessionConfig: KConfig) callconv(.c) void `
     ///
-    pub fn OnSaveGlobalProperties(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnSaveGlobalProperties(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSaveGlobalProperties(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, KConfig) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnSaveGlobalProperties(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -8001,12 +8277,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` sessionConfig: QtC.KConfig `
+    /// ` sessionConfig: KConfig `
     ///
-    pub fn ReadGlobalProperties(self: ?*anyopaque, sessionConfig: ?*anyopaque) void {
-        qtc.KParts__MainWindow_ReadGlobalProperties(@ptrCast(self), @ptrCast(sessionConfig));
+    pub fn ReadGlobalProperties(self: KParts__MainWindow, sessionConfig: anytype) void {
+        comptime _ = @TypeOf(sessionConfig)._is_KConfig;
+        qtc.KParts__MainWindow_ReadGlobalProperties(@ptrCast(self.ptr), @ptrCast(sessionConfig.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperReadGlobalProperties` instead
@@ -8021,12 +8298,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` sessionConfig: QtC.KConfig `
+    /// ` sessionConfig: KConfig `
     ///
-    pub fn SuperReadGlobalProperties(self: ?*anyopaque, sessionConfig: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperReadGlobalProperties(@ptrCast(self), @ptrCast(sessionConfig));
+    pub fn SuperReadGlobalProperties(self: KParts__MainWindow, sessionConfig: anytype) void {
+        comptime _ = @TypeOf(sessionConfig)._is_KConfig;
+        qtc.KParts__MainWindow_SuperReadGlobalProperties(@ptrCast(self.ptr), @ptrCast(sessionConfig.ptr));
     }
 
     /// Inherited from KMainWindow
@@ -8037,12 +8315,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, sessionConfig: QtC.KConfig) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, sessionConfig: KConfig) callconv(.c) void `
     ///
-    pub fn OnReadGlobalProperties(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnReadGlobalProperties(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadGlobalProperties(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, KConfig) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnReadGlobalProperties(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QMainWindow
@@ -8053,10 +8331,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn CreatePopupMenu(self: ?*anyopaque) QtC.QMenu {
-        return qtc.KParts__MainWindow_CreatePopupMenu(@ptrCast(self));
+    pub fn CreatePopupMenu(self: KParts__MainWindow) QMenu {
+        return .{ .ptr = qtc.KParts__MainWindow_CreatePopupMenu(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperCreatePopupMenu` instead
@@ -8071,10 +8349,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperCreatePopupMenu(self: ?*anyopaque) QtC.QMenu {
-        return qtc.KParts__MainWindow_SuperCreatePopupMenu(@ptrCast(self));
+    pub fn SuperCreatePopupMenu(self: KParts__MainWindow) QMenu {
+        return .{ .ptr = qtc.KParts__MainWindow_SuperCreatePopupMenu(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QMainWindow
@@ -8085,12 +8363,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMenu `
+    /// ` callback: *const fn () callconv(.c) QMenu `
     ///
-    pub fn OnCreatePopupMenu(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMenu) void {
-        qtc.KParts__MainWindow_OnCreatePopupMenu(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreatePopupMenu(self: KParts__MainWindow, callback: *const fn () callconv(.c) QMenu) void {
+        qtc.KParts__MainWindow_OnCreatePopupMenu(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QMainWindow
@@ -8101,12 +8379,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QContextMenuEvent `
+    /// ` event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_ContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ContextMenuEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
+        qtc.KParts__MainWindow_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
@@ -8121,12 +8400,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QContextMenuEvent `
+    /// ` event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperContextMenuEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
+        qtc.KParts__MainWindow_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QMainWindow
@@ -8137,12 +8417,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QContextMenuEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QContextMenuEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8153,10 +8433,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.KParts__MainWindow_DevType(@ptrCast(self));
+    pub fn DevType(self: KParts__MainWindow) i32 {
+        return qtc.KParts__MainWindow_DevType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDevType` instead
@@ -8171,10 +8451,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperDevType(self: ?*anyopaque) i32 {
-        return qtc.KParts__MainWindow_SuperDevType(@ptrCast(self));
+    pub fn SuperDevType(self: KParts__MainWindow) i32 {
+        return qtc.KParts__MainWindow_SuperDevType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8185,12 +8465,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KParts__MainWindow_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDevType(self: KParts__MainWindow, callback: *const fn () callconv(.c) i32) void {
+        qtc.KParts__MainWindow_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8201,12 +8481,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.KParts__MainWindow_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: KParts__MainWindow, visible: bool) void {
+        qtc.KParts__MainWindow_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### DEPRECATED: Use `SuperSetVisible` instead
@@ -8221,12 +8501,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.KParts__MainWindow_SuperSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: KParts__MainWindow, visible: bool) void {
+        qtc.KParts__MainWindow_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QWidget
@@ -8237,12 +8517,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetVisible(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, bool) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8253,10 +8533,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KParts__MainWindow_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: KParts__MainWindow) QSize {
+        return .{ .ptr = qtc.KParts__MainWindow_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSizeHint` instead
@@ -8271,10 +8551,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KParts__MainWindow_SuperSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: KParts__MainWindow) QSize {
+        return .{ .ptr = qtc.KParts__MainWindow_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8285,12 +8565,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.KParts__MainWindow_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHint(self: KParts__MainWindow, callback: *const fn () callconv(.c) QSize) void {
+        qtc.KParts__MainWindow_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8301,10 +8581,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KParts__MainWindow_MinimumSizeHint(@ptrCast(self));
+    pub fn MinimumSizeHint(self: KParts__MainWindow) QSize {
+        return .{ .ptr = qtc.KParts__MainWindow_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
@@ -8319,10 +8599,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KParts__MainWindow_SuperMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: KParts__MainWindow) QSize {
+        return .{ .ptr = qtc.KParts__MainWindow_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8333,12 +8613,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.KParts__MainWindow_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumSizeHint(self: KParts__MainWindow, callback: *const fn () callconv(.c) QSize) void {
+        qtc.KParts__MainWindow_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8349,12 +8629,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KParts__MainWindow_HeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn HeightForWidth(self: KParts__MainWindow, param1: i32) i32 {
+        return qtc.KParts__MainWindow_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperHeightForWidth` instead
@@ -8369,12 +8649,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KParts__MainWindow_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: KParts__MainWindow, param1: i32) i32 {
+        return qtc.KParts__MainWindow_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -8385,12 +8665,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, param1: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KParts__MainWindow, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KParts__MainWindow_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeightForWidth(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, i32) callconv(.c) i32) void {
+        qtc.KParts__MainWindow_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8401,10 +8681,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.KParts__MainWindow_HasHeightForWidth(@ptrCast(self));
+    pub fn HasHeightForWidth(self: KParts__MainWindow) bool {
+        return qtc.KParts__MainWindow_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
@@ -8419,10 +8699,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.KParts__MainWindow_SuperHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: KParts__MainWindow) bool {
+        return qtc.KParts__MainWindow_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8433,12 +8713,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KParts__MainWindow_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasHeightForWidth(self: KParts__MainWindow, callback: *const fn () callconv(.c) bool) void {
+        qtc.KParts__MainWindow_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8449,10 +8729,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.KParts__MainWindow_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: KParts__MainWindow) QPaintEngine {
+        return .{ .ptr = qtc.KParts__MainWindow_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperPaintEngine` instead
@@ -8467,10 +8747,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.KParts__MainWindow_SuperPaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: KParts__MainWindow) QPaintEngine {
+        return .{ .ptr = qtc.KParts__MainWindow_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8481,12 +8761,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.KParts__MainWindow_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEngine(self: KParts__MainWindow, callback: *const fn () callconv(.c) QPaintEngine) void {
+        qtc.KParts__MainWindow_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8497,12 +8777,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_MousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MousePressEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.KParts__MainWindow_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMousePressEvent` instead
@@ -8517,12 +8798,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.KParts__MainWindow_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8533,12 +8815,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMousePressEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QMouseEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8549,12 +8831,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseReleaseEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.KParts__MainWindow_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
@@ -8569,12 +8852,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.KParts__MainWindow_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8585,12 +8869,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseReleaseEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QMouseEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8601,12 +8885,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseDoubleClickEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.KParts__MainWindow_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
@@ -8621,12 +8906,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.KParts__MainWindow_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8637,12 +8923,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseDoubleClickEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QMouseEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8653,12 +8939,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseMoveEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.KParts__MainWindow_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
@@ -8673,12 +8960,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.KParts__MainWindow_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8689,12 +8977,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseMoveEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QMouseEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8705,12 +8993,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_WheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn WheelEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.KParts__MainWindow_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperWheelEvent` instead
@@ -8725,12 +9014,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.KParts__MainWindow_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8741,12 +9031,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QWheelEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWheelEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QWheelEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8757,12 +9047,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyReleaseEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.KParts__MainWindow_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
@@ -8777,12 +9068,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.KParts__MainWindow_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8793,12 +9085,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyReleaseEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QKeyEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8809,12 +9101,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_FocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusInEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.KParts__MainWindow_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusInEvent` instead
@@ -8829,12 +9122,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.KParts__MainWindow_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8845,12 +9139,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusInEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QFocusEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8861,12 +9155,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_FocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusOutEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.KParts__MainWindow_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
@@ -8881,12 +9176,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.KParts__MainWindow_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8897,12 +9193,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusOutEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QFocusEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8913,12 +9209,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_EnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn EnterEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.KParts__MainWindow_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEnterEvent` instead
@@ -8933,12 +9230,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.KParts__MainWindow_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -8949,12 +9247,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnterEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QEnterEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8965,12 +9263,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_LeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn LeaveEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KParts__MainWindow_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLeaveEvent` instead
@@ -8985,12 +9284,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KParts__MainWindow_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -9001,12 +9301,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeaveEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9017,12 +9317,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QPaintEvent `
+    /// ` event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_PaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn PaintEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QPaintEvent;
+        qtc.KParts__MainWindow_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperPaintEvent` instead
@@ -9037,12 +9338,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QPaintEvent `
+    /// ` event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperPaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperPaintEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QPaintEvent;
+        qtc.KParts__MainWindow_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -9053,12 +9355,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QPaintEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QPaintEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9069,12 +9371,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_MoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MoveEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.KParts__MainWindow_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMoveEvent` instead
@@ -9089,12 +9392,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.KParts__MainWindow_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -9105,12 +9409,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QMoveEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9121,12 +9425,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_ResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ResizeEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.KParts__MainWindow_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResizeEvent` instead
@@ -9141,12 +9446,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.KParts__MainWindow_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -9157,12 +9463,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QResizeEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResizeEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QResizeEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9173,12 +9479,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_TabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TabletEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.KParts__MainWindow_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTabletEvent` instead
@@ -9193,12 +9500,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.KParts__MainWindow_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -9209,12 +9517,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QTabletEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabletEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QTabletEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9225,12 +9533,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_ActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ActionEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.KParts__MainWindow_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperActionEvent` instead
@@ -9245,12 +9554,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.KParts__MainWindow_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -9261,12 +9571,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QActionEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QActionEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9277,12 +9587,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_DragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragEnterEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.KParts__MainWindow_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
@@ -9297,12 +9608,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.KParts__MainWindow_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -9313,12 +9625,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QDragEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragEnterEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QDragEnterEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9329,12 +9641,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_DragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragMoveEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.KParts__MainWindow_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
@@ -9349,12 +9662,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.KParts__MainWindow_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -9365,12 +9679,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QDragMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragMoveEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QDragMoveEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9381,12 +9695,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragLeaveEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.KParts__MainWindow_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
@@ -9401,12 +9716,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.KParts__MainWindow_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -9417,12 +9733,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QDragLeaveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragLeaveEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QDragLeaveEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9433,12 +9749,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_DropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DropEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.KParts__MainWindow_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropEvent` instead
@@ -9453,12 +9770,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.KParts__MainWindow_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -9469,12 +9787,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QDropEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QDropEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9485,12 +9803,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_ShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ShowEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.KParts__MainWindow_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperShowEvent` instead
@@ -9505,12 +9824,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.KParts__MainWindow_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -9521,12 +9841,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QShowEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShowEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QShowEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9537,12 +9857,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_HideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn HideEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.KParts__MainWindow_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHideEvent` instead
@@ -9557,12 +9878,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.KParts__MainWindow_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -9573,12 +9895,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QHideEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHideEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QHideEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9589,7 +9911,7 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` eventType: []u8 `
     ///
@@ -9597,12 +9919,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn NativeEvent(self: KParts__MainWindow, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KParts__MainWindow_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KParts__MainWindow_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### DEPRECATED: Use `SuperNativeEvent` instead
@@ -9617,7 +9939,7 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` eventType: []u8 `
     ///
@@ -9625,12 +9947,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: KParts__MainWindow, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KParts__MainWindow_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KParts__MainWindow_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -9641,12 +9963,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KParts__MainWindow, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.KParts__MainWindow_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNativeEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.KParts__MainWindow_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9657,12 +9979,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KParts__MainWindow_ChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ChangeEvent(self: KParts__MainWindow, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.KParts__MainWindow_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChangeEvent` instead
@@ -9677,12 +10000,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: KParts__MainWindow, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.KParts__MainWindow_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -9693,12 +10017,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, param1: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangeEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9709,12 +10033,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KParts__MainWindow_Metric(@ptrCast(self), @bitCast(param1));
+    pub fn Metric(self: KParts__MainWindow, param1: i32) i32 {
+        return qtc.KParts__MainWindow_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperMetric` instead
@@ -9729,12 +10053,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KParts__MainWindow_SuperMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: KParts__MainWindow, param1: i32) i32 {
+        return qtc.KParts__MainWindow_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -9745,12 +10069,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KParts__MainWindow, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KParts__MainWindow_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetric(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, i32) callconv(.c) i32) void {
+        qtc.KParts__MainWindow_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9761,12 +10085,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.KParts__MainWindow_InitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn InitPainter(self: KParts__MainWindow, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.KParts__MainWindow_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitPainter` instead
@@ -9781,12 +10106,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: KParts__MainWindow, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.KParts__MainWindow_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -9797,12 +10123,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, painter: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitPainter(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QPainter) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9813,12 +10139,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.KParts__MainWindow_Redirected(@ptrCast(self), @ptrCast(offset));
+    pub fn Redirected(self: KParts__MainWindow, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.KParts__MainWindow_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperRedirected` instead
@@ -9833,12 +10160,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.KParts__MainWindow_SuperRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: KParts__MainWindow, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.KParts__MainWindow_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9849,12 +10177,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    /// ` callback: *const fn (self: KParts__MainWindow, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.KParts__MainWindow_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QPoint) callconv(.c) QPaintDevice) void {
+        qtc.KParts__MainWindow_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9865,10 +10193,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.KParts__MainWindow_SharedPainter(@ptrCast(self));
+    pub fn SharedPainter(self: KParts__MainWindow) QPainter {
+        return .{ .ptr = qtc.KParts__MainWindow_SharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSharedPainter` instead
@@ -9883,10 +10211,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.KParts__MainWindow_SuperSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: KParts__MainWindow) QPainter {
+        return .{ .ptr = qtc.KParts__MainWindow_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9897,12 +10225,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.KParts__MainWindow_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSharedPainter(self: KParts__MainWindow, callback: *const fn () callconv(.c) QPainter) void {
+        qtc.KParts__MainWindow_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9913,12 +10241,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KParts__MainWindow_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn InputMethodEvent(self: KParts__MainWindow, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.KParts__MainWindow_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
@@ -9933,12 +10262,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: KParts__MainWindow, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.KParts__MainWindow_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -9949,12 +10279,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, param1: QtC.QInputMethodEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QInputMethodEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9965,12 +10295,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.KParts__MainWindow_InputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn InputMethodQuery(self: KParts__MainWindow, param1: i32) QVariant {
+        return .{ .ptr = qtc.KParts__MainWindow_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
@@ -9985,12 +10315,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.KParts__MainWindow_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: KParts__MainWindow, param1: i32) QVariant {
+        return .{ .ptr = qtc.KParts__MainWindow_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -10001,12 +10331,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: KParts__MainWindow, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.KParts__MainWindow_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodQuery(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, i32) callconv(.c) QVariant) void {
+        qtc.KParts__MainWindow_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10017,12 +10347,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.KParts__MainWindow_FocusNextPrevChild(@ptrCast(self), next);
+    pub fn FocusNextPrevChild(self: KParts__MainWindow, next: bool) bool {
+        return qtc.KParts__MainWindow_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
@@ -10037,12 +10367,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.KParts__MainWindow_SuperFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: KParts__MainWindow, next: bool) bool {
+        return qtc.KParts__MainWindow_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// Inherited from QWidget
@@ -10053,12 +10383,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, next: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: KParts__MainWindow, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.KParts__MainWindow_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextPrevChild(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, bool) callconv(.c) bool) void {
+        qtc.KParts__MainWindow_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10069,14 +10399,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KParts__MainWindow_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KParts__MainWindow, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KParts__MainWindow_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -10091,14 +10423,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KParts__MainWindow_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KParts__MainWindow, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KParts__MainWindow_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -10109,12 +10443,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KParts__MainWindow, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KParts__MainWindow_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KParts__MainWindow_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10125,12 +10459,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KParts__MainWindow_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -10145,12 +10480,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KParts__MainWindow_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -10161,12 +10497,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QTimerEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10177,12 +10513,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KParts__MainWindow_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -10197,12 +10534,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KParts__MainWindow_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -10213,12 +10551,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QChildEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10229,12 +10567,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KParts__MainWindow_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -10249,12 +10588,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KParts__MainWindow, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KParts__MainWindow_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -10265,12 +10605,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QEvent) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10281,12 +10621,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KParts__MainWindow_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KParts__MainWindow, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KParts__MainWindow_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -10301,12 +10642,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KParts__MainWindow, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KParts__MainWindow_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -10317,12 +10659,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QMetaMethod) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10333,12 +10675,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KParts__MainWindow_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KParts__MainWindow, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KParts__MainWindow_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -10353,12 +10696,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KParts__MainWindow, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KParts__MainWindow_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -10369,12 +10713,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QMetaMethod) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIBuilder
@@ -10385,17 +10729,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ContainerTags(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KParts__MainWindow_ContainerTags(@ptrCast(self));
+    pub fn ContainerTags(self: KParts__MainWindow, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KParts__MainWindow_ContainerTags(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kparts__mainwindow.ContainerTags: Memory allocation failed");
@@ -10420,17 +10763,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperContainerTags(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KParts__MainWindow_SuperContainerTags(@ptrCast(self));
+    pub fn SuperContainerTags(self: KParts__MainWindow, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KParts__MainWindow_SuperContainerTags(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kparts__mainwindow.ContainerTags: Memory allocation failed");
@@ -10449,16 +10791,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnContainerTags(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.KParts__MainWindow_OnContainerTags(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContainerTags(self: KParts__MainWindow, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+        qtc.KParts__MainWindow_OnContainerTags(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIBuilder
@@ -10469,18 +10811,21 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` index: i32 `
     ///
-    /// ` element: QtC.QDomElement `
+    /// ` element: QDomElement `
     ///
-    /// ` containerAction: QtC.QAction `
+    /// ` containerAction: QAction `
     ///
-    pub fn CreateContainer(self: ?*anyopaque, parent: ?*anyopaque, index: i32, element: ?*anyopaque, containerAction: ?**anyopaque) QtC.QWidget {
-        return qtc.KParts__MainWindow_CreateContainer(@ptrCast(self), @ptrCast(parent), @bitCast(index), @ptrCast(element), @ptrCast(containerAction));
+    pub fn CreateContainer(self: KParts__MainWindow, parent: anytype, index: i32, element: anytype, containerAction: anytype) QWidget {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        comptime _ = @TypeOf(element)._is_QDomElement;
+        comptime _ = @TypeOf(containerAction)._is_QAction;
+        return .{ .ptr = qtc.KParts__MainWindow_CreateContainer(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(index), @ptrCast(element.ptr), @ptrCast(containerAction.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperCreateContainer` instead
@@ -10495,18 +10840,21 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` index: i32 `
     ///
-    /// ` element: QtC.QDomElement `
+    /// ` element: QDomElement `
     ///
-    /// ` containerAction: QtC.QAction `
+    /// ` containerAction: QAction `
     ///
-    pub fn SuperCreateContainer(self: ?*anyopaque, parent: ?*anyopaque, index: i32, element: ?*anyopaque, containerAction: ?**anyopaque) QtC.QWidget {
-        return qtc.KParts__MainWindow_SuperCreateContainer(@ptrCast(self), @ptrCast(parent), @bitCast(index), @ptrCast(element), @ptrCast(containerAction));
+    pub fn SuperCreateContainer(self: KParts__MainWindow, parent: anytype, index: i32, element: anytype, containerAction: anytype) QWidget {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        comptime _ = @TypeOf(element)._is_QDomElement;
+        comptime _ = @TypeOf(containerAction)._is_QAction;
+        return .{ .ptr = qtc.KParts__MainWindow_SuperCreateContainer(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(index), @ptrCast(element.ptr), @ptrCast(containerAction.ptr)) };
     }
 
     /// Inherited from KXMLGUIBuilder
@@ -10517,12 +10865,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, parent: QtC.QWidget, index: i32, element: QtC.QDomElement, containerAction: QtC.QAction) callconv(.c) QtC.QWidget `
+    /// ` callback: *const fn (self: KParts__MainWindow, parent: QWidget, index: i32, element: QDomElement, containerAction: QAction) callconv(.c) QWidget `
     ///
-    pub fn OnCreateContainer(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, ?**anyopaque) callconv(.c) QtC.QWidget) void {
-        qtc.KParts__MainWindow_OnCreateContainer(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreateContainer(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QWidget, i32, QDomElement, QAction) callconv(.c) QWidget) void {
+        qtc.KParts__MainWindow_OnCreateContainer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIBuilder
@@ -10533,18 +10881,22 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` container: QtC.QWidget `
+    /// ` container: QWidget `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    /// ` element: QtC.QDomElement `
+    /// ` element: QDomElement `
     ///
-    /// ` containerAction: QtC.QAction `
+    /// ` containerAction: QAction `
     ///
-    pub fn RemoveContainer(self: ?*anyopaque, container: ?*anyopaque, parent: ?*anyopaque, element: ?*anyopaque, containerAction: ?*anyopaque) void {
-        qtc.KParts__MainWindow_RemoveContainer(@ptrCast(self), @ptrCast(container), @ptrCast(parent), @ptrCast(element), @ptrCast(containerAction));
+    pub fn RemoveContainer(self: KParts__MainWindow, container: anytype, parent: anytype, element: anytype, containerAction: anytype) void {
+        comptime _ = @TypeOf(container)._is_QWidget;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        comptime _ = @TypeOf(element)._is_QDomElement;
+        comptime _ = @TypeOf(containerAction)._is_QAction;
+        qtc.KParts__MainWindow_RemoveContainer(@ptrCast(self.ptr), @ptrCast(container.ptr), @ptrCast(parent.ptr), @ptrCast(element.ptr), @ptrCast(containerAction.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperRemoveContainer` instead
@@ -10559,18 +10911,22 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` container: QtC.QWidget `
+    /// ` container: QWidget `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    /// ` element: QtC.QDomElement `
+    /// ` element: QDomElement `
     ///
-    /// ` containerAction: QtC.QAction `
+    /// ` containerAction: QAction `
     ///
-    pub fn SuperRemoveContainer(self: ?*anyopaque, container: ?*anyopaque, parent: ?*anyopaque, element: ?*anyopaque, containerAction: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperRemoveContainer(@ptrCast(self), @ptrCast(container), @ptrCast(parent), @ptrCast(element), @ptrCast(containerAction));
+    pub fn SuperRemoveContainer(self: KParts__MainWindow, container: anytype, parent: anytype, element: anytype, containerAction: anytype) void {
+        comptime _ = @TypeOf(container)._is_QWidget;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        comptime _ = @TypeOf(element)._is_QDomElement;
+        comptime _ = @TypeOf(containerAction)._is_QAction;
+        qtc.KParts__MainWindow_SuperRemoveContainer(@ptrCast(self.ptr), @ptrCast(container.ptr), @ptrCast(parent.ptr), @ptrCast(element.ptr), @ptrCast(containerAction.ptr));
     }
 
     /// Inherited from KXMLGUIBuilder
@@ -10581,12 +10937,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, container: QtC.QWidget, parent: QtC.QWidget, element: QtC.QDomElement, containerAction: QtC.QAction) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, container: QWidget, parent: QWidget, element: QDomElement, containerAction: QAction) callconv(.c) void `
     ///
-    pub fn OnRemoveContainer(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnRemoveContainer(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRemoveContainer(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QWidget, QWidget, QDomElement, QAction) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnRemoveContainer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIBuilder
@@ -10597,17 +10953,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CustomTags(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KParts__MainWindow_CustomTags(@ptrCast(self));
+    pub fn CustomTags(self: KParts__MainWindow, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KParts__MainWindow_CustomTags(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kparts__mainwindow.CustomTags: Memory allocation failed");
@@ -10632,17 +10987,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperCustomTags(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KParts__MainWindow_SuperCustomTags(@ptrCast(self));
+    pub fn SuperCustomTags(self: KParts__MainWindow, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KParts__MainWindow_SuperCustomTags(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kparts__mainwindow.CustomTags: Memory allocation failed");
@@ -10661,16 +11015,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnCustomTags(self: ?*anyopaque, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.KParts__MainWindow_OnCustomTags(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomTags(self: KParts__MainWindow, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+        qtc.KParts__MainWindow_OnCustomTags(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIBuilder
@@ -10681,16 +11035,18 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` index: i32 `
     ///
-    /// ` element: QtC.QDomElement `
+    /// ` element: QDomElement `
     ///
-    pub fn CreateCustomElement(self: ?*anyopaque, parent: ?*anyopaque, index: i32, element: ?*anyopaque) QtC.QAction {
-        return qtc.KParts__MainWindow_CreateCustomElement(@ptrCast(self), @ptrCast(parent), @bitCast(index), @ptrCast(element));
+    pub fn CreateCustomElement(self: KParts__MainWindow, parent: anytype, index: i32, element: anytype) QAction {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        comptime _ = @TypeOf(element)._is_QDomElement;
+        return .{ .ptr = qtc.KParts__MainWindow_CreateCustomElement(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(index), @ptrCast(element.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperCreateCustomElement` instead
@@ -10705,16 +11061,18 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` index: i32 `
     ///
-    /// ` element: QtC.QDomElement `
+    /// ` element: QDomElement `
     ///
-    pub fn SuperCreateCustomElement(self: ?*anyopaque, parent: ?*anyopaque, index: i32, element: ?*anyopaque) QtC.QAction {
-        return qtc.KParts__MainWindow_SuperCreateCustomElement(@ptrCast(self), @ptrCast(parent), @bitCast(index), @ptrCast(element));
+    pub fn SuperCreateCustomElement(self: KParts__MainWindow, parent: anytype, index: i32, element: anytype) QAction {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        comptime _ = @TypeOf(element)._is_QDomElement;
+        return .{ .ptr = qtc.KParts__MainWindow_SuperCreateCustomElement(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(index), @ptrCast(element.ptr)) };
     }
 
     /// Inherited from KXMLGUIBuilder
@@ -10725,12 +11083,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, parent: QtC.QWidget, index: i32, element: QtC.QDomElement) callconv(.c) QtC.QAction `
+    /// ` callback: *const fn (self: KParts__MainWindow, parent: QWidget, index: i32, element: QDomElement) callconv(.c) QAction `
     ///
-    pub fn OnCreateCustomElement(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QAction) void {
-        qtc.KParts__MainWindow_OnCreateCustomElement(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreateCustomElement(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QWidget, i32, QDomElement) callconv(.c) QAction) void {
+        qtc.KParts__MainWindow_OnCreateCustomElement(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIBuilder
@@ -10741,12 +11099,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` client: QtC.KXMLGUIClient `
+    /// ` client: KXMLGUIClient `
     ///
-    pub fn FinalizeGUI(self: ?*anyopaque, client: ?*anyopaque) void {
-        qtc.KParts__MainWindow_FinalizeGUI(@ptrCast(self), @ptrCast(client));
+    pub fn FinalizeGUI(self: KParts__MainWindow, client: anytype) void {
+        comptime _ = @TypeOf(client)._is_KXMLGUIClient;
+        qtc.KParts__MainWindow_FinalizeGUI(@ptrCast(self.ptr), @ptrCast(client.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFinalizeGUI` instead
@@ -10761,12 +11120,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` client: QtC.KXMLGUIClient `
+    /// ` client: KXMLGUIClient `
     ///
-    pub fn SuperFinalizeGUI(self: ?*anyopaque, client: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperFinalizeGUI(@ptrCast(self), @ptrCast(client));
+    pub fn SuperFinalizeGUI(self: KParts__MainWindow, client: anytype) void {
+        comptime _ = @TypeOf(client)._is_KXMLGUIClient;
+        qtc.KParts__MainWindow_SuperFinalizeGUI(@ptrCast(self.ptr), @ptrCast(client.ptr));
     }
 
     /// Inherited from KXMLGUIBuilder
@@ -10777,12 +11137,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, client: QtC.KXMLGUIClient) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, client: KXMLGUIClient) callconv(.c) void `
     ///
-    pub fn OnFinalizeGUI(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnFinalizeGUI(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFinalizeGUI(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, KXMLGUIClient) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnFinalizeGUI(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -10793,12 +11153,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` element: QtC.QDomElement `
+    /// ` element: QDomElement `
     ///
-    pub fn Action2(self: ?*anyopaque, element: ?*anyopaque) QtC.QAction {
-        return qtc.KParts__MainWindow_Action2(@ptrCast(self), @ptrCast(element));
+    pub fn Action2(self: KParts__MainWindow, element: anytype) QAction {
+        comptime _ = @TypeOf(element)._is_QDomElement;
+        return .{ .ptr = qtc.KParts__MainWindow_Action2(@ptrCast(self.ptr), @ptrCast(element.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperAction2` instead
@@ -10813,12 +11174,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` element: QtC.QDomElement `
+    /// ` element: QDomElement `
     ///
-    pub fn SuperAction2(self: ?*anyopaque, element: ?*anyopaque) QtC.QAction {
-        return qtc.KParts__MainWindow_SuperAction2(@ptrCast(self), @ptrCast(element));
+    pub fn SuperAction2(self: KParts__MainWindow, element: anytype) QAction {
+        comptime _ = @TypeOf(element)._is_QDomElement;
+        return .{ .ptr = qtc.KParts__MainWindow_SuperAction2(@ptrCast(self.ptr), @ptrCast(element.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -10829,12 +11191,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, element: QtC.QDomElement) callconv(.c) QtC.QAction `
+    /// ` callback: *const fn (self: KParts__MainWindow, element: QDomElement) callconv(.c) QAction `
     ///
-    pub fn OnAction2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAction) void {
-        qtc.KParts__MainWindow_OnAction2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAction2(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QDomElement) callconv(.c) QAction) void {
+        qtc.KParts__MainWindow_OnAction2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -10845,10 +11207,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn ActionCollection(self: ?*anyopaque) QtC.KActionCollection {
-        return qtc.KParts__MainWindow_ActionCollection(@ptrCast(self));
+    pub fn ActionCollection(self: KParts__MainWindow) KActionCollection {
+        return .{ .ptr = qtc.KParts__MainWindow_ActionCollection(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperActionCollection` instead
@@ -10863,10 +11225,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperActionCollection(self: ?*anyopaque) QtC.KActionCollection {
-        return qtc.KParts__MainWindow_SuperActionCollection(@ptrCast(self));
+    pub fn SuperActionCollection(self: KParts__MainWindow) KActionCollection {
+        return .{ .ptr = qtc.KParts__MainWindow_SuperActionCollection(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -10877,12 +11239,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.KActionCollection `
+    /// ` callback: *const fn () callconv(.c) KActionCollection `
     ///
-    pub fn OnActionCollection(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KActionCollection) void {
-        qtc.KParts__MainWindow_OnActionCollection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionCollection(self: KParts__MainWindow, callback: *const fn () callconv(.c) KActionCollection) void {
+        qtc.KParts__MainWindow_OnActionCollection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -10893,12 +11255,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__MainWindow_ComponentName(@ptrCast(self));
+    pub fn ComponentName(self: KParts__MainWindow, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__MainWindow_ComponentName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__mainwindow.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10917,12 +11279,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperComponentName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__MainWindow_SuperComponentName(@ptrCast(self));
+    pub fn SuperComponentName(self: KParts__MainWindow, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__MainWindow_SuperComponentName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__mainwindow.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10935,16 +11297,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnComponentName(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KParts__MainWindow_OnComponentName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnComponentName(self: KParts__MainWindow, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KParts__MainWindow_OnComponentName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -10955,10 +11317,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn DomDocument(self: ?*anyopaque) QtC.QDomDocument {
-        return qtc.KParts__MainWindow_DomDocument(@ptrCast(self));
+    pub fn DomDocument(self: KParts__MainWindow) QDomDocument {
+        return .{ .ptr = qtc.KParts__MainWindow_DomDocument(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperDomDocument` instead
@@ -10973,10 +11335,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperDomDocument(self: ?*anyopaque) QtC.QDomDocument {
-        return qtc.KParts__MainWindow_SuperDomDocument(@ptrCast(self));
+    pub fn SuperDomDocument(self: KParts__MainWindow) QDomDocument {
+        return .{ .ptr = qtc.KParts__MainWindow_SuperDomDocument(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KXMLGUIClient
@@ -10987,12 +11349,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QDomDocument `
+    /// ` callback: *const fn () callconv(.c) QDomDocument `
     ///
-    pub fn OnDomDocument(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QDomDocument) void {
-        qtc.KParts__MainWindow_OnDomDocument(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDomDocument(self: KParts__MainWindow, callback: *const fn () callconv(.c) QDomDocument) void {
+        qtc.KParts__MainWindow_OnDomDocument(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -11003,12 +11365,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn XmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__MainWindow_XmlFile(@ptrCast(self));
+    pub fn XmlFile(self: KParts__MainWindow, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__MainWindow_XmlFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__mainwindow.XmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11027,12 +11389,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperXmlFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__MainWindow_SuperXmlFile(@ptrCast(self));
+    pub fn SuperXmlFile(self: KParts__MainWindow, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__MainWindow_SuperXmlFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__mainwindow.XmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11045,16 +11407,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnXmlFile(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KParts__MainWindow_OnXmlFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnXmlFile(self: KParts__MainWindow, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KParts__MainWindow_OnXmlFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -11065,12 +11427,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__MainWindow_LocalXMLFile(@ptrCast(self));
+    pub fn LocalXMLFile(self: KParts__MainWindow, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__MainWindow_LocalXMLFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__mainwindow.LocalXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11089,12 +11451,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperLocalXMLFile(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__MainWindow_SuperLocalXMLFile(@ptrCast(self));
+    pub fn SuperLocalXMLFile(self: KParts__MainWindow, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__MainWindow_SuperLocalXMLFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__mainwindow.LocalXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11107,16 +11469,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnLocalXMLFile(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KParts__MainWindow_OnLocalXMLFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLocalXMLFile(self: KParts__MainWindow, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KParts__MainWindow_OnLocalXMLFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -11127,13 +11489,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` componentName: []const u8 `
     ///
     /// ` componentDisplayName: []const u8 `
     ///
-    pub fn SetComponentName(self: ?*anyopaque, componentName: []const u8, componentDisplayName: []const u8) void {
+    pub fn SetComponentName(self: KParts__MainWindow, componentName: []const u8, componentDisplayName: []const u8) void {
         const componentName_str = qtc.libqt_string{
             .len = componentName.len,
             .data = componentName.ptr,
@@ -11142,7 +11504,7 @@ pub const kparts__mainwindow = struct {
             .len = componentDisplayName.len,
             .data = componentDisplayName.ptr,
         };
-        qtc.KParts__MainWindow_SetComponentName(@ptrCast(self), componentName_str, componentDisplayName_str);
+        qtc.KParts__MainWindow_SetComponentName(@ptrCast(self.ptr), componentName_str, componentDisplayName_str);
     }
 
     /// ### DEPRECATED: Use `SuperSetComponentName` instead
@@ -11157,13 +11519,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` componentName: []const u8 `
     ///
     /// ` componentDisplayName: []const u8 `
     ///
-    pub fn SuperSetComponentName(self: ?*anyopaque, componentName: []const u8, componentDisplayName: []const u8) void {
+    pub fn SuperSetComponentName(self: KParts__MainWindow, componentName: []const u8, componentDisplayName: []const u8) void {
         const componentName_str = qtc.libqt_string{
             .len = componentName.len,
             .data = componentName.ptr,
@@ -11172,7 +11534,7 @@ pub const kparts__mainwindow = struct {
             .len = componentDisplayName.len,
             .data = componentDisplayName.ptr,
         };
-        qtc.KParts__MainWindow_SuperSetComponentName(@ptrCast(self), componentName_str, componentDisplayName_str);
+        qtc.KParts__MainWindow_SuperSetComponentName(@ptrCast(self.ptr), componentName_str, componentDisplayName_str);
     }
 
     /// Inherited from KXMLGUIClient
@@ -11183,12 +11545,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, componentName: [*:0]const u8, componentDisplayName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, componentName: [*:0]const u8, componentDisplayName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetComponentName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnSetComponentName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetComponentName(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnSetComponentName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -11199,7 +11561,7 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` file: []const u8 `
     ///
@@ -11207,12 +11569,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ` setXMLDoc: bool `
     ///
-    pub fn SetXMLFile(self: ?*anyopaque, file: []const u8, merge: bool, setXMLDoc: bool) void {
+    pub fn SetXMLFile(self: KParts__MainWindow, file: []const u8, merge: bool, setXMLDoc: bool) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        qtc.KParts__MainWindow_SetXMLFile(@ptrCast(self), file_str, merge, setXMLDoc);
+        qtc.KParts__MainWindow_SetXMLFile(@ptrCast(self.ptr), file_str, merge, setXMLDoc);
     }
 
     /// ### DEPRECATED: Use `SuperSetXMLFile` instead
@@ -11227,7 +11589,7 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` file: []const u8 `
     ///
@@ -11235,12 +11597,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ` setXMLDoc: bool `
     ///
-    pub fn SuperSetXMLFile(self: ?*anyopaque, file: []const u8, merge: bool, setXMLDoc: bool) void {
+    pub fn SuperSetXMLFile(self: KParts__MainWindow, file: []const u8, merge: bool, setXMLDoc: bool) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        qtc.KParts__MainWindow_SuperSetXMLFile(@ptrCast(self), file_str, merge, setXMLDoc);
+        qtc.KParts__MainWindow_SuperSetXMLFile(@ptrCast(self.ptr), file_str, merge, setXMLDoc);
     }
 
     /// Inherited from KXMLGUIClient
@@ -11251,12 +11613,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, file: [*:0]const u8, merge: bool, setXMLDoc: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, file: [*:0]const u8, merge: bool, setXMLDoc: bool) callconv(.c) void `
     ///
-    pub fn OnSetXMLFile(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool, bool) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnSetXMLFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetXMLFile(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, [*:0]const u8, bool, bool) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnSetXMLFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -11267,16 +11629,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` file: []const u8 `
     ///
-    pub fn SetLocalXMLFile(self: ?*anyopaque, file: []const u8) void {
+    pub fn SetLocalXMLFile(self: KParts__MainWindow, file: []const u8) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        qtc.KParts__MainWindow_SetLocalXMLFile(@ptrCast(self), file_str);
+        qtc.KParts__MainWindow_SetLocalXMLFile(@ptrCast(self.ptr), file_str);
     }
 
     /// ### DEPRECATED: Use `SuperSetLocalXMLFile` instead
@@ -11291,16 +11653,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` file: []const u8 `
     ///
-    pub fn SuperSetLocalXMLFile(self: ?*anyopaque, file: []const u8) void {
+    pub fn SuperSetLocalXMLFile(self: KParts__MainWindow, file: []const u8) void {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        qtc.KParts__MainWindow_SuperSetLocalXMLFile(@ptrCast(self), file_str);
+        qtc.KParts__MainWindow_SuperSetLocalXMLFile(@ptrCast(self.ptr), file_str);
     }
 
     /// Inherited from KXMLGUIClient
@@ -11311,12 +11673,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, file: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, file: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetLocalXMLFile(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnSetLocalXMLFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetLocalXMLFile(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, [*:0]const u8) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnSetLocalXMLFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -11327,18 +11689,18 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` document: []const u8 `
     ///
     /// ` merge: bool `
     ///
-    pub fn SetXML(self: ?*anyopaque, document: []const u8, merge: bool) void {
+    pub fn SetXML(self: KParts__MainWindow, document: []const u8, merge: bool) void {
         const document_str = qtc.libqt_string{
             .len = document.len,
             .data = document.ptr,
         };
-        qtc.KParts__MainWindow_SetXML(@ptrCast(self), document_str, merge);
+        qtc.KParts__MainWindow_SetXML(@ptrCast(self.ptr), document_str, merge);
     }
 
     /// ### DEPRECATED: Use `SuperSetXML` instead
@@ -11353,18 +11715,18 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` document: []const u8 `
     ///
     /// ` merge: bool `
     ///
-    pub fn SuperSetXML(self: ?*anyopaque, document: []const u8, merge: bool) void {
+    pub fn SuperSetXML(self: KParts__MainWindow, document: []const u8, merge: bool) void {
         const document_str = qtc.libqt_string{
             .len = document.len,
             .data = document.ptr,
         };
-        qtc.KParts__MainWindow_SuperSetXML(@ptrCast(self), document_str, merge);
+        qtc.KParts__MainWindow_SuperSetXML(@ptrCast(self.ptr), document_str, merge);
     }
 
     /// Inherited from KXMLGUIClient
@@ -11375,12 +11737,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, document: [*:0]const u8, merge: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, document: [*:0]const u8, merge: bool) callconv(.c) void `
     ///
-    pub fn OnSetXML(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnSetXML(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetXML(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, [*:0]const u8, bool) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnSetXML(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -11391,14 +11753,15 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` document: QtC.QDomDocument `
+    /// ` document: QDomDocument `
     ///
     /// ` merge: bool `
     ///
-    pub fn SetDOMDocument(self: ?*anyopaque, document: ?*anyopaque, merge: bool) void {
-        qtc.KParts__MainWindow_SetDOMDocument(@ptrCast(self), @ptrCast(document), merge);
+    pub fn SetDOMDocument(self: KParts__MainWindow, document: anytype, merge: bool) void {
+        comptime _ = @TypeOf(document)._is_QDomDocument;
+        qtc.KParts__MainWindow_SetDOMDocument(@ptrCast(self.ptr), @ptrCast(document.ptr), merge);
     }
 
     /// ### DEPRECATED: Use `SuperSetDOMDocument` instead
@@ -11413,14 +11776,15 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` document: QtC.QDomDocument `
+    /// ` document: QDomDocument `
     ///
     /// ` merge: bool `
     ///
-    pub fn SuperSetDOMDocument(self: ?*anyopaque, document: ?*anyopaque, merge: bool) void {
-        qtc.KParts__MainWindow_SuperSetDOMDocument(@ptrCast(self), @ptrCast(document), merge);
+    pub fn SuperSetDOMDocument(self: KParts__MainWindow, document: anytype, merge: bool) void {
+        comptime _ = @TypeOf(document)._is_QDomDocument;
+        qtc.KParts__MainWindow_SuperSetDOMDocument(@ptrCast(self.ptr), @ptrCast(document.ptr), merge);
     }
 
     /// Inherited from KXMLGUIClient
@@ -11431,12 +11795,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, document: QtC.QDomDocument, merge: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, document: QDomDocument, merge: bool) callconv(.c) void `
     ///
-    pub fn OnSetDOMDocument(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnSetDOMDocument(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetDOMDocument(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QDomDocument, bool) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnSetDOMDocument(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -11447,18 +11811,18 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` newstate: []const u8 `
     ///
     /// ` reverse: kxmlguiclient_enums.ReverseStateChange `
     ///
-    pub fn StateChanged(self: ?*anyopaque, newstate: []const u8, reverse: i32) void {
+    pub fn StateChanged(self: KParts__MainWindow, newstate: []const u8, reverse: i32) void {
         const newstate_str = qtc.libqt_string{
             .len = newstate.len,
             .data = newstate.ptr,
         };
-        qtc.KParts__MainWindow_StateChanged(@ptrCast(self), newstate_str, @bitCast(reverse));
+        qtc.KParts__MainWindow_StateChanged(@ptrCast(self.ptr), newstate_str, @bitCast(reverse));
     }
 
     /// ### DEPRECATED: Use `SuperStateChanged` instead
@@ -11473,18 +11837,18 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` newstate: []const u8 `
     ///
     /// ` reverse: kxmlguiclient_enums.ReverseStateChange `
     ///
-    pub fn SuperStateChanged(self: ?*anyopaque, newstate: []const u8, reverse: i32) void {
+    pub fn SuperStateChanged(self: KParts__MainWindow, newstate: []const u8, reverse: i32) void {
         const newstate_str = qtc.libqt_string{
             .len = newstate.len,
             .data = newstate.ptr,
         };
-        qtc.KParts__MainWindow_SuperStateChanged(@ptrCast(self), newstate_str, @bitCast(reverse));
+        qtc.KParts__MainWindow_SuperStateChanged(@ptrCast(self.ptr), newstate_str, @bitCast(reverse));
     }
 
     /// Inherited from KXMLGUIClient
@@ -11495,12 +11859,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, newstate: [*:0]const u8, reverse: kxmlguiclient_enums.ReverseStateChange) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, newstate: [*:0]const u8, reverse: kxmlguiclient_enums.ReverseStateChange) callconv(.c) void `
     ///
-    pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnStateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStateChanged(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, [*:0]const u8, i32) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnStateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXmlGuiWindow
@@ -11511,10 +11875,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn CheckAmbiguousShortcuts(self: ?*anyopaque) void {
-        qtc.KParts__MainWindow_CheckAmbiguousShortcuts(@ptrCast(self));
+    pub fn CheckAmbiguousShortcuts(self: KParts__MainWindow) void {
+        qtc.KParts__MainWindow_CheckAmbiguousShortcuts(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCheckAmbiguousShortcuts` instead
@@ -11529,10 +11893,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperCheckAmbiguousShortcuts(self: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperCheckAmbiguousShortcuts(@ptrCast(self));
+    pub fn SuperCheckAmbiguousShortcuts(self: KParts__MainWindow) void {
+        qtc.KParts__MainWindow_SuperCheckAmbiguousShortcuts(@ptrCast(self.ptr));
     }
 
     /// Inherited from KXmlGuiWindow
@@ -11543,12 +11907,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCheckAmbiguousShortcuts(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnCheckAmbiguousShortcuts(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCheckAmbiguousShortcuts(self: KParts__MainWindow, callback: *const fn () callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnCheckAmbiguousShortcuts(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -11559,14 +11923,15 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.KConfig `
+    /// ` param1: KConfig `
     ///
     /// ` param2: i32 `
     ///
-    pub fn SavePropertiesInternal(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) void {
-        qtc.KParts__MainWindow_SavePropertiesInternal(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
+    pub fn SavePropertiesInternal(self: KParts__MainWindow, param1: anytype, param2: i32) void {
+        comptime _ = @TypeOf(param1)._is_KConfig;
+        qtc.KParts__MainWindow_SavePropertiesInternal(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
 
     /// ### DEPRECATED: Use `SuperSavePropertiesInternal` instead
@@ -11581,14 +11946,15 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.KConfig `
+    /// ` param1: KConfig `
     ///
     /// ` param2: i32 `
     ///
-    pub fn SuperSavePropertiesInternal(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) void {
-        qtc.KParts__MainWindow_SuperSavePropertiesInternal(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
+    pub fn SuperSavePropertiesInternal(self: KParts__MainWindow, param1: anytype, param2: i32) void {
+        comptime _ = @TypeOf(param1)._is_KConfig;
+        qtc.KParts__MainWindow_SuperSavePropertiesInternal(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
 
     /// Inherited from KMainWindow
@@ -11599,12 +11965,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, param1: QtC.KConfig, param2: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, param1: KConfig, param2: i32) callconv(.c) void `
     ///
-    pub fn OnSavePropertiesInternal(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnSavePropertiesInternal(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSavePropertiesInternal(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, KConfig, i32) callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnSavePropertiesInternal(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -11615,14 +11981,15 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.KConfig `
+    /// ` param1: KConfig `
     ///
     /// ` param2: i32 `
     ///
-    pub fn ReadPropertiesInternal(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) bool {
-        return qtc.KParts__MainWindow_ReadPropertiesInternal(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
+    pub fn ReadPropertiesInternal(self: KParts__MainWindow, param1: anytype, param2: i32) bool {
+        comptime _ = @TypeOf(param1)._is_KConfig;
+        return qtc.KParts__MainWindow_ReadPropertiesInternal(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
 
     /// ### DEPRECATED: Use `SuperReadPropertiesInternal` instead
@@ -11637,14 +12004,15 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` param1: QtC.KConfig `
+    /// ` param1: KConfig `
     ///
     /// ` param2: i32 `
     ///
-    pub fn SuperReadPropertiesInternal(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) bool {
-        return qtc.KParts__MainWindow_SuperReadPropertiesInternal(@ptrCast(self), @ptrCast(param1), @bitCast(param2));
+    pub fn SuperReadPropertiesInternal(self: KParts__MainWindow, param1: anytype, param2: i32) bool {
+        comptime _ = @TypeOf(param1)._is_KConfig;
+        return qtc.KParts__MainWindow_SuperReadPropertiesInternal(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
 
     /// Inherited from KMainWindow
@@ -11655,12 +12023,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, param1: QtC.KConfig, param2: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: KParts__MainWindow, param1: KConfig, param2: i32) callconv(.c) bool `
     ///
-    pub fn OnReadPropertiesInternal(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KParts__MainWindow_OnReadPropertiesInternal(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadPropertiesInternal(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, KConfig, i32) callconv(.c) bool) void {
+        qtc.KParts__MainWindow_OnReadPropertiesInternal(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -11671,10 +12039,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SettingsDirty(self: ?*anyopaque) bool {
-        return qtc.KParts__MainWindow_SettingsDirty(@ptrCast(self));
+    pub fn SettingsDirty(self: KParts__MainWindow) bool {
+        return qtc.KParts__MainWindow_SettingsDirty(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSettingsDirty` instead
@@ -11689,10 +12057,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperSettingsDirty(self: ?*anyopaque) bool {
-        return qtc.KParts__MainWindow_SuperSettingsDirty(@ptrCast(self));
+    pub fn SuperSettingsDirty(self: KParts__MainWindow) bool {
+        return qtc.KParts__MainWindow_SuperSettingsDirty(@ptrCast(self.ptr));
     }
 
     /// Inherited from KMainWindow
@@ -11703,12 +12071,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnSettingsDirty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KParts__MainWindow_OnSettingsDirty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSettingsDirty(self: KParts__MainWindow, callback: *const fn () callconv(.c) bool) void {
+        qtc.KParts__MainWindow_OnSettingsDirty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -11719,10 +12087,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SaveAutoSaveSettings(self: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SaveAutoSaveSettings(@ptrCast(self));
+    pub fn SaveAutoSaveSettings(self: KParts__MainWindow) void {
+        qtc.KParts__MainWindow_SaveAutoSaveSettings(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSaveAutoSaveSettings` instead
@@ -11737,10 +12105,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperSaveAutoSaveSettings(self: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperSaveAutoSaveSettings(@ptrCast(self));
+    pub fn SuperSaveAutoSaveSettings(self: KParts__MainWindow) void {
+        qtc.KParts__MainWindow_SuperSaveAutoSaveSettings(@ptrCast(self.ptr));
     }
 
     /// Inherited from KMainWindow
@@ -11751,12 +12119,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSaveAutoSaveSettings(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnSaveAutoSaveSettings(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSaveAutoSaveSettings(self: KParts__MainWindow, callback: *const fn () callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnSaveAutoSaveSettings(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11767,10 +12135,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.KParts__MainWindow_UpdateMicroFocus(@ptrCast(self));
+    pub fn UpdateMicroFocus(self: KParts__MainWindow) void {
+        qtc.KParts__MainWindow_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
@@ -11785,10 +12153,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: KParts__MainWindow) void {
+        qtc.KParts__MainWindow_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11799,12 +12167,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateMicroFocus(self: KParts__MainWindow, callback: *const fn () callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11815,10 +12183,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Create(self: ?*anyopaque) void {
-        qtc.KParts__MainWindow_Create(@ptrCast(self));
+    pub fn Create(self: KParts__MainWindow) void {
+        qtc.KParts__MainWindow_Create(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -11833,10 +12201,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperCreate(self: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperCreate(@ptrCast(self));
+    pub fn SuperCreate(self: KParts__MainWindow) void {
+        qtc.KParts__MainWindow_SuperCreate(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11847,12 +12215,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: KParts__MainWindow, callback: *const fn () callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11863,10 +12231,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Destroy(self: ?*anyopaque) void {
-        qtc.KParts__MainWindow_Destroy(@ptrCast(self));
+    pub fn Destroy(self: KParts__MainWindow) void {
+        qtc.KParts__MainWindow_Destroy(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDestroy` instead
@@ -11881,10 +12249,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperDestroy(self: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: KParts__MainWindow) void {
+        qtc.KParts__MainWindow_SuperDestroy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11895,12 +12263,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroy(self: KParts__MainWindow, callback: *const fn () callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11911,10 +12279,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return qtc.KParts__MainWindow_FocusNextChild(@ptrCast(self));
+    pub fn FocusNextChild(self: KParts__MainWindow) bool {
+        return qtc.KParts__MainWindow_FocusNextChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextChild` instead
@@ -11929,10 +12297,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.KParts__MainWindow_SuperFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: KParts__MainWindow) bool {
+        return qtc.KParts__MainWindow_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11943,12 +12311,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KParts__MainWindow_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextChild(self: KParts__MainWindow, callback: *const fn () callconv(.c) bool) void {
+        qtc.KParts__MainWindow_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11959,10 +12327,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.KParts__MainWindow_FocusPreviousChild(@ptrCast(self));
+    pub fn FocusPreviousChild(self: KParts__MainWindow) bool {
+        return qtc.KParts__MainWindow_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
@@ -11977,10 +12345,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.KParts__MainWindow_SuperFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: KParts__MainWindow) bool {
+        return qtc.KParts__MainWindow_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11991,12 +12359,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KParts__MainWindow_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusPreviousChild(self: KParts__MainWindow, callback: *const fn () callconv(.c) bool) void {
+        qtc.KParts__MainWindow_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12007,10 +12375,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KParts__MainWindow_Sender(@ptrCast(self));
+    pub fn Sender(self: KParts__MainWindow) QObject {
+        return .{ .ptr = qtc.KParts__MainWindow_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -12025,10 +12393,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KParts__MainWindow_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KParts__MainWindow) QObject {
+        return .{ .ptr = qtc.KParts__MainWindow_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -12039,12 +12407,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KParts__MainWindow_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KParts__MainWindow, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KParts__MainWindow_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12055,10 +12423,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KParts__MainWindow_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KParts__MainWindow) i32 {
+        return qtc.KParts__MainWindow_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -12073,10 +12441,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KParts__MainWindow_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KParts__MainWindow) i32 {
+        return qtc.KParts__MainWindow_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -12087,12 +12455,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KParts__MainWindow_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KParts__MainWindow, callback: *const fn () callconv(.c) i32) void {
+        qtc.KParts__MainWindow_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12103,13 +12471,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KParts__MainWindow, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KParts__MainWindow_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KParts__MainWindow_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -12124,13 +12492,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KParts__MainWindow, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KParts__MainWindow_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KParts__MainWindow_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -12141,12 +12509,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KParts__MainWindow, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KParts__MainWindow_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KParts__MainWindow_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12157,12 +12525,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KParts__MainWindow_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KParts__MainWindow, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KParts__MainWindow_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -12177,12 +12546,13 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KParts__MainWindow_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KParts__MainWindow, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KParts__MainWindow_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -12193,12 +12563,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KParts__MainWindow, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KParts__MainWindow_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, QMetaMethod) callconv(.c) bool) void {
+        qtc.KParts__MainWindow_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -12209,14 +12579,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KParts__MainWindow_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn GetDecodedMetricF(self: KParts__MainWindow, metricA: i32, metricB: i32) f64 {
+        return qtc.KParts__MainWindow_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
@@ -12231,14 +12601,14 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KParts__MainWindow_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: KParts__MainWindow, metricA: i32, metricB: i32) f64 {
+        return qtc.KParts__MainWindow_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -12249,12 +12619,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    /// ` callback: *const fn (self: KParts__MainWindow, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.KParts__MainWindow_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetDecodedMetricF(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, i32, i32) callconv(.c) f64) void {
+        qtc.KParts__MainWindow_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -12265,12 +12635,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StandardsXmlFileLocation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__MainWindow_StandardsXmlFileLocation(@ptrCast(self));
+    pub fn StandardsXmlFileLocation(self: KParts__MainWindow, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__MainWindow_StandardsXmlFileLocation(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__mainwindow.StandardsXmlFileLocation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -12289,12 +12659,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperStandardsXmlFileLocation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KParts__MainWindow_SuperStandardsXmlFileLocation(@ptrCast(self));
+    pub fn SuperStandardsXmlFileLocation(self: KParts__MainWindow, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KParts__MainWindow_SuperStandardsXmlFileLocation(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__mainwindow.StandardsXmlFileLocation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -12307,16 +12677,16 @@ pub const kparts__mainwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnStandardsXmlFileLocation(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KParts__MainWindow_OnStandardsXmlFileLocation(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStandardsXmlFileLocation(self: KParts__MainWindow, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KParts__MainWindow_OnStandardsXmlFileLocation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -12327,10 +12697,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn LoadStandardsXmlFile(self: ?*anyopaque) void {
-        qtc.KParts__MainWindow_LoadStandardsXmlFile(@ptrCast(self));
+    pub fn LoadStandardsXmlFile(self: KParts__MainWindow) void {
+        qtc.KParts__MainWindow_LoadStandardsXmlFile(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLoadStandardsXmlFile` instead
@@ -12345,10 +12715,10 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn SuperLoadStandardsXmlFile(self: ?*anyopaque) void {
-        qtc.KParts__MainWindow_SuperLoadStandardsXmlFile(@ptrCast(self));
+    pub fn SuperLoadStandardsXmlFile(self: KParts__MainWindow) void {
+        qtc.KParts__MainWindow_SuperLoadStandardsXmlFile(@ptrCast(self.ptr));
     }
 
     /// Inherited from KXMLGUIClient
@@ -12359,12 +12729,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow`
+    /// ` self: KParts__MainWindow`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnLoadStandardsXmlFile(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KParts__MainWindow_OnLoadStandardsXmlFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLoadStandardsXmlFile(self: KParts__MainWindow, callback: *const fn () callconv(.c) void) void {
+        qtc.KParts__MainWindow_OnLoadStandardsXmlFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12375,12 +12745,12 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    /// ` callback: *const fn (self: QtC.KParts__MainWindow, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KParts__MainWindow, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -12391,9 +12761,9 @@ pub const kparts__mainwindow = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KParts__MainWindow `
+    /// ` self: KParts__MainWindow `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KParts__MainWindow_Delete(@ptrCast(self));
+    pub fn Delete(self: KParts__MainWindow) void {
+        qtc.KParts__MainWindow_Delete(@ptrCast(self.ptr));
     }
 };

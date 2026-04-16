@@ -1,95 +1,107 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QSslCertificate = @import("libqt6").QSslCertificate;
 const qocspresponse_enums = enums;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html)
-pub const qocspresponse = struct {
+pub const QOcspResponse = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QOcspResponse,
+
+    pub const _is_QOcspResponse = {};
+
     /// New constructs a new QOcspResponse object.
     ///
-    pub fn New() QtC.QOcspResponse {
-        return qtc.QOcspResponse_new();
+    pub fn New() QOcspResponse {
+        return .{ .ptr = qtc.QOcspResponse_new() };
     }
 
     /// New2 constructs a new QOcspResponse object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QOcspResponse `
+    /// ` other: QOcspResponse `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QOcspResponse {
-        return qtc.QOcspResponse_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QOcspResponse {
+        comptime _ = @TypeOf(other)._is_QOcspResponse;
+        return .{ .ptr = qtc.QOcspResponse_new2(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOcspResponse `
+    /// ` self: QOcspResponse `
     ///
-    /// ` other: QtC.QOcspResponse `
+    /// ` other: QOcspResponse `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QOcspResponse_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QOcspResponse, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QOcspResponse;
+        qtc.QOcspResponse_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#certificateStatus)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOcspResponse `
+    /// ` self: QOcspResponse `
     ///
     /// ## Returns:
     ///
     /// ` qocspresponse_enums.QOcspCertificateStatus `
     ///
-    pub fn CertificateStatus(self: ?*anyopaque) i32 {
-        return qtc.QOcspResponse_CertificateStatus(@ptrCast(self));
+    pub fn CertificateStatus(self: QOcspResponse) i32 {
+        return qtc.QOcspResponse_CertificateStatus(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#revocationReason)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOcspResponse `
+    /// ` self: QOcspResponse `
     ///
     /// ## Returns:
     ///
     /// ` qocspresponse_enums.QOcspRevocationReason `
     ///
-    pub fn RevocationReason(self: ?*anyopaque) i32 {
-        return qtc.QOcspResponse_RevocationReason(@ptrCast(self));
+    pub fn RevocationReason(self: QOcspResponse) i32 {
+        return qtc.QOcspResponse_RevocationReason(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#responder)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOcspResponse `
+    /// ` self: QOcspResponse `
     ///
-    pub fn Responder(self: ?*anyopaque) QtC.QSslCertificate {
-        return qtc.QOcspResponse_Responder(@ptrCast(self));
+    pub fn Responder(self: QOcspResponse) QSslCertificate {
+        return .{ .ptr = qtc.QOcspResponse_Responder(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#subject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOcspResponse `
+    /// ` self: QOcspResponse `
     ///
-    pub fn Subject(self: ?*anyopaque) QtC.QSslCertificate {
-        return qtc.QOcspResponse_Subject(@ptrCast(self));
+    pub fn Subject(self: QOcspResponse) QSslCertificate {
+        return .{ .ptr = qtc.QOcspResponse_Subject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QOcspResponse `
+    /// ` self: QOcspResponse `
     ///
-    /// ` other: QtC.QOcspResponse `
+    /// ` other: QOcspResponse `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QOcspResponse_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QOcspResponse, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QOcspResponse;
+        qtc.QOcspResponse_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -102,10 +114,10 @@ pub const qocspresponse = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QOcspResponse `
+    /// ` self: QOcspResponse `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QOcspResponse_Delete(@ptrCast(self));
+    pub fn Delete(self: QOcspResponse) void {
+        qtc.QOcspResponse_Delete(@ptrCast(self.ptr));
     }
 };
 

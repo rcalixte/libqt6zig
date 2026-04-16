@@ -3,7 +3,15 @@ const qtc = @import("qt6c");
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 
 /// ### [Upstream resources](https://api.kde.org/kapplicationtrader.html)
-pub const kapplicationtrader = struct {
+pub const KApplicationTrader = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kapplicationtrader.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KApplicationTrader,
+
+    pub const _is_KApplicationTrader = {};
+
     /// ### [Upstream resources](https://api.kde.org/kapplicationtrader.html#isSubsequence)
     ///
     /// ## Parameter(s):

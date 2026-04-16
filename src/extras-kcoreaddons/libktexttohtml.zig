@@ -4,10 +4,20 @@ const ktexttohtml_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/ktexttohtml.html)
-pub const ktexttohtml = struct {
+pub const KTextToHTML = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/ktexttohtml.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KTextToHTML,
+
+    pub const _is_KTextToHTML = {};
+
     /// ### [Upstream resources](https://api.kde.org/ktexttohtml.html#convertToHtml)
     ///
     /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` param1: []const u8 `
     ///
@@ -17,9 +27,7 @@ pub const ktexttohtml = struct {
     ///
     /// ` param4: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn ConvertToHtml(param1: []const u8, param2: *const i32, param3: i32, param4: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn ConvertToHtml(allocator: std.mem.Allocator, param1: []const u8, param2: *const i32, param3: i32, param4: i32) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,

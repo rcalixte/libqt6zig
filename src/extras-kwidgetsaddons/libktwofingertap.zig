@@ -1,5 +1,18 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QGesture = @import("libqt6").QGesture;
+const QGestureRecognizer = @import("libqt6").QGestureRecognizer;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QPointF = @import("libqt6").QPointF;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qgesture_enums = @import("../libqgesture.zig").enums;
 const qgesturerecognizer_enums = @import("../libqgesturerecognizer.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
@@ -7,31 +20,42 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/ktwofingertap.html)
-pub const ktwofingertap = struct {
+pub const KTwoFingerTap = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/ktwofingertap.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KTwoFingerTap,
+
+    pub const _is_KTwoFingerTap = {};
+    pub const _is_QGesture = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new KTwoFingerTap object.
     ///
-    pub fn New() QtC.KTwoFingerTap {
-        return qtc.KTwoFingerTap_new();
+    pub fn New() KTwoFingerTap {
+        return .{ .ptr = qtc.KTwoFingerTap_new() };
     }
 
     /// New2 constructs a new KTwoFingerTap object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.KTwoFingerTap {
-        return qtc.KTwoFingerTap_new2(@ptrCast(parent));
+    pub fn New2(parent: anytype) KTwoFingerTap {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.KTwoFingerTap_new2(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KTwoFingerTap_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KTwoFingerTap) QMetaObject {
+        return .{ .ptr = qtc.KTwoFingerTap_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -40,12 +64,12 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KTwoFingerTap_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KTwoFingerTap, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KTwoFingerTap_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -58,33 +82,33 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KTwoFingerTap_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KTwoFingerTap) QMetaObject {
+        return .{ .ptr = qtc.KTwoFingerTap_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KTwoFingerTap, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KTwoFingerTap_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KTwoFingerTap_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` callback: *const fn (self: QtC.KTwoFingerTap, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KTwoFingerTap, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KTwoFingerTap_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KTwoFingerTap, callback: *const fn (KTwoFingerTap, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KTwoFingerTap_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -95,18 +119,18 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KTwoFingerTap, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KTwoFingerTap_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KTwoFingerTap_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -114,20 +138,20 @@ pub const ktwofingertap = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KTwoFingerTap_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KTwoFingerTap, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KTwoFingerTap_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` callback: *const fn (self: QtC.KTwoFingerTap, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KTwoFingerTap, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KTwoFingerTap_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KTwoFingerTap, callback: *const fn (KTwoFingerTap, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KTwoFingerTap_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -138,7 +162,7 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -146,19 +170,19 @@ pub const ktwofingertap = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KTwoFingerTap_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KTwoFingerTap, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KTwoFingerTap_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -171,79 +195,82 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPointF {
-        return qtc.KTwoFingerTap_Pos(@ptrCast(self));
+    pub fn Pos(self: KTwoFingerTap) QPointF {
+        return .{ .ptr = qtc.KTwoFingerTap_Pos(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktwofingertap.html#setPos)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` pos: QtC.QPointF `
+    /// ` pos: QPointF `
     ///
-    pub fn SetPos(self: ?*anyopaque, pos: QtC.QPointF) void {
-        qtc.KTwoFingerTap_SetPos(@ptrCast(self), @ptrCast(pos));
+    pub fn SetPos(self: KTwoFingerTap, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPointF;
+        qtc.KTwoFingerTap_SetPos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktwofingertap.html#screenPos)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn ScreenPos(self: ?*anyopaque) QtC.QPointF {
-        return qtc.KTwoFingerTap_ScreenPos(@ptrCast(self));
+    pub fn ScreenPos(self: KTwoFingerTap) QPointF {
+        return .{ .ptr = qtc.KTwoFingerTap_ScreenPos(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktwofingertap.html#setScreenPos)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` screenPos: QtC.QPointF `
+    /// ` screenPos: QPointF `
     ///
-    pub fn SetScreenPos(self: ?*anyopaque, screenPos: QtC.QPointF) void {
-        qtc.KTwoFingerTap_SetScreenPos(@ptrCast(self), @ptrCast(screenPos));
+    pub fn SetScreenPos(self: KTwoFingerTap, screenPos: anytype) void {
+        comptime _ = @TypeOf(screenPos)._is_QPointF;
+        qtc.KTwoFingerTap_SetScreenPos(@ptrCast(self.ptr), @ptrCast(screenPos.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktwofingertap.html#scenePos)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn ScenePos(self: ?*anyopaque) QtC.QPointF {
-        return qtc.KTwoFingerTap_ScenePos(@ptrCast(self));
+    pub fn ScenePos(self: KTwoFingerTap) QPointF {
+        return .{ .ptr = qtc.KTwoFingerTap_ScenePos(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktwofingertap.html#setScenePos)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` scenePos: QtC.QPointF `
+    /// ` scenePos: QPointF `
     ///
-    pub fn SetScenePos(self: ?*anyopaque, scenePos: QtC.QPointF) void {
-        qtc.KTwoFingerTap_SetScenePos(@ptrCast(self), @ptrCast(scenePos));
+    pub fn SetScenePos(self: KTwoFingerTap, scenePos: anytype) void {
+        comptime _ = @TypeOf(scenePos)._is_QPointF;
+        qtc.KTwoFingerTap_SetScenePos(@ptrCast(self.ptr), @ptrCast(scenePos.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -257,15 +284,15 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -281,14 +308,14 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.GestureType `
     ///
-    pub fn GestureType(self: ?*anyopaque) i32 {
-        return qtc.QGesture_GestureType(@ptrCast(self));
+    pub fn GestureType(self: KTwoFingerTap) i32 {
+        return qtc.QGesture_GestureType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGesture
@@ -297,14 +324,14 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.GestureState `
     ///
-    pub fn State(self: ?*anyopaque) i32 {
-        return qtc.QGesture_State(@ptrCast(self));
+    pub fn State(self: KTwoFingerTap) i32 {
+        return qtc.QGesture_State(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGesture
@@ -313,10 +340,10 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn HotSpot(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QGesture_HotSpot(@ptrCast(self));
+    pub fn HotSpot(self: KTwoFingerTap) QPointF {
+        return .{ .ptr = qtc.QGesture_HotSpot(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QGesture
@@ -325,12 +352,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` value: QtC.QPointF `
+    /// ` value: QPointF `
     ///
-    pub fn SetHotSpot(self: ?*anyopaque, value: ?*anyopaque) void {
-        qtc.QGesture_SetHotSpot(@ptrCast(self), @ptrCast(value));
+    pub fn SetHotSpot(self: KTwoFingerTap, value: anytype) void {
+        comptime _ = @TypeOf(value)._is_QPointF;
+        qtc.QGesture_SetHotSpot(@ptrCast(self.ptr), @ptrCast(value.ptr));
     }
 
     /// Inherited from QGesture
@@ -339,10 +367,10 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn HasHotSpot(self: ?*anyopaque) bool {
-        return qtc.QGesture_HasHotSpot(@ptrCast(self));
+    pub fn HasHotSpot(self: KTwoFingerTap) bool {
+        return qtc.QGesture_HasHotSpot(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGesture
@@ -351,10 +379,10 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn UnsetHotSpot(self: ?*anyopaque) void {
-        qtc.QGesture_UnsetHotSpot(@ptrCast(self));
+    pub fn UnsetHotSpot(self: KTwoFingerTap) void {
+        qtc.QGesture_UnsetHotSpot(@ptrCast(self.ptr));
     }
 
     /// Inherited from QGesture
@@ -363,12 +391,12 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` policy: qgesture_enums.GestureCancelPolicy `
     ///
-    pub fn SetGestureCancelPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QGesture_SetGestureCancelPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetGestureCancelPolicy(self: KTwoFingerTap, policy: i32) void {
+        qtc.QGesture_SetGestureCancelPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QGesture
@@ -377,14 +405,14 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ## Returns:
     ///
     /// ` qgesture_enums.GestureCancelPolicy `
     ///
-    pub fn GestureCancelPolicy(self: ?*anyopaque) i32 {
-        return qtc.QGesture_GestureCancelPolicy(@ptrCast(self));
+    pub fn GestureCancelPolicy(self: KTwoFingerTap) i32 {
+        return qtc.QGesture_GestureCancelPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -393,12 +421,12 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KTwoFingerTap, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktwofingertap.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -411,12 +439,12 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KTwoFingerTap, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -425,10 +453,10 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KTwoFingerTap) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -437,10 +465,10 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KTwoFingerTap) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -449,10 +477,10 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KTwoFingerTap) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -461,10 +489,10 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KTwoFingerTap) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -473,12 +501,12 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KTwoFingerTap, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -487,10 +515,10 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KTwoFingerTap) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -499,12 +527,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KTwoFingerTap, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -513,12 +542,12 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KTwoFingerTap, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -527,12 +556,12 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KTwoFingerTap, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -541,12 +570,12 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KTwoFingerTap, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -555,12 +584,12 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KTwoFingerTap, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -569,16 +598,17 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KTwoFingerTap, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("ktwofingertap.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("ktwofingertap.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -588,12 +618,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KTwoFingerTap, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -602,12 +633,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KTwoFingerTap, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -616,12 +648,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KTwoFingerTap, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -630,18 +663,20 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -650,16 +685,20 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -668,18 +707,19 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KTwoFingerTap, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -688,18 +728,20 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -708,16 +750,20 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -726,10 +772,10 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KTwoFingerTap) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -738,12 +784,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KTwoFingerTap, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -752,10 +799,11 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -764,10 +812,10 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KTwoFingerTap) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -776,10 +824,10 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KTwoFingerTap) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -788,15 +836,16 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KTwoFingerTap, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -805,13 +854,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KTwoFingerTap, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -820,17 +869,16 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KTwoFingerTap, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("ktwofingertap.DynamicPropertyNames: Memory allocation failed");
@@ -849,10 +897,10 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KTwoFingerTap) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -861,10 +909,10 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KTwoFingerTap) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -873,10 +921,10 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KTwoFingerTap) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -885,12 +933,12 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` callback: *const fn (self: QtC.KTwoFingerTap) callconv(.c) void `
+    /// ` callback: *const fn (self: KTwoFingerTap) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KTwoFingerTap, callback: *const fn (KTwoFingerTap) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -899,10 +947,10 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: KTwoFingerTap) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -911,13 +959,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KTwoFingerTap, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -926,10 +974,10 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KTwoFingerTap) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -938,14 +986,14 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KTwoFingerTap, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -954,14 +1002,14 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KTwoFingerTap, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -970,20 +1018,22 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -992,18 +1042,22 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1012,9 +1066,9 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1022,10 +1076,11 @@ pub const ktwofingertap = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KTwoFingerTap, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1034,13 +1089,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KTwoFingerTap, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1049,15 +1104,16 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KTwoFingerTap, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1066,18 +1122,19 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KTwoFingerTap, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1086,15 +1143,16 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KTwoFingerTap, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1103,12 +1161,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KTwoFingerTap, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1117,12 +1176,12 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` callback: *const fn (self: QtC.KTwoFingerTap, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KTwoFingerTap, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KTwoFingerTap, callback: *const fn (KTwoFingerTap, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1133,12 +1192,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KTwoFingerTap_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KTwoFingerTap, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KTwoFingerTap_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1153,12 +1213,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KTwoFingerTap_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KTwoFingerTap, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KTwoFingerTap_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1169,12 +1230,12 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTwoFingerTap`
+    /// ` self: KTwoFingerTap`
     ///
-    /// ` callback: *const fn (self: QtC.KTwoFingerTap, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTwoFingerTap, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTwoFingerTap_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KTwoFingerTap, callback: *const fn (KTwoFingerTap, QEvent) callconv(.c) bool) void {
+        qtc.KTwoFingerTap_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1185,14 +1246,16 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KTwoFingerTap_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KTwoFingerTap, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KTwoFingerTap_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1207,14 +1270,16 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KTwoFingerTap_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KTwoFingerTap, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KTwoFingerTap_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1225,12 +1290,12 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTwoFingerTap`
+    /// ` self: KTwoFingerTap`
     ///
-    /// ` callback: *const fn (self: QtC.KTwoFingerTap, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTwoFingerTap, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTwoFingerTap_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KTwoFingerTap, callback: *const fn (KTwoFingerTap, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KTwoFingerTap_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1241,12 +1306,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTwoFingerTap_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KTwoFingerTap, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KTwoFingerTap_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1261,12 +1327,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTwoFingerTap_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KTwoFingerTap, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KTwoFingerTap_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1277,12 +1344,12 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTwoFingerTap`
+    /// ` self: KTwoFingerTap`
     ///
-    /// ` callback: *const fn (self: QtC.KTwoFingerTap, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTwoFingerTap, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTwoFingerTap_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KTwoFingerTap, callback: *const fn (KTwoFingerTap, QTimerEvent) callconv(.c) void) void {
+        qtc.KTwoFingerTap_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1293,12 +1360,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTwoFingerTap_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KTwoFingerTap, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KTwoFingerTap_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1313,12 +1381,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTwoFingerTap_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KTwoFingerTap, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KTwoFingerTap_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1329,12 +1398,12 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTwoFingerTap`
+    /// ` self: KTwoFingerTap`
     ///
-    /// ` callback: *const fn (self: QtC.KTwoFingerTap, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTwoFingerTap, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTwoFingerTap_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KTwoFingerTap, callback: *const fn (KTwoFingerTap, QChildEvent) callconv(.c) void) void {
+        qtc.KTwoFingerTap_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1345,12 +1414,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTwoFingerTap_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KTwoFingerTap, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KTwoFingerTap_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1365,12 +1435,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KTwoFingerTap_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KTwoFingerTap, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KTwoFingerTap_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1381,12 +1452,12 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTwoFingerTap`
+    /// ` self: KTwoFingerTap`
     ///
-    /// ` callback: *const fn (self: QtC.KTwoFingerTap, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KTwoFingerTap, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTwoFingerTap_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KTwoFingerTap, callback: *const fn (KTwoFingerTap, QEvent) callconv(.c) void) void {
+        qtc.KTwoFingerTap_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1397,12 +1468,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KTwoFingerTap_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KTwoFingerTap, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KTwoFingerTap_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1417,12 +1489,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KTwoFingerTap_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KTwoFingerTap, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KTwoFingerTap_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1433,12 +1506,12 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTwoFingerTap`
+    /// ` self: KTwoFingerTap`
     ///
-    /// ` callback: *const fn (self: QtC.KTwoFingerTap, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KTwoFingerTap, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTwoFingerTap_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KTwoFingerTap, callback: *const fn (KTwoFingerTap, QMetaMethod) callconv(.c) void) void {
+        qtc.KTwoFingerTap_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1449,12 +1522,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KTwoFingerTap_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KTwoFingerTap, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KTwoFingerTap_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1469,12 +1543,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KTwoFingerTap_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KTwoFingerTap, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KTwoFingerTap_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1485,12 +1560,12 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTwoFingerTap`
+    /// ` self: KTwoFingerTap`
     ///
-    /// ` callback: *const fn (self: QtC.KTwoFingerTap, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KTwoFingerTap, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTwoFingerTap_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KTwoFingerTap, callback: *const fn (KTwoFingerTap, QMetaMethod) callconv(.c) void) void {
+        qtc.KTwoFingerTap_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1501,10 +1576,10 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KTwoFingerTap_Sender(@ptrCast(self));
+    pub fn Sender(self: KTwoFingerTap) QObject {
+        return .{ .ptr = qtc.KTwoFingerTap_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -1519,10 +1594,10 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KTwoFingerTap_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KTwoFingerTap) QObject {
+        return .{ .ptr = qtc.KTwoFingerTap_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1533,12 +1608,12 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTwoFingerTap`
+    /// ` self: KTwoFingerTap`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KTwoFingerTap_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KTwoFingerTap, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KTwoFingerTap_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1549,10 +1624,10 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KTwoFingerTap_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KTwoFingerTap) i32 {
+        return qtc.KTwoFingerTap_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -1567,10 +1642,10 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KTwoFingerTap_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KTwoFingerTap) i32 {
+        return qtc.KTwoFingerTap_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1581,12 +1656,12 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTwoFingerTap`
+    /// ` self: KTwoFingerTap`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KTwoFingerTap_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KTwoFingerTap, callback: *const fn () callconv(.c) i32) void {
+        qtc.KTwoFingerTap_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1597,13 +1672,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KTwoFingerTap, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KTwoFingerTap_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KTwoFingerTap_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -1618,13 +1693,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KTwoFingerTap, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KTwoFingerTap_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KTwoFingerTap_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1635,12 +1710,12 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTwoFingerTap`
+    /// ` self: KTwoFingerTap`
     ///
-    /// ` callback: *const fn (self: QtC.KTwoFingerTap, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KTwoFingerTap, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KTwoFingerTap_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KTwoFingerTap, callback: *const fn (KTwoFingerTap, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KTwoFingerTap_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1651,12 +1726,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KTwoFingerTap_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KTwoFingerTap, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KTwoFingerTap_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -1671,12 +1747,13 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KTwoFingerTap_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KTwoFingerTap, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KTwoFingerTap_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1687,12 +1764,12 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTwoFingerTap`
+    /// ` self: KTwoFingerTap`
     ///
-    /// ` callback: *const fn (self: QtC.KTwoFingerTap, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KTwoFingerTap, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTwoFingerTap_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KTwoFingerTap, callback: *const fn (KTwoFingerTap, QMetaMethod) callconv(.c) bool) void {
+        qtc.KTwoFingerTap_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1703,12 +1780,12 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    /// ` callback: *const fn (self: QtC.KTwoFingerTap, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KTwoFingerTap, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KTwoFingerTap, callback: *const fn (KTwoFingerTap, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1721,31 +1798,41 @@ pub const ktwofingertap = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KTwoFingerTap `
+    /// ` self: KTwoFingerTap `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KTwoFingerTap_Delete(@ptrCast(self));
+    pub fn Delete(self: KTwoFingerTap) void {
+        qtc.KTwoFingerTap_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://api.kde.org/ktwofingertaprecognizer.html)
-pub const ktwofingertaprecognizer = struct {
+pub const KTwoFingerTapRecognizer = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/ktwofingertaprecognizer.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KTwoFingerTapRecognizer,
+
+    pub const _is_KTwoFingerTapRecognizer = {};
+    pub const _is_QGestureRecognizer = {};
+
     /// New constructs a new KTwoFingerTapRecognizer object.
     ///
-    pub fn New() QtC.KTwoFingerTapRecognizer {
-        return qtc.KTwoFingerTapRecognizer_new();
+    pub fn New() KTwoFingerTapRecognizer {
+        return .{ .ptr = qtc.KTwoFingerTapRecognizer_new() };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktwofingertaprecognizer.html#create)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTapRecognizer `
+    /// ` self: KTwoFingerTapRecognizer `
     ///
-    /// ` target: QtC.QObject `
+    /// ` target: QObject `
     ///
-    pub fn Create(self: ?*anyopaque, target: ?*anyopaque) QtC.QGesture {
-        return qtc.KTwoFingerTapRecognizer_Create(@ptrCast(self), @ptrCast(target));
+    pub fn Create(self: KTwoFingerTapRecognizer, target: anytype) QGesture {
+        comptime _ = @TypeOf(target)._is_QObject;
+        return .{ .ptr = qtc.KTwoFingerTapRecognizer_Create(@ptrCast(self.ptr), @ptrCast(target.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktwofingertaprecognizer.html#create)
@@ -1754,12 +1841,12 @@ pub const ktwofingertaprecognizer = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTwoFingerTapRecognizer `
+    /// ` self: KTwoFingerTapRecognizer `
     ///
-    /// ` callback: *const fn (self: QtC.KTwoFingerTapRecognizer, target: QtC.QObject) callconv(.c) QtC.QGesture `
+    /// ` callback: *const fn (self: KTwoFingerTapRecognizer, target: QObject) callconv(.c) QGesture `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QGesture) void {
-        qtc.KTwoFingerTapRecognizer_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: KTwoFingerTapRecognizer, callback: *const fn (KTwoFingerTapRecognizer, QObject) callconv(.c) QGesture) void {
+        qtc.KTwoFingerTapRecognizer_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -1772,32 +1859,36 @@ pub const ktwofingertaprecognizer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTapRecognizer `
+    /// ` self: KTwoFingerTapRecognizer `
     ///
-    /// ` target: QtC.QObject `
+    /// ` target: QObject `
     ///
-    pub fn SuperCreate(self: ?*anyopaque, target: ?*anyopaque) QtC.QGesture {
-        return qtc.KTwoFingerTapRecognizer_SuperCreate(@ptrCast(self), @ptrCast(target));
+    pub fn SuperCreate(self: KTwoFingerTapRecognizer, target: anytype) QGesture {
+        comptime _ = @TypeOf(target)._is_QObject;
+        return .{ .ptr = qtc.KTwoFingerTapRecognizer_SuperCreate(@ptrCast(self.ptr), @ptrCast(target.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktwofingertaprecognizer.html#recognize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTapRecognizer `
+    /// ` self: KTwoFingerTapRecognizer `
     ///
-    /// ` gesture: QtC.QGesture `
+    /// ` gesture: QGesture `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
     /// ## Returns:
     ///
     /// ` flag of qgesturerecognizer_enums.ResultFlag `
     ///
-    pub fn Recognize(self: ?*anyopaque, gesture: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i32 {
-        return qtc.KTwoFingerTapRecognizer_Recognize(@ptrCast(self), @ptrCast(gesture), @ptrCast(watched), @ptrCast(event));
+    pub fn Recognize(self: KTwoFingerTapRecognizer, gesture: anytype, watched: anytype, event: anytype) i32 {
+        comptime _ = @TypeOf(gesture)._is_QGesture;
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KTwoFingerTapRecognizer_Recognize(@ptrCast(self.ptr), @ptrCast(gesture.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktwofingertaprecognizer.html#recognize)
@@ -1806,12 +1897,12 @@ pub const ktwofingertaprecognizer = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTwoFingerTapRecognizer `
+    /// ` self: KTwoFingerTapRecognizer `
     ///
-    /// ` callback: *const fn (self: QtC.KTwoFingerTapRecognizer, gesture: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KTwoFingerTapRecognizer, gesture: QGesture, watched: QObject, event: QEvent) callconv(.c) i32 `
     ///
-    pub fn OnRecognize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KTwoFingerTapRecognizer_OnRecognize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRecognize(self: KTwoFingerTapRecognizer, callback: *const fn (KTwoFingerTapRecognizer, QGesture, QObject, QEvent) callconv(.c) i32) void {
+        qtc.KTwoFingerTapRecognizer_OnRecognize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRecognize` instead
@@ -1824,42 +1915,45 @@ pub const ktwofingertaprecognizer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTapRecognizer `
+    /// ` self: KTwoFingerTapRecognizer `
     ///
-    /// ` gesture: QtC.QGesture `
+    /// ` gesture: QGesture `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
     /// ## Returns:
     ///
     /// ` flag of qgesturerecognizer_enums.ResultFlag `
     ///
-    pub fn SuperRecognize(self: ?*anyopaque, gesture: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i32 {
-        return qtc.KTwoFingerTapRecognizer_SuperRecognize(@ptrCast(self), @ptrCast(gesture), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperRecognize(self: KTwoFingerTapRecognizer, gesture: anytype, watched: anytype, event: anytype) i32 {
+        comptime _ = @TypeOf(gesture)._is_QGesture;
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KTwoFingerTapRecognizer_SuperRecognize(@ptrCast(self.ptr), @ptrCast(gesture.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktwofingertaprecognizer.html#tapRadius)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTapRecognizer `
+    /// ` self: KTwoFingerTapRecognizer `
     ///
-    pub fn TapRadius(self: ?*anyopaque) i32 {
-        return qtc.KTwoFingerTapRecognizer_TapRadius(@ptrCast(self));
+    pub fn TapRadius(self: KTwoFingerTapRecognizer) i32 {
+        return qtc.KTwoFingerTapRecognizer_TapRadius(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktwofingertaprecognizer.html#setTapRadius)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTapRecognizer `
+    /// ` self: KTwoFingerTapRecognizer `
     ///
     /// ` i: i32 `
     ///
-    pub fn SetTapRadius(self: ?*anyopaque, i: i32) void {
-        qtc.KTwoFingerTapRecognizer_SetTapRadius(@ptrCast(self), @bitCast(i));
+    pub fn SetTapRadius(self: KTwoFingerTapRecognizer, i: i32) void {
+        qtc.KTwoFingerTapRecognizer_SetTapRadius(@ptrCast(self.ptr), @bitCast(i));
     }
 
     /// Inherited from QGestureRecognizer
@@ -1868,14 +1962,15 @@ pub const ktwofingertaprecognizer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` recognizer: QtC.QGestureRecognizer `
+    /// ` recognizer: QGestureRecognizer `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.GestureType `
     ///
-    pub fn RegisterRecognizer(recognizer: ?*anyopaque) i32 {
-        return qtc.QGestureRecognizer_RegisterRecognizer(@ptrCast(recognizer));
+    pub fn RegisterRecognizer(recognizer: anytype) i32 {
+        comptime _ = @TypeOf(recognizer)._is_QGestureRecognizer;
+        return qtc.QGestureRecognizer_RegisterRecognizer(@ptrCast(recognizer.ptr));
     }
 
     /// Inherited from QGestureRecognizer
@@ -1896,12 +1991,13 @@ pub const ktwofingertaprecognizer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTapRecognizer `
+    /// ` self: KTwoFingerTapRecognizer `
     ///
-    /// ` param1: QtC.QGestureRecognizer `
+    /// ` param1: QGestureRecognizer `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QGestureRecognizer_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    pub fn OperatorAssign(self: KTwoFingerTapRecognizer, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QGestureRecognizer;
+        qtc.QGestureRecognizer_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QGestureRecognizer
@@ -1912,12 +2008,13 @@ pub const ktwofingertaprecognizer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTapRecognizer `
+    /// ` self: KTwoFingerTapRecognizer `
     ///
-    /// ` state: QtC.QGesture `
+    /// ` state: QGesture `
     ///
-    pub fn Reset(self: ?*anyopaque, state: ?*anyopaque) void {
-        qtc.KTwoFingerTapRecognizer_Reset(@ptrCast(self), @ptrCast(state));
+    pub fn Reset(self: KTwoFingerTapRecognizer, state: anytype) void {
+        comptime _ = @TypeOf(state)._is_QGesture;
+        qtc.KTwoFingerTapRecognizer_Reset(@ptrCast(self.ptr), @ptrCast(state.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperReset` instead
@@ -1932,12 +2029,13 @@ pub const ktwofingertaprecognizer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTwoFingerTapRecognizer `
+    /// ` self: KTwoFingerTapRecognizer `
     ///
-    /// ` state: QtC.QGesture `
+    /// ` state: QGesture `
     ///
-    pub fn SuperReset(self: ?*anyopaque, state: ?*anyopaque) void {
-        qtc.KTwoFingerTapRecognizer_SuperReset(@ptrCast(self), @ptrCast(state));
+    pub fn SuperReset(self: KTwoFingerTapRecognizer, state: anytype) void {
+        comptime _ = @TypeOf(state)._is_QGesture;
+        qtc.KTwoFingerTapRecognizer_SuperReset(@ptrCast(self.ptr), @ptrCast(state.ptr));
     }
 
     /// Inherited from QGestureRecognizer
@@ -1948,12 +2046,12 @@ pub const ktwofingertaprecognizer = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KTwoFingerTapRecognizer`
+    /// ` self: KTwoFingerTapRecognizer`
     ///
-    /// ` callback: *const fn (self: QtC.KTwoFingerTapRecognizer, state: QtC.QGesture) callconv(.c) void `
+    /// ` callback: *const fn (self: KTwoFingerTapRecognizer, state: QGesture) callconv(.c) void `
     ///
-    pub fn OnReset(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTwoFingerTapRecognizer_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReset(self: KTwoFingerTapRecognizer, callback: *const fn (KTwoFingerTapRecognizer, QGesture) callconv(.c) void) void {
+        qtc.KTwoFingerTapRecognizer_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1966,9 +2064,9 @@ pub const ktwofingertaprecognizer = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KTwoFingerTapRecognizer `
+    /// ` self: KTwoFingerTapRecognizer `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KTwoFingerTapRecognizer_Delete(@ptrCast(self));
+    pub fn Delete(self: KTwoFingerTapRecognizer) void {
+        qtc.KTwoFingerTapRecognizer_Delete(@ptrCast(self.ptr));
     }
 };

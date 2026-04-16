@@ -1,25 +1,36 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QMetaType = @import("libqt6").QMetaType;
+const QVariant = @import("libqt6").QVariant;
 const qsqlfield_enums = enums;
 const qvariant_enums = @import("../libqvariant.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html)
-pub const qsqlfield = struct {
+pub const QSqlField = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QSqlField,
+
+    pub const _is_QSqlField = {};
+
     /// New constructs a new QSqlField object.
     ///
-    pub fn New() QtC.QSqlField {
-        return qtc.QSqlField_new();
+    pub fn New() QSqlField {
+        return .{ .ptr = qtc.QSqlField_new() };
     }
 
     /// New2 constructs a new QSqlField object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QSqlField `
+    /// ` other: QSqlField `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QSqlField {
-        return qtc.QSqlField_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QSqlField {
+        comptime _ = @TypeOf(other)._is_QSqlField;
+        return .{ .ptr = qtc.QSqlField_new2(@ptrCast(other.ptr)) };
     }
 
     /// New3 constructs a new QSqlField object.
@@ -30,13 +41,12 @@ pub const qsqlfield = struct {
     ///
     /// ` typeVal: qvariant_enums.Type `
     ///
-    pub fn New3(fieldName: []const u8, typeVal: i32) QtC.QSqlField {
+    pub fn New3(fieldName: []const u8, typeVal: i32) QSqlField {
         const fieldName_str = qtc.libqt_string{
             .len = fieldName.len,
             .data = fieldName.ptr,
         };
-
-        return qtc.QSqlField_new3(fieldName_str, @bitCast(typeVal));
+        return .{ .ptr = qtc.QSqlField_new3(fieldName_str, @bitCast(typeVal)) };
     }
 
     /// New4 constructs a new QSqlField object.
@@ -45,13 +55,12 @@ pub const qsqlfield = struct {
     ///
     /// ` fieldName: []const u8 `
     ///
-    pub fn New4(fieldName: []const u8) QtC.QSqlField {
+    pub fn New4(fieldName: []const u8) QSqlField {
         const fieldName_str = qtc.libqt_string{
             .len = fieldName.len,
             .data = fieldName.ptr,
         };
-
-        return qtc.QSqlField_new4(fieldName_str);
+        return .{ .ptr = qtc.QSqlField_new4(fieldName_str) };
     }
 
     /// New5 constructs a new QSqlField object.
@@ -60,15 +69,15 @@ pub const qsqlfield = struct {
     ///
     /// ` fieldName: []const u8 `
     ///
-    /// ` typeVal: QtC.QMetaType `
+    /// ` typeVal: QMetaType `
     ///
-    pub fn New5(fieldName: []const u8, typeVal: QtC.QMetaType) QtC.QSqlField {
+    pub fn New5(fieldName: []const u8, typeVal: anytype) QSqlField {
         const fieldName_str = qtc.libqt_string{
             .len = fieldName.len,
             .data = fieldName.ptr,
         };
-
-        return qtc.QSqlField_new5(fieldName_str, @ptrCast(typeVal));
+        comptime _ = @TypeOf(typeVal)._is_QMetaType;
+        return .{ .ptr = qtc.QSqlField_new5(fieldName_str, @ptrCast(typeVal.ptr)) };
     }
 
     /// New6 constructs a new QSqlField object.
@@ -77,21 +86,21 @@ pub const qsqlfield = struct {
     ///
     /// ` fieldName: []const u8 `
     ///
-    /// ` typeVal: QtC.QMetaType `
+    /// ` typeVal: QMetaType `
     ///
     /// ` tableName: []const u8 `
     ///
-    pub fn New6(fieldName: []const u8, typeVal: QtC.QMetaType, tableName: []const u8) QtC.QSqlField {
+    pub fn New6(fieldName: []const u8, typeVal: anytype, tableName: []const u8) QSqlField {
         const fieldName_str = qtc.libqt_string{
             .len = fieldName.len,
             .data = fieldName.ptr,
         };
+        comptime _ = @TypeOf(typeVal)._is_QMetaType;
         const tableName_str = qtc.libqt_string{
             .len = tableName.len,
             .data = tableName.ptr,
         };
-
-        return qtc.QSqlField_new6(fieldName_str, @ptrCast(typeVal), tableName_str);
+        return .{ .ptr = qtc.QSqlField_new6(fieldName_str, @ptrCast(typeVal.ptr), tableName_str) };
     }
 
     /// New7 constructs a new QSqlField object.
@@ -104,7 +113,7 @@ pub const qsqlfield = struct {
     ///
     /// ` tableName: []const u8 `
     ///
-    pub fn New7(fieldName: []const u8, typeVal: i32, tableName: []const u8) QtC.QSqlField {
+    pub fn New7(fieldName: []const u8, typeVal: i32, tableName: []const u8) QSqlField {
         const fieldName_str = qtc.libqt_string{
             .len = fieldName.len,
             .data = fieldName.ptr,
@@ -113,106 +122,110 @@ pub const qsqlfield = struct {
             .len = tableName.len,
             .data = tableName.ptr,
         };
-
-        return qtc.QSqlField_new7(fieldName_str, @bitCast(typeVal), tableName_str);
+        return .{ .ptr = qtc.QSqlField_new7(fieldName_str, @bitCast(typeVal), tableName_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
-    /// ` other: QtC.QSqlField `
+    /// ` other: QSqlField `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QSqlField_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QSqlField, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QSqlField;
+        qtc.QSqlField_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
-    /// ` other: QtC.QSqlField `
+    /// ` other: QSqlField `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QSqlField_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QSqlField, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QSqlField;
+        qtc.QSqlField_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#operator-eq-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
-    /// ` other: QtC.QSqlField `
+    /// ` other: QSqlField `
     ///
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QSqlField_OperatorEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorEqual(self: QSqlField, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QSqlField;
+        return qtc.QSqlField_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#operator-not-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
-    /// ` other: QtC.QSqlField `
+    /// ` other: QSqlField `
     ///
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QSqlField_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorNotEqual(self: QSqlField, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QSqlField;
+        return qtc.QSqlField_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#setValue)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetValue(self: ?*anyopaque, value: ?*anyopaque) void {
-        qtc.QSqlField_SetValue(@ptrCast(self), @ptrCast(value));
+    pub fn SetValue(self: QSqlField, value: anytype) void {
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QSqlField_SetValue(@ptrCast(self.ptr), @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#value)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
-    pub fn Value(self: ?*anyopaque) QtC.QVariant {
-        return qtc.QSqlField_Value(@ptrCast(self));
+    pub fn Value(self: QSqlField) QVariant {
+        return .{ .ptr = qtc.QSqlField_Value(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#setName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetName(self: QSqlField, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QSqlField_SetName(@ptrCast(self), name_str);
+        qtc.QSqlField_SetName(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#name)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QSqlField_Name(@ptrCast(self));
+    pub fn Name(self: QSqlField, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QSqlField_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlfield.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -223,28 +236,28 @@ pub const qsqlfield = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
     /// ` tableName: []const u8 `
     ///
-    pub fn SetTableName(self: ?*anyopaque, tableName: []const u8) void {
+    pub fn SetTableName(self: QSqlField, tableName: []const u8) void {
         const tableName_str = qtc.libqt_string{
             .len = tableName.len,
             .data = tableName.ptr,
         };
-        qtc.QSqlField_SetTableName(@ptrCast(self), tableName_str);
+        qtc.QSqlField_SetTableName(@ptrCast(self.ptr), tableName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#tableName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TableName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QSqlField_TableName(@ptrCast(self));
+    pub fn TableName(self: QSqlField, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QSqlField_TableName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlfield.TableName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -255,270 +268,272 @@ pub const qsqlfield = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
-    pub fn IsNull(self: ?*anyopaque) bool {
-        return qtc.QSqlField_IsNull(@ptrCast(self));
+    pub fn IsNull(self: QSqlField) bool {
+        return qtc.QSqlField_IsNull(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#setReadOnly)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
     /// ` readOnly: bool `
     ///
-    pub fn SetReadOnly(self: ?*anyopaque, readOnly: bool) void {
-        qtc.QSqlField_SetReadOnly(@ptrCast(self), readOnly);
+    pub fn SetReadOnly(self: QSqlField, readOnly: bool) void {
+        qtc.QSqlField_SetReadOnly(@ptrCast(self.ptr), readOnly);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#isReadOnly)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
-    pub fn IsReadOnly(self: ?*anyopaque) bool {
-        return qtc.QSqlField_IsReadOnly(@ptrCast(self));
+    pub fn IsReadOnly(self: QSqlField) bool {
+        return qtc.QSqlField_IsReadOnly(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#clear)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
-    pub fn Clear(self: ?*anyopaque) void {
-        qtc.QSqlField_Clear(@ptrCast(self));
+    pub fn Clear(self: QSqlField) void {
+        qtc.QSqlField_Clear(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#isAutoValue)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
-    pub fn IsAutoValue(self: ?*anyopaque) bool {
-        return qtc.QSqlField_IsAutoValue(@ptrCast(self));
+    pub fn IsAutoValue(self: QSqlField) bool {
+        return qtc.QSqlField_IsAutoValue(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#metaType)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
-    pub fn MetaType(self: ?*anyopaque) QtC.QMetaType {
-        return qtc.QSqlField_MetaType(@ptrCast(self));
+    pub fn MetaType(self: QSqlField) QMetaType {
+        return .{ .ptr = qtc.QSqlField_MetaType(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#setMetaType)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
-    /// ` typeVal: QtC.QMetaType `
+    /// ` typeVal: QMetaType `
     ///
-    pub fn SetMetaType(self: ?*anyopaque, typeVal: QtC.QMetaType) void {
-        qtc.QSqlField_SetMetaType(@ptrCast(self), @ptrCast(typeVal));
+    pub fn SetMetaType(self: QSqlField, typeVal: anytype) void {
+        comptime _ = @TypeOf(typeVal)._is_QMetaType;
+        qtc.QSqlField_SetMetaType(@ptrCast(self.ptr), @ptrCast(typeVal.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#type)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
     /// ## Returns:
     ///
     /// ` qvariant_enums.Type `
     ///
-    pub fn Type(self: ?*anyopaque) i32 {
-        return qtc.QSqlField_Type(@ptrCast(self));
+    pub fn Type(self: QSqlField) i32 {
+        return qtc.QSqlField_Type(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#setType)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
     /// ` typeVal: qvariant_enums.Type `
     ///
-    pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QSqlField_SetType(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetType(self: QSqlField, typeVal: i32) void {
+        qtc.QSqlField_SetType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#setRequiredStatus)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
     /// ` status: qsqlfield_enums.RequiredStatus `
     ///
-    pub fn SetRequiredStatus(self: ?*anyopaque, status: i32) void {
-        qtc.QSqlField_SetRequiredStatus(@ptrCast(self), @bitCast(status));
+    pub fn SetRequiredStatus(self: QSqlField, status: i32) void {
+        qtc.QSqlField_SetRequiredStatus(@ptrCast(self.ptr), @bitCast(status));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#setRequired)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
     /// ` required: bool `
     ///
-    pub fn SetRequired(self: ?*anyopaque, required: bool) void {
-        qtc.QSqlField_SetRequired(@ptrCast(self), required);
+    pub fn SetRequired(self: QSqlField, required: bool) void {
+        qtc.QSqlField_SetRequired(@ptrCast(self.ptr), required);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#setLength)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
     /// ` fieldLength: i32 `
     ///
-    pub fn SetLength(self: ?*anyopaque, fieldLength: i32) void {
-        qtc.QSqlField_SetLength(@ptrCast(self), @bitCast(fieldLength));
+    pub fn SetLength(self: QSqlField, fieldLength: i32) void {
+        qtc.QSqlField_SetLength(@ptrCast(self.ptr), @bitCast(fieldLength));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#setPrecision)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
     /// ` precision: i32 `
     ///
-    pub fn SetPrecision(self: ?*anyopaque, precision: i32) void {
-        qtc.QSqlField_SetPrecision(@ptrCast(self), @bitCast(precision));
+    pub fn SetPrecision(self: QSqlField, precision: i32) void {
+        qtc.QSqlField_SetPrecision(@ptrCast(self.ptr), @bitCast(precision));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#setDefaultValue)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetDefaultValue(self: ?*anyopaque, value: ?*anyopaque) void {
-        qtc.QSqlField_SetDefaultValue(@ptrCast(self), @ptrCast(value));
+    pub fn SetDefaultValue(self: QSqlField, value: anytype) void {
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QSqlField_SetDefaultValue(@ptrCast(self.ptr), @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#setSqlType)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn SetSqlType(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QSqlField_SetSqlType(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetSqlType(self: QSqlField, typeVal: i32) void {
+        qtc.QSqlField_SetSqlType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#setGenerated)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
     /// ` gen: bool `
     ///
-    pub fn SetGenerated(self: ?*anyopaque, gen: bool) void {
-        qtc.QSqlField_SetGenerated(@ptrCast(self), gen);
+    pub fn SetGenerated(self: QSqlField, gen: bool) void {
+        qtc.QSqlField_SetGenerated(@ptrCast(self.ptr), gen);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#setAutoValue)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
     /// ` autoVal: bool `
     ///
-    pub fn SetAutoValue(self: ?*anyopaque, autoVal: bool) void {
-        qtc.QSqlField_SetAutoValue(@ptrCast(self), autoVal);
+    pub fn SetAutoValue(self: QSqlField, autoVal: bool) void {
+        qtc.QSqlField_SetAutoValue(@ptrCast(self.ptr), autoVal);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#requiredStatus)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
     /// ## Returns:
     ///
     /// ` qsqlfield_enums.RequiredStatus `
     ///
-    pub fn RequiredStatus(self: ?*anyopaque) i32 {
-        return qtc.QSqlField_RequiredStatus(@ptrCast(self));
+    pub fn RequiredStatus(self: QSqlField) i32 {
+        return qtc.QSqlField_RequiredStatus(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#length)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
-    pub fn Length(self: ?*anyopaque) i32 {
-        return qtc.QSqlField_Length(@ptrCast(self));
+    pub fn Length(self: QSqlField) i32 {
+        return qtc.QSqlField_Length(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#precision)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
-    pub fn Precision(self: ?*anyopaque) i32 {
-        return qtc.QSqlField_Precision(@ptrCast(self));
+    pub fn Precision(self: QSqlField) i32 {
+        return qtc.QSqlField_Precision(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#defaultValue)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
-    pub fn DefaultValue(self: ?*anyopaque) QtC.QVariant {
-        return qtc.QSqlField_DefaultValue(@ptrCast(self));
+    pub fn DefaultValue(self: QSqlField) QVariant {
+        return .{ .ptr = qtc.QSqlField_DefaultValue(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#typeID)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
-    pub fn TypeID(self: ?*anyopaque) i32 {
-        return qtc.QSqlField_TypeID(@ptrCast(self));
+    pub fn TypeID(self: QSqlField) i32 {
+        return qtc.QSqlField_TypeID(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#isGenerated)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
-    pub fn IsGenerated(self: ?*anyopaque) bool {
-        return qtc.QSqlField_IsGenerated(@ptrCast(self));
+    pub fn IsGenerated(self: QSqlField) bool {
+        return qtc.QSqlField_IsGenerated(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlfield.html#isValid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.QSqlField_IsValid(@ptrCast(self));
+    pub fn IsValid(self: QSqlField) bool {
+        return qtc.QSqlField_IsValid(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -531,10 +546,10 @@ pub const qsqlfield = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QSqlField `
+    /// ` self: QSqlField `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QSqlField_Delete(@ptrCast(self));
+    pub fn Delete(self: QSqlField) void {
+        qtc.QSqlField_Delete(@ptrCast(self.ptr));
     }
 };
 

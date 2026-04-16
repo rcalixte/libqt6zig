@@ -1,26 +1,38 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QEvent = @import("libqt6").QEvent;
+const QGesture = @import("libqt6").QGesture;
+const QObject = @import("libqt6").QObject;
 const qgesturerecognizer_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html)
-pub const qgesturerecognizer = struct {
+pub const QGestureRecognizer = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QGestureRecognizer,
+
+    pub const _is_QGestureRecognizer = {};
+
     /// New constructs a new QGestureRecognizer object.
     ///
-    pub fn New() QtC.QGestureRecognizer {
-        return qtc.QGestureRecognizer_new();
+    pub fn New() QGestureRecognizer {
+        return .{ .ptr = qtc.QGestureRecognizer_new() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#create)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGestureRecognizer `
+    /// ` self: QGestureRecognizer `
     ///
-    /// ` target: QtC.QObject `
+    /// ` target: QObject `
     ///
-    pub fn Create(self: ?*anyopaque, target: ?*anyopaque) QtC.QGesture {
-        return qtc.QGestureRecognizer_Create(@ptrCast(self), @ptrCast(target));
+    pub fn Create(self: QGestureRecognizer, target: anytype) QGesture {
+        comptime _ = @TypeOf(target)._is_QObject;
+        return .{ .ptr = qtc.QGestureRecognizer_Create(@ptrCast(self.ptr), @ptrCast(target.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#create)
@@ -29,12 +41,12 @@ pub const qgesturerecognizer = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGestureRecognizer `
+    /// ` self: QGestureRecognizer `
     ///
-    /// ` callback: *const fn (self: QtC.QGestureRecognizer, target: QtC.QObject) callconv(.c) QtC.QGesture `
+    /// ` callback: *const fn (self: QGestureRecognizer, target: QObject) callconv(.c) QGesture `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QGesture) void {
-        qtc.QGestureRecognizer_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: QGestureRecognizer, callback: *const fn (QGestureRecognizer, QObject) callconv(.c) QGesture) void {
+        qtc.QGestureRecognizer_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -47,32 +59,36 @@ pub const qgesturerecognizer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGestureRecognizer `
+    /// ` self: QGestureRecognizer `
     ///
-    /// ` target: QtC.QObject `
+    /// ` target: QObject `
     ///
-    pub fn SuperCreate(self: ?*anyopaque, target: ?*anyopaque) QtC.QGesture {
-        return qtc.QGestureRecognizer_SuperCreate(@ptrCast(self), @ptrCast(target));
+    pub fn SuperCreate(self: QGestureRecognizer, target: anytype) QGesture {
+        comptime _ = @TypeOf(target)._is_QObject;
+        return .{ .ptr = qtc.QGestureRecognizer_SuperCreate(@ptrCast(self.ptr), @ptrCast(target.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#recognize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGestureRecognizer `
+    /// ` self: QGestureRecognizer `
     ///
-    /// ` state: QtC.QGesture `
+    /// ` state: QGesture `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
     /// ## Returns:
     ///
     /// ` flag of qgesturerecognizer_enums.ResultFlag `
     ///
-    pub fn Recognize(self: ?*anyopaque, state: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i32 {
-        return qtc.QGestureRecognizer_Recognize(@ptrCast(self), @ptrCast(state), @ptrCast(watched), @ptrCast(event));
+    pub fn Recognize(self: QGestureRecognizer, state: anytype, watched: anytype, event: anytype) i32 {
+        comptime _ = @TypeOf(state)._is_QGesture;
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QGestureRecognizer_Recognize(@ptrCast(self.ptr), @ptrCast(state.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#recognize)
@@ -81,12 +97,12 @@ pub const qgesturerecognizer = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGestureRecognizer `
+    /// ` self: QGestureRecognizer `
     ///
-    /// ` callback: *const fn (self: QtC.QGestureRecognizer, state: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QGestureRecognizer, state: QGesture, watched: QObject, event: QEvent) callconv(.c) i32 `
     ///
-    pub fn OnRecognize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QGestureRecognizer_OnRecognize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRecognize(self: QGestureRecognizer, callback: *const fn (QGestureRecognizer, QGesture, QObject, QEvent) callconv(.c) i32) void {
+        qtc.QGestureRecognizer_OnRecognize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRecognize` instead
@@ -99,32 +115,36 @@ pub const qgesturerecognizer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGestureRecognizer `
+    /// ` self: QGestureRecognizer `
     ///
-    /// ` state: QtC.QGesture `
+    /// ` state: QGesture `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
     /// ## Returns:
     ///
     /// ` flag of qgesturerecognizer_enums.ResultFlag `
     ///
-    pub fn SuperRecognize(self: ?*anyopaque, state: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i32 {
-        return qtc.QGestureRecognizer_SuperRecognize(@ptrCast(self), @ptrCast(state), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperRecognize(self: QGestureRecognizer, state: anytype, watched: anytype, event: anytype) i32 {
+        comptime _ = @TypeOf(state)._is_QGesture;
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QGestureRecognizer_SuperRecognize(@ptrCast(self.ptr), @ptrCast(state.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#reset)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGestureRecognizer `
+    /// ` self: QGestureRecognizer `
     ///
-    /// ` state: QtC.QGesture `
+    /// ` state: QGesture `
     ///
-    pub fn Reset(self: ?*anyopaque, state: ?*anyopaque) void {
-        qtc.QGestureRecognizer_Reset(@ptrCast(self), @ptrCast(state));
+    pub fn Reset(self: QGestureRecognizer, state: anytype) void {
+        comptime _ = @TypeOf(state)._is_QGesture;
+        qtc.QGestureRecognizer_Reset(@ptrCast(self.ptr), @ptrCast(state.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#reset)
@@ -133,12 +153,12 @@ pub const qgesturerecognizer = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QGestureRecognizer `
+    /// ` self: QGestureRecognizer `
     ///
-    /// ` callback: *const fn (self: QtC.QGestureRecognizer, state: QtC.QGesture) callconv(.c) void `
+    /// ` callback: *const fn (self: QGestureRecognizer, state: QGesture) callconv(.c) void `
     ///
-    pub fn OnReset(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGestureRecognizer_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReset(self: QGestureRecognizer, callback: *const fn (QGestureRecognizer, QGesture) callconv(.c) void) void {
+        qtc.QGestureRecognizer_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperReset` instead
@@ -151,26 +171,28 @@ pub const qgesturerecognizer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGestureRecognizer `
+    /// ` self: QGestureRecognizer `
     ///
-    /// ` state: QtC.QGesture `
+    /// ` state: QGesture `
     ///
-    pub fn SuperReset(self: ?*anyopaque, state: ?*anyopaque) void {
-        qtc.QGestureRecognizer_SuperReset(@ptrCast(self), @ptrCast(state));
+    pub fn SuperReset(self: QGestureRecognizer, state: anytype) void {
+        comptime _ = @TypeOf(state)._is_QGesture;
+        qtc.QGestureRecognizer_SuperReset(@ptrCast(self.ptr), @ptrCast(state.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#registerRecognizer)
     ///
     /// ## Parameter(s):
     ///
-    /// ` recognizer: QtC.QGestureRecognizer `
+    /// ` recognizer: QGestureRecognizer `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.GestureType `
     ///
-    pub fn RegisterRecognizer(recognizer: ?*anyopaque) i32 {
-        return qtc.QGestureRecognizer_RegisterRecognizer(@ptrCast(recognizer));
+    pub fn RegisterRecognizer(recognizer: anytype) i32 {
+        comptime _ = @TypeOf(recognizer)._is_QGestureRecognizer;
+        return qtc.QGestureRecognizer_RegisterRecognizer(@ptrCast(recognizer.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgesturerecognizer.html#unregisterRecognizer)
@@ -187,12 +209,13 @@ pub const qgesturerecognizer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QGestureRecognizer `
+    /// ` self: QGestureRecognizer `
     ///
-    /// ` param1: QtC.QGestureRecognizer `
+    /// ` param1: QGestureRecognizer `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QGestureRecognizer_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    pub fn OperatorAssign(self: QGestureRecognizer, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QGestureRecognizer;
+        qtc.QGestureRecognizer_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -205,10 +228,10 @@ pub const qgesturerecognizer = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QGestureRecognizer `
+    /// ` self: QGestureRecognizer `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QGestureRecognizer_Delete(@ptrCast(self));
+    pub fn Delete(self: QGestureRecognizer) void {
+        qtc.QGestureRecognizer_Delete(@ptrCast(self.ptr));
     }
 };
 

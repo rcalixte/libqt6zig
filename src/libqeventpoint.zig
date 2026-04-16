@@ -1,13 +1,26 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QPointF = @import("libqt6").QPointF;
+const QPointingDevice = @import("libqt6").QPointingDevice;
+const QPointingDeviceUniqueId = @import("libqt6").QPointingDeviceUniqueId;
+const QSizeF = @import("libqt6").QSizeF;
+const QVector2D = @import("libqt6").QVector2D;
 const qeventpoint_enums = enums;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html)
-pub const qeventpoint = struct {
+pub const QEventPoint = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QEventPoint,
+
+    pub const _is_QEventPoint = {};
+
     /// New constructs a new QEventPoint object.
     ///
-    pub fn New() QtC.QEventPoint {
-        return qtc.QEventPoint_new();
+    pub fn New() QEventPoint {
+        return .{ .ptr = qtc.QEventPoint_new() };
     }
 
     /// New2 constructs a new QEventPoint object.
@@ -18,22 +31,25 @@ pub const qeventpoint = struct {
     ///
     /// ` state: qeventpoint_enums.State `
     ///
-    /// ` scenePosition: QtC.QPointF `
+    /// ` scenePosition: QPointF `
     ///
-    /// ` globalPosition: QtC.QPointF `
+    /// ` globalPosition: QPointF `
     ///
-    pub fn New2(pointId: i32, state: u8, scenePosition: ?*anyopaque, globalPosition: ?*anyopaque) QtC.QEventPoint {
-        return qtc.QEventPoint_new2(@bitCast(pointId), @bitCast(state), @ptrCast(scenePosition), @ptrCast(globalPosition));
+    pub fn New2(pointId: i32, state: u8, scenePosition: anytype, globalPosition: anytype) QEventPoint {
+        comptime _ = @TypeOf(scenePosition)._is_QPointF;
+        comptime _ = @TypeOf(globalPosition)._is_QPointF;
+        return .{ .ptr = qtc.QEventPoint_new2(@bitCast(pointId), @bitCast(state), @ptrCast(scenePosition.ptr), @ptrCast(globalPosition.ptr)) };
     }
 
     /// New3 constructs a new QEventPoint object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QEventPoint `
+    /// ` other: QEventPoint `
     ///
-    pub fn New3(other: ?*anyopaque) QtC.QEventPoint {
-        return qtc.QEventPoint_new3(@ptrCast(other));
+    pub fn New3(other: anytype) QEventPoint {
+        comptime _ = @TypeOf(other)._is_QEventPoint;
+        return .{ .ptr = qtc.QEventPoint_new3(@ptrCast(other.ptr)) };
     }
 
     /// New4 constructs a new QEventPoint object.
@@ -42,8 +58,8 @@ pub const qeventpoint = struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn New4(id: i32) QtC.QEventPoint {
-        return qtc.QEventPoint_new4(@bitCast(id));
+    pub fn New4(id: i32) QEventPoint {
+        return .{ .ptr = qtc.QEventPoint_new4(@bitCast(id)) };
     }
 
     /// New5 constructs a new QEventPoint object.
@@ -52,464 +68,469 @@ pub const qeventpoint = struct {
     ///
     /// ` id: i32 `
     ///
-    /// ` device: QtC.QPointingDevice `
+    /// ` device: QPointingDevice `
     ///
-    pub fn New5(id: i32, device: ?*anyopaque) QtC.QEventPoint {
-        return qtc.QEventPoint_new5(@bitCast(id), @ptrCast(device));
+    pub fn New5(id: i32, device: anytype) QEventPoint {
+        comptime _ = @TypeOf(device)._is_QPointingDevice;
+        return .{ .ptr = qtc.QEventPoint_new5(@bitCast(id), @ptrCast(device.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    /// ` other: QtC.QEventPoint `
+    /// ` other: QEventPoint `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QEventPoint_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QEventPoint, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QEventPoint;
+        qtc.QEventPoint_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#operator-eq-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    /// ` other: QtC.QEventPoint `
+    /// ` other: QEventPoint `
     ///
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QEventPoint_OperatorEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorEqual(self: QEventPoint, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QEventPoint;
+        return qtc.QEventPoint_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#operator-not-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    /// ` other: QtC.QEventPoint `
+    /// ` other: QEventPoint `
     ///
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QEventPoint_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorNotEqual(self: QEventPoint, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QEventPoint;
+        return qtc.QEventPoint_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    /// ` other: QtC.QEventPoint `
+    /// ` other: QEventPoint `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QEventPoint_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QEventPoint, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QEventPoint;
+        qtc.QEventPoint_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#position)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn Position(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_Position(@ptrCast(self));
+    pub fn Position(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_Position(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#pressPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn PressPosition(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_PressPosition(@ptrCast(self));
+    pub fn PressPosition(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_PressPosition(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#grabPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn GrabPosition(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_GrabPosition(@ptrCast(self));
+    pub fn GrabPosition(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_GrabPosition(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#lastPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn LastPosition(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_LastPosition(@ptrCast(self));
+    pub fn LastPosition(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_LastPosition(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#scenePosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn ScenePosition(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_ScenePosition(@ptrCast(self));
+    pub fn ScenePosition(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_ScenePosition(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#scenePressPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn ScenePressPosition(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_ScenePressPosition(@ptrCast(self));
+    pub fn ScenePressPosition(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_ScenePressPosition(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#sceneGrabPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn SceneGrabPosition(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_SceneGrabPosition(@ptrCast(self));
+    pub fn SceneGrabPosition(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_SceneGrabPosition(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#sceneLastPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn SceneLastPosition(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_SceneLastPosition(@ptrCast(self));
+    pub fn SceneLastPosition(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_SceneLastPosition(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#globalPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn GlobalPosition(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_GlobalPosition(@ptrCast(self));
+    pub fn GlobalPosition(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_GlobalPosition(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#globalPressPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn GlobalPressPosition(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_GlobalPressPosition(@ptrCast(self));
+    pub fn GlobalPressPosition(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_GlobalPressPosition(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#globalGrabPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn GlobalGrabPosition(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_GlobalGrabPosition(@ptrCast(self));
+    pub fn GlobalGrabPosition(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_GlobalGrabPosition(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#globalLastPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn GlobalLastPosition(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_GlobalLastPosition(@ptrCast(self));
+    pub fn GlobalLastPosition(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_GlobalLastPosition(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#normalizedPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn NormalizedPosition(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_NormalizedPosition(@ptrCast(self));
+    pub fn NormalizedPosition(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_NormalizedPosition(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#pos)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_Pos(@ptrCast(self));
+    pub fn Pos(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_Pos(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#startPos)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn StartPos(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_StartPos(@ptrCast(self));
+    pub fn StartPos(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_StartPos(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#scenePos)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn ScenePos(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_ScenePos(@ptrCast(self));
+    pub fn ScenePos(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_ScenePos(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#startScenePos)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn StartScenePos(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_StartScenePos(@ptrCast(self));
+    pub fn StartScenePos(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_StartScenePos(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#screenPos)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn ScreenPos(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_ScreenPos(@ptrCast(self));
+    pub fn ScreenPos(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_ScreenPos(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#startScreenPos)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn StartScreenPos(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_StartScreenPos(@ptrCast(self));
+    pub fn StartScreenPos(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_StartScreenPos(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#startNormalizedPos)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn StartNormalizedPos(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_StartNormalizedPos(@ptrCast(self));
+    pub fn StartNormalizedPos(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_StartNormalizedPos(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#normalizedPos)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn NormalizedPos(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_NormalizedPos(@ptrCast(self));
+    pub fn NormalizedPos(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_NormalizedPos(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#lastPos)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn LastPos(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_LastPos(@ptrCast(self));
+    pub fn LastPos(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_LastPos(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#lastScenePos)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn LastScenePos(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_LastScenePos(@ptrCast(self));
+    pub fn LastScenePos(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_LastScenePos(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#lastScreenPos)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn LastScreenPos(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_LastScreenPos(@ptrCast(self));
+    pub fn LastScreenPos(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_LastScreenPos(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#lastNormalizedPos)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn LastNormalizedPos(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QEventPoint_LastNormalizedPos(@ptrCast(self));
+    pub fn LastNormalizedPos(self: QEventPoint) QPointF {
+        return .{ .ptr = qtc.QEventPoint_LastNormalizedPos(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#velocity)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn Velocity(self: ?*anyopaque) QtC.QVector2D {
-        return qtc.QEventPoint_Velocity(@ptrCast(self));
+    pub fn Velocity(self: QEventPoint) QVector2D {
+        return .{ .ptr = qtc.QEventPoint_Velocity(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#state)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
     /// ## Returns:
     ///
     /// ` qeventpoint_enums.State `
     ///
-    pub fn State(self: ?*anyopaque) u8 {
-        return qtc.QEventPoint_State(@ptrCast(self));
+    pub fn State(self: QEventPoint) u8 {
+        return qtc.QEventPoint_State(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#device)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn Device(self: ?*anyopaque) QtC.QPointingDevice {
-        return qtc.QEventPoint_Device(@ptrCast(self));
+    pub fn Device(self: QEventPoint) QPointingDevice {
+        return .{ .ptr = qtc.QEventPoint_Device(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#id)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn Id(self: ?*anyopaque) i32 {
-        return qtc.QEventPoint_Id(@ptrCast(self));
+    pub fn Id(self: QEventPoint) i32 {
+        return qtc.QEventPoint_Id(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#uniqueId)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn UniqueId(self: ?*anyopaque) QtC.QPointingDeviceUniqueId {
-        return qtc.QEventPoint_UniqueId(@ptrCast(self));
+    pub fn UniqueId(self: QEventPoint) QPointingDeviceUniqueId {
+        return .{ .ptr = qtc.QEventPoint_UniqueId(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#timestamp)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn Timestamp(self: ?*anyopaque) usize {
-        return qtc.QEventPoint_Timestamp(@ptrCast(self));
+    pub fn Timestamp(self: QEventPoint) usize {
+        return qtc.QEventPoint_Timestamp(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#lastTimestamp)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn LastTimestamp(self: ?*anyopaque) usize {
-        return qtc.QEventPoint_LastTimestamp(@ptrCast(self));
+    pub fn LastTimestamp(self: QEventPoint) usize {
+        return qtc.QEventPoint_LastTimestamp(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#pressTimestamp)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn PressTimestamp(self: ?*anyopaque) usize {
-        return qtc.QEventPoint_PressTimestamp(@ptrCast(self));
+    pub fn PressTimestamp(self: QEventPoint) usize {
+        return qtc.QEventPoint_PressTimestamp(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#timeHeld)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn TimeHeld(self: ?*anyopaque) f64 {
-        return qtc.QEventPoint_TimeHeld(@ptrCast(self));
+    pub fn TimeHeld(self: QEventPoint) f64 {
+        return qtc.QEventPoint_TimeHeld(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#pressure)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn Pressure(self: ?*anyopaque) f64 {
-        return qtc.QEventPoint_Pressure(@ptrCast(self));
+    pub fn Pressure(self: QEventPoint) f64 {
+        return qtc.QEventPoint_Pressure(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#rotation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn Rotation(self: ?*anyopaque) f64 {
-        return qtc.QEventPoint_Rotation(@ptrCast(self));
+    pub fn Rotation(self: QEventPoint) f64 {
+        return qtc.QEventPoint_Rotation(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#ellipseDiameters)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn EllipseDiameters(self: ?*anyopaque) QtC.QSizeF {
-        return qtc.QEventPoint_EllipseDiameters(@ptrCast(self));
+    pub fn EllipseDiameters(self: QEventPoint) QSizeF {
+        return .{ .ptr = qtc.QEventPoint_EllipseDiameters(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#isAccepted)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn IsAccepted(self: ?*anyopaque) bool {
-        return qtc.QEventPoint_IsAccepted(@ptrCast(self));
+    pub fn IsAccepted(self: QEventPoint) bool {
+        return qtc.QEventPoint_IsAccepted(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#setAccepted)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn SetAccepted(self: ?*anyopaque) void {
-        qtc.QEventPoint_SetAccepted(@ptrCast(self));
+    pub fn SetAccepted(self: QEventPoint) void {
+        qtc.QEventPoint_SetAccepted(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qeventpoint.html#setAccepted)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
     /// ` accepted: bool `
     ///
-    pub fn SetAccepted1(self: ?*anyopaque, accepted: bool) void {
-        qtc.QEventPoint_SetAccepted1(@ptrCast(self), accepted);
+    pub fn SetAccepted1(self: QEventPoint, accepted: bool) void {
+        qtc.QEventPoint_SetAccepted1(@ptrCast(self.ptr), accepted);
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -522,10 +543,10 @@ pub const qeventpoint = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QEventPoint `
+    /// ` self: QEventPoint `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QEventPoint_Delete(@ptrCast(self));
+    pub fn Delete(self: QEventPoint) void {
+        qtc.QEventPoint_Delete(@ptrCast(self.ptr));
     }
 };
 

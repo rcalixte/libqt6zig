@@ -1,5 +1,64 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAction = @import("libqt6").QAction;
+const QActionEvent = @import("libqt6").QActionEvent;
+const QBackingStore = @import("libqt6").QBackingStore;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBitmap = @import("libqt6").QBitmap;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QCloseEvent = @import("libqt6").QCloseEvent;
+const QColor = @import("libqt6").QColor;
+const QContextMenuEvent = @import("libqt6").QContextMenuEvent;
+const QCursor = @import("libqt6").QCursor;
+const QDragEnterEvent = @import("libqt6").QDragEnterEvent;
+const QDragLeaveEvent = @import("libqt6").QDragLeaveEvent;
+const QDragMoveEvent = @import("libqt6").QDragMoveEvent;
+const QDropEvent = @import("libqt6").QDropEvent;
+const QEnterEvent = @import("libqt6").QEnterEvent;
+const QEvent = @import("libqt6").QEvent;
+const QFocusEvent = @import("libqt6").QFocusEvent;
+const QFont = @import("libqt6").QFont;
+const QFontInfo = @import("libqt6").QFontInfo;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QGraphicsEffect = @import("libqt6").QGraphicsEffect;
+const QGraphicsProxyWidget = @import("libqt6").QGraphicsProxyWidget;
+const QHideEvent = @import("libqt6").QHideEvent;
+const QIcon = @import("libqt6").QIcon;
+const QInputMethodEvent = @import("libqt6").QInputMethodEvent;
+const QKeyEvent = @import("libqt6").QKeyEvent;
+const QKeySequence = @import("libqt6").QKeySequence;
+const QLayout = @import("libqt6").QLayout;
+const QLocale = @import("libqt6").QLocale;
+const QMargins = @import("libqt6").QMargins;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMouseEvent = @import("libqt6").QMouseEvent;
+const QMoveEvent = @import("libqt6").QMoveEvent;
+const QObject = @import("libqt6").QObject;
+const QPaintDevice = @import("libqt6").QPaintDevice;
+const QPaintEngine = @import("libqt6").QPaintEngine;
+const QPaintEvent = @import("libqt6").QPaintEvent;
+const QPainter = @import("libqt6").QPainter;
+const QPalette = @import("libqt6").QPalette;
+const QPixmap = @import("libqt6").QPixmap;
+const QPoint = @import("libqt6").QPoint;
+const QPointF = @import("libqt6").QPointF;
+const QRect = @import("libqt6").QRect;
+const QRegion = @import("libqt6").QRegion;
+const QResizeEvent = @import("libqt6").QResizeEvent;
+const QScreen = @import("libqt6").QScreen;
+const QShowEvent = @import("libqt6").QShowEvent;
+const QSize = @import("libqt6").QSize;
+const QSizePolicy = @import("libqt6").QSizePolicy;
+const QStyle = @import("libqt6").QStyle;
+const QTabletEvent = @import("libqt6").QTabletEvent;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
+const QWheelEvent = @import("libqt6").QWheelEvent;
+const QWidget = @import("libqt6").QWidget;
+const QWindow = @import("libqt6").QWindow;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qpaintdevice_enums = @import("../libqpaintdevice.zig").enums;
@@ -9,31 +68,43 @@ const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kxyselector.html)
-pub const kxyselector = struct {
+pub const KXYSelector = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kxyselector.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KXYSelector,
+
+    pub const _is_KXYSelector = {};
+    pub const _is_QWidget = {};
+    pub const _is_QObject = {};
+    pub const _is_QPaintDevice = {};
+
     /// New constructs a new KXYSelector object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.KXYSelector {
-        return qtc.KXYSelector_new(@ptrCast(parent));
+    pub fn New(parent: anytype) KXYSelector {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.KXYSelector_new(@ptrCast(parent.ptr)) };
     }
 
     /// New2 constructs a new KXYSelector object.
     ///
-    pub fn New2() QtC.KXYSelector {
-        return qtc.KXYSelector_new2();
+    pub fn New2() KXYSelector {
+        return .{ .ptr = qtc.KXYSelector_new2() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KXYSelector_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KXYSelector) QMetaObject {
+        return .{ .ptr = qtc.KXYSelector_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -42,12 +113,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KXYSelector_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KXYSelector, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KXYSelector_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -60,33 +131,33 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KXYSelector_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KXYSelector) QMetaObject {
+        return .{ .ptr = qtc.KXYSelector_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KXYSelector, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KXYSelector_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KXYSelector_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KXYSelector, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KXYSelector_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KXYSelector, callback: *const fn (KXYSelector, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KXYSelector_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -97,18 +168,18 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KXYSelector, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KXYSelector_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KXYSelector_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -116,20 +187,20 @@ pub const kxyselector = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KXYSelector_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KXYSelector, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KXYSelector_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KXYSelector, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KXYSelector_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KXYSelector, callback: *const fn (KXYSelector, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KXYSelector_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -140,7 +211,7 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -148,19 +219,19 @@ pub const kxyselector = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KXYSelector_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KXYSelector, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KXYSelector_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -173,45 +244,45 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` xPos: i32 `
     ///
     /// ` yPos: i32 `
     ///
-    pub fn SetValues(self: ?*anyopaque, xPos: i32, yPos: i32) void {
-        qtc.KXYSelector_SetValues(@ptrCast(self), @bitCast(xPos), @bitCast(yPos));
+    pub fn SetValues(self: KXYSelector, xPos: i32, yPos: i32) void {
+        qtc.KXYSelector_SetValues(@ptrCast(self.ptr), @bitCast(xPos), @bitCast(yPos));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#setXValue)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` xPos: i32 `
     ///
-    pub fn SetXValue(self: ?*anyopaque, xPos: i32) void {
-        qtc.KXYSelector_SetXValue(@ptrCast(self), @bitCast(xPos));
+    pub fn SetXValue(self: KXYSelector, xPos: i32) void {
+        qtc.KXYSelector_SetXValue(@ptrCast(self.ptr), @bitCast(xPos));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#setYValue)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` yPos: i32 `
     ///
-    pub fn SetYValue(self: ?*anyopaque, yPos: i32) void {
-        qtc.KXYSelector_SetYValue(@ptrCast(self), @bitCast(yPos));
+    pub fn SetYValue(self: KXYSelector, yPos: i32) void {
+        qtc.KXYSelector_SetYValue(@ptrCast(self.ptr), @bitCast(yPos));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#setRange)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` minX: i32 `
     ///
@@ -221,60 +292,61 @@ pub const kxyselector = struct {
     ///
     /// ` maxY: i32 `
     ///
-    pub fn SetRange(self: ?*anyopaque, minX: i32, minY: i32, maxX: i32, maxY: i32) void {
-        qtc.KXYSelector_SetRange(@ptrCast(self), @bitCast(minX), @bitCast(minY), @bitCast(maxX), @bitCast(maxY));
+    pub fn SetRange(self: KXYSelector, minX: i32, minY: i32, maxX: i32, maxY: i32) void {
+        qtc.KXYSelector_SetRange(@ptrCast(self.ptr), @bitCast(minX), @bitCast(minY), @bitCast(maxX), @bitCast(maxY));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#setMarkerColor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetMarkerColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.KXYSelector_SetMarkerColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetMarkerColor(self: KXYSelector, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.KXYSelector_SetMarkerColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#xValue)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn XValue(self: ?*anyopaque) i32 {
-        return qtc.KXYSelector_XValue(@ptrCast(self));
+    pub fn XValue(self: KXYSelector) i32 {
+        return qtc.KXYSelector_XValue(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#yValue)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn YValue(self: ?*anyopaque) i32 {
-        return qtc.KXYSelector_YValue(@ptrCast(self));
+    pub fn YValue(self: KXYSelector) i32 {
+        return qtc.KXYSelector_YValue(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#contentsRect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.KXYSelector_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: KXYSelector) QRect {
+        return .{ .ptr = qtc.KXYSelector_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#minimumSizeHint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KXYSelector_MinimumSizeHint(@ptrCast(self));
+    pub fn MinimumSizeHint(self: KXYSelector) QSize {
+        return .{ .ptr = qtc.KXYSelector_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#minimumSizeHint)
@@ -283,12 +355,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.KXYSelector_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumSizeHint(self: KXYSelector, callback: *const fn () callconv(.c) QSize) void {
+        qtc.KXYSelector_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
@@ -301,48 +373,49 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KXYSelector_SuperMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: KXYSelector) QSize {
+        return .{ .ptr = qtc.KXYSelector_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#valueChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ValueChanged(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.KXYSelector_ValueChanged(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ValueChanged(self: KXYSelector, x: i32, y: i32) void {
+        qtc.KXYSelector_ValueChanged(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#valueChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, x: i32, y: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, x: i32, y: i32) callconv(.c) void `
     ///
-    pub fn OnValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KXYSelector_Connect_ValueChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnValueChanged(self: KXYSelector, callback: *const fn (KXYSelector, i32, i32) callconv(.c) void) void {
+        qtc.KXYSelector_Connect_ValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#drawContents)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QPainter `
+    /// ` param1: QPainter `
     ///
-    pub fn DrawContents(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KXYSelector_DrawContents(@ptrCast(self), @ptrCast(param1));
+    pub fn DrawContents(self: KXYSelector, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPainter;
+        qtc.KXYSelector_DrawContents(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#drawContents)
@@ -351,12 +424,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, param1: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawContents(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnDrawContents(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDrawContents(self: KXYSelector, callback: *const fn (KXYSelector, QPainter) callconv(.c) void) void {
+        qtc.KXYSelector_OnDrawContents(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDrawContents` instead
@@ -369,28 +442,30 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QPainter `
+    /// ` param1: QPainter `
     ///
-    pub fn SuperDrawContents(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KXYSelector_SuperDrawContents(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDrawContents(self: KXYSelector, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPainter;
+        qtc.KXYSelector_SuperDrawContents(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#drawMarker)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` p: QtC.QPainter `
+    /// ` p: QPainter `
     ///
     /// ` xp: i32 `
     ///
     /// ` yp: i32 `
     ///
-    pub fn DrawMarker(self: ?*anyopaque, p: ?*anyopaque, xp: i32, yp: i32) void {
-        qtc.KXYSelector_DrawMarker(@ptrCast(self), @ptrCast(p), @bitCast(xp), @bitCast(yp));
+    pub fn DrawMarker(self: KXYSelector, p: anytype, xp: i32, yp: i32) void {
+        comptime _ = @TypeOf(p)._is_QPainter;
+        qtc.KXYSelector_DrawMarker(@ptrCast(self.ptr), @ptrCast(p.ptr), @bitCast(xp), @bitCast(yp));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#drawMarker)
@@ -399,12 +474,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, p: QtC.QPainter, xp: i32, yp: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, p: QPainter, xp: i32, yp: i32) callconv(.c) void `
     ///
-    pub fn OnDrawMarker(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KXYSelector_OnDrawMarker(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDrawMarker(self: KXYSelector, callback: *const fn (KXYSelector, QPainter, i32, i32) callconv(.c) void) void {
+        qtc.KXYSelector_OnDrawMarker(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDrawMarker` instead
@@ -417,28 +492,30 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` p: QtC.QPainter `
+    /// ` p: QPainter `
     ///
     /// ` xp: i32 `
     ///
     /// ` yp: i32 `
     ///
-    pub fn SuperDrawMarker(self: ?*anyopaque, p: ?*anyopaque, xp: i32, yp: i32) void {
-        qtc.KXYSelector_SuperDrawMarker(@ptrCast(self), @ptrCast(p), @bitCast(xp), @bitCast(yp));
+    pub fn SuperDrawMarker(self: KXYSelector, p: anytype, xp: i32, yp: i32) void {
+        comptime _ = @TypeOf(p)._is_QPainter;
+        qtc.KXYSelector_SuperDrawMarker(@ptrCast(self.ptr), @ptrCast(p.ptr), @bitCast(xp), @bitCast(yp));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#paintEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` e: QtC.QPaintEvent `
+    /// ` e: QPaintEvent `
     ///
-    pub fn PaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KXYSelector_PaintEvent(@ptrCast(self), @ptrCast(e));
+    pub fn PaintEvent(self: KXYSelector, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QPaintEvent;
+        qtc.KXYSelector_PaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#paintEvent)
@@ -447,12 +524,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, e: QtC.QPaintEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, e: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEvent(self: KXYSelector, callback: *const fn (KXYSelector, QPaintEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperPaintEvent` instead
@@ -465,24 +542,26 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` e: QtC.QPaintEvent `
+    /// ` e: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KXYSelector_SuperPaintEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperPaintEvent(self: KXYSelector, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QPaintEvent;
+        qtc.KXYSelector_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#mousePressEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` e: QtC.QMouseEvent `
+    /// ` e: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KXYSelector_MousePressEvent(@ptrCast(self), @ptrCast(e));
+    pub fn MousePressEvent(self: KXYSelector, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QMouseEvent;
+        qtc.KXYSelector_MousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#mousePressEvent)
@@ -491,12 +570,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, e: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMousePressEvent(self: KXYSelector, callback: *const fn (KXYSelector, QMouseEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMousePressEvent` instead
@@ -509,24 +588,26 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` e: QtC.QMouseEvent `
+    /// ` e: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KXYSelector_SuperMousePressEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperMousePressEvent(self: KXYSelector, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QMouseEvent;
+        qtc.KXYSelector_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#mouseMoveEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` e: QtC.QMouseEvent `
+    /// ` e: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KXYSelector_MouseMoveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn MouseMoveEvent(self: KXYSelector, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QMouseEvent;
+        qtc.KXYSelector_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#mouseMoveEvent)
@@ -535,12 +616,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, e: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseMoveEvent(self: KXYSelector, callback: *const fn (KXYSelector, QMouseEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
@@ -553,24 +634,26 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` e: QtC.QMouseEvent `
+    /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.KXYSelector_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperMouseMoveEvent(self: KXYSelector, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QMouseEvent;
+        qtc.KXYSelector_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#wheelEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QWheelEvent `
+    /// ` param1: QWheelEvent `
     ///
-    pub fn WheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KXYSelector_WheelEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn WheelEvent(self: KXYSelector, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWheelEvent;
+        qtc.KXYSelector_WheelEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#wheelEvent)
@@ -579,12 +662,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, param1: QtC.QWheelEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, param1: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWheelEvent(self: KXYSelector, callback: *const fn (KXYSelector, QWheelEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperWheelEvent` instead
@@ -597,19 +680,20 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QWheelEvent `
+    /// ` param1: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KXYSelector_SuperWheelEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperWheelEvent(self: KXYSelector, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWheelEvent;
+        qtc.KXYSelector_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#valuesFromPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` x: i32 `
     ///
@@ -619,8 +703,8 @@ pub const kxyselector = struct {
     ///
     /// ` yVal: *i32 `
     ///
-    pub fn ValuesFromPosition(self: ?*anyopaque, x: i32, y: i32, xVal: *i32, yVal: *i32) void {
-        qtc.KXYSelector_ValuesFromPosition(@ptrCast(self), @bitCast(x), @bitCast(y), @ptrCast(xVal), @ptrCast(yVal));
+    pub fn ValuesFromPosition(self: KXYSelector, x: i32, y: i32, xVal: *i32, yVal: *i32) void {
+        qtc.KXYSelector_ValuesFromPosition(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @ptrCast(xVal), @ptrCast(yVal));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kxyselector.html#valuesFromPosition)
@@ -629,12 +713,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, x: i32, y: i32, xVal: *i32, yVal: *i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, x: i32, y: i32, xVal: *i32, yVal: *i32) callconv(.c) void `
     ///
-    pub fn OnValuesFromPosition(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *i32, *i32) callconv(.c) void) void {
-        qtc.KXYSelector_OnValuesFromPosition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnValuesFromPosition(self: KXYSelector, callback: *const fn (KXYSelector, i32, i32, *i32, *i32) callconv(.c) void) void {
+        qtc.KXYSelector_OnValuesFromPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperValuesFromPosition` instead
@@ -647,7 +731,7 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` x: i32 `
     ///
@@ -657,21 +741,21 @@ pub const kxyselector = struct {
     ///
     /// ` yVal: *i32 `
     ///
-    pub fn SuperValuesFromPosition(self: ?*anyopaque, x: i32, y: i32, xVal: *i32, yVal: *i32) void {
-        qtc.KXYSelector_SuperValuesFromPosition(@ptrCast(self), @bitCast(x), @bitCast(y), @ptrCast(xVal), @ptrCast(yVal));
+    pub fn SuperValuesFromPosition(self: KXYSelector, x: i32, y: i32, xVal: *i32, yVal: *i32) void {
+        qtc.KXYSelector_SuperValuesFromPosition(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @ptrCast(xVal), @ptrCast(yVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -685,15 +769,15 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -709,10 +793,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn WinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_WinId(@ptrCast(self));
+    pub fn WinId(self: KXYSelector) usize {
+        return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -721,10 +805,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn CreateWinId(self: ?*anyopaque) void {
-        qtc.QWidget_CreateWinId(@ptrCast(self));
+    pub fn CreateWinId(self: KXYSelector) void {
+        qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -733,10 +817,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn InternalWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_InternalWinId(@ptrCast(self));
+    pub fn InternalWinId(self: KXYSelector) usize {
+        return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -745,10 +829,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
+    pub fn EffectiveWinId(self: KXYSelector) usize {
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -757,10 +841,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QWidget_Style(@ptrCast(self));
+    pub fn Style(self: KXYSelector) QStyle {
+        return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -769,12 +853,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetStyle(self: KXYSelector, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// Inherited from QWidget
@@ -783,10 +868,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsTopLevel(@ptrCast(self));
+    pub fn IsTopLevel(self: KXYSelector) bool {
+        return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -795,10 +880,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn IsWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindow(@ptrCast(self));
+    pub fn IsWindow(self: KXYSelector) bool {
+        return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -807,10 +892,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn IsModal(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsModal(@ptrCast(self));
+    pub fn IsModal(self: KXYSelector) bool {
+        return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -819,14 +904,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowModality(@ptrCast(self));
+    pub fn WindowModality(self: KXYSelector) i32 {
+        return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -835,12 +920,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
+    pub fn SetWindowModality(self: KXYSelector, windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -849,10 +934,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: KXYSelector) bool {
+        return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -861,12 +946,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsEnabledTo(self: KXYSelector, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -875,12 +961,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: KXYSelector, enabled: bool) void {
+        qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -889,12 +975,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
+    pub fn SetDisabled(self: KXYSelector, disabled: bool) void {
+        qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
 
     /// Inherited from QWidget
@@ -903,12 +989,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+    pub fn SetWindowModified(self: KXYSelector, windowModified: bool) void {
+        qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
 
     /// Inherited from QWidget
@@ -917,10 +1003,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_FrameGeometry(@ptrCast(self));
+    pub fn FrameGeometry(self: KXYSelector) QRect {
+        return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -929,10 +1015,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Geometry(@ptrCast(self));
+    pub fn Geometry(self: KXYSelector) QRect {
+        return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -941,10 +1027,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_NormalGeometry(@ptrCast(self));
+    pub fn NormalGeometry(self: KXYSelector) QRect {
+        return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -953,10 +1039,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn X(self: ?*anyopaque) i32 {
-        return qtc.QWidget_X(@ptrCast(self));
+    pub fn X(self: KXYSelector) i32 {
+        return qtc.QWidget_X(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -965,10 +1051,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Y(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Y(@ptrCast(self));
+    pub fn Y(self: KXYSelector) i32 {
+        return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -977,10 +1063,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_Pos(@ptrCast(self));
+    pub fn Pos(self: KXYSelector) QPoint {
+        return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -989,10 +1075,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: KXYSelector) QSize {
+        return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1001,10 +1087,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_Size(@ptrCast(self));
+    pub fn Size(self: KXYSelector) QSize {
+        return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1013,10 +1099,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Width(@ptrCast(self));
+    pub fn Width(self: KXYSelector) i32 {
+        return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1025,10 +1111,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Height(@ptrCast(self));
+    pub fn Height(self: KXYSelector) i32 {
+        return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1037,10 +1123,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: KXYSelector) QRect {
+        return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1049,10 +1135,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ChildrenRect(@ptrCast(self));
+    pub fn ChildrenRect(self: KXYSelector) QRect {
+        return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1061,10 +1147,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
+    pub fn ChildrenRegion(self: KXYSelector) QRegion {
+        return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1073,10 +1159,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: KXYSelector) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1085,10 +1171,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: KXYSelector) QSize {
+        return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1097,10 +1183,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: KXYSelector) i32 {
+        return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1109,10 +1195,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: KXYSelector) i32 {
+        return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1121,10 +1207,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: KXYSelector) i32 {
+        return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1133,10 +1219,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: KXYSelector) i32 {
+        return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1145,12 +1231,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` minimumSize: QtC.QSize `
+    /// ` minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+    pub fn SetMinimumSize(self: KXYSelector, minimumSize: anytype) void {
+        comptime _ = @TypeOf(minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1159,14 +1246,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` minw: i32 `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
+    pub fn SetMinimumSize2(self: KXYSelector, minw: i32, minh: i32) void {
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -1175,12 +1262,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` maximumSize: QtC.QSize `
+    /// ` maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+    pub fn SetMaximumSize(self: KXYSelector, maximumSize: anytype) void {
+        comptime _ = @TypeOf(maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1189,14 +1277,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` maxw: i32 `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
+    pub fn SetMaximumSize2(self: KXYSelector, maxw: i32, maxh: i32) void {
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -1205,12 +1293,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
+    pub fn SetMinimumWidth(self: KXYSelector, minw: i32) void {
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -1219,12 +1307,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
+    pub fn SetMinimumHeight(self: KXYSelector, minh: i32) void {
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -1233,12 +1321,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
+    pub fn SetMaximumWidth(self: KXYSelector, maxw: i32) void {
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -1247,12 +1335,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
+    pub fn SetMaximumHeight(self: KXYSelector, maxh: i32) void {
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -1261,10 +1349,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeIncrement(@ptrCast(self));
+    pub fn SizeIncrement(self: KXYSelector) QSize {
+        return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1273,12 +1361,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` sizeIncrement: QtC.QSize `
+    /// ` sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+    pub fn SetSizeIncrement(self: KXYSelector, sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
     }
 
     /// Inherited from QWidget
@@ -1287,14 +1376,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetSizeIncrement2(self: KXYSelector, w: i32, h: i32) void {
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1303,10 +1392,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_BaseSize(@ptrCast(self));
+    pub fn BaseSize(self: KXYSelector) QSize {
+        return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1315,12 +1404,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` baseSize: QtC.QSize `
+    /// ` baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+    pub fn SetBaseSize(self: KXYSelector, baseSize: anytype) void {
+        comptime _ = @TypeOf(baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1329,14 +1419,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` basew: i32 `
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
+    pub fn SetBaseSize2(self: KXYSelector, basew: i32, baseh: i32) void {
+        qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -1345,12 +1435,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` fixedSize: QtC.QSize `
+    /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+    pub fn SetFixedSize(self: KXYSelector, fixedSize: anytype) void {
+        comptime _ = @TypeOf(fixedSize)._is_QSize;
+        qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1359,14 +1450,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetFixedSize2(self: KXYSelector, w: i32, h: i32) void {
+        qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1375,12 +1466,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetFixedWidth(self: KXYSelector, w: i32) void {
+        qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -1389,12 +1480,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
+    pub fn SetFixedHeight(self: KXYSelector, h: i32) void {
+        qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1403,12 +1494,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal(self: KXYSelector, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1417,12 +1509,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: KXYSelector, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1431,12 +1524,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal(self: KXYSelector, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1445,12 +1539,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: KXYSelector, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1459,12 +1554,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent(self: KXYSelector, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1473,12 +1569,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: KXYSelector, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1487,12 +1584,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent(self: KXYSelector, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1501,12 +1599,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: KXYSelector, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1515,14 +1614,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo(self: KXYSelector, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1531,14 +1632,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo2(self: KXYSelector, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1547,14 +1650,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom(self: KXYSelector, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1563,14 +1668,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom2(self: KXYSelector, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1579,10 +1686,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_Window(@ptrCast(self));
+    pub fn Window(self: KXYSelector) QWidget {
+        return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1591,10 +1698,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
+    pub fn NativeParentWidget(self: KXYSelector) QWidget {
+        return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1603,10 +1710,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
+    pub fn TopLevelWidget(self: KXYSelector) QWidget {
+        return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1615,10 +1722,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QWidget_Palette(@ptrCast(self));
+    pub fn Palette(self: KXYSelector) QPalette {
+        return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1627,12 +1734,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn SetPalette(self: KXYSelector, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// Inherited from QWidget
@@ -1641,12 +1749,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
+    pub fn SetBackgroundRole(self: KXYSelector, backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -1655,14 +1763,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_BackgroundRole(@ptrCast(self));
+    pub fn BackgroundRole(self: KXYSelector) i32 {
+        return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1671,12 +1779,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
+    pub fn SetForegroundRole(self: KXYSelector, foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -1685,14 +1793,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ForegroundRole(@ptrCast(self));
+    pub fn ForegroundRole(self: KXYSelector) i32 {
+        return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1701,10 +1809,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QWidget_Font(@ptrCast(self));
+    pub fn Font(self: KXYSelector) QFont {
+        return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1713,12 +1821,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: KXYSelector, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QWidget
@@ -1727,10 +1836,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QWidget_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: KXYSelector) QFontMetrics {
+        return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1739,10 +1848,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QWidget_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: KXYSelector) QFontInfo {
+        return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1751,10 +1860,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
-        return qtc.QWidget_Cursor(@ptrCast(self));
+    pub fn Cursor(self: KXYSelector) QCursor {
+        return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1763,12 +1872,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetCursor(self: KXYSelector, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QWidget
@@ -1777,10 +1887,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn UnsetCursor(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetCursor(@ptrCast(self));
+    pub fn UnsetCursor(self: KXYSelector) void {
+        qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1789,12 +1899,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
+    pub fn SetMouseTracking(self: KXYSelector, enable: bool) void {
+        qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -1803,10 +1913,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
+    pub fn HasMouseTracking(self: KXYSelector) bool {
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1815,10 +1925,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.QWidget_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: KXYSelector) bool {
+        return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1827,12 +1937,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
+    pub fn SetTabletTracking(self: KXYSelector, enable: bool) void {
+        qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -1841,10 +1951,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
+    pub fn HasTabletTracking(self: KXYSelector) bool {
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1853,12 +1963,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` mask: QtC.QBitmap `
+    /// ` mask: QBitmap `
     ///
-    pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask(self: KXYSelector, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -1867,12 +1978,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` mask: QtC.QRegion `
+    /// ` mask: QRegion `
     ///
-    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: KXYSelector, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -1881,10 +1993,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_Mask(@ptrCast(self));
+    pub fn Mask(self: KXYSelector) QRegion {
+        return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1893,10 +2005,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn ClearMask(self: ?*anyopaque) void {
-        qtc.QWidget_ClearMask(@ptrCast(self));
+    pub fn ClearMask(self: KXYSelector) void {
+        qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1905,12 +2017,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
+    pub fn Render(self: KXYSelector, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QWidget
@@ -1919,12 +2032,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: KXYSelector, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -1933,10 +2047,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab(@ptrCast(self));
+    pub fn Grab(self: KXYSelector) QPixmap {
+        return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1945,10 +2059,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
-        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
+    pub fn GraphicsEffect(self: KXYSelector) QGraphicsEffect {
+        return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1957,12 +2071,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` effect: QtC.QGraphicsEffect `
+    /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+    pub fn SetGraphicsEffect(self: KXYSelector, effect: anytype) void {
+        comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
 
     /// Inherited from QWidget
@@ -1971,12 +2086,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn GrabGesture(self: KXYSelector, typeVal: i32) void {
+        qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -1985,12 +2100,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn UngrabGesture(self: KXYSelector, typeVal: i32) void {
+        qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -1999,16 +2114,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
+    pub fn SetWindowTitle(self: KXYSelector, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
-        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
 
     /// Inherited from QWidget
@@ -2017,16 +2132,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
+    pub fn SetStyleSheet(self: KXYSelector, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
-        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
 
     /// Inherited from QWidget
@@ -2035,12 +2150,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: KXYSelector, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxyselector.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2053,12 +2168,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+    pub fn WindowTitle(self: KXYSelector, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxyselector.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2071,12 +2186,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetWindowIcon(self: KXYSelector, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -2085,10 +2201,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QWidget_WindowIcon(@ptrCast(self));
+    pub fn WindowIcon(self: KXYSelector) QIcon {
+        return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2097,16 +2213,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
+    pub fn SetWindowIconText(self: KXYSelector, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
-        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
 
     /// Inherited from QWidget
@@ -2115,12 +2231,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+    pub fn WindowIconText(self: KXYSelector, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxyselector.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2133,16 +2249,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
+    pub fn SetWindowRole(self: KXYSelector, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
-        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
 
     /// Inherited from QWidget
@@ -2151,12 +2267,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
+    pub fn WindowRole(self: KXYSelector, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxyselector.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2169,16 +2285,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
+    pub fn SetWindowFilePath(self: KXYSelector, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
 
     /// Inherited from QWidget
@@ -2187,12 +2303,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+    pub fn WindowFilePath(self: KXYSelector, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxyselector.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2205,12 +2321,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetWindowOpacity(self: KXYSelector, level: f64) void {
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -2219,10 +2335,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return qtc.QWidget_WindowOpacity(@ptrCast(self));
+    pub fn WindowOpacity(self: KXYSelector) f64 {
+        return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2231,10 +2347,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindowModified(@ptrCast(self));
+    pub fn IsWindowModified(self: KXYSelector) bool {
+        return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2243,16 +2359,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: KXYSelector, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// Inherited from QWidget
@@ -2261,12 +2377,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: KXYSelector, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxyselector.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2279,12 +2395,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
+    pub fn SetToolTipDuration(self: KXYSelector, msec: i32) void {
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -2293,10 +2409,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
+    pub fn ToolTipDuration(self: KXYSelector) i32 {
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2305,16 +2421,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: KXYSelector, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QWidget
@@ -2323,12 +2439,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: KXYSelector, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxyselector.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2341,16 +2457,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: KXYSelector, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// Inherited from QWidget
@@ -2359,12 +2475,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: KXYSelector, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxyselector.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2377,12 +2493,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+    pub fn AccessibleName(self: KXYSelector, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxyselector.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2395,16 +2511,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetAccessibleName(self: KXYSelector, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QWidget
@@ -2413,12 +2529,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+    pub fn AccessibleDescription(self: KXYSelector, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxyselector.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2431,16 +2547,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetAccessibleDescription(self: KXYSelector, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// Inherited from QWidget
@@ -2449,12 +2565,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: KXYSelector, direction: i32) void {
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -2463,14 +2579,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QWidget_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: KXYSelector) i32 {
+        return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2479,10 +2595,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
+    pub fn UnsetLayoutDirection(self: KXYSelector) void {
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2491,12 +2607,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: KXYSelector, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// Inherited from QWidget
@@ -2505,10 +2622,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QWidget_Locale(@ptrCast(self));
+    pub fn Locale(self: KXYSelector) QLocale {
+        return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2517,10 +2634,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn UnsetLocale(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLocale(@ptrCast(self));
+    pub fn UnsetLocale(self: KXYSelector) void {
+        qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2529,10 +2646,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
+    pub fn IsRightToLeft(self: KXYSelector) bool {
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2541,10 +2658,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
+    pub fn IsLeftToRight(self: KXYSelector) bool {
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2553,10 +2670,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn SetFocus(self: ?*anyopaque) void {
-        qtc.QWidget_SetFocus(@ptrCast(self));
+    pub fn SetFocus(self: KXYSelector) void {
+        qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2565,10 +2682,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
+    pub fn IsActiveWindow(self: KXYSelector) bool {
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2577,10 +2694,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn ActivateWindow(self: ?*anyopaque) void {
-        qtc.QWidget_ActivateWindow(@ptrCast(self));
+    pub fn ActivateWindow(self: KXYSelector) void {
+        qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2589,10 +2706,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn ClearFocus(self: ?*anyopaque) void {
-        qtc.QWidget_ClearFocus(@ptrCast(self));
+    pub fn ClearFocus(self: KXYSelector) void {
+        qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2601,12 +2718,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
+    pub fn SetFocus2(self: KXYSelector, reason: i32) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -2615,14 +2732,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_FocusPolicy(@ptrCast(self));
+    pub fn FocusPolicy(self: KXYSelector) i32 {
+        return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2631,12 +2748,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetFocusPolicy(self: KXYSelector, policy: i32) void {
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -2645,10 +2762,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn HasFocus(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasFocus(@ptrCast(self));
+    pub fn HasFocus(self: KXYSelector) bool {
+        return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2657,12 +2774,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QWidget `
+    /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QWidget;
+        qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidget
@@ -2671,12 +2790,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` focusProxy: QtC.QWidget `
+    /// ` focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+    pub fn SetFocusProxy(self: KXYSelector, focusProxy: anytype) void {
+        comptime _ = @TypeOf(focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
     }
 
     /// Inherited from QWidget
@@ -2685,10 +2805,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusProxy(@ptrCast(self));
+    pub fn FocusProxy(self: KXYSelector) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2697,14 +2817,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
+    pub fn ContextMenuPolicy(self: KXYSelector) i32 {
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2713,12 +2833,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetContextMenuPolicy(self: KXYSelector, policy: i32) void {
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -2727,10 +2847,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn GrabMouse(self: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse(@ptrCast(self));
+    pub fn GrabMouse(self: KXYSelector) void {
+        qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2739,12 +2859,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: KXYSelector, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -2753,10 +2874,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn ReleaseMouse(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseMouse(@ptrCast(self));
+    pub fn ReleaseMouse(self: KXYSelector) void {
+        qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2765,10 +2886,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn GrabKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_GrabKeyboard(@ptrCast(self));
+    pub fn GrabKeyboard(self: KXYSelector) void {
+        qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2777,10 +2898,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
+    pub fn ReleaseKeyboard(self: KXYSelector) void {
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2789,12 +2910,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+    pub fn GrabShortcut(self: KXYSelector, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// Inherited from QWidget
@@ -2803,12 +2925,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
+    pub fn ReleaseShortcut(self: KXYSelector, id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -2817,12 +2939,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutEnabled(self: KXYSelector, id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -2831,28 +2953,28 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutAutoRepeat(self: KXYSelector, id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QtC.QWidget {
-        return qtc.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QtC.QWidget {
-        return qtc.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
 
     /// Inherited from QWidget
@@ -2861,10 +2983,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
+    pub fn UpdatesEnabled(self: KXYSelector) bool {
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2873,12 +2995,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+    pub fn SetUpdatesEnabled(self: KXYSelector, enable: bool) void {
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -2887,10 +3009,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    pub fn GraphicsProxyWidget(self: KXYSelector) QGraphicsProxyWidget {
+        return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2899,10 +3021,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Update(self: ?*anyopaque) void {
-        qtc.QWidget_Update(@ptrCast(self));
+    pub fn Update(self: KXYSelector) void {
+        qtc.QWidget_Update(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2911,10 +3033,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Repaint(self: ?*anyopaque) void {
-        qtc.QWidget_Repaint(@ptrCast(self));
+    pub fn Repaint(self: KXYSelector) void {
+        qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2923,7 +3045,7 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` x: i32 `
     ///
@@ -2933,8 +3055,8 @@ pub const kxyselector = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Update2(self: KXYSelector, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2943,12 +3065,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: KXYSelector, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -2957,12 +3080,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: KXYSelector, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -2971,7 +3095,7 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` x: i32 `
     ///
@@ -2981,8 +3105,8 @@ pub const kxyselector = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Repaint2(self: KXYSelector, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2991,12 +3115,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: KXYSelector, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3005,12 +3130,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: KXYSelector, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3019,12 +3145,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
+    pub fn SetHidden(self: KXYSelector, hidden: bool) void {
+        qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
 
     /// Inherited from QWidget
@@ -3033,10 +3159,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QWidget_Show(@ptrCast(self));
+    pub fn Show(self: KXYSelector) void {
+        qtc.QWidget_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3045,10 +3171,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QWidget_Hide(@ptrCast(self));
+    pub fn Hide(self: KXYSelector) void {
+        qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3057,10 +3183,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn ShowMinimized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMinimized(@ptrCast(self));
+    pub fn ShowMinimized(self: KXYSelector) void {
+        qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3069,10 +3195,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn ShowMaximized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMaximized(@ptrCast(self));
+    pub fn ShowMaximized(self: KXYSelector) void {
+        qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3081,10 +3207,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn ShowFullScreen(self: ?*anyopaque) void {
-        qtc.QWidget_ShowFullScreen(@ptrCast(self));
+    pub fn ShowFullScreen(self: KXYSelector) void {
+        qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3093,10 +3219,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn ShowNormal(self: ?*anyopaque) void {
-        qtc.QWidget_ShowNormal(@ptrCast(self));
+    pub fn ShowNormal(self: KXYSelector) void {
+        qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3105,10 +3231,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Close(self: ?*anyopaque) bool {
-        return qtc.QWidget_Close(@ptrCast(self));
+    pub fn Close(self: KXYSelector) bool {
+        return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3117,10 +3243,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Raise(self: ?*anyopaque) void {
-        qtc.QWidget_Raise(@ptrCast(self));
+    pub fn Raise(self: KXYSelector) void {
+        qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3129,10 +3255,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Lower(self: ?*anyopaque) void {
-        qtc.QWidget_Lower(@ptrCast(self));
+    pub fn Lower(self: KXYSelector) void {
+        qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3141,12 +3267,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+    pub fn StackUnder(self: KXYSelector, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3155,14 +3282,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn Move(self: KXYSelector, x: i32, y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -3171,12 +3298,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: KXYSelector, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3185,14 +3313,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn Resize(self: KXYSelector, w: i32, h: i32) void {
+        qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3201,12 +3329,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QSize `
+    /// ` param1: QSize `
     ///
-    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: KXYSelector, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3215,7 +3344,7 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` x: i32 `
     ///
@@ -3225,8 +3354,8 @@ pub const kxyselector = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetGeometry(self: KXYSelector, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3235,12 +3364,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` geometry: QtC.QRect `
+    /// ` geometry: QRect `
     ///
-    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: KXYSelector, geometry: anytype) void {
+        comptime _ = @TypeOf(geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
     }
 
     /// Inherited from QWidget
@@ -3249,12 +3379,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+    pub fn SaveGeometry(self: KXYSelector, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kxyselector.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3267,16 +3397,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
+    pub fn RestoreGeometry(self: KXYSelector, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
-        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
 
     /// Inherited from QWidget
@@ -3285,10 +3415,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QWidget_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: KXYSelector) void {
+        qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3297,10 +3427,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: KXYSelector) bool {
+        return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3309,12 +3439,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsVisibleTo(self: KXYSelector, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3323,10 +3454,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn IsHidden(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsHidden(@ptrCast(self));
+    pub fn IsHidden(self: KXYSelector) bool {
+        return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3335,10 +3466,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn IsMinimized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMinimized(@ptrCast(self));
+    pub fn IsMinimized(self: KXYSelector) bool {
+        return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3347,10 +3478,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn IsMaximized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMaximized(@ptrCast(self));
+    pub fn IsMaximized(self: KXYSelector) bool {
+        return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3359,10 +3490,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsFullScreen(@ptrCast(self));
+    pub fn IsFullScreen(self: KXYSelector) bool {
+        return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3371,14 +3502,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowState(@ptrCast(self));
+    pub fn WindowState(self: KXYSelector) i32 {
+        return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3387,12 +3518,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
+    pub fn SetWindowState(self: KXYSelector, state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -3401,12 +3532,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
+    pub fn OverrideWindowState(self: KXYSelector, state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -3415,10 +3546,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QWidget_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: KXYSelector) QSizePolicy {
+        return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3427,12 +3558,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` sizePolicy: QtC.QSizePolicy `
+    /// ` sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
-        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    pub fn SetSizePolicy(self: KXYSelector, sizePolicy: anytype) void {
+        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
     }
 
     /// Inherited from QWidget
@@ -3441,14 +3573,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` horizontal: qsizepolicy_enums.Policy `
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
+    pub fn SetSizePolicy2(self: KXYSelector, horizontal: i32, vertical: i32) void {
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -3457,10 +3589,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_VisibleRegion(@ptrCast(self));
+    pub fn VisibleRegion(self: KXYSelector) QRegion {
+        return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3469,7 +3601,7 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` left: i32 `
     ///
@@ -3479,8 +3611,8 @@ pub const kxyselector = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: KXYSelector, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -3489,12 +3621,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: KXYSelector, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QWidget
@@ -3503,10 +3636,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QWidget_ContentsMargins(@ptrCast(self));
+    pub fn ContentsMargins(self: KXYSelector) QMargins {
+        return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3515,10 +3648,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidget_Layout(@ptrCast(self));
+    pub fn Layout(self: KXYSelector) QLayout {
+        return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3527,12 +3660,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` layout: QtC.QLayout `
+    /// ` layout: QLayout `
     ///
-    pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetLayout(self: KXYSelector, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// Inherited from QWidget
@@ -3541,10 +3675,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QWidget_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: KXYSelector) void {
+        qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3553,12 +3687,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KXYSelector, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QWidget
@@ -3567,14 +3702,15 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
+    pub fn SetParent2(self: KXYSelector, parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -3583,14 +3719,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Scroll(self: KXYSelector, dx: i32, dy: i32) void {
+        qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -3599,16 +3735,17 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    /// ` param3: QtC.QRect `
+    /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
+    pub fn Scroll2(self: KXYSelector, dx: i32, dy: i32, param3: anytype) void {
+        comptime _ = @TypeOf(param3)._is_QRect;
+        qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QWidget
@@ -3617,10 +3754,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusWidget(@ptrCast(self));
+    pub fn FocusWidget(self: KXYSelector) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3629,10 +3766,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
+    pub fn NextInFocusChain(self: KXYSelector) QWidget {
+        return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3641,10 +3778,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
+    pub fn PreviousInFocusChain(self: KXYSelector) QWidget {
+        return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3653,10 +3790,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return qtc.QWidget_AcceptDrops(@ptrCast(self));
+    pub fn AcceptDrops(self: KXYSelector) bool {
+        return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3665,12 +3802,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
+    pub fn SetAcceptDrops(self: KXYSelector, on: bool) void {
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QWidget
@@ -3679,12 +3816,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+    pub fn AddAction(self: KXYSelector, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -3693,16 +3831,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn AddActions(self: KXYSelector, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -3711,18 +3849,19 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn InsertActions(self: KXYSelector, before: anytype, actions: []QAction) void {
+        comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -3731,14 +3870,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn InsertAction(self: KXYSelector, before: anytype, action: anytype) void {
+        comptime _ = @TypeOf(before)._is_QAction;
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -3747,12 +3888,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn RemoveAction(self: KXYSelector, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -3761,16 +3903,17 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+    pub fn Actions(self: KXYSelector, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("kxyselector.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("kxyselector.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -3780,16 +3923,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: KXYSelector, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction2(@ptrCast(self), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -3798,18 +3941,19 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: KXYSelector, icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -3818,18 +3962,19 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: KXYSelector, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3838,20 +3983,22 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: KXYSelector, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3860,10 +4007,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: KXYSelector) QWidget {
+        return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3872,12 +4019,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetWindowFlags(self: KXYSelector, typeVal: i32) void {
+        qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -3886,14 +4033,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowFlags(@ptrCast(self));
+    pub fn WindowFlags(self: KXYSelector) i32 {
+        return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3902,12 +4049,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
+    pub fn SetWindowFlag(self: KXYSelector, param1: i32) void {
+        qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -3916,12 +4063,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn OverrideWindowFlags(self: KXYSelector, typeVal: i32) void {
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -3930,14 +4077,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowType(@ptrCast(self));
+    pub fn WindowType(self: KXYSelector) i32 {
+        return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3948,8 +4095,8 @@ pub const kxyselector = struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QtC.QWidget {
-        return qtc.QWidget_Find(@bitCast(param1));
+    pub fn Find(param1: usize) QWidget {
+        return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -3958,14 +4105,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: KXYSelector, x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QWidget
@@ -3974,12 +4121,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: KXYSelector, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3988,12 +4136,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: KXYSelector, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4002,12 +4151,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn SetAttribute(self: KXYSelector, param1: i32) void {
+        qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4016,12 +4165,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn TestAttribute(self: KXYSelector, param1: i32) bool {
+        return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4030,10 +4179,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn EnsurePolished(self: ?*anyopaque) void {
-        qtc.QWidget_EnsurePolished(@ptrCast(self));
+    pub fn EnsurePolished(self: KXYSelector) void {
+        qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4042,12 +4191,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` child: QtC.QWidget `
+    /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+    pub fn IsAncestorOf(self: KXYSelector, child: anytype) bool {
+        comptime _ = @TypeOf(child)._is_QWidget;
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from QWidget
@@ -4056,10 +4206,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
+    pub fn AutoFillBackground(self: KXYSelector) bool {
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4068,12 +4218,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+    pub fn SetAutoFillBackground(self: KXYSelector, enabled: bool) void {
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -4082,10 +4232,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
-        return qtc.QWidget_BackingStore(@ptrCast(self));
+    pub fn BackingStore(self: KXYSelector) QBackingStore {
+        return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4094,10 +4244,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QWidget_WindowHandle(@ptrCast(self));
+    pub fn WindowHandle(self: KXYSelector) QWindow {
+        return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4106,10 +4256,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
-        return qtc.QWidget_Screen(@ptrCast(self));
+    pub fn Screen(self: KXYSelector) QScreen {
+        return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4118,12 +4268,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+    pub fn SetScreen(self: KXYSelector, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QWidget
@@ -4132,10 +4283,11 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
+    pub fn CreateWindowContainer(window: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4144,16 +4296,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn WindowTitleChanged(self: KXYSelector, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QWidget
@@ -4162,12 +4314,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowTitleChanged(self: KXYSelector, callback: *const fn (KXYSelector, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4176,12 +4328,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+    pub fn WindowIconChanged(self: KXYSelector, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -4190,12 +4343,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, icon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconChanged(self: KXYSelector, callback: *const fn (KXYSelector, QIcon) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4204,16 +4357,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
+    pub fn WindowIconTextChanged(self: KXYSelector, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
-        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
 
     /// Inherited from QWidget
@@ -4222,12 +4375,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, iconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconTextChanged(self: KXYSelector, callback: *const fn (KXYSelector, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4236,12 +4389,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+    pub fn CustomContextMenuRequested(self: KXYSelector, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QWidget
@@ -4250,12 +4404,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomContextMenuRequested(self: KXYSelector, callback: *const fn (KXYSelector, QPoint) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4264,14 +4418,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i32 {
-        return qtc.QWidget_InputMethodHints(@ptrCast(self));
+    pub fn InputMethodHints(self: KXYSelector) i32 {
+        return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4280,12 +4434,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetInputMethodHints(self: KXYSelector, hints: i32) void {
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -4294,14 +4448,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: KXYSelector, target: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -4310,16 +4466,19 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render3(self: KXYSelector, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -4328,18 +4487,21 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render4(self: KXYSelector, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -4348,14 +4510,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: KXYSelector, painter: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -4364,16 +4528,19 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render32(self: KXYSelector, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -4382,18 +4549,21 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render42(self: KXYSelector, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -4402,12 +4572,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Grab1(self: KXYSelector, rectangle: anytype) QPixmap {
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4416,14 +4587,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
+    pub fn GrabGesture2(self: KXYSelector, typeVal: i32, flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -4432,14 +4603,15 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
+    pub fn GrabShortcut2(self: KXYSelector, key: anytype, context: i32) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -4448,14 +4620,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutEnabled2(self: KXYSelector, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -4464,14 +4636,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutAutoRepeat2(self: KXYSelector, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -4480,14 +4652,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetWindowFlag2(self: KXYSelector, param1: i32, on: bool) void {
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -4496,14 +4668,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetAttribute2(self: KXYSelector, param1: i32, on: bool) void {
+        qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -4512,12 +4684,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4526,14 +4700,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
+    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QObject
@@ -4542,12 +4718,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KXYSelector, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kxyselector.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4560,12 +4736,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KXYSelector, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -4574,10 +4750,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KXYSelector) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4586,10 +4762,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KXYSelector) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4598,10 +4774,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KXYSelector) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4610,10 +4786,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KXYSelector) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4622,12 +4798,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KXYSelector, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -4636,10 +4812,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KXYSelector) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -4648,12 +4824,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KXYSelector, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -4662,12 +4839,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KXYSelector, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -4676,12 +4853,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KXYSelector, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -4690,12 +4867,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KXYSelector, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4704,12 +4881,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KXYSelector, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4718,16 +4895,17 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KXYSelector, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kxyselector.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kxyselector.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -4737,12 +4915,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KXYSelector, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -4751,12 +4930,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KXYSelector, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -4765,18 +4945,20 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -4785,16 +4967,20 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -4803,18 +4989,19 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KXYSelector, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -4823,18 +5010,20 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -4843,16 +5032,20 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -4861,10 +5054,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KXYSelector) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4873,12 +5066,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KXYSelector, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -4887,10 +5081,11 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -4899,10 +5094,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KXYSelector) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4911,10 +5106,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KXYSelector) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4923,15 +5118,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KXYSelector, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -4940,13 +5136,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KXYSelector, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -4955,17 +5151,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KXYSelector, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kxyselector.DynamicPropertyNames: Memory allocation failed");
@@ -4984,10 +5179,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KXYSelector) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -4996,10 +5191,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KXYSelector) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5008,10 +5203,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KXYSelector) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5020,12 +5215,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KXYSelector, callback: *const fn (KXYSelector) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5034,10 +5229,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: KXYSelector) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5046,13 +5241,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KXYSelector, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -5061,10 +5256,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KXYSelector) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5073,14 +5268,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KXYSelector, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -5089,14 +5284,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KXYSelector, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -5105,20 +5300,22 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -5127,18 +5324,22 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -5147,9 +5348,9 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5157,10 +5358,11 @@ pub const kxyselector = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KXYSelector, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -5169,13 +5371,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KXYSelector, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5184,15 +5386,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KXYSelector, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -5201,18 +5404,19 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KXYSelector, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5221,15 +5425,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KXYSelector, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5238,12 +5443,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KXYSelector, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -5252,12 +5458,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KXYSelector, callback: *const fn (KXYSelector, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -5266,10 +5472,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: KXYSelector) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5278,10 +5484,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: KXYSelector) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5290,10 +5496,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: KXYSelector) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5302,10 +5508,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: KXYSelector) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5314,10 +5520,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: KXYSelector) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5326,10 +5532,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: KXYSelector) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5338,10 +5544,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: KXYSelector) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5350,10 +5556,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: KXYSelector) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5362,10 +5568,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: KXYSelector) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5374,10 +5580,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: KXYSelector) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5386,10 +5592,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: KXYSelector) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5422,10 +5628,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.KXYSelector_DevType(@ptrCast(self));
+    pub fn DevType(self: KXYSelector) i32 {
+        return qtc.KXYSelector_DevType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDevType` instead
@@ -5440,10 +5646,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn SuperDevType(self: ?*anyopaque) i32 {
-        return qtc.KXYSelector_SuperDevType(@ptrCast(self));
+    pub fn SuperDevType(self: KXYSelector) i32 {
+        return qtc.KXYSelector_SuperDevType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5454,12 +5660,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KXYSelector_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDevType(self: KXYSelector, callback: *const fn () callconv(.c) i32) void {
+        qtc.KXYSelector_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5470,12 +5676,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.KXYSelector_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: KXYSelector, visible: bool) void {
+        qtc.KXYSelector_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### DEPRECATED: Use `SuperSetVisible` instead
@@ -5490,12 +5696,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.KXYSelector_SuperSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: KXYSelector, visible: bool) void {
+        qtc.KXYSelector_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QWidget
@@ -5506,12 +5712,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KXYSelector_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetVisible(self: KXYSelector, callback: *const fn (KXYSelector, bool) callconv(.c) void) void {
+        qtc.KXYSelector_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5522,10 +5728,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KXYSelector_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: KXYSelector) QSize {
+        return .{ .ptr = qtc.KXYSelector_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSizeHint` instead
@@ -5540,10 +5746,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.KXYSelector_SuperSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: KXYSelector) QSize {
+        return .{ .ptr = qtc.KXYSelector_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5554,12 +5760,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.KXYSelector_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHint(self: KXYSelector, callback: *const fn () callconv(.c) QSize) void {
+        qtc.KXYSelector_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5570,12 +5776,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KXYSelector_HeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn HeightForWidth(self: KXYSelector, param1: i32) i32 {
+        return qtc.KXYSelector_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperHeightForWidth` instead
@@ -5590,12 +5796,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KXYSelector_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: KXYSelector, param1: i32) i32 {
+        return qtc.KXYSelector_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -5606,12 +5812,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, param1: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KXYSelector, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KXYSelector_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeightForWidth(self: KXYSelector, callback: *const fn (KXYSelector, i32) callconv(.c) i32) void {
+        qtc.KXYSelector_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5622,10 +5828,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.KXYSelector_HasHeightForWidth(@ptrCast(self));
+    pub fn HasHeightForWidth(self: KXYSelector) bool {
+        return qtc.KXYSelector_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
@@ -5640,10 +5846,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.KXYSelector_SuperHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: KXYSelector) bool {
+        return qtc.KXYSelector_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5654,12 +5860,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KXYSelector_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasHeightForWidth(self: KXYSelector, callback: *const fn () callconv(.c) bool) void {
+        qtc.KXYSelector_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5670,10 +5876,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.KXYSelector_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: KXYSelector) QPaintEngine {
+        return .{ .ptr = qtc.KXYSelector_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperPaintEngine` instead
@@ -5688,10 +5894,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.KXYSelector_SuperPaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: KXYSelector) QPaintEngine {
+        return .{ .ptr = qtc.KXYSelector_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5702,12 +5908,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.KXYSelector_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEngine(self: KXYSelector, callback: *const fn () callconv(.c) QPaintEngine) void {
+        qtc.KXYSelector_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5718,12 +5924,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KXYSelector_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KXYSelector, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KXYSelector_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -5738,12 +5945,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KXYSelector_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KXYSelector, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KXYSelector_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -5754,12 +5962,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KXYSelector, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KXYSelector_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KXYSelector, callback: *const fn (KXYSelector, QEvent) callconv(.c) bool) void {
+        qtc.KXYSelector_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5770,12 +5978,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseReleaseEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.KXYSelector_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
@@ -5790,12 +5999,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.KXYSelector_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -5806,12 +6016,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseReleaseEvent(self: KXYSelector, callback: *const fn (KXYSelector, QMouseEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5822,12 +6032,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseDoubleClickEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.KXYSelector_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
@@ -5842,12 +6053,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.KXYSelector_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -5858,12 +6070,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseDoubleClickEvent(self: KXYSelector, callback: *const fn (KXYSelector, QMouseEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5874,12 +6086,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_KeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyPressEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.KXYSelector_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
@@ -5894,12 +6107,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_SuperKeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyPressEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.KXYSelector_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -5910,12 +6124,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyPressEvent(self: KXYSelector, callback: *const fn (KXYSelector, QKeyEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5926,12 +6140,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyReleaseEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.KXYSelector_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
@@ -5946,12 +6161,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.KXYSelector_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -5962,12 +6178,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyReleaseEvent(self: KXYSelector, callback: *const fn (KXYSelector, QKeyEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5978,12 +6194,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_FocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusInEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.KXYSelector_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusInEvent` instead
@@ -5998,12 +6215,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.KXYSelector_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6014,12 +6232,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusInEvent(self: KXYSelector, callback: *const fn (KXYSelector, QFocusEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6030,12 +6248,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_FocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusOutEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.KXYSelector_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
@@ -6050,12 +6269,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.KXYSelector_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6066,12 +6286,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusOutEvent(self: KXYSelector, callback: *const fn (KXYSelector, QFocusEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6082,12 +6302,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_EnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn EnterEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.KXYSelector_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEnterEvent` instead
@@ -6102,12 +6323,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.KXYSelector_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6118,12 +6340,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnterEvent(self: KXYSelector, callback: *const fn (KXYSelector, QEnterEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6134,12 +6356,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_LeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn LeaveEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KXYSelector_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLeaveEvent` instead
@@ -6154,12 +6377,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KXYSelector_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6170,12 +6394,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeaveEvent(self: KXYSelector, callback: *const fn (KXYSelector, QEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6186,12 +6410,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_MoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MoveEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.KXYSelector_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMoveEvent` instead
@@ -6206,12 +6431,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.KXYSelector_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6222,12 +6448,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveEvent(self: KXYSelector, callback: *const fn (KXYSelector, QMoveEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6238,12 +6464,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_ResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ResizeEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.KXYSelector_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResizeEvent` instead
@@ -6258,12 +6485,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.KXYSelector_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6274,12 +6502,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QResizeEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResizeEvent(self: KXYSelector, callback: *const fn (KXYSelector, QResizeEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6290,12 +6518,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_CloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CloseEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.KXYSelector_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEvent` instead
@@ -6310,12 +6539,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.KXYSelector_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6326,12 +6556,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QCloseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEvent(self: KXYSelector, callback: *const fn (KXYSelector, QCloseEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6342,12 +6572,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QContextMenuEvent `
+    /// ` event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_ContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ContextMenuEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
+        qtc.KXYSelector_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
@@ -6362,12 +6593,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QContextMenuEvent `
+    /// ` event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_SuperContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperContextMenuEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
+        qtc.KXYSelector_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6378,12 +6610,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QContextMenuEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuEvent(self: KXYSelector, callback: *const fn (KXYSelector, QContextMenuEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6394,12 +6626,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_TabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TabletEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.KXYSelector_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTabletEvent` instead
@@ -6414,12 +6647,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.KXYSelector_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6430,12 +6664,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QTabletEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabletEvent(self: KXYSelector, callback: *const fn (KXYSelector, QTabletEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6446,12 +6680,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_ActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ActionEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.KXYSelector_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperActionEvent` instead
@@ -6466,12 +6701,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_SuperActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.KXYSelector_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6482,12 +6718,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QActionEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionEvent(self: KXYSelector, callback: *const fn (KXYSelector, QActionEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6498,12 +6734,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_DragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragEnterEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.KXYSelector_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
@@ -6518,12 +6755,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.KXYSelector_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6534,12 +6772,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QDragEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragEnterEvent(self: KXYSelector, callback: *const fn (KXYSelector, QDragEnterEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6550,12 +6788,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_DragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragMoveEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.KXYSelector_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
@@ -6570,12 +6809,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.KXYSelector_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6586,12 +6826,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QDragMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragMoveEvent(self: KXYSelector, callback: *const fn (KXYSelector, QDragMoveEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6602,12 +6842,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragLeaveEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.KXYSelector_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
@@ -6622,12 +6863,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.KXYSelector_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6638,12 +6880,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QDragLeaveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragLeaveEvent(self: KXYSelector, callback: *const fn (KXYSelector, QDragLeaveEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6654,12 +6896,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_DropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DropEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.KXYSelector_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropEvent` instead
@@ -6674,12 +6917,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_SuperDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.KXYSelector_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6690,12 +6934,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QDropEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropEvent(self: KXYSelector, callback: *const fn (KXYSelector, QDropEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6706,12 +6950,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_ShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ShowEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.KXYSelector_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperShowEvent` instead
@@ -6726,12 +6971,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_SuperShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.KXYSelector_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6742,12 +6988,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QShowEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShowEvent(self: KXYSelector, callback: *const fn (KXYSelector, QShowEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6758,12 +7004,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_HideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn HideEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.KXYSelector_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHideEvent` instead
@@ -6778,12 +7025,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_SuperHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.KXYSelector_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6794,12 +7042,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QHideEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHideEvent(self: KXYSelector, callback: *const fn (KXYSelector, QHideEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6810,7 +7058,7 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` eventType: []u8 `
     ///
@@ -6818,12 +7066,12 @@ pub const kxyselector = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn NativeEvent(self: KXYSelector, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KXYSelector_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KXYSelector_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### DEPRECATED: Use `SuperNativeEvent` instead
@@ -6838,7 +7086,7 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` eventType: []u8 `
     ///
@@ -6846,12 +7094,12 @@ pub const kxyselector = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: KXYSelector, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KXYSelector_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KXYSelector_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -6862,12 +7110,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: KXYSelector, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.KXYSelector_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNativeEvent(self: KXYSelector, callback: *const fn (KXYSelector, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.KXYSelector_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6878,12 +7126,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KXYSelector_ChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ChangeEvent(self: KXYSelector, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.KXYSelector_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChangeEvent` instead
@@ -6898,12 +7147,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KXYSelector_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: KXYSelector, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.KXYSelector_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -6914,12 +7164,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, param1: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangeEvent(self: KXYSelector, callback: *const fn (KXYSelector, QEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6930,12 +7180,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KXYSelector_Metric(@ptrCast(self), @bitCast(param1));
+    pub fn Metric(self: KXYSelector, param1: i32) i32 {
+        return qtc.KXYSelector_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperMetric` instead
@@ -6950,12 +7200,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.KXYSelector_SuperMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: KXYSelector, param1: i32) i32 {
+        return qtc.KXYSelector_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6966,12 +7216,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KXYSelector, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KXYSelector_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetric(self: KXYSelector, callback: *const fn (KXYSelector, i32) callconv(.c) i32) void {
+        qtc.KXYSelector_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6982,12 +7232,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.KXYSelector_InitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn InitPainter(self: KXYSelector, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.KXYSelector_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitPainter` instead
@@ -7002,12 +7253,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.KXYSelector_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: KXYSelector, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.KXYSelector_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -7018,12 +7270,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, painter: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitPainter(self: KXYSelector, callback: *const fn (KXYSelector, QPainter) callconv(.c) void) void {
+        qtc.KXYSelector_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7034,12 +7286,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.KXYSelector_Redirected(@ptrCast(self), @ptrCast(offset));
+    pub fn Redirected(self: KXYSelector, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.KXYSelector_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperRedirected` instead
@@ -7054,12 +7307,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.KXYSelector_SuperRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: KXYSelector, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.KXYSelector_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7070,12 +7324,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    /// ` callback: *const fn (self: KXYSelector, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.KXYSelector_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: KXYSelector, callback: *const fn (KXYSelector, QPoint) callconv(.c) QPaintDevice) void {
+        qtc.KXYSelector_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7086,10 +7340,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.KXYSelector_SharedPainter(@ptrCast(self));
+    pub fn SharedPainter(self: KXYSelector) QPainter {
+        return .{ .ptr = qtc.KXYSelector_SharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSharedPainter` instead
@@ -7104,10 +7358,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.KXYSelector_SuperSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: KXYSelector) QPainter {
+        return .{ .ptr = qtc.KXYSelector_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7118,12 +7372,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.KXYSelector_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSharedPainter(self: KXYSelector, callback: *const fn () callconv(.c) QPainter) void {
+        qtc.KXYSelector_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7134,12 +7388,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KXYSelector_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn InputMethodEvent(self: KXYSelector, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.KXYSelector_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
@@ -7154,12 +7409,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KXYSelector_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: KXYSelector, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.KXYSelector_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -7170,12 +7426,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, param1: QtC.QInputMethodEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodEvent(self: KXYSelector, callback: *const fn (KXYSelector, QInputMethodEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7186,12 +7442,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.KXYSelector_InputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn InputMethodQuery(self: KXYSelector, param1: i32) QVariant {
+        return .{ .ptr = qtc.KXYSelector_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
@@ -7206,12 +7462,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.KXYSelector_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: KXYSelector, param1: i32) QVariant {
+        return .{ .ptr = qtc.KXYSelector_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -7222,12 +7478,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: KXYSelector, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.KXYSelector_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodQuery(self: KXYSelector, callback: *const fn (KXYSelector, i32) callconv(.c) QVariant) void {
+        qtc.KXYSelector_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7238,12 +7494,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.KXYSelector_FocusNextPrevChild(@ptrCast(self), next);
+    pub fn FocusNextPrevChild(self: KXYSelector, next: bool) bool {
+        return qtc.KXYSelector_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
@@ -7258,12 +7514,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.KXYSelector_SuperFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: KXYSelector, next: bool) bool {
+        return qtc.KXYSelector_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// Inherited from QWidget
@@ -7274,12 +7530,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, next: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: KXYSelector, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.KXYSelector_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextPrevChild(self: KXYSelector, callback: *const fn (KXYSelector, bool) callconv(.c) bool) void {
+        qtc.KXYSelector_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7290,14 +7546,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KXYSelector_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KXYSelector, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KXYSelector_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -7312,14 +7570,16 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KXYSelector_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KXYSelector, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KXYSelector_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7330,12 +7590,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KXYSelector, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KXYSelector_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KXYSelector, callback: *const fn (KXYSelector, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KXYSelector_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7346,12 +7606,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KXYSelector_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -7366,12 +7627,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KXYSelector_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7382,12 +7644,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KXYSelector, callback: *const fn (KXYSelector, QTimerEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7398,12 +7660,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KXYSelector_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -7418,12 +7681,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KXYSelector_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7434,12 +7698,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KXYSelector, callback: *const fn (KXYSelector, QChildEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7450,12 +7714,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KXYSelector_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -7470,12 +7735,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KXYSelector_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KXYSelector, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KXYSelector_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7486,12 +7752,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KXYSelector, callback: *const fn (KXYSelector, QEvent) callconv(.c) void) void {
+        qtc.KXYSelector_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7502,12 +7768,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KXYSelector_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KXYSelector, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KXYSelector_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -7522,12 +7789,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KXYSelector_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KXYSelector, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KXYSelector_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -7538,12 +7806,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KXYSelector, callback: *const fn (KXYSelector, QMetaMethod) callconv(.c) void) void {
+        qtc.KXYSelector_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7554,12 +7822,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KXYSelector_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KXYSelector, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KXYSelector_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -7574,12 +7843,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KXYSelector_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KXYSelector, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KXYSelector_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -7590,12 +7860,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXYSelector_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KXYSelector, callback: *const fn (KXYSelector, QMetaMethod) callconv(.c) void) void {
+        qtc.KXYSelector_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7606,10 +7876,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.KXYSelector_UpdateMicroFocus(@ptrCast(self));
+    pub fn UpdateMicroFocus(self: KXYSelector) void {
+        qtc.KXYSelector_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
@@ -7624,10 +7894,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.KXYSelector_SuperUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: KXYSelector) void {
+        qtc.KXYSelector_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7638,12 +7908,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KXYSelector_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateMicroFocus(self: KXYSelector, callback: *const fn () callconv(.c) void) void {
+        qtc.KXYSelector_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7654,10 +7924,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Create(self: ?*anyopaque) void {
-        qtc.KXYSelector_Create(@ptrCast(self));
+    pub fn Create(self: KXYSelector) void {
+        qtc.KXYSelector_Create(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -7672,10 +7942,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn SuperCreate(self: ?*anyopaque) void {
-        qtc.KXYSelector_SuperCreate(@ptrCast(self));
+    pub fn SuperCreate(self: KXYSelector) void {
+        qtc.KXYSelector_SuperCreate(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7686,12 +7956,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KXYSelector_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: KXYSelector, callback: *const fn () callconv(.c) void) void {
+        qtc.KXYSelector_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7702,10 +7972,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Destroy(self: ?*anyopaque) void {
-        qtc.KXYSelector_Destroy(@ptrCast(self));
+    pub fn Destroy(self: KXYSelector) void {
+        qtc.KXYSelector_Destroy(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDestroy` instead
@@ -7720,10 +7990,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn SuperDestroy(self: ?*anyopaque) void {
-        qtc.KXYSelector_SuperDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: KXYSelector) void {
+        qtc.KXYSelector_SuperDestroy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7734,12 +8004,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KXYSelector_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroy(self: KXYSelector, callback: *const fn () callconv(.c) void) void {
+        qtc.KXYSelector_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7750,10 +8020,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return qtc.KXYSelector_FocusNextChild(@ptrCast(self));
+    pub fn FocusNextChild(self: KXYSelector) bool {
+        return qtc.KXYSelector_FocusNextChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextChild` instead
@@ -7768,10 +8038,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.KXYSelector_SuperFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: KXYSelector) bool {
+        return qtc.KXYSelector_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7782,12 +8052,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KXYSelector_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextChild(self: KXYSelector, callback: *const fn () callconv(.c) bool) void {
+        qtc.KXYSelector_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7798,10 +8068,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.KXYSelector_FocusPreviousChild(@ptrCast(self));
+    pub fn FocusPreviousChild(self: KXYSelector) bool {
+        return qtc.KXYSelector_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
@@ -7816,10 +8086,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.KXYSelector_SuperFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: KXYSelector) bool {
+        return qtc.KXYSelector_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -7830,12 +8100,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KXYSelector_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusPreviousChild(self: KXYSelector, callback: *const fn () callconv(.c) bool) void {
+        qtc.KXYSelector_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7846,10 +8116,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KXYSelector_Sender(@ptrCast(self));
+    pub fn Sender(self: KXYSelector) QObject {
+        return .{ .ptr = qtc.KXYSelector_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -7864,10 +8134,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KXYSelector_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KXYSelector) QObject {
+        return .{ .ptr = qtc.KXYSelector_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -7878,12 +8148,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KXYSelector_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KXYSelector, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KXYSelector_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7894,10 +8164,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KXYSelector_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KXYSelector) i32 {
+        return qtc.KXYSelector_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -7912,10 +8182,10 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KXYSelector_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KXYSelector) i32 {
+        return qtc.KXYSelector_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -7926,12 +8196,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KXYSelector_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KXYSelector, callback: *const fn () callconv(.c) i32) void {
+        qtc.KXYSelector_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7942,13 +8212,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KXYSelector, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KXYSelector_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KXYSelector_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -7963,13 +8233,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KXYSelector, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KXYSelector_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KXYSelector_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -7980,12 +8250,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KXYSelector, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KXYSelector_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KXYSelector, callback: *const fn (KXYSelector, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KXYSelector_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7996,12 +8266,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KXYSelector_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KXYSelector, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KXYSelector_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -8016,12 +8287,13 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KXYSelector_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KXYSelector, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KXYSelector_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -8032,12 +8304,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KXYSelector, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KXYSelector_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KXYSelector, callback: *const fn (KXYSelector, QMetaMethod) callconv(.c) bool) void {
+        qtc.KXYSelector_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -8048,14 +8320,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KXYSelector_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn GetDecodedMetricF(self: KXYSelector, metricA: i32, metricB: i32) f64 {
+        return qtc.KXYSelector_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
@@ -8070,14 +8342,14 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.KXYSelector_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: KXYSelector, metricA: i32, metricB: i32) f64 {
+        return qtc.KXYSelector_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -8088,12 +8360,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector`
+    /// ` self: KXYSelector`
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    /// ` callback: *const fn (self: KXYSelector, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.KXYSelector_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetDecodedMetricF(self: KXYSelector, callback: *const fn (KXYSelector, i32, i32) callconv(.c) f64) void {
+        qtc.KXYSelector_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8104,12 +8376,12 @@ pub const kxyselector = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    /// ` callback: *const fn (self: QtC.KXYSelector, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KXYSelector, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KXYSelector, callback: *const fn (KXYSelector, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -8122,9 +8394,9 @@ pub const kxyselector = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KXYSelector `
+    /// ` self: KXYSelector `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KXYSelector_Delete(@ptrCast(self));
+    pub fn Delete(self: KXYSelector) void {
+        qtc.KXYSelector_Delete(@ptrCast(self.ptr));
     }
 };

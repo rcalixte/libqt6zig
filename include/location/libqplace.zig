@@ -1,66 +1,87 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QGeoLocation = @import("libqt6").QGeoLocation;
+const QPlaceAttribute = @import("libqt6").QPlaceAttribute;
+const QPlaceCategory = @import("libqt6").QPlaceCategory;
+const QPlaceContactDetail = @import("libqt6").QPlaceContactDetail;
+const QPlaceContent = @import("libqt6").QPlaceContent;
+const QPlaceIcon = @import("libqt6").QPlaceIcon;
+const QPlaceRatings = @import("libqt6").QPlaceRatings;
+const QPlaceSupplier = @import("libqt6").QPlaceSupplier;
+const QUrl = @import("libqt6").QUrl;
 const qlocation_enums = @import("libqlocation.zig").enums;
 const qplacecontent_enums = @import("libqplacecontent.zig").enums;
 const std = @import("std");
-const arraymap_i32_qtcqplacecontent = std.array_hash_map.Auto(i32, QtC.QPlaceContent);
+const ArrayMap_i32_QPlaceContent = std.array_hash_map.Auto(i32, QPlaceContent);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html)
-pub const qplace = struct {
+pub const QPlace = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QPlace,
+
+    pub const _is_QPlace = {};
+
     /// New constructs a new QPlace object.
     ///
-    pub fn New() QtC.QPlace {
-        return qtc.QPlace_new();
+    pub fn New() QPlace {
+        return .{ .ptr = qtc.QPlace_new() };
     }
 
     /// New2 constructs a new QPlace object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QPlace `
+    /// ` other: QPlace `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QPlace {
-        return qtc.QPlace_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QPlace {
+        comptime _ = @TypeOf(other)._is_QPlace;
+        return .{ .ptr = qtc.QPlace_new2(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
-    /// ` other: QtC.QPlace `
+    /// ` other: QPlace `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QPlace_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QPlace, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QPlace;
+        qtc.QPlace_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
-    /// ` other: QtC.QPlace `
+    /// ` other: QPlace `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QPlace_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QPlace, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QPlace;
+        qtc.QPlace_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#categories)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Categories(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QPlaceCategory {
-        const _arr: qtc.libqt_list = qtc.QPlace_Categories(@ptrCast(self));
+    pub fn Categories(self: QPlace, allocator: std.mem.Allocator) []QPlaceCategory {
+        const _arr: qtc.libqt_list = qtc.QPlace_Categories(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QPlaceCategory, _arr.len) catch @panic("qplace.Categories: Memory allocation failed");
+        const _ret = allocator.alloc(QPlaceCategory, _arr.len) catch @panic("qplace.Categories: Memory allocation failed");
         const _data: [*]QtC.QPlaceCategory = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -68,106 +89,110 @@ pub const qplace = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
-    /// ` category: QtC.QPlaceCategory `
+    /// ` category: QPlaceCategory `
     ///
-    pub fn SetCategory(self: ?*anyopaque, category: ?*anyopaque) void {
-        qtc.QPlace_SetCategory(@ptrCast(self), @ptrCast(category));
+    pub fn SetCategory(self: QPlace, category: anytype) void {
+        comptime _ = @TypeOf(category)._is_QPlaceCategory;
+        qtc.QPlace_SetCategory(@ptrCast(self.ptr), @ptrCast(category.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#setCategories)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
-    /// ` categories: []QtC.QPlaceCategory `
+    /// ` categories: []QPlaceCategory `
     ///
-    pub fn SetCategories(self: ?*anyopaque, categories: []QtC.QPlaceCategory) void {
+    pub fn SetCategories(self: QPlace, categories: []QPlaceCategory) void {
         const categories_list = qtc.libqt_list{
             .len = categories.len,
             .data = @ptrCast(categories.ptr),
         };
-        qtc.QPlace_SetCategories(@ptrCast(self), categories_list);
+        qtc.QPlace_SetCategories(@ptrCast(self.ptr), categories_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#location)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
-    pub fn Location(self: ?*anyopaque) QtC.QGeoLocation {
-        return qtc.QPlace_Location(@ptrCast(self));
+    pub fn Location(self: QPlace) QGeoLocation {
+        return .{ .ptr = qtc.QPlace_Location(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#setLocation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
-    /// ` location: QtC.QGeoLocation `
+    /// ` location: QGeoLocation `
     ///
-    pub fn SetLocation(self: ?*anyopaque, location: ?*anyopaque) void {
-        qtc.QPlace_SetLocation(@ptrCast(self), @ptrCast(location));
+    pub fn SetLocation(self: QPlace, location: anytype) void {
+        comptime _ = @TypeOf(location)._is_QGeoLocation;
+        qtc.QPlace_SetLocation(@ptrCast(self.ptr), @ptrCast(location.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#ratings)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
-    pub fn Ratings(self: ?*anyopaque) QtC.QPlaceRatings {
-        return qtc.QPlace_Ratings(@ptrCast(self));
+    pub fn Ratings(self: QPlace) QPlaceRatings {
+        return .{ .ptr = qtc.QPlace_Ratings(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#setRatings)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
-    /// ` ratings: QtC.QPlaceRatings `
+    /// ` ratings: QPlaceRatings `
     ///
-    pub fn SetRatings(self: ?*anyopaque, ratings: ?*anyopaque) void {
-        qtc.QPlace_SetRatings(@ptrCast(self), @ptrCast(ratings));
+    pub fn SetRatings(self: QPlace, ratings: anytype) void {
+        comptime _ = @TypeOf(ratings)._is_QPlaceRatings;
+        qtc.QPlace_SetRatings(@ptrCast(self.ptr), @ptrCast(ratings.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#supplier)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
-    pub fn Supplier(self: ?*anyopaque) QtC.QPlaceSupplier {
-        return qtc.QPlace_Supplier(@ptrCast(self));
+    pub fn Supplier(self: QPlace) QPlaceSupplier {
+        return .{ .ptr = qtc.QPlace_Supplier(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#setSupplier)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
-    /// ` supplier: QtC.QPlaceSupplier `
+    /// ` supplier: QPlaceSupplier `
     ///
-    pub fn SetSupplier(self: ?*anyopaque, supplier: ?*anyopaque) void {
-        qtc.QPlace_SetSupplier(@ptrCast(self), @ptrCast(supplier));
+    pub fn SetSupplier(self: QPlace, supplier: anytype) void {
+        comptime _ = @TypeOf(supplier)._is_QPlaceSupplier;
+        qtc.QPlace_SetSupplier(@ptrCast(self.ptr), @ptrCast(supplier.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#attribution)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Attribution(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QPlace_Attribution(@ptrCast(self));
+    pub fn Attribution(self: QPlace, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QPlace_Attribution(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qplace.Attribution: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -178,53 +203,54 @@ pub const qplace = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
     /// ` attribution: []const u8 `
     ///
-    pub fn SetAttribution(self: ?*anyopaque, attribution: []const u8) void {
+    pub fn SetAttribution(self: QPlace, attribution: []const u8) void {
         const attribution_str = qtc.libqt_string{
             .len = attribution.len,
             .data = attribution.ptr,
         };
-        qtc.QPlace_SetAttribution(@ptrCast(self), attribution_str);
+        qtc.QPlace_SetAttribution(@ptrCast(self.ptr), attribution_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#icon)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
-    pub fn Icon(self: ?*anyopaque) QtC.QPlaceIcon {
-        return qtc.QPlace_Icon(@ptrCast(self));
+    pub fn Icon(self: QPlace) QPlaceIcon {
+        return .{ .ptr = qtc.QPlace_Icon(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#setIcon)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
-    /// ` icon: QtC.QPlaceIcon `
+    /// ` icon: QPlaceIcon `
     ///
-    pub fn SetIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QPlace_SetIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetIcon(self: QPlace, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QPlaceIcon;
+        qtc.QPlace_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#content)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
-    ///
-    /// ` typeVal: qplacecontent_enums.Type `
+    /// ` self: QPlace `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Content(self: ?*anyopaque, typeVal: i32, allocator: std.mem.Allocator) arraymap_i32_qtcqplacecontent {
-        const _map: qtc.libqt_map = qtc.QPlace_Content(@ptrCast(self), @bitCast(typeVal));
-        var _ret: arraymap_i32_qtcqplacecontent = .empty;
+    /// ` typeVal: qplacecontent_enums.Type `
+    ///
+    pub fn Content(self: QPlace, allocator: std.mem.Allocator, typeVal: i32) ArrayMap_i32_QPlaceContent {
+        const _map: qtc.libqt_map = qtc.QPlace_Content(@ptrCast(self.ptr), @bitCast(typeVal));
+        var _ret: ArrayMap_i32_QPlaceContent = .empty;
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -235,7 +261,7 @@ pub const qplace = struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, @ptrCast(_value)) catch @panic("qplace.Content: Memory allocation failed");
+            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("qplace.Content: Memory allocation failed");
         }
         return _ret;
     }
@@ -244,15 +270,15 @@ pub const qplace = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
-    ///
-    /// ` typeVal: qplacecontent_enums.Type `
-    ///
-    /// ` content: arraymap_i32_qtcqplacecontent `
+    /// ` self: QPlace `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetContent(self: ?*anyopaque, typeVal: i32, content: arraymap_i32_qtcqplacecontent, allocator: std.mem.Allocator) void {
+    /// ` typeVal: qplacecontent_enums.Type `
+    ///
+    /// ` content: ArrayMap_i32_QPlaceContent `
+    ///
+    pub fn SetContent(self: QPlace, allocator: std.mem.Allocator, typeVal: i32, content: ArrayMap_i32_QPlaceContent) void {
         const content_count = content.count();
         const content_keys = allocator.alloc(i32, content_count) catch @panic("qplace.SetContent: Memory allocation failed");
         defer allocator.free(content_keys);
@@ -263,29 +289,29 @@ pub const qplace = struct {
         while (content_it.next()) |it_entry| : (i += 1) {
             const content_key = it_entry.key_ptr.*;
             content_keys[i] = @bitCast(content_key);
-            content_values[i] = @ptrCast(it_entry.value_ptr.*);
+            content_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const content_map = qtc.libqt_map{
             .len = content_count,
             .keys = @ptrCast(content_keys.ptr),
             .values = @ptrCast(content_values.ptr),
         };
-        qtc.QPlace_SetContent(@ptrCast(self), @bitCast(typeVal), content_map);
+        qtc.QPlace_SetContent(@ptrCast(self.ptr), @bitCast(typeVal), content_map);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#insertContent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
-    ///
-    /// ` typeVal: qplacecontent_enums.Type `
-    ///
-    /// ` content: arraymap_i32_qtcqplacecontent `
+    /// ` self: QPlace `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InsertContent(self: ?*anyopaque, typeVal: i32, content: arraymap_i32_qtcqplacecontent, allocator: std.mem.Allocator) void {
+    /// ` typeVal: qplacecontent_enums.Type `
+    ///
+    /// ` content: ArrayMap_i32_QPlaceContent `
+    ///
+    pub fn InsertContent(self: QPlace, allocator: std.mem.Allocator, typeVal: i32, content: ArrayMap_i32_QPlaceContent) void {
         const content_count = content.count();
         const content_keys = allocator.alloc(i32, content_count) catch @panic("qplace.InsertContent: Memory allocation failed");
         defer allocator.free(content_keys);
@@ -296,52 +322,52 @@ pub const qplace = struct {
         while (content_it.next()) |it_entry| : (i += 1) {
             const content_key = it_entry.key_ptr.*;
             content_keys[i] = @bitCast(content_key);
-            content_values[i] = @ptrCast(it_entry.value_ptr.*);
+            content_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const content_map = qtc.libqt_map{
             .len = content_count,
             .keys = @ptrCast(content_keys.ptr),
             .values = @ptrCast(content_values.ptr),
         };
-        qtc.QPlace_InsertContent(@ptrCast(self), @bitCast(typeVal), content_map);
+        qtc.QPlace_InsertContent(@ptrCast(self.ptr), @bitCast(typeVal), content_map);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#totalContentCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
     /// ` typeVal: qplacecontent_enums.Type `
     ///
-    pub fn TotalContentCount(self: ?*anyopaque, typeVal: i32) i32 {
-        return qtc.QPlace_TotalContentCount(@ptrCast(self), @bitCast(typeVal));
+    pub fn TotalContentCount(self: QPlace, typeVal: i32) i32 {
+        return qtc.QPlace_TotalContentCount(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#setTotalContentCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
     /// ` typeVal: qplacecontent_enums.Type `
     ///
     /// ` total: i32 `
     ///
-    pub fn SetTotalContentCount(self: ?*anyopaque, typeVal: i32, total: i32) void {
-        qtc.QPlace_SetTotalContentCount(@ptrCast(self), @bitCast(typeVal), @bitCast(total));
+    pub fn SetTotalContentCount(self: QPlace, typeVal: i32, total: i32) void {
+        qtc.QPlace_SetTotalContentCount(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(total));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#name)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QPlace_Name(@ptrCast(self));
+    pub fn Name(self: QPlace, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QPlace_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qplace.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -352,28 +378,28 @@ pub const qplace = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetName(self: QPlace, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QPlace_SetName(@ptrCast(self), name_str);
+        qtc.QPlace_SetName(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#placeId)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PlaceId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QPlace_PlaceId(@ptrCast(self));
+    pub fn PlaceId(self: QPlace, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QPlace_PlaceId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qplace.PlaceId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -384,28 +410,28 @@ pub const qplace = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
     /// ` identifier: []const u8 `
     ///
-    pub fn SetPlaceId(self: ?*anyopaque, identifier: []const u8) void {
+    pub fn SetPlaceId(self: QPlace, identifier: []const u8) void {
         const identifier_str = qtc.libqt_string{
             .len = identifier.len,
             .data = identifier.ptr,
         };
-        qtc.QPlace_SetPlaceId(@ptrCast(self), identifier_str);
+        qtc.QPlace_SetPlaceId(@ptrCast(self.ptr), identifier_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#primaryPhone)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PrimaryPhone(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QPlace_PrimaryPhone(@ptrCast(self));
+    pub fn PrimaryPhone(self: QPlace, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QPlace_PrimaryPhone(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qplace.PrimaryPhone: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -416,12 +442,12 @@ pub const qplace = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PrimaryFax(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QPlace_PrimaryFax(@ptrCast(self));
+    pub fn PrimaryFax(self: QPlace, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QPlace_PrimaryFax(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qplace.PrimaryFax: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -432,12 +458,12 @@ pub const qplace = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PrimaryEmail(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QPlace_PrimaryEmail(@ptrCast(self));
+    pub fn PrimaryEmail(self: QPlace, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QPlace_PrimaryEmail(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qplace.PrimaryEmail: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -448,49 +474,48 @@ pub const qplace = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
-    pub fn PrimaryWebsite(self: ?*anyopaque) QtC.QUrl {
-        return qtc.QPlace_PrimaryWebsite(@ptrCast(self));
+    pub fn PrimaryWebsite(self: QPlace) QUrl {
+        return .{ .ptr = qtc.QPlace_PrimaryWebsite(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#detailsFetched)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
-    pub fn DetailsFetched(self: ?*anyopaque) bool {
-        return qtc.QPlace_DetailsFetched(@ptrCast(self));
+    pub fn DetailsFetched(self: QPlace) bool {
+        return qtc.QPlace_DetailsFetched(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#setDetailsFetched)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
     /// ` fetched: bool `
     ///
-    pub fn SetDetailsFetched(self: ?*anyopaque, fetched: bool) void {
-        qtc.QPlace_SetDetailsFetched(@ptrCast(self), fetched);
+    pub fn SetDetailsFetched(self: QPlace, fetched: bool) void {
+        qtc.QPlace_SetDetailsFetched(@ptrCast(self.ptr), fetched);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#extendedAttributeTypes)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExtendedAttributeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QPlace_ExtendedAttributeTypes(@ptrCast(self));
+    pub fn ExtendedAttributeTypes(self: QPlace, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QPlace_ExtendedAttributeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qplace.ExtendedAttributeTypes: Memory allocation failed");
@@ -507,67 +532,67 @@ pub const qplace = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
     /// ` attributeType: []const u8 `
     ///
-    pub fn ExtendedAttribute(self: ?*anyopaque, attributeType: []const u8) QtC.QPlaceAttribute {
+    pub fn ExtendedAttribute(self: QPlace, attributeType: []const u8) QPlaceAttribute {
         const attributeType_str = qtc.libqt_string{
             .len = attributeType.len,
             .data = attributeType.ptr,
         };
-        return qtc.QPlace_ExtendedAttribute(@ptrCast(self), attributeType_str);
+        return .{ .ptr = qtc.QPlace_ExtendedAttribute(@ptrCast(self.ptr), attributeType_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#setExtendedAttribute)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
     /// ` attributeType: []const u8 `
     ///
-    /// ` attribute: QtC.QPlaceAttribute `
+    /// ` attribute: QPlaceAttribute `
     ///
-    pub fn SetExtendedAttribute(self: ?*anyopaque, attributeType: []const u8, attribute: ?*anyopaque) void {
+    pub fn SetExtendedAttribute(self: QPlace, attributeType: []const u8, attribute: anytype) void {
         const attributeType_str = qtc.libqt_string{
             .len = attributeType.len,
             .data = attributeType.ptr,
         };
-        qtc.QPlace_SetExtendedAttribute(@ptrCast(self), attributeType_str, @ptrCast(attribute));
+        comptime _ = @TypeOf(attribute)._is_QPlaceAttribute;
+        qtc.QPlace_SetExtendedAttribute(@ptrCast(self.ptr), attributeType_str, @ptrCast(attribute.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#removeExtendedAttribute)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
     /// ` attributeType: []const u8 `
     ///
-    pub fn RemoveExtendedAttribute(self: ?*anyopaque, attributeType: []const u8) void {
+    pub fn RemoveExtendedAttribute(self: QPlace, attributeType: []const u8) void {
         const attributeType_str = qtc.libqt_string{
             .len = attributeType.len,
             .data = attributeType.ptr,
         };
-        qtc.QPlace_RemoveExtendedAttribute(@ptrCast(self), attributeType_str);
+        qtc.QPlace_RemoveExtendedAttribute(@ptrCast(self.ptr), attributeType_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#contactTypes)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ContactTypes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QPlace_ContactTypes(@ptrCast(self));
+    pub fn ContactTypes(self: QPlace, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QPlace_ContactTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qplace.ContactTypes: Memory allocation failed");
@@ -584,22 +609,23 @@ pub const qplace = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
-    ///
-    /// ` contactType: []const u8 `
+    /// ` self: QPlace `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ContactDetails(self: ?*anyopaque, contactType: []const u8, allocator: std.mem.Allocator) []QtC.QPlaceContactDetail {
+    /// ` contactType: []const u8 `
+    ///
+    pub fn ContactDetails(self: QPlace, allocator: std.mem.Allocator, contactType: []const u8) []QPlaceContactDetail {
         const contactType_str = qtc.libqt_string{
             .len = contactType.len,
             .data = contactType.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QPlace_ContactDetails(@ptrCast(self), contactType_str);
+        const _arr: qtc.libqt_list = qtc.QPlace_ContactDetails(@ptrCast(self.ptr), contactType_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QPlaceContactDetail, _arr.len) catch @panic("qplace.ContactDetails: Memory allocation failed");
+        const _ret = allocator.alloc(QPlaceContactDetail, _arr.len) catch @panic("qplace.ContactDetails: Memory allocation failed");
         const _data: [*]QtC.QPlaceContactDetail = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -607,13 +633,13 @@ pub const qplace = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
     /// ` contactType: []const u8 `
     ///
-    /// ` details: []QtC.QPlaceContactDetail `
+    /// ` details: []QPlaceContactDetail `
     ///
-    pub fn SetContactDetails(self: ?*anyopaque, contactType: []const u8, details: []QtC.QPlaceContactDetail) void {
+    pub fn SetContactDetails(self: QPlace, contactType: []const u8, details: []QPlaceContactDetail) void {
         const contactType_str = qtc.libqt_string{
             .len = contactType.len,
             .data = contactType.ptr,
@@ -622,77 +648,78 @@ pub const qplace = struct {
             .len = details.len,
             .data = @ptrCast(details.ptr),
         };
-        qtc.QPlace_SetContactDetails(@ptrCast(self), contactType_str, details_list);
+        qtc.QPlace_SetContactDetails(@ptrCast(self.ptr), contactType_str, details_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#appendContactDetail)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
     /// ` contactType: []const u8 `
     ///
-    /// ` detail: QtC.QPlaceContactDetail `
+    /// ` detail: QPlaceContactDetail `
     ///
-    pub fn AppendContactDetail(self: ?*anyopaque, contactType: []const u8, detail: ?*anyopaque) void {
+    pub fn AppendContactDetail(self: QPlace, contactType: []const u8, detail: anytype) void {
         const contactType_str = qtc.libqt_string{
             .len = contactType.len,
             .data = contactType.ptr,
         };
-        qtc.QPlace_AppendContactDetail(@ptrCast(self), contactType_str, @ptrCast(detail));
+        comptime _ = @TypeOf(detail)._is_QPlaceContactDetail;
+        qtc.QPlace_AppendContactDetail(@ptrCast(self.ptr), contactType_str, @ptrCast(detail.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#removeContactDetails)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
     /// ` contactType: []const u8 `
     ///
-    pub fn RemoveContactDetails(self: ?*anyopaque, contactType: []const u8) void {
+    pub fn RemoveContactDetails(self: QPlace, contactType: []const u8) void {
         const contactType_str = qtc.libqt_string{
             .len = contactType.len,
             .data = contactType.ptr,
         };
-        qtc.QPlace_RemoveContactDetails(@ptrCast(self), contactType_str);
+        qtc.QPlace_RemoveContactDetails(@ptrCast(self.ptr), contactType_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#visibility)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
     /// ## Returns:
     ///
     /// ` qlocation_enums.Visibility `
     ///
-    pub fn Visibility(self: ?*anyopaque) i32 {
-        return qtc.QPlace_Visibility(@ptrCast(self));
+    pub fn Visibility(self: QPlace) i32 {
+        return qtc.QPlace_Visibility(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#setVisibility)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
     /// ` visibility: qlocation_enums.Visibility `
     ///
-    pub fn SetVisibility(self: ?*anyopaque, visibility: i32) void {
-        qtc.QPlace_SetVisibility(@ptrCast(self), @bitCast(visibility));
+    pub fn SetVisibility(self: QPlace, visibility: i32) void {
+        qtc.QPlace_SetVisibility(@ptrCast(self.ptr), @bitCast(visibility));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplace.html#isEmpty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
-    pub fn IsEmpty(self: ?*anyopaque) bool {
-        return qtc.QPlace_IsEmpty(@ptrCast(self));
+    pub fn IsEmpty(self: QPlace) bool {
+        return qtc.QPlace_IsEmpty(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -705,9 +732,9 @@ pub const qplace = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QPlace `
+    /// ` self: QPlace `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QPlace_Delete(@ptrCast(self));
+    pub fn Delete(self: QPlace) void {
+        qtc.QPlace_Delete(@ptrCast(self.ptr));
     }
 };

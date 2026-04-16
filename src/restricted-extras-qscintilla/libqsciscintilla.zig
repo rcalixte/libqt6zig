@@ -1,5 +1,77 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAction = @import("libqt6").QAction;
+const QActionEvent = @import("libqt6").QActionEvent;
+const QBackingStore = @import("libqt6").QBackingStore;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBitmap = @import("libqt6").QBitmap;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QCloseEvent = @import("libqt6").QCloseEvent;
+const QColor = @import("libqt6").QColor;
+const QContextMenuEvent = @import("libqt6").QContextMenuEvent;
+const QCursor = @import("libqt6").QCursor;
+const QDragEnterEvent = @import("libqt6").QDragEnterEvent;
+const QDragLeaveEvent = @import("libqt6").QDragLeaveEvent;
+const QDragMoveEvent = @import("libqt6").QDragMoveEvent;
+const QDropEvent = @import("libqt6").QDropEvent;
+const QEnterEvent = @import("libqt6").QEnterEvent;
+const QEvent = @import("libqt6").QEvent;
+const QFocusEvent = @import("libqt6").QFocusEvent;
+const QFont = @import("libqt6").QFont;
+const QFontInfo = @import("libqt6").QFontInfo;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QGraphicsEffect = @import("libqt6").QGraphicsEffect;
+const QGraphicsProxyWidget = @import("libqt6").QGraphicsProxyWidget;
+const QHideEvent = @import("libqt6").QHideEvent;
+const QIODevice = @import("libqt6").QIODevice;
+const QIcon = @import("libqt6").QIcon;
+const QImage = @import("libqt6").QImage;
+const QInputMethodEvent = @import("libqt6").QInputMethodEvent;
+const QKeyEvent = @import("libqt6").QKeyEvent;
+const QKeySequence = @import("libqt6").QKeySequence;
+const QLayout = @import("libqt6").QLayout;
+const QLocale = @import("libqt6").QLocale;
+const QMargins = @import("libqt6").QMargins;
+const QMenu = @import("libqt6").QMenu;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMimeData = @import("libqt6").QMimeData;
+const QMouseEvent = @import("libqt6").QMouseEvent;
+const QMoveEvent = @import("libqt6").QMoveEvent;
+const QObject = @import("libqt6").QObject;
+const QPaintDevice = @import("libqt6").QPaintDevice;
+const QPaintEngine = @import("libqt6").QPaintEngine;
+const QPaintEvent = @import("libqt6").QPaintEvent;
+const QPainter = @import("libqt6").QPainter;
+const QPalette = @import("libqt6").QPalette;
+const QPixmap = @import("libqt6").QPixmap;
+const QPoint = @import("libqt6").QPoint;
+const QPointF = @import("libqt6").QPointF;
+const QRect = @import("libqt6").QRect;
+const QRegion = @import("libqt6").QRegion;
+const QResizeEvent = @import("libqt6").QResizeEvent;
+const QScreen = @import("libqt6").QScreen;
+const QScrollBar = @import("libqt6").QScrollBar;
+const QShowEvent = @import("libqt6").QShowEvent;
+const QSize = @import("libqt6").QSize;
+const QSizePolicy = @import("libqt6").QSizePolicy;
+const QStyle = @import("libqt6").QStyle;
+const QStyleOptionFrame = @import("libqt6").QStyleOptionFrame;
+const QTabletEvent = @import("libqt6").QTabletEvent;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QUrl = @import("libqt6").QUrl;
+const QVariant = @import("libqt6").QVariant;
+const QWheelEvent = @import("libqt6").QWheelEvent;
+const QWidget = @import("libqt6").QWidget;
+const QWindow = @import("libqt6").QWindow;
+const QsciCommandSet = @import("libqt6").QsciCommandSet;
+const QsciDocument = @import("libqt6").QsciDocument;
+const QsciLexer = @import("libqt6").QsciLexer;
+const QsciScintillaBase = @import("libqt6").QsciScintillaBase;
+const QsciStyle = @import("libqt6").QsciStyle;
+const QsciStyledText = @import("libqt6").QsciStyledText;
 const builtin = @import("builtin");
 const qabstractscrollarea_enums = @import("../libqabstractscrollarea.zig").enums;
 const qframe_enums = @import("../libqframe.zig").enums;
@@ -13,31 +85,46 @@ const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
-pub const qsciscintilla = struct {
+pub const QsciScintilla = extern struct {
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QsciScintilla,
+
+    pub const _is_QsciScintilla = {};
+    pub const _is_QsciScintillaBase = {};
+    pub const _is_QAbstractScrollArea = {};
+    pub const _is_QFrame = {};
+    pub const _is_QWidget = {};
+    pub const _is_QObject = {};
+    pub const _is_QPaintDevice = {};
+
     /// New constructs a new QsciScintilla object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.QsciScintilla {
-        return qtc.QsciScintilla_new(@ptrCast(parent));
+    pub fn New(parent: anytype) QsciScintilla {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QsciScintilla_new(@ptrCast(parent.ptr)) };
     }
 
     /// New2 constructs a new QsciScintilla object.
     ///
-    pub fn New2() QtC.QsciScintilla {
-        return qtc.QsciScintilla_new2();
+    pub fn New2() QsciScintilla {
+        return .{ .ptr = qtc.QsciScintilla_new2() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QsciScintilla_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QsciScintilla) QMetaObject {
+        return .{ .ptr = qtc.QsciScintilla_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -46,12 +133,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QsciScintilla_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QsciScintilla, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QsciScintilla_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -64,33 +151,33 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QsciScintilla_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QsciScintilla) QMetaObject {
+        return .{ .ptr = qtc.QsciScintilla_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QsciScintilla, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QsciScintilla_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QsciScintilla_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QsciScintilla, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QsciScintilla_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QsciScintilla_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -101,18 +188,18 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QsciScintilla, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QsciScintilla_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QsciScintilla_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -120,20 +207,20 @@ pub const qsciscintilla = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QsciScintilla_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QsciScintilla, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QsciScintilla_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QsciScintilla, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QsciScintilla_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QsciScintilla_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -144,7 +231,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -152,19 +239,19 @@ pub const qsciscintilla = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QsciScintilla_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QsciScintilla, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QsciScintilla_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -177,7 +264,9 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` pos: i32 `
     ///
@@ -185,15 +274,12 @@ pub const qsciscintilla = struct {
     ///
     /// ` last_word_start: *i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn ApiContext(self: ?*anyopaque, pos: i32, context_start: *i32, last_word_start: *i32, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QsciScintilla_ApiContext(@ptrCast(self), @bitCast(pos), @ptrCast(context_start), @ptrCast(last_word_start));
+    pub fn ApiContext(self: QsciScintilla, allocator: std.mem.Allocator, pos: i32, context_start: *i32, last_word_start: *i32) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QsciScintilla_ApiContext(@ptrCast(self.ptr), @bitCast(pos), @ptrCast(context_start), @ptrCast(last_word_start));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qsciscintilla.ApiContext: Memory allocation failed");
@@ -210,16 +296,16 @@ pub const qsciscintilla = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, pos: i32, context_start: *i32, last_word_start: *i32) callconv(.c) ?[*:null]?[*:0]const u8 `
+    /// ` callback: *const fn (self: QsciScintilla, pos: i32, context_start: *i32, last_word_start: *i32) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnApiContext(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, *i32, *i32) callconv(.c) ?[*:null]?[*:0]const u8) void {
-        qtc.QsciScintilla_OnApiContext(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnApiContext(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, *i32, *i32) callconv(.c) ?[*:null]?[*:0]const u8) void {
+        qtc.QsciScintilla_OnApiContext(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperApiContext` instead
@@ -232,7 +318,9 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` pos: i32 `
     ///
@@ -240,15 +328,12 @@ pub const qsciscintilla = struct {
     ///
     /// ` last_word_start: *i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn SuperApiContext(self: ?*anyopaque, pos: i32, context_start: *i32, last_word_start: *i32, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QsciScintilla_SuperApiContext(@ptrCast(self), @bitCast(pos), @ptrCast(context_start), @ptrCast(last_word_start));
+    pub fn SuperApiContext(self: QsciScintilla, allocator: std.mem.Allocator, pos: i32, context_start: *i32, last_word_start: *i32) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QsciScintilla_SuperApiContext(@ptrCast(self.ptr), @bitCast(pos), @ptrCast(context_start), @ptrCast(last_word_start));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qsciscintilla.ApiContext: Memory allocation failed");
@@ -265,7 +350,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
@@ -273,60 +358,62 @@ pub const qsciscintilla = struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn Annotate(self: ?*anyopaque, line: i32, text: []const u8, style: i32) void {
+    pub fn Annotate(self: QsciScintilla, line: i32, text: []const u8, style: i32) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QsciScintilla_Annotate(@ptrCast(self), @bitCast(line), text_str, @bitCast(style));
+        qtc.QsciScintilla_Annotate(@ptrCast(self.ptr), @bitCast(line), text_str, @bitCast(style));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` style: QtC.QsciStyle `
+    /// ` style: QsciStyle `
     ///
-    pub fn Annotate2(self: ?*anyopaque, line: i32, text: []const u8, style: ?*anyopaque) void {
+    pub fn Annotate2(self: QsciScintilla, line: i32, text: []const u8, style: anytype) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QsciScintilla_Annotate2(@ptrCast(self), @bitCast(line), text_str, @ptrCast(style));
+        comptime _ = @TypeOf(style)._is_QsciStyle;
+        qtc.QsciScintilla_Annotate2(@ptrCast(self.ptr), @bitCast(line), text_str, @ptrCast(style.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
-    /// ` text: QtC.QsciStyledText `
+    /// ` text: QsciStyledText `
     ///
-    pub fn Annotate3(self: ?*anyopaque, line: i32, text: ?*anyopaque) void {
-        qtc.QsciScintilla_Annotate3(@ptrCast(self), @bitCast(line), @ptrCast(text));
+    pub fn Annotate3(self: QsciScintilla, line: i32, text: anytype) void {
+        comptime _ = @TypeOf(text)._is_QsciStyledText;
+        qtc.QsciScintilla_Annotate3(@ptrCast(self.ptr), @bitCast(line), @ptrCast(text.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
-    ///
-    /// ` line: i32 `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Annotation(self: ?*anyopaque, line: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QsciScintilla_Annotation(@ptrCast(self), @bitCast(line));
+    /// ` line: i32 `
+    ///
+    pub fn Annotation(self: QsciScintilla, allocator: std.mem.Allocator, line: i32) []const u8 {
+        var _str = qtc.QsciScintilla_Annotation(@ptrCast(self.ptr), @bitCast(line));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.Annotation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -337,162 +424,162 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qsciscintilla_enums.AnnotationDisplay `
     ///
-    pub fn AnnotationDisplay(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_AnnotationDisplay(@ptrCast(self));
+    pub fn AnnotationDisplay(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_AnnotationDisplay(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ClearAnnotations(self: ?*anyopaque) void {
-        qtc.QsciScintilla_ClearAnnotations(@ptrCast(self));
+    pub fn ClearAnnotations(self: QsciScintilla) void {
+        qtc.QsciScintilla_ClearAnnotations(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn AutoCompletionCaseSensitivity(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_AutoCompletionCaseSensitivity(@ptrCast(self));
+    pub fn AutoCompletionCaseSensitivity(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_AutoCompletionCaseSensitivity(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn AutoCompletionFillupsEnabled(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_AutoCompletionFillupsEnabled(@ptrCast(self));
+    pub fn AutoCompletionFillupsEnabled(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_AutoCompletionFillupsEnabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn AutoCompletionReplaceWord(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_AutoCompletionReplaceWord(@ptrCast(self));
+    pub fn AutoCompletionReplaceWord(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_AutoCompletionReplaceWord(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn AutoCompletionShowSingle(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_AutoCompletionShowSingle(@ptrCast(self));
+    pub fn AutoCompletionShowSingle(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_AutoCompletionShowSingle(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qsciscintilla_enums.AutoCompletionSource `
     ///
-    pub fn AutoCompletionSource(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_AutoCompletionSource(@ptrCast(self));
+    pub fn AutoCompletionSource(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_AutoCompletionSource(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn AutoCompletionThreshold(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_AutoCompletionThreshold(@ptrCast(self));
+    pub fn AutoCompletionThreshold(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_AutoCompletionThreshold(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qsciscintilla_enums.AutoCompletionUseSingle `
     ///
-    pub fn AutoCompletionUseSingle(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_AutoCompletionUseSingle(@ptrCast(self));
+    pub fn AutoCompletionUseSingle(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_AutoCompletionUseSingle(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn AutoIndent(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_AutoIndent(@ptrCast(self));
+    pub fn AutoIndent(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_AutoIndent(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn BackspaceUnindents(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_BackspaceUnindents(@ptrCast(self));
+    pub fn BackspaceUnindents(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_BackspaceUnindents(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn BeginUndoAction(self: ?*anyopaque) void {
-        qtc.QsciScintilla_BeginUndoAction(@ptrCast(self));
+    pub fn BeginUndoAction(self: QsciScintilla) void {
+        qtc.QsciScintilla_BeginUndoAction(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qsciscintilla_enums.BraceMatch `
     ///
-    pub fn BraceMatching(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_BraceMatching(@ptrCast(self));
+    pub fn BraceMatching(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_BraceMatching(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Bytes(self: ?*anyopaque, start: i32, end: i32, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QsciScintilla_Bytes(@ptrCast(self), @bitCast(start), @bitCast(end));
+    pub fn Bytes(self: QsciScintilla, allocator: std.mem.Allocator, start: i32, end: i32) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QsciScintilla_Bytes(@ptrCast(self.ptr), @bitCast(start), @bitCast(end));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsciscintilla.Bytes: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -503,85 +590,85 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qsciscintilla_enums.CallTipsPosition `
     ///
-    pub fn CallTipsPosition(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_CallTipsPosition(@ptrCast(self));
+    pub fn CallTipsPosition(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_CallTipsPosition(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qsciscintilla_enums.CallTipsStyle `
     ///
-    pub fn CallTipsStyle(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_CallTipsStyle(@ptrCast(self));
+    pub fn CallTipsStyle(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_CallTipsStyle(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn CallTipsVisible(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_CallTipsVisible(@ptrCast(self));
+    pub fn CallTipsVisible(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_CallTipsVisible(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn CancelFind(self: ?*anyopaque) void {
-        qtc.QsciScintilla_CancelFind(@ptrCast(self));
+    pub fn CancelFind(self: QsciScintilla) void {
+        qtc.QsciScintilla_CancelFind(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn CancelList(self: ?*anyopaque) void {
-        qtc.QsciScintilla_CancelList(@ptrCast(self));
+    pub fn CancelList(self: QsciScintilla) void {
+        qtc.QsciScintilla_CancelList(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn CaseSensitive(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_CaseSensitive(@ptrCast(self));
+    pub fn CaseSensitive(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_CaseSensitive(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ClearFolds(self: ?*anyopaque) void {
-        qtc.QsciScintilla_ClearFolds(@ptrCast(self));
+    pub fn ClearFolds(self: QsciScintilla) void {
+        qtc.QsciScintilla_ClearFolds(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` lineFrom: i32 `
     ///
@@ -593,40 +680,40 @@ pub const qsciscintilla = struct {
     ///
     /// ` indicatorNumber: i32 `
     ///
-    pub fn ClearIndicatorRange(self: ?*anyopaque, lineFrom: i32, indexFrom: i32, lineTo: i32, indexTo: i32, indicatorNumber: i32) void {
-        qtc.QsciScintilla_ClearIndicatorRange(@ptrCast(self), @bitCast(lineFrom), @bitCast(indexFrom), @bitCast(lineTo), @bitCast(indexTo), @bitCast(indicatorNumber));
+    pub fn ClearIndicatorRange(self: QsciScintilla, lineFrom: i32, indexFrom: i32, lineTo: i32, indexTo: i32, indicatorNumber: i32) void {
+        qtc.QsciScintilla_ClearIndicatorRange(@ptrCast(self.ptr), @bitCast(lineFrom), @bitCast(indexFrom), @bitCast(lineTo), @bitCast(indexTo), @bitCast(indicatorNumber));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ClearRegisteredImages(self: ?*anyopaque) void {
-        qtc.QsciScintilla_ClearRegisteredImages(@ptrCast(self));
+    pub fn ClearRegisteredImages(self: QsciScintilla) void {
+        qtc.QsciScintilla_ClearRegisteredImages(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Color(self: ?*anyopaque) QtC.QColor {
-        return qtc.QsciScintilla_Color(@ptrCast(self));
+    pub fn Color(self: QsciScintilla) QColor {
+        return .{ .ptr = qtc.QsciScintilla_Color(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ContractedFolds(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.libqt_list = qtc.QsciScintilla_ContractedFolds(@ptrCast(self));
+    pub fn ContractedFolds(self: QsciScintilla, allocator: std.mem.Allocator) []i32 {
+        const _arr: qtc.libqt_list = qtc.QsciScintilla_ContractedFolds(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("qsciscintilla.ContractedFolds: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -638,139 +725,140 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` mode: qsciscintilla_enums.EolMode `
     ///
-    pub fn ConvertEols(self: ?*anyopaque, mode: i32) void {
-        qtc.QsciScintilla_ConvertEols(@ptrCast(self), @bitCast(mode));
+    pub fn ConvertEols(self: QsciScintilla, mode: i32) void {
+        qtc.QsciScintilla_ConvertEols(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn CreateStandardContextMenu(self: ?*anyopaque) QtC.QMenu {
-        return qtc.QsciScintilla_CreateStandardContextMenu(@ptrCast(self));
+    pub fn CreateStandardContextMenu(self: QsciScintilla) QMenu {
+        return .{ .ptr = qtc.QsciScintilla_CreateStandardContextMenu(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Document(self: ?*anyopaque) QtC.QsciDocument {
-        return qtc.QsciScintilla_Document(@ptrCast(self));
+    pub fn Document(self: QsciScintilla) QsciDocument {
+        return .{ .ptr = qtc.QsciScintilla_Document(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn EndUndoAction(self: ?*anyopaque) void {
-        qtc.QsciScintilla_EndUndoAction(@ptrCast(self));
+    pub fn EndUndoAction(self: QsciScintilla) void {
+        qtc.QsciScintilla_EndUndoAction(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn EdgeColor(self: ?*anyopaque) QtC.QColor {
-        return qtc.QsciScintilla_EdgeColor(@ptrCast(self));
+    pub fn EdgeColor(self: QsciScintilla) QColor {
+        return .{ .ptr = qtc.QsciScintilla_EdgeColor(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn EdgeColumn(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_EdgeColumn(@ptrCast(self));
+    pub fn EdgeColumn(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_EdgeColumn(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qsciscintilla_enums.EdgeMode `
     ///
-    pub fn EdgeMode(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_EdgeMode(@ptrCast(self));
+    pub fn EdgeMode(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_EdgeMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` f: QtC.QFont `
+    /// ` f: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, f: ?*anyopaque) void {
-        qtc.QsciScintilla_SetFont(@ptrCast(self), @ptrCast(f));
+    pub fn SetFont(self: QsciScintilla, f: anytype) void {
+        comptime _ = @TypeOf(f)._is_QFont;
+        qtc.QsciScintilla_SetFont(@ptrCast(self.ptr), @ptrCast(f.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qsciscintilla_enums.EolMode `
     ///
-    pub fn EolMode(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_EolMode(@ptrCast(self));
+    pub fn EolMode(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_EolMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn EolVisibility(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_EolVisibility(@ptrCast(self));
+    pub fn EolVisibility(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_EolVisibility(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ExtraAscent(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_ExtraAscent(@ptrCast(self));
+    pub fn ExtraAscent(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_ExtraAscent(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ExtraDescent(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_ExtraDescent(@ptrCast(self));
+    pub fn ExtraDescent(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_ExtraDescent(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` lineFrom: i32 `
     ///
@@ -782,15 +870,15 @@ pub const qsciscintilla = struct {
     ///
     /// ` indicatorNumber: i32 `
     ///
-    pub fn FillIndicatorRange(self: ?*anyopaque, lineFrom: i32, indexFrom: i32, lineTo: i32, indexTo: i32, indicatorNumber: i32) void {
-        qtc.QsciScintilla_FillIndicatorRange(@ptrCast(self), @bitCast(lineFrom), @bitCast(indexFrom), @bitCast(lineTo), @bitCast(indexTo), @bitCast(indicatorNumber));
+    pub fn FillIndicatorRange(self: QsciScintilla, lineFrom: i32, indexFrom: i32, lineTo: i32, indexTo: i32, indicatorNumber: i32) void {
+        qtc.QsciScintilla_FillIndicatorRange(@ptrCast(self.ptr), @bitCast(lineFrom), @bitCast(indexFrom), @bitCast(lineTo), @bitCast(indexTo), @bitCast(indicatorNumber));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` expr: []const u8 `
     ///
@@ -814,12 +902,12 @@ pub const qsciscintilla = struct {
     ///
     /// ` cxx11: bool `
     ///
-    pub fn FindFirst(self: ?*anyopaque, expr: []const u8, re: bool, cs: bool, wo: bool, wrap: bool, forward: bool, line: i32, index: i32, show: bool, posix: bool, cxx11: bool) bool {
+    pub fn FindFirst(self: QsciScintilla, expr: []const u8, re: bool, cs: bool, wo: bool, wrap: bool, forward: bool, line: i32, index: i32, show: bool, posix: bool, cxx11: bool) bool {
         const expr_str = qtc.libqt_string{
             .len = expr.len,
             .data = expr.ptr,
         };
-        return qtc.QsciScintilla_FindFirst(@ptrCast(self), expr_str, re, cs, wo, wrap, forward, @bitCast(line), @bitCast(index), show, posix, cxx11);
+        return qtc.QsciScintilla_FindFirst(@ptrCast(self.ptr), expr_str, re, cs, wo, wrap, forward, @bitCast(line), @bitCast(index), show, posix, cxx11);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -828,12 +916,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, expr: [*:0]const u8, re: bool, cs: bool, wo: bool, wrap: bool, forward: bool, line: i32, index: i32, show: bool, posix: bool, cxx11: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciScintilla, expr: [*:0]const u8, re: bool, cs: bool, wo: bool, wrap: bool, forward: bool, line: i32, index: i32, show: bool, posix: bool, cxx11: bool) callconv(.c) bool `
     ///
-    pub fn OnFindFirst(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool, bool, bool, bool, bool, i32, i32, bool, bool, bool) callconv(.c) bool) void {
-        qtc.QsciScintilla_OnFindFirst(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFindFirst(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8, bool, bool, bool, bool, bool, i32, i32, bool, bool, bool) callconv(.c) bool) void {
+        qtc.QsciScintilla_OnFindFirst(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperFindFirst` instead
@@ -846,7 +934,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` expr: []const u8 `
     ///
@@ -870,19 +958,19 @@ pub const qsciscintilla = struct {
     ///
     /// ` cxx11: bool `
     ///
-    pub fn SuperFindFirst(self: ?*anyopaque, expr: []const u8, re: bool, cs: bool, wo: bool, wrap: bool, forward: bool, line: i32, index: i32, show: bool, posix: bool, cxx11: bool) bool {
+    pub fn SuperFindFirst(self: QsciScintilla, expr: []const u8, re: bool, cs: bool, wo: bool, wrap: bool, forward: bool, line: i32, index: i32, show: bool, posix: bool, cxx11: bool) bool {
         const expr_str = qtc.libqt_string{
             .len = expr.len,
             .data = expr.ptr,
         };
-        return qtc.QsciScintilla_SuperFindFirst(@ptrCast(self), expr_str, re, cs, wo, wrap, forward, @bitCast(line), @bitCast(index), show, posix, cxx11);
+        return qtc.QsciScintilla_SuperFindFirst(@ptrCast(self.ptr), expr_str, re, cs, wo, wrap, forward, @bitCast(line), @bitCast(index), show, posix, cxx11);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` expr: []const u8 `
     ///
@@ -900,12 +988,12 @@ pub const qsciscintilla = struct {
     ///
     /// ` cxx11: bool `
     ///
-    pub fn FindFirstInSelection(self: ?*anyopaque, expr: []const u8, re: bool, cs: bool, wo: bool, forward: bool, show: bool, posix: bool, cxx11: bool) bool {
+    pub fn FindFirstInSelection(self: QsciScintilla, expr: []const u8, re: bool, cs: bool, wo: bool, forward: bool, show: bool, posix: bool, cxx11: bool) bool {
         const expr_str = qtc.libqt_string{
             .len = expr.len,
             .data = expr.ptr,
         };
-        return qtc.QsciScintilla_FindFirstInSelection(@ptrCast(self), expr_str, re, cs, wo, forward, show, posix, cxx11);
+        return qtc.QsciScintilla_FindFirstInSelection(@ptrCast(self.ptr), expr_str, re, cs, wo, forward, show, posix, cxx11);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -914,12 +1002,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, expr: [*:0]const u8, re: bool, cs: bool, wo: bool, forward: bool, show: bool, posix: bool, cxx11: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciScintilla, expr: [*:0]const u8, re: bool, cs: bool, wo: bool, forward: bool, show: bool, posix: bool, cxx11: bool) callconv(.c) bool `
     ///
-    pub fn OnFindFirstInSelection(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool, bool, bool, bool, bool, bool, bool) callconv(.c) bool) void {
-        qtc.QsciScintilla_OnFindFirstInSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFindFirstInSelection(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8, bool, bool, bool, bool, bool, bool, bool) callconv(.c) bool) void {
+        qtc.QsciScintilla_OnFindFirstInSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperFindFirstInSelection` instead
@@ -932,7 +1020,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` expr: []const u8 `
     ///
@@ -950,22 +1038,22 @@ pub const qsciscintilla = struct {
     ///
     /// ` cxx11: bool `
     ///
-    pub fn SuperFindFirstInSelection(self: ?*anyopaque, expr: []const u8, re: bool, cs: bool, wo: bool, forward: bool, show: bool, posix: bool, cxx11: bool) bool {
+    pub fn SuperFindFirstInSelection(self: QsciScintilla, expr: []const u8, re: bool, cs: bool, wo: bool, forward: bool, show: bool, posix: bool, cxx11: bool) bool {
         const expr_str = qtc.libqt_string{
             .len = expr.len,
             .data = expr.ptr,
         };
-        return qtc.QsciScintilla_SuperFindFirstInSelection(@ptrCast(self), expr_str, re, cs, wo, forward, show, posix, cxx11);
+        return qtc.QsciScintilla_SuperFindFirstInSelection(@ptrCast(self.ptr), expr_str, re, cs, wo, forward, show, posix, cxx11);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn FindNext(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_FindNext(@ptrCast(self));
+    pub fn FindNext(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_FindNext(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -974,12 +1062,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFindNext(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QsciScintilla_OnFindNext(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFindNext(self: QsciScintilla, callback: *const fn () callconv(.c) bool) void {
+        qtc.QsciScintilla_OnFindNext(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperFindNext` instead
@@ -992,17 +1080,17 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperFindNext(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_SuperFindNext(@ptrCast(self));
+    pub fn SuperFindNext(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_SuperFindNext(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` brace: *isize `
     ///
@@ -1010,58 +1098,58 @@ pub const qsciscintilla = struct {
     ///
     /// ` mode: qsciscintilla_enums.BraceMatch `
     ///
-    pub fn FindMatchingBrace(self: ?*anyopaque, brace: *isize, other: *isize, mode: i32) bool {
+    pub fn FindMatchingBrace(self: QsciScintilla, brace: *isize, other: *isize, mode: i32) bool {
         switch (builtin.os.tag) {
             .linux, .freebsd => {},
             else => @compileError("Unsupported operating system"),
         }
 
-        return qtc.QsciScintilla_FindMatchingBrace(@ptrCast(self), @ptrCast(brace), @ptrCast(other), @bitCast(mode));
+        return qtc.QsciScintilla_FindMatchingBrace(@ptrCast(self.ptr), @ptrCast(brace), @ptrCast(other), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn FirstVisibleLine(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_FirstVisibleLine(@ptrCast(self));
+    pub fn FirstVisibleLine(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_FirstVisibleLine(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qsciscintilla_enums.FoldStyle `
     ///
-    pub fn Folding(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_Folding(@ptrCast(self));
+    pub fn Folding(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_Folding(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: *i32 `
     ///
     /// ` index: *i32 `
     ///
-    pub fn GetCursorPosition(self: ?*anyopaque, line: *i32, index: *i32) void {
-        qtc.QsciScintilla_GetCursorPosition(@ptrCast(self), @ptrCast(line), @ptrCast(index));
+    pub fn GetCursorPosition(self: QsciScintilla, line: *i32, index: *i32) void {
+        qtc.QsciScintilla_GetCursorPosition(@ptrCast(self.ptr), @ptrCast(line), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` lineFrom: *i32 `
     ///
@@ -1071,185 +1159,186 @@ pub const qsciscintilla = struct {
     ///
     /// ` indexTo: *i32 `
     ///
-    pub fn GetSelection(self: ?*anyopaque, lineFrom: *i32, indexFrom: *i32, lineTo: *i32, indexTo: *i32) void {
-        qtc.QsciScintilla_GetSelection(@ptrCast(self), @ptrCast(lineFrom), @ptrCast(indexFrom), @ptrCast(lineTo), @ptrCast(indexTo));
+    pub fn GetSelection(self: QsciScintilla, lineFrom: *i32, indexFrom: *i32, lineTo: *i32, indexTo: *i32) void {
+        qtc.QsciScintilla_GetSelection(@ptrCast(self.ptr), @ptrCast(lineFrom), @ptrCast(indexFrom), @ptrCast(lineTo), @ptrCast(indexTo));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn HasSelectedText(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_HasSelectedText(@ptrCast(self));
+    pub fn HasSelectedText(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_HasSelectedText(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
-    pub fn Indentation(self: ?*anyopaque, line: i32) i32 {
-        return qtc.QsciScintilla_Indentation(@ptrCast(self), @bitCast(line));
+    pub fn Indentation(self: QsciScintilla, line: i32) i32 {
+        return qtc.QsciScintilla_Indentation(@ptrCast(self.ptr), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IndentationGuides(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_IndentationGuides(@ptrCast(self));
+    pub fn IndentationGuides(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_IndentationGuides(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IndentationsUseTabs(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_IndentationsUseTabs(@ptrCast(self));
+    pub fn IndentationsUseTabs(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_IndentationsUseTabs(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IndentationWidth(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_IndentationWidth(@ptrCast(self));
+    pub fn IndentationWidth(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_IndentationWidth(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` style: qsciscintilla_enums.IndicatorStyle `
     ///
-    pub fn IndicatorDefine(self: ?*anyopaque, style: i32) i32 {
-        return qtc.QsciScintilla_IndicatorDefine(@ptrCast(self), @bitCast(style));
+    pub fn IndicatorDefine(self: QsciScintilla, style: i32) i32 {
+        return qtc.QsciScintilla_IndicatorDefine(@ptrCast(self.ptr), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` indicatorNumber: i32 `
     ///
-    pub fn IndicatorDrawUnder(self: ?*anyopaque, indicatorNumber: i32) bool {
-        return qtc.QsciScintilla_IndicatorDrawUnder(@ptrCast(self), @bitCast(indicatorNumber));
+    pub fn IndicatorDrawUnder(self: QsciScintilla, indicatorNumber: i32) bool {
+        return qtc.QsciScintilla_IndicatorDrawUnder(@ptrCast(self.ptr), @bitCast(indicatorNumber));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IsCallTipActive(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_IsCallTipActive(@ptrCast(self));
+    pub fn IsCallTipActive(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_IsCallTipActive(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IsListActive(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_IsListActive(@ptrCast(self));
+    pub fn IsListActive(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_IsListActive(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IsModified(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_IsModified(@ptrCast(self));
+    pub fn IsModified(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_IsModified(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IsReadOnly(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_IsReadOnly(@ptrCast(self));
+    pub fn IsReadOnly(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_IsReadOnly(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IsRedoAvailable(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_IsRedoAvailable(@ptrCast(self));
+    pub fn IsRedoAvailable(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_IsRedoAvailable(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IsUndoAvailable(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_IsUndoAvailable(@ptrCast(self));
+    pub fn IsUndoAvailable(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_IsUndoAvailable(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IsUtf8(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_IsUtf8(@ptrCast(self));
+    pub fn IsUtf8(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_IsUtf8(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` ch: u8 `
     ///
-    pub fn IsWordCharacter(self: ?*anyopaque, ch: u8) bool {
-        return qtc.QsciScintilla_IsWordCharacter(@ptrCast(self), @bitCast(ch));
+    pub fn IsWordCharacter(self: QsciScintilla, ch: u8) bool {
+        return qtc.QsciScintilla_IsWordCharacter(@ptrCast(self.ptr), @bitCast(ch));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` point: QtC.QPoint `
+    /// ` point: QPoint `
     ///
-    pub fn LineAt(self: ?*anyopaque, point: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_LineAt(@ptrCast(self), @ptrCast(point));
+    pub fn LineAt(self: QsciScintilla, point: anytype) i32 {
+        comptime _ = @TypeOf(point)._is_QPoint;
+        return qtc.QsciScintilla_LineAt(@ptrCast(self.ptr), @ptrCast(point.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` position: i32 `
     ///
@@ -1257,115 +1346,115 @@ pub const qsciscintilla = struct {
     ///
     /// ` index: *i32 `
     ///
-    pub fn LineIndexFromPosition(self: ?*anyopaque, position: i32, line: *i32, index: *i32) void {
-        qtc.QsciScintilla_LineIndexFromPosition(@ptrCast(self), @bitCast(position), @ptrCast(line), @ptrCast(index));
+    pub fn LineIndexFromPosition(self: QsciScintilla, position: i32, line: *i32, index: *i32) void {
+        qtc.QsciScintilla_LineIndexFromPosition(@ptrCast(self.ptr), @bitCast(position), @ptrCast(line), @ptrCast(index));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
-    pub fn LineLength(self: ?*anyopaque, line: i32) i32 {
-        return qtc.QsciScintilla_LineLength(@ptrCast(self), @bitCast(line));
+    pub fn LineLength(self: QsciScintilla, line: i32) i32 {
+        return qtc.QsciScintilla_LineLength(@ptrCast(self.ptr), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Lines(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_Lines(@ptrCast(self));
+    pub fn Lines(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_Lines(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Length(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_Length(@ptrCast(self));
+    pub fn Length(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_Length(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Lexer(self: ?*anyopaque) QtC.QsciLexer {
-        return qtc.QsciScintilla_Lexer(@ptrCast(self));
+    pub fn Lexer(self: QsciScintilla) QsciLexer {
+        return .{ .ptr = qtc.QsciScintilla_Lexer(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` margin: i32 `
     ///
-    pub fn MarginBackgroundColor(self: ?*anyopaque, margin: i32) QtC.QColor {
-        return qtc.QsciScintilla_MarginBackgroundColor(@ptrCast(self), @bitCast(margin));
+    pub fn MarginBackgroundColor(self: QsciScintilla, margin: i32) QColor {
+        return .{ .ptr = qtc.QsciScintilla_MarginBackgroundColor(@ptrCast(self.ptr), @bitCast(margin)) };
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` margin: i32 `
     ///
-    pub fn MarginLineNumbers(self: ?*anyopaque, margin: i32) bool {
-        return qtc.QsciScintilla_MarginLineNumbers(@ptrCast(self), @bitCast(margin));
+    pub fn MarginLineNumbers(self: QsciScintilla, margin: i32) bool {
+        return qtc.QsciScintilla_MarginLineNumbers(@ptrCast(self.ptr), @bitCast(margin));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` margin: i32 `
     ///
-    pub fn MarginMarkerMask(self: ?*anyopaque, margin: i32) i32 {
-        return qtc.QsciScintilla_MarginMarkerMask(@ptrCast(self), @bitCast(margin));
+    pub fn MarginMarkerMask(self: QsciScintilla, margin: i32) i32 {
+        return qtc.QsciScintilla_MarginMarkerMask(@ptrCast(self.ptr), @bitCast(margin));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn MarginOptions(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_MarginOptions(@ptrCast(self));
+    pub fn MarginOptions(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_MarginOptions(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` margin: i32 `
     ///
-    pub fn MarginSensitivity(self: ?*anyopaque, margin: i32) bool {
-        return qtc.QsciScintilla_MarginSensitivity(@ptrCast(self), @bitCast(margin));
+    pub fn MarginSensitivity(self: QsciScintilla, margin: i32) bool {
+        return qtc.QsciScintilla_MarginSensitivity(@ptrCast(self.ptr), @bitCast(margin));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` margin: i32 `
     ///
@@ -1373,238 +1462,241 @@ pub const qsciscintilla = struct {
     ///
     /// ` qsciscintilla_enums.MarginType `
     ///
-    pub fn MarginType(self: ?*anyopaque, margin: i32) i32 {
-        return qtc.QsciScintilla_MarginType(@ptrCast(self), @bitCast(margin));
+    pub fn MarginType(self: QsciScintilla, margin: i32) i32 {
+        return qtc.QsciScintilla_MarginType(@ptrCast(self.ptr), @bitCast(margin));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` margin: i32 `
     ///
-    pub fn MarginWidth(self: ?*anyopaque, margin: i32) i32 {
-        return qtc.QsciScintilla_MarginWidth(@ptrCast(self), @bitCast(margin));
+    pub fn MarginWidth(self: QsciScintilla, margin: i32) i32 {
+        return qtc.QsciScintilla_MarginWidth(@ptrCast(self.ptr), @bitCast(margin));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Margins(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_Margins(@ptrCast(self));
+    pub fn Margins(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_Margins(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` sym: qsciscintilla_enums.MarkerSymbol `
     ///
-    pub fn MarkerDefine(self: ?*anyopaque, sym: i32) i32 {
-        return qtc.QsciScintilla_MarkerDefine(@ptrCast(self), @bitCast(sym));
+    pub fn MarkerDefine(self: QsciScintilla, sym: i32) i32 {
+        return qtc.QsciScintilla_MarkerDefine(@ptrCast(self.ptr), @bitCast(sym));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` ch: u8 `
     ///
-    pub fn MarkerDefine2(self: ?*anyopaque, ch: u8) i32 {
-        return qtc.QsciScintilla_MarkerDefine2(@ptrCast(self), @bitCast(ch));
+    pub fn MarkerDefine2(self: QsciScintilla, ch: u8) i32 {
+        return qtc.QsciScintilla_MarkerDefine2(@ptrCast(self.ptr), @bitCast(ch));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` pm: QtC.QPixmap `
+    /// ` pm: QPixmap `
     ///
-    pub fn MarkerDefine3(self: ?*anyopaque, pm: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_MarkerDefine3(@ptrCast(self), @ptrCast(pm));
+    pub fn MarkerDefine3(self: QsciScintilla, pm: anytype) i32 {
+        comptime _ = @TypeOf(pm)._is_QPixmap;
+        return qtc.QsciScintilla_MarkerDefine3(@ptrCast(self.ptr), @ptrCast(pm.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` im: QtC.QImage `
+    /// ` im: QImage `
     ///
-    pub fn MarkerDefine4(self: ?*anyopaque, im: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_MarkerDefine4(@ptrCast(self), @ptrCast(im));
+    pub fn MarkerDefine4(self: QsciScintilla, im: anytype) i32 {
+        comptime _ = @TypeOf(im)._is_QImage;
+        return qtc.QsciScintilla_MarkerDefine4(@ptrCast(self.ptr), @ptrCast(im.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` linenr: i32 `
     ///
     /// ` markerNumber: i32 `
     ///
-    pub fn MarkerAdd(self: ?*anyopaque, linenr: i32, markerNumber: i32) i32 {
-        return qtc.QsciScintilla_MarkerAdd(@ptrCast(self), @bitCast(linenr), @bitCast(markerNumber));
+    pub fn MarkerAdd(self: QsciScintilla, linenr: i32, markerNumber: i32) i32 {
+        return qtc.QsciScintilla_MarkerAdd(@ptrCast(self.ptr), @bitCast(linenr), @bitCast(markerNumber));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` linenr: i32 `
     ///
-    pub fn MarkersAtLine(self: ?*anyopaque, linenr: i32) u32 {
-        return qtc.QsciScintilla_MarkersAtLine(@ptrCast(self), @bitCast(linenr));
+    pub fn MarkersAtLine(self: QsciScintilla, linenr: i32) u32 {
+        return qtc.QsciScintilla_MarkersAtLine(@ptrCast(self.ptr), @bitCast(linenr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` linenr: i32 `
     ///
-    pub fn MarkerDelete(self: ?*anyopaque, linenr: i32) void {
-        qtc.QsciScintilla_MarkerDelete(@ptrCast(self), @bitCast(linenr));
+    pub fn MarkerDelete(self: QsciScintilla, linenr: i32) void {
+        qtc.QsciScintilla_MarkerDelete(@ptrCast(self.ptr), @bitCast(linenr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn MarkerDeleteAll(self: ?*anyopaque) void {
-        qtc.QsciScintilla_MarkerDeleteAll(@ptrCast(self));
+    pub fn MarkerDeleteAll(self: QsciScintilla) void {
+        qtc.QsciScintilla_MarkerDeleteAll(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` mhandle: i32 `
     ///
-    pub fn MarkerDeleteHandle(self: ?*anyopaque, mhandle: i32) void {
-        qtc.QsciScintilla_MarkerDeleteHandle(@ptrCast(self), @bitCast(mhandle));
+    pub fn MarkerDeleteHandle(self: QsciScintilla, mhandle: i32) void {
+        qtc.QsciScintilla_MarkerDeleteHandle(@ptrCast(self.ptr), @bitCast(mhandle));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` mhandle: i32 `
     ///
-    pub fn MarkerLine(self: ?*anyopaque, mhandle: i32) i32 {
-        return qtc.QsciScintilla_MarkerLine(@ptrCast(self), @bitCast(mhandle));
+    pub fn MarkerLine(self: QsciScintilla, mhandle: i32) i32 {
+        return qtc.QsciScintilla_MarkerLine(@ptrCast(self.ptr), @bitCast(mhandle));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` linenr: i32 `
     ///
     /// ` mask: u32 `
     ///
-    pub fn MarkerFindNext(self: ?*anyopaque, linenr: i32, mask: u32) i32 {
-        return qtc.QsciScintilla_MarkerFindNext(@ptrCast(self), @bitCast(linenr), @bitCast(mask));
+    pub fn MarkerFindNext(self: QsciScintilla, linenr: i32, mask: u32) i32 {
+        return qtc.QsciScintilla_MarkerFindNext(@ptrCast(self.ptr), @bitCast(linenr), @bitCast(mask));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` linenr: i32 `
     ///
     /// ` mask: u32 `
     ///
-    pub fn MarkerFindPrevious(self: ?*anyopaque, linenr: i32, mask: u32) i32 {
-        return qtc.QsciScintilla_MarkerFindPrevious(@ptrCast(self), @bitCast(linenr), @bitCast(mask));
+    pub fn MarkerFindPrevious(self: QsciScintilla, linenr: i32, mask: u32) i32 {
+        return qtc.QsciScintilla_MarkerFindPrevious(@ptrCast(self.ptr), @bitCast(linenr), @bitCast(mask));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn OverwriteMode(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_OverwriteMode(@ptrCast(self));
+    pub fn OverwriteMode(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_OverwriteMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Paper(self: ?*anyopaque) QtC.QColor {
-        return qtc.QsciScintilla_Paper(@ptrCast(self));
+    pub fn Paper(self: QsciScintilla) QColor {
+        return .{ .ptr = qtc.QsciScintilla_Paper(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
     /// ` index: i32 `
     ///
-    pub fn PositionFromLineIndex(self: ?*anyopaque, line: i32, index: i32) i32 {
-        return qtc.QsciScintilla_PositionFromLineIndex(@ptrCast(self), @bitCast(line), @bitCast(index));
+    pub fn PositionFromLineIndex(self: QsciScintilla, line: i32, index: i32) i32 {
+        return qtc.QsciScintilla_PositionFromLineIndex(@ptrCast(self.ptr), @bitCast(line), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` io: QtC.QIODevice `
+    /// ` io: QIODevice `
     ///
-    pub fn Read(self: ?*anyopaque, io: ?*anyopaque) bool {
-        return qtc.QsciScintilla_Read(@ptrCast(self), @ptrCast(io));
+    pub fn Read(self: QsciScintilla, io: anytype) bool {
+        comptime _ = @TypeOf(io)._is_QIODevice;
+        return qtc.QsciScintilla_Read(@ptrCast(self.ptr), @ptrCast(io.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn Recolor(self: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QsciScintilla_Recolor(@ptrCast(self), @bitCast(start), @bitCast(end));
+    pub fn Recolor(self: QsciScintilla, start: i32, end: i32) void {
+        qtc.QsciScintilla_Recolor(@ptrCast(self.ptr), @bitCast(start), @bitCast(end));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -1613,12 +1705,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, start: i32, end: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, start: i32, end: i32) callconv(.c) void `
     ///
-    pub fn OnRecolor(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnRecolor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRecolor(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnRecolor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRecolor` instead
@@ -1631,58 +1723,60 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn SuperRecolor(self: ?*anyopaque, start: i32, end: i32) void {
-        qtc.QsciScintilla_SuperRecolor(@ptrCast(self), @bitCast(start), @bitCast(end));
+    pub fn SuperRecolor(self: QsciScintilla, start: i32, end: i32) void {
+        qtc.QsciScintilla_SuperRecolor(@ptrCast(self.ptr), @bitCast(start), @bitCast(end));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` id: i32 `
     ///
-    /// ` pm: QtC.QPixmap `
+    /// ` pm: QPixmap `
     ///
-    pub fn RegisterImage(self: ?*anyopaque, id: i32, pm: ?*anyopaque) void {
-        qtc.QsciScintilla_RegisterImage(@ptrCast(self), @bitCast(id), @ptrCast(pm));
+    pub fn RegisterImage(self: QsciScintilla, id: i32, pm: anytype) void {
+        comptime _ = @TypeOf(pm)._is_QPixmap;
+        qtc.QsciScintilla_RegisterImage(@ptrCast(self.ptr), @bitCast(id), @ptrCast(pm.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` id: i32 `
     ///
-    /// ` im: QtC.QImage `
+    /// ` im: QImage `
     ///
-    pub fn RegisterImage2(self: ?*anyopaque, id: i32, im: ?*anyopaque) void {
-        qtc.QsciScintilla_RegisterImage2(@ptrCast(self), @bitCast(id), @ptrCast(im));
+    pub fn RegisterImage2(self: QsciScintilla, id: i32, im: anytype) void {
+        comptime _ = @TypeOf(im)._is_QImage;
+        qtc.QsciScintilla_RegisterImage2(@ptrCast(self.ptr), @bitCast(id), @ptrCast(im.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` replaceStr: []const u8 `
     ///
-    pub fn Replace(self: ?*anyopaque, replaceStr: []const u8) void {
+    pub fn Replace(self: QsciScintilla, replaceStr: []const u8) void {
         const replaceStr_str = qtc.libqt_string{
             .len = replaceStr.len,
             .data = replaceStr.ptr,
         };
-        qtc.QsciScintilla_Replace(@ptrCast(self), replaceStr_str);
+        qtc.QsciScintilla_Replace(@ptrCast(self.ptr), replaceStr_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -1691,12 +1785,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, replaceStr: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, replaceStr: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnReplace(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QsciScintilla_OnReplace(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReplace(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8) callconv(.c) void) void {
+        qtc.QsciScintilla_OnReplace(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperReplace` instead
@@ -1709,408 +1803,419 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` replaceStr: []const u8 `
     ///
-    pub fn SuperReplace(self: ?*anyopaque, replaceStr: []const u8) void {
+    pub fn SuperReplace(self: QsciScintilla, replaceStr: []const u8) void {
         const replaceStr_str = qtc.libqt_string{
             .len = replaceStr.len,
             .data = replaceStr.ptr,
         };
-        qtc.QsciScintilla_SuperReplace(@ptrCast(self), replaceStr_str);
+        qtc.QsciScintilla_SuperReplace(@ptrCast(self.ptr), replaceStr_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ResetFoldMarginColors(self: ?*anyopaque) void {
-        qtc.QsciScintilla_ResetFoldMarginColors(@ptrCast(self));
+    pub fn ResetFoldMarginColors(self: QsciScintilla) void {
+        qtc.QsciScintilla_ResetFoldMarginColors(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ResetHotspotBackgroundColor(self: ?*anyopaque) void {
-        qtc.QsciScintilla_ResetHotspotBackgroundColor(@ptrCast(self));
+    pub fn ResetHotspotBackgroundColor(self: QsciScintilla) void {
+        qtc.QsciScintilla_ResetHotspotBackgroundColor(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ResetHotspotForegroundColor(self: ?*anyopaque) void {
-        qtc.QsciScintilla_ResetHotspotForegroundColor(@ptrCast(self));
+    pub fn ResetHotspotForegroundColor(self: QsciScintilla) void {
+        qtc.QsciScintilla_ResetHotspotForegroundColor(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ScrollWidth(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_ScrollWidth(@ptrCast(self));
+    pub fn ScrollWidth(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_ScrollWidth(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ScrollWidthTracking(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_ScrollWidthTracking(@ptrCast(self));
+    pub fn ScrollWidthTracking(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_ScrollWidthTracking(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` fore: QtC.QColor `
+    /// ` fore: QColor `
     ///
-    /// ` back: QtC.QColor `
+    /// ` back: QColor `
     ///
-    pub fn SetFoldMarginColors(self: ?*anyopaque, fore: ?*anyopaque, back: ?*anyopaque) void {
-        qtc.QsciScintilla_SetFoldMarginColors(@ptrCast(self), @ptrCast(fore), @ptrCast(back));
+    pub fn SetFoldMarginColors(self: QsciScintilla, fore: anytype, back: anytype) void {
+        comptime _ = @TypeOf(fore)._is_QColor;
+        comptime _ = @TypeOf(back)._is_QColor;
+        qtc.QsciScintilla_SetFoldMarginColors(@ptrCast(self.ptr), @ptrCast(fore.ptr), @ptrCast(back.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` display: qsciscintilla_enums.AnnotationDisplay `
     ///
-    pub fn SetAnnotationDisplay(self: ?*anyopaque, display: i32) void {
-        qtc.QsciScintilla_SetAnnotationDisplay(@ptrCast(self), @bitCast(display));
+    pub fn SetAnnotationDisplay(self: QsciScintilla, display: i32) void {
+        qtc.QsciScintilla_SetAnnotationDisplay(@ptrCast(self.ptr), @bitCast(display));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoCompletionFillupsEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QsciScintilla_SetAutoCompletionFillupsEnabled(@ptrCast(self), enabled);
+    pub fn SetAutoCompletionFillupsEnabled(self: QsciScintilla, enabled: bool) void {
+        qtc.QsciScintilla_SetAutoCompletionFillupsEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` fillups: [:0]const u8 `
     ///
-    pub fn SetAutoCompletionFillups(self: ?*anyopaque, fillups: [:0]const u8) void {
+    pub fn SetAutoCompletionFillups(self: QsciScintilla, fillups: [:0]const u8) void {
         const fillups_Cstring = fillups.ptr;
-        qtc.QsciScintilla_SetAutoCompletionFillups(@ptrCast(self), fillups_Cstring);
+        qtc.QsciScintilla_SetAutoCompletionFillups(@ptrCast(self.ptr), fillups_Cstring);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
-    ///
-    /// ` separators: []const []const u8 `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetAutoCompletionWordSeparators(self: ?*anyopaque, separators: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` separators: []const []const u8 `
+    ///
+    pub fn SetAutoCompletionWordSeparators(self: QsciScintilla, allocator: std.mem.Allocator, separators: []const []const u8) void {
         const separators_arr = allocator.alloc(qtc.libqt_string, separators.len) catch @panic("qsciscintilla.SetAutoCompletionWordSeparators: Memory allocation failed");
         defer allocator.free(separators_arr);
-        for (separators, 0..separators.len) |item, i| {
+        for (separators, 0..separators.len) |item, i|
             separators_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const separators_list = qtc.libqt_list{
             .len = separators.len,
             .data = separators_arr.ptr,
         };
-        qtc.QsciScintilla_SetAutoCompletionWordSeparators(@ptrCast(self), separators_list);
+        qtc.QsciScintilla_SetAutoCompletionWordSeparators(@ptrCast(self.ptr), separators_list);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetCallTipsBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetCallTipsBackgroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetCallTipsBackgroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetCallTipsBackgroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetCallTipsForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetCallTipsForegroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetCallTipsForegroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetCallTipsForegroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetCallTipsHighlightColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetCallTipsHighlightColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetCallTipsHighlightColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetCallTipsHighlightColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` position: qsciscintilla_enums.CallTipsPosition `
     ///
-    pub fn SetCallTipsPosition(self: ?*anyopaque, position: i32) void {
-        qtc.QsciScintilla_SetCallTipsPosition(@ptrCast(self), @bitCast(position));
+    pub fn SetCallTipsPosition(self: QsciScintilla, position: i32) void {
+        qtc.QsciScintilla_SetCallTipsPosition(@ptrCast(self.ptr), @bitCast(position));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` style: qsciscintilla_enums.CallTipsStyle `
     ///
-    pub fn SetCallTipsStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QsciScintilla_SetCallTipsStyle(@ptrCast(self), @bitCast(style));
+    pub fn SetCallTipsStyle(self: QsciScintilla, style: i32) void {
+        qtc.QsciScintilla_SetCallTipsStyle(@ptrCast(self.ptr), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` nr: i32 `
     ///
-    pub fn SetCallTipsVisible(self: ?*anyopaque, nr: i32) void {
-        qtc.QsciScintilla_SetCallTipsVisible(@ptrCast(self), @bitCast(nr));
+    pub fn SetCallTipsVisible(self: QsciScintilla, nr: i32) void {
+        qtc.QsciScintilla_SetCallTipsVisible(@ptrCast(self.ptr), @bitCast(nr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` folds: []i32 `
     ///
-    pub fn SetContractedFolds(self: ?*anyopaque, folds: []i32) void {
+    pub fn SetContractedFolds(self: QsciScintilla, folds: []i32) void {
         const folds_list = qtc.libqt_list{
             .len = folds.len,
             .data = folds.ptr,
         };
-        qtc.QsciScintilla_SetContractedFolds(@ptrCast(self), folds_list);
+        qtc.QsciScintilla_SetContractedFolds(@ptrCast(self.ptr), folds_list);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` document: QtC.QsciDocument `
+    /// ` document: QsciDocument `
     ///
-    pub fn SetDocument(self: ?*anyopaque, document: ?*anyopaque) void {
-        qtc.QsciScintilla_SetDocument(@ptrCast(self), @ptrCast(document));
+    pub fn SetDocument(self: QsciScintilla, document: anytype) void {
+        comptime _ = @TypeOf(document)._is_QsciDocument;
+        qtc.QsciScintilla_SetDocument(@ptrCast(self.ptr), @ptrCast(document.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` colnr: i32 `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn AddEdgeColumn(self: ?*anyopaque, colnr: i32, col: ?*anyopaque) void {
-        qtc.QsciScintilla_AddEdgeColumn(@ptrCast(self), @bitCast(colnr), @ptrCast(col));
+    pub fn AddEdgeColumn(self: QsciScintilla, colnr: i32, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_AddEdgeColumn(@ptrCast(self.ptr), @bitCast(colnr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ClearEdgeColumns(self: ?*anyopaque) void {
-        qtc.QsciScintilla_ClearEdgeColumns(@ptrCast(self));
+    pub fn ClearEdgeColumns(self: QsciScintilla) void {
+        qtc.QsciScintilla_ClearEdgeColumns(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetEdgeColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetEdgeColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetEdgeColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetEdgeColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` colnr: i32 `
     ///
-    pub fn SetEdgeColumn(self: ?*anyopaque, colnr: i32) void {
-        qtc.QsciScintilla_SetEdgeColumn(@ptrCast(self), @bitCast(colnr));
+    pub fn SetEdgeColumn(self: QsciScintilla, colnr: i32) void {
+        qtc.QsciScintilla_SetEdgeColumn(@ptrCast(self.ptr), @bitCast(colnr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` mode: qsciscintilla_enums.EdgeMode `
     ///
-    pub fn SetEdgeMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QsciScintilla_SetEdgeMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetEdgeMode(self: QsciScintilla, mode: i32) void {
+        qtc.QsciScintilla_SetEdgeMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` linenr: i32 `
     ///
-    pub fn SetFirstVisibleLine(self: ?*anyopaque, linenr: i32) void {
-        qtc.QsciScintilla_SetFirstVisibleLine(@ptrCast(self), @bitCast(linenr));
+    pub fn SetFirstVisibleLine(self: QsciScintilla, linenr: i32) void {
+        qtc.QsciScintilla_SetFirstVisibleLine(@ptrCast(self.ptr), @bitCast(linenr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` under: bool `
     ///
-    pub fn SetIndicatorDrawUnder(self: ?*anyopaque, under: bool) void {
-        qtc.QsciScintilla_SetIndicatorDrawUnder(@ptrCast(self), under);
+    pub fn SetIndicatorDrawUnder(self: QsciScintilla, under: bool) void {
+        qtc.QsciScintilla_SetIndicatorDrawUnder(@ptrCast(self.ptr), under);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetIndicatorForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetIndicatorForegroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetIndicatorForegroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetIndicatorForegroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetIndicatorHoverForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetIndicatorHoverForegroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetIndicatorHoverForegroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetIndicatorHoverForegroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` style: qsciscintilla_enums.IndicatorStyle `
     ///
-    pub fn SetIndicatorHoverStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QsciScintilla_SetIndicatorHoverStyle(@ptrCast(self), @bitCast(style));
+    pub fn SetIndicatorHoverStyle(self: QsciScintilla, style: i32) void {
+        qtc.QsciScintilla_SetIndicatorHoverStyle(@ptrCast(self.ptr), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetIndicatorOutlineColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetIndicatorOutlineColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetIndicatorOutlineColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetIndicatorOutlineColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` margin: i32 `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetMarginBackgroundColor(self: ?*anyopaque, margin: i32, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetMarginBackgroundColor(@ptrCast(self), @bitCast(margin), @ptrCast(col));
+    pub fn SetMarginBackgroundColor(self: QsciScintilla, margin: i32, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetMarginBackgroundColor(@ptrCast(self.ptr), @bitCast(margin), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` options: i32 `
     ///
-    pub fn SetMarginOptions(self: ?*anyopaque, options: i32) void {
-        qtc.QsciScintilla_SetMarginOptions(@ptrCast(self), @bitCast(options));
+    pub fn SetMarginOptions(self: QsciScintilla, options: i32) void {
+        qtc.QsciScintilla_SetMarginOptions(@ptrCast(self.ptr), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
@@ -2118,258 +2223,266 @@ pub const qsciscintilla = struct {
     ///
     /// ` style: i32 `
     ///
-    pub fn SetMarginText(self: ?*anyopaque, line: i32, text: []const u8, style: i32) void {
+    pub fn SetMarginText(self: QsciScintilla, line: i32, text: []const u8, style: i32) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QsciScintilla_SetMarginText(@ptrCast(self), @bitCast(line), text_str, @bitCast(style));
+        qtc.QsciScintilla_SetMarginText(@ptrCast(self.ptr), @bitCast(line), text_str, @bitCast(style));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` style: QtC.QsciStyle `
+    /// ` style: QsciStyle `
     ///
-    pub fn SetMarginText2(self: ?*anyopaque, line: i32, text: []const u8, style: ?*anyopaque) void {
+    pub fn SetMarginText2(self: QsciScintilla, line: i32, text: []const u8, style: anytype) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QsciScintilla_SetMarginText2(@ptrCast(self), @bitCast(line), text_str, @ptrCast(style));
+        comptime _ = @TypeOf(style)._is_QsciStyle;
+        qtc.QsciScintilla_SetMarginText2(@ptrCast(self.ptr), @bitCast(line), text_str, @ptrCast(style.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
-    /// ` text: QtC.QsciStyledText `
+    /// ` text: QsciStyledText `
     ///
-    pub fn SetMarginText3(self: ?*anyopaque, line: i32, text: ?*anyopaque) void {
-        qtc.QsciScintilla_SetMarginText3(@ptrCast(self), @bitCast(line), @ptrCast(text));
+    pub fn SetMarginText3(self: QsciScintilla, line: i32, text: anytype) void {
+        comptime _ = @TypeOf(text)._is_QsciStyledText;
+        qtc.QsciScintilla_SetMarginText3(@ptrCast(self.ptr), @bitCast(line), @ptrCast(text.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` margin: i32 `
     ///
     /// ` typeVal: qsciscintilla_enums.MarginType `
     ///
-    pub fn SetMarginType(self: ?*anyopaque, margin: i32, typeVal: i32) void {
-        qtc.QsciScintilla_SetMarginType(@ptrCast(self), @bitCast(margin), @bitCast(typeVal));
+    pub fn SetMarginType(self: QsciScintilla, margin: i32, typeVal: i32) void {
+        qtc.QsciScintilla_SetMarginType(@ptrCast(self.ptr), @bitCast(margin), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ClearMarginText(self: ?*anyopaque) void {
-        qtc.QsciScintilla_ClearMarginText(@ptrCast(self));
+    pub fn ClearMarginText(self: QsciScintilla) void {
+        qtc.QsciScintilla_ClearMarginText(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` margins: i32 `
     ///
-    pub fn SetMargins(self: ?*anyopaque, margins: i32) void {
-        qtc.QsciScintilla_SetMargins(@ptrCast(self), @bitCast(margins));
+    pub fn SetMargins(self: QsciScintilla, margins: i32) void {
+        qtc.QsciScintilla_SetMargins(@ptrCast(self.ptr), @bitCast(margins));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetMarkerBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetMarkerBackgroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetMarkerBackgroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetMarkerBackgroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetMarkerForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetMarkerForegroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetMarkerForegroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetMarkerForegroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetMatchedBraceBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetMatchedBraceBackgroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetMatchedBraceBackgroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetMatchedBraceBackgroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetMatchedBraceForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetMatchedBraceForegroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetMatchedBraceForegroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetMatchedBraceForegroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` indicatorNumber: i32 `
     ///
-    pub fn SetMatchedBraceIndicator(self: ?*anyopaque, indicatorNumber: i32) void {
-        qtc.QsciScintilla_SetMatchedBraceIndicator(@ptrCast(self), @bitCast(indicatorNumber));
+    pub fn SetMatchedBraceIndicator(self: QsciScintilla, indicatorNumber: i32) void {
+        qtc.QsciScintilla_SetMatchedBraceIndicator(@ptrCast(self.ptr), @bitCast(indicatorNumber));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ResetMatchedBraceIndicator(self: ?*anyopaque) void {
-        qtc.QsciScintilla_ResetMatchedBraceIndicator(@ptrCast(self));
+    pub fn ResetMatchedBraceIndicator(self: QsciScintilla) void {
+        qtc.QsciScintilla_ResetMatchedBraceIndicator(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` pixelWidth: i32 `
     ///
-    pub fn SetScrollWidth(self: ?*anyopaque, pixelWidth: i32) void {
-        qtc.QsciScintilla_SetScrollWidth(@ptrCast(self), @bitCast(pixelWidth));
+    pub fn SetScrollWidth(self: QsciScintilla, pixelWidth: i32) void {
+        qtc.QsciScintilla_SetScrollWidth(@ptrCast(self.ptr), @bitCast(pixelWidth));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetScrollWidthTracking(self: ?*anyopaque, enabled: bool) void {
-        qtc.QsciScintilla_SetScrollWidthTracking(@ptrCast(self), enabled);
+    pub fn SetScrollWidthTracking(self: QsciScintilla, enabled: bool) void {
+        qtc.QsciScintilla_SetScrollWidthTracking(@ptrCast(self.ptr), enabled);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` mode: qsciscintilla_enums.TabDrawMode `
     ///
-    pub fn SetTabDrawMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QsciScintilla_SetTabDrawMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetTabDrawMode(self: QsciScintilla, mode: i32) void {
+        qtc.QsciScintilla_SetTabDrawMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetUnmatchedBraceBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetUnmatchedBraceBackgroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetUnmatchedBraceBackgroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetUnmatchedBraceBackgroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetUnmatchedBraceForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetUnmatchedBraceForegroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetUnmatchedBraceForegroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetUnmatchedBraceForegroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` indicatorNumber: i32 `
     ///
-    pub fn SetUnmatchedBraceIndicator(self: ?*anyopaque, indicatorNumber: i32) void {
-        qtc.QsciScintilla_SetUnmatchedBraceIndicator(@ptrCast(self), @bitCast(indicatorNumber));
+    pub fn SetUnmatchedBraceIndicator(self: QsciScintilla, indicatorNumber: i32) void {
+        qtc.QsciScintilla_SetUnmatchedBraceIndicator(@ptrCast(self.ptr), @bitCast(indicatorNumber));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ResetUnmatchedBraceIndicator(self: ?*anyopaque) void {
-        qtc.QsciScintilla_ResetUnmatchedBraceIndicator(@ptrCast(self));
+    pub fn ResetUnmatchedBraceIndicator(self: QsciScintilla) void {
+        qtc.QsciScintilla_ResetUnmatchedBraceIndicator(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` endFlag: qsciscintilla_enums.WrapVisualFlag `
     ///
-    pub fn SetWrapVisualFlags(self: ?*anyopaque, endFlag: i32) void {
-        qtc.QsciScintilla_SetWrapVisualFlags(@ptrCast(self), @bitCast(endFlag));
+    pub fn SetWrapVisualFlags(self: QsciScintilla, endFlag: i32) void {
+        qtc.QsciScintilla_SetWrapVisualFlags(@ptrCast(self.ptr), @bitCast(endFlag));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QsciScintilla_SelectedText(@ptrCast(self));
+    pub fn SelectedText(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QsciScintilla_SelectedText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.SelectedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2380,238 +2493,241 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SelectionToEol(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_SelectionToEol(@ptrCast(self));
+    pub fn SelectionToEol(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_SelectionToEol(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetHotspotBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetHotspotBackgroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetHotspotBackgroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetHotspotBackgroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetHotspotForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetHotspotForegroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetHotspotForegroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetHotspotForegroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetHotspotUnderline(self: ?*anyopaque, enable: bool) void {
-        qtc.QsciScintilla_SetHotspotUnderline(@ptrCast(self), enable);
+    pub fn SetHotspotUnderline(self: QsciScintilla, enable: bool) void {
+        qtc.QsciScintilla_SetHotspotUnderline(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetHotspotWrap(self: ?*anyopaque, enable: bool) void {
-        qtc.QsciScintilla_SetHotspotWrap(@ptrCast(self), enable);
+    pub fn SetHotspotWrap(self: QsciScintilla, enable: bool) void {
+        qtc.QsciScintilla_SetHotspotWrap(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` filled: bool `
     ///
-    pub fn SetSelectionToEol(self: ?*anyopaque, filled: bool) void {
-        qtc.QsciScintilla_SetSelectionToEol(@ptrCast(self), filled);
+    pub fn SetSelectionToEol(self: QsciScintilla, filled: bool) void {
+        qtc.QsciScintilla_SetSelectionToEol(@ptrCast(self.ptr), filled);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` extra: i32 `
     ///
-    pub fn SetExtraAscent(self: ?*anyopaque, extra: i32) void {
-        qtc.QsciScintilla_SetExtraAscent(@ptrCast(self), @bitCast(extra));
+    pub fn SetExtraAscent(self: QsciScintilla, extra: i32) void {
+        qtc.QsciScintilla_SetExtraAscent(@ptrCast(self.ptr), @bitCast(extra));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` extra: i32 `
     ///
-    pub fn SetExtraDescent(self: ?*anyopaque, extra: i32) void {
-        qtc.QsciScintilla_SetExtraDescent(@ptrCast(self), @bitCast(extra));
+    pub fn SetExtraDescent(self: QsciScintilla, extra: i32) void {
+        qtc.QsciScintilla_SetExtraDescent(@ptrCast(self.ptr), @bitCast(extra));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` overwrite: bool `
     ///
-    pub fn SetOverwriteMode(self: ?*anyopaque, overwrite: bool) void {
-        qtc.QsciScintilla_SetOverwriteMode(@ptrCast(self), overwrite);
+    pub fn SetOverwriteMode(self: QsciScintilla, overwrite: bool) void {
+        qtc.QsciScintilla_SetOverwriteMode(@ptrCast(self.ptr), overwrite);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetWhitespaceBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetWhitespaceBackgroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetWhitespaceBackgroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetWhitespaceBackgroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetWhitespaceForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetWhitespaceForegroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetWhitespaceForegroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetWhitespaceForegroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` size: i32 `
     ///
-    pub fn SetWhitespaceSize(self: ?*anyopaque, size: i32) void {
-        qtc.QsciScintilla_SetWhitespaceSize(@ptrCast(self), @bitCast(size));
+    pub fn SetWhitespaceSize(self: QsciScintilla, size: i32) void {
+        qtc.QsciScintilla_SetWhitespaceSize(@ptrCast(self.ptr), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` mode: qsciscintilla_enums.WrapIndentMode `
     ///
-    pub fn SetWrapIndentMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QsciScintilla_SetWrapIndentMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetWrapIndentMode(self: QsciScintilla, mode: i32) void {
+        qtc.QsciScintilla_SetWrapIndentMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` id: i32 `
     ///
     /// ` list: []const []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn ShowUserList(self: ?*anyopaque, id: i32, list: []const []const u8, allocator: std.mem.Allocator) void {
+    pub fn ShowUserList(self: QsciScintilla, allocator: std.mem.Allocator, id: i32, list: []const []const u8) void {
         const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("qsciscintilla.ShowUserList: Memory allocation failed");
         defer allocator.free(list_arr);
-        for (list, 0..list.len) |item, i| {
+        for (list, 0..list.len) |item, i|
             list_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const list_list = qtc.libqt_list{
             .len = list.len,
             .data = list_arr.ptr,
         };
-        qtc.QsciScintilla_ShowUserList(@ptrCast(self), @bitCast(id), list_list);
+        qtc.QsciScintilla_ShowUserList(@ptrCast(self.ptr), @bitCast(id), list_list);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn StandardCommands(self: ?*anyopaque) QtC.QsciCommandSet {
-        return qtc.QsciScintilla_StandardCommands(@ptrCast(self));
+    pub fn StandardCommands(self: QsciScintilla) QsciCommandSet {
+        return .{ .ptr = qtc.QsciScintilla_StandardCommands(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qsciscintilla_enums.TabDrawMode `
     ///
-    pub fn TabDrawMode(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_TabDrawMode(@ptrCast(self));
+    pub fn TabDrawMode(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_TabDrawMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn TabIndents(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_TabIndents(@ptrCast(self));
+    pub fn TabIndents(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_TabIndents(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn TabWidth(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_TabWidth(@ptrCast(self));
+    pub fn TabWidth(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_TabWidth(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QsciScintilla_Text(@ptrCast(self));
+    pub fn Text(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QsciScintilla_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2622,14 +2738,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
-    ///
-    /// ` line: i32 `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text2(self: ?*anyopaque, line: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QsciScintilla_Text2(@ptrCast(self), @bitCast(line));
+    /// ` line: i32 `
+    ///
+    pub fn Text2(self: QsciScintilla, allocator: std.mem.Allocator, line: i32) []const u8 {
+        var _str = qtc.QsciScintilla_Text2(@ptrCast(self.ptr), @bitCast(line));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.Text2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2640,16 +2756,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Text3(self: ?*anyopaque, start: i32, end: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QsciScintilla_Text3(@ptrCast(self), @bitCast(start), @bitCast(end));
+    pub fn Text3(self: QsciScintilla, allocator: std.mem.Allocator, start: i32, end: i32) []const u8 {
+        var _str = qtc.QsciScintilla_Text3(@ptrCast(self.ptr), @bitCast(start), @bitCast(end));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.Text3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2660,52 +2776,52 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` linenr: i32 `
     ///
-    pub fn TextHeight(self: ?*anyopaque, linenr: i32) i32 {
-        return qtc.QsciScintilla_TextHeight(@ptrCast(self), @bitCast(linenr));
+    pub fn TextHeight(self: QsciScintilla, linenr: i32) i32 {
+        return qtc.QsciScintilla_TextHeight(@ptrCast(self.ptr), @bitCast(linenr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn WhitespaceSize(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_WhitespaceSize(@ptrCast(self));
+    pub fn WhitespaceSize(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_WhitespaceSize(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qsciscintilla_enums.WhitespaceVisibility `
     ///
-    pub fn WhitespaceVisibility(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_WhitespaceVisibility(@ptrCast(self));
+    pub fn WhitespaceVisibility(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_WhitespaceVisibility(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` line: i32 `
     ///
     /// ` index: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn WordAtLineIndex(self: ?*anyopaque, line: i32, index: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QsciScintilla_WordAtLineIndex(@ptrCast(self), @bitCast(line), @bitCast(index));
+    pub fn WordAtLineIndex(self: QsciScintilla, allocator: std.mem.Allocator, line: i32, index: i32) []const u8 {
+        var _str = qtc.QsciScintilla_WordAtLineIndex(@ptrCast(self.ptr), @bitCast(line), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.WordAtLineIndex: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2716,14 +2832,15 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
-    ///
-    /// ` point: QtC.QPoint `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WordAtPoint(self: ?*anyopaque, point: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QsciScintilla_WordAtPoint(@ptrCast(self), @ptrCast(point));
+    /// ` point: QPoint `
+    ///
+    pub fn WordAtPoint(self: QsciScintilla, allocator: std.mem.Allocator, point: anytype) []const u8 {
+        comptime _ = @TypeOf(point)._is_QPoint;
+        var _str = qtc.QsciScintilla_WordAtPoint(@ptrCast(self.ptr), @ptrCast(point.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.WordAtPoint: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2734,10 +2851,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn WordCharacters(self: ?*anyopaque) [:0]const u8 {
-        const _ret = qtc.QsciScintilla_WordCharacters(@ptrCast(self));
+    pub fn WordCharacters(self: QsciScintilla) [:0]const u8 {
+        const _ret = qtc.QsciScintilla_WordCharacters(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
 
@@ -2745,56 +2862,57 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qsciscintilla_enums.WrapMode `
     ///
-    pub fn WrapMode(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_WrapMode(@ptrCast(self));
+    pub fn WrapMode(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_WrapMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qsciscintilla_enums.WrapIndentMode `
     ///
-    pub fn WrapIndentMode(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_WrapIndentMode(@ptrCast(self));
+    pub fn WrapIndentMode(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_WrapIndentMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` io: QtC.QIODevice `
+    /// ` io: QIODevice `
     ///
-    pub fn Write(self: ?*anyopaque, io: ?*anyopaque) bool {
-        return qtc.QsciScintilla_Write(@ptrCast(self), @ptrCast(io));
+    pub fn Write(self: QsciScintilla, io: anytype) bool {
+        comptime _ = @TypeOf(io)._is_QIODevice;
+        return qtc.QsciScintilla_Write(@ptrCast(self.ptr), @ptrCast(io.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn Append(self: ?*anyopaque, text: []const u8) void {
+    pub fn Append(self: QsciScintilla, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QsciScintilla_Append(@ptrCast(self), text_str);
+        qtc.QsciScintilla_Append(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -2803,12 +2921,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, text: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnAppend(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QsciScintilla_OnAppend(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAppend(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8) callconv(.c) void) void {
+        qtc.QsciScintilla_OnAppend(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperAppend` instead
@@ -2821,26 +2939,26 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SuperAppend(self: ?*anyopaque, text: []const u8) void {
+    pub fn SuperAppend(self: QsciScintilla, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QsciScintilla_SuperAppend(@ptrCast(self), text_str);
+        qtc.QsciScintilla_SuperAppend(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn AutoCompleteFromAll(self: ?*anyopaque) void {
-        qtc.QsciScintilla_AutoCompleteFromAll(@ptrCast(self));
+    pub fn AutoCompleteFromAll(self: QsciScintilla) void {
+        qtc.QsciScintilla_AutoCompleteFromAll(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -2849,12 +2967,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAutoCompleteFromAll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintilla_OnAutoCompleteFromAll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAutoCompleteFromAll(self: QsciScintilla, callback: *const fn () callconv(.c) void) void {
+        qtc.QsciScintilla_OnAutoCompleteFromAll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperAutoCompleteFromAll` instead
@@ -2867,20 +2985,20 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperAutoCompleteFromAll(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperAutoCompleteFromAll(@ptrCast(self));
+    pub fn SuperAutoCompleteFromAll(self: QsciScintilla) void {
+        qtc.QsciScintilla_SuperAutoCompleteFromAll(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn AutoCompleteFromAPIs(self: ?*anyopaque) void {
-        qtc.QsciScintilla_AutoCompleteFromAPIs(@ptrCast(self));
+    pub fn AutoCompleteFromAPIs(self: QsciScintilla) void {
+        qtc.QsciScintilla_AutoCompleteFromAPIs(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -2889,12 +3007,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAutoCompleteFromAPIs(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintilla_OnAutoCompleteFromAPIs(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAutoCompleteFromAPIs(self: QsciScintilla, callback: *const fn () callconv(.c) void) void {
+        qtc.QsciScintilla_OnAutoCompleteFromAPIs(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperAutoCompleteFromAPIs` instead
@@ -2907,20 +3025,20 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperAutoCompleteFromAPIs(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperAutoCompleteFromAPIs(@ptrCast(self));
+    pub fn SuperAutoCompleteFromAPIs(self: QsciScintilla) void {
+        qtc.QsciScintilla_SuperAutoCompleteFromAPIs(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn AutoCompleteFromDocument(self: ?*anyopaque) void {
-        qtc.QsciScintilla_AutoCompleteFromDocument(@ptrCast(self));
+    pub fn AutoCompleteFromDocument(self: QsciScintilla) void {
+        qtc.QsciScintilla_AutoCompleteFromDocument(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -2929,12 +3047,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAutoCompleteFromDocument(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintilla_OnAutoCompleteFromDocument(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAutoCompleteFromDocument(self: QsciScintilla, callback: *const fn () callconv(.c) void) void {
+        qtc.QsciScintilla_OnAutoCompleteFromDocument(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperAutoCompleteFromDocument` instead
@@ -2947,20 +3065,20 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperAutoCompleteFromDocument(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperAutoCompleteFromDocument(@ptrCast(self));
+    pub fn SuperAutoCompleteFromDocument(self: QsciScintilla) void {
+        qtc.QsciScintilla_SuperAutoCompleteFromDocument(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn CallTip(self: ?*anyopaque) void {
-        qtc.QsciScintilla_CallTip(@ptrCast(self));
+    pub fn CallTip(self: QsciScintilla) void {
+        qtc.QsciScintilla_CallTip(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -2969,12 +3087,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCallTip(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintilla_OnCallTip(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCallTip(self: QsciScintilla, callback: *const fn () callconv(.c) void) void {
+        qtc.QsciScintilla_OnCallTip(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCallTip` instead
@@ -2987,20 +3105,20 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperCallTip(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperCallTip(@ptrCast(self));
+    pub fn SuperCallTip(self: QsciScintilla) void {
+        qtc.QsciScintilla_SuperCallTip(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Clear(self: ?*anyopaque) void {
-        qtc.QsciScintilla_Clear(@ptrCast(self));
+    pub fn Clear(self: QsciScintilla) void {
+        qtc.QsciScintilla_Clear(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3009,12 +3127,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnClear(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintilla_OnClear(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClear(self: QsciScintilla, callback: *const fn () callconv(.c) void) void {
+        qtc.QsciScintilla_OnClear(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperClear` instead
@@ -3027,20 +3145,20 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperClear(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperClear(@ptrCast(self));
+    pub fn SuperClear(self: QsciScintilla) void {
+        qtc.QsciScintilla_SuperClear(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Copy(self: ?*anyopaque) void {
-        qtc.QsciScintilla_Copy(@ptrCast(self));
+    pub fn Copy(self: QsciScintilla) void {
+        qtc.QsciScintilla_Copy(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3049,12 +3167,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCopy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintilla_OnCopy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCopy(self: QsciScintilla, callback: *const fn () callconv(.c) void) void {
+        qtc.QsciScintilla_OnCopy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCopy` instead
@@ -3067,20 +3185,20 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperCopy(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperCopy(@ptrCast(self));
+    pub fn SuperCopy(self: QsciScintilla) void {
+        qtc.QsciScintilla_SuperCopy(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Cut(self: ?*anyopaque) void {
-        qtc.QsciScintilla_Cut(@ptrCast(self));
+    pub fn Cut(self: QsciScintilla) void {
+        qtc.QsciScintilla_Cut(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3089,12 +3207,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCut(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintilla_OnCut(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCut(self: QsciScintilla, callback: *const fn () callconv(.c) void) void {
+        qtc.QsciScintilla_OnCut(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCut` instead
@@ -3107,20 +3225,20 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperCut(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperCut(@ptrCast(self));
+    pub fn SuperCut(self: QsciScintilla) void {
+        qtc.QsciScintilla_SuperCut(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn EnsureCursorVisible(self: ?*anyopaque) void {
-        qtc.QsciScintilla_EnsureCursorVisible(@ptrCast(self));
+    pub fn EnsureCursorVisible(self: QsciScintilla) void {
+        qtc.QsciScintilla_EnsureCursorVisible(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3129,12 +3247,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEnsureCursorVisible(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintilla_OnEnsureCursorVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnsureCursorVisible(self: QsciScintilla, callback: *const fn () callconv(.c) void) void {
+        qtc.QsciScintilla_OnEnsureCursorVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEnsureCursorVisible` instead
@@ -3147,22 +3265,22 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperEnsureCursorVisible(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperEnsureCursorVisible(@ptrCast(self));
+    pub fn SuperEnsureCursorVisible(self: QsciScintilla) void {
+        qtc.QsciScintilla_SuperEnsureCursorVisible(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
-    pub fn EnsureLineVisible(self: ?*anyopaque, line: i32) void {
-        qtc.QsciScintilla_EnsureLineVisible(@ptrCast(self), @bitCast(line));
+    pub fn EnsureLineVisible(self: QsciScintilla, line: i32) void {
+        qtc.QsciScintilla_EnsureLineVisible(@ptrCast(self.ptr), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3171,12 +3289,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, line: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, line: i32) callconv(.c) void `
     ///
-    pub fn OnEnsureLineVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnEnsureLineVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnsureLineVisible(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnEnsureLineVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEnsureLineVisible` instead
@@ -3189,24 +3307,24 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
-    pub fn SuperEnsureLineVisible(self: ?*anyopaque, line: i32) void {
-        qtc.QsciScintilla_SuperEnsureLineVisible(@ptrCast(self), @bitCast(line));
+    pub fn SuperEnsureLineVisible(self: QsciScintilla, line: i32) void {
+        qtc.QsciScintilla_SuperEnsureLineVisible(@ptrCast(self.ptr), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` children: bool `
     ///
-    pub fn FoldAll(self: ?*anyopaque, children: bool) void {
-        qtc.QsciScintilla_FoldAll(@ptrCast(self), children);
+    pub fn FoldAll(self: QsciScintilla, children: bool) void {
+        qtc.QsciScintilla_FoldAll(@ptrCast(self.ptr), children);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3215,12 +3333,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, children: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, children: bool) callconv(.c) void `
     ///
-    pub fn OnFoldAll(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QsciScintilla_OnFoldAll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFoldAll(self: QsciScintilla, callback: *const fn (QsciScintilla, bool) callconv(.c) void) void {
+        qtc.QsciScintilla_OnFoldAll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperFoldAll` instead
@@ -3233,24 +3351,24 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` children: bool `
     ///
-    pub fn SuperFoldAll(self: ?*anyopaque, children: bool) void {
-        qtc.QsciScintilla_SuperFoldAll(@ptrCast(self), children);
+    pub fn SuperFoldAll(self: QsciScintilla, children: bool) void {
+        qtc.QsciScintilla_SuperFoldAll(@ptrCast(self.ptr), children);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
-    pub fn FoldLine(self: ?*anyopaque, line: i32) void {
-        qtc.QsciScintilla_FoldLine(@ptrCast(self), @bitCast(line));
+    pub fn FoldLine(self: QsciScintilla, line: i32) void {
+        qtc.QsciScintilla_FoldLine(@ptrCast(self.ptr), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3259,12 +3377,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, line: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, line: i32) callconv(.c) void `
     ///
-    pub fn OnFoldLine(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnFoldLine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFoldLine(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnFoldLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperFoldLine` instead
@@ -3277,24 +3395,24 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
-    pub fn SuperFoldLine(self: ?*anyopaque, line: i32) void {
-        qtc.QsciScintilla_SuperFoldLine(@ptrCast(self), @bitCast(line));
+    pub fn SuperFoldLine(self: QsciScintilla, line: i32) void {
+        qtc.QsciScintilla_SuperFoldLine(@ptrCast(self.ptr), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
-    pub fn Indent(self: ?*anyopaque, line: i32) void {
-        qtc.QsciScintilla_Indent(@ptrCast(self), @bitCast(line));
+    pub fn Indent(self: QsciScintilla, line: i32) void {
+        qtc.QsciScintilla_Indent(@ptrCast(self.ptr), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3303,12 +3421,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, line: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, line: i32) callconv(.c) void `
     ///
-    pub fn OnIndent(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnIndent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIndent(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnIndent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIndent` instead
@@ -3321,28 +3439,28 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
-    pub fn SuperIndent(self: ?*anyopaque, line: i32) void {
-        qtc.QsciScintilla_SuperIndent(@ptrCast(self), @bitCast(line));
+    pub fn SuperIndent(self: QsciScintilla, line: i32) void {
+        qtc.QsciScintilla_SuperIndent(@ptrCast(self.ptr), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn Insert(self: ?*anyopaque, text: []const u8) void {
+    pub fn Insert(self: QsciScintilla, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QsciScintilla_Insert(@ptrCast(self), text_str);
+        qtc.QsciScintilla_Insert(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3351,12 +3469,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, text: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnInsert(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QsciScintilla_OnInsert(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInsert(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8) callconv(.c) void) void {
+        qtc.QsciScintilla_OnInsert(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperInsert` instead
@@ -3369,23 +3487,23 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SuperInsert(self: ?*anyopaque, text: []const u8) void {
+    pub fn SuperInsert(self: QsciScintilla, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QsciScintilla_SuperInsert(@ptrCast(self), text_str);
+        qtc.QsciScintilla_SuperInsert(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` text: []const u8 `
     ///
@@ -3393,12 +3511,12 @@ pub const qsciscintilla = struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn InsertAt(self: ?*anyopaque, text: []const u8, line: i32, index: i32) void {
+    pub fn InsertAt(self: QsciScintilla, text: []const u8, line: i32, index: i32) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QsciScintilla_InsertAt(@ptrCast(self), text_str, @bitCast(line), @bitCast(index));
+        qtc.QsciScintilla_InsertAt(@ptrCast(self.ptr), text_str, @bitCast(line), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3407,12 +3525,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, text: [*:0]const u8, line: i32, index: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, text: [*:0]const u8, line: i32, index: i32) callconv(.c) void `
     ///
-    pub fn OnInsertAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnInsertAt(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInsertAt(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnInsertAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperInsertAt` instead
@@ -3425,7 +3543,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` text: []const u8 `
     ///
@@ -3433,22 +3551,22 @@ pub const qsciscintilla = struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperInsertAt(self: ?*anyopaque, text: []const u8, line: i32, index: i32) void {
+    pub fn SuperInsertAt(self: QsciScintilla, text: []const u8, line: i32, index: i32) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QsciScintilla_SuperInsertAt(@ptrCast(self), text_str, @bitCast(line), @bitCast(index));
+        qtc.QsciScintilla_SuperInsertAt(@ptrCast(self.ptr), text_str, @bitCast(line), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn MoveToMatchingBrace(self: ?*anyopaque) void {
-        qtc.QsciScintilla_MoveToMatchingBrace(@ptrCast(self));
+    pub fn MoveToMatchingBrace(self: QsciScintilla) void {
+        qtc.QsciScintilla_MoveToMatchingBrace(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3457,12 +3575,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnMoveToMatchingBrace(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintilla_OnMoveToMatchingBrace(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveToMatchingBrace(self: QsciScintilla, callback: *const fn () callconv(.c) void) void {
+        qtc.QsciScintilla_OnMoveToMatchingBrace(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMoveToMatchingBrace` instead
@@ -3475,20 +3593,20 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperMoveToMatchingBrace(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperMoveToMatchingBrace(@ptrCast(self));
+    pub fn SuperMoveToMatchingBrace(self: QsciScintilla) void {
+        qtc.QsciScintilla_SuperMoveToMatchingBrace(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Paste(self: ?*anyopaque) void {
-        qtc.QsciScintilla_Paste(@ptrCast(self));
+    pub fn Paste(self: QsciScintilla) void {
+        qtc.QsciScintilla_Paste(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3497,12 +3615,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnPaste(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintilla_OnPaste(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaste(self: QsciScintilla, callback: *const fn () callconv(.c) void) void {
+        qtc.QsciScintilla_OnPaste(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperPaste` instead
@@ -3515,20 +3633,20 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperPaste(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperPaste(@ptrCast(self));
+    pub fn SuperPaste(self: QsciScintilla) void {
+        qtc.QsciScintilla_SuperPaste(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Redo(self: ?*anyopaque) void {
-        qtc.QsciScintilla_Redo(@ptrCast(self));
+    pub fn Redo(self: QsciScintilla) void {
+        qtc.QsciScintilla_Redo(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3537,12 +3655,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnRedo(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintilla_OnRedo(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedo(self: QsciScintilla, callback: *const fn () callconv(.c) void) void {
+        qtc.QsciScintilla_OnRedo(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRedo` instead
@@ -3555,20 +3673,20 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperRedo(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperRedo(@ptrCast(self));
+    pub fn SuperRedo(self: QsciScintilla) void {
+        qtc.QsciScintilla_SuperRedo(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn RemoveSelectedText(self: ?*anyopaque) void {
-        qtc.QsciScintilla_RemoveSelectedText(@ptrCast(self));
+    pub fn RemoveSelectedText(self: QsciScintilla) void {
+        qtc.QsciScintilla_RemoveSelectedText(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3577,12 +3695,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnRemoveSelectedText(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintilla_OnRemoveSelectedText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRemoveSelectedText(self: QsciScintilla, callback: *const fn () callconv(.c) void) void {
+        qtc.QsciScintilla_OnRemoveSelectedText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRemoveSelectedText` instead
@@ -3595,26 +3713,26 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperRemoveSelectedText(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperRemoveSelectedText(@ptrCast(self));
+    pub fn SuperRemoveSelectedText(self: QsciScintilla) void {
+        qtc.QsciScintilla_SuperRemoveSelectedText(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn ReplaceSelectedText(self: ?*anyopaque, text: []const u8) void {
+    pub fn ReplaceSelectedText(self: QsciScintilla, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QsciScintilla_ReplaceSelectedText(@ptrCast(self), text_str);
+        qtc.QsciScintilla_ReplaceSelectedText(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3623,12 +3741,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, text: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnReplaceSelectedText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QsciScintilla_OnReplaceSelectedText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReplaceSelectedText(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8) callconv(.c) void) void {
+        qtc.QsciScintilla_OnReplaceSelectedText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperReplaceSelectedText` instead
@@ -3641,26 +3759,26 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SuperReplaceSelectedText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SuperReplaceSelectedText(self: QsciScintilla, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QsciScintilla_SuperReplaceSelectedText(@ptrCast(self), text_str);
+        qtc.QsciScintilla_SuperReplaceSelectedText(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ResetSelectionBackgroundColor(self: ?*anyopaque) void {
-        qtc.QsciScintilla_ResetSelectionBackgroundColor(@ptrCast(self));
+    pub fn ResetSelectionBackgroundColor(self: QsciScintilla) void {
+        qtc.QsciScintilla_ResetSelectionBackgroundColor(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3669,12 +3787,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnResetSelectionBackgroundColor(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintilla_OnResetSelectionBackgroundColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResetSelectionBackgroundColor(self: QsciScintilla, callback: *const fn () callconv(.c) void) void {
+        qtc.QsciScintilla_OnResetSelectionBackgroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperResetSelectionBackgroundColor` instead
@@ -3687,20 +3805,20 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperResetSelectionBackgroundColor(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperResetSelectionBackgroundColor(@ptrCast(self));
+    pub fn SuperResetSelectionBackgroundColor(self: QsciScintilla) void {
+        qtc.QsciScintilla_SuperResetSelectionBackgroundColor(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ResetSelectionForegroundColor(self: ?*anyopaque) void {
-        qtc.QsciScintilla_ResetSelectionForegroundColor(@ptrCast(self));
+    pub fn ResetSelectionForegroundColor(self: QsciScintilla) void {
+        qtc.QsciScintilla_ResetSelectionForegroundColor(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3709,12 +3827,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnResetSelectionForegroundColor(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintilla_OnResetSelectionForegroundColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResetSelectionForegroundColor(self: QsciScintilla, callback: *const fn () callconv(.c) void) void {
+        qtc.QsciScintilla_OnResetSelectionForegroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperResetSelectionForegroundColor` instead
@@ -3727,22 +3845,22 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperResetSelectionForegroundColor(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperResetSelectionForegroundColor(@ptrCast(self));
+    pub fn SuperResetSelectionForegroundColor(self: QsciScintilla) void {
+        qtc.QsciScintilla_SuperResetSelectionForegroundColor(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` selectVal: bool `
     ///
-    pub fn SelectAll(self: ?*anyopaque, selectVal: bool) void {
-        qtc.QsciScintilla_SelectAll(@ptrCast(self), selectVal);
+    pub fn SelectAll(self: QsciScintilla, selectVal: bool) void {
+        qtc.QsciScintilla_SelectAll(@ptrCast(self.ptr), selectVal);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3751,12 +3869,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, selectVal: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, selectVal: bool) callconv(.c) void `
     ///
-    pub fn OnSelectAll(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSelectAll(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSelectAll(self: QsciScintilla, callback: *const fn (QsciScintilla, bool) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSelectAll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSelectAll` instead
@@ -3769,22 +3887,22 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` selectVal: bool `
     ///
-    pub fn SuperSelectAll(self: ?*anyopaque, selectVal: bool) void {
-        qtc.QsciScintilla_SuperSelectAll(@ptrCast(self), selectVal);
+    pub fn SuperSelectAll(self: QsciScintilla, selectVal: bool) void {
+        qtc.QsciScintilla_SuperSelectAll(@ptrCast(self.ptr), selectVal);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SelectToMatchingBrace(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SelectToMatchingBrace(@ptrCast(self));
+    pub fn SelectToMatchingBrace(self: QsciScintilla) void {
+        qtc.QsciScintilla_SelectToMatchingBrace(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3793,12 +3911,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSelectToMatchingBrace(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintilla_OnSelectToMatchingBrace(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSelectToMatchingBrace(self: QsciScintilla, callback: *const fn () callconv(.c) void) void {
+        qtc.QsciScintilla_OnSelectToMatchingBrace(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSelectToMatchingBrace` instead
@@ -3811,22 +3929,22 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperSelectToMatchingBrace(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperSelectToMatchingBrace(@ptrCast(self));
+    pub fn SuperSelectToMatchingBrace(self: QsciScintilla) void {
+        qtc.QsciScintilla_SuperSelectToMatchingBrace(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` cs: bool `
     ///
-    pub fn SetAutoCompletionCaseSensitivity(self: ?*anyopaque, cs: bool) void {
-        qtc.QsciScintilla_SetAutoCompletionCaseSensitivity(@ptrCast(self), cs);
+    pub fn SetAutoCompletionCaseSensitivity(self: QsciScintilla, cs: bool) void {
+        qtc.QsciScintilla_SetAutoCompletionCaseSensitivity(@ptrCast(self.ptr), cs);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3835,12 +3953,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, cs: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, cs: bool) callconv(.c) void `
     ///
-    pub fn OnSetAutoCompletionCaseSensitivity(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetAutoCompletionCaseSensitivity(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetAutoCompletionCaseSensitivity(self: QsciScintilla, callback: *const fn (QsciScintilla, bool) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetAutoCompletionCaseSensitivity(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetAutoCompletionCaseSensitivity` instead
@@ -3853,24 +3971,24 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` cs: bool `
     ///
-    pub fn SuperSetAutoCompletionCaseSensitivity(self: ?*anyopaque, cs: bool) void {
-        qtc.QsciScintilla_SuperSetAutoCompletionCaseSensitivity(@ptrCast(self), cs);
+    pub fn SuperSetAutoCompletionCaseSensitivity(self: QsciScintilla, cs: bool) void {
+        qtc.QsciScintilla_SuperSetAutoCompletionCaseSensitivity(@ptrCast(self.ptr), cs);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` replace: bool `
     ///
-    pub fn SetAutoCompletionReplaceWord(self: ?*anyopaque, replace: bool) void {
-        qtc.QsciScintilla_SetAutoCompletionReplaceWord(@ptrCast(self), replace);
+    pub fn SetAutoCompletionReplaceWord(self: QsciScintilla, replace: bool) void {
+        qtc.QsciScintilla_SetAutoCompletionReplaceWord(@ptrCast(self.ptr), replace);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3879,12 +3997,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, replace: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, replace: bool) callconv(.c) void `
     ///
-    pub fn OnSetAutoCompletionReplaceWord(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetAutoCompletionReplaceWord(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetAutoCompletionReplaceWord(self: QsciScintilla, callback: *const fn (QsciScintilla, bool) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetAutoCompletionReplaceWord(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetAutoCompletionReplaceWord` instead
@@ -3897,24 +4015,24 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` replace: bool `
     ///
-    pub fn SuperSetAutoCompletionReplaceWord(self: ?*anyopaque, replace: bool) void {
-        qtc.QsciScintilla_SuperSetAutoCompletionReplaceWord(@ptrCast(self), replace);
+    pub fn SuperSetAutoCompletionReplaceWord(self: QsciScintilla, replace: bool) void {
+        qtc.QsciScintilla_SuperSetAutoCompletionReplaceWord(@ptrCast(self.ptr), replace);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` single: bool `
     ///
-    pub fn SetAutoCompletionShowSingle(self: ?*anyopaque, single: bool) void {
-        qtc.QsciScintilla_SetAutoCompletionShowSingle(@ptrCast(self), single);
+    pub fn SetAutoCompletionShowSingle(self: QsciScintilla, single: bool) void {
+        qtc.QsciScintilla_SetAutoCompletionShowSingle(@ptrCast(self.ptr), single);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3923,12 +4041,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, single: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, single: bool) callconv(.c) void `
     ///
-    pub fn OnSetAutoCompletionShowSingle(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetAutoCompletionShowSingle(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetAutoCompletionShowSingle(self: QsciScintilla, callback: *const fn (QsciScintilla, bool) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetAutoCompletionShowSingle(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetAutoCompletionShowSingle` instead
@@ -3941,24 +4059,24 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` single: bool `
     ///
-    pub fn SuperSetAutoCompletionShowSingle(self: ?*anyopaque, single: bool) void {
-        qtc.QsciScintilla_SuperSetAutoCompletionShowSingle(@ptrCast(self), single);
+    pub fn SuperSetAutoCompletionShowSingle(self: QsciScintilla, single: bool) void {
+        qtc.QsciScintilla_SuperSetAutoCompletionShowSingle(@ptrCast(self.ptr), single);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` source: qsciscintilla_enums.AutoCompletionSource `
     ///
-    pub fn SetAutoCompletionSource(self: ?*anyopaque, source: i32) void {
-        qtc.QsciScintilla_SetAutoCompletionSource(@ptrCast(self), @bitCast(source));
+    pub fn SetAutoCompletionSource(self: QsciScintilla, source: i32) void {
+        qtc.QsciScintilla_SetAutoCompletionSource(@ptrCast(self.ptr), @bitCast(source));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3967,12 +4085,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, source: qsciscintilla_enums.AutoCompletionSource) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, source: qsciscintilla_enums.AutoCompletionSource) callconv(.c) void `
     ///
-    pub fn OnSetAutoCompletionSource(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetAutoCompletionSource(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetAutoCompletionSource(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetAutoCompletionSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetAutoCompletionSource` instead
@@ -3985,24 +4103,24 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` source: qsciscintilla_enums.AutoCompletionSource `
     ///
-    pub fn SuperSetAutoCompletionSource(self: ?*anyopaque, source: i32) void {
-        qtc.QsciScintilla_SuperSetAutoCompletionSource(@ptrCast(self), @bitCast(source));
+    pub fn SuperSetAutoCompletionSource(self: QsciScintilla, source: i32) void {
+        qtc.QsciScintilla_SuperSetAutoCompletionSource(@ptrCast(self.ptr), @bitCast(source));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` thresh: i32 `
     ///
-    pub fn SetAutoCompletionThreshold(self: ?*anyopaque, thresh: i32) void {
-        qtc.QsciScintilla_SetAutoCompletionThreshold(@ptrCast(self), @bitCast(thresh));
+    pub fn SetAutoCompletionThreshold(self: QsciScintilla, thresh: i32) void {
+        qtc.QsciScintilla_SetAutoCompletionThreshold(@ptrCast(self.ptr), @bitCast(thresh));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4011,12 +4129,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, thresh: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, thresh: i32) callconv(.c) void `
     ///
-    pub fn OnSetAutoCompletionThreshold(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetAutoCompletionThreshold(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetAutoCompletionThreshold(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetAutoCompletionThreshold(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetAutoCompletionThreshold` instead
@@ -4029,24 +4147,24 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` thresh: i32 `
     ///
-    pub fn SuperSetAutoCompletionThreshold(self: ?*anyopaque, thresh: i32) void {
-        qtc.QsciScintilla_SuperSetAutoCompletionThreshold(@ptrCast(self), @bitCast(thresh));
+    pub fn SuperSetAutoCompletionThreshold(self: QsciScintilla, thresh: i32) void {
+        qtc.QsciScintilla_SuperSetAutoCompletionThreshold(@ptrCast(self.ptr), @bitCast(thresh));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` single: qsciscintilla_enums.AutoCompletionUseSingle `
     ///
-    pub fn SetAutoCompletionUseSingle(self: ?*anyopaque, single: i32) void {
-        qtc.QsciScintilla_SetAutoCompletionUseSingle(@ptrCast(self), @bitCast(single));
+    pub fn SetAutoCompletionUseSingle(self: QsciScintilla, single: i32) void {
+        qtc.QsciScintilla_SetAutoCompletionUseSingle(@ptrCast(self.ptr), @bitCast(single));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4055,12 +4173,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, single: qsciscintilla_enums.AutoCompletionUseSingle) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, single: qsciscintilla_enums.AutoCompletionUseSingle) callconv(.c) void `
     ///
-    pub fn OnSetAutoCompletionUseSingle(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetAutoCompletionUseSingle(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetAutoCompletionUseSingle(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetAutoCompletionUseSingle(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetAutoCompletionUseSingle` instead
@@ -4073,24 +4191,24 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` single: qsciscintilla_enums.AutoCompletionUseSingle `
     ///
-    pub fn SuperSetAutoCompletionUseSingle(self: ?*anyopaque, single: i32) void {
-        qtc.QsciScintilla_SuperSetAutoCompletionUseSingle(@ptrCast(self), @bitCast(single));
+    pub fn SuperSetAutoCompletionUseSingle(self: QsciScintilla, single: i32) void {
+        qtc.QsciScintilla_SuperSetAutoCompletionUseSingle(@ptrCast(self.ptr), @bitCast(single));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` autoindent: bool `
     ///
-    pub fn SetAutoIndent(self: ?*anyopaque, autoindent: bool) void {
-        qtc.QsciScintilla_SetAutoIndent(@ptrCast(self), autoindent);
+    pub fn SetAutoIndent(self: QsciScintilla, autoindent: bool) void {
+        qtc.QsciScintilla_SetAutoIndent(@ptrCast(self.ptr), autoindent);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4099,12 +4217,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, autoindent: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, autoindent: bool) callconv(.c) void `
     ///
-    pub fn OnSetAutoIndent(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetAutoIndent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetAutoIndent(self: QsciScintilla, callback: *const fn (QsciScintilla, bool) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetAutoIndent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetAutoIndent` instead
@@ -4117,24 +4235,24 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` autoindent: bool `
     ///
-    pub fn SuperSetAutoIndent(self: ?*anyopaque, autoindent: bool) void {
-        qtc.QsciScintilla_SuperSetAutoIndent(@ptrCast(self), autoindent);
+    pub fn SuperSetAutoIndent(self: QsciScintilla, autoindent: bool) void {
+        qtc.QsciScintilla_SuperSetAutoIndent(@ptrCast(self.ptr), autoindent);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` bm: qsciscintilla_enums.BraceMatch `
     ///
-    pub fn SetBraceMatching(self: ?*anyopaque, bm: i32) void {
-        qtc.QsciScintilla_SetBraceMatching(@ptrCast(self), @bitCast(bm));
+    pub fn SetBraceMatching(self: QsciScintilla, bm: i32) void {
+        qtc.QsciScintilla_SetBraceMatching(@ptrCast(self.ptr), @bitCast(bm));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4143,12 +4261,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, bm: qsciscintilla_enums.BraceMatch) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, bm: qsciscintilla_enums.BraceMatch) callconv(.c) void `
     ///
-    pub fn OnSetBraceMatching(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetBraceMatching(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetBraceMatching(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetBraceMatching(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetBraceMatching` instead
@@ -4161,24 +4279,24 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` bm: qsciscintilla_enums.BraceMatch `
     ///
-    pub fn SuperSetBraceMatching(self: ?*anyopaque, bm: i32) void {
-        qtc.QsciScintilla_SuperSetBraceMatching(@ptrCast(self), @bitCast(bm));
+    pub fn SuperSetBraceMatching(self: QsciScintilla, bm: i32) void {
+        qtc.QsciScintilla_SuperSetBraceMatching(@ptrCast(self.ptr), @bitCast(bm));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` unindent: bool `
     ///
-    pub fn SetBackspaceUnindents(self: ?*anyopaque, unindent: bool) void {
-        qtc.QsciScintilla_SetBackspaceUnindents(@ptrCast(self), unindent);
+    pub fn SetBackspaceUnindents(self: QsciScintilla, unindent: bool) void {
+        qtc.QsciScintilla_SetBackspaceUnindents(@ptrCast(self.ptr), unindent);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4187,12 +4305,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, unindent: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, unindent: bool) callconv(.c) void `
     ///
-    pub fn OnSetBackspaceUnindents(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetBackspaceUnindents(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetBackspaceUnindents(self: QsciScintilla, callback: *const fn (QsciScintilla, bool) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetBackspaceUnindents(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetBackspaceUnindents` instead
@@ -4205,24 +4323,25 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` unindent: bool `
     ///
-    pub fn SuperSetBackspaceUnindents(self: ?*anyopaque, unindent: bool) void {
-        qtc.QsciScintilla_SuperSetBackspaceUnindents(@ptrCast(self), unindent);
+    pub fn SuperSetBackspaceUnindents(self: QsciScintilla, unindent: bool) void {
+        qtc.QsciScintilla_SuperSetBackspaceUnindents(@ptrCast(self.ptr), unindent);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetCaretForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetCaretForegroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetCaretForegroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetCaretForegroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4231,12 +4350,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, col: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, col: QColor) callconv(.c) void `
     ///
-    pub fn OnSetCaretForegroundColor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetCaretForegroundColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetCaretForegroundColor(self: QsciScintilla, callback: *const fn (QsciScintilla, QColor) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetCaretForegroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetCaretForegroundColor` instead
@@ -4249,24 +4368,26 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SuperSetCaretForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperSetCaretForegroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SuperSetCaretForegroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SuperSetCaretForegroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetCaretLineBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetCaretLineBackgroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetCaretLineBackgroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetCaretLineBackgroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4275,12 +4396,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, col: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, col: QColor) callconv(.c) void `
     ///
-    pub fn OnSetCaretLineBackgroundColor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetCaretLineBackgroundColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetCaretLineBackgroundColor(self: QsciScintilla, callback: *const fn (QsciScintilla, QColor) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetCaretLineBackgroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetCaretLineBackgroundColor` instead
@@ -4293,24 +4414,25 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SuperSetCaretLineBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperSetCaretLineBackgroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SuperSetCaretLineBackgroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SuperSetCaretLineBackgroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` width: i32 `
     ///
-    pub fn SetCaretLineFrameWidth(self: ?*anyopaque, width: i32) void {
-        qtc.QsciScintilla_SetCaretLineFrameWidth(@ptrCast(self), @bitCast(width));
+    pub fn SetCaretLineFrameWidth(self: QsciScintilla, width: i32) void {
+        qtc.QsciScintilla_SetCaretLineFrameWidth(@ptrCast(self.ptr), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4319,12 +4441,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, width: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, width: i32) callconv(.c) void `
     ///
-    pub fn OnSetCaretLineFrameWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetCaretLineFrameWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetCaretLineFrameWidth(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetCaretLineFrameWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetCaretLineFrameWidth` instead
@@ -4337,24 +4459,24 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` width: i32 `
     ///
-    pub fn SuperSetCaretLineFrameWidth(self: ?*anyopaque, width: i32) void {
-        qtc.QsciScintilla_SuperSetCaretLineFrameWidth(@ptrCast(self), @bitCast(width));
+    pub fn SuperSetCaretLineFrameWidth(self: QsciScintilla, width: i32) void {
+        qtc.QsciScintilla_SuperSetCaretLineFrameWidth(@ptrCast(self.ptr), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetCaretLineVisible(self: ?*anyopaque, enable: bool) void {
-        qtc.QsciScintilla_SetCaretLineVisible(@ptrCast(self), enable);
+    pub fn SetCaretLineVisible(self: QsciScintilla, enable: bool) void {
+        qtc.QsciScintilla_SetCaretLineVisible(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4363,12 +4485,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, enable: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, enable: bool) callconv(.c) void `
     ///
-    pub fn OnSetCaretLineVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetCaretLineVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetCaretLineVisible(self: QsciScintilla, callback: *const fn (QsciScintilla, bool) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetCaretLineVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetCaretLineVisible` instead
@@ -4381,24 +4503,24 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` enable: bool `
     ///
-    pub fn SuperSetCaretLineVisible(self: ?*anyopaque, enable: bool) void {
-        qtc.QsciScintilla_SuperSetCaretLineVisible(@ptrCast(self), enable);
+    pub fn SuperSetCaretLineVisible(self: QsciScintilla, enable: bool) void {
+        qtc.QsciScintilla_SuperSetCaretLineVisible(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` width: i32 `
     ///
-    pub fn SetCaretWidth(self: ?*anyopaque, width: i32) void {
-        qtc.QsciScintilla_SetCaretWidth(@ptrCast(self), @bitCast(width));
+    pub fn SetCaretWidth(self: QsciScintilla, width: i32) void {
+        qtc.QsciScintilla_SetCaretWidth(@ptrCast(self.ptr), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4407,12 +4529,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, width: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, width: i32) callconv(.c) void `
     ///
-    pub fn OnSetCaretWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetCaretWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetCaretWidth(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetCaretWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetCaretWidth` instead
@@ -4425,24 +4547,25 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` width: i32 `
     ///
-    pub fn SuperSetCaretWidth(self: ?*anyopaque, width: i32) void {
-        qtc.QsciScintilla_SuperSetCaretWidth(@ptrCast(self), @bitCast(width));
+    pub fn SuperSetCaretWidth(self: QsciScintilla, width: i32) void {
+        qtc.QsciScintilla_SuperSetCaretWidth(@ptrCast(self.ptr), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` c: QtC.QColor `
+    /// ` c: QColor `
     ///
-    pub fn SetColor(self: ?*anyopaque, c: ?*anyopaque) void {
-        qtc.QsciScintilla_SetColor(@ptrCast(self), @ptrCast(c));
+    pub fn SetColor(self: QsciScintilla, c: anytype) void {
+        comptime _ = @TypeOf(c)._is_QColor;
+        qtc.QsciScintilla_SetColor(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4451,12 +4574,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, c: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, c: QColor) callconv(.c) void `
     ///
-    pub fn OnSetColor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetColor(self: QsciScintilla, callback: *const fn (QsciScintilla, QColor) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetColor` instead
@@ -4469,26 +4592,27 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` c: QtC.QColor `
+    /// ` c: QColor `
     ///
-    pub fn SuperSetColor(self: ?*anyopaque, c: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperSetColor(@ptrCast(self), @ptrCast(c));
+    pub fn SuperSetColor(self: QsciScintilla, c: anytype) void {
+        comptime _ = @TypeOf(c)._is_QColor;
+        qtc.QsciScintilla_SuperSetColor(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
     /// ` index: i32 `
     ///
-    pub fn SetCursorPosition(self: ?*anyopaque, line: i32, index: i32) void {
-        qtc.QsciScintilla_SetCursorPosition(@ptrCast(self), @bitCast(line), @bitCast(index));
+    pub fn SetCursorPosition(self: QsciScintilla, line: i32, index: i32) void {
+        qtc.QsciScintilla_SetCursorPosition(@ptrCast(self.ptr), @bitCast(line), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4497,12 +4621,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, line: i32, index: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, line: i32, index: i32) callconv(.c) void `
     ///
-    pub fn OnSetCursorPosition(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetCursorPosition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetCursorPosition(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetCursorPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetCursorPosition` instead
@@ -4515,26 +4639,26 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperSetCursorPosition(self: ?*anyopaque, line: i32, index: i32) void {
-        qtc.QsciScintilla_SuperSetCursorPosition(@ptrCast(self), @bitCast(line), @bitCast(index));
+    pub fn SuperSetCursorPosition(self: QsciScintilla, line: i32, index: i32) void {
+        qtc.QsciScintilla_SuperSetCursorPosition(@ptrCast(self.ptr), @bitCast(line), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` mode: qsciscintilla_enums.EolMode `
     ///
-    pub fn SetEolMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QsciScintilla_SetEolMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetEolMode(self: QsciScintilla, mode: i32) void {
+        qtc.QsciScintilla_SetEolMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4543,12 +4667,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, mode: qsciscintilla_enums.EolMode) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, mode: qsciscintilla_enums.EolMode) callconv(.c) void `
     ///
-    pub fn OnSetEolMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetEolMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetEolMode(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetEolMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetEolMode` instead
@@ -4561,24 +4685,24 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` mode: qsciscintilla_enums.EolMode `
     ///
-    pub fn SuperSetEolMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QsciScintilla_SuperSetEolMode(@ptrCast(self), @bitCast(mode));
+    pub fn SuperSetEolMode(self: QsciScintilla, mode: i32) void {
+        qtc.QsciScintilla_SuperSetEolMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetEolVisibility(self: ?*anyopaque, visible: bool) void {
-        qtc.QsciScintilla_SetEolVisibility(@ptrCast(self), visible);
+    pub fn SetEolVisibility(self: QsciScintilla, visible: bool) void {
+        qtc.QsciScintilla_SetEolVisibility(@ptrCast(self.ptr), visible);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4587,12 +4711,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetEolVisibility(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetEolVisibility(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetEolVisibility(self: QsciScintilla, callback: *const fn (QsciScintilla, bool) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetEolVisibility(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetEolVisibility` instead
@@ -4605,26 +4729,26 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetEolVisibility(self: ?*anyopaque, visible: bool) void {
-        qtc.QsciScintilla_SuperSetEolVisibility(@ptrCast(self), visible);
+    pub fn SuperSetEolVisibility(self: QsciScintilla, visible: bool) void {
+        qtc.QsciScintilla_SuperSetEolVisibility(@ptrCast(self.ptr), visible);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` fold: qsciscintilla_enums.FoldStyle `
     ///
     /// ` margin: i32 `
     ///
-    pub fn SetFolding(self: ?*anyopaque, fold: i32, margin: i32) void {
-        qtc.QsciScintilla_SetFolding(@ptrCast(self), @bitCast(fold), @bitCast(margin));
+    pub fn SetFolding(self: QsciScintilla, fold: i32, margin: i32) void {
+        qtc.QsciScintilla_SetFolding(@ptrCast(self.ptr), @bitCast(fold), @bitCast(margin));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4633,12 +4757,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, fold: qsciscintilla_enums.FoldStyle, margin: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, fold: qsciscintilla_enums.FoldStyle, margin: i32) callconv(.c) void `
     ///
-    pub fn OnSetFolding(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetFolding(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetFolding(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetFolding(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetFolding` instead
@@ -4651,28 +4775,28 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` fold: qsciscintilla_enums.FoldStyle `
     ///
     /// ` margin: i32 `
     ///
-    pub fn SuperSetFolding(self: ?*anyopaque, fold: i32, margin: i32) void {
-        qtc.QsciScintilla_SuperSetFolding(@ptrCast(self), @bitCast(fold), @bitCast(margin));
+    pub fn SuperSetFolding(self: QsciScintilla, fold: i32, margin: i32) void {
+        qtc.QsciScintilla_SuperSetFolding(@ptrCast(self.ptr), @bitCast(fold), @bitCast(margin));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
     /// ` indentation: i32 `
     ///
-    pub fn SetIndentation(self: ?*anyopaque, line: i32, indentation: i32) void {
-        qtc.QsciScintilla_SetIndentation(@ptrCast(self), @bitCast(line), @bitCast(indentation));
+    pub fn SetIndentation(self: QsciScintilla, line: i32, indentation: i32) void {
+        qtc.QsciScintilla_SetIndentation(@ptrCast(self.ptr), @bitCast(line), @bitCast(indentation));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4681,12 +4805,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, line: i32, indentation: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, line: i32, indentation: i32) callconv(.c) void `
     ///
-    pub fn OnSetIndentation(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetIndentation(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetIndentation(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetIndentation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetIndentation` instead
@@ -4699,26 +4823,26 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
     /// ` indentation: i32 `
     ///
-    pub fn SuperSetIndentation(self: ?*anyopaque, line: i32, indentation: i32) void {
-        qtc.QsciScintilla_SuperSetIndentation(@ptrCast(self), @bitCast(line), @bitCast(indentation));
+    pub fn SuperSetIndentation(self: QsciScintilla, line: i32, indentation: i32) void {
+        qtc.QsciScintilla_SuperSetIndentation(@ptrCast(self.ptr), @bitCast(line), @bitCast(indentation));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetIndentationGuides(self: ?*anyopaque, enable: bool) void {
-        qtc.QsciScintilla_SetIndentationGuides(@ptrCast(self), enable);
+    pub fn SetIndentationGuides(self: QsciScintilla, enable: bool) void {
+        qtc.QsciScintilla_SetIndentationGuides(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4727,12 +4851,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, enable: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, enable: bool) callconv(.c) void `
     ///
-    pub fn OnSetIndentationGuides(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetIndentationGuides(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetIndentationGuides(self: QsciScintilla, callback: *const fn (QsciScintilla, bool) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetIndentationGuides(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetIndentationGuides` instead
@@ -4745,24 +4869,25 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` enable: bool `
     ///
-    pub fn SuperSetIndentationGuides(self: ?*anyopaque, enable: bool) void {
-        qtc.QsciScintilla_SuperSetIndentationGuides(@ptrCast(self), enable);
+    pub fn SuperSetIndentationGuides(self: QsciScintilla, enable: bool) void {
+        qtc.QsciScintilla_SuperSetIndentationGuides(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetIndentationGuidesBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetIndentationGuidesBackgroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetIndentationGuidesBackgroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetIndentationGuidesBackgroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4771,12 +4896,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, col: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, col: QColor) callconv(.c) void `
     ///
-    pub fn OnSetIndentationGuidesBackgroundColor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetIndentationGuidesBackgroundColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetIndentationGuidesBackgroundColor(self: QsciScintilla, callback: *const fn (QsciScintilla, QColor) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetIndentationGuidesBackgroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetIndentationGuidesBackgroundColor` instead
@@ -4789,24 +4914,26 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SuperSetIndentationGuidesBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperSetIndentationGuidesBackgroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SuperSetIndentationGuidesBackgroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SuperSetIndentationGuidesBackgroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetIndentationGuidesForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetIndentationGuidesForegroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetIndentationGuidesForegroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetIndentationGuidesForegroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4815,12 +4942,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, col: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, col: QColor) callconv(.c) void `
     ///
-    pub fn OnSetIndentationGuidesForegroundColor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetIndentationGuidesForegroundColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetIndentationGuidesForegroundColor(self: QsciScintilla, callback: *const fn (QsciScintilla, QColor) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetIndentationGuidesForegroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetIndentationGuidesForegroundColor` instead
@@ -4833,24 +4960,25 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SuperSetIndentationGuidesForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperSetIndentationGuidesForegroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SuperSetIndentationGuidesForegroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SuperSetIndentationGuidesForegroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` tabs: bool `
     ///
-    pub fn SetIndentationsUseTabs(self: ?*anyopaque, tabs: bool) void {
-        qtc.QsciScintilla_SetIndentationsUseTabs(@ptrCast(self), tabs);
+    pub fn SetIndentationsUseTabs(self: QsciScintilla, tabs: bool) void {
+        qtc.QsciScintilla_SetIndentationsUseTabs(@ptrCast(self.ptr), tabs);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4859,12 +4987,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, tabs: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, tabs: bool) callconv(.c) void `
     ///
-    pub fn OnSetIndentationsUseTabs(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetIndentationsUseTabs(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetIndentationsUseTabs(self: QsciScintilla, callback: *const fn (QsciScintilla, bool) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetIndentationsUseTabs(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetIndentationsUseTabs` instead
@@ -4877,24 +5005,24 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` tabs: bool `
     ///
-    pub fn SuperSetIndentationsUseTabs(self: ?*anyopaque, tabs: bool) void {
-        qtc.QsciScintilla_SuperSetIndentationsUseTabs(@ptrCast(self), tabs);
+    pub fn SuperSetIndentationsUseTabs(self: QsciScintilla, tabs: bool) void {
+        qtc.QsciScintilla_SuperSetIndentationsUseTabs(@ptrCast(self.ptr), tabs);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` width: i32 `
     ///
-    pub fn SetIndentationWidth(self: ?*anyopaque, width: i32) void {
-        qtc.QsciScintilla_SetIndentationWidth(@ptrCast(self), @bitCast(width));
+    pub fn SetIndentationWidth(self: QsciScintilla, width: i32) void {
+        qtc.QsciScintilla_SetIndentationWidth(@ptrCast(self.ptr), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4903,12 +5031,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, width: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, width: i32) callconv(.c) void `
     ///
-    pub fn OnSetIndentationWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetIndentationWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetIndentationWidth(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetIndentationWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetIndentationWidth` instead
@@ -4921,24 +5049,25 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` width: i32 `
     ///
-    pub fn SuperSetIndentationWidth(self: ?*anyopaque, width: i32) void {
-        qtc.QsciScintilla_SuperSetIndentationWidth(@ptrCast(self), @bitCast(width));
+    pub fn SuperSetIndentationWidth(self: QsciScintilla, width: i32) void {
+        qtc.QsciScintilla_SuperSetIndentationWidth(@ptrCast(self.ptr), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` lexer: QtC.QsciLexer `
+    /// ` lexer: QsciLexer `
     ///
-    pub fn SetLexer(self: ?*anyopaque, lexer: ?*anyopaque) void {
-        qtc.QsciScintilla_SetLexer(@ptrCast(self), @ptrCast(lexer));
+    pub fn SetLexer(self: QsciScintilla, lexer: anytype) void {
+        comptime _ = @TypeOf(lexer)._is_QsciLexer;
+        qtc.QsciScintilla_SetLexer(@ptrCast(self.ptr), @ptrCast(lexer.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4947,12 +5076,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, lexer: QtC.QsciLexer) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, lexer: QsciLexer) callconv(.c) void `
     ///
-    pub fn OnSetLexer(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetLexer(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetLexer(self: QsciScintilla, callback: *const fn (QsciScintilla, QsciLexer) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetLexer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetLexer` instead
@@ -4965,24 +5094,26 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` lexer: QtC.QsciLexer `
+    /// ` lexer: QsciLexer `
     ///
-    pub fn SuperSetLexer(self: ?*anyopaque, lexer: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperSetLexer(@ptrCast(self), @ptrCast(lexer));
+    pub fn SuperSetLexer(self: QsciScintilla, lexer: anytype) void {
+        comptime _ = @TypeOf(lexer)._is_QsciLexer;
+        qtc.QsciScintilla_SuperSetLexer(@ptrCast(self.ptr), @ptrCast(lexer.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetMarginsBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetMarginsBackgroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetMarginsBackgroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetMarginsBackgroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4991,12 +5122,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, col: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, col: QColor) callconv(.c) void `
     ///
-    pub fn OnSetMarginsBackgroundColor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetMarginsBackgroundColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetMarginsBackgroundColor(self: QsciScintilla, callback: *const fn (QsciScintilla, QColor) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetMarginsBackgroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetMarginsBackgroundColor` instead
@@ -5009,24 +5140,26 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SuperSetMarginsBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperSetMarginsBackgroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SuperSetMarginsBackgroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SuperSetMarginsBackgroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` f: QtC.QFont `
+    /// ` f: QFont `
     ///
-    pub fn SetMarginsFont(self: ?*anyopaque, f: ?*anyopaque) void {
-        qtc.QsciScintilla_SetMarginsFont(@ptrCast(self), @ptrCast(f));
+    pub fn SetMarginsFont(self: QsciScintilla, f: anytype) void {
+        comptime _ = @TypeOf(f)._is_QFont;
+        qtc.QsciScintilla_SetMarginsFont(@ptrCast(self.ptr), @ptrCast(f.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -5035,12 +5168,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, f: QtC.QFont) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, f: QFont) callconv(.c) void `
     ///
-    pub fn OnSetMarginsFont(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetMarginsFont(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetMarginsFont(self: QsciScintilla, callback: *const fn (QsciScintilla, QFont) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetMarginsFont(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetMarginsFont` instead
@@ -5053,24 +5186,26 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` f: QtC.QFont `
+    /// ` f: QFont `
     ///
-    pub fn SuperSetMarginsFont(self: ?*anyopaque, f: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperSetMarginsFont(@ptrCast(self), @ptrCast(f));
+    pub fn SuperSetMarginsFont(self: QsciScintilla, f: anytype) void {
+        comptime _ = @TypeOf(f)._is_QFont;
+        qtc.QsciScintilla_SuperSetMarginsFont(@ptrCast(self.ptr), @ptrCast(f.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetMarginsForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetMarginsForegroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetMarginsForegroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetMarginsForegroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -5079,12 +5214,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, col: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, col: QColor) callconv(.c) void `
     ///
-    pub fn OnSetMarginsForegroundColor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetMarginsForegroundColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetMarginsForegroundColor(self: QsciScintilla, callback: *const fn (QsciScintilla, QColor) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetMarginsForegroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetMarginsForegroundColor` instead
@@ -5097,26 +5232,27 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SuperSetMarginsForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperSetMarginsForegroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SuperSetMarginsForegroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SuperSetMarginsForegroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` margin: i32 `
     ///
     /// ` lnrs: bool `
     ///
-    pub fn SetMarginLineNumbers(self: ?*anyopaque, margin: i32, lnrs: bool) void {
-        qtc.QsciScintilla_SetMarginLineNumbers(@ptrCast(self), @bitCast(margin), lnrs);
+    pub fn SetMarginLineNumbers(self: QsciScintilla, margin: i32, lnrs: bool) void {
+        qtc.QsciScintilla_SetMarginLineNumbers(@ptrCast(self.ptr), @bitCast(margin), lnrs);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -5125,12 +5261,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, margin: i32, lnrs: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, margin: i32, lnrs: bool) callconv(.c) void `
     ///
-    pub fn OnSetMarginLineNumbers(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetMarginLineNumbers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetMarginLineNumbers(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, bool) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetMarginLineNumbers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetMarginLineNumbers` instead
@@ -5143,28 +5279,28 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` margin: i32 `
     ///
     /// ` lnrs: bool `
     ///
-    pub fn SuperSetMarginLineNumbers(self: ?*anyopaque, margin: i32, lnrs: bool) void {
-        qtc.QsciScintilla_SuperSetMarginLineNumbers(@ptrCast(self), @bitCast(margin), lnrs);
+    pub fn SuperSetMarginLineNumbers(self: QsciScintilla, margin: i32, lnrs: bool) void {
+        qtc.QsciScintilla_SuperSetMarginLineNumbers(@ptrCast(self.ptr), @bitCast(margin), lnrs);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` margin: i32 `
     ///
     /// ` mask: i32 `
     ///
-    pub fn SetMarginMarkerMask(self: ?*anyopaque, margin: i32, mask: i32) void {
-        qtc.QsciScintilla_SetMarginMarkerMask(@ptrCast(self), @bitCast(margin), @bitCast(mask));
+    pub fn SetMarginMarkerMask(self: QsciScintilla, margin: i32, mask: i32) void {
+        qtc.QsciScintilla_SetMarginMarkerMask(@ptrCast(self.ptr), @bitCast(margin), @bitCast(mask));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -5173,12 +5309,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, margin: i32, mask: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, margin: i32, mask: i32) callconv(.c) void `
     ///
-    pub fn OnSetMarginMarkerMask(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetMarginMarkerMask(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetMarginMarkerMask(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetMarginMarkerMask(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetMarginMarkerMask` instead
@@ -5191,28 +5327,28 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` margin: i32 `
     ///
     /// ` mask: i32 `
     ///
-    pub fn SuperSetMarginMarkerMask(self: ?*anyopaque, margin: i32, mask: i32) void {
-        qtc.QsciScintilla_SuperSetMarginMarkerMask(@ptrCast(self), @bitCast(margin), @bitCast(mask));
+    pub fn SuperSetMarginMarkerMask(self: QsciScintilla, margin: i32, mask: i32) void {
+        qtc.QsciScintilla_SuperSetMarginMarkerMask(@ptrCast(self.ptr), @bitCast(margin), @bitCast(mask));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` margin: i32 `
     ///
     /// ` sens: bool `
     ///
-    pub fn SetMarginSensitivity(self: ?*anyopaque, margin: i32, sens: bool) void {
-        qtc.QsciScintilla_SetMarginSensitivity(@ptrCast(self), @bitCast(margin), sens);
+    pub fn SetMarginSensitivity(self: QsciScintilla, margin: i32, sens: bool) void {
+        qtc.QsciScintilla_SetMarginSensitivity(@ptrCast(self.ptr), @bitCast(margin), sens);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -5221,12 +5357,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, margin: i32, sens: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, margin: i32, sens: bool) callconv(.c) void `
     ///
-    pub fn OnSetMarginSensitivity(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetMarginSensitivity(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetMarginSensitivity(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, bool) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetMarginSensitivity(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetMarginSensitivity` instead
@@ -5239,28 +5375,28 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` margin: i32 `
     ///
     /// ` sens: bool `
     ///
-    pub fn SuperSetMarginSensitivity(self: ?*anyopaque, margin: i32, sens: bool) void {
-        qtc.QsciScintilla_SuperSetMarginSensitivity(@ptrCast(self), @bitCast(margin), sens);
+    pub fn SuperSetMarginSensitivity(self: QsciScintilla, margin: i32, sens: bool) void {
+        qtc.QsciScintilla_SuperSetMarginSensitivity(@ptrCast(self.ptr), @bitCast(margin), sens);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` margin: i32 `
     ///
     /// ` width: i32 `
     ///
-    pub fn SetMarginWidth(self: ?*anyopaque, margin: i32, width: i32) void {
-        qtc.QsciScintilla_SetMarginWidth(@ptrCast(self), @bitCast(margin), @bitCast(width));
+    pub fn SetMarginWidth(self: QsciScintilla, margin: i32, width: i32) void {
+        qtc.QsciScintilla_SetMarginWidth(@ptrCast(self.ptr), @bitCast(margin), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -5269,12 +5405,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, margin: i32, width: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, margin: i32, width: i32) callconv(.c) void `
     ///
-    pub fn OnSetMarginWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetMarginWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetMarginWidth(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetMarginWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetMarginWidth` instead
@@ -5287,32 +5423,32 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` margin: i32 `
     ///
     /// ` width: i32 `
     ///
-    pub fn SuperSetMarginWidth(self: ?*anyopaque, margin: i32, width: i32) void {
-        qtc.QsciScintilla_SuperSetMarginWidth(@ptrCast(self), @bitCast(margin), @bitCast(width));
+    pub fn SuperSetMarginWidth(self: QsciScintilla, margin: i32, width: i32) void {
+        qtc.QsciScintilla_SuperSetMarginWidth(@ptrCast(self.ptr), @bitCast(margin), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` margin: i32 `
     ///
     /// ` s: []const u8 `
     ///
-    pub fn SetMarginWidth2(self: ?*anyopaque, margin: i32, s: []const u8) void {
+    pub fn SetMarginWidth2(self: QsciScintilla, margin: i32, s: []const u8) void {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
-        qtc.QsciScintilla_SetMarginWidth2(@ptrCast(self), @bitCast(margin), s_str);
+        qtc.QsciScintilla_SetMarginWidth2(@ptrCast(self.ptr), @bitCast(margin), s_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -5321,12 +5457,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, margin: i32, s: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, margin: i32, s: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetMarginWidth2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetMarginWidth2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetMarginWidth2(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetMarginWidth2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetMarginWidth2` instead
@@ -5339,30 +5475,30 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` margin: i32 `
     ///
     /// ` s: []const u8 `
     ///
-    pub fn SuperSetMarginWidth2(self: ?*anyopaque, margin: i32, s: []const u8) void {
+    pub fn SuperSetMarginWidth2(self: QsciScintilla, margin: i32, s: []const u8) void {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
-        qtc.QsciScintilla_SuperSetMarginWidth2(@ptrCast(self), @bitCast(margin), s_str);
+        qtc.QsciScintilla_SuperSetMarginWidth2(@ptrCast(self.ptr), @bitCast(margin), s_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` m: bool `
     ///
-    pub fn SetModified(self: ?*anyopaque, m: bool) void {
-        qtc.QsciScintilla_SetModified(@ptrCast(self), m);
+    pub fn SetModified(self: QsciScintilla, m: bool) void {
+        qtc.QsciScintilla_SetModified(@ptrCast(self.ptr), m);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -5371,12 +5507,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, m: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, m: bool) callconv(.c) void `
     ///
-    pub fn OnSetModified(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetModified(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetModified(self: QsciScintilla, callback: *const fn (QsciScintilla, bool) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetModified(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetModified` instead
@@ -5389,24 +5525,25 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` m: bool `
     ///
-    pub fn SuperSetModified(self: ?*anyopaque, m: bool) void {
-        qtc.QsciScintilla_SuperSetModified(@ptrCast(self), m);
+    pub fn SuperSetModified(self: QsciScintilla, m: bool) void {
+        qtc.QsciScintilla_SuperSetModified(@ptrCast(self.ptr), m);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` c: QtC.QColor `
+    /// ` c: QColor `
     ///
-    pub fn SetPaper(self: ?*anyopaque, c: ?*anyopaque) void {
-        qtc.QsciScintilla_SetPaper(@ptrCast(self), @ptrCast(c));
+    pub fn SetPaper(self: QsciScintilla, c: anytype) void {
+        comptime _ = @TypeOf(c)._is_QColor;
+        qtc.QsciScintilla_SetPaper(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -5415,12 +5552,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, c: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, c: QColor) callconv(.c) void `
     ///
-    pub fn OnSetPaper(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetPaper(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetPaper(self: QsciScintilla, callback: *const fn (QsciScintilla, QColor) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetPaper(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetPaper` instead
@@ -5433,24 +5570,25 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` c: QtC.QColor `
+    /// ` c: QColor `
     ///
-    pub fn SuperSetPaper(self: ?*anyopaque, c: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperSetPaper(@ptrCast(self), @ptrCast(c));
+    pub fn SuperSetPaper(self: QsciScintilla, c: anytype) void {
+        comptime _ = @TypeOf(c)._is_QColor;
+        qtc.QsciScintilla_SuperSetPaper(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` ro: bool `
     ///
-    pub fn SetReadOnly(self: ?*anyopaque, ro: bool) void {
-        qtc.QsciScintilla_SetReadOnly(@ptrCast(self), ro);
+    pub fn SetReadOnly(self: QsciScintilla, ro: bool) void {
+        qtc.QsciScintilla_SetReadOnly(@ptrCast(self.ptr), ro);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -5459,12 +5597,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, ro: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, ro: bool) callconv(.c) void `
     ///
-    pub fn OnSetReadOnly(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetReadOnly(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetReadOnly(self: QsciScintilla, callback: *const fn (QsciScintilla, bool) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetReadOnly(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetReadOnly` instead
@@ -5477,19 +5615,19 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` ro: bool `
     ///
-    pub fn SuperSetReadOnly(self: ?*anyopaque, ro: bool) void {
-        qtc.QsciScintilla_SuperSetReadOnly(@ptrCast(self), ro);
+    pub fn SuperSetReadOnly(self: QsciScintilla, ro: bool) void {
+        qtc.QsciScintilla_SuperSetReadOnly(@ptrCast(self.ptr), ro);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` lineFrom: i32 `
     ///
@@ -5499,8 +5637,8 @@ pub const qsciscintilla = struct {
     ///
     /// ` indexTo: i32 `
     ///
-    pub fn SetSelection(self: ?*anyopaque, lineFrom: i32, indexFrom: i32, lineTo: i32, indexTo: i32) void {
-        qtc.QsciScintilla_SetSelection(@ptrCast(self), @bitCast(lineFrom), @bitCast(indexFrom), @bitCast(lineTo), @bitCast(indexTo));
+    pub fn SetSelection(self: QsciScintilla, lineFrom: i32, indexFrom: i32, lineTo: i32, indexTo: i32) void {
+        qtc.QsciScintilla_SetSelection(@ptrCast(self.ptr), @bitCast(lineFrom), @bitCast(indexFrom), @bitCast(lineTo), @bitCast(indexTo));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -5509,12 +5647,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, lineFrom: i32, indexFrom: i32, lineTo: i32, indexTo: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, lineFrom: i32, indexFrom: i32, lineTo: i32, indexTo: i32) callconv(.c) void `
     ///
-    pub fn OnSetSelection(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetSelection(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetSelection` instead
@@ -5527,7 +5665,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` lineFrom: i32 `
     ///
@@ -5537,20 +5675,21 @@ pub const qsciscintilla = struct {
     ///
     /// ` indexTo: i32 `
     ///
-    pub fn SuperSetSelection(self: ?*anyopaque, lineFrom: i32, indexFrom: i32, lineTo: i32, indexTo: i32) void {
-        qtc.QsciScintilla_SuperSetSelection(@ptrCast(self), @bitCast(lineFrom), @bitCast(indexFrom), @bitCast(lineTo), @bitCast(indexTo));
+    pub fn SuperSetSelection(self: QsciScintilla, lineFrom: i32, indexFrom: i32, lineTo: i32, indexTo: i32) void {
+        qtc.QsciScintilla_SuperSetSelection(@ptrCast(self.ptr), @bitCast(lineFrom), @bitCast(indexFrom), @bitCast(lineTo), @bitCast(indexTo));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetSelectionBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetSelectionBackgroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetSelectionBackgroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetSelectionBackgroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -5559,12 +5698,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, col: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, col: QColor) callconv(.c) void `
     ///
-    pub fn OnSetSelectionBackgroundColor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetSelectionBackgroundColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetSelectionBackgroundColor(self: QsciScintilla, callback: *const fn (QsciScintilla, QColor) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetSelectionBackgroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetSelectionBackgroundColor` instead
@@ -5577,24 +5716,26 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SuperSetSelectionBackgroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperSetSelectionBackgroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SuperSetSelectionBackgroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SuperSetSelectionBackgroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SetSelectionForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SetSelectionForegroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SetSelectionForegroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetSelectionForegroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -5603,12 +5744,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, col: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, col: QColor) callconv(.c) void `
     ///
-    pub fn OnSetSelectionForegroundColor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetSelectionForegroundColor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetSelectionForegroundColor(self: QsciScintilla, callback: *const fn (QsciScintilla, QColor) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetSelectionForegroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetSelectionForegroundColor` instead
@@ -5621,24 +5762,25 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SuperSetSelectionForegroundColor(self: ?*anyopaque, col: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperSetSelectionForegroundColor(@ptrCast(self), @ptrCast(col));
+    pub fn SuperSetSelectionForegroundColor(self: QsciScintilla, col: anytype) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SuperSetSelectionForegroundColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` indent: bool `
     ///
-    pub fn SetTabIndents(self: ?*anyopaque, indent: bool) void {
-        qtc.QsciScintilla_SetTabIndents(@ptrCast(self), indent);
+    pub fn SetTabIndents(self: QsciScintilla, indent: bool) void {
+        qtc.QsciScintilla_SetTabIndents(@ptrCast(self.ptr), indent);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -5647,12 +5789,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, indent: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, indent: bool) callconv(.c) void `
     ///
-    pub fn OnSetTabIndents(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetTabIndents(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetTabIndents(self: QsciScintilla, callback: *const fn (QsciScintilla, bool) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetTabIndents(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetTabIndents` instead
@@ -5665,24 +5807,24 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` indent: bool `
     ///
-    pub fn SuperSetTabIndents(self: ?*anyopaque, indent: bool) void {
-        qtc.QsciScintilla_SuperSetTabIndents(@ptrCast(self), indent);
+    pub fn SuperSetTabIndents(self: QsciScintilla, indent: bool) void {
+        qtc.QsciScintilla_SuperSetTabIndents(@ptrCast(self.ptr), indent);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` width: i32 `
     ///
-    pub fn SetTabWidth(self: ?*anyopaque, width: i32) void {
-        qtc.QsciScintilla_SetTabWidth(@ptrCast(self), @bitCast(width));
+    pub fn SetTabWidth(self: QsciScintilla, width: i32) void {
+        qtc.QsciScintilla_SetTabWidth(@ptrCast(self.ptr), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -5691,12 +5833,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, width: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, width: i32) callconv(.c) void `
     ///
-    pub fn OnSetTabWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetTabWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetTabWidth(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetTabWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetTabWidth` instead
@@ -5709,28 +5851,28 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` width: i32 `
     ///
-    pub fn SuperSetTabWidth(self: ?*anyopaque, width: i32) void {
-        qtc.QsciScintilla_SuperSetTabWidth(@ptrCast(self), @bitCast(width));
+    pub fn SuperSetTabWidth(self: QsciScintilla, width: i32) void {
+        qtc.QsciScintilla_SuperSetTabWidth(@ptrCast(self.ptr), @bitCast(width));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SetText(self: QsciScintilla, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QsciScintilla_SetText(@ptrCast(self), text_str);
+        qtc.QsciScintilla_SetText(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -5739,12 +5881,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, text: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetText(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetText` instead
@@ -5757,28 +5899,28 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SuperSetText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SuperSetText(self: QsciScintilla, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QsciScintilla_SuperSetText(@ptrCast(self), text_str);
+        qtc.QsciScintilla_SuperSetText(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` cp: bool `
     ///
-    pub fn SetUtf8(self: ?*anyopaque, cp: bool) void {
-        qtc.QsciScintilla_SetUtf8(@ptrCast(self), cp);
+    pub fn SetUtf8(self: QsciScintilla, cp: bool) void {
+        qtc.QsciScintilla_SetUtf8(@ptrCast(self.ptr), cp);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -5787,12 +5929,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, cp: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, cp: bool) callconv(.c) void `
     ///
-    pub fn OnSetUtf8(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetUtf8(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetUtf8(self: QsciScintilla, callback: *const fn (QsciScintilla, bool) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetUtf8(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetUtf8` instead
@@ -5805,24 +5947,24 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` cp: bool `
     ///
-    pub fn SuperSetUtf8(self: ?*anyopaque, cp: bool) void {
-        qtc.QsciScintilla_SuperSetUtf8(@ptrCast(self), cp);
+    pub fn SuperSetUtf8(self: QsciScintilla, cp: bool) void {
+        qtc.QsciScintilla_SuperSetUtf8(@ptrCast(self.ptr), cp);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` mode: qsciscintilla_enums.WhitespaceVisibility `
     ///
-    pub fn SetWhitespaceVisibility(self: ?*anyopaque, mode: i32) void {
-        qtc.QsciScintilla_SetWhitespaceVisibility(@ptrCast(self), @bitCast(mode));
+    pub fn SetWhitespaceVisibility(self: QsciScintilla, mode: i32) void {
+        qtc.QsciScintilla_SetWhitespaceVisibility(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -5831,12 +5973,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, mode: qsciscintilla_enums.WhitespaceVisibility) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, mode: qsciscintilla_enums.WhitespaceVisibility) callconv(.c) void `
     ///
-    pub fn OnSetWhitespaceVisibility(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetWhitespaceVisibility(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetWhitespaceVisibility(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetWhitespaceVisibility(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetWhitespaceVisibility` instead
@@ -5849,24 +5991,24 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` mode: qsciscintilla_enums.WhitespaceVisibility `
     ///
-    pub fn SuperSetWhitespaceVisibility(self: ?*anyopaque, mode: i32) void {
-        qtc.QsciScintilla_SuperSetWhitespaceVisibility(@ptrCast(self), @bitCast(mode));
+    pub fn SuperSetWhitespaceVisibility(self: QsciScintilla, mode: i32) void {
+        qtc.QsciScintilla_SuperSetWhitespaceVisibility(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` mode: qsciscintilla_enums.WrapMode `
     ///
-    pub fn SetWrapMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QsciScintilla_SetWrapMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetWrapMode(self: QsciScintilla, mode: i32) void {
+        qtc.QsciScintilla_SetWrapMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -5875,12 +6017,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, mode: qsciscintilla_enums.WrapMode) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, mode: qsciscintilla_enums.WrapMode) callconv(.c) void `
     ///
-    pub fn OnSetWrapMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetWrapMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetWrapMode(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetWrapMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetWrapMode` instead
@@ -5893,22 +6035,22 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` mode: qsciscintilla_enums.WrapMode `
     ///
-    pub fn SuperSetWrapMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QsciScintilla_SuperSetWrapMode(@ptrCast(self), @bitCast(mode));
+    pub fn SuperSetWrapMode(self: QsciScintilla, mode: i32) void {
+        qtc.QsciScintilla_SuperSetWrapMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Undo(self: ?*anyopaque) void {
-        qtc.QsciScintilla_Undo(@ptrCast(self));
+    pub fn Undo(self: QsciScintilla) void {
+        qtc.QsciScintilla_Undo(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -5917,12 +6059,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUndo(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintilla_OnUndo(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUndo(self: QsciScintilla, callback: *const fn () callconv(.c) void) void {
+        qtc.QsciScintilla_OnUndo(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperUndo` instead
@@ -5935,22 +6077,22 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperUndo(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperUndo(@ptrCast(self));
+    pub fn SuperUndo(self: QsciScintilla) void {
+        qtc.QsciScintilla_SuperUndo(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
-    pub fn Unindent(self: ?*anyopaque, line: i32) void {
-        qtc.QsciScintilla_Unindent(@ptrCast(self), @bitCast(line));
+    pub fn Unindent(self: QsciScintilla, line: i32) void {
+        qtc.QsciScintilla_Unindent(@ptrCast(self.ptr), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -5959,12 +6101,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, line: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, line: i32) callconv(.c) void `
     ///
-    pub fn OnUnindent(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnUnindent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUnindent(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnUnindent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperUnindent` instead
@@ -5977,24 +6119,24 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
-    pub fn SuperUnindent(self: ?*anyopaque, line: i32) void {
-        qtc.QsciScintilla_SuperUnindent(@ptrCast(self), @bitCast(line));
+    pub fn SuperUnindent(self: QsciScintilla, line: i32) void {
+        qtc.QsciScintilla_SuperUnindent(@ptrCast(self.ptr), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` range: i32 `
     ///
-    pub fn ZoomIn(self: ?*anyopaque, range: i32) void {
-        qtc.QsciScintilla_ZoomIn(@ptrCast(self), @bitCast(range));
+    pub fn ZoomIn(self: QsciScintilla, range: i32) void {
+        qtc.QsciScintilla_ZoomIn(@ptrCast(self.ptr), @bitCast(range));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -6003,12 +6145,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, range: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, range: i32) callconv(.c) void `
     ///
-    pub fn OnZoomIn(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnZoomIn(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnZoomIn(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnZoomIn(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperZoomIn` instead
@@ -6021,22 +6163,22 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` range: i32 `
     ///
-    pub fn SuperZoomIn(self: ?*anyopaque, range: i32) void {
-        qtc.QsciScintilla_SuperZoomIn(@ptrCast(self), @bitCast(range));
+    pub fn SuperZoomIn(self: QsciScintilla, range: i32) void {
+        qtc.QsciScintilla_SuperZoomIn(@ptrCast(self.ptr), @bitCast(range));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ZoomIn2(self: ?*anyopaque) void {
-        qtc.QsciScintilla_ZoomIn2(@ptrCast(self));
+    pub fn ZoomIn2(self: QsciScintilla) void {
+        qtc.QsciScintilla_ZoomIn2(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -6045,12 +6187,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnZoomIn2(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintilla_OnZoomIn2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnZoomIn2(self: QsciScintilla, callback: *const fn () callconv(.c) void) void {
+        qtc.QsciScintilla_OnZoomIn2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperZoomIn2` instead
@@ -6063,22 +6205,22 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperZoomIn2(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperZoomIn2(@ptrCast(self));
+    pub fn SuperZoomIn2(self: QsciScintilla) void {
+        qtc.QsciScintilla_SuperZoomIn2(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` range: i32 `
     ///
-    pub fn ZoomOut(self: ?*anyopaque, range: i32) void {
-        qtc.QsciScintilla_ZoomOut(@ptrCast(self), @bitCast(range));
+    pub fn ZoomOut(self: QsciScintilla, range: i32) void {
+        qtc.QsciScintilla_ZoomOut(@ptrCast(self.ptr), @bitCast(range));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -6087,12 +6229,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, range: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, range: i32) callconv(.c) void `
     ///
-    pub fn OnZoomOut(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnZoomOut(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnZoomOut(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnZoomOut(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperZoomOut` instead
@@ -6105,22 +6247,22 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` range: i32 `
     ///
-    pub fn SuperZoomOut(self: ?*anyopaque, range: i32) void {
-        qtc.QsciScintilla_SuperZoomOut(@ptrCast(self), @bitCast(range));
+    pub fn SuperZoomOut(self: QsciScintilla, range: i32) void {
+        qtc.QsciScintilla_SuperZoomOut(@ptrCast(self.ptr), @bitCast(range));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ZoomOut2(self: ?*anyopaque) void {
-        qtc.QsciScintilla_ZoomOut2(@ptrCast(self));
+    pub fn ZoomOut2(self: QsciScintilla) void {
+        qtc.QsciScintilla_ZoomOut2(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -6129,12 +6271,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnZoomOut2(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintilla_OnZoomOut2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnZoomOut2(self: QsciScintilla, callback: *const fn () callconv(.c) void) void {
+        qtc.QsciScintilla_OnZoomOut2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperZoomOut2` instead
@@ -6147,22 +6289,22 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperZoomOut2(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperZoomOut2(@ptrCast(self));
+    pub fn SuperZoomOut2(self: QsciScintilla) void {
+        qtc.QsciScintilla_SuperZoomOut2(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` size: i32 `
     ///
-    pub fn ZoomTo(self: ?*anyopaque, size: i32) void {
-        qtc.QsciScintilla_ZoomTo(@ptrCast(self), @bitCast(size));
+    pub fn ZoomTo(self: QsciScintilla, size: i32) void {
+        qtc.QsciScintilla_ZoomTo(@ptrCast(self.ptr), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -6171,12 +6313,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, size: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, size: i32) callconv(.c) void `
     ///
-    pub fn OnZoomTo(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnZoomTo(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnZoomTo(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnZoomTo(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperZoomTo` instead
@@ -6189,69 +6331,69 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` size: i32 `
     ///
-    pub fn SuperZoomTo(self: ?*anyopaque, size: i32) void {
-        qtc.QsciScintilla_SuperZoomTo(@ptrCast(self), @bitCast(size));
+    pub fn SuperZoomTo(self: QsciScintilla, size: i32) void {
+        qtc.QsciScintilla_SuperZoomTo(@ptrCast(self.ptr), @bitCast(size));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
     /// ` index: i32 `
     ///
-    pub fn CursorPositionChanged(self: ?*anyopaque, line: i32, index: i32) void {
-        qtc.QsciScintilla_CursorPositionChanged(@ptrCast(self), @bitCast(line), @bitCast(index));
+    pub fn CursorPositionChanged(self: QsciScintilla, line: i32, index: i32) void {
+        qtc.QsciScintilla_CursorPositionChanged(@ptrCast(self.ptr), @bitCast(line), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, line: i32, index: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, line: i32, index: i32) callconv(.c) void `
     ///
-    pub fn OnCursorPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_Connect_CursorPositionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCursorPositionChanged(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_Connect_CursorPositionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` yes: bool `
     ///
-    pub fn CopyAvailable(self: ?*anyopaque, yes: bool) void {
-        qtc.QsciScintilla_CopyAvailable(@ptrCast(self), yes);
+    pub fn CopyAvailable(self: QsciScintilla, yes: bool) void {
+        qtc.QsciScintilla_CopyAvailable(@ptrCast(self.ptr), yes);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, yes: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, yes: bool) callconv(.c) void `
     ///
-    pub fn OnCopyAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QsciScintilla_Connect_CopyAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCopyAvailable(self: QsciScintilla, callback: *const fn (QsciScintilla, bool) callconv(.c) void) void {
+        qtc.QsciScintilla_Connect_CopyAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
@@ -6259,27 +6401,27 @@ pub const qsciscintilla = struct {
     ///
     /// ` state: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn IndicatorClicked(self: ?*anyopaque, line: i32, index: i32, state: i32) void {
-        qtc.QsciScintilla_IndicatorClicked(@ptrCast(self), @bitCast(line), @bitCast(index), @bitCast(state));
+    pub fn IndicatorClicked(self: QsciScintilla, line: i32, index: i32, state: i32) void {
+        qtc.QsciScintilla_IndicatorClicked(@ptrCast(self.ptr), @bitCast(line), @bitCast(index), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, line: i32, index: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, line: i32, index: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void `
     ///
-    pub fn OnIndicatorClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_Connect_IndicatorClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIndicatorClicked(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_Connect_IndicatorClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
@@ -6287,49 +6429,49 @@ pub const qsciscintilla = struct {
     ///
     /// ` state: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn IndicatorReleased(self: ?*anyopaque, line: i32, index: i32, state: i32) void {
-        qtc.QsciScintilla_IndicatorReleased(@ptrCast(self), @bitCast(line), @bitCast(index), @bitCast(state));
+    pub fn IndicatorReleased(self: QsciScintilla, line: i32, index: i32, state: i32) void {
+        qtc.QsciScintilla_IndicatorReleased(@ptrCast(self.ptr), @bitCast(line), @bitCast(index), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, line: i32, index: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, line: i32, index: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void `
     ///
-    pub fn OnIndicatorReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_Connect_IndicatorReleased(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIndicatorReleased(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_Connect_IndicatorReleased(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn LinesChanged(self: ?*anyopaque) void {
-        qtc.QsciScintilla_LinesChanged(@ptrCast(self));
+    pub fn LinesChanged(self: QsciScintilla) void {
+        qtc.QsciScintilla_LinesChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla) callconv(.c) void `
     ///
-    pub fn OnLinesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_Connect_LinesChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLinesChanged(self: QsciScintilla, callback: *const fn (QsciScintilla) callconv(.c) void) void {
+        qtc.QsciScintilla_Connect_LinesChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` margin: i32 `
     ///
@@ -6337,27 +6479,27 @@ pub const qsciscintilla = struct {
     ///
     /// ` state: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn MarginClicked(self: ?*anyopaque, margin: i32, line: i32, state: i32) void {
-        qtc.QsciScintilla_MarginClicked(@ptrCast(self), @bitCast(margin), @bitCast(line), @bitCast(state));
+    pub fn MarginClicked(self: QsciScintilla, margin: i32, line: i32, state: i32) void {
+        qtc.QsciScintilla_MarginClicked(@ptrCast(self.ptr), @bitCast(margin), @bitCast(line), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, margin: i32, line: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, margin: i32, line: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void `
     ///
-    pub fn OnMarginClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_Connect_MarginClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMarginClicked(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_Connect_MarginClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` margin: i32 `
     ///
@@ -6365,152 +6507,153 @@ pub const qsciscintilla = struct {
     ///
     /// ` state: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn MarginRightClicked(self: ?*anyopaque, margin: i32, line: i32, state: i32) void {
-        qtc.QsciScintilla_MarginRightClicked(@ptrCast(self), @bitCast(margin), @bitCast(line), @bitCast(state));
+    pub fn MarginRightClicked(self: QsciScintilla, margin: i32, line: i32, state: i32) void {
+        qtc.QsciScintilla_MarginRightClicked(@ptrCast(self.ptr), @bitCast(margin), @bitCast(line), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, margin: i32, line: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, margin: i32, line: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void `
     ///
-    pub fn OnMarginRightClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_Connect_MarginRightClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMarginRightClicked(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_Connect_MarginRightClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ModificationAttempted(self: ?*anyopaque) void {
-        qtc.QsciScintilla_ModificationAttempted(@ptrCast(self));
+    pub fn ModificationAttempted(self: QsciScintilla) void {
+        qtc.QsciScintilla_ModificationAttempted(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla) callconv(.c) void `
     ///
-    pub fn OnModificationAttempted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_Connect_ModificationAttempted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnModificationAttempted(self: QsciScintilla, callback: *const fn (QsciScintilla) callconv(.c) void) void {
+        qtc.QsciScintilla_Connect_ModificationAttempted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` m: bool `
     ///
-    pub fn ModificationChanged(self: ?*anyopaque, m: bool) void {
-        qtc.QsciScintilla_ModificationChanged(@ptrCast(self), m);
+    pub fn ModificationChanged(self: QsciScintilla, m: bool) void {
+        qtc.QsciScintilla_ModificationChanged(@ptrCast(self.ptr), m);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, m: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, m: bool) callconv(.c) void `
     ///
-    pub fn OnModificationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QsciScintilla_Connect_ModificationChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnModificationChanged(self: QsciScintilla, callback: *const fn (QsciScintilla, bool) callconv(.c) void) void {
+        qtc.QsciScintilla_Connect_ModificationChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SelectionChanged(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SelectionChanged(@ptrCast(self));
+    pub fn SelectionChanged(self: QsciScintilla) void {
+        qtc.QsciScintilla_SelectionChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla) callconv(.c) void `
     ///
-    pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_Connect_SelectionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSelectionChanged(self: QsciScintilla, callback: *const fn (QsciScintilla) callconv(.c) void) void {
+        qtc.QsciScintilla_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn TextChanged(self: ?*anyopaque) void {
-        qtc.QsciScintilla_TextChanged(@ptrCast(self));
+    pub fn TextChanged(self: QsciScintilla) void {
+        qtc.QsciScintilla_TextChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla) callconv(.c) void `
     ///
-    pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_Connect_TextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTextChanged(self: QsciScintilla, callback: *const fn (QsciScintilla) callconv(.c) void) void {
+        qtc.QsciScintilla_Connect_TextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` id: i32 `
     ///
     /// ` stringVal: []const u8 `
     ///
-    pub fn UserListActivated(self: ?*anyopaque, id: i32, stringVal: []const u8) void {
+    pub fn UserListActivated(self: QsciScintilla, id: i32, stringVal: []const u8) void {
         const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        qtc.QsciScintilla_UserListActivated(@ptrCast(self), @bitCast(id), stringVal_str);
+        qtc.QsciScintilla_UserListActivated(@ptrCast(self.ptr), @bitCast(id), stringVal_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, id: i32, stringVal: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, id: i32, stringVal: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnUserListActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QsciScintilla_Connect_UserListActivated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUserListActivated(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.QsciScintilla_Connect_UserListActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QsciScintilla_Event(@ptrCast(self), @ptrCast(e));
+    pub fn Event(self: QsciScintilla, e: anytype) bool {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        return qtc.QsciScintilla_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -6519,12 +6662,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, e: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciScintilla, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QsciScintilla_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QEvent) callconv(.c) bool) void {
+        qtc.QsciScintilla_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -6537,24 +6680,26 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QsciScintilla_SuperEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperEvent(self: QsciScintilla, e: anytype) bool {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        return qtc.QsciScintilla_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn ChangeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_ChangeEvent(@ptrCast(self), @ptrCast(e));
+    pub fn ChangeEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        qtc.QsciScintilla_ChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -6563,12 +6708,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, e: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, e: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangeEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperChangeEvent` instead
@@ -6581,24 +6726,26 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn SuperChangeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperChangeEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperChangeEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        qtc.QsciScintilla_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QContextMenuEvent `
+    /// ` e: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_ContextMenuEvent(@ptrCast(self), @ptrCast(e));
+    pub fn ContextMenuEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QContextMenuEvent;
+        qtc.QsciScintilla_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -6607,12 +6754,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, e: QtC.QContextMenuEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, e: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QContextMenuEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
@@ -6625,24 +6772,26 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QContextMenuEvent `
+    /// ` e: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperContextMenuEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperContextMenuEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QContextMenuEvent;
+        qtc.QsciScintilla_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QWheelEvent `
+    /// ` e: QWheelEvent `
     ///
-    pub fn WheelEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_WheelEvent(@ptrCast(self), @ptrCast(e));
+    pub fn WheelEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QWheelEvent;
+        qtc.QsciScintilla_WheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -6651,12 +6800,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, e: QtC.QWheelEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, e: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWheelEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QWheelEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperWheelEvent` instead
@@ -6669,25 +6818,26 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QWheelEvent `
+    /// ` e: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperWheelEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperWheelEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QWheelEvent;
+        qtc.QsciScintilla_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -6701,15 +6851,15 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -6723,239 +6873,246 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
-    pub fn ClearAnnotations1(self: ?*anyopaque, line: i32) void {
-        qtc.QsciScintilla_ClearAnnotations1(@ptrCast(self), @bitCast(line));
+    pub fn ClearAnnotations1(self: QsciScintilla, line: i32) void {
+        qtc.QsciScintilla_ClearAnnotations1(@ptrCast(self.ptr), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` style: qsciscintilla_enums.IndicatorStyle `
     ///
     /// ` indicatorNumber: i32 `
     ///
-    pub fn IndicatorDefine2(self: ?*anyopaque, style: i32, indicatorNumber: i32) i32 {
-        return qtc.QsciScintilla_IndicatorDefine2(@ptrCast(self), @bitCast(style), @bitCast(indicatorNumber));
+    pub fn IndicatorDefine2(self: QsciScintilla, style: i32, indicatorNumber: i32) i32 {
+        return qtc.QsciScintilla_IndicatorDefine2(@ptrCast(self.ptr), @bitCast(style), @bitCast(indicatorNumber));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` sym: qsciscintilla_enums.MarkerSymbol `
     ///
     /// ` markerNumber: i32 `
     ///
-    pub fn MarkerDefine22(self: ?*anyopaque, sym: i32, markerNumber: i32) i32 {
-        return qtc.QsciScintilla_MarkerDefine22(@ptrCast(self), @bitCast(sym), @bitCast(markerNumber));
+    pub fn MarkerDefine22(self: QsciScintilla, sym: i32, markerNumber: i32) i32 {
+        return qtc.QsciScintilla_MarkerDefine22(@ptrCast(self.ptr), @bitCast(sym), @bitCast(markerNumber));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` ch: u8 `
     ///
     /// ` markerNumber: i32 `
     ///
-    pub fn MarkerDefine23(self: ?*anyopaque, ch: u8, markerNumber: i32) i32 {
-        return qtc.QsciScintilla_MarkerDefine23(@ptrCast(self), @bitCast(ch), @bitCast(markerNumber));
+    pub fn MarkerDefine23(self: QsciScintilla, ch: u8, markerNumber: i32) i32 {
+        return qtc.QsciScintilla_MarkerDefine23(@ptrCast(self.ptr), @bitCast(ch), @bitCast(markerNumber));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` pm: QtC.QPixmap `
+    /// ` pm: QPixmap `
     ///
     /// ` markerNumber: i32 `
     ///
-    pub fn MarkerDefine24(self: ?*anyopaque, pm: ?*anyopaque, markerNumber: i32) i32 {
-        return qtc.QsciScintilla_MarkerDefine24(@ptrCast(self), @ptrCast(pm), @bitCast(markerNumber));
+    pub fn MarkerDefine24(self: QsciScintilla, pm: anytype, markerNumber: i32) i32 {
+        comptime _ = @TypeOf(pm)._is_QPixmap;
+        return qtc.QsciScintilla_MarkerDefine24(@ptrCast(self.ptr), @ptrCast(pm.ptr), @bitCast(markerNumber));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` im: QtC.QImage `
+    /// ` im: QImage `
     ///
     /// ` markerNumber: i32 `
     ///
-    pub fn MarkerDefine25(self: ?*anyopaque, im: ?*anyopaque, markerNumber: i32) i32 {
-        return qtc.QsciScintilla_MarkerDefine25(@ptrCast(self), @ptrCast(im), @bitCast(markerNumber));
+    pub fn MarkerDefine25(self: QsciScintilla, im: anytype, markerNumber: i32) i32 {
+        comptime _ = @TypeOf(im)._is_QImage;
+        return qtc.QsciScintilla_MarkerDefine25(@ptrCast(self.ptr), @ptrCast(im.ptr), @bitCast(markerNumber));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` linenr: i32 `
     ///
     /// ` markerNumber: i32 `
     ///
-    pub fn MarkerDelete2(self: ?*anyopaque, linenr: i32, markerNumber: i32) void {
-        qtc.QsciScintilla_MarkerDelete2(@ptrCast(self), @bitCast(linenr), @bitCast(markerNumber));
+    pub fn MarkerDelete2(self: QsciScintilla, linenr: i32, markerNumber: i32) void {
+        qtc.QsciScintilla_MarkerDelete2(@ptrCast(self.ptr), @bitCast(linenr), @bitCast(markerNumber));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` markerNumber: i32 `
     ///
-    pub fn MarkerDeleteAll1(self: ?*anyopaque, markerNumber: i32) void {
-        qtc.QsciScintilla_MarkerDeleteAll1(@ptrCast(self), @bitCast(markerNumber));
+    pub fn MarkerDeleteAll1(self: QsciScintilla, markerNumber: i32) void {
+        qtc.QsciScintilla_MarkerDeleteAll1(@ptrCast(self.ptr), @bitCast(markerNumber));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` under: bool `
     ///
     /// ` indicatorNumber: i32 `
     ///
-    pub fn SetIndicatorDrawUnder2(self: ?*anyopaque, under: bool, indicatorNumber: i32) void {
-        qtc.QsciScintilla_SetIndicatorDrawUnder2(@ptrCast(self), under, @bitCast(indicatorNumber));
+    pub fn SetIndicatorDrawUnder2(self: QsciScintilla, under: bool, indicatorNumber: i32) void {
+        qtc.QsciScintilla_SetIndicatorDrawUnder2(@ptrCast(self.ptr), under, @bitCast(indicatorNumber));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
     /// ` indicatorNumber: i32 `
     ///
-    pub fn SetIndicatorForegroundColor2(self: ?*anyopaque, col: ?*anyopaque, indicatorNumber: i32) void {
-        qtc.QsciScintilla_SetIndicatorForegroundColor2(@ptrCast(self), @ptrCast(col), @bitCast(indicatorNumber));
+    pub fn SetIndicatorForegroundColor2(self: QsciScintilla, col: anytype, indicatorNumber: i32) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetIndicatorForegroundColor2(@ptrCast(self.ptr), @ptrCast(col.ptr), @bitCast(indicatorNumber));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
     /// ` indicatorNumber: i32 `
     ///
-    pub fn SetIndicatorHoverForegroundColor2(self: ?*anyopaque, col: ?*anyopaque, indicatorNumber: i32) void {
-        qtc.QsciScintilla_SetIndicatorHoverForegroundColor2(@ptrCast(self), @ptrCast(col), @bitCast(indicatorNumber));
+    pub fn SetIndicatorHoverForegroundColor2(self: QsciScintilla, col: anytype, indicatorNumber: i32) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetIndicatorHoverForegroundColor2(@ptrCast(self.ptr), @ptrCast(col.ptr), @bitCast(indicatorNumber));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` style: qsciscintilla_enums.IndicatorStyle `
     ///
     /// ` indicatorNumber: i32 `
     ///
-    pub fn SetIndicatorHoverStyle2(self: ?*anyopaque, style: i32, indicatorNumber: i32) void {
-        qtc.QsciScintilla_SetIndicatorHoverStyle2(@ptrCast(self), @bitCast(style), @bitCast(indicatorNumber));
+    pub fn SetIndicatorHoverStyle2(self: QsciScintilla, style: i32, indicatorNumber: i32) void {
+        qtc.QsciScintilla_SetIndicatorHoverStyle2(@ptrCast(self.ptr), @bitCast(style), @bitCast(indicatorNumber));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
     /// ` indicatorNumber: i32 `
     ///
-    pub fn SetIndicatorOutlineColor2(self: ?*anyopaque, col: ?*anyopaque, indicatorNumber: i32) void {
-        qtc.QsciScintilla_SetIndicatorOutlineColor2(@ptrCast(self), @ptrCast(col), @bitCast(indicatorNumber));
+    pub fn SetIndicatorOutlineColor2(self: QsciScintilla, col: anytype, indicatorNumber: i32) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetIndicatorOutlineColor2(@ptrCast(self.ptr), @ptrCast(col.ptr), @bitCast(indicatorNumber));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` line: i32 `
     ///
-    pub fn ClearMarginText1(self: ?*anyopaque, line: i32) void {
-        qtc.QsciScintilla_ClearMarginText1(@ptrCast(self), @bitCast(line));
+    pub fn ClearMarginText1(self: QsciScintilla, line: i32) void {
+        qtc.QsciScintilla_ClearMarginText1(@ptrCast(self.ptr), @bitCast(line));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
     /// ` markerNumber: i32 `
     ///
-    pub fn SetMarkerBackgroundColor2(self: ?*anyopaque, col: ?*anyopaque, markerNumber: i32) void {
-        qtc.QsciScintilla_SetMarkerBackgroundColor2(@ptrCast(self), @ptrCast(col), @bitCast(markerNumber));
+    pub fn SetMarkerBackgroundColor2(self: QsciScintilla, col: anytype, markerNumber: i32) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetMarkerBackgroundColor2(@ptrCast(self.ptr), @ptrCast(col.ptr), @bitCast(markerNumber));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
     /// ` markerNumber: i32 `
     ///
-    pub fn SetMarkerForegroundColor2(self: ?*anyopaque, col: ?*anyopaque, markerNumber: i32) void {
-        qtc.QsciScintilla_SetMarkerForegroundColor2(@ptrCast(self), @ptrCast(col), @bitCast(markerNumber));
+    pub fn SetMarkerForegroundColor2(self: QsciScintilla, col: anytype, markerNumber: i32) void {
+        comptime _ = @TypeOf(col)._is_QColor;
+        qtc.QsciScintilla_SetMarkerForegroundColor2(@ptrCast(self.ptr), @ptrCast(col.ptr), @bitCast(markerNumber));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` endFlag: qsciscintilla_enums.WrapVisualFlag `
     ///
     /// ` startFlag: qsciscintilla_enums.WrapVisualFlag `
     ///
-    pub fn SetWrapVisualFlags2(self: ?*anyopaque, endFlag: i32, startFlag: i32) void {
-        qtc.QsciScintilla_SetWrapVisualFlags2(@ptrCast(self), @bitCast(endFlag), @bitCast(startFlag));
+    pub fn SetWrapVisualFlags2(self: QsciScintilla, endFlag: i32, startFlag: i32) void {
+        qtc.QsciScintilla_SetWrapVisualFlags2(@ptrCast(self.ptr), @bitCast(endFlag), @bitCast(startFlag));
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` endFlag: qsciscintilla_enums.WrapVisualFlag `
     ///
@@ -6963,30 +7120,16 @@ pub const qsciscintilla = struct {
     ///
     /// ` indent: i32 `
     ///
-    pub fn SetWrapVisualFlags3(self: ?*anyopaque, endFlag: i32, startFlag: i32, indent: i32) void {
-        qtc.QsciScintilla_SetWrapVisualFlags3(@ptrCast(self), @bitCast(endFlag), @bitCast(startFlag), @bitCast(indent));
+    pub fn SetWrapVisualFlags3(self: QsciScintilla, endFlag: i32, startFlag: i32, indent: i32) void {
+        qtc.QsciScintilla_SetWrapVisualFlags3(@ptrCast(self.ptr), @bitCast(endFlag), @bitCast(startFlag), @bitCast(indent));
     }
 
     /// Inherited from QsciScintillaBase
     ///
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
-    pub fn Pool() QtC.QsciScintillaBase {
-        return qtc.QsciScintillaBase_Pool();
-    }
-
-    /// Inherited from QsciScintillaBase
-    ///
-    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QtC.QsciScintilla `
-    ///
-    /// ` scrollBar: QtC.QScrollBar `
-    ///
-    pub fn ReplaceHorizontalScrollBar(self: ?*anyopaque, scrollBar: ?*anyopaque) void {
-        qtc.QsciScintillaBase_ReplaceHorizontalScrollBar(@ptrCast(self), @ptrCast(scrollBar));
+    pub fn Pool() QsciScintillaBase {
+        return .{ .ptr = qtc.QsciScintillaBase_Pool() };
     }
 
     /// Inherited from QsciScintillaBase
@@ -6995,12 +7138,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` scrollBar: QtC.QScrollBar `
+    /// ` scrollBar: QScrollBar `
     ///
-    pub fn ReplaceVerticalScrollBar(self: ?*anyopaque, scrollBar: ?*anyopaque) void {
-        qtc.QsciScintillaBase_ReplaceVerticalScrollBar(@ptrCast(self), @ptrCast(scrollBar));
+    pub fn ReplaceHorizontalScrollBar(self: QsciScintilla, scrollBar: anytype) void {
+        comptime _ = @TypeOf(scrollBar)._is_QScrollBar;
+        qtc.QsciScintillaBase_ReplaceHorizontalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollBar.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7009,12 +7153,27 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
+    ///
+    /// ` scrollBar: QScrollBar `
+    ///
+    pub fn ReplaceVerticalScrollBar(self: QsciScintilla, scrollBar: anytype) void {
+        comptime _ = @TypeOf(scrollBar)._is_QScrollBar;
+        qtc.QsciScintillaBase_ReplaceVerticalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollBar.ptr));
+    }
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QsciScintilla `
     ///
     /// ` msg: u32 `
     ///
-    pub fn SendScintilla(self: ?*anyopaque, msg: u32) isize {
-        return qtc.QsciScintillaBase_SendScintilla(@ptrCast(self), @bitCast(msg));
+    pub fn SendScintilla(self: QsciScintilla, msg: u32) isize {
+        return qtc.QsciScintillaBase_SendScintilla(@ptrCast(self.ptr), @bitCast(msg));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7023,7 +7182,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` msg: u32 `
     ///
@@ -7031,8 +7190,8 @@ pub const qsciscintilla = struct {
     ///
     /// ` lParam: ?*anyopaque `
     ///
-    pub fn SendScintilla2(self: ?*anyopaque, msg: u32, wParam: usize, lParam: ?*anyopaque) isize {
-        return qtc.QsciScintillaBase_SendScintilla2(@ptrCast(self), @bitCast(msg), @bitCast(wParam), @ptrCast(lParam));
+    pub fn SendScintilla2(self: QsciScintilla, msg: u32, wParam: usize, lParam: ?*anyopaque) isize {
+        return qtc.QsciScintillaBase_SendScintilla2(@ptrCast(self.ptr), @bitCast(msg), @bitCast(wParam), @ptrCast(lParam));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7041,7 +7200,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` msg: u32 `
     ///
@@ -7049,9 +7208,9 @@ pub const qsciscintilla = struct {
     ///
     /// ` lParam: [:0]const u8 `
     ///
-    pub fn SendScintilla3(self: ?*anyopaque, msg: u32, wParam: usize, lParam: [:0]const u8) isize {
+    pub fn SendScintilla3(self: QsciScintilla, msg: u32, wParam: usize, lParam: [:0]const u8) isize {
         const lParam_Cstring = lParam.ptr;
-        return qtc.QsciScintillaBase_SendScintilla3(@ptrCast(self), @bitCast(msg), @bitCast(wParam), lParam_Cstring);
+        return qtc.QsciScintillaBase_SendScintilla3(@ptrCast(self.ptr), @bitCast(msg), @bitCast(wParam), lParam_Cstring);
     }
 
     /// Inherited from QsciScintillaBase
@@ -7060,15 +7219,15 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` msg: u32 `
     ///
     /// ` lParam: [:0]const u8 `
     ///
-    pub fn SendScintilla4(self: ?*anyopaque, msg: u32, lParam: [:0]const u8) isize {
+    pub fn SendScintilla4(self: QsciScintilla, msg: u32, lParam: [:0]const u8) isize {
         const lParam_Cstring = lParam.ptr;
-        return qtc.QsciScintillaBase_SendScintilla4(@ptrCast(self), @bitCast(msg), lParam_Cstring);
+        return qtc.QsciScintillaBase_SendScintilla4(@ptrCast(self.ptr), @bitCast(msg), lParam_Cstring);
     }
 
     /// Inherited from QsciScintillaBase
@@ -7077,7 +7236,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` msg: u32 `
     ///
@@ -7085,10 +7244,10 @@ pub const qsciscintilla = struct {
     ///
     /// ` lParam: [:0]const u8 `
     ///
-    pub fn SendScintilla5(self: ?*anyopaque, msg: u32, wParam: [:0]const u8, lParam: [:0]const u8) isize {
+    pub fn SendScintilla5(self: QsciScintilla, msg: u32, wParam: [:0]const u8, lParam: [:0]const u8) isize {
         const wParam_Cstring = wParam.ptr;
         const lParam_Cstring = lParam.ptr;
-        return qtc.QsciScintillaBase_SendScintilla5(@ptrCast(self), @bitCast(msg), wParam_Cstring, lParam_Cstring);
+        return qtc.QsciScintillaBase_SendScintilla5(@ptrCast(self.ptr), @bitCast(msg), wParam_Cstring, lParam_Cstring);
     }
 
     /// Inherited from QsciScintillaBase
@@ -7097,14 +7256,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` msg: u32 `
     ///
     /// ` wParam: isize `
     ///
-    pub fn SendScintilla6(self: ?*anyopaque, msg: u32, wParam: isize) isize {
-        return qtc.QsciScintillaBase_SendScintilla6(@ptrCast(self), @bitCast(msg), @bitCast(wParam));
+    pub fn SendScintilla6(self: QsciScintilla, msg: u32, wParam: isize) isize {
+        return qtc.QsciScintillaBase_SendScintilla6(@ptrCast(self.ptr), @bitCast(msg), @bitCast(wParam));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7113,14 +7272,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` msg: u32 `
     ///
     /// ` wParam: i32 `
     ///
-    pub fn SendScintilla7(self: ?*anyopaque, msg: u32, wParam: i32) isize {
-        return qtc.QsciScintillaBase_SendScintilla7(@ptrCast(self), @bitCast(msg), @bitCast(wParam));
+    pub fn SendScintilla7(self: QsciScintilla, msg: u32, wParam: i32) isize {
+        return qtc.QsciScintillaBase_SendScintilla7(@ptrCast(self.ptr), @bitCast(msg), @bitCast(wParam));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7129,7 +7288,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` msg: u32 `
     ///
@@ -7139,9 +7298,9 @@ pub const qsciscintilla = struct {
     ///
     /// ` lpstrText: [:0]u8 `
     ///
-    pub fn SendScintilla8(self: ?*anyopaque, msg: u32, cpMin: isize, cpMax: isize, lpstrText: [:0]u8) isize {
+    pub fn SendScintilla8(self: QsciScintilla, msg: u32, cpMin: isize, cpMax: isize, lpstrText: [:0]u8) isize {
         const lpstrText_Cstring = lpstrText.ptr;
-        return qtc.QsciScintillaBase_SendScintilla8(@ptrCast(self), @bitCast(msg), @bitCast(cpMin), @bitCast(cpMax), lpstrText_Cstring);
+        return qtc.QsciScintillaBase_SendScintilla8(@ptrCast(self.ptr), @bitCast(msg), @bitCast(cpMin), @bitCast(cpMax), lpstrText_Cstring);
     }
 
     /// Inherited from QsciScintillaBase
@@ -7150,16 +7309,17 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` msg: u32 `
     ///
     /// ` wParam: usize `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SendScintilla9(self: ?*anyopaque, msg: u32, wParam: usize, col: ?*anyopaque) isize {
-        return qtc.QsciScintillaBase_SendScintilla9(@ptrCast(self), @bitCast(msg), @bitCast(wParam), @ptrCast(col));
+    pub fn SendScintilla9(self: QsciScintilla, msg: u32, wParam: usize, col: anytype) isize {
+        comptime _ = @TypeOf(col)._is_QColor;
+        return qtc.QsciScintillaBase_SendScintilla9(@ptrCast(self.ptr), @bitCast(msg), @bitCast(wParam), @ptrCast(col.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7168,14 +7328,15 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` msg: u32 `
     ///
-    /// ` col: QtC.QColor `
+    /// ` col: QColor `
     ///
-    pub fn SendScintilla10(self: ?*anyopaque, msg: u32, col: ?*anyopaque) isize {
-        return qtc.QsciScintillaBase_SendScintilla10(@ptrCast(self), @bitCast(msg), @ptrCast(col));
+    pub fn SendScintilla10(self: QsciScintilla, msg: u32, col: anytype) isize {
+        comptime _ = @TypeOf(col)._is_QColor;
+        return qtc.QsciScintillaBase_SendScintilla10(@ptrCast(self.ptr), @bitCast(msg), @ptrCast(col.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7184,22 +7345,24 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` msg: u32 `
     ///
     /// ` wParam: usize `
     ///
-    /// ` hdc: QtC.QPainter `
+    /// ` hdc: QPainter `
     ///
-    /// ` rc: QtC.QRect `
+    /// ` rc: QRect `
     ///
     /// ` cpMin: isize `
     ///
     /// ` cpMax: isize `
     ///
-    pub fn SendScintilla11(self: ?*anyopaque, msg: u32, wParam: usize, hdc: ?*anyopaque, rc: ?*anyopaque, cpMin: isize, cpMax: isize) isize {
-        return qtc.QsciScintillaBase_SendScintilla11(@ptrCast(self), @bitCast(msg), @bitCast(wParam), @ptrCast(hdc), @ptrCast(rc), @bitCast(cpMin), @bitCast(cpMax));
+    pub fn SendScintilla11(self: QsciScintilla, msg: u32, wParam: usize, hdc: anytype, rc: anytype, cpMin: isize, cpMax: isize) isize {
+        comptime _ = @TypeOf(hdc)._is_QPainter;
+        comptime _ = @TypeOf(rc)._is_QRect;
+        return qtc.QsciScintillaBase_SendScintilla11(@ptrCast(self.ptr), @bitCast(msg), @bitCast(wParam), @ptrCast(hdc.ptr), @ptrCast(rc.ptr), @bitCast(cpMin), @bitCast(cpMax));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7208,16 +7371,17 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` msg: u32 `
     ///
     /// ` wParam: usize `
     ///
-    /// ` lParam: QtC.QPixmap `
+    /// ` lParam: QPixmap `
     ///
-    pub fn SendScintilla12(self: ?*anyopaque, msg: u32, wParam: usize, lParam: ?*anyopaque) isize {
-        return qtc.QsciScintillaBase_SendScintilla12(@ptrCast(self), @bitCast(msg), @bitCast(wParam), @ptrCast(lParam));
+    pub fn SendScintilla12(self: QsciScintilla, msg: u32, wParam: usize, lParam: anytype) isize {
+        comptime _ = @TypeOf(lParam)._is_QPixmap;
+        return qtc.QsciScintillaBase_SendScintilla12(@ptrCast(self.ptr), @bitCast(msg), @bitCast(wParam), @ptrCast(lParam.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7226,16 +7390,17 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` msg: u32 `
     ///
     /// ` wParam: usize `
     ///
-    /// ` lParam: QtC.QImage `
+    /// ` lParam: QImage `
     ///
-    pub fn SendScintilla13(self: ?*anyopaque, msg: u32, wParam: usize, lParam: ?*anyopaque) isize {
-        return qtc.QsciScintillaBase_SendScintilla13(@ptrCast(self), @bitCast(msg), @bitCast(wParam), @ptrCast(lParam));
+    pub fn SendScintilla13(self: QsciScintilla, msg: u32, wParam: usize, lParam: anytype) isize {
+        comptime _ = @TypeOf(lParam)._is_QImage;
+        return qtc.QsciScintillaBase_SendScintilla13(@ptrCast(self.ptr), @bitCast(msg), @bitCast(wParam), @ptrCast(lParam.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7244,12 +7409,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` msg: u32 `
     ///
-    pub fn SendScintillaPtrResult(self: ?*anyopaque, msg: u32) ?*anyopaque {
-        return qtc.QsciScintillaBase_SendScintillaPtrResult(@ptrCast(self), @bitCast(msg));
+    pub fn SendScintillaPtrResult(self: QsciScintilla, msg: u32) ?*anyopaque {
+        return qtc.QsciScintillaBase_SendScintillaPtrResult(@ptrCast(self.ptr), @bitCast(msg));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7272,12 +7437,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` yes: bool `
     ///
-    pub fn QSCN_SELCHANGED(self: ?*anyopaque, yes: bool) void {
-        qtc.QsciScintillaBase_QSCN_SELCHANGED(@ptrCast(self), yes);
+    pub fn QSCN_SELCHANGED(self: QsciScintilla, yes: bool) void {
+        qtc.QsciScintillaBase_QSCN_SELCHANGED(@ptrCast(self.ptr), yes);
     }
 
     /// Inherited from QsciScintillaBase
@@ -7286,10 +7451,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SCN_AUTOCCANCELLED(self: ?*anyopaque) void {
-        qtc.QsciScintillaBase_SCN_AUTOCCANCELLED(@ptrCast(self));
+    pub fn SCN_AUTOCCANCELLED(self: QsciScintilla) void {
+        qtc.QsciScintillaBase_SCN_AUTOCCANCELLED(@ptrCast(self.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7298,10 +7463,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SCN_AUTOCCHARDELETED(self: ?*anyopaque) void {
-        qtc.QsciScintillaBase_SCN_AUTOCCHARDELETED(@ptrCast(self));
+    pub fn SCN_AUTOCCHARDELETED(self: QsciScintilla) void {
+        qtc.QsciScintillaBase_SCN_AUTOCCHARDELETED(@ptrCast(self.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7310,7 +7475,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` selection: [:0]const u8 `
     ///
@@ -7320,9 +7485,9 @@ pub const qsciscintilla = struct {
     ///
     /// ` method: i32 `
     ///
-    pub fn SCN_AUTOCCOMPLETED(self: ?*anyopaque, selection: [:0]const u8, position: i32, ch: i32, method: i32) void {
+    pub fn SCN_AUTOCCOMPLETED(self: QsciScintilla, selection: [:0]const u8, position: i32, ch: i32, method: i32) void {
         const selection_Cstring = selection.ptr;
-        qtc.QsciScintillaBase_SCN_AUTOCCOMPLETED(@ptrCast(self), selection_Cstring, @bitCast(position), @bitCast(ch), @bitCast(method));
+        qtc.QsciScintillaBase_SCN_AUTOCCOMPLETED(@ptrCast(self.ptr), selection_Cstring, @bitCast(position), @bitCast(ch), @bitCast(method));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7331,7 +7496,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` selection: [:0]const u8 `
     ///
@@ -7341,9 +7506,9 @@ pub const qsciscintilla = struct {
     ///
     /// ` method: i32 `
     ///
-    pub fn SCN_AUTOCSELECTION(self: ?*anyopaque, selection: [:0]const u8, position: i32, ch: i32, method: i32) void {
+    pub fn SCN_AUTOCSELECTION(self: QsciScintilla, selection: [:0]const u8, position: i32, ch: i32, method: i32) void {
         const selection_Cstring = selection.ptr;
-        qtc.QsciScintillaBase_SCN_AUTOCSELECTION(@ptrCast(self), selection_Cstring, @bitCast(position), @bitCast(ch), @bitCast(method));
+        qtc.QsciScintillaBase_SCN_AUTOCSELECTION(@ptrCast(self.ptr), selection_Cstring, @bitCast(position), @bitCast(ch), @bitCast(method));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7352,15 +7517,15 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` selection: [:0]const u8 `
     ///
     /// ` position: i32 `
     ///
-    pub fn SCN_AUTOCSELECTION2(self: ?*anyopaque, selection: [:0]const u8, position: i32) void {
+    pub fn SCN_AUTOCSELECTION2(self: QsciScintilla, selection: [:0]const u8, position: i32) void {
         const selection_Cstring = selection.ptr;
-        qtc.QsciScintillaBase_SCN_AUTOCSELECTION2(@ptrCast(self), selection_Cstring, @bitCast(position));
+        qtc.QsciScintillaBase_SCN_AUTOCSELECTION2(@ptrCast(self.ptr), selection_Cstring, @bitCast(position));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7369,7 +7534,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` selection: [:0]const u8 `
     ///
@@ -7377,9 +7542,9 @@ pub const qsciscintilla = struct {
     ///
     /// ` position: i32 `
     ///
-    pub fn SCN_AUTOCSELECTIONCHANGE(self: ?*anyopaque, selection: [:0]const u8, id: i32, position: i32) void {
+    pub fn SCN_AUTOCSELECTIONCHANGE(self: QsciScintilla, selection: [:0]const u8, id: i32, position: i32) void {
         const selection_Cstring = selection.ptr;
-        qtc.QsciScintillaBase_SCN_AUTOCSELECTIONCHANGE(@ptrCast(self), selection_Cstring, @bitCast(id), @bitCast(position));
+        qtc.QsciScintillaBase_SCN_AUTOCSELECTIONCHANGE(@ptrCast(self.ptr), selection_Cstring, @bitCast(id), @bitCast(position));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7388,10 +7553,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SCEN_CHANGE(self: ?*anyopaque) void {
-        qtc.QsciScintillaBase_SCEN_CHANGE(@ptrCast(self));
+    pub fn SCEN_CHANGE(self: QsciScintilla) void {
+        qtc.QsciScintillaBase_SCEN_CHANGE(@ptrCast(self.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7400,12 +7565,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` direction: i32 `
     ///
-    pub fn SCN_CALLTIPCLICK(self: ?*anyopaque, direction: i32) void {
-        qtc.QsciScintillaBase_SCN_CALLTIPCLICK(@ptrCast(self), @bitCast(direction));
+    pub fn SCN_CALLTIPCLICK(self: QsciScintilla, direction: i32) void {
+        qtc.QsciScintillaBase_SCN_CALLTIPCLICK(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7414,12 +7579,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` charadded: i32 `
     ///
-    pub fn SCN_CHARADDED(self: ?*anyopaque, charadded: i32) void {
-        qtc.QsciScintillaBase_SCN_CHARADDED(@ptrCast(self), @bitCast(charadded));
+    pub fn SCN_CHARADDED(self: QsciScintilla, charadded: i32) void {
+        qtc.QsciScintillaBase_SCN_CHARADDED(@ptrCast(self.ptr), @bitCast(charadded));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7428,7 +7593,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` position: i32 `
     ///
@@ -7436,8 +7601,8 @@ pub const qsciscintilla = struct {
     ///
     /// ` modifiers: i32 `
     ///
-    pub fn SCN_DOUBLECLICK(self: ?*anyopaque, position: i32, line: i32, modifiers: i32) void {
-        qtc.QsciScintillaBase_SCN_DOUBLECLICK(@ptrCast(self), @bitCast(position), @bitCast(line), @bitCast(modifiers));
+    pub fn SCN_DOUBLECLICK(self: QsciScintilla, position: i32, line: i32, modifiers: i32) void {
+        qtc.QsciScintillaBase_SCN_DOUBLECLICK(@ptrCast(self.ptr), @bitCast(position), @bitCast(line), @bitCast(modifiers));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7446,7 +7611,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` position: i32 `
     ///
@@ -7454,8 +7619,8 @@ pub const qsciscintilla = struct {
     ///
     /// ` y: i32 `
     ///
-    pub fn SCN_DWELLEND(self: ?*anyopaque, position: i32, x: i32, y: i32) void {
-        qtc.QsciScintillaBase_SCN_DWELLEND(@ptrCast(self), @bitCast(position), @bitCast(x), @bitCast(y));
+    pub fn SCN_DWELLEND(self: QsciScintilla, position: i32, x: i32, y: i32) void {
+        qtc.QsciScintillaBase_SCN_DWELLEND(@ptrCast(self.ptr), @bitCast(position), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7464,7 +7629,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` position: i32 `
     ///
@@ -7472,8 +7637,8 @@ pub const qsciscintilla = struct {
     ///
     /// ` y: i32 `
     ///
-    pub fn SCN_DWELLSTART(self: ?*anyopaque, position: i32, x: i32, y: i32) void {
-        qtc.QsciScintillaBase_SCN_DWELLSTART(@ptrCast(self), @bitCast(position), @bitCast(x), @bitCast(y));
+    pub fn SCN_DWELLSTART(self: QsciScintilla, position: i32, x: i32, y: i32) void {
+        qtc.QsciScintillaBase_SCN_DWELLSTART(@ptrCast(self.ptr), @bitCast(position), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7482,10 +7647,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SCN_FOCUSIN(self: ?*anyopaque) void {
-        qtc.QsciScintillaBase_SCN_FOCUSIN(@ptrCast(self));
+    pub fn SCN_FOCUSIN(self: QsciScintilla) void {
+        qtc.QsciScintillaBase_SCN_FOCUSIN(@ptrCast(self.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7494,10 +7659,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SCN_FOCUSOUT(self: ?*anyopaque) void {
-        qtc.QsciScintillaBase_SCN_FOCUSOUT(@ptrCast(self));
+    pub fn SCN_FOCUSOUT(self: QsciScintilla) void {
+        qtc.QsciScintillaBase_SCN_FOCUSOUT(@ptrCast(self.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7506,14 +7671,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` position: i32 `
     ///
     /// ` modifiers: i32 `
     ///
-    pub fn SCN_HOTSPOTCLICK(self: ?*anyopaque, position: i32, modifiers: i32) void {
-        qtc.QsciScintillaBase_SCN_HOTSPOTCLICK(@ptrCast(self), @bitCast(position), @bitCast(modifiers));
+    pub fn SCN_HOTSPOTCLICK(self: QsciScintilla, position: i32, modifiers: i32) void {
+        qtc.QsciScintillaBase_SCN_HOTSPOTCLICK(@ptrCast(self.ptr), @bitCast(position), @bitCast(modifiers));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7522,14 +7687,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` position: i32 `
     ///
     /// ` modifiers: i32 `
     ///
-    pub fn SCN_HOTSPOTDOUBLECLICK(self: ?*anyopaque, position: i32, modifiers: i32) void {
-        qtc.QsciScintillaBase_SCN_HOTSPOTDOUBLECLICK(@ptrCast(self), @bitCast(position), @bitCast(modifiers));
+    pub fn SCN_HOTSPOTDOUBLECLICK(self: QsciScintilla, position: i32, modifiers: i32) void {
+        qtc.QsciScintillaBase_SCN_HOTSPOTDOUBLECLICK(@ptrCast(self.ptr), @bitCast(position), @bitCast(modifiers));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7538,14 +7703,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` position: i32 `
     ///
     /// ` modifiers: i32 `
     ///
-    pub fn SCN_HOTSPOTRELEASECLICK(self: ?*anyopaque, position: i32, modifiers: i32) void {
-        qtc.QsciScintillaBase_SCN_HOTSPOTRELEASECLICK(@ptrCast(self), @bitCast(position), @bitCast(modifiers));
+    pub fn SCN_HOTSPOTRELEASECLICK(self: QsciScintilla, position: i32, modifiers: i32) void {
+        qtc.QsciScintillaBase_SCN_HOTSPOTRELEASECLICK(@ptrCast(self.ptr), @bitCast(position), @bitCast(modifiers));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7554,14 +7719,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` position: i32 `
     ///
     /// ` modifiers: i32 `
     ///
-    pub fn SCN_INDICATORCLICK(self: ?*anyopaque, position: i32, modifiers: i32) void {
-        qtc.QsciScintillaBase_SCN_INDICATORCLICK(@ptrCast(self), @bitCast(position), @bitCast(modifiers));
+    pub fn SCN_INDICATORCLICK(self: QsciScintilla, position: i32, modifiers: i32) void {
+        qtc.QsciScintillaBase_SCN_INDICATORCLICK(@ptrCast(self.ptr), @bitCast(position), @bitCast(modifiers));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7570,14 +7735,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` position: i32 `
     ///
     /// ` modifiers: i32 `
     ///
-    pub fn SCN_INDICATORRELEASE(self: ?*anyopaque, position: i32, modifiers: i32) void {
-        qtc.QsciScintillaBase_SCN_INDICATORRELEASE(@ptrCast(self), @bitCast(position), @bitCast(modifiers));
+    pub fn SCN_INDICATORRELEASE(self: QsciScintilla, position: i32, modifiers: i32) void {
+        qtc.QsciScintillaBase_SCN_INDICATORRELEASE(@ptrCast(self.ptr), @bitCast(position), @bitCast(modifiers));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7586,7 +7751,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` param1: u32 `
     ///
@@ -7594,8 +7759,8 @@ pub const qsciscintilla = struct {
     ///
     /// ` param3: ?*anyopaque `
     ///
-    pub fn SCN_MACRORECORD(self: ?*anyopaque, param1: u32, param2: usize, param3: ?*anyopaque) void {
-        qtc.QsciScintillaBase_SCN_MACRORECORD(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SCN_MACRORECORD(self: QsciScintilla, param1: u32, param2: usize, param3: ?*anyopaque) void {
+        qtc.QsciScintillaBase_SCN_MACRORECORD(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7604,7 +7769,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` position: i32 `
     ///
@@ -7612,8 +7777,8 @@ pub const qsciscintilla = struct {
     ///
     /// ` margin: i32 `
     ///
-    pub fn SCN_MARGINCLICK(self: ?*anyopaque, position: i32, modifiers: i32, margin: i32) void {
-        qtc.QsciScintillaBase_SCN_MARGINCLICK(@ptrCast(self), @bitCast(position), @bitCast(modifiers), @bitCast(margin));
+    pub fn SCN_MARGINCLICK(self: QsciScintilla, position: i32, modifiers: i32, margin: i32) void {
+        qtc.QsciScintillaBase_SCN_MARGINCLICK(@ptrCast(self.ptr), @bitCast(position), @bitCast(modifiers), @bitCast(margin));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7622,7 +7787,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` position: i32 `
     ///
@@ -7630,8 +7795,8 @@ pub const qsciscintilla = struct {
     ///
     /// ` margin: i32 `
     ///
-    pub fn SCN_MARGINRIGHTCLICK(self: ?*anyopaque, position: i32, modifiers: i32, margin: i32) void {
-        qtc.QsciScintillaBase_SCN_MARGINRIGHTCLICK(@ptrCast(self), @bitCast(position), @bitCast(modifiers), @bitCast(margin));
+    pub fn SCN_MARGINRIGHTCLICK(self: QsciScintilla, position: i32, modifiers: i32, margin: i32) void {
+        qtc.QsciScintillaBase_SCN_MARGINRIGHTCLICK(@ptrCast(self.ptr), @bitCast(position), @bitCast(modifiers), @bitCast(margin));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7640,7 +7805,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` param1: i32 `
     ///
@@ -7662,9 +7827,9 @@ pub const qsciscintilla = struct {
     ///
     /// ` param10: i32 `
     ///
-    pub fn SCN_MODIFIED(self: ?*anyopaque, param1: i32, param2: i32, param3: [:0]const u8, param4: i32, param5: i32, param6: i32, param7: i32, param8: i32, param9: i32, param10: i32) void {
+    pub fn SCN_MODIFIED(self: QsciScintilla, param1: i32, param2: i32, param3: [:0]const u8, param4: i32, param5: i32, param6: i32, param7: i32, param8: i32, param9: i32, param10: i32) void {
         const param3_Cstring = param3.ptr;
-        qtc.QsciScintillaBase_SCN_MODIFIED(@ptrCast(self), @bitCast(param1), @bitCast(param2), param3_Cstring, @bitCast(param4), @bitCast(param5), @bitCast(param6), @bitCast(param7), @bitCast(param8), @bitCast(param9), @bitCast(param10));
+        qtc.QsciScintillaBase_SCN_MODIFIED(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), param3_Cstring, @bitCast(param4), @bitCast(param5), @bitCast(param6), @bitCast(param7), @bitCast(param8), @bitCast(param9), @bitCast(param10));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7673,10 +7838,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SCN_MODIFYATTEMPTRO(self: ?*anyopaque) void {
-        qtc.QsciScintillaBase_SCN_MODIFYATTEMPTRO(@ptrCast(self));
+    pub fn SCN_MODIFYATTEMPTRO(self: QsciScintilla) void {
+        qtc.QsciScintillaBase_SCN_MODIFYATTEMPTRO(@ptrCast(self.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7685,14 +7850,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` param1: i32 `
     ///
     /// ` param2: i32 `
     ///
-    pub fn SCN_NEEDSHOWN(self: ?*anyopaque, param1: i32, param2: i32) void {
-        qtc.QsciScintillaBase_SCN_NEEDSHOWN(@ptrCast(self), @bitCast(param1), @bitCast(param2));
+    pub fn SCN_NEEDSHOWN(self: QsciScintilla, param1: i32, param2: i32) void {
+        qtc.QsciScintillaBase_SCN_NEEDSHOWN(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7701,10 +7866,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SCN_PAINTED(self: ?*anyopaque) void {
-        qtc.QsciScintillaBase_SCN_PAINTED(@ptrCast(self));
+    pub fn SCN_PAINTED(self: QsciScintilla) void {
+        qtc.QsciScintillaBase_SCN_PAINTED(@ptrCast(self.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7713,10 +7878,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SCN_SAVEPOINTLEFT(self: ?*anyopaque) void {
-        qtc.QsciScintillaBase_SCN_SAVEPOINTLEFT(@ptrCast(self));
+    pub fn SCN_SAVEPOINTLEFT(self: QsciScintilla) void {
+        qtc.QsciScintillaBase_SCN_SAVEPOINTLEFT(@ptrCast(self.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7725,10 +7890,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SCN_SAVEPOINTREACHED(self: ?*anyopaque) void {
-        qtc.QsciScintillaBase_SCN_SAVEPOINTREACHED(@ptrCast(self));
+    pub fn SCN_SAVEPOINTREACHED(self: QsciScintilla) void {
+        qtc.QsciScintillaBase_SCN_SAVEPOINTREACHED(@ptrCast(self.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7737,12 +7902,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` position: i32 `
     ///
-    pub fn SCN_STYLENEEDED(self: ?*anyopaque, position: i32) void {
-        qtc.QsciScintillaBase_SCN_STYLENEEDED(@ptrCast(self), @bitCast(position));
+    pub fn SCN_STYLENEEDED(self: QsciScintilla, position: i32) void {
+        qtc.QsciScintillaBase_SCN_STYLENEEDED(@ptrCast(self.ptr), @bitCast(position));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7751,12 +7916,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` url: QtC.QUrl `
+    /// ` url: QUrl `
     ///
-    pub fn SCN_URIDROPPED(self: ?*anyopaque, url: ?*anyopaque) void {
-        qtc.QsciScintillaBase_SCN_URIDROPPED(@ptrCast(self), @ptrCast(url));
+    pub fn SCN_URIDROPPED(self: QsciScintilla, url: anytype) void {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        qtc.QsciScintillaBase_SCN_URIDROPPED(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7765,12 +7931,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` updated: i32 `
     ///
-    pub fn SCN_UPDATEUI(self: ?*anyopaque, updated: i32) void {
-        qtc.QsciScintillaBase_SCN_UPDATEUI(@ptrCast(self), @bitCast(updated));
+    pub fn SCN_UPDATEUI(self: QsciScintilla, updated: i32) void {
+        qtc.QsciScintillaBase_SCN_UPDATEUI(@ptrCast(self.ptr), @bitCast(updated));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7779,7 +7945,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` selection: [:0]const u8 `
     ///
@@ -7791,9 +7957,9 @@ pub const qsciscintilla = struct {
     ///
     /// ` position: i32 `
     ///
-    pub fn SCN_USERLISTSELECTION(self: ?*anyopaque, selection: [:0]const u8, id: i32, ch: i32, method: i32, position: i32) void {
+    pub fn SCN_USERLISTSELECTION(self: QsciScintilla, selection: [:0]const u8, id: i32, ch: i32, method: i32, position: i32) void {
         const selection_Cstring = selection.ptr;
-        qtc.QsciScintillaBase_SCN_USERLISTSELECTION(@ptrCast(self), selection_Cstring, @bitCast(id), @bitCast(ch), @bitCast(method), @bitCast(position));
+        qtc.QsciScintillaBase_SCN_USERLISTSELECTION(@ptrCast(self.ptr), selection_Cstring, @bitCast(id), @bitCast(ch), @bitCast(method), @bitCast(position));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7802,7 +7968,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` selection: [:0]const u8 `
     ///
@@ -7812,9 +7978,9 @@ pub const qsciscintilla = struct {
     ///
     /// ` method: i32 `
     ///
-    pub fn SCN_USERLISTSELECTION2(self: ?*anyopaque, selection: [:0]const u8, id: i32, ch: i32, method: i32) void {
+    pub fn SCN_USERLISTSELECTION2(self: QsciScintilla, selection: [:0]const u8, id: i32, ch: i32, method: i32) void {
         const selection_Cstring = selection.ptr;
-        qtc.QsciScintillaBase_SCN_USERLISTSELECTION2(@ptrCast(self), selection_Cstring, @bitCast(id), @bitCast(ch), @bitCast(method));
+        qtc.QsciScintillaBase_SCN_USERLISTSELECTION2(@ptrCast(self.ptr), selection_Cstring, @bitCast(id), @bitCast(ch), @bitCast(method));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7823,15 +7989,15 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` selection: [:0]const u8 `
     ///
     /// ` id: i32 `
     ///
-    pub fn SCN_USERLISTSELECTION3(self: ?*anyopaque, selection: [:0]const u8, id: i32) void {
+    pub fn SCN_USERLISTSELECTION3(self: QsciScintilla, selection: [:0]const u8, id: i32) void {
         const selection_Cstring = selection.ptr;
-        qtc.QsciScintillaBase_SCN_USERLISTSELECTION3(@ptrCast(self), selection_Cstring, @bitCast(id));
+        qtc.QsciScintillaBase_SCN_USERLISTSELECTION3(@ptrCast(self.ptr), selection_Cstring, @bitCast(id));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7840,10 +8006,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SCN_ZOOM(self: ?*anyopaque) void {
-        qtc.QsciScintillaBase_SCN_ZOOM(@ptrCast(self));
+    pub fn SCN_ZOOM(self: QsciScintilla) void {
+        qtc.QsciScintillaBase_SCN_ZOOM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7852,14 +8018,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` msg: u32 `
     ///
     /// ` wParam: usize `
     ///
-    pub fn SendScintilla22(self: ?*anyopaque, msg: u32, wParam: usize) isize {
-        return qtc.QsciScintillaBase_SendScintilla22(@ptrCast(self), @bitCast(msg), @bitCast(wParam));
+    pub fn SendScintilla22(self: QsciScintilla, msg: u32, wParam: usize) isize {
+        return qtc.QsciScintillaBase_SendScintilla22(@ptrCast(self.ptr), @bitCast(msg), @bitCast(wParam));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7868,7 +8034,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` msg: u32 `
     ///
@@ -7876,8 +8042,8 @@ pub const qsciscintilla = struct {
     ///
     /// ` lParam: isize `
     ///
-    pub fn SendScintilla32(self: ?*anyopaque, msg: u32, wParam: usize, lParam: isize) isize {
-        return qtc.QsciScintillaBase_SendScintilla32(@ptrCast(self), @bitCast(msg), @bitCast(wParam), @bitCast(lParam));
+    pub fn SendScintilla32(self: QsciScintilla, msg: u32, wParam: usize, lParam: isize) isize {
+        return qtc.QsciScintillaBase_SendScintilla32(@ptrCast(self.ptr), @bitCast(msg), @bitCast(wParam), @bitCast(lParam));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -7886,14 +8052,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn VerticalScrollBarPolicy(self: ?*anyopaque) i32 {
-        return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self));
+    pub fn VerticalScrollBarPolicy(self: QsciScintilla) i32 {
+        return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -7902,12 +8068,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self), @bitCast(verticalScrollBarPolicy));
+    pub fn SetVerticalScrollBarPolicy(self: QsciScintilla, verticalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(verticalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -7916,10 +8082,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn VerticalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
-        return qtc.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self));
+    pub fn VerticalScrollBar(self: QsciScintilla) QScrollBar {
+        return .{ .ptr = qtc.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -7928,12 +8094,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` scrollbar: QtC.QScrollBar `
+    /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetVerticalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self), @ptrCast(scrollbar));
+    pub fn SetVerticalScrollBar(self: QsciScintilla, scrollbar: anytype) void {
+        comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
+        qtc.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -7942,14 +8109,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn HorizontalScrollBarPolicy(self: ?*anyopaque) i32 {
-        return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self));
+    pub fn HorizontalScrollBarPolicy(self: QsciScintilla) i32 {
+        return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -7958,12 +8125,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self), @bitCast(horizontalScrollBarPolicy));
+    pub fn SetHorizontalScrollBarPolicy(self: QsciScintilla, horizontalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(horizontalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -7972,10 +8139,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn HorizontalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
-        return qtc.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self));
+    pub fn HorizontalScrollBar(self: QsciScintilla) QScrollBar {
+        return .{ .ptr = qtc.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -7984,12 +8151,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` scrollbar: QtC.QScrollBar `
+    /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetHorizontalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self), @ptrCast(scrollbar));
+    pub fn SetHorizontalScrollBar(self: QsciScintilla, scrollbar: anytype) void {
+        comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
+        qtc.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -7998,10 +8166,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn CornerWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QAbstractScrollArea_CornerWidget(@ptrCast(self));
+    pub fn CornerWidget(self: QsciScintilla) QWidget {
+        return .{ .ptr = qtc.QAbstractScrollArea_CornerWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8010,12 +8178,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SetCornerWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QAbstractScrollArea_SetCornerWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn SetCornerWidget(self: QsciScintilla, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QAbstractScrollArea_SetCornerWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8024,14 +8193,15 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
-        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @bitCast(alignment));
+    pub fn AddScrollBarWidget(self: QsciScintilla, widget: anytype, alignment: i32) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr), @bitCast(alignment));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8040,18 +8210,19 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
-    ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
-        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @bitCast(alignment));
+    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    ///
+    pub fn ScrollBarWidgets(self: QsciScintilla, allocator: std.mem.Allocator, alignment: i32) []QWidget {
+        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self.ptr), @bitCast(alignment));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("qsciscintilla.ScrollBarWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("qsciscintilla.ScrollBarWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -8061,10 +8232,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Viewport(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QAbstractScrollArea_Viewport(@ptrCast(self));
+    pub fn Viewport(self: QsciScintilla) QWidget {
+        return .{ .ptr = qtc.QAbstractScrollArea_Viewport(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8073,12 +8244,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SetViewport(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QAbstractScrollArea_SetViewport(@ptrCast(self), @ptrCast(widget));
+    pub fn SetViewport(self: QsciScintilla, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QAbstractScrollArea_SetViewport(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8087,10 +8259,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn MaximumViewportSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self));
+    pub fn MaximumViewportSize(self: QsciScintilla) QSize {
+        return .{ .ptr = qtc.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8099,14 +8271,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SizeAdjustPolicy(self: ?*anyopaque) i32 {
-        return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self));
+    pub fn SizeAdjustPolicy(self: QsciScintilla) i32 {
+        return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8115,12 +8287,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` policy: qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetSizeAdjustPolicy(self: QsciScintilla, policy: i32) void {
+        qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QFrame
@@ -8129,10 +8301,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn FrameStyle(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameStyle(@ptrCast(self));
+    pub fn FrameStyle(self: QsciScintilla) i32 {
+        return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -8141,12 +8313,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self), @bitCast(frameStyle));
+    pub fn SetFrameStyle(self: QsciScintilla, frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
     }
 
     /// Inherited from QFrame
@@ -8155,10 +8327,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn FrameWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameWidth(@ptrCast(self));
+    pub fn FrameWidth(self: QsciScintilla) i32 {
+        return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -8167,14 +8339,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameShape(@ptrCast(self));
+    pub fn FrameShape(self: QsciScintilla) i32 {
+        return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -8183,12 +8355,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self), @bitCast(frameShape));
+    pub fn SetFrameShape(self: QsciScintilla, frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
     }
 
     /// Inherited from QFrame
@@ -8197,14 +8369,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameShadow(@ptrCast(self));
+    pub fn FrameShadow(self: QsciScintilla) i32 {
+        return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -8213,12 +8385,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self), @bitCast(frameShadow));
+    pub fn SetFrameShadow(self: QsciScintilla, frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
     }
 
     /// Inherited from QFrame
@@ -8227,10 +8399,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn LineWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_LineWidth(@ptrCast(self));
+    pub fn LineWidth(self: QsciScintilla) i32 {
+        return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -8239,12 +8411,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self), @bitCast(lineWidth));
+    pub fn SetLineWidth(self: QsciScintilla, lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
     }
 
     /// Inherited from QFrame
@@ -8253,10 +8425,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn MidLineWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_MidLineWidth(@ptrCast(self));
+    pub fn MidLineWidth(self: QsciScintilla) i32 {
+        return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -8265,12 +8437,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self), @bitCast(midLineWidth));
+    pub fn SetMidLineWidth(self: QsciScintilla, midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
     }
 
     /// Inherited from QFrame
@@ -8279,10 +8451,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn FrameRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QFrame_FrameRect(@ptrCast(self));
+    pub fn FrameRect(self: QsciScintilla) QRect {
+        return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QFrame
@@ -8291,12 +8463,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` frameRect: QtC.QRect `
+    /// ` frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: ?*anyopaque, frameRect: ?*anyopaque) void {
-        qtc.QFrame_SetFrameRect(@ptrCast(self), @ptrCast(frameRect));
+    pub fn SetFrameRect(self: QsciScintilla, frameRect: anytype) void {
+        comptime _ = @TypeOf(frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
     }
 
     /// Inherited from QWidget
@@ -8305,10 +8478,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn WinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_WinId(@ptrCast(self));
+    pub fn WinId(self: QsciScintilla) usize {
+        return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8317,10 +8490,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn CreateWinId(self: ?*anyopaque) void {
-        qtc.QWidget_CreateWinId(@ptrCast(self));
+    pub fn CreateWinId(self: QsciScintilla) void {
+        qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8329,10 +8502,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn InternalWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_InternalWinId(@ptrCast(self));
+    pub fn InternalWinId(self: QsciScintilla) usize {
+        return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8341,10 +8514,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
+    pub fn EffectiveWinId(self: QsciScintilla) usize {
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8353,10 +8526,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QWidget_Style(@ptrCast(self));
+    pub fn Style(self: QsciScintilla) QStyle {
+        return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8365,12 +8538,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetStyle(self: QsciScintilla, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// Inherited from QWidget
@@ -8379,10 +8553,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsTopLevel(@ptrCast(self));
+    pub fn IsTopLevel(self: QsciScintilla) bool {
+        return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8391,10 +8565,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IsWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindow(@ptrCast(self));
+    pub fn IsWindow(self: QsciScintilla) bool {
+        return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8403,10 +8577,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IsModal(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsModal(@ptrCast(self));
+    pub fn IsModal(self: QsciScintilla) bool {
+        return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8415,14 +8589,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowModality(@ptrCast(self));
+    pub fn WindowModality(self: QsciScintilla) i32 {
+        return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8431,12 +8605,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
+    pub fn SetWindowModality(self: QsciScintilla, windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -8445,10 +8619,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: QsciScintilla) bool {
+        return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8457,12 +8631,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsEnabledTo(self: QsciScintilla, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -8471,12 +8646,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: QsciScintilla, enabled: bool) void {
+        qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -8485,12 +8660,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
+    pub fn SetDisabled(self: QsciScintilla, disabled: bool) void {
+        qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
 
     /// Inherited from QWidget
@@ -8499,12 +8674,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+    pub fn SetWindowModified(self: QsciScintilla, windowModified: bool) void {
+        qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
 
     /// Inherited from QWidget
@@ -8513,10 +8688,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_FrameGeometry(@ptrCast(self));
+    pub fn FrameGeometry(self: QsciScintilla) QRect {
+        return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8525,10 +8700,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Geometry(@ptrCast(self));
+    pub fn Geometry(self: QsciScintilla) QRect {
+        return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8537,10 +8712,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_NormalGeometry(@ptrCast(self));
+    pub fn NormalGeometry(self: QsciScintilla) QRect {
+        return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8549,10 +8724,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn X(self: ?*anyopaque) i32 {
-        return qtc.QWidget_X(@ptrCast(self));
+    pub fn X(self: QsciScintilla) i32 {
+        return qtc.QWidget_X(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8561,10 +8736,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Y(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Y(@ptrCast(self));
+    pub fn Y(self: QsciScintilla) i32 {
+        return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8573,10 +8748,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_Pos(@ptrCast(self));
+    pub fn Pos(self: QsciScintilla) QPoint {
+        return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8585,10 +8760,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: QsciScintilla) QSize {
+        return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8597,10 +8772,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_Size(@ptrCast(self));
+    pub fn Size(self: QsciScintilla) QSize {
+        return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8609,10 +8784,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Width(@ptrCast(self));
+    pub fn Width(self: QsciScintilla) i32 {
+        return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8621,10 +8796,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Height(@ptrCast(self));
+    pub fn Height(self: QsciScintilla) i32 {
+        return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8633,10 +8808,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: QsciScintilla) QRect {
+        return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8645,10 +8820,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ChildrenRect(@ptrCast(self));
+    pub fn ChildrenRect(self: QsciScintilla) QRect {
+        return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8657,10 +8832,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
+    pub fn ChildrenRegion(self: QsciScintilla) QRegion {
+        return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8669,10 +8844,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: QsciScintilla) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8681,10 +8856,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: QsciScintilla) QSize {
+        return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8693,10 +8868,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: QsciScintilla) i32 {
+        return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8705,10 +8880,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: QsciScintilla) i32 {
+        return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8717,10 +8892,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: QsciScintilla) i32 {
+        return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8729,10 +8904,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: QsciScintilla) i32 {
+        return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8741,12 +8916,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` minimumSize: QtC.QSize `
+    /// ` minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+    pub fn SetMinimumSize(self: QsciScintilla, minimumSize: anytype) void {
+        comptime _ = @TypeOf(minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -8755,14 +8931,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` minw: i32 `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
+    pub fn SetMinimumSize2(self: QsciScintilla, minw: i32, minh: i32) void {
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -8771,12 +8947,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` maximumSize: QtC.QSize `
+    /// ` maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+    pub fn SetMaximumSize(self: QsciScintilla, maximumSize: anytype) void {
+        comptime _ = @TypeOf(maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -8785,14 +8962,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` maxw: i32 `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
+    pub fn SetMaximumSize2(self: QsciScintilla, maxw: i32, maxh: i32) void {
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -8801,12 +8978,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
+    pub fn SetMinimumWidth(self: QsciScintilla, minw: i32) void {
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -8815,12 +8992,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
+    pub fn SetMinimumHeight(self: QsciScintilla, minh: i32) void {
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -8829,12 +9006,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
+    pub fn SetMaximumWidth(self: QsciScintilla, maxw: i32) void {
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -8843,12 +9020,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
+    pub fn SetMaximumHeight(self: QsciScintilla, maxh: i32) void {
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -8857,10 +9034,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeIncrement(@ptrCast(self));
+    pub fn SizeIncrement(self: QsciScintilla) QSize {
+        return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8869,12 +9046,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` sizeIncrement: QtC.QSize `
+    /// ` sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+    pub fn SetSizeIncrement(self: QsciScintilla, sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
     }
 
     /// Inherited from QWidget
@@ -8883,14 +9061,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetSizeIncrement2(self: QsciScintilla, w: i32, h: i32) void {
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -8899,10 +9077,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_BaseSize(@ptrCast(self));
+    pub fn BaseSize(self: QsciScintilla) QSize {
+        return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8911,12 +9089,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` baseSize: QtC.QSize `
+    /// ` baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+    pub fn SetBaseSize(self: QsciScintilla, baseSize: anytype) void {
+        comptime _ = @TypeOf(baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -8925,14 +9104,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` basew: i32 `
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
+    pub fn SetBaseSize2(self: QsciScintilla, basew: i32, baseh: i32) void {
+        qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -8941,12 +9120,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` fixedSize: QtC.QSize `
+    /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+    pub fn SetFixedSize(self: QsciScintilla, fixedSize: anytype) void {
+        comptime _ = @TypeOf(fixedSize)._is_QSize;
+        qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -8955,14 +9135,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetFixedSize2(self: QsciScintilla, w: i32, h: i32) void {
+        qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -8971,12 +9151,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetFixedWidth(self: QsciScintilla, w: i32) void {
+        qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -8985,12 +9165,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
+    pub fn SetFixedHeight(self: QsciScintilla, h: i32) void {
+        qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -8999,12 +9179,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal(self: QsciScintilla, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9013,12 +9194,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: QsciScintilla, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9027,12 +9209,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal(self: QsciScintilla, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9041,12 +9224,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: QsciScintilla, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9055,12 +9239,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent(self: QsciScintilla, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9069,12 +9254,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: QsciScintilla, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9083,12 +9269,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent(self: QsciScintilla, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9097,12 +9284,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: QsciScintilla, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9111,14 +9299,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo(self: QsciScintilla, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9127,14 +9317,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo2(self: QsciScintilla, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9143,14 +9335,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom(self: QsciScintilla, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9159,14 +9353,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom2(self: QsciScintilla, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9175,10 +9371,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_Window(@ptrCast(self));
+    pub fn Window(self: QsciScintilla) QWidget {
+        return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9187,10 +9383,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
+    pub fn NativeParentWidget(self: QsciScintilla) QWidget {
+        return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9199,10 +9395,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
+    pub fn TopLevelWidget(self: QsciScintilla) QWidget {
+        return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9211,10 +9407,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QWidget_Palette(@ptrCast(self));
+    pub fn Palette(self: QsciScintilla) QPalette {
+        return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9223,12 +9419,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn SetPalette(self: QsciScintilla, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// Inherited from QWidget
@@ -9237,12 +9434,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
+    pub fn SetBackgroundRole(self: QsciScintilla, backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -9251,14 +9448,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_BackgroundRole(@ptrCast(self));
+    pub fn BackgroundRole(self: QsciScintilla) i32 {
+        return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9267,12 +9464,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
+    pub fn SetForegroundRole(self: QsciScintilla, foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -9281,14 +9478,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ForegroundRole(@ptrCast(self));
+    pub fn ForegroundRole(self: QsciScintilla) i32 {
+        return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9297,10 +9494,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QWidget_Font(@ptrCast(self));
+    pub fn Font(self: QsciScintilla) QFont {
+        return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9309,10 +9506,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QWidget_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: QsciScintilla) QFontMetrics {
+        return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9321,10 +9518,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QWidget_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: QsciScintilla) QFontInfo {
+        return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9333,10 +9530,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
-        return qtc.QWidget_Cursor(@ptrCast(self));
+    pub fn Cursor(self: QsciScintilla) QCursor {
+        return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9345,12 +9542,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetCursor(self: QsciScintilla, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QWidget
@@ -9359,10 +9557,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn UnsetCursor(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetCursor(@ptrCast(self));
+    pub fn UnsetCursor(self: QsciScintilla) void {
+        qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9371,12 +9569,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
+    pub fn SetMouseTracking(self: QsciScintilla, enable: bool) void {
+        qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -9385,10 +9583,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
+    pub fn HasMouseTracking(self: QsciScintilla) bool {
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9397,10 +9595,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.QWidget_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: QsciScintilla) bool {
+        return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9409,12 +9607,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
+    pub fn SetTabletTracking(self: QsciScintilla, enable: bool) void {
+        qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -9423,10 +9621,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
+    pub fn HasTabletTracking(self: QsciScintilla) bool {
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9435,12 +9633,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` mask: QtC.QBitmap `
+    /// ` mask: QBitmap `
     ///
-    pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask(self: QsciScintilla, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -9449,12 +9648,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` mask: QtC.QRegion `
+    /// ` mask: QRegion `
     ///
-    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: QsciScintilla, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -9463,10 +9663,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_Mask(@ptrCast(self));
+    pub fn Mask(self: QsciScintilla) QRegion {
+        return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9475,10 +9675,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ClearMask(self: ?*anyopaque) void {
-        qtc.QWidget_ClearMask(@ptrCast(self));
+    pub fn ClearMask(self: QsciScintilla) void {
+        qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9487,12 +9687,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
+    pub fn Render(self: QsciScintilla, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QWidget
@@ -9501,12 +9702,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: QsciScintilla, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -9515,10 +9717,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab(@ptrCast(self));
+    pub fn Grab(self: QsciScintilla) QPixmap {
+        return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9527,10 +9729,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
-        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
+    pub fn GraphicsEffect(self: QsciScintilla) QGraphicsEffect {
+        return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9539,12 +9741,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` effect: QtC.QGraphicsEffect `
+    /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+    pub fn SetGraphicsEffect(self: QsciScintilla, effect: anytype) void {
+        comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
 
     /// Inherited from QWidget
@@ -9553,12 +9756,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn GrabGesture(self: QsciScintilla, typeVal: i32) void {
+        qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -9567,12 +9770,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn UngrabGesture(self: QsciScintilla, typeVal: i32) void {
+        qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -9581,16 +9784,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
+    pub fn SetWindowTitle(self: QsciScintilla, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
-        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
 
     /// Inherited from QWidget
@@ -9599,16 +9802,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
+    pub fn SetStyleSheet(self: QsciScintilla, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
-        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
 
     /// Inherited from QWidget
@@ -9617,12 +9820,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -9635,12 +9838,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+    pub fn WindowTitle(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -9653,12 +9856,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetWindowIcon(self: QsciScintilla, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -9667,10 +9871,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QWidget_WindowIcon(@ptrCast(self));
+    pub fn WindowIcon(self: QsciScintilla) QIcon {
+        return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9679,16 +9883,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
+    pub fn SetWindowIconText(self: QsciScintilla, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
-        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
 
     /// Inherited from QWidget
@@ -9697,12 +9901,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+    pub fn WindowIconText(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -9715,16 +9919,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
+    pub fn SetWindowRole(self: QsciScintilla, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
-        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
 
     /// Inherited from QWidget
@@ -9733,12 +9937,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
+    pub fn WindowRole(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -9751,16 +9955,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
+    pub fn SetWindowFilePath(self: QsciScintilla, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
 
     /// Inherited from QWidget
@@ -9769,12 +9973,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+    pub fn WindowFilePath(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -9787,12 +9991,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetWindowOpacity(self: QsciScintilla, level: f64) void {
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -9801,10 +10005,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return qtc.QWidget_WindowOpacity(@ptrCast(self));
+    pub fn WindowOpacity(self: QsciScintilla) f64 {
+        return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9813,10 +10017,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindowModified(@ptrCast(self));
+    pub fn IsWindowModified(self: QsciScintilla) bool {
+        return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9825,16 +10029,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: QsciScintilla, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// Inherited from QWidget
@@ -9843,12 +10047,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -9861,12 +10065,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
+    pub fn SetToolTipDuration(self: QsciScintilla, msec: i32) void {
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -9875,10 +10079,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
+    pub fn ToolTipDuration(self: QsciScintilla) i32 {
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9887,16 +10091,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: QsciScintilla, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QWidget
@@ -9905,12 +10109,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -9923,16 +10127,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: QsciScintilla, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// Inherited from QWidget
@@ -9941,12 +10145,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -9959,12 +10163,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+    pub fn AccessibleName(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -9977,16 +10181,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetAccessibleName(self: QsciScintilla, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QWidget
@@ -9995,12 +10199,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+    pub fn AccessibleDescription(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -10013,16 +10217,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetAccessibleDescription(self: QsciScintilla, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// Inherited from QWidget
@@ -10031,12 +10235,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: QsciScintilla, direction: i32) void {
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -10045,14 +10249,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QWidget_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: QsciScintilla) i32 {
+        return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10061,10 +10265,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
+    pub fn UnsetLayoutDirection(self: QsciScintilla) void {
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10073,12 +10277,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: QsciScintilla, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// Inherited from QWidget
@@ -10087,10 +10292,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QWidget_Locale(@ptrCast(self));
+    pub fn Locale(self: QsciScintilla) QLocale {
+        return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10099,10 +10304,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn UnsetLocale(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLocale(@ptrCast(self));
+    pub fn UnsetLocale(self: QsciScintilla) void {
+        qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10111,10 +10316,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
+    pub fn IsRightToLeft(self: QsciScintilla) bool {
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10123,10 +10328,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
+    pub fn IsLeftToRight(self: QsciScintilla) bool {
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10135,10 +10340,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SetFocus(self: ?*anyopaque) void {
-        qtc.QWidget_SetFocus(@ptrCast(self));
+    pub fn SetFocus(self: QsciScintilla) void {
+        qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10147,10 +10352,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
+    pub fn IsActiveWindow(self: QsciScintilla) bool {
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10159,10 +10364,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ActivateWindow(self: ?*anyopaque) void {
-        qtc.QWidget_ActivateWindow(@ptrCast(self));
+    pub fn ActivateWindow(self: QsciScintilla) void {
+        qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10171,10 +10376,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ClearFocus(self: ?*anyopaque) void {
-        qtc.QWidget_ClearFocus(@ptrCast(self));
+    pub fn ClearFocus(self: QsciScintilla) void {
+        qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10183,12 +10388,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
+    pub fn SetFocus2(self: QsciScintilla, reason: i32) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -10197,14 +10402,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_FocusPolicy(@ptrCast(self));
+    pub fn FocusPolicy(self: QsciScintilla) i32 {
+        return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10213,12 +10418,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetFocusPolicy(self: QsciScintilla, policy: i32) void {
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -10227,10 +10432,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn HasFocus(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasFocus(@ptrCast(self));
+    pub fn HasFocus(self: QsciScintilla) bool {
+        return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10239,12 +10444,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QWidget `
+    /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QWidget;
+        qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidget
@@ -10253,12 +10460,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` focusProxy: QtC.QWidget `
+    /// ` focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+    pub fn SetFocusProxy(self: QsciScintilla, focusProxy: anytype) void {
+        comptime _ = @TypeOf(focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
     }
 
     /// Inherited from QWidget
@@ -10267,10 +10475,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusProxy(@ptrCast(self));
+    pub fn FocusProxy(self: QsciScintilla) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10279,14 +10487,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
+    pub fn ContextMenuPolicy(self: QsciScintilla) i32 {
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10295,12 +10503,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetContextMenuPolicy(self: QsciScintilla, policy: i32) void {
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -10309,10 +10517,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn GrabMouse(self: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse(@ptrCast(self));
+    pub fn GrabMouse(self: QsciScintilla) void {
+        qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10321,12 +10529,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: QsciScintilla, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -10335,10 +10544,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ReleaseMouse(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseMouse(@ptrCast(self));
+    pub fn ReleaseMouse(self: QsciScintilla) void {
+        qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10347,10 +10556,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn GrabKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_GrabKeyboard(@ptrCast(self));
+    pub fn GrabKeyboard(self: QsciScintilla) void {
+        qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10359,10 +10568,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
+    pub fn ReleaseKeyboard(self: QsciScintilla) void {
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10371,12 +10580,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+    pub fn GrabShortcut(self: QsciScintilla, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// Inherited from QWidget
@@ -10385,12 +10595,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
+    pub fn ReleaseShortcut(self: QsciScintilla, id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -10399,12 +10609,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutEnabled(self: QsciScintilla, id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -10413,28 +10623,28 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutAutoRepeat(self: QsciScintilla, id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QtC.QWidget {
-        return qtc.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QtC.QWidget {
-        return qtc.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
 
     /// Inherited from QWidget
@@ -10443,10 +10653,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
+    pub fn UpdatesEnabled(self: QsciScintilla) bool {
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10455,12 +10665,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+    pub fn SetUpdatesEnabled(self: QsciScintilla, enable: bool) void {
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -10469,10 +10679,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    pub fn GraphicsProxyWidget(self: QsciScintilla) QGraphicsProxyWidget {
+        return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10481,10 +10691,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Update(self: ?*anyopaque) void {
-        qtc.QWidget_Update(@ptrCast(self));
+    pub fn Update(self: QsciScintilla) void {
+        qtc.QWidget_Update(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10493,10 +10703,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Repaint(self: ?*anyopaque) void {
-        qtc.QWidget_Repaint(@ptrCast(self));
+    pub fn Repaint(self: QsciScintilla) void {
+        qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10505,7 +10715,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` x: i32 `
     ///
@@ -10515,8 +10725,8 @@ pub const qsciscintilla = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Update2(self: QsciScintilla, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -10525,12 +10735,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: QsciScintilla, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -10539,12 +10750,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: QsciScintilla, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -10553,7 +10765,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` x: i32 `
     ///
@@ -10563,8 +10775,8 @@ pub const qsciscintilla = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Repaint2(self: QsciScintilla, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -10573,12 +10785,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: QsciScintilla, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -10587,12 +10800,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: QsciScintilla, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -10601,12 +10815,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
+    pub fn SetHidden(self: QsciScintilla, hidden: bool) void {
+        qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
 
     /// Inherited from QWidget
@@ -10615,10 +10829,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QWidget_Show(@ptrCast(self));
+    pub fn Show(self: QsciScintilla) void {
+        qtc.QWidget_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10627,10 +10841,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QWidget_Hide(@ptrCast(self));
+    pub fn Hide(self: QsciScintilla) void {
+        qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10639,10 +10853,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ShowMinimized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMinimized(@ptrCast(self));
+    pub fn ShowMinimized(self: QsciScintilla) void {
+        qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10651,10 +10865,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ShowMaximized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMaximized(@ptrCast(self));
+    pub fn ShowMaximized(self: QsciScintilla) void {
+        qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10663,10 +10877,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ShowFullScreen(self: ?*anyopaque) void {
-        qtc.QWidget_ShowFullScreen(@ptrCast(self));
+    pub fn ShowFullScreen(self: QsciScintilla) void {
+        qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10675,10 +10889,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ShowNormal(self: ?*anyopaque) void {
-        qtc.QWidget_ShowNormal(@ptrCast(self));
+    pub fn ShowNormal(self: QsciScintilla) void {
+        qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10687,10 +10901,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Close(self: ?*anyopaque) bool {
-        return qtc.QWidget_Close(@ptrCast(self));
+    pub fn Close(self: QsciScintilla) bool {
+        return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10699,10 +10913,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Raise(self: ?*anyopaque) void {
-        qtc.QWidget_Raise(@ptrCast(self));
+    pub fn Raise(self: QsciScintilla) void {
+        qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10711,10 +10925,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Lower(self: ?*anyopaque) void {
-        qtc.QWidget_Lower(@ptrCast(self));
+    pub fn Lower(self: QsciScintilla) void {
+        qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10723,12 +10937,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+    pub fn StackUnder(self: QsciScintilla, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -10737,14 +10952,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn Move(self: QsciScintilla, x: i32, y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -10753,12 +10968,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: QsciScintilla, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -10767,14 +10983,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn Resize(self: QsciScintilla, w: i32, h: i32) void {
+        qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -10783,12 +10999,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QSize `
+    /// ` param1: QSize `
     ///
-    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: QsciScintilla, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -10797,7 +11014,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` x: i32 `
     ///
@@ -10807,8 +11024,8 @@ pub const qsciscintilla = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetGeometry(self: QsciScintilla, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -10817,12 +11034,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` geometry: QtC.QRect `
+    /// ` geometry: QRect `
     ///
-    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: QsciScintilla, geometry: anytype) void {
+        comptime _ = @TypeOf(geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
     }
 
     /// Inherited from QWidget
@@ -10831,12 +11049,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+    pub fn SaveGeometry(self: QsciScintilla, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsciscintilla.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -10849,16 +11067,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
+    pub fn RestoreGeometry(self: QsciScintilla, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
-        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
 
     /// Inherited from QWidget
@@ -10867,10 +11085,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QWidget_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: QsciScintilla) void {
+        qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10879,10 +11097,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: QsciScintilla) bool {
+        return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10891,12 +11109,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsVisibleTo(self: QsciScintilla, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -10905,10 +11124,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IsHidden(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsHidden(@ptrCast(self));
+    pub fn IsHidden(self: QsciScintilla) bool {
+        return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10917,10 +11136,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IsMinimized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMinimized(@ptrCast(self));
+    pub fn IsMinimized(self: QsciScintilla) bool {
+        return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10929,10 +11148,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IsMaximized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMaximized(@ptrCast(self));
+    pub fn IsMaximized(self: QsciScintilla) bool {
+        return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10941,10 +11160,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsFullScreen(@ptrCast(self));
+    pub fn IsFullScreen(self: QsciScintilla) bool {
+        return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10953,14 +11172,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowState(@ptrCast(self));
+    pub fn WindowState(self: QsciScintilla) i32 {
+        return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10969,12 +11188,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
+    pub fn SetWindowState(self: QsciScintilla, state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -10983,12 +11202,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
+    pub fn OverrideWindowState(self: QsciScintilla, state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -10997,10 +11216,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QWidget_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: QsciScintilla) QSizePolicy {
+        return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11009,12 +11228,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` sizePolicy: QtC.QSizePolicy `
+    /// ` sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
-        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    pub fn SetSizePolicy(self: QsciScintilla, sizePolicy: anytype) void {
+        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
     }
 
     /// Inherited from QWidget
@@ -11023,14 +11243,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` horizontal: qsizepolicy_enums.Policy `
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
+    pub fn SetSizePolicy2(self: QsciScintilla, horizontal: i32, vertical: i32) void {
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -11039,10 +11259,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_VisibleRegion(@ptrCast(self));
+    pub fn VisibleRegion(self: QsciScintilla) QRegion {
+        return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11051,7 +11271,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` left: i32 `
     ///
@@ -11061,8 +11281,8 @@ pub const qsciscintilla = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: QsciScintilla, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -11071,12 +11291,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: QsciScintilla, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QWidget
@@ -11085,10 +11306,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QWidget_ContentsMargins(@ptrCast(self));
+    pub fn ContentsMargins(self: QsciScintilla) QMargins {
+        return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11097,10 +11318,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: QsciScintilla) QRect {
+        return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11109,10 +11330,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidget_Layout(@ptrCast(self));
+    pub fn Layout(self: QsciScintilla) QLayout {
+        return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11121,12 +11342,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` layout: QtC.QLayout `
+    /// ` layout: QLayout `
     ///
-    pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetLayout(self: QsciScintilla, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// Inherited from QWidget
@@ -11135,10 +11357,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QWidget_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: QsciScintilla) void {
+        qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11147,12 +11369,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QsciScintilla, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QWidget
@@ -11161,14 +11384,15 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
+    pub fn SetParent2(self: QsciScintilla, parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -11177,14 +11401,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Scroll(self: QsciScintilla, dx: i32, dy: i32) void {
+        qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -11193,16 +11417,17 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    /// ` param3: QtC.QRect `
+    /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
+    pub fn Scroll2(self: QsciScintilla, dx: i32, dy: i32, param3: anytype) void {
+        comptime _ = @TypeOf(param3)._is_QRect;
+        qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QWidget
@@ -11211,10 +11436,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusWidget(@ptrCast(self));
+    pub fn FocusWidget(self: QsciScintilla) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11223,10 +11448,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
+    pub fn NextInFocusChain(self: QsciScintilla) QWidget {
+        return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11235,10 +11460,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
+    pub fn PreviousInFocusChain(self: QsciScintilla) QWidget {
+        return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11247,10 +11472,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return qtc.QWidget_AcceptDrops(@ptrCast(self));
+    pub fn AcceptDrops(self: QsciScintilla) bool {
+        return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11259,12 +11484,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
+    pub fn SetAcceptDrops(self: QsciScintilla, on: bool) void {
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QWidget
@@ -11273,12 +11498,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+    pub fn AddAction(self: QsciScintilla, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -11287,16 +11513,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn AddActions(self: QsciScintilla, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -11305,18 +11531,19 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn InsertActions(self: QsciScintilla, before: anytype, actions: []QAction) void {
+        comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -11325,14 +11552,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn InsertAction(self: QsciScintilla, before: anytype, action: anytype) void {
+        comptime _ = @TypeOf(before)._is_QAction;
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -11341,12 +11570,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn RemoveAction(self: QsciScintilla, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -11355,16 +11585,17 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+    pub fn Actions(self: QsciScintilla, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qsciscintilla.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qsciscintilla.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -11374,16 +11605,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: QsciScintilla, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction2(@ptrCast(self), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -11392,18 +11623,19 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: QsciScintilla, icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -11412,18 +11644,19 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: QsciScintilla, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11432,20 +11665,22 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: QsciScintilla, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11454,10 +11689,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: QsciScintilla) QWidget {
+        return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11466,12 +11701,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetWindowFlags(self: QsciScintilla, typeVal: i32) void {
+        qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -11480,14 +11715,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowFlags(@ptrCast(self));
+    pub fn WindowFlags(self: QsciScintilla) i32 {
+        return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11496,12 +11731,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
+    pub fn SetWindowFlag(self: QsciScintilla, param1: i32) void {
+        qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -11510,12 +11745,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn OverrideWindowFlags(self: QsciScintilla, typeVal: i32) void {
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -11524,14 +11759,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowType(@ptrCast(self));
+    pub fn WindowType(self: QsciScintilla) i32 {
+        return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11542,8 +11777,8 @@ pub const qsciscintilla = struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QtC.QWidget {
-        return qtc.QWidget_Find(@bitCast(param1));
+    pub fn Find(param1: usize) QWidget {
+        return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -11552,14 +11787,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: QsciScintilla, x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QWidget
@@ -11568,12 +11803,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: QsciScintilla, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11582,12 +11818,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: QsciScintilla, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11596,12 +11833,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn SetAttribute(self: QsciScintilla, param1: i32) void {
+        qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -11610,12 +11847,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn TestAttribute(self: QsciScintilla, param1: i32) bool {
+        return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -11624,10 +11861,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn EnsurePolished(self: ?*anyopaque) void {
-        qtc.QWidget_EnsurePolished(@ptrCast(self));
+    pub fn EnsurePolished(self: QsciScintilla) void {
+        qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11636,12 +11873,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` child: QtC.QWidget `
+    /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+    pub fn IsAncestorOf(self: QsciScintilla, child: anytype) bool {
+        comptime _ = @TypeOf(child)._is_QWidget;
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from QWidget
@@ -11650,10 +11888,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
+    pub fn AutoFillBackground(self: QsciScintilla) bool {
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11662,12 +11900,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+    pub fn SetAutoFillBackground(self: QsciScintilla, enabled: bool) void {
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -11676,10 +11914,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
-        return qtc.QWidget_BackingStore(@ptrCast(self));
+    pub fn BackingStore(self: QsciScintilla) QBackingStore {
+        return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11688,10 +11926,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QWidget_WindowHandle(@ptrCast(self));
+    pub fn WindowHandle(self: QsciScintilla) QWindow {
+        return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11700,10 +11938,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
-        return qtc.QWidget_Screen(@ptrCast(self));
+    pub fn Screen(self: QsciScintilla) QScreen {
+        return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11712,12 +11950,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+    pub fn SetScreen(self: QsciScintilla, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QWidget
@@ -11726,10 +11965,11 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
+    pub fn CreateWindowContainer(window: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11738,16 +11978,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn WindowTitleChanged(self: QsciScintilla, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QWidget
@@ -11756,12 +11996,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowTitleChanged(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11770,12 +12010,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+    pub fn WindowIconChanged(self: QsciScintilla, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -11784,12 +12025,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, icon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconChanged(self: QsciScintilla, callback: *const fn (QsciScintilla, QIcon) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11798,16 +12039,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
+    pub fn WindowIconTextChanged(self: QsciScintilla, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
-        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
 
     /// Inherited from QWidget
@@ -11816,12 +12057,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, iconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconTextChanged(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11830,12 +12071,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+    pub fn CustomContextMenuRequested(self: QsciScintilla, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QWidget
@@ -11844,12 +12086,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomContextMenuRequested(self: QsciScintilla, callback: *const fn (QsciScintilla, QPoint) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11858,14 +12100,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i32 {
-        return qtc.QWidget_InputMethodHints(@ptrCast(self));
+    pub fn InputMethodHints(self: QsciScintilla) i32 {
+        return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11874,12 +12116,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetInputMethodHints(self: QsciScintilla, hints: i32) void {
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -11888,14 +12130,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: QsciScintilla, target: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -11904,16 +12148,19 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render3(self: QsciScintilla, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -11922,18 +12169,21 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render4(self: QsciScintilla, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -11942,14 +12192,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: QsciScintilla, painter: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -11958,16 +12210,19 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render32(self: QsciScintilla, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -11976,18 +12231,21 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render42(self: QsciScintilla, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -11996,12 +12254,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Grab1(self: QsciScintilla, rectangle: anytype) QPixmap {
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12010,14 +12269,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
+    pub fn GrabGesture2(self: QsciScintilla, typeVal: i32, flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -12026,14 +12285,15 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
+    pub fn GrabShortcut2(self: QsciScintilla, key: anytype, context: i32) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -12042,14 +12302,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutEnabled2(self: QsciScintilla, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -12058,14 +12318,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutAutoRepeat2(self: QsciScintilla, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -12074,14 +12334,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetWindowFlag2(self: QsciScintilla, param1: i32, on: bool) void {
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -12090,14 +12350,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetAttribute2(self: QsciScintilla, param1: i32, on: bool) void {
+        qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -12106,12 +12366,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12120,14 +12382,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
+    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QObject
@@ -12136,12 +12400,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -12154,12 +12418,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QsciScintilla, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -12168,10 +12432,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QsciScintilla) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -12180,10 +12444,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QsciScintilla) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -12192,10 +12456,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QsciScintilla) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -12204,10 +12468,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QsciScintilla) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -12216,12 +12480,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QsciScintilla, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -12230,10 +12494,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QsciScintilla) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -12242,12 +12506,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QsciScintilla, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -12256,12 +12521,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QsciScintilla, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -12270,12 +12535,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QsciScintilla, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -12284,12 +12549,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QsciScintilla, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -12298,12 +12563,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QsciScintilla, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -12312,16 +12577,17 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QsciScintilla, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qsciscintilla.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qsciscintilla.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -12331,12 +12597,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QsciScintilla, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -12345,12 +12612,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QsciScintilla, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -12359,18 +12627,20 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -12379,16 +12649,20 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -12397,18 +12671,19 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QsciScintilla, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -12417,18 +12692,20 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -12437,16 +12714,20 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -12455,10 +12736,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QsciScintilla) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -12467,12 +12748,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QsciScintilla, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -12481,10 +12763,11 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -12493,10 +12776,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QsciScintilla) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -12505,10 +12788,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QsciScintilla) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -12517,15 +12800,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QsciScintilla, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -12534,13 +12818,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QsciScintilla, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -12549,17 +12833,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QsciScintilla, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qsciscintilla.DynamicPropertyNames: Memory allocation failed");
@@ -12578,10 +12861,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QsciScintilla) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -12590,10 +12873,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QsciScintilla) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -12602,10 +12885,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QsciScintilla) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -12614,12 +12897,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QsciScintilla, callback: *const fn (QsciScintilla) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12628,10 +12911,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QsciScintilla) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -12640,13 +12923,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QsciScintilla, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -12655,10 +12938,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QsciScintilla) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -12667,14 +12950,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QsciScintilla, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -12683,14 +12966,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QsciScintilla, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -12699,20 +12982,22 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -12721,18 +13006,22 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -12741,9 +13030,9 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -12751,10 +13040,11 @@ pub const qsciscintilla = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QsciScintilla, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -12763,13 +13053,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QsciScintilla, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -12778,15 +13068,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QsciScintilla, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -12795,18 +13086,19 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QsciScintilla, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -12815,15 +13107,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QsciScintilla, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -12832,12 +13125,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QsciScintilla, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -12846,12 +13140,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QsciScintilla, callback: *const fn (QsciScintilla, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -12860,10 +13154,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: QsciScintilla) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -12872,10 +13166,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: QsciScintilla) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -12884,10 +13178,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: QsciScintilla) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -12896,10 +13190,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: QsciScintilla) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -12908,10 +13202,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: QsciScintilla) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -12920,10 +13214,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: QsciScintilla) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -12932,10 +13226,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: QsciScintilla) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -12944,10 +13238,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: QsciScintilla) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -12956,10 +13250,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: QsciScintilla) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -12968,10 +13262,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: QsciScintilla) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -12980,10 +13274,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: QsciScintilla) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -13016,12 +13310,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` source: QtC.QMimeData `
+    /// ` source: QMimeData `
     ///
-    pub fn CanInsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) bool {
-        return qtc.QsciScintilla_CanInsertFromMimeData(@ptrCast(self), @ptrCast(source));
+    pub fn CanInsertFromMimeData(self: QsciScintilla, source: anytype) bool {
+        comptime _ = @TypeOf(source)._is_QMimeData;
+        return qtc.QsciScintilla_CanInsertFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCanInsertFromMimeData` instead
@@ -13036,12 +13331,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` source: QtC.QMimeData `
+    /// ` source: QMimeData `
     ///
-    pub fn SuperCanInsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) bool {
-        return qtc.QsciScintilla_SuperCanInsertFromMimeData(@ptrCast(self), @ptrCast(source));
+    pub fn SuperCanInsertFromMimeData(self: QsciScintilla, source: anytype) bool {
+        comptime _ = @TypeOf(source)._is_QMimeData;
+        return qtc.QsciScintilla_SuperCanInsertFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13052,12 +13348,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, source: QtC.QMimeData) callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciScintilla, source: QMimeData) callconv(.c) bool `
     ///
-    pub fn OnCanInsertFromMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QsciScintilla_OnCanInsertFromMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCanInsertFromMimeData(self: QsciScintilla, callback: *const fn (QsciScintilla, QMimeData) callconv(.c) bool) void {
+        qtc.QsciScintilla_OnCanInsertFromMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13068,16 +13364,17 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
-    ///
-    /// ` source: QtC.QMimeData `
-    ///
-    /// ` rectangular: *bool `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FromMimeData(self: ?*anyopaque, source: ?*anyopaque, rectangular: *bool, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QsciScintilla_FromMimeData(@ptrCast(self), @ptrCast(source), @ptrCast(rectangular));
+    /// ` source: QMimeData `
+    ///
+    /// ` rectangular: *bool `
+    ///
+    pub fn FromMimeData(self: QsciScintilla, allocator: std.mem.Allocator, source: anytype, rectangular: *bool) []u8 {
+        comptime _ = @TypeOf(source)._is_QMimeData;
+        var _bytearray: qtc.libqt_string = qtc.QsciScintilla_FromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr), @ptrCast(rectangular));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsciscintilla.FromMimeData: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -13096,16 +13393,17 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
-    ///
-    /// ` source: QtC.QMimeData `
-    ///
-    /// ` rectangular: *bool `
+    /// ` self: QsciScintilla `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperFromMimeData(self: ?*anyopaque, source: ?*anyopaque, rectangular: *bool, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QsciScintilla_SuperFromMimeData(@ptrCast(self), @ptrCast(source), @ptrCast(rectangular));
+    /// ` source: QMimeData `
+    ///
+    /// ` rectangular: *bool `
+    ///
+    pub fn SuperFromMimeData(self: QsciScintilla, allocator: std.mem.Allocator, source: anytype, rectangular: *bool) []u8 {
+        comptime _ = @TypeOf(source)._is_QMimeData;
+        var _bytearray: qtc.libqt_string = qtc.QsciScintilla_SuperFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr), @ptrCast(rectangular));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsciscintilla.FromMimeData: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -13120,12 +13418,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, source: QtC.QMimeData, rectangular: *bool) callconv(.c) qtc.libqt_string `
+    /// ` callback: *const fn (self: QsciScintilla, source: QMimeData, rectangular: *bool) callconv(.c) qtc.libqt_string `
     ///
-    pub fn OnFromMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, *bool) callconv(.c) qtc.libqt_string) void {
-        qtc.QsciScintilla_OnFromMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFromMimeData(self: QsciScintilla, callback: *const fn (QsciScintilla, QMimeData, *bool) callconv(.c) qtc.libqt_string) void {
+        qtc.QsciScintilla_OnFromMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13136,18 +13434,18 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` text: []u8 `
     ///
     /// ` rectangular: bool `
     ///
-    pub fn ToMimeData(self: ?*anyopaque, text: []u8, rectangular: bool) QtC.QMimeData {
+    pub fn ToMimeData(self: QsciScintilla, text: []u8, rectangular: bool) QMimeData {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QsciScintilla_ToMimeData(@ptrCast(self), text_str, rectangular);
+        return .{ .ptr = qtc.QsciScintilla_ToMimeData(@ptrCast(self.ptr), text_str, rectangular) };
     }
 
     /// ### DEPRECATED: Use `SuperToMimeData` instead
@@ -13162,18 +13460,18 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` text: []u8 `
     ///
     /// ` rectangular: bool `
     ///
-    pub fn SuperToMimeData(self: ?*anyopaque, text: []u8, rectangular: bool) QtC.QMimeData {
+    pub fn SuperToMimeData(self: QsciScintilla, text: []u8, rectangular: bool) QMimeData {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QsciScintilla_SuperToMimeData(@ptrCast(self), text_str, rectangular);
+        return .{ .ptr = qtc.QsciScintilla_SuperToMimeData(@ptrCast(self.ptr), text_str, rectangular) };
     }
 
     /// Inherited from QsciScintillaBase
@@ -13184,12 +13482,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, text: qtc.libqt_string, rectangular: bool) callconv(.c) QtC.QMimeData `
+    /// ` callback: *const fn (self: QsciScintilla, text: qtc.libqt_string, rectangular: bool) callconv(.c) QMimeData `
     ///
-    pub fn OnToMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, bool) callconv(.c) QtC.QMimeData) void {
-        qtc.QsciScintilla_OnToMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnToMimeData(self: QsciScintilla, callback: *const fn (QsciScintilla, qtc.libqt_string, bool) callconv(.c) QMimeData) void {
+        qtc.QsciScintilla_OnToMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13200,12 +13498,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QDragEnterEvent `
+    /// ` e: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_DragEnterEvent(@ptrCast(self), @ptrCast(e));
+    pub fn DragEnterEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QDragEnterEvent;
+        qtc.QsciScintilla_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
@@ -13220,12 +13519,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QDragEnterEvent `
+    /// ` e: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperDragEnterEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDragEnterEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QDragEnterEvent;
+        qtc.QsciScintilla_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13236,12 +13536,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, e: QtC.QDragEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, e: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragEnterEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QDragEnterEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13252,12 +13552,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QDragLeaveEvent `
+    /// ` e: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_DragLeaveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn DragLeaveEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QDragLeaveEvent;
+        qtc.QsciScintilla_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
@@ -13272,12 +13573,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QDragLeaveEvent `
+    /// ` e: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDragLeaveEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QDragLeaveEvent;
+        qtc.QsciScintilla_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13288,12 +13590,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, e: QtC.QDragLeaveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, e: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragLeaveEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QDragLeaveEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13304,12 +13606,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QDragMoveEvent `
+    /// ` e: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_DragMoveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn DragMoveEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QDragMoveEvent;
+        qtc.QsciScintilla_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
@@ -13324,12 +13627,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QDragMoveEvent `
+    /// ` e: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperDragMoveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDragMoveEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QDragMoveEvent;
+        qtc.QsciScintilla_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13340,12 +13644,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, e: QtC.QDragMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, e: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragMoveEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QDragMoveEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13356,12 +13660,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QDropEvent `
+    /// ` e: QDropEvent `
     ///
-    pub fn DropEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_DropEvent(@ptrCast(self), @ptrCast(e));
+    pub fn DropEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QDropEvent;
+        qtc.QsciScintilla_DropEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropEvent` instead
@@ -13376,12 +13681,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QDropEvent `
+    /// ` e: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperDropEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDropEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QDropEvent;
+        qtc.QsciScintilla_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13392,12 +13698,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, e: QtC.QDropEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, e: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QDropEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13408,12 +13714,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QFocusEvent `
+    /// ` e: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_FocusInEvent(@ptrCast(self), @ptrCast(e));
+    pub fn FocusInEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QFocusEvent;
+        qtc.QsciScintilla_FocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusInEvent` instead
@@ -13428,12 +13735,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QFocusEvent `
+    /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperFocusInEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperFocusInEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QFocusEvent;
+        qtc.QsciScintilla_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13444,12 +13752,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, e: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusInEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QFocusEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13460,12 +13768,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QFocusEvent `
+    /// ` e: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_FocusOutEvent(@ptrCast(self), @ptrCast(e));
+    pub fn FocusOutEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QFocusEvent;
+        qtc.QsciScintilla_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
@@ -13480,12 +13789,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QFocusEvent `
+    /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperFocusOutEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperFocusOutEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QFocusEvent;
+        qtc.QsciScintilla_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13496,12 +13806,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, e: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusOutEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QFocusEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13512,12 +13822,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QsciScintilla_FocusNextPrevChild(@ptrCast(self), next);
+    pub fn FocusNextPrevChild(self: QsciScintilla, next: bool) bool {
+        return qtc.QsciScintilla_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
@@ -13532,12 +13842,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QsciScintilla_SuperFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: QsciScintilla, next: bool) bool {
+        return qtc.QsciScintilla_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// Inherited from QsciScintillaBase
@@ -13548,12 +13858,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, next: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciScintilla, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QsciScintilla_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextPrevChild(self: QsciScintilla, callback: *const fn (QsciScintilla, bool) callconv(.c) bool) void {
+        qtc.QsciScintilla_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13564,12 +13874,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QKeyEvent `
+    /// ` e: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_KeyPressEvent(@ptrCast(self), @ptrCast(e));
+    pub fn KeyPressEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QKeyEvent;
+        qtc.QsciScintilla_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
@@ -13584,12 +13895,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QKeyEvent `
+    /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperKeyPressEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperKeyPressEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QKeyEvent;
+        qtc.QsciScintilla_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13600,12 +13912,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, e: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyPressEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QKeyEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13616,12 +13928,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QInputMethodEvent `
+    /// ` event: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_InputMethodEvent(@ptrCast(self), @ptrCast(event));
+    pub fn InputMethodEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
+        qtc.QsciScintilla_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
@@ -13636,12 +13949,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QInputMethodEvent `
+    /// ` event: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperInputMethodEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperInputMethodEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
+        qtc.QsciScintilla_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13652,12 +13966,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, event: QtC.QInputMethodEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, event: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QInputMethodEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13668,12 +13982,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QsciScintilla_InputMethodQuery(@ptrCast(self), @bitCast(query));
+    pub fn InputMethodQuery(self: QsciScintilla, query: i32) QVariant {
+        return .{ .ptr = qtc.QsciScintilla_InputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
@@ -13688,12 +14002,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: ?*anyopaque, query: i32) QtC.QVariant {
-        return qtc.QsciScintilla_SuperInputMethodQuery(@ptrCast(self), @bitCast(query));
+    pub fn SuperInputMethodQuery(self: QsciScintilla, query: i32) QVariant {
+        return .{ .ptr = qtc.QsciScintilla_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
 
     /// Inherited from QsciScintillaBase
@@ -13704,12 +14018,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QsciScintilla, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QsciScintilla_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodQuery(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) QVariant) void {
+        qtc.QsciScintilla_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13720,12 +14034,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QMouseEvent `
+    /// ` e: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(e));
+    pub fn MouseDoubleClickEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QMouseEvent;
+        qtc.QsciScintilla_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
@@ -13740,12 +14055,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QMouseEvent `
+    /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperMouseDoubleClickEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QMouseEvent;
+        qtc.QsciScintilla_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13756,12 +14072,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, e: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseDoubleClickEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QMouseEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13772,12 +14088,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QMouseEvent `
+    /// ` e: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_MouseMoveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn MouseMoveEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QMouseEvent;
+        qtc.QsciScintilla_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
@@ -13792,12 +14109,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QMouseEvent `
+    /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperMouseMoveEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QMouseEvent;
+        qtc.QsciScintilla_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13808,12 +14126,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, e: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseMoveEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QMouseEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13824,12 +14142,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QMouseEvent `
+    /// ` e: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_MousePressEvent(@ptrCast(self), @ptrCast(e));
+    pub fn MousePressEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QMouseEvent;
+        qtc.QsciScintilla_MousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMousePressEvent` instead
@@ -13844,12 +14163,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QMouseEvent `
+    /// ` e: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperMousePressEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperMousePressEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QMouseEvent;
+        qtc.QsciScintilla_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13860,12 +14180,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, e: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMousePressEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QMouseEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13876,12 +14196,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QMouseEvent `
+    /// ` e: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_MouseReleaseEvent(@ptrCast(self), @ptrCast(e));
+    pub fn MouseReleaseEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QMouseEvent;
+        qtc.QsciScintilla_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
@@ -13896,12 +14217,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QMouseEvent `
+    /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperMouseReleaseEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QMouseEvent;
+        qtc.QsciScintilla_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13912,12 +14234,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, e: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseReleaseEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QMouseEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13928,12 +14250,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QPaintEvent `
+    /// ` e: QPaintEvent `
     ///
-    pub fn PaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_PaintEvent(@ptrCast(self), @ptrCast(e));
+    pub fn PaintEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QPaintEvent;
+        qtc.QsciScintilla_PaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperPaintEvent` instead
@@ -13948,12 +14271,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QPaintEvent `
+    /// ` e: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperPaintEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperPaintEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QPaintEvent;
+        qtc.QsciScintilla_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13964,12 +14288,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, e: QtC.QPaintEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, e: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QPaintEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -13980,12 +14304,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QResizeEvent `
+    /// ` e: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_ResizeEvent(@ptrCast(self), @ptrCast(e));
+    pub fn ResizeEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QResizeEvent;
+        qtc.QsciScintilla_ResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResizeEvent` instead
@@ -14000,12 +14325,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` e: QtC.QResizeEvent `
+    /// ` e: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperResizeEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperResizeEvent(self: QsciScintilla, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QResizeEvent;
+        qtc.QsciScintilla_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -14016,12 +14342,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, e: QtC.QResizeEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, e: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResizeEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QResizeEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -14032,14 +14358,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn ScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QsciScintilla_ScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn ScrollContentsBy(self: QsciScintilla, dx: i32, dy: i32) void {
+        qtc.QsciScintilla_ScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### DEPRECATED: Use `SuperScrollContentsBy` instead
@@ -14054,14 +14380,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn SuperScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QsciScintilla_SuperScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn SuperScrollContentsBy(self: QsciScintilla, dx: i32, dy: i32) void {
+        qtc.QsciScintilla_SuperScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QsciScintillaBase
@@ -14072,12 +14398,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, dx: i32, dy: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, dx: i32, dy: i32) callconv(.c) void `
     ///
-    pub fn OnScrollContentsBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnScrollContentsBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnScrollContentsBy(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnScrollContentsBy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -14088,10 +14414,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QsciScintilla_MinimumSizeHint(@ptrCast(self));
+    pub fn MinimumSizeHint(self: QsciScintilla) QSize {
+        return .{ .ptr = qtc.QsciScintilla_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
@@ -14106,10 +14432,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QsciScintilla_SuperMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: QsciScintilla) QSize {
+        return .{ .ptr = qtc.QsciScintilla_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -14120,12 +14446,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QsciScintilla_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumSizeHint(self: QsciScintilla, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QsciScintilla_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -14136,10 +14462,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QsciScintilla_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: QsciScintilla) QSize {
+        return .{ .ptr = qtc.QsciScintilla_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSizeHint` instead
@@ -14154,10 +14480,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QsciScintilla_SuperSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: QsciScintilla) QSize {
+        return .{ .ptr = qtc.QsciScintilla_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -14168,12 +14494,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QsciScintilla_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHint(self: QsciScintilla, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QsciScintilla_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -14184,12 +14510,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` viewport: QtC.QWidget `
+    /// ` viewport: QWidget `
     ///
-    pub fn SetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
-        qtc.QsciScintilla_SetupViewport(@ptrCast(self), @ptrCast(viewport));
+    pub fn SetupViewport(self: QsciScintilla, viewport: anytype) void {
+        comptime _ = @TypeOf(viewport)._is_QWidget;
+        qtc.QsciScintilla_SetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSetupViewport` instead
@@ -14204,12 +14531,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` viewport: QtC.QWidget `
+    /// ` viewport: QWidget `
     ///
-    pub fn SuperSetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperSetupViewport(@ptrCast(self), @ptrCast(viewport));
+    pub fn SuperSetupViewport(self: QsciScintilla, viewport: anytype) void {
+        comptime _ = @TypeOf(viewport)._is_QWidget;
+        qtc.QsciScintilla_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -14220,12 +14548,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, viewport: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, viewport: QWidget) callconv(.c) void `
     ///
-    pub fn OnSetupViewport(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetupViewport(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetupViewport(self: QsciScintilla, callback: *const fn (QsciScintilla, QWidget) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetupViewport(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -14236,14 +14564,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    /// ` param2: QtC.QEvent `
+    /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.QsciScintilla_EventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn EventFilter(self: QsciScintilla, param1: anytype, param2: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        comptime _ = @TypeOf(param2)._is_QEvent;
+        return qtc.QsciScintilla_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -14258,14 +14588,16 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    /// ` param2: QtC.QEvent `
+    /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.QsciScintilla_SuperEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn SuperEventFilter(self: QsciScintilla, param1: anytype, param2: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        comptime _ = @TypeOf(param2)._is_QEvent;
+        return qtc.QsciScintilla_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -14276,12 +14608,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, param1: QtC.QObject, param2: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciScintilla, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QsciScintilla_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QsciScintilla, callback: *const fn (QsciScintilla, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QsciScintilla_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -14292,12 +14624,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn ViewportEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QsciScintilla_ViewportEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ViewportEvent(self: QsciScintilla, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        return qtc.QsciScintilla_ViewportEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperViewportEvent` instead
@@ -14312,12 +14645,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn SuperViewportEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QsciScintilla_SuperViewportEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperViewportEvent(self: QsciScintilla, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        return qtc.QsciScintilla_SuperViewportEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -14328,12 +14662,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, param1: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciScintilla, param1: QEvent) callconv(.c) bool `
     ///
-    pub fn OnViewportEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QsciScintilla_OnViewportEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnViewportEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QEvent) callconv(.c) bool) void {
+        qtc.QsciScintilla_OnViewportEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -14344,10 +14678,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ViewportSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QsciScintilla_ViewportSizeHint(@ptrCast(self));
+    pub fn ViewportSizeHint(self: QsciScintilla) QSize {
+        return .{ .ptr = qtc.QsciScintilla_ViewportSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperViewportSizeHint` instead
@@ -14362,10 +14696,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperViewportSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QsciScintilla_SuperViewportSizeHint(@ptrCast(self));
+    pub fn SuperViewportSizeHint(self: QsciScintilla) QSize {
+        return .{ .ptr = qtc.QsciScintilla_SuperViewportSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -14376,12 +14710,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnViewportSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QsciScintilla_OnViewportSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnViewportSizeHint(self: QsciScintilla, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QsciScintilla_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -14392,12 +14726,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` option: QtC.QStyleOptionFrame `
+    /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QsciScintilla_InitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn InitStyleOption(self: QsciScintilla, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
+        qtc.QsciScintilla_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitStyleOption` instead
@@ -14412,12 +14747,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` option: QtC.QStyleOptionFrame `
+    /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperInitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitStyleOption(self: QsciScintilla, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
+        qtc.QsciScintilla_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// Inherited from QFrame
@@ -14428,12 +14764,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, option: QtC.QStyleOptionFrame) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnInitStyleOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitStyleOption(self: QsciScintilla, callback: *const fn (QsciScintilla, QStyleOptionFrame) callconv(.c) void) void {
+        qtc.QsciScintilla_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14444,10 +14780,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_DevType(@ptrCast(self));
+    pub fn DevType(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_DevType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDevType` instead
@@ -14462,10 +14798,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperDevType(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_SuperDevType(@ptrCast(self));
+    pub fn SuperDevType(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_SuperDevType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -14476,12 +14812,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QsciScintilla_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDevType(self: QsciScintilla, callback: *const fn () callconv(.c) i32) void {
+        qtc.QsciScintilla_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14492,12 +14828,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QsciScintilla_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: QsciScintilla, visible: bool) void {
+        qtc.QsciScintilla_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### DEPRECATED: Use `SuperSetVisible` instead
@@ -14512,12 +14848,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QsciScintilla_SuperSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: QsciScintilla, visible: bool) void {
+        qtc.QsciScintilla_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QWidget
@@ -14528,12 +14864,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetVisible(self: QsciScintilla, callback: *const fn (QsciScintilla, bool) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14544,12 +14880,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QsciScintilla_HeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn HeightForWidth(self: QsciScintilla, param1: i32) i32 {
+        return qtc.QsciScintilla_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperHeightForWidth` instead
@@ -14564,12 +14900,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QsciScintilla_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: QsciScintilla, param1: i32) i32 {
+        return qtc.QsciScintilla_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -14580,12 +14916,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, param1: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QsciScintilla, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QsciScintilla_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeightForWidth(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) i32) void {
+        qtc.QsciScintilla_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14596,10 +14932,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_HasHeightForWidth(@ptrCast(self));
+    pub fn HasHeightForWidth(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
@@ -14614,10 +14950,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_SuperHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -14628,12 +14964,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QsciScintilla_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasHeightForWidth(self: QsciScintilla, callback: *const fn () callconv(.c) bool) void {
+        qtc.QsciScintilla_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14644,10 +14980,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QsciScintilla_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: QsciScintilla) QPaintEngine {
+        return .{ .ptr = qtc.QsciScintilla_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperPaintEngine` instead
@@ -14662,10 +14998,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QsciScintilla_SuperPaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: QsciScintilla) QPaintEngine {
+        return .{ .ptr = qtc.QsciScintilla_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -14676,12 +15012,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QsciScintilla_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEngine(self: QsciScintilla, callback: *const fn () callconv(.c) QPaintEngine) void {
+        qtc.QsciScintilla_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14692,12 +15028,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyReleaseEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QsciScintilla_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
@@ -14712,12 +15049,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QsciScintilla_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -14728,12 +15066,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyReleaseEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QKeyEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14744,12 +15082,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_EnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn EnterEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QsciScintilla_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEnterEvent` instead
@@ -14764,12 +15103,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QsciScintilla_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -14780,12 +15120,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, event: QtC.QEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnterEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QEnterEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14796,12 +15136,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_LeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn LeaveEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QsciScintilla_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLeaveEvent` instead
@@ -14816,12 +15157,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QsciScintilla_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -14832,12 +15174,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeaveEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14848,12 +15190,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_MoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MoveEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QsciScintilla_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMoveEvent` instead
@@ -14868,12 +15211,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QsciScintilla_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -14884,12 +15228,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, event: QtC.QMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QMoveEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14900,12 +15244,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_CloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CloseEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QsciScintilla_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEvent` instead
@@ -14920,12 +15265,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QsciScintilla_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -14936,12 +15282,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, event: QtC.QCloseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QCloseEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14952,12 +15298,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_TabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TabletEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QsciScintilla_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTabletEvent` instead
@@ -14972,12 +15319,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QsciScintilla_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -14988,12 +15336,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, event: QtC.QTabletEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabletEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QTabletEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15004,12 +15352,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_ActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ActionEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QsciScintilla_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperActionEvent` instead
@@ -15024,12 +15373,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QsciScintilla_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15040,12 +15390,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, event: QtC.QActionEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QActionEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15056,12 +15406,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_ShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ShowEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.QsciScintilla_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperShowEvent` instead
@@ -15076,12 +15427,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.QsciScintilla_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15092,12 +15444,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, event: QtC.QShowEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShowEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QShowEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15108,12 +15460,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_HideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn HideEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QsciScintilla_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHideEvent` instead
@@ -15128,12 +15481,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QsciScintilla_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15144,12 +15498,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, event: QtC.QHideEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHideEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QHideEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15160,7 +15514,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` eventType: []u8 `
     ///
@@ -15168,12 +15522,12 @@ pub const qsciscintilla = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn NativeEvent(self: QsciScintilla, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QsciScintilla_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QsciScintilla_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### DEPRECATED: Use `SuperNativeEvent` instead
@@ -15188,7 +15542,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` eventType: []u8 `
     ///
@@ -15196,12 +15550,12 @@ pub const qsciscintilla = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: QsciScintilla, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QsciScintilla_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QsciScintilla_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -15212,12 +15566,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciScintilla, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QsciScintilla_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNativeEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.QsciScintilla_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15228,12 +15582,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QsciScintilla_Metric(@ptrCast(self), @bitCast(param1));
+    pub fn Metric(self: QsciScintilla, param1: i32) i32 {
+        return qtc.QsciScintilla_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperMetric` instead
@@ -15248,12 +15602,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QsciScintilla_SuperMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: QsciScintilla, param1: i32) i32 {
+        return qtc.QsciScintilla_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -15264,12 +15618,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QsciScintilla, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QsciScintilla_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetric(self: QsciScintilla, callback: *const fn (QsciScintilla, i32) callconv(.c) i32) void {
+        qtc.QsciScintilla_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15280,12 +15634,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QsciScintilla_InitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn InitPainter(self: QsciScintilla, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QsciScintilla_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitPainter` instead
@@ -15300,12 +15655,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: QsciScintilla, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QsciScintilla_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -15316,12 +15672,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, painter: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitPainter(self: QsciScintilla, callback: *const fn (QsciScintilla, QPainter) callconv(.c) void) void {
+        qtc.QsciScintilla_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15332,12 +15688,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QsciScintilla_Redirected(@ptrCast(self), @ptrCast(offset));
+    pub fn Redirected(self: QsciScintilla, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QsciScintilla_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperRedirected` instead
@@ -15352,12 +15709,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QsciScintilla_SuperRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: QsciScintilla, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QsciScintilla_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -15368,12 +15726,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    /// ` callback: *const fn (self: QsciScintilla, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QsciScintilla_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: QsciScintilla, callback: *const fn (QsciScintilla, QPoint) callconv(.c) QPaintDevice) void {
+        qtc.QsciScintilla_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15384,10 +15742,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QsciScintilla_SharedPainter(@ptrCast(self));
+    pub fn SharedPainter(self: QsciScintilla) QPainter {
+        return .{ .ptr = qtc.QsciScintilla_SharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSharedPainter` instead
@@ -15402,10 +15760,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QsciScintilla_SuperSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: QsciScintilla) QPainter {
+        return .{ .ptr = qtc.QsciScintilla_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -15416,12 +15774,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QsciScintilla_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSharedPainter(self: QsciScintilla, callback: *const fn () callconv(.c) QPainter) void {
+        qtc.QsciScintilla_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -15432,12 +15790,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QsciScintilla_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -15452,12 +15811,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QsciScintilla_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -15468,12 +15828,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QTimerEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -15484,12 +15844,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QsciScintilla_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -15504,12 +15865,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QsciScintilla_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -15520,12 +15882,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QChildEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -15536,12 +15898,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QsciScintilla_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -15556,12 +15919,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QsciScintilla, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QsciScintilla_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -15572,12 +15936,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QsciScintilla, callback: *const fn (QsciScintilla, QEvent) callconv(.c) void) void {
+        qtc.QsciScintilla_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -15588,12 +15952,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QsciScintilla_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QsciScintilla, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QsciScintilla_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -15608,12 +15973,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QsciScintilla, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QsciScintilla_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -15624,12 +15990,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QsciScintilla, callback: *const fn (QsciScintilla, QMetaMethod) callconv(.c) void) void {
+        qtc.QsciScintilla_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -15640,12 +16006,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QsciScintilla_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QsciScintilla, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QsciScintilla_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -15660,12 +16027,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QsciScintilla, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QsciScintilla_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -15676,12 +16044,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QsciScintilla, callback: *const fn (QsciScintilla, QMetaMethod) callconv(.c) void) void {
+        qtc.QsciScintilla_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -15692,10 +16060,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SetScrollBars(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SetScrollBars(@ptrCast(self));
+    pub fn SetScrollBars(self: QsciScintilla) void {
+        qtc.QsciScintilla_SetScrollBars(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSetScrollBars` instead
@@ -15710,10 +16078,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperSetScrollBars(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperSetScrollBars(@ptrCast(self));
+    pub fn SuperSetScrollBars(self: QsciScintilla) void {
+        qtc.QsciScintilla_SuperSetScrollBars(@ptrCast(self.ptr));
     }
 
     /// Inherited from QsciScintillaBase
@@ -15724,12 +16092,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSetScrollBars(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetScrollBars(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetScrollBars(self: QsciScintilla, callback: *const fn () callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetScrollBars(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciScintillaBase
@@ -15740,14 +16108,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ContextMenuNeeded(self: ?*anyopaque, x: i32, y: i32) bool {
-        return qtc.QsciScintilla_ContextMenuNeeded(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ContextMenuNeeded(self: QsciScintilla, x: i32, y: i32) bool {
+        return qtc.QsciScintilla_ContextMenuNeeded(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenuNeeded` instead
@@ -15762,14 +16130,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn SuperContextMenuNeeded(self: ?*anyopaque, x: i32, y: i32) bool {
-        return qtc.QsciScintilla_SuperContextMenuNeeded(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn SuperContextMenuNeeded(self: QsciScintilla, x: i32, y: i32) bool {
+        return qtc.QsciScintilla_SuperContextMenuNeeded(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QsciScintillaBase
@@ -15780,12 +16148,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, x: i32, y: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciScintilla, x: i32, y: i32) callconv(.c) bool `
     ///
-    pub fn OnContextMenuNeeded(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) bool) void {
-        qtc.QsciScintilla_OnContextMenuNeeded(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuNeeded(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32) callconv(.c) bool) void {
+        qtc.QsciScintilla_OnContextMenuNeeded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -15796,7 +16164,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` left: i32 `
     ///
@@ -15806,8 +16174,8 @@ pub const qsciscintilla = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QsciScintilla_SetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetViewportMargins(self: QsciScintilla, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QsciScintilla_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// ### DEPRECATED: Use `SuperSetViewportMargins` instead
@@ -15822,7 +16190,7 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` left: i32 `
     ///
@@ -15832,8 +16200,8 @@ pub const qsciscintilla = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SuperSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QsciScintilla_SuperSetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SuperSetViewportMargins(self: QsciScintilla, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QsciScintilla_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -15844,12 +16212,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
     ///
-    pub fn OnSetViewportMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.QsciScintilla_OnSetViewportMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetViewportMargins(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32, i32, i32) callconv(.c) void) void {
+        qtc.QsciScintilla_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -15860,10 +16228,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn ViewportMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QsciScintilla_ViewportMargins(@ptrCast(self));
+    pub fn ViewportMargins(self: QsciScintilla) QMargins {
+        return .{ .ptr = qtc.QsciScintilla_ViewportMargins(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperViewportMargins` instead
@@ -15878,10 +16246,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperViewportMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QsciScintilla_SuperViewportMargins(@ptrCast(self));
+    pub fn SuperViewportMargins(self: QsciScintilla) QMargins {
+        return .{ .ptr = qtc.QsciScintilla_SuperViewportMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -15892,12 +16260,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMargins `
+    /// ` callback: *const fn () callconv(.c) QMargins `
     ///
-    pub fn OnViewportMargins(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMargins) void {
-        qtc.QsciScintilla_OnViewportMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnViewportMargins(self: QsciScintilla, callback: *const fn () callconv(.c) QMargins) void {
+        qtc.QsciScintilla_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -15908,12 +16276,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QPainter `
+    /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QsciScintilla_DrawFrame(@ptrCast(self), @ptrCast(param1));
+    pub fn DrawFrame(self: QsciScintilla, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPainter;
+        qtc.QsciScintilla_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDrawFrame` instead
@@ -15928,12 +16297,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` param1: QtC.QPainter `
+    /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperDrawFrame(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDrawFrame(self: QsciScintilla, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPainter;
+        qtc.QsciScintilla_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QFrame
@@ -15944,12 +16314,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, param1: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciScintilla_OnDrawFrame(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDrawFrame(self: QsciScintilla, callback: *const fn (QsciScintilla, QPainter) callconv(.c) void) void {
+        qtc.QsciScintilla_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15960,10 +16330,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QsciScintilla_UpdateMicroFocus(@ptrCast(self));
+    pub fn UpdateMicroFocus(self: QsciScintilla) void {
+        qtc.QsciScintilla_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
@@ -15978,10 +16348,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: QsciScintilla) void {
+        qtc.QsciScintilla_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -15992,12 +16362,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintilla_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateMicroFocus(self: QsciScintilla, callback: *const fn () callconv(.c) void) void {
+        qtc.QsciScintilla_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16008,10 +16378,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Create(self: ?*anyopaque) void {
-        qtc.QsciScintilla_Create(@ptrCast(self));
+    pub fn Create(self: QsciScintilla) void {
+        qtc.QsciScintilla_Create(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -16026,10 +16396,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperCreate(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperCreate(@ptrCast(self));
+    pub fn SuperCreate(self: QsciScintilla) void {
+        qtc.QsciScintilla_SuperCreate(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -16040,12 +16410,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintilla_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: QsciScintilla, callback: *const fn () callconv(.c) void) void {
+        qtc.QsciScintilla_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16056,10 +16426,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Destroy(self: ?*anyopaque) void {
-        qtc.QsciScintilla_Destroy(@ptrCast(self));
+    pub fn Destroy(self: QsciScintilla) void {
+        qtc.QsciScintilla_Destroy(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDestroy` instead
@@ -16074,10 +16444,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperDestroy(self: ?*anyopaque) void {
-        qtc.QsciScintilla_SuperDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: QsciScintilla) void {
+        qtc.QsciScintilla_SuperDestroy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -16088,12 +16458,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QsciScintilla_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroy(self: QsciScintilla, callback: *const fn () callconv(.c) void) void {
+        qtc.QsciScintilla_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16104,10 +16474,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_FocusNextChild(@ptrCast(self));
+    pub fn FocusNextChild(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_FocusNextChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextChild` instead
@@ -16122,10 +16492,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_SuperFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -16136,12 +16506,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QsciScintilla_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextChild(self: QsciScintilla, callback: *const fn () callconv(.c) bool) void {
+        qtc.QsciScintilla_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16152,10 +16522,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_FocusPreviousChild(@ptrCast(self));
+    pub fn FocusPreviousChild(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
@@ -16170,10 +16540,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QsciScintilla_SuperFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: QsciScintilla) bool {
+        return qtc.QsciScintilla_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -16184,12 +16554,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QsciScintilla_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusPreviousChild(self: QsciScintilla, callback: *const fn () callconv(.c) bool) void {
+        qtc.QsciScintilla_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -16200,10 +16570,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QsciScintilla_Sender(@ptrCast(self));
+    pub fn Sender(self: QsciScintilla) QObject {
+        return .{ .ptr = qtc.QsciScintilla_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -16218,10 +16588,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QsciScintilla_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QsciScintilla) QObject {
+        return .{ .ptr = qtc.QsciScintilla_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -16232,12 +16602,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QsciScintilla_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QsciScintilla, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QsciScintilla_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -16248,10 +16618,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -16266,10 +16636,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QsciScintilla_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QsciScintilla) i32 {
+        return qtc.QsciScintilla_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -16280,12 +16650,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QsciScintilla_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QsciScintilla, callback: *const fn () callconv(.c) i32) void {
+        qtc.QsciScintilla_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -16296,13 +16666,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QsciScintilla, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QsciScintilla_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QsciScintilla_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -16317,13 +16687,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QsciScintilla, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QsciScintilla_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QsciScintilla_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -16334,12 +16704,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QsciScintilla, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QsciScintilla_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QsciScintilla_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -16350,12 +16720,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QsciScintilla_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QsciScintilla, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QsciScintilla_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -16370,12 +16741,13 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QsciScintilla_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QsciScintilla, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QsciScintilla_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -16386,12 +16758,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QsciScintilla, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QsciScintilla_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QsciScintilla, callback: *const fn (QsciScintilla, QMetaMethod) callconv(.c) bool) void {
+        qtc.QsciScintilla_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -16402,14 +16774,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QsciScintilla_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn GetDecodedMetricF(self: QsciScintilla, metricA: i32, metricB: i32) f64 {
+        return qtc.QsciScintilla_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
@@ -16424,14 +16796,14 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QsciScintilla_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: QsciScintilla, metricA: i32, metricB: i32) f64 {
+        return qtc.QsciScintilla_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -16442,12 +16814,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla`
+    /// ` self: QsciScintilla`
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    /// ` callback: *const fn (self: QsciScintilla, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QsciScintilla_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetDecodedMetricF(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, i32) callconv(.c) f64) void {
+        qtc.QsciScintilla_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -16458,12 +16830,12 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QtC.QsciScintilla, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -16476,10 +16848,10 @@ pub const qsciscintilla = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QsciScintilla `
+    /// ` self: QsciScintilla `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QsciScintilla_Delete(@ptrCast(self));
+    pub fn Delete(self: QsciScintilla) void {
+        qtc.QsciScintilla_Delete(@ptrCast(self.ptr));
     }
 };
 

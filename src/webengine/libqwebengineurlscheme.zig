@@ -4,11 +4,19 @@ const qwebengineurlscheme_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html)
-pub const qwebengineurlscheme = struct {
+pub const QWebEngineUrlScheme = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QWebEngineUrlScheme,
+
+    pub const _is_QWebEngineUrlScheme = {};
+
     /// New constructs a new QWebEngineUrlScheme object.
     ///
-    pub fn New() QtC.QWebEngineUrlScheme {
-        return qtc.QWebEngineUrlScheme_new();
+    pub fn New() QWebEngineUrlScheme {
+        return .{ .ptr = qtc.QWebEngineUrlScheme_new() };
     }
 
     /// New2 constructs a new QWebEngineUrlScheme object.
@@ -17,71 +25,74 @@ pub const qwebengineurlscheme = struct {
     ///
     /// ` name: []u8 `
     ///
-    pub fn New2(name: []u8) QtC.QWebEngineUrlScheme {
+    pub fn New2(name: []u8) QWebEngineUrlScheme {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-
-        return qtc.QWebEngineUrlScheme_new2(name_str);
+        return .{ .ptr = qtc.QWebEngineUrlScheme_new2(name_str) };
     }
 
     /// New3 constructs a new QWebEngineUrlScheme object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` that: QtC.QWebEngineUrlScheme `
+    /// ` that: QWebEngineUrlScheme `
     ///
-    pub fn New3(that: ?*anyopaque) QtC.QWebEngineUrlScheme {
-        return qtc.QWebEngineUrlScheme_new3(@ptrCast(that));
+    pub fn New3(that: anytype) QWebEngineUrlScheme {
+        comptime _ = @TypeOf(that)._is_QWebEngineUrlScheme;
+        return .{ .ptr = qtc.QWebEngineUrlScheme_new3(@ptrCast(that.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineUrlScheme `
+    /// ` self: QWebEngineUrlScheme `
     ///
-    /// ` that: QtC.QWebEngineUrlScheme `
+    /// ` that: QWebEngineUrlScheme `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, that: ?*anyopaque) void {
-        qtc.QWebEngineUrlScheme_OperatorAssign(@ptrCast(self), @ptrCast(that));
+    pub fn OperatorAssign(self: QWebEngineUrlScheme, that: anytype) void {
+        comptime _ = @TypeOf(that)._is_QWebEngineUrlScheme;
+        qtc.QWebEngineUrlScheme_OperatorAssign(@ptrCast(self.ptr), @ptrCast(that.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#operator-eq-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineUrlScheme `
+    /// ` self: QWebEngineUrlScheme `
     ///
-    /// ` that: QtC.QWebEngineUrlScheme `
+    /// ` that: QWebEngineUrlScheme `
     ///
-    pub fn OperatorEqual(self: ?*anyopaque, that: ?*anyopaque) bool {
-        return qtc.QWebEngineUrlScheme_OperatorEqual(@ptrCast(self), @ptrCast(that));
+    pub fn OperatorEqual(self: QWebEngineUrlScheme, that: anytype) bool {
+        comptime _ = @TypeOf(that)._is_QWebEngineUrlScheme;
+        return qtc.QWebEngineUrlScheme_OperatorEqual(@ptrCast(self.ptr), @ptrCast(that.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#operator-not-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineUrlScheme `
+    /// ` self: QWebEngineUrlScheme `
     ///
-    /// ` that: QtC.QWebEngineUrlScheme `
+    /// ` that: QWebEngineUrlScheme `
     ///
-    pub fn OperatorNotEqual(self: ?*anyopaque, that: ?*anyopaque) bool {
-        return qtc.QWebEngineUrlScheme_OperatorNotEqual(@ptrCast(self), @ptrCast(that));
+    pub fn OperatorNotEqual(self: QWebEngineUrlScheme, that: anytype) bool {
+        comptime _ = @TypeOf(that)._is_QWebEngineUrlScheme;
+        return qtc.QWebEngineUrlScheme_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(that.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#name)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineUrlScheme `
+    /// ` self: QWebEngineUrlScheme `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWebEngineUrlScheme_Name(@ptrCast(self));
+    pub fn Name(self: QWebEngineUrlScheme, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWebEngineUrlScheme_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qwebengineurlscheme.Name: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -92,100 +103,101 @@ pub const qwebengineurlscheme = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineUrlScheme `
+    /// ` self: QWebEngineUrlScheme `
     ///
     /// ` newValue: []u8 `
     ///
-    pub fn SetName(self: ?*anyopaque, newValue: []u8) void {
+    pub fn SetName(self: QWebEngineUrlScheme, newValue: []u8) void {
         const newValue_str = qtc.libqt_string{
             .len = newValue.len,
             .data = newValue.ptr,
         };
-        qtc.QWebEngineUrlScheme_SetName(@ptrCast(self), newValue_str);
+        qtc.QWebEngineUrlScheme_SetName(@ptrCast(self.ptr), newValue_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#syntax)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineUrlScheme `
+    /// ` self: QWebEngineUrlScheme `
     ///
     /// ## Returns:
     ///
     /// ` qwebengineurlscheme_enums.Syntax `
     ///
-    pub fn Syntax(self: ?*anyopaque) i32 {
-        return qtc.QWebEngineUrlScheme_Syntax(@ptrCast(self));
+    pub fn Syntax(self: QWebEngineUrlScheme) i32 {
+        return qtc.QWebEngineUrlScheme_Syntax(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#setSyntax)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineUrlScheme `
+    /// ` self: QWebEngineUrlScheme `
     ///
     /// ` newValue: qwebengineurlscheme_enums.Syntax `
     ///
-    pub fn SetSyntax(self: ?*anyopaque, newValue: i32) void {
-        qtc.QWebEngineUrlScheme_SetSyntax(@ptrCast(self), @bitCast(newValue));
+    pub fn SetSyntax(self: QWebEngineUrlScheme, newValue: i32) void {
+        qtc.QWebEngineUrlScheme_SetSyntax(@ptrCast(self.ptr), @bitCast(newValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#defaultPort)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineUrlScheme `
+    /// ` self: QWebEngineUrlScheme `
     ///
-    pub fn DefaultPort(self: ?*anyopaque) i32 {
-        return qtc.QWebEngineUrlScheme_DefaultPort(@ptrCast(self));
+    pub fn DefaultPort(self: QWebEngineUrlScheme) i32 {
+        return qtc.QWebEngineUrlScheme_DefaultPort(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#setDefaultPort)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineUrlScheme `
+    /// ` self: QWebEngineUrlScheme `
     ///
     /// ` newValue: i32 `
     ///
-    pub fn SetDefaultPort(self: ?*anyopaque, newValue: i32) void {
-        qtc.QWebEngineUrlScheme_SetDefaultPort(@ptrCast(self), @bitCast(newValue));
+    pub fn SetDefaultPort(self: QWebEngineUrlScheme, newValue: i32) void {
+        qtc.QWebEngineUrlScheme_SetDefaultPort(@ptrCast(self.ptr), @bitCast(newValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#flags)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineUrlScheme `
+    /// ` self: QWebEngineUrlScheme `
     ///
     /// ## Returns:
     ///
     /// ` flag of qwebengineurlscheme_enums.Flag `
     ///
-    pub fn Flags(self: ?*anyopaque) i32 {
-        return qtc.QWebEngineUrlScheme_Flags(@ptrCast(self));
+    pub fn Flags(self: QWebEngineUrlScheme) i32 {
+        return qtc.QWebEngineUrlScheme_Flags(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#setFlags)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineUrlScheme `
+    /// ` self: QWebEngineUrlScheme `
     ///
     /// ` newValue: flag of qwebengineurlscheme_enums.Flag `
     ///
-    pub fn SetFlags(self: ?*anyopaque, newValue: i32) void {
-        qtc.QWebEngineUrlScheme_SetFlags(@ptrCast(self), @bitCast(newValue));
+    pub fn SetFlags(self: QWebEngineUrlScheme, newValue: i32) void {
+        qtc.QWebEngineUrlScheme_SetFlags(@ptrCast(self.ptr), @bitCast(newValue));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#registerScheme)
     ///
     /// ## Parameter(s):
     ///
-    /// ` scheme: QtC.QWebEngineUrlScheme `
+    /// ` scheme: QWebEngineUrlScheme `
     ///
-    pub fn RegisterScheme(scheme: ?*anyopaque) void {
-        qtc.QWebEngineUrlScheme_RegisterScheme(@ptrCast(scheme));
+    pub fn RegisterScheme(scheme: anytype) void {
+        comptime _ = @TypeOf(scheme)._is_QWebEngineUrlScheme;
+        qtc.QWebEngineUrlScheme_RegisterScheme(@ptrCast(scheme.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlscheme.html#schemeByName)
@@ -194,12 +206,12 @@ pub const qwebengineurlscheme = struct {
     ///
     /// ` name: []u8 `
     ///
-    pub fn SchemeByName(name: []u8) QtC.QWebEngineUrlScheme {
+    pub fn SchemeByName(name: []u8) QWebEngineUrlScheme {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QWebEngineUrlScheme_SchemeByName(name_str);
+        return .{ .ptr = qtc.QWebEngineUrlScheme_SchemeByName(name_str) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -212,10 +224,10 @@ pub const qwebengineurlscheme = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QWebEngineUrlScheme `
+    /// ` self: QWebEngineUrlScheme `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QWebEngineUrlScheme_Delete(@ptrCast(self));
+    pub fn Delete(self: QWebEngineUrlScheme) void {
+        qtc.QWebEngineUrlScheme_Delete(@ptrCast(self.ptr));
     }
 };
 

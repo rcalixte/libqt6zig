@@ -1,49 +1,69 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAction = @import("libqt6").QAction;
+const QActionGroup = @import("libqt6").QActionGroup;
+const QDir = @import("libqt6").QDir;
+const QIODevice = @import("libqt6").QIODevice;
+const QLayout = @import("libqt6").QLayout;
+const QMetaEnum = @import("libqt6").QMetaEnum;
+const QObject = @import("libqt6").QObject;
+const QVariant = @import("libqt6").QVariant;
+const QWidget = @import("libqt6").QWidget;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html)
-pub const qabstractformbuilder = struct {
+pub const QAbstractFormBuilder = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QAbstractFormBuilder,
+
+    pub const _is_QAbstractFormBuilder = {};
+
     /// New constructs a new QAbstractFormBuilder object.
     ///
-    pub fn New() QtC.QAbstractFormBuilder {
-        return qtc.QAbstractFormBuilder_new();
+    pub fn New() QAbstractFormBuilder {
+        return .{ .ptr = qtc.QAbstractFormBuilder_new() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#workingDirectory)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    pub fn WorkingDirectory(self: ?*anyopaque) QtC.QDir {
-        return qtc.QAbstractFormBuilder_WorkingDirectory(@ptrCast(self));
+    pub fn WorkingDirectory(self: QAbstractFormBuilder) QDir {
+        return .{ .ptr = qtc.QAbstractFormBuilder_WorkingDirectory(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#setWorkingDirectory)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` directory: QtC.QDir `
+    /// ` directory: QDir `
     ///
-    pub fn SetWorkingDirectory(self: ?*anyopaque, directory: ?*anyopaque) void {
-        qtc.QAbstractFormBuilder_SetWorkingDirectory(@ptrCast(self), @ptrCast(directory));
+    pub fn SetWorkingDirectory(self: QAbstractFormBuilder, directory: anytype) void {
+        comptime _ = @TypeOf(directory)._is_QDir;
+        qtc.QAbstractFormBuilder_SetWorkingDirectory(@ptrCast(self.ptr), @ptrCast(directory.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#load)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` dev: QtC.QIODevice `
+    /// ` dev: QIODevice `
     ///
-    /// ` parentWidget: QtC.QWidget `
+    /// ` parentWidget: QWidget `
     ///
-    pub fn Load(self: ?*anyopaque, dev: ?*anyopaque, parentWidget: ?*anyopaque) QtC.QWidget {
-        return qtc.QAbstractFormBuilder_Load(@ptrCast(self), @ptrCast(dev), @ptrCast(parentWidget));
+    pub fn Load(self: QAbstractFormBuilder, dev: anytype, parentWidget: anytype) QWidget {
+        comptime _ = @TypeOf(dev)._is_QIODevice;
+        comptime _ = @TypeOf(parentWidget)._is_QWidget;
+        return .{ .ptr = qtc.QAbstractFormBuilder_Load(@ptrCast(self.ptr), @ptrCast(dev.ptr), @ptrCast(parentWidget.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#load)
@@ -52,12 +72,12 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractFormBuilder, dev: QtC.QIODevice, parentWidget: QtC.QWidget) callconv(.c) QtC.QWidget `
+    /// ` callback: *const fn (self: QAbstractFormBuilder, dev: QIODevice, parentWidget: QWidget) callconv(.c) QWidget `
     ///
-    pub fn OnLoad(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
-        qtc.QAbstractFormBuilder_OnLoad(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLoad(self: QAbstractFormBuilder, callback: *const fn (QAbstractFormBuilder, QIODevice, QWidget) callconv(.c) QWidget) void {
+        qtc.QAbstractFormBuilder_OnLoad(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperLoad` instead
@@ -70,28 +90,32 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` dev: QtC.QIODevice `
+    /// ` dev: QIODevice `
     ///
-    /// ` parentWidget: QtC.QWidget `
+    /// ` parentWidget: QWidget `
     ///
-    pub fn SuperLoad(self: ?*anyopaque, dev: ?*anyopaque, parentWidget: ?*anyopaque) QtC.QWidget {
-        return qtc.QAbstractFormBuilder_SuperLoad(@ptrCast(self), @ptrCast(dev), @ptrCast(parentWidget));
+    pub fn SuperLoad(self: QAbstractFormBuilder, dev: anytype, parentWidget: anytype) QWidget {
+        comptime _ = @TypeOf(dev)._is_QIODevice;
+        comptime _ = @TypeOf(parentWidget)._is_QWidget;
+        return .{ .ptr = qtc.QAbstractFormBuilder_SuperLoad(@ptrCast(self.ptr), @ptrCast(dev.ptr), @ptrCast(parentWidget.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#save)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` dev: QtC.QIODevice `
+    /// ` dev: QIODevice `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn Save(self: ?*anyopaque, dev: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QAbstractFormBuilder_Save(@ptrCast(self), @ptrCast(dev), @ptrCast(widget));
+    pub fn Save(self: QAbstractFormBuilder, dev: anytype, widget: anytype) void {
+        comptime _ = @TypeOf(dev)._is_QIODevice;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QAbstractFormBuilder_Save(@ptrCast(self.ptr), @ptrCast(dev.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#save)
@@ -100,12 +124,12 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractFormBuilder, dev: QtC.QIODevice, widget: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractFormBuilder, dev: QIODevice, widget: QWidget) callconv(.c) void `
     ///
-    pub fn OnSave(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractFormBuilder_OnSave(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSave(self: QAbstractFormBuilder, callback: *const fn (QAbstractFormBuilder, QIODevice, QWidget) callconv(.c) void) void {
+        qtc.QAbstractFormBuilder_OnSave(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSave` instead
@@ -118,26 +142,28 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` dev: QtC.QIODevice `
+    /// ` dev: QIODevice `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SuperSave(self: ?*anyopaque, dev: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QAbstractFormBuilder_SuperSave(@ptrCast(self), @ptrCast(dev), @ptrCast(widget));
+    pub fn SuperSave(self: QAbstractFormBuilder, dev: anytype, widget: anytype) void {
+        comptime _ = @TypeOf(dev)._is_QIODevice;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QAbstractFormBuilder_SuperSave(@ptrCast(self.ptr), @ptrCast(dev.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#errorString)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QAbstractFormBuilder_ErrorString(@ptrCast(self));
+    pub fn ErrorString(self: QAbstractFormBuilder, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QAbstractFormBuilder_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractformbuilder.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -148,12 +174,13 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn AddMenuAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QAbstractFormBuilder_AddMenuAction(@ptrCast(self), @ptrCast(action));
+    pub fn AddMenuAction(self: QAbstractFormBuilder, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QAbstractFormBuilder_AddMenuAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#addMenuAction)
@@ -162,12 +189,12 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractFormBuilder, action: QtC.QAction) callconv(.c) void `
+    /// ` callback: *const fn (self: QAbstractFormBuilder, action: QAction) callconv(.c) void `
     ///
-    pub fn OnAddMenuAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractFormBuilder_OnAddMenuAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAddMenuAction(self: QAbstractFormBuilder, callback: *const fn (QAbstractFormBuilder, QAction) callconv(.c) void) void {
+        qtc.QAbstractFormBuilder_OnAddMenuAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperAddMenuAction` instead
@@ -180,32 +207,35 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn SuperAddMenuAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QAbstractFormBuilder_SuperAddMenuAction(@ptrCast(self), @ptrCast(action));
+    pub fn SuperAddMenuAction(self: QAbstractFormBuilder, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QAbstractFormBuilder_SuperAddMenuAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#applyPropertyInternally)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` o: QtC.QObject `
+    /// ` o: QObject `
     ///
     /// ` propertyName: []const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn ApplyPropertyInternally(self: ?*anyopaque, o: ?*anyopaque, propertyName: []const u8, value: ?*anyopaque) bool {
+    pub fn ApplyPropertyInternally(self: QAbstractFormBuilder, o: anytype, propertyName: []const u8, value: anytype) bool {
+        comptime _ = @TypeOf(o)._is_QObject;
         const propertyName_str = qtc.libqt_string{
             .len = propertyName.len,
             .data = propertyName.ptr,
         };
-        return qtc.QAbstractFormBuilder_ApplyPropertyInternally(@ptrCast(self), @ptrCast(o), propertyName_str, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QAbstractFormBuilder_ApplyPropertyInternally(@ptrCast(self.ptr), @ptrCast(o.ptr), propertyName_str, @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#applyPropertyInternally)
@@ -214,12 +244,12 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractFormBuilder, o: QtC.QObject, propertyName: [*:0]const u8, value: QtC.QVariant) callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractFormBuilder, o: QObject, propertyName: [*:0]const u8, value: QVariant) callconv(.c) bool `
     ///
-    pub fn OnApplyPropertyInternally(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractFormBuilder_OnApplyPropertyInternally(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnApplyPropertyInternally(self: QAbstractFormBuilder, callback: *const fn (QAbstractFormBuilder, QObject, [*:0]const u8, QVariant) callconv(.c) bool) void {
+        qtc.QAbstractFormBuilder_OnApplyPropertyInternally(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperApplyPropertyInternally` instead
@@ -232,44 +262,47 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` o: QtC.QObject `
+    /// ` o: QObject `
     ///
     /// ` propertyName: []const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SuperApplyPropertyInternally(self: ?*anyopaque, o: ?*anyopaque, propertyName: []const u8, value: ?*anyopaque) bool {
+    pub fn SuperApplyPropertyInternally(self: QAbstractFormBuilder, o: anytype, propertyName: []const u8, value: anytype) bool {
+        comptime _ = @TypeOf(o)._is_QObject;
         const propertyName_str = qtc.libqt_string{
             .len = propertyName.len,
             .data = propertyName.ptr,
         };
-        return qtc.QAbstractFormBuilder_SuperApplyPropertyInternally(@ptrCast(self), @ptrCast(o), propertyName_str, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QAbstractFormBuilder_SuperApplyPropertyInternally(@ptrCast(self.ptr), @ptrCast(o.ptr), propertyName_str, @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#createWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
     /// ` widgetName: []const u8 `
     ///
-    /// ` parentWidget: QtC.QWidget `
+    /// ` parentWidget: QWidget `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn CreateWidget(self: ?*anyopaque, widgetName: []const u8, parentWidget: ?*anyopaque, name: []const u8) QtC.QWidget {
+    pub fn CreateWidget(self: QAbstractFormBuilder, widgetName: []const u8, parentWidget: anytype, name: []const u8) QWidget {
         const widgetName_str = qtc.libqt_string{
             .len = widgetName.len,
             .data = widgetName.ptr,
         };
+        comptime _ = @TypeOf(parentWidget)._is_QWidget;
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QAbstractFormBuilder_CreateWidget(@ptrCast(self), widgetName_str, @ptrCast(parentWidget), name_str);
+        return .{ .ptr = qtc.QAbstractFormBuilder_CreateWidget(@ptrCast(self.ptr), widgetName_str, @ptrCast(parentWidget.ptr), name_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#createWidget)
@@ -278,12 +311,12 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractFormBuilder, widgetName: [*:0]const u8, parentWidget: QtC.QWidget, name: [*:0]const u8) callconv(.c) QtC.QWidget `
+    /// ` callback: *const fn (self: QAbstractFormBuilder, widgetName: [*:0]const u8, parentWidget: QWidget, name: [*:0]const u8) callconv(.c) QWidget `
     ///
-    pub fn OnCreateWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque, [*:0]const u8) callconv(.c) QtC.QWidget) void {
-        qtc.QAbstractFormBuilder_OnCreateWidget(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreateWidget(self: QAbstractFormBuilder, callback: *const fn (QAbstractFormBuilder, [*:0]const u8, QWidget, [*:0]const u8) callconv(.c) QWidget) void {
+        qtc.QAbstractFormBuilder_OnCreateWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCreateWidget` instead
@@ -296,48 +329,50 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
     /// ` widgetName: []const u8 `
     ///
-    /// ` parentWidget: QtC.QWidget `
+    /// ` parentWidget: QWidget `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SuperCreateWidget(self: ?*anyopaque, widgetName: []const u8, parentWidget: ?*anyopaque, name: []const u8) QtC.QWidget {
+    pub fn SuperCreateWidget(self: QAbstractFormBuilder, widgetName: []const u8, parentWidget: anytype, name: []const u8) QWidget {
         const widgetName_str = qtc.libqt_string{
             .len = widgetName.len,
             .data = widgetName.ptr,
         };
+        comptime _ = @TypeOf(parentWidget)._is_QWidget;
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QAbstractFormBuilder_SuperCreateWidget(@ptrCast(self), widgetName_str, @ptrCast(parentWidget), name_str);
+        return .{ .ptr = qtc.QAbstractFormBuilder_SuperCreateWidget(@ptrCast(self.ptr), widgetName_str, @ptrCast(parentWidget.ptr), name_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#createLayout)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
     /// ` layoutName: []const u8 `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn CreateLayout(self: ?*anyopaque, layoutName: []const u8, parent: ?*anyopaque, name: []const u8) QtC.QLayout {
+    pub fn CreateLayout(self: QAbstractFormBuilder, layoutName: []const u8, parent: anytype, name: []const u8) QLayout {
         const layoutName_str = qtc.libqt_string{
             .len = layoutName.len,
             .data = layoutName.ptr,
         };
+        comptime _ = @TypeOf(parent)._is_QObject;
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QAbstractFormBuilder_CreateLayout(@ptrCast(self), layoutName_str, @ptrCast(parent), name_str);
+        return .{ .ptr = qtc.QAbstractFormBuilder_CreateLayout(@ptrCast(self.ptr), layoutName_str, @ptrCast(parent.ptr), name_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#createLayout)
@@ -346,12 +381,12 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractFormBuilder, layoutName: [*:0]const u8, parent: QtC.QObject, name: [*:0]const u8) callconv(.c) QtC.QLayout `
+    /// ` callback: *const fn (self: QAbstractFormBuilder, layoutName: [*:0]const u8, parent: QObject, name: [*:0]const u8) callconv(.c) QLayout `
     ///
-    pub fn OnCreateLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque, [*:0]const u8) callconv(.c) QtC.QLayout) void {
-        qtc.QAbstractFormBuilder_OnCreateLayout(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreateLayout(self: QAbstractFormBuilder, callback: *const fn (QAbstractFormBuilder, [*:0]const u8, QObject, [*:0]const u8) callconv(.c) QLayout) void {
+        qtc.QAbstractFormBuilder_OnCreateLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCreateLayout` instead
@@ -364,42 +399,44 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
     /// ` layoutName: []const u8 `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SuperCreateLayout(self: ?*anyopaque, layoutName: []const u8, parent: ?*anyopaque, name: []const u8) QtC.QLayout {
+    pub fn SuperCreateLayout(self: QAbstractFormBuilder, layoutName: []const u8, parent: anytype, name: []const u8) QLayout {
         const layoutName_str = qtc.libqt_string{
             .len = layoutName.len,
             .data = layoutName.ptr,
         };
+        comptime _ = @TypeOf(parent)._is_QObject;
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QAbstractFormBuilder_SuperCreateLayout(@ptrCast(self), layoutName_str, @ptrCast(parent), name_str);
+        return .{ .ptr = qtc.QAbstractFormBuilder_SuperCreateLayout(@ptrCast(self.ptr), layoutName_str, @ptrCast(parent.ptr), name_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#createAction)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn CreateAction(self: ?*anyopaque, parent: ?*anyopaque, name: []const u8) QtC.QAction {
+    pub fn CreateAction(self: QAbstractFormBuilder, parent: anytype, name: []const u8) QAction {
+        comptime _ = @TypeOf(parent)._is_QObject;
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QAbstractFormBuilder_CreateAction(@ptrCast(self), @ptrCast(parent), name_str);
+        return .{ .ptr = qtc.QAbstractFormBuilder_CreateAction(@ptrCast(self.ptr), @ptrCast(parent.ptr), name_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#createAction)
@@ -408,12 +445,12 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractFormBuilder, parent: QtC.QObject, name: [*:0]const u8) callconv(.c) QtC.QAction `
+    /// ` callback: *const fn (self: QAbstractFormBuilder, parent: QObject, name: [*:0]const u8) callconv(.c) QAction `
     ///
-    pub fn OnCreateAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) QtC.QAction) void {
-        qtc.QAbstractFormBuilder_OnCreateAction(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreateAction(self: QAbstractFormBuilder, callback: *const fn (QAbstractFormBuilder, QObject, [*:0]const u8) callconv(.c) QAction) void {
+        qtc.QAbstractFormBuilder_OnCreateAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCreateAction` instead
@@ -426,36 +463,38 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SuperCreateAction(self: ?*anyopaque, parent: ?*anyopaque, name: []const u8) QtC.QAction {
+    pub fn SuperCreateAction(self: QAbstractFormBuilder, parent: anytype, name: []const u8) QAction {
+        comptime _ = @TypeOf(parent)._is_QObject;
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QAbstractFormBuilder_SuperCreateAction(@ptrCast(self), @ptrCast(parent), name_str);
+        return .{ .ptr = qtc.QAbstractFormBuilder_SuperCreateAction(@ptrCast(self.ptr), @ptrCast(parent.ptr), name_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#createActionGroup)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn CreateActionGroup(self: ?*anyopaque, parent: ?*anyopaque, name: []const u8) QtC.QActionGroup {
+    pub fn CreateActionGroup(self: QAbstractFormBuilder, parent: anytype, name: []const u8) QActionGroup {
+        comptime _ = @TypeOf(parent)._is_QObject;
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QAbstractFormBuilder_CreateActionGroup(@ptrCast(self), @ptrCast(parent), name_str);
+        return .{ .ptr = qtc.QAbstractFormBuilder_CreateActionGroup(@ptrCast(self.ptr), @ptrCast(parent.ptr), name_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#createActionGroup)
@@ -464,12 +503,12 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractFormBuilder, parent: QtC.QObject, name: [*:0]const u8) callconv(.c) QtC.QActionGroup `
+    /// ` callback: *const fn (self: QAbstractFormBuilder, parent: QObject, name: [*:0]const u8) callconv(.c) QActionGroup `
     ///
-    pub fn OnCreateActionGroup(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) QtC.QActionGroup) void {
-        qtc.QAbstractFormBuilder_OnCreateActionGroup(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreateActionGroup(self: QAbstractFormBuilder, callback: *const fn (QAbstractFormBuilder, QObject, [*:0]const u8) callconv(.c) QActionGroup) void {
+        qtc.QAbstractFormBuilder_OnCreateActionGroup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCreateActionGroup` instead
@@ -482,36 +521,38 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SuperCreateActionGroup(self: ?*anyopaque, parent: ?*anyopaque, name: []const u8) QtC.QActionGroup {
+    pub fn SuperCreateActionGroup(self: QAbstractFormBuilder, parent: anytype, name: []const u8) QActionGroup {
+        comptime _ = @TypeOf(parent)._is_QObject;
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QAbstractFormBuilder_SuperCreateActionGroup(@ptrCast(self), @ptrCast(parent), name_str);
+        return .{ .ptr = qtc.QAbstractFormBuilder_SuperCreateActionGroup(@ptrCast(self.ptr), @ptrCast(parent.ptr), name_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#checkProperty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
     /// ` prop: []const u8 `
     ///
-    pub fn CheckProperty(self: ?*anyopaque, obj: ?*anyopaque, prop: []const u8) bool {
+    pub fn CheckProperty(self: QAbstractFormBuilder, obj: anytype, prop: []const u8) bool {
+        comptime _ = @TypeOf(obj)._is_QObject;
         const prop_str = qtc.libqt_string{
             .len = prop.len,
             .data = prop.ptr,
         };
-        return qtc.QAbstractFormBuilder_CheckProperty(@ptrCast(self), @ptrCast(obj), prop_str);
+        return qtc.QAbstractFormBuilder_CheckProperty(@ptrCast(self.ptr), @ptrCast(obj.ptr), prop_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#checkProperty)
@@ -520,12 +561,12 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` callback: *const fn (self: QtC.QAbstractFormBuilder, obj: QtC.QObject, prop: [*:0]const u8) callconv(.c) bool `
+    /// ` callback: *const fn (self: QAbstractFormBuilder, obj: QObject, prop: [*:0]const u8) callconv(.c) bool `
     ///
-    pub fn OnCheckProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.QAbstractFormBuilder_OnCheckProperty(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCheckProperty(self: QAbstractFormBuilder, callback: *const fn (QAbstractFormBuilder, QObject, [*:0]const u8) callconv(.c) bool) void {
+        qtc.QAbstractFormBuilder_OnCheckProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCheckProperty` instead
@@ -538,28 +579,29 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
     /// ` prop: []const u8 `
     ///
-    pub fn SuperCheckProperty(self: ?*anyopaque, obj: ?*anyopaque, prop: []const u8) bool {
+    pub fn SuperCheckProperty(self: QAbstractFormBuilder, obj: anytype, prop: []const u8) bool {
+        comptime _ = @TypeOf(obj)._is_QObject;
         const prop_str = qtc.libqt_string{
             .len = prop.len,
             .data = prop.ptr,
         };
-        return qtc.QAbstractFormBuilder_SuperCheckProperty(@ptrCast(self), @ptrCast(obj), prop_str);
+        return qtc.QAbstractFormBuilder_SuperCheckProperty(@ptrCast(self.ptr), @ptrCast(obj.ptr), prop_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#reset)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    pub fn Reset(self: ?*anyopaque) void {
-        qtc.QAbstractFormBuilder_Reset(@ptrCast(self));
+    pub fn Reset(self: QAbstractFormBuilder) void {
+        qtc.QAbstractFormBuilder_Reset(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#reset)
@@ -568,12 +610,12 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QAbstractFormBuilder_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReset(self: QAbstractFormBuilder, callback: *const fn () callconv(.c) void) void {
+        qtc.QAbstractFormBuilder_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperReset` instead
@@ -586,20 +628,20 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    pub fn SuperReset(self: ?*anyopaque) void {
-        qtc.QAbstractFormBuilder_SuperReset(@ptrCast(self));
+    pub fn SuperReset(self: QAbstractFormBuilder) void {
+        qtc.QAbstractFormBuilder_SuperReset(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#toolBarAreaMetaEnum)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    pub fn ToolBarAreaMetaEnum(self: ?*anyopaque) QtC.QMetaEnum {
-        return qtc.QAbstractFormBuilder_ToolBarAreaMetaEnum(@ptrCast(self));
+    pub fn ToolBarAreaMetaEnum(self: QAbstractFormBuilder) QMetaEnum {
+        return .{ .ptr = qtc.QAbstractFormBuilder_ToolBarAreaMetaEnum(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractformbuilder.html#toolBarAreaMetaEnum)
@@ -608,12 +650,12 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaEnum `
+    /// ` callback: *const fn () callconv(.c) QMetaEnum `
     ///
-    pub fn OnToolBarAreaMetaEnum(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaEnum) void {
-        qtc.QAbstractFormBuilder_OnToolBarAreaMetaEnum(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnToolBarAreaMetaEnum(self: QAbstractFormBuilder, callback: *const fn () callconv(.c) QMetaEnum) void {
+        qtc.QAbstractFormBuilder_OnToolBarAreaMetaEnum(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperToolBarAreaMetaEnum` instead
@@ -626,10 +668,10 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    pub fn SuperToolBarAreaMetaEnum(self: ?*anyopaque) QtC.QMetaEnum {
-        return qtc.QAbstractFormBuilder_SuperToolBarAreaMetaEnum(@ptrCast(self));
+    pub fn SuperToolBarAreaMetaEnum(self: QAbstractFormBuilder) QMetaEnum {
+        return .{ .ptr = qtc.QAbstractFormBuilder_SuperToolBarAreaMetaEnum(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -642,9 +684,9 @@ pub const qabstractformbuilder = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QAbstractFormBuilder `
+    /// ` self: QAbstractFormBuilder `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QAbstractFormBuilder_Delete(@ptrCast(self));
+    pub fn Delete(self: QAbstractFormBuilder) void {
+        qtc.QAbstractFormBuilder_Delete(@ptrCast(self.ptr));
     }
 };

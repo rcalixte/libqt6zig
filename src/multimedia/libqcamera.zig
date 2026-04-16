@@ -1,5 +1,19 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QCameraDevice = @import("libqt6").QCameraDevice;
+const QCameraFormat = @import("libqt6").QCameraFormat;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QMediaCaptureSession = @import("libqt6").QMediaCaptureSession;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QPointF = @import("libqt6").QPointF;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qcamera_enums = enums;
 const qcameradevice_enums = @import("libqcameradevice.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
@@ -7,21 +21,31 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html)
-pub const qcamera = struct {
+pub const QCamera = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QCamera,
+
+    pub const _is_QCamera = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QCamera object.
     ///
-    pub fn New() QtC.QCamera {
-        return qtc.QCamera_new();
+    pub fn New() QCamera {
+        return .{ .ptr = qtc.QCamera_new() };
     }
 
     /// New2 constructs a new QCamera object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` cameraDevice: QtC.QCameraDevice `
+    /// ` cameraDevice: QCameraDevice `
     ///
-    pub fn New2(cameraDevice: ?*anyopaque) QtC.QCamera {
-        return qtc.QCamera_new2(@ptrCast(cameraDevice));
+    pub fn New2(cameraDevice: anytype) QCamera {
+        comptime _ = @TypeOf(cameraDevice)._is_QCameraDevice;
+        return .{ .ptr = qtc.QCamera_new2(@ptrCast(cameraDevice.ptr)) };
     }
 
     /// New3 constructs a new QCamera object.
@@ -30,30 +54,33 @@ pub const qcamera = struct {
     ///
     /// ` position: qcameradevice_enums.Position `
     ///
-    pub fn New3(position: i32) QtC.QCamera {
-        return qtc.QCamera_new3(@bitCast(position));
+    pub fn New3(position: i32) QCamera {
+        return .{ .ptr = qtc.QCamera_new3(@bitCast(position)) };
     }
 
     /// New4 constructs a new QCamera object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New4(parent: ?*anyopaque) QtC.QCamera {
-        return qtc.QCamera_new4(@ptrCast(parent));
+    pub fn New4(parent: anytype) QCamera {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QCamera_new4(@ptrCast(parent.ptr)) };
     }
 
     /// New5 constructs a new QCamera object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` cameraDevice: QtC.QCameraDevice `
+    /// ` cameraDevice: QCameraDevice `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New5(cameraDevice: ?*anyopaque, parent: ?*anyopaque) QtC.QCamera {
-        return qtc.QCamera_new5(@ptrCast(cameraDevice), @ptrCast(parent));
+    pub fn New5(cameraDevice: anytype, parent: anytype) QCamera {
+        comptime _ = @TypeOf(cameraDevice)._is_QCameraDevice;
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QCamera_new5(@ptrCast(cameraDevice.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// New6 constructs a new QCamera object.
@@ -62,20 +89,21 @@ pub const qcamera = struct {
     ///
     /// ` position: qcameradevice_enums.Position `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New6(position: i32, parent: ?*anyopaque) QtC.QCamera {
-        return qtc.QCamera_new6(@bitCast(position), @ptrCast(parent));
+    pub fn New6(position: i32, parent: anytype) QCamera {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QCamera_new6(@bitCast(position), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QCamera_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QCamera) QMetaObject {
+        return .{ .ptr = qtc.QCamera_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -84,12 +112,12 @@ pub const qcamera = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QCamera_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QCamera, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QCamera_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -102,33 +130,33 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QCamera_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QCamera) QMetaObject {
+        return .{ .ptr = qtc.QCamera_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QCamera, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QCamera_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QCamera_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QCamera, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QCamera_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QCamera, callback: *const fn (QCamera, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QCamera_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -139,18 +167,18 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QCamera, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QCamera_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QCamera_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -158,20 +186,20 @@ pub const qcamera = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QCamera_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QCamera, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QCamera_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QCamera, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QCamera_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QCamera, callback: *const fn (QCamera, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QCamera_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -182,7 +210,7 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -190,19 +218,19 @@ pub const qcamera = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QCamera_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QCamera, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QCamera_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -215,100 +243,102 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn IsAvailable(self: ?*anyopaque) bool {
-        return qtc.QCamera_IsAvailable(@ptrCast(self));
+    pub fn IsAvailable(self: QCamera) bool {
+        return qtc.QCamera_IsAvailable(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#isActive)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn IsActive(self: ?*anyopaque) bool {
-        return qtc.QCamera_IsActive(@ptrCast(self));
+    pub fn IsActive(self: QCamera) bool {
+        return qtc.QCamera_IsActive(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#captureSession)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn CaptureSession(self: ?*anyopaque) QtC.QMediaCaptureSession {
-        return qtc.QCamera_CaptureSession(@ptrCast(self));
+    pub fn CaptureSession(self: QCamera) QMediaCaptureSession {
+        return .{ .ptr = qtc.QCamera_CaptureSession(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#cameraDevice)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn CameraDevice(self: ?*anyopaque) QtC.QCameraDevice {
-        return qtc.QCamera_CameraDevice(@ptrCast(self));
+    pub fn CameraDevice(self: QCamera) QCameraDevice {
+        return .{ .ptr = qtc.QCamera_CameraDevice(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setCameraDevice)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` cameraDevice: QtC.QCameraDevice `
+    /// ` cameraDevice: QCameraDevice `
     ///
-    pub fn SetCameraDevice(self: ?*anyopaque, cameraDevice: ?*anyopaque) void {
-        qtc.QCamera_SetCameraDevice(@ptrCast(self), @ptrCast(cameraDevice));
+    pub fn SetCameraDevice(self: QCamera, cameraDevice: anytype) void {
+        comptime _ = @TypeOf(cameraDevice)._is_QCameraDevice;
+        qtc.QCamera_SetCameraDevice(@ptrCast(self.ptr), @ptrCast(cameraDevice.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#cameraFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn CameraFormat(self: ?*anyopaque) QtC.QCameraFormat {
-        return qtc.QCamera_CameraFormat(@ptrCast(self));
+    pub fn CameraFormat(self: QCamera) QCameraFormat {
+        return .{ .ptr = qtc.QCamera_CameraFormat(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setCameraFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` format: QtC.QCameraFormat `
+    /// ` format: QCameraFormat `
     ///
-    pub fn SetCameraFormat(self: ?*anyopaque, format: ?*anyopaque) void {
-        qtc.QCamera_SetCameraFormat(@ptrCast(self), @ptrCast(format));
+    pub fn SetCameraFormat(self: QCamera, format: anytype) void {
+        comptime _ = @TypeOf(format)._is_QCameraFormat;
+        qtc.QCamera_SetCameraFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#error)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ## Returns:
     ///
     /// ` qcamera_enums.Error `
     ///
-    pub fn Error(self: ?*anyopaque) i32 {
-        return qtc.QCamera_Error(@ptrCast(self));
+    pub fn Error(self: QCamera) i32 {
+        return qtc.QCamera_Error(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#errorString)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QCamera_ErrorString(@ptrCast(self));
+    pub fn ErrorString(self: QCamera, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QCamera_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcamera.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -319,1183 +349,1184 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ## Returns:
     ///
     /// ` flag of qcamera_enums.Feature `
     ///
-    pub fn SupportedFeatures(self: ?*anyopaque) i32 {
-        return qtc.QCamera_SupportedFeatures(@ptrCast(self));
+    pub fn SupportedFeatures(self: QCamera) i32 {
+        return qtc.QCamera_SupportedFeatures(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#focusMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ## Returns:
     ///
     /// ` qcamera_enums.FocusMode `
     ///
-    pub fn FocusMode(self: ?*anyopaque) i32 {
-        return qtc.QCamera_FocusMode(@ptrCast(self));
+    pub fn FocusMode(self: QCamera) i32 {
+        return qtc.QCamera_FocusMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setFocusMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` mode: qcamera_enums.FocusMode `
     ///
-    pub fn SetFocusMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QCamera_SetFocusMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetFocusMode(self: QCamera, mode: i32) void {
+        qtc.QCamera_SetFocusMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#isFocusModeSupported)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` mode: qcamera_enums.FocusMode `
     ///
-    pub fn IsFocusModeSupported(self: ?*anyopaque, mode: i32) bool {
-        return qtc.QCamera_IsFocusModeSupported(@ptrCast(self), @bitCast(mode));
+    pub fn IsFocusModeSupported(self: QCamera, mode: i32) bool {
+        return qtc.QCamera_IsFocusModeSupported(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#focusPoint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn FocusPoint(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QCamera_FocusPoint(@ptrCast(self));
+    pub fn FocusPoint(self: QCamera) QPointF {
+        return .{ .ptr = qtc.QCamera_FocusPoint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#customFocusPoint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn CustomFocusPoint(self: ?*anyopaque) QtC.QPointF {
-        return qtc.QCamera_CustomFocusPoint(@ptrCast(self));
+    pub fn CustomFocusPoint(self: QCamera) QPointF {
+        return .{ .ptr = qtc.QCamera_CustomFocusPoint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setCustomFocusPoint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` point: QtC.QPointF `
+    /// ` point: QPointF `
     ///
-    pub fn SetCustomFocusPoint(self: ?*anyopaque, point: ?*anyopaque) void {
-        qtc.QCamera_SetCustomFocusPoint(@ptrCast(self), @ptrCast(point));
+    pub fn SetCustomFocusPoint(self: QCamera, point: anytype) void {
+        comptime _ = @TypeOf(point)._is_QPointF;
+        qtc.QCamera_SetCustomFocusPoint(@ptrCast(self.ptr), @ptrCast(point.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setFocusDistance)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` d: f32 `
     ///
-    pub fn SetFocusDistance(self: ?*anyopaque, d: f32) void {
-        qtc.QCamera_SetFocusDistance(@ptrCast(self), @bitCast(d));
+    pub fn SetFocusDistance(self: QCamera, d: f32) void {
+        qtc.QCamera_SetFocusDistance(@ptrCast(self.ptr), @bitCast(d));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#focusDistance)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn FocusDistance(self: ?*anyopaque) f32 {
-        return qtc.QCamera_FocusDistance(@ptrCast(self));
+    pub fn FocusDistance(self: QCamera) f32 {
+        return qtc.QCamera_FocusDistance(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#minimumZoomFactor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn MinimumZoomFactor(self: ?*anyopaque) f32 {
-        return qtc.QCamera_MinimumZoomFactor(@ptrCast(self));
+    pub fn MinimumZoomFactor(self: QCamera) f32 {
+        return qtc.QCamera_MinimumZoomFactor(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#maximumZoomFactor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn MaximumZoomFactor(self: ?*anyopaque) f32 {
-        return qtc.QCamera_MaximumZoomFactor(@ptrCast(self));
+    pub fn MaximumZoomFactor(self: QCamera) f32 {
+        return qtc.QCamera_MaximumZoomFactor(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#zoomFactor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn ZoomFactor(self: ?*anyopaque) f32 {
-        return qtc.QCamera_ZoomFactor(@ptrCast(self));
+    pub fn ZoomFactor(self: QCamera) f32 {
+        return qtc.QCamera_ZoomFactor(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setZoomFactor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` factor: f32 `
     ///
-    pub fn SetZoomFactor(self: ?*anyopaque, factor: f32) void {
-        qtc.QCamera_SetZoomFactor(@ptrCast(self), @bitCast(factor));
+    pub fn SetZoomFactor(self: QCamera, factor: f32) void {
+        qtc.QCamera_SetZoomFactor(@ptrCast(self.ptr), @bitCast(factor));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#flashMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ## Returns:
     ///
     /// ` qcamera_enums.FlashMode `
     ///
-    pub fn FlashMode(self: ?*anyopaque) i32 {
-        return qtc.QCamera_FlashMode(@ptrCast(self));
+    pub fn FlashMode(self: QCamera) i32 {
+        return qtc.QCamera_FlashMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#isFlashModeSupported)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` mode: qcamera_enums.FlashMode `
     ///
-    pub fn IsFlashModeSupported(self: ?*anyopaque, mode: i32) bool {
-        return qtc.QCamera_IsFlashModeSupported(@ptrCast(self), @bitCast(mode));
+    pub fn IsFlashModeSupported(self: QCamera, mode: i32) bool {
+        return qtc.QCamera_IsFlashModeSupported(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#isFlashReady)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn IsFlashReady(self: ?*anyopaque) bool {
-        return qtc.QCamera_IsFlashReady(@ptrCast(self));
+    pub fn IsFlashReady(self: QCamera) bool {
+        return qtc.QCamera_IsFlashReady(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#torchMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ## Returns:
     ///
     /// ` qcamera_enums.TorchMode `
     ///
-    pub fn TorchMode(self: ?*anyopaque) i32 {
-        return qtc.QCamera_TorchMode(@ptrCast(self));
+    pub fn TorchMode(self: QCamera) i32 {
+        return qtc.QCamera_TorchMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#isTorchModeSupported)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` mode: qcamera_enums.TorchMode `
     ///
-    pub fn IsTorchModeSupported(self: ?*anyopaque, mode: i32) bool {
-        return qtc.QCamera_IsTorchModeSupported(@ptrCast(self), @bitCast(mode));
+    pub fn IsTorchModeSupported(self: QCamera, mode: i32) bool {
+        return qtc.QCamera_IsTorchModeSupported(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#exposureMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ## Returns:
     ///
     /// ` qcamera_enums.ExposureMode `
     ///
-    pub fn ExposureMode(self: ?*anyopaque) i32 {
-        return qtc.QCamera_ExposureMode(@ptrCast(self));
+    pub fn ExposureMode(self: QCamera) i32 {
+        return qtc.QCamera_ExposureMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#isExposureModeSupported)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` mode: qcamera_enums.ExposureMode `
     ///
-    pub fn IsExposureModeSupported(self: ?*anyopaque, mode: i32) bool {
-        return qtc.QCamera_IsExposureModeSupported(@ptrCast(self), @bitCast(mode));
+    pub fn IsExposureModeSupported(self: QCamera, mode: i32) bool {
+        return qtc.QCamera_IsExposureModeSupported(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#exposureCompensation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn ExposureCompensation(self: ?*anyopaque) f32 {
-        return qtc.QCamera_ExposureCompensation(@ptrCast(self));
+    pub fn ExposureCompensation(self: QCamera) f32 {
+        return qtc.QCamera_ExposureCompensation(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#isoSensitivity)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn IsoSensitivity(self: ?*anyopaque) i32 {
-        return qtc.QCamera_IsoSensitivity(@ptrCast(self));
+    pub fn IsoSensitivity(self: QCamera) i32 {
+        return qtc.QCamera_IsoSensitivity(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#manualIsoSensitivity)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn ManualIsoSensitivity(self: ?*anyopaque) i32 {
-        return qtc.QCamera_ManualIsoSensitivity(@ptrCast(self));
+    pub fn ManualIsoSensitivity(self: QCamera) i32 {
+        return qtc.QCamera_ManualIsoSensitivity(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#exposureTime)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn ExposureTime(self: ?*anyopaque) f32 {
-        return qtc.QCamera_ExposureTime(@ptrCast(self));
+    pub fn ExposureTime(self: QCamera) f32 {
+        return qtc.QCamera_ExposureTime(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#manualExposureTime)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn ManualExposureTime(self: ?*anyopaque) f32 {
-        return qtc.QCamera_ManualExposureTime(@ptrCast(self));
+    pub fn ManualExposureTime(self: QCamera) f32 {
+        return qtc.QCamera_ManualExposureTime(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#minimumIsoSensitivity)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn MinimumIsoSensitivity(self: ?*anyopaque) i32 {
-        return qtc.QCamera_MinimumIsoSensitivity(@ptrCast(self));
+    pub fn MinimumIsoSensitivity(self: QCamera) i32 {
+        return qtc.QCamera_MinimumIsoSensitivity(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#maximumIsoSensitivity)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn MaximumIsoSensitivity(self: ?*anyopaque) i32 {
-        return qtc.QCamera_MaximumIsoSensitivity(@ptrCast(self));
+    pub fn MaximumIsoSensitivity(self: QCamera) i32 {
+        return qtc.QCamera_MaximumIsoSensitivity(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#minimumExposureTime)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn MinimumExposureTime(self: ?*anyopaque) f32 {
-        return qtc.QCamera_MinimumExposureTime(@ptrCast(self));
+    pub fn MinimumExposureTime(self: QCamera) f32 {
+        return qtc.QCamera_MinimumExposureTime(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#maximumExposureTime)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn MaximumExposureTime(self: ?*anyopaque) f32 {
-        return qtc.QCamera_MaximumExposureTime(@ptrCast(self));
+    pub fn MaximumExposureTime(self: QCamera) f32 {
+        return qtc.QCamera_MaximumExposureTime(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#whiteBalanceMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ## Returns:
     ///
     /// ` qcamera_enums.WhiteBalanceMode `
     ///
-    pub fn WhiteBalanceMode(self: ?*anyopaque) i32 {
-        return qtc.QCamera_WhiteBalanceMode(@ptrCast(self));
+    pub fn WhiteBalanceMode(self: QCamera) i32 {
+        return qtc.QCamera_WhiteBalanceMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#isWhiteBalanceModeSupported)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` mode: qcamera_enums.WhiteBalanceMode `
     ///
-    pub fn IsWhiteBalanceModeSupported(self: ?*anyopaque, mode: i32) bool {
-        return qtc.QCamera_IsWhiteBalanceModeSupported(@ptrCast(self), @bitCast(mode));
+    pub fn IsWhiteBalanceModeSupported(self: QCamera, mode: i32) bool {
+        return qtc.QCamera_IsWhiteBalanceModeSupported(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#colorTemperature)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn ColorTemperature(self: ?*anyopaque) i32 {
-        return qtc.QCamera_ColorTemperature(@ptrCast(self));
+    pub fn ColorTemperature(self: QCamera) i32 {
+        return qtc.QCamera_ColorTemperature(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setActive)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` active: bool `
     ///
-    pub fn SetActive(self: ?*anyopaque, active: bool) void {
-        qtc.QCamera_SetActive(@ptrCast(self), active);
+    pub fn SetActive(self: QCamera, active: bool) void {
+        qtc.QCamera_SetActive(@ptrCast(self.ptr), active);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#start)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn Start(self: ?*anyopaque) void {
-        qtc.QCamera_Start(@ptrCast(self));
+    pub fn Start(self: QCamera) void {
+        qtc.QCamera_Start(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#stop)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn Stop(self: ?*anyopaque) void {
-        qtc.QCamera_Stop(@ptrCast(self));
+    pub fn Stop(self: QCamera) void {
+        qtc.QCamera_Stop(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#zoomTo)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` zoom: f32 `
     ///
     /// ` rate: f32 `
     ///
-    pub fn ZoomTo(self: ?*anyopaque, zoom: f32, rate: f32) void {
-        qtc.QCamera_ZoomTo(@ptrCast(self), @bitCast(zoom), @bitCast(rate));
+    pub fn ZoomTo(self: QCamera, zoom: f32, rate: f32) void {
+        qtc.QCamera_ZoomTo(@ptrCast(self.ptr), @bitCast(zoom), @bitCast(rate));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setFlashMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` mode: qcamera_enums.FlashMode `
     ///
-    pub fn SetFlashMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QCamera_SetFlashMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetFlashMode(self: QCamera, mode: i32) void {
+        qtc.QCamera_SetFlashMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setTorchMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` mode: qcamera_enums.TorchMode `
     ///
-    pub fn SetTorchMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QCamera_SetTorchMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetTorchMode(self: QCamera, mode: i32) void {
+        qtc.QCamera_SetTorchMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setExposureMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` mode: qcamera_enums.ExposureMode `
     ///
-    pub fn SetExposureMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QCamera_SetExposureMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetExposureMode(self: QCamera, mode: i32) void {
+        qtc.QCamera_SetExposureMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setExposureCompensation)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` ev: f32 `
     ///
-    pub fn SetExposureCompensation(self: ?*anyopaque, ev: f32) void {
-        qtc.QCamera_SetExposureCompensation(@ptrCast(self), @bitCast(ev));
+    pub fn SetExposureCompensation(self: QCamera, ev: f32) void {
+        qtc.QCamera_SetExposureCompensation(@ptrCast(self.ptr), @bitCast(ev));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setManualIsoSensitivity)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` iso: i32 `
     ///
-    pub fn SetManualIsoSensitivity(self: ?*anyopaque, iso: i32) void {
-        qtc.QCamera_SetManualIsoSensitivity(@ptrCast(self), @bitCast(iso));
+    pub fn SetManualIsoSensitivity(self: QCamera, iso: i32) void {
+        qtc.QCamera_SetManualIsoSensitivity(@ptrCast(self.ptr), @bitCast(iso));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setAutoIsoSensitivity)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn SetAutoIsoSensitivity(self: ?*anyopaque) void {
-        qtc.QCamera_SetAutoIsoSensitivity(@ptrCast(self));
+    pub fn SetAutoIsoSensitivity(self: QCamera) void {
+        qtc.QCamera_SetAutoIsoSensitivity(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setManualExposureTime)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` seconds: f32 `
     ///
-    pub fn SetManualExposureTime(self: ?*anyopaque, seconds: f32) void {
-        qtc.QCamera_SetManualExposureTime(@ptrCast(self), @bitCast(seconds));
+    pub fn SetManualExposureTime(self: QCamera, seconds: f32) void {
+        qtc.QCamera_SetManualExposureTime(@ptrCast(self.ptr), @bitCast(seconds));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setAutoExposureTime)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn SetAutoExposureTime(self: ?*anyopaque) void {
-        qtc.QCamera_SetAutoExposureTime(@ptrCast(self));
+    pub fn SetAutoExposureTime(self: QCamera) void {
+        qtc.QCamera_SetAutoExposureTime(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setWhiteBalanceMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` mode: qcamera_enums.WhiteBalanceMode `
     ///
-    pub fn SetWhiteBalanceMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QCamera_SetWhiteBalanceMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetWhiteBalanceMode(self: QCamera, mode: i32) void {
+        qtc.QCamera_SetWhiteBalanceMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#setColorTemperature)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` colorTemperature: i32 `
     ///
-    pub fn SetColorTemperature(self: ?*anyopaque, colorTemperature: i32) void {
-        qtc.QCamera_SetColorTemperature(@ptrCast(self), @bitCast(colorTemperature));
+    pub fn SetColorTemperature(self: QCamera, colorTemperature: i32) void {
+        qtc.QCamera_SetColorTemperature(@ptrCast(self.ptr), @bitCast(colorTemperature));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#activeChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` param1: bool `
     ///
-    pub fn ActiveChanged(self: ?*anyopaque, param1: bool) void {
-        qtc.QCamera_ActiveChanged(@ptrCast(self), param1);
+    pub fn ActiveChanged(self: QCamera, param1: bool) void {
+        qtc.QCamera_ActiveChanged(@ptrCast(self.ptr), param1);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#activeChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, param1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera, param1: bool) callconv(.c) void `
     ///
-    pub fn OnActiveChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QCamera_Connect_ActiveChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActiveChanged(self: QCamera, callback: *const fn (QCamera, bool) callconv(.c) void) void {
+        qtc.QCamera_Connect_ActiveChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#errorChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn ErrorChanged(self: ?*anyopaque) void {
-        qtc.QCamera_ErrorChanged(@ptrCast(self));
+    pub fn ErrorChanged(self: QCamera) void {
+        qtc.QCamera_ErrorChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#errorChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnErrorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCamera_Connect_ErrorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnErrorChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+        qtc.QCamera_Connect_ErrorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#errorOccurred)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` errorVal: qcamera_enums.Error `
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn ErrorOccurred(self: ?*anyopaque, errorVal: i32, errorString: []const u8) void {
+    pub fn ErrorOccurred(self: QCamera, errorVal: i32, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QCamera_ErrorOccurred(@ptrCast(self), @bitCast(errorVal), errorString_str);
+        qtc.QCamera_ErrorOccurred(@ptrCast(self.ptr), @bitCast(errorVal), errorString_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#errorOccurred)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, errorVal: qcamera_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera, errorVal: qcamera_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QCamera_Connect_ErrorOccurred(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnErrorOccurred(self: QCamera, callback: *const fn (QCamera, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.QCamera_Connect_ErrorOccurred(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#cameraDeviceChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn CameraDeviceChanged(self: ?*anyopaque) void {
-        qtc.QCamera_CameraDeviceChanged(@ptrCast(self));
+    pub fn CameraDeviceChanged(self: QCamera) void {
+        qtc.QCamera_CameraDeviceChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#cameraDeviceChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnCameraDeviceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCamera_Connect_CameraDeviceChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCameraDeviceChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+        qtc.QCamera_Connect_CameraDeviceChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#cameraFormatChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn CameraFormatChanged(self: ?*anyopaque) void {
-        qtc.QCamera_CameraFormatChanged(@ptrCast(self));
+    pub fn CameraFormatChanged(self: QCamera) void {
+        qtc.QCamera_CameraFormatChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#cameraFormatChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnCameraFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCamera_Connect_CameraFormatChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCameraFormatChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+        qtc.QCamera_Connect_CameraFormatChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#supportedFeaturesChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn SupportedFeaturesChanged(self: ?*anyopaque) void {
-        qtc.QCamera_SupportedFeaturesChanged(@ptrCast(self));
+    pub fn SupportedFeaturesChanged(self: QCamera) void {
+        qtc.QCamera_SupportedFeaturesChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#supportedFeaturesChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnSupportedFeaturesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCamera_Connect_SupportedFeaturesChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSupportedFeaturesChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+        qtc.QCamera_Connect_SupportedFeaturesChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#focusModeChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn FocusModeChanged(self: ?*anyopaque) void {
-        qtc.QCamera_FocusModeChanged(@ptrCast(self));
+    pub fn FocusModeChanged(self: QCamera) void {
+        qtc.QCamera_FocusModeChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#focusModeChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnFocusModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCamera_Connect_FocusModeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusModeChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+        qtc.QCamera_Connect_FocusModeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#zoomFactorChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` param1: f32 `
     ///
-    pub fn ZoomFactorChanged(self: ?*anyopaque, param1: f32) void {
-        qtc.QCamera_ZoomFactorChanged(@ptrCast(self), @bitCast(param1));
+    pub fn ZoomFactorChanged(self: QCamera, param1: f32) void {
+        qtc.QCamera_ZoomFactorChanged(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#zoomFactorChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, param1: f32) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera, param1: f32) callconv(.c) void `
     ///
-    pub fn OnZoomFactorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f32) callconv(.c) void) void {
-        qtc.QCamera_Connect_ZoomFactorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnZoomFactorChanged(self: QCamera, callback: *const fn (QCamera, f32) callconv(.c) void) void {
+        qtc.QCamera_Connect_ZoomFactorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#minimumZoomFactorChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` param1: f32 `
     ///
-    pub fn MinimumZoomFactorChanged(self: ?*anyopaque, param1: f32) void {
-        qtc.QCamera_MinimumZoomFactorChanged(@ptrCast(self), @bitCast(param1));
+    pub fn MinimumZoomFactorChanged(self: QCamera, param1: f32) void {
+        qtc.QCamera_MinimumZoomFactorChanged(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#minimumZoomFactorChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, param1: f32) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera, param1: f32) callconv(.c) void `
     ///
-    pub fn OnMinimumZoomFactorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f32) callconv(.c) void) void {
-        qtc.QCamera_Connect_MinimumZoomFactorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumZoomFactorChanged(self: QCamera, callback: *const fn (QCamera, f32) callconv(.c) void) void {
+        qtc.QCamera_Connect_MinimumZoomFactorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#maximumZoomFactorChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` param1: f32 `
     ///
-    pub fn MaximumZoomFactorChanged(self: ?*anyopaque, param1: f32) void {
-        qtc.QCamera_MaximumZoomFactorChanged(@ptrCast(self), @bitCast(param1));
+    pub fn MaximumZoomFactorChanged(self: QCamera, param1: f32) void {
+        qtc.QCamera_MaximumZoomFactorChanged(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#maximumZoomFactorChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, param1: f32) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera, param1: f32) callconv(.c) void `
     ///
-    pub fn OnMaximumZoomFactorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f32) callconv(.c) void) void {
-        qtc.QCamera_Connect_MaximumZoomFactorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMaximumZoomFactorChanged(self: QCamera, callback: *const fn (QCamera, f32) callconv(.c) void) void {
+        qtc.QCamera_Connect_MaximumZoomFactorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#focusDistanceChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` param1: f32 `
     ///
-    pub fn FocusDistanceChanged(self: ?*anyopaque, param1: f32) void {
-        qtc.QCamera_FocusDistanceChanged(@ptrCast(self), @bitCast(param1));
+    pub fn FocusDistanceChanged(self: QCamera, param1: f32) void {
+        qtc.QCamera_FocusDistanceChanged(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#focusDistanceChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, param1: f32) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera, param1: f32) callconv(.c) void `
     ///
-    pub fn OnFocusDistanceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f32) callconv(.c) void) void {
-        qtc.QCamera_Connect_FocusDistanceChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusDistanceChanged(self: QCamera, callback: *const fn (QCamera, f32) callconv(.c) void) void {
+        qtc.QCamera_Connect_FocusDistanceChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#focusPointChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn FocusPointChanged(self: ?*anyopaque) void {
-        qtc.QCamera_FocusPointChanged(@ptrCast(self));
+    pub fn FocusPointChanged(self: QCamera) void {
+        qtc.QCamera_FocusPointChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#focusPointChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnFocusPointChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCamera_Connect_FocusPointChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusPointChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+        qtc.QCamera_Connect_FocusPointChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#customFocusPointChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn CustomFocusPointChanged(self: ?*anyopaque) void {
-        qtc.QCamera_CustomFocusPointChanged(@ptrCast(self));
+    pub fn CustomFocusPointChanged(self: QCamera) void {
+        qtc.QCamera_CustomFocusPointChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#customFocusPointChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnCustomFocusPointChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCamera_Connect_CustomFocusPointChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomFocusPointChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+        qtc.QCamera_Connect_CustomFocusPointChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#flashReady)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` param1: bool `
     ///
-    pub fn FlashReady(self: ?*anyopaque, param1: bool) void {
-        qtc.QCamera_FlashReady(@ptrCast(self), param1);
+    pub fn FlashReady(self: QCamera, param1: bool) void {
+        qtc.QCamera_FlashReady(@ptrCast(self.ptr), param1);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#flashReady)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, param1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera, param1: bool) callconv(.c) void `
     ///
-    pub fn OnFlashReady(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QCamera_Connect_FlashReady(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFlashReady(self: QCamera, callback: *const fn (QCamera, bool) callconv(.c) void) void {
+        qtc.QCamera_Connect_FlashReady(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#flashModeChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn FlashModeChanged(self: ?*anyopaque) void {
-        qtc.QCamera_FlashModeChanged(@ptrCast(self));
+    pub fn FlashModeChanged(self: QCamera) void {
+        qtc.QCamera_FlashModeChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#flashModeChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnFlashModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCamera_Connect_FlashModeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFlashModeChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+        qtc.QCamera_Connect_FlashModeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#torchModeChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn TorchModeChanged(self: ?*anyopaque) void {
-        qtc.QCamera_TorchModeChanged(@ptrCast(self));
+    pub fn TorchModeChanged(self: QCamera) void {
+        qtc.QCamera_TorchModeChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#torchModeChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnTorchModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCamera_Connect_TorchModeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTorchModeChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+        qtc.QCamera_Connect_TorchModeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#exposureTimeChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` speed: f32 `
     ///
-    pub fn ExposureTimeChanged(self: ?*anyopaque, speed: f32) void {
-        qtc.QCamera_ExposureTimeChanged(@ptrCast(self), @bitCast(speed));
+    pub fn ExposureTimeChanged(self: QCamera, speed: f32) void {
+        qtc.QCamera_ExposureTimeChanged(@ptrCast(self.ptr), @bitCast(speed));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#exposureTimeChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, speed: f32) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera, speed: f32) callconv(.c) void `
     ///
-    pub fn OnExposureTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f32) callconv(.c) void) void {
-        qtc.QCamera_Connect_ExposureTimeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnExposureTimeChanged(self: QCamera, callback: *const fn (QCamera, f32) callconv(.c) void) void {
+        qtc.QCamera_Connect_ExposureTimeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#manualExposureTimeChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` speed: f32 `
     ///
-    pub fn ManualExposureTimeChanged(self: ?*anyopaque, speed: f32) void {
-        qtc.QCamera_ManualExposureTimeChanged(@ptrCast(self), @bitCast(speed));
+    pub fn ManualExposureTimeChanged(self: QCamera, speed: f32) void {
+        qtc.QCamera_ManualExposureTimeChanged(@ptrCast(self.ptr), @bitCast(speed));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#manualExposureTimeChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, speed: f32) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera, speed: f32) callconv(.c) void `
     ///
-    pub fn OnManualExposureTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f32) callconv(.c) void) void {
-        qtc.QCamera_Connect_ManualExposureTimeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnManualExposureTimeChanged(self: QCamera, callback: *const fn (QCamera, f32) callconv(.c) void) void {
+        qtc.QCamera_Connect_ManualExposureTimeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#isoSensitivityChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` param1: i32 `
     ///
-    pub fn IsoSensitivityChanged(self: ?*anyopaque, param1: i32) void {
-        qtc.QCamera_IsoSensitivityChanged(@ptrCast(self), @bitCast(param1));
+    pub fn IsoSensitivityChanged(self: QCamera, param1: i32) void {
+        qtc.QCamera_IsoSensitivityChanged(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#isoSensitivityChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, param1: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera, param1: i32) callconv(.c) void `
     ///
-    pub fn OnIsoSensitivityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QCamera_Connect_IsoSensitivityChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsoSensitivityChanged(self: QCamera, callback: *const fn (QCamera, i32) callconv(.c) void) void {
+        qtc.QCamera_Connect_IsoSensitivityChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#manualIsoSensitivityChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` param1: i32 `
     ///
-    pub fn ManualIsoSensitivityChanged(self: ?*anyopaque, param1: i32) void {
-        qtc.QCamera_ManualIsoSensitivityChanged(@ptrCast(self), @bitCast(param1));
+    pub fn ManualIsoSensitivityChanged(self: QCamera, param1: i32) void {
+        qtc.QCamera_ManualIsoSensitivityChanged(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#manualIsoSensitivityChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, param1: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera, param1: i32) callconv(.c) void `
     ///
-    pub fn OnManualIsoSensitivityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QCamera_Connect_ManualIsoSensitivityChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnManualIsoSensitivityChanged(self: QCamera, callback: *const fn (QCamera, i32) callconv(.c) void) void {
+        qtc.QCamera_Connect_ManualIsoSensitivityChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#exposureCompensationChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` param1: f32 `
     ///
-    pub fn ExposureCompensationChanged(self: ?*anyopaque, param1: f32) void {
-        qtc.QCamera_ExposureCompensationChanged(@ptrCast(self), @bitCast(param1));
+    pub fn ExposureCompensationChanged(self: QCamera, param1: f32) void {
+        qtc.QCamera_ExposureCompensationChanged(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#exposureCompensationChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, param1: f32) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera, param1: f32) callconv(.c) void `
     ///
-    pub fn OnExposureCompensationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f32) callconv(.c) void) void {
-        qtc.QCamera_Connect_ExposureCompensationChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnExposureCompensationChanged(self: QCamera, callback: *const fn (QCamera, f32) callconv(.c) void) void {
+        qtc.QCamera_Connect_ExposureCompensationChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#exposureModeChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn ExposureModeChanged(self: ?*anyopaque) void {
-        qtc.QCamera_ExposureModeChanged(@ptrCast(self));
+    pub fn ExposureModeChanged(self: QCamera) void {
+        qtc.QCamera_ExposureModeChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#exposureModeChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnExposureModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCamera_Connect_ExposureModeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnExposureModeChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+        qtc.QCamera_Connect_ExposureModeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#whiteBalanceModeChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn WhiteBalanceModeChanged(self: ?*anyopaque) void {
-        qtc.QCamera_WhiteBalanceModeChanged(@ptrCast(self));
+    pub fn WhiteBalanceModeChanged(self: QCamera) void {
+        qtc.QCamera_WhiteBalanceModeChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#whiteBalanceModeChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnWhiteBalanceModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCamera_Connect_WhiteBalanceModeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWhiteBalanceModeChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+        qtc.QCamera_Connect_WhiteBalanceModeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#colorTemperatureChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn ColorTemperatureChanged(self: ?*anyopaque) void {
-        qtc.QCamera_ColorTemperatureChanged(@ptrCast(self));
+    pub fn ColorTemperatureChanged(self: QCamera) void {
+        qtc.QCamera_ColorTemperatureChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#colorTemperatureChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnColorTemperatureChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCamera_Connect_ColorTemperatureChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColorTemperatureChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+        qtc.QCamera_Connect_ColorTemperatureChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#brightnessChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn BrightnessChanged(self: ?*anyopaque) void {
-        qtc.QCamera_BrightnessChanged(@ptrCast(self));
+    pub fn BrightnessChanged(self: QCamera) void {
+        qtc.QCamera_BrightnessChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#brightnessChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnBrightnessChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCamera_Connect_BrightnessChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBrightnessChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+        qtc.QCamera_Connect_BrightnessChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#contrastChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn ContrastChanged(self: ?*anyopaque) void {
-        qtc.QCamera_ContrastChanged(@ptrCast(self));
+    pub fn ContrastChanged(self: QCamera) void {
+        qtc.QCamera_ContrastChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#contrastChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnContrastChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCamera_Connect_ContrastChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContrastChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+        qtc.QCamera_Connect_ContrastChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#saturationChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn SaturationChanged(self: ?*anyopaque) void {
-        qtc.QCamera_SaturationChanged(@ptrCast(self));
+    pub fn SaturationChanged(self: QCamera) void {
+        qtc.QCamera_SaturationChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#saturationChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnSaturationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCamera_Connect_SaturationChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSaturationChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+        qtc.QCamera_Connect_SaturationChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#hueChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn HueChanged(self: ?*anyopaque) void {
-        qtc.QCamera_HueChanged(@ptrCast(self));
+    pub fn HueChanged(self: QCamera) void {
+        qtc.QCamera_HueChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcamera.html#hueChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnHueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCamera_Connect_HueChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHueChanged(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+        qtc.QCamera_Connect_HueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -1509,15 +1540,15 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -1533,12 +1564,12 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QCamera, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcamera.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1551,12 +1582,12 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QCamera, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1565,10 +1596,10 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QCamera) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1577,10 +1608,10 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QCamera) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1589,10 +1620,10 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QCamera) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1601,10 +1632,10 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QCamera) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1613,12 +1644,12 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QCamera, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -1627,10 +1658,10 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QCamera) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1639,12 +1670,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QCamera, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1653,12 +1685,12 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QCamera, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1667,12 +1699,12 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QCamera, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1681,12 +1713,12 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QCamera, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1695,12 +1727,12 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QCamera, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1709,16 +1741,17 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QCamera, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qcamera.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcamera.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1728,12 +1761,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QCamera, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1742,12 +1776,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QCamera, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1756,12 +1791,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QCamera, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1770,18 +1806,20 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1790,16 +1828,20 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1808,18 +1850,19 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QCamera, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1828,18 +1871,20 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1848,16 +1893,20 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1866,10 +1915,10 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QCamera) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1878,12 +1927,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QCamera, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1892,10 +1942,11 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1904,10 +1955,10 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QCamera) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1916,10 +1967,10 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QCamera) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1928,15 +1979,16 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QCamera, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1945,13 +1997,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QCamera, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1960,17 +2012,16 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QCamera, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcamera.DynamicPropertyNames: Memory allocation failed");
@@ -1989,10 +2040,10 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QCamera) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2001,10 +2052,10 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QCamera) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2013,10 +2064,10 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QCamera) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2025,12 +2076,12 @@ pub const qcamera = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QCamera, callback: *const fn (QCamera) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2039,10 +2090,10 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QCamera) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2051,13 +2102,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QCamera, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -2066,10 +2117,10 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QCamera) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2078,14 +2129,14 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QCamera, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2094,14 +2145,14 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QCamera, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2110,20 +2161,22 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -2132,18 +2185,22 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2152,9 +2209,9 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2162,10 +2219,11 @@ pub const qcamera = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QCamera, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2174,13 +2232,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QCamera, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2189,15 +2247,16 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QCamera, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -2206,18 +2265,19 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QCamera, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2226,15 +2286,16 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QCamera, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2243,12 +2304,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QCamera, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -2257,12 +2319,12 @@ pub const qcamera = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QCamera, callback: *const fn (QCamera, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2273,12 +2335,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QCamera_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QCamera, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QCamera_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -2293,12 +2356,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QCamera_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QCamera, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QCamera_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2309,12 +2373,12 @@ pub const qcamera = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera`
+    /// ` self: QCamera`
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QCamera, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QCamera_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QCamera, callback: *const fn (QCamera, QEvent) callconv(.c) bool) void {
+        qtc.QCamera_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2325,14 +2389,16 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QCamera_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QCamera, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QCamera_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -2347,14 +2413,16 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QCamera_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QCamera, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QCamera_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2365,12 +2433,12 @@ pub const qcamera = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera`
+    /// ` self: QCamera`
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QCamera, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QCamera_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QCamera, callback: *const fn (QCamera, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QCamera_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2381,12 +2449,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QCamera_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QCamera, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QCamera_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -2401,12 +2470,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QCamera_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QCamera, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QCamera_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2417,12 +2487,12 @@ pub const qcamera = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera`
+    /// ` self: QCamera`
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCamera_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QCamera, callback: *const fn (QCamera, QTimerEvent) callconv(.c) void) void {
+        qtc.QCamera_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2433,12 +2503,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QCamera_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QCamera, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QCamera_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -2453,12 +2524,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QCamera_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QCamera, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QCamera_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2469,12 +2541,12 @@ pub const qcamera = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera`
+    /// ` self: QCamera`
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCamera_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QCamera, callback: *const fn (QCamera, QChildEvent) callconv(.c) void) void {
+        qtc.QCamera_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2485,12 +2557,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QCamera_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QCamera, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QCamera_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -2505,12 +2578,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QCamera_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QCamera, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QCamera_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2521,12 +2595,12 @@ pub const qcamera = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera`
+    /// ` self: QCamera`
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCamera_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QCamera, callback: *const fn (QCamera, QEvent) callconv(.c) void) void {
+        qtc.QCamera_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2537,12 +2611,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QCamera_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QCamera, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QCamera_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -2557,12 +2632,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QCamera_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QCamera, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QCamera_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2573,12 +2649,12 @@ pub const qcamera = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera`
+    /// ` self: QCamera`
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCamera_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QCamera, callback: *const fn (QCamera, QMetaMethod) callconv(.c) void) void {
+        qtc.QCamera_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2589,12 +2665,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QCamera_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QCamera, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QCamera_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -2609,12 +2686,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QCamera_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QCamera, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QCamera_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2625,12 +2703,12 @@ pub const qcamera = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera`
+    /// ` self: QCamera`
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCamera_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QCamera, callback: *const fn (QCamera, QMetaMethod) callconv(.c) void) void {
+        qtc.QCamera_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2641,10 +2719,10 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QCamera_Sender(@ptrCast(self));
+    pub fn Sender(self: QCamera) QObject {
+        return .{ .ptr = qtc.QCamera_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -2659,10 +2737,10 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QCamera_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QCamera) QObject {
+        return .{ .ptr = qtc.QCamera_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2673,12 +2751,12 @@ pub const qcamera = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera`
+    /// ` self: QCamera`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QCamera_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QCamera, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QCamera_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2689,10 +2767,10 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QCamera_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QCamera) i32 {
+        return qtc.QCamera_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -2707,10 +2785,10 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QCamera_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QCamera) i32 {
+        return qtc.QCamera_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2721,12 +2799,12 @@ pub const qcamera = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera`
+    /// ` self: QCamera`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QCamera_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QCamera, callback: *const fn () callconv(.c) i32) void {
+        qtc.QCamera_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2737,13 +2815,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QCamera, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QCamera_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QCamera_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -2758,13 +2836,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QCamera, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QCamera_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QCamera_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2775,12 +2853,12 @@ pub const qcamera = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera`
+    /// ` self: QCamera`
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QCamera, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QCamera_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QCamera, callback: *const fn (QCamera, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QCamera_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2791,12 +2869,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QCamera_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QCamera, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QCamera_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -2811,12 +2890,13 @@ pub const qcamera = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QCamera_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QCamera, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QCamera_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2827,12 +2907,12 @@ pub const qcamera = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera`
+    /// ` self: QCamera`
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QCamera, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QCamera_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QCamera, callback: *const fn (QCamera, QMetaMethod) callconv(.c) bool) void {
+        qtc.QCamera_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2843,12 +2923,12 @@ pub const qcamera = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    /// ` callback: *const fn (self: QtC.QCamera, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QCamera, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QCamera, callback: *const fn (QCamera, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -2861,10 +2941,10 @@ pub const qcamera = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QCamera `
+    /// ` self: QCamera `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QCamera_Delete(@ptrCast(self));
+    pub fn Delete(self: QCamera) void {
+        qtc.QCamera_Delete(@ptrCast(self.ptr));
     }
 };
 

@@ -1,36 +1,65 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KSvg__ImageSet = @import("libqt6").KSvg__ImageSet;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QColor = @import("libqt6").QColor;
+const QEvent = @import("libqt6").QEvent;
+const QImage = @import("libqt6").QImage;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QPainter = @import("libqt6").QPainter;
+const QPixmap = @import("libqt6").QPixmap;
+const QPointF = @import("libqt6").QPointF;
+const QRectF = @import("libqt6").QRectF;
+const QSize = @import("libqt6").QSize;
+const QSizeF = @import("libqt6").QSizeF;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 const svg_enums = enums;
 
 /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html)
-pub const ksvg__svg = struct {
+pub const KSvg__Svg = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KSvg__Svg,
+
+    pub const _is_KSvg__Svg = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new KSvg::Svg object.
     ///
-    pub fn New() QtC.KSvg__Svg {
-        return qtc.KSvg__Svg_new();
+    pub fn New() KSvg__Svg {
+        return .{ .ptr = qtc.KSvg__Svg_new() };
     }
 
     /// New2 constructs a new KSvg::Svg object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.KSvg__Svg {
-        return qtc.KSvg__Svg_new2(@ptrCast(parent));
+    pub fn New2(parent: anytype) KSvg__Svg {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.KSvg__Svg_new2(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KSvg__Svg_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KSvg__Svg) QMetaObject {
+        return .{ .ptr = qtc.KSvg__Svg_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -39,12 +68,12 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KSvg__Svg_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KSvg__Svg, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KSvg__Svg_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -57,33 +86,33 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KSvg__Svg_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KSvg__Svg) QMetaObject {
+        return .{ .ptr = qtc.KSvg__Svg_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KSvg__Svg, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KSvg__Svg_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KSvg__Svg_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__Svg, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KSvg__Svg, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KSvg__Svg_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KSvg__Svg, callback: *const fn (KSvg__Svg, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KSvg__Svg_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -94,18 +123,18 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KSvg__Svg, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KSvg__Svg_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KSvg__Svg_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -113,20 +142,20 @@ pub const ksvg__svg = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KSvg__Svg_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KSvg__Svg, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KSvg__Svg_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__Svg, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KSvg__Svg, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KSvg__Svg_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KSvg__Svg, callback: *const fn (KSvg__Svg, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KSvg__Svg_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -137,7 +166,7 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -145,19 +174,19 @@ pub const ksvg__svg = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KSvg__Svg_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KSvg__Svg, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KSvg__Svg_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -170,97 +199,103 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` factor: f64 `
     ///
-    pub fn SetDevicePixelRatio(self: ?*anyopaque, factor: f64) void {
-        qtc.KSvg__Svg_SetDevicePixelRatio(@ptrCast(self), @bitCast(factor));
+    pub fn SetDevicePixelRatio(self: KSvg__Svg, factor: f64) void {
+        qtc.KSvg__Svg_SetDevicePixelRatio(@ptrCast(self.ptr), @bitCast(factor));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#devicePixelRatio)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.KSvg__Svg_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: KSvg__Svg) f64 {
+        return qtc.KSvg__Svg_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#pixmap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn Pixmap(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.KSvg__Svg_Pixmap(@ptrCast(self));
+    pub fn Pixmap(self: KSvg__Svg) QPixmap {
+        return .{ .ptr = qtc.KSvg__Svg_Pixmap(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#image)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` size: QtC.QSize `
+    /// ` size: QSize `
     ///
-    pub fn Image(self: ?*anyopaque, size: ?*anyopaque) QtC.QImage {
-        return qtc.KSvg__Svg_Image(@ptrCast(self), @ptrCast(size));
+    pub fn Image(self: KSvg__Svg, size: anytype) QImage {
+        comptime _ = @TypeOf(size)._is_QSize;
+        return .{ .ptr = qtc.KSvg__Svg_Image(@ptrCast(self.ptr), @ptrCast(size.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#paint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` point: QtC.QPointF `
+    /// ` point: QPointF `
     ///
-    pub fn Paint(self: ?*anyopaque, painter: ?*anyopaque, point: ?*anyopaque) void {
-        qtc.KSvg__Svg_Paint(@ptrCast(self), @ptrCast(painter), @ptrCast(point));
+    pub fn Paint(self: KSvg__Svg, painter: anytype, point: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(point)._is_QPointF;
+        qtc.KSvg__Svg_Paint(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(point.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#paint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Paint2(self: ?*anyopaque, painter: ?*anyopaque, x: i32, y: i32) void {
-        qtc.KSvg__Svg_Paint2(@ptrCast(self), @ptrCast(painter), @bitCast(x), @bitCast(y));
+    pub fn Paint2(self: KSvg__Svg, painter: anytype, x: i32, y: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.KSvg__Svg_Paint2(@ptrCast(self.ptr), @ptrCast(painter.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#paint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` rect: QtC.QRectF `
+    /// ` rect: QRectF `
     ///
-    pub fn Paint3(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque) void {
-        qtc.KSvg__Svg_Paint3(@ptrCast(self), @ptrCast(painter), @ptrCast(rect));
+    pub fn Paint3(self: KSvg__Svg, painter: anytype, rect: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(rect)._is_QRectF;
+        qtc.KSvg__Svg_Paint3(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#paint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
     /// ` x: i32 `
     ///
@@ -270,150 +305,152 @@ pub const ksvg__svg = struct {
     ///
     /// ` height: i32 `
     ///
-    pub fn Paint4(self: ?*anyopaque, painter: ?*anyopaque, x: i32, y: i32, width: i32, height: i32) void {
-        qtc.KSvg__Svg_Paint4(@ptrCast(self), @ptrCast(painter), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height));
+    pub fn Paint4(self: KSvg__Svg, painter: anytype, x: i32, y: i32, width: i32, height: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.KSvg__Svg_Paint4(@ptrCast(self.ptr), @ptrCast(painter.ptr), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#size)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSizeF {
-        return qtc.KSvg__Svg_Size(@ptrCast(self));
+    pub fn Size(self: KSvg__Svg) QSizeF {
+        return .{ .ptr = qtc.KSvg__Svg_Size(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#resize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` width: f64 `
     ///
     /// ` height: f64 `
     ///
-    pub fn Resize(self: ?*anyopaque, width: f64, height: f64) void {
-        qtc.KSvg__Svg_Resize(@ptrCast(self), @bitCast(width), @bitCast(height));
+    pub fn Resize(self: KSvg__Svg, width: f64, height: f64) void {
+        qtc.KSvg__Svg_Resize(@ptrCast(self.ptr), @bitCast(width), @bitCast(height));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#resize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` size: QtC.QSizeF `
+    /// ` size: QSizeF `
     ///
-    pub fn Resize2(self: ?*anyopaque, size: ?*anyopaque) void {
-        qtc.KSvg__Svg_Resize2(@ptrCast(self), @ptrCast(size));
+    pub fn Resize2(self: KSvg__Svg, size: anytype) void {
+        comptime _ = @TypeOf(size)._is_QSizeF;
+        qtc.KSvg__Svg_Resize2(@ptrCast(self.ptr), @ptrCast(size.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#resize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn Resize3(self: ?*anyopaque) void {
-        qtc.KSvg__Svg_Resize3(@ptrCast(self));
+    pub fn Resize3(self: KSvg__Svg) void {
+        qtc.KSvg__Svg_Resize3(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#elementSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` elementId: []const u8 `
     ///
-    pub fn ElementSize(self: ?*anyopaque, elementId: []const u8) QtC.QSizeF {
+    pub fn ElementSize(self: KSvg__Svg, elementId: []const u8) QSizeF {
         const elementId_str = qtc.libqt_string{
             .len = elementId.len,
             .data = elementId.ptr,
         };
-        return qtc.KSvg__Svg_ElementSize(@ptrCast(self), elementId_str);
+        return .{ .ptr = qtc.KSvg__Svg_ElementSize(@ptrCast(self.ptr), elementId_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#elementRect)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` elementId: []const u8 `
     ///
-    pub fn ElementRect(self: ?*anyopaque, elementId: []const u8) QtC.QRectF {
+    pub fn ElementRect(self: KSvg__Svg, elementId: []const u8) QRectF {
         const elementId_str = qtc.libqt_string{
             .len = elementId.len,
             .data = elementId.ptr,
         };
-        return qtc.KSvg__Svg_ElementRect(@ptrCast(self), elementId_str);
+        return .{ .ptr = qtc.KSvg__Svg_ElementRect(@ptrCast(self.ptr), elementId_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#hasElement)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` elementId: []const u8 `
     ///
-    pub fn HasElement(self: ?*anyopaque, elementId: []const u8) bool {
+    pub fn HasElement(self: KSvg__Svg, elementId: []const u8) bool {
         const elementId_str = qtc.libqt_string{
             .len = elementId.len,
             .data = elementId.ptr,
         };
-        return qtc.KSvg__Svg_HasElement(@ptrCast(self), elementId_str);
+        return qtc.KSvg__Svg_HasElement(@ptrCast(self.ptr), elementId_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#isValid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.KSvg__Svg_IsValid(@ptrCast(self));
+    pub fn IsValid(self: KSvg__Svg) bool {
+        return qtc.KSvg__Svg_IsValid(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#setContainsMultipleImages)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` multiple: bool `
     ///
-    pub fn SetContainsMultipleImages(self: ?*anyopaque, multiple: bool) void {
-        qtc.KSvg__Svg_SetContainsMultipleImages(@ptrCast(self), multiple);
+    pub fn SetContainsMultipleImages(self: KSvg__Svg, multiple: bool) void {
+        qtc.KSvg__Svg_SetContainsMultipleImages(@ptrCast(self.ptr), multiple);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#containsMultipleImages)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn ContainsMultipleImages(self: ?*anyopaque) bool {
-        return qtc.KSvg__Svg_ContainsMultipleImages(@ptrCast(self));
+    pub fn ContainsMultipleImages(self: KSvg__Svg) bool {
+        return qtc.KSvg__Svg_ContainsMultipleImages(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#setImagePath)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` svgFilePath: []const u8 `
     ///
-    pub fn SetImagePath(self: ?*anyopaque, svgFilePath: []const u8) void {
+    pub fn SetImagePath(self: KSvg__Svg, svgFilePath: []const u8) void {
         const svgFilePath_str = qtc.libqt_string{
             .len = svgFilePath.len,
             .data = svgFilePath.ptr,
         };
-        qtc.KSvg__Svg_SetImagePath(@ptrCast(self), svgFilePath_str);
+        qtc.KSvg__Svg_SetImagePath(@ptrCast(self.ptr), svgFilePath_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#setImagePath)
@@ -422,12 +459,12 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__Svg, svgFilePath: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KSvg__Svg, svgFilePath: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetImagePath(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KSvg__Svg_OnSetImagePath(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetImagePath(self: KSvg__Svg, callback: *const fn (KSvg__Svg, [*:0]const u8) callconv(.c) void) void {
+        qtc.KSvg__Svg_OnSetImagePath(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetImagePath` instead
@@ -440,28 +477,28 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` svgFilePath: []const u8 `
     ///
-    pub fn SuperSetImagePath(self: ?*anyopaque, svgFilePath: []const u8) void {
+    pub fn SuperSetImagePath(self: KSvg__Svg, svgFilePath: []const u8) void {
         const svgFilePath_str = qtc.libqt_string{
             .len = svgFilePath.len,
             .data = svgFilePath.ptr,
         };
-        qtc.KSvg__Svg_SuperSetImagePath(@ptrCast(self), svgFilePath_str);
+        qtc.KSvg__Svg_SuperSetImagePath(@ptrCast(self.ptr), svgFilePath_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#imagePath)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ImagePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KSvg__Svg_ImagePath(@ptrCast(self));
+    pub fn ImagePath(self: KSvg__Svg, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KSvg__Svg_ImagePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ksvg__svg.ImagePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -472,339 +509,342 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` useCache: bool `
     ///
-    pub fn SetUsingRenderingCache(self: ?*anyopaque, useCache: bool) void {
-        qtc.KSvg__Svg_SetUsingRenderingCache(@ptrCast(self), useCache);
+    pub fn SetUsingRenderingCache(self: KSvg__Svg, useCache: bool) void {
+        qtc.KSvg__Svg_SetUsingRenderingCache(@ptrCast(self.ptr), useCache);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#isUsingRenderingCache)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn IsUsingRenderingCache(self: ?*anyopaque) bool {
-        return qtc.KSvg__Svg_IsUsingRenderingCache(@ptrCast(self));
+    pub fn IsUsingRenderingCache(self: KSvg__Svg) bool {
+        return qtc.KSvg__Svg_IsUsingRenderingCache(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#fromCurrentImageSet)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn FromCurrentImageSet(self: ?*anyopaque) bool {
-        return qtc.KSvg__Svg_FromCurrentImageSet(@ptrCast(self));
+    pub fn FromCurrentImageSet(self: KSvg__Svg) bool {
+        return qtc.KSvg__Svg_FromCurrentImageSet(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#setImageSet)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` theme: QtC.KSvg__ImageSet `
+    /// ` theme: KSvg__ImageSet `
     ///
-    pub fn SetImageSet(self: ?*anyopaque, theme: ?*anyopaque) void {
-        qtc.KSvg__Svg_SetImageSet(@ptrCast(self), @ptrCast(theme));
+    pub fn SetImageSet(self: KSvg__Svg, theme: anytype) void {
+        comptime _ = @TypeOf(theme)._is_KSvg__ImageSet;
+        qtc.KSvg__Svg_SetImageSet(@ptrCast(self.ptr), @ptrCast(theme.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#imageSet)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn ImageSet(self: ?*anyopaque) QtC.KSvg__ImageSet {
-        return qtc.KSvg__Svg_ImageSet(@ptrCast(self));
+    pub fn ImageSet(self: KSvg__Svg) KSvg__ImageSet {
+        return .{ .ptr = qtc.KSvg__Svg_ImageSet(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#setStatus)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` status: svg_enums.Status `
     ///
-    pub fn SetStatus(self: ?*anyopaque, status: i32) void {
-        qtc.KSvg__Svg_SetStatus(@ptrCast(self), @bitCast(status));
+    pub fn SetStatus(self: KSvg__Svg, status: i32) void {
+        qtc.KSvg__Svg_SetStatus(@ptrCast(self.ptr), @bitCast(status));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#status)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ## Returns:
     ///
     /// ` svg_enums.Status `
     ///
-    pub fn Status(self: ?*anyopaque) i32 {
-        return qtc.KSvg__Svg_Status(@ptrCast(self));
+    pub fn Status(self: KSvg__Svg) i32 {
+        return qtc.KSvg__Svg_Status(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#setColorSet)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` colorSet: svg_enums.ColorSet `
     ///
-    pub fn SetColorSet(self: ?*anyopaque, colorSet: i32) void {
-        qtc.KSvg__Svg_SetColorSet(@ptrCast(self), @bitCast(colorSet));
+    pub fn SetColorSet(self: KSvg__Svg, colorSet: i32) void {
+        qtc.KSvg__Svg_SetColorSet(@ptrCast(self.ptr), @bitCast(colorSet));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#colorSet)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ## Returns:
     ///
     /// ` svg_enums.ColorSet `
     ///
-    pub fn ColorSet(self: ?*anyopaque) i32 {
-        return qtc.KSvg__Svg_ColorSet(@ptrCast(self));
+    pub fn ColorSet(self: KSvg__Svg) i32 {
+        return qtc.KSvg__Svg_ColorSet(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#color)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` colorName: svg_enums.StyleSheetColor `
     ///
-    pub fn Color(self: ?*anyopaque, colorName: i32) QtC.QColor {
-        return qtc.KSvg__Svg_Color(@ptrCast(self), @bitCast(colorName));
+    pub fn Color(self: KSvg__Svg, colorName: i32) QColor {
+        return .{ .ptr = qtc.KSvg__Svg_Color(@ptrCast(self.ptr), @bitCast(colorName)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#setColor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` colorName: svg_enums.StyleSheetColor `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn SetColor(self: ?*anyopaque, colorName: i32, color: ?*anyopaque) void {
-        qtc.KSvg__Svg_SetColor(@ptrCast(self), @bitCast(colorName), @ptrCast(color));
+    pub fn SetColor(self: KSvg__Svg, colorName: i32, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.KSvg__Svg_SetColor(@ptrCast(self.ptr), @bitCast(colorName), @ptrCast(color.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#clearColorOverrides)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn ClearColorOverrides(self: ?*anyopaque) void {
-        qtc.KSvg__Svg_ClearColorOverrides(@ptrCast(self));
+    pub fn ClearColorOverrides(self: KSvg__Svg) void {
+        qtc.KSvg__Svg_ClearColorOverrides(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#repaintNeeded)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn RepaintNeeded(self: ?*anyopaque) void {
-        qtc.KSvg__Svg_RepaintNeeded(@ptrCast(self));
+    pub fn RepaintNeeded(self: KSvg__Svg) void {
+        qtc.KSvg__Svg_RepaintNeeded(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#repaintNeeded)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__Svg) callconv(.c) void `
+    /// ` callback: *const fn (self: KSvg__Svg) callconv(.c) void `
     ///
-    pub fn OnRepaintNeeded(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KSvg__Svg_Connect_RepaintNeeded(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRepaintNeeded(self: KSvg__Svg, callback: *const fn (KSvg__Svg) callconv(.c) void) void {
+        qtc.KSvg__Svg_Connect_RepaintNeeded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#sizeChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn SizeChanged(self: ?*anyopaque) void {
-        qtc.KSvg__Svg_SizeChanged(@ptrCast(self));
+    pub fn SizeChanged(self: KSvg__Svg) void {
+        qtc.KSvg__Svg_SizeChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#sizeChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__Svg) callconv(.c) void `
+    /// ` callback: *const fn (self: KSvg__Svg) callconv(.c) void `
     ///
-    pub fn OnSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KSvg__Svg_Connect_SizeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeChanged(self: KSvg__Svg, callback: *const fn (KSvg__Svg) callconv(.c) void) void {
+        qtc.KSvg__Svg_Connect_SizeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#imagePathChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn ImagePathChanged(self: ?*anyopaque) void {
-        qtc.KSvg__Svg_ImagePathChanged(@ptrCast(self));
+    pub fn ImagePathChanged(self: KSvg__Svg) void {
+        qtc.KSvg__Svg_ImagePathChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#imagePathChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__Svg) callconv(.c) void `
+    /// ` callback: *const fn (self: KSvg__Svg) callconv(.c) void `
     ///
-    pub fn OnImagePathChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KSvg__Svg_Connect_ImagePathChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnImagePathChanged(self: KSvg__Svg, callback: *const fn (KSvg__Svg) callconv(.c) void) void {
+        qtc.KSvg__Svg_Connect_ImagePathChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#colorHintChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn ColorHintChanged(self: ?*anyopaque) void {
-        qtc.KSvg__Svg_ColorHintChanged(@ptrCast(self));
+    pub fn ColorHintChanged(self: KSvg__Svg) void {
+        qtc.KSvg__Svg_ColorHintChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#colorHintChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__Svg) callconv(.c) void `
+    /// ` callback: *const fn (self: KSvg__Svg) callconv(.c) void `
     ///
-    pub fn OnColorHintChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KSvg__Svg_Connect_ColorHintChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColorHintChanged(self: KSvg__Svg, callback: *const fn (KSvg__Svg) callconv(.c) void) void {
+        qtc.KSvg__Svg_Connect_ColorHintChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#fromCurrentImageSetChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` fromCurrentImageSet: bool `
     ///
-    pub fn FromCurrentImageSetChanged(self: ?*anyopaque, fromCurrentImageSet: bool) void {
-        qtc.KSvg__Svg_FromCurrentImageSetChanged(@ptrCast(self), fromCurrentImageSet);
+    pub fn FromCurrentImageSetChanged(self: KSvg__Svg, fromCurrentImageSet: bool) void {
+        qtc.KSvg__Svg_FromCurrentImageSetChanged(@ptrCast(self.ptr), fromCurrentImageSet);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#fromCurrentImageSetChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__Svg, fromCurrentImageSet: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: KSvg__Svg, fromCurrentImageSet: bool) callconv(.c) void `
     ///
-    pub fn OnFromCurrentImageSetChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KSvg__Svg_Connect_FromCurrentImageSetChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFromCurrentImageSetChanged(self: KSvg__Svg, callback: *const fn (KSvg__Svg, bool) callconv(.c) void) void {
+        qtc.KSvg__Svg_Connect_FromCurrentImageSetChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#statusChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` status: svg_enums.Status `
     ///
-    pub fn StatusChanged(self: ?*anyopaque, status: i32) void {
-        qtc.KSvg__Svg_StatusChanged(@ptrCast(self), @bitCast(status));
+    pub fn StatusChanged(self: KSvg__Svg, status: i32) void {
+        qtc.KSvg__Svg_StatusChanged(@ptrCast(self.ptr), @bitCast(status));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#statusChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__Svg, status: svg_enums.Status) callconv(.c) void `
+    /// ` callback: *const fn (self: KSvg__Svg, status: svg_enums.Status) callconv(.c) void `
     ///
-    pub fn OnStatusChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KSvg__Svg_Connect_StatusChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStatusChanged(self: KSvg__Svg, callback: *const fn (KSvg__Svg, i32) callconv(.c) void) void {
+        qtc.KSvg__Svg_Connect_StatusChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#colorSetChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` colorSet: svg_enums.ColorSet `
     ///
-    pub fn ColorSetChanged(self: ?*anyopaque, colorSet: i32) void {
-        qtc.KSvg__Svg_ColorSetChanged(@ptrCast(self), @bitCast(colorSet));
+    pub fn ColorSetChanged(self: KSvg__Svg, colorSet: i32) void {
+        qtc.KSvg__Svg_ColorSetChanged(@ptrCast(self.ptr), @bitCast(colorSet));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#colorSetChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__Svg, colorSet: svg_enums.ColorSet) callconv(.c) void `
+    /// ` callback: *const fn (self: KSvg__Svg, colorSet: svg_enums.ColorSet) callconv(.c) void `
     ///
-    pub fn OnColorSetChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KSvg__Svg_Connect_ColorSetChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColorSetChanged(self: KSvg__Svg, callback: *const fn (KSvg__Svg, i32) callconv(.c) void) void {
+        qtc.KSvg__Svg_Connect_ColorSetChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#imageSetChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` imageSet: QtC.KSvg__ImageSet `
+    /// ` imageSet: KSvg__ImageSet `
     ///
-    pub fn ImageSetChanged(self: ?*anyopaque, imageSet: ?*anyopaque) void {
-        qtc.KSvg__Svg_ImageSetChanged(@ptrCast(self), @ptrCast(imageSet));
+    pub fn ImageSetChanged(self: KSvg__Svg, imageSet: anytype) void {
+        comptime _ = @TypeOf(imageSet)._is_KSvg__ImageSet;
+        qtc.KSvg__Svg_ImageSetChanged(@ptrCast(self.ptr), @ptrCast(imageSet.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#imageSetChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__Svg, imageSet: QtC.KSvg__ImageSet) callconv(.c) void `
+    /// ` callback: *const fn (self: KSvg__Svg, imageSet: KSvg__ImageSet) callconv(.c) void `
     ///
-    pub fn OnImageSetChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KSvg__Svg_Connect_ImageSetChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnImageSetChanged(self: KSvg__Svg, callback: *const fn (KSvg__Svg, KSvg__ImageSet) callconv(.c) void) void {
+        qtc.KSvg__Svg_Connect_ImageSetChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -818,15 +858,15 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -840,63 +880,66 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` elementID: []const u8 `
     ///
-    pub fn Pixmap1(self: ?*anyopaque, elementID: []const u8) QtC.QPixmap {
+    pub fn Pixmap1(self: KSvg__Svg, elementID: []const u8) QPixmap {
         const elementID_str = qtc.libqt_string{
             .len = elementID.len,
             .data = elementID.ptr,
         };
-        return qtc.KSvg__Svg_Pixmap1(@ptrCast(self), elementID_str);
+        return .{ .ptr = qtc.KSvg__Svg_Pixmap1(@ptrCast(self.ptr), elementID_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#image)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` size: QtC.QSize `
+    /// ` size: QSize `
     ///
     /// ` elementID: []const u8 `
     ///
-    pub fn Image2(self: ?*anyopaque, size: ?*anyopaque, elementID: []const u8) QtC.QImage {
+    pub fn Image2(self: KSvg__Svg, size: anytype, elementID: []const u8) QImage {
+        comptime _ = @TypeOf(size)._is_QSize;
         const elementID_str = qtc.libqt_string{
             .len = elementID.len,
             .data = elementID.ptr,
         };
-        return qtc.KSvg__Svg_Image2(@ptrCast(self), @ptrCast(size), elementID_str);
+        return .{ .ptr = qtc.KSvg__Svg_Image2(@ptrCast(self.ptr), @ptrCast(size.ptr), elementID_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#paint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` point: QtC.QPointF `
+    /// ` point: QPointF `
     ///
     /// ` elementID: []const u8 `
     ///
-    pub fn Paint32(self: ?*anyopaque, painter: ?*anyopaque, point: ?*anyopaque, elementID: []const u8) void {
+    pub fn Paint32(self: KSvg__Svg, painter: anytype, point: anytype, elementID: []const u8) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(point)._is_QPointF;
         const elementID_str = qtc.libqt_string{
             .len = elementID.len,
             .data = elementID.ptr,
         };
-        qtc.KSvg__Svg_Paint32(@ptrCast(self), @ptrCast(painter), @ptrCast(point), elementID_str);
+        qtc.KSvg__Svg_Paint32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(point.ptr), elementID_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#paint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
     /// ` x: i32 `
     ///
@@ -904,41 +947,44 @@ pub const ksvg__svg = struct {
     ///
     /// ` elementID: []const u8 `
     ///
-    pub fn Paint42(self: ?*anyopaque, painter: ?*anyopaque, x: i32, y: i32, elementID: []const u8) void {
+    pub fn Paint42(self: KSvg__Svg, painter: anytype, x: i32, y: i32, elementID: []const u8) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
         const elementID_str = qtc.libqt_string{
             .len = elementID.len,
             .data = elementID.ptr,
         };
-        qtc.KSvg__Svg_Paint42(@ptrCast(self), @ptrCast(painter), @bitCast(x), @bitCast(y), elementID_str);
+        qtc.KSvg__Svg_Paint42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @bitCast(x), @bitCast(y), elementID_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#paint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` rect: QtC.QRectF `
+    /// ` rect: QRectF `
     ///
     /// ` elementID: []const u8 `
     ///
-    pub fn Paint33(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, elementID: []const u8) void {
+    pub fn Paint33(self: KSvg__Svg, painter: anytype, rect: anytype, elementID: []const u8) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(rect)._is_QRectF;
         const elementID_str = qtc.libqt_string{
             .len = elementID.len,
             .data = elementID.ptr,
         };
-        qtc.KSvg__Svg_Paint33(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), elementID_str);
+        qtc.KSvg__Svg_Paint33(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), elementID_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#paint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
     /// ` x: i32 `
     ///
@@ -950,12 +996,13 @@ pub const ksvg__svg = struct {
     ///
     /// ` elementID: []const u8 `
     ///
-    pub fn Paint6(self: ?*anyopaque, painter: ?*anyopaque, x: i32, y: i32, width: i32, height: i32, elementID: []const u8) void {
+    pub fn Paint6(self: KSvg__Svg, painter: anytype, x: i32, y: i32, width: i32, height: i32, elementID: []const u8) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
         const elementID_str = qtc.libqt_string{
             .len = elementID.len,
             .data = elementID.ptr,
         };
-        qtc.KSvg__Svg_Paint6(@ptrCast(self), @ptrCast(painter), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height), elementID_str);
+        qtc.KSvg__Svg_Paint6(@ptrCast(self.ptr), @ptrCast(painter.ptr), @bitCast(x), @bitCast(y), @bitCast(width), @bitCast(height), elementID_str);
     }
 
     /// Inherited from QObject
@@ -964,14 +1011,16 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KSvg__Svg, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -982,12 +1031,12 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__Svg, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KSvg__Svg, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QObject_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KSvg__Svg, callback: *const fn (KSvg__Svg, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QObject_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1002,14 +1051,16 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KSvg__Svg, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QObject_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1018,12 +1069,12 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KSvg__Svg, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ksvg__svg.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1036,12 +1087,12 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KSvg__Svg, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1050,10 +1101,10 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KSvg__Svg) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1062,10 +1113,10 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KSvg__Svg) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1074,10 +1125,10 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KSvg__Svg) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1086,10 +1137,10 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KSvg__Svg) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1098,12 +1149,12 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KSvg__Svg, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -1112,10 +1163,10 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KSvg__Svg) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1124,12 +1175,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KSvg__Svg, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1138,12 +1190,12 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KSvg__Svg, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1152,12 +1204,12 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KSvg__Svg, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1166,12 +1218,12 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KSvg__Svg, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1180,12 +1232,12 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KSvg__Svg, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1194,16 +1246,17 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KSvg__Svg, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("ksvg__svg.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("ksvg__svg.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1213,12 +1266,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KSvg__Svg, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1227,12 +1281,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KSvg__Svg, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1241,12 +1296,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KSvg__Svg, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1255,18 +1311,20 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1275,16 +1333,20 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1293,18 +1355,19 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KSvg__Svg, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1313,18 +1376,20 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1333,16 +1398,20 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1351,10 +1420,10 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KSvg__Svg) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1363,12 +1432,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KSvg__Svg, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1377,10 +1447,11 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1389,10 +1460,10 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KSvg__Svg) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1401,10 +1472,10 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KSvg__Svg) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1413,15 +1484,16 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KSvg__Svg, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1430,13 +1502,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KSvg__Svg, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1445,17 +1517,16 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KSvg__Svg, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("ksvg__svg.DynamicPropertyNames: Memory allocation failed");
@@ -1474,10 +1545,10 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KSvg__Svg) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1486,10 +1557,10 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KSvg__Svg) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1498,10 +1569,10 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KSvg__Svg) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1510,12 +1581,12 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__Svg) callconv(.c) void `
+    /// ` callback: *const fn (self: KSvg__Svg) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KSvg__Svg, callback: *const fn (KSvg__Svg) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1524,10 +1595,10 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: KSvg__Svg) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1536,13 +1607,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KSvg__Svg, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1551,10 +1622,10 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KSvg__Svg) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1563,14 +1634,14 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KSvg__Svg, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1579,14 +1650,14 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KSvg__Svg, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1595,20 +1666,22 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1617,18 +1690,22 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1637,9 +1714,9 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1647,10 +1724,11 @@ pub const ksvg__svg = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KSvg__Svg, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1659,13 +1737,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KSvg__Svg, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1674,15 +1752,16 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KSvg__Svg, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1691,18 +1770,19 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KSvg__Svg, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1711,15 +1791,16 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KSvg__Svg, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1728,12 +1809,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KSvg__Svg, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1742,12 +1824,12 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__Svg, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KSvg__Svg, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KSvg__Svg, callback: *const fn (KSvg__Svg, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1758,12 +1840,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KSvg__Svg_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KSvg__Svg, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KSvg__Svg_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1778,12 +1861,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KSvg__Svg_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KSvg__Svg, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KSvg__Svg_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1794,12 +1878,12 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg`
+    /// ` self: KSvg__Svg`
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__Svg, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KSvg__Svg, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KSvg__Svg_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KSvg__Svg, callback: *const fn (KSvg__Svg, QEvent) callconv(.c) bool) void {
+        qtc.KSvg__Svg_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1810,12 +1894,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KSvg__Svg_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KSvg__Svg, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KSvg__Svg_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1830,12 +1915,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KSvg__Svg_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KSvg__Svg, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KSvg__Svg_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1846,12 +1932,12 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg`
+    /// ` self: KSvg__Svg`
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__Svg, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KSvg__Svg, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KSvg__Svg_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KSvg__Svg, callback: *const fn (KSvg__Svg, QTimerEvent) callconv(.c) void) void {
+        qtc.KSvg__Svg_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1862,12 +1948,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KSvg__Svg_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KSvg__Svg, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KSvg__Svg_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1882,12 +1969,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KSvg__Svg_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KSvg__Svg, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KSvg__Svg_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1898,12 +1986,12 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg`
+    /// ` self: KSvg__Svg`
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__Svg, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KSvg__Svg, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KSvg__Svg_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KSvg__Svg, callback: *const fn (KSvg__Svg, QChildEvent) callconv(.c) void) void {
+        qtc.KSvg__Svg_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1914,12 +2002,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KSvg__Svg_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KSvg__Svg, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KSvg__Svg_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1934,12 +2023,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KSvg__Svg_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KSvg__Svg, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KSvg__Svg_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1950,12 +2040,12 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg`
+    /// ` self: KSvg__Svg`
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__Svg, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KSvg__Svg, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KSvg__Svg_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KSvg__Svg, callback: *const fn (KSvg__Svg, QEvent) callconv(.c) void) void {
+        qtc.KSvg__Svg_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1966,12 +2056,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KSvg__Svg_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KSvg__Svg, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KSvg__Svg_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1986,12 +2077,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KSvg__Svg_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KSvg__Svg, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KSvg__Svg_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2002,12 +2094,12 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg`
+    /// ` self: KSvg__Svg`
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__Svg, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KSvg__Svg, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KSvg__Svg_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KSvg__Svg, callback: *const fn (KSvg__Svg, QMetaMethod) callconv(.c) void) void {
+        qtc.KSvg__Svg_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2018,12 +2110,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KSvg__Svg_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KSvg__Svg, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KSvg__Svg_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -2038,12 +2131,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KSvg__Svg_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KSvg__Svg, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KSvg__Svg_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2054,12 +2148,12 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg`
+    /// ` self: KSvg__Svg`
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__Svg, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KSvg__Svg, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KSvg__Svg_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KSvg__Svg, callback: *const fn (KSvg__Svg, QMetaMethod) callconv(.c) void) void {
+        qtc.KSvg__Svg_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2070,10 +2164,10 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KSvg__Svg_Sender(@ptrCast(self));
+    pub fn Sender(self: KSvg__Svg) QObject {
+        return .{ .ptr = qtc.KSvg__Svg_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -2088,10 +2182,10 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KSvg__Svg_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KSvg__Svg) QObject {
+        return .{ .ptr = qtc.KSvg__Svg_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2102,12 +2196,12 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg`
+    /// ` self: KSvg__Svg`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KSvg__Svg_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KSvg__Svg, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KSvg__Svg_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2118,10 +2212,10 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KSvg__Svg_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KSvg__Svg) i32 {
+        return qtc.KSvg__Svg_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -2136,10 +2230,10 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KSvg__Svg_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KSvg__Svg) i32 {
+        return qtc.KSvg__Svg_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2150,12 +2244,12 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg`
+    /// ` self: KSvg__Svg`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KSvg__Svg_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KSvg__Svg, callback: *const fn () callconv(.c) i32) void {
+        qtc.KSvg__Svg_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2166,13 +2260,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KSvg__Svg, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KSvg__Svg_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KSvg__Svg_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -2187,13 +2281,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KSvg__Svg, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KSvg__Svg_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KSvg__Svg_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2204,12 +2298,12 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg`
+    /// ` self: KSvg__Svg`
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__Svg, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KSvg__Svg, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KSvg__Svg_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KSvg__Svg, callback: *const fn (KSvg__Svg, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KSvg__Svg_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2220,12 +2314,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KSvg__Svg_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KSvg__Svg, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KSvg__Svg_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -2240,12 +2335,13 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KSvg__Svg_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KSvg__Svg, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KSvg__Svg_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2256,12 +2352,12 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg`
+    /// ` self: KSvg__Svg`
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__Svg, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KSvg__Svg, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KSvg__Svg_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KSvg__Svg, callback: *const fn (KSvg__Svg, QMetaMethod) callconv(.c) bool) void {
+        qtc.KSvg__Svg_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2272,12 +2368,12 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    /// ` callback: *const fn (self: QtC.KSvg__Svg, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KSvg__Svg, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KSvg__Svg, callback: *const fn (KSvg__Svg, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -2288,10 +2384,10 @@ pub const ksvg__svg = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KSvg__Svg `
+    /// ` self: KSvg__Svg `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KSvg__Svg_Delete(@ptrCast(self));
+    pub fn Delete(self: KSvg__Svg) void {
+        qtc.KSvg__Svg_Delete(@ptrCast(self.ptr));
     }
 };
 

@@ -1,130 +1,142 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBluetoothAddress = @import("libqt6").QBluetoothAddress;
+const QBluetoothUuid = @import("libqt6").QBluetoothUuid;
 const qbluetoothdeviceinfo_enums = enums;
 const std = @import("std");
-const map_qtcqbluetoothuuid_sliceu8 = std.AutoHashMapUnmanaged(QtC.QBluetoothUuid, [][]u8);
-const map_u16_sliceu8 = std.AutoHashMapUnmanaged(u16, [][]u8);
+const Map_QBluetoothUuid_Sliceu8 = std.AutoHashMapUnmanaged(QBluetoothUuid, [][]u8);
+const Map_u16_Sliceu8 = std.AutoHashMapUnmanaged(u16, [][]u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothdeviceinfo.html)
-pub const qbluetoothdeviceinfo = struct {
+pub const QBluetoothDeviceInfo = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothdeviceinfo.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QBluetoothDeviceInfo,
+
+    pub const _is_QBluetoothDeviceInfo = {};
+
     /// New constructs a new QBluetoothDeviceInfo object.
     ///
-    pub fn New() QtC.QBluetoothDeviceInfo {
-        return qtc.QBluetoothDeviceInfo_new();
+    pub fn New() QBluetoothDeviceInfo {
+        return .{ .ptr = qtc.QBluetoothDeviceInfo_new() };
     }
 
     /// New2 constructs a new QBluetoothDeviceInfo object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` address: QtC.QBluetoothAddress `
+    /// ` address: QBluetoothAddress `
     ///
     /// ` name: []const u8 `
     ///
     /// ` classOfDevice: u32 `
     ///
-    pub fn New2(address: ?*anyopaque, name: []const u8, classOfDevice: u32) QtC.QBluetoothDeviceInfo {
+    pub fn New2(address: anytype, name: []const u8, classOfDevice: u32) QBluetoothDeviceInfo {
+        comptime _ = @TypeOf(address)._is_QBluetoothAddress;
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-
-        return qtc.QBluetoothDeviceInfo_new2(@ptrCast(address), name_str, @bitCast(classOfDevice));
+        return .{ .ptr = qtc.QBluetoothDeviceInfo_new2(@ptrCast(address.ptr), name_str, @bitCast(classOfDevice)) };
     }
 
     /// New3 constructs a new QBluetoothDeviceInfo object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` uuid: QtC.QBluetoothUuid `
+    /// ` uuid: QBluetoothUuid `
     ///
     /// ` name: []const u8 `
     ///
     /// ` classOfDevice: u32 `
     ///
-    pub fn New3(uuid: ?*anyopaque, name: []const u8, classOfDevice: u32) QtC.QBluetoothDeviceInfo {
+    pub fn New3(uuid: anytype, name: []const u8, classOfDevice: u32) QBluetoothDeviceInfo {
+        comptime _ = @TypeOf(uuid)._is_QBluetoothUuid;
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-
-        return qtc.QBluetoothDeviceInfo_new3(@ptrCast(uuid), name_str, @bitCast(classOfDevice));
+        return .{ .ptr = qtc.QBluetoothDeviceInfo_new3(@ptrCast(uuid.ptr), name_str, @bitCast(classOfDevice)) };
     }
 
     /// New4 constructs a new QBluetoothDeviceInfo object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QBluetoothDeviceInfo `
+    /// ` other: QBluetoothDeviceInfo `
     ///
-    pub fn New4(other: ?*anyopaque) QtC.QBluetoothDeviceInfo {
-        return qtc.QBluetoothDeviceInfo_new4(@ptrCast(other));
+    pub fn New4(other: anytype) QBluetoothDeviceInfo {
+        comptime _ = @TypeOf(other)._is_QBluetoothDeviceInfo;
+        return .{ .ptr = qtc.QBluetoothDeviceInfo_new4(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothdeviceinfo.html#isValid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.QBluetoothDeviceInfo_IsValid(@ptrCast(self));
+    pub fn IsValid(self: QBluetoothDeviceInfo) bool {
+        return qtc.QBluetoothDeviceInfo_IsValid(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothdeviceinfo.html#isCached)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
-    pub fn IsCached(self: ?*anyopaque) bool {
-        return qtc.QBluetoothDeviceInfo_IsCached(@ptrCast(self));
+    pub fn IsCached(self: QBluetoothDeviceInfo) bool {
+        return qtc.QBluetoothDeviceInfo_IsCached(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothdeviceinfo.html#setCached)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
     /// ` cached: bool `
     ///
-    pub fn SetCached(self: ?*anyopaque, cached: bool) void {
-        qtc.QBluetoothDeviceInfo_SetCached(@ptrCast(self), cached);
+    pub fn SetCached(self: QBluetoothDeviceInfo, cached: bool) void {
+        qtc.QBluetoothDeviceInfo_SetCached(@ptrCast(self.ptr), cached);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothdeviceinfo.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
-    /// ` other: QtC.QBluetoothDeviceInfo `
+    /// ` other: QBluetoothDeviceInfo `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QBluetoothDeviceInfo_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QBluetoothDeviceInfo, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QBluetoothDeviceInfo;
+        qtc.QBluetoothDeviceInfo_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothdeviceinfo.html#address)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
-    pub fn Address(self: ?*anyopaque) QtC.QBluetoothAddress {
-        return qtc.QBluetoothDeviceInfo_Address(@ptrCast(self));
+    pub fn Address(self: QBluetoothDeviceInfo) QBluetoothAddress {
+        return .{ .ptr = qtc.QBluetoothDeviceInfo_Address(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothdeviceinfo.html#name)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QBluetoothDeviceInfo_Name(@ptrCast(self));
+    pub fn Name(self: QBluetoothDeviceInfo, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QBluetoothDeviceInfo_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qbluetoothdeviceinfo.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -135,92 +147,93 @@ pub const qbluetoothdeviceinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetName(self: QBluetoothDeviceInfo, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QBluetoothDeviceInfo_SetName(@ptrCast(self), name_str);
+        qtc.QBluetoothDeviceInfo_SetName(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothdeviceinfo.html#serviceClasses)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
     /// ## Returns:
     ///
     /// ` flag of qbluetoothdeviceinfo_enums.ServiceClass `
     ///
-    pub fn ServiceClasses(self: ?*anyopaque) i32 {
-        return qtc.QBluetoothDeviceInfo_ServiceClasses(@ptrCast(self));
+    pub fn ServiceClasses(self: QBluetoothDeviceInfo) i32 {
+        return qtc.QBluetoothDeviceInfo_ServiceClasses(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothdeviceinfo.html#majorDeviceClass)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
     /// ## Returns:
     ///
     /// ` qbluetoothdeviceinfo_enums.MajorDeviceClass `
     ///
-    pub fn MajorDeviceClass(self: ?*anyopaque) i32 {
-        return qtc.QBluetoothDeviceInfo_MajorDeviceClass(@ptrCast(self));
+    pub fn MajorDeviceClass(self: QBluetoothDeviceInfo) i32 {
+        return qtc.QBluetoothDeviceInfo_MajorDeviceClass(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothdeviceinfo.html#minorDeviceClass)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
-    pub fn MinorDeviceClass(self: ?*anyopaque) u8 {
-        return qtc.QBluetoothDeviceInfo_MinorDeviceClass(@ptrCast(self));
+    pub fn MinorDeviceClass(self: QBluetoothDeviceInfo) u8 {
+        return qtc.QBluetoothDeviceInfo_MinorDeviceClass(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothdeviceinfo.html#rssi)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
-    pub fn Rssi(self: ?*anyopaque) i16 {
-        return qtc.QBluetoothDeviceInfo_Rssi(@ptrCast(self));
+    pub fn Rssi(self: QBluetoothDeviceInfo) i16 {
+        return qtc.QBluetoothDeviceInfo_Rssi(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothdeviceinfo.html#setRssi)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
     /// ` signal: i16 `
     ///
-    pub fn SetRssi(self: ?*anyopaque, signal: i16) void {
-        qtc.QBluetoothDeviceInfo_SetRssi(@ptrCast(self), @bitCast(signal));
+    pub fn SetRssi(self: QBluetoothDeviceInfo, signal: i16) void {
+        qtc.QBluetoothDeviceInfo_SetRssi(@ptrCast(self.ptr), @bitCast(signal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothdeviceinfo.html#serviceUuids)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ServiceUuids(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QBluetoothUuid {
-        const _arr: qtc.libqt_list = qtc.QBluetoothDeviceInfo_ServiceUuids(@ptrCast(self));
+    pub fn ServiceUuids(self: QBluetoothDeviceInfo, allocator: std.mem.Allocator) []QBluetoothUuid {
+        const _arr: qtc.libqt_list = qtc.QBluetoothDeviceInfo_ServiceUuids(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QBluetoothUuid, _arr.len) catch @panic("qbluetoothdeviceinfo.ServiceUuids: Memory allocation failed");
+        const _ret = allocator.alloc(QBluetoothUuid, _arr.len) catch @panic("qbluetoothdeviceinfo.ServiceUuids: Memory allocation failed");
         const _data: [*]QtC.QBluetoothUuid = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -228,28 +241,28 @@ pub const qbluetoothdeviceinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
-    /// ` uuids: []QtC.QBluetoothUuid `
+    /// ` uuids: []QBluetoothUuid `
     ///
-    pub fn SetServiceUuids(self: ?*anyopaque, uuids: []QtC.QBluetoothUuid) void {
+    pub fn SetServiceUuids(self: QBluetoothDeviceInfo, uuids: []QBluetoothUuid) void {
         const uuids_list = qtc.libqt_list{
             .len = uuids.len,
             .data = @ptrCast(uuids.ptr),
         };
-        qtc.QBluetoothDeviceInfo_SetServiceUuids(@ptrCast(self), uuids_list);
+        qtc.QBluetoothDeviceInfo_SetServiceUuids(@ptrCast(self.ptr), uuids_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothdeviceinfo.html#manufacturerIds)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ManufacturerIds(self: ?*anyopaque, allocator: std.mem.Allocator) []u16 {
-        const _arr: qtc.libqt_list = qtc.QBluetoothDeviceInfo_ManufacturerIds(@ptrCast(self));
+    pub fn ManufacturerIds(self: QBluetoothDeviceInfo, allocator: std.mem.Allocator) []u16 {
+        const _arr: qtc.libqt_list = qtc.QBluetoothDeviceInfo_ManufacturerIds(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(u16, _arr.len) catch @panic("qbluetoothdeviceinfo.ManufacturerIds: Memory allocation failed");
         const _data: [*]u16 = @ptrCast(@alignCast(_arr.data));
@@ -261,14 +274,14 @@ pub const qbluetoothdeviceinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
-    ///
-    /// ` manufacturerId: u16 `
+    /// ` self: QBluetoothDeviceInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ManufacturerData(self: ?*anyopaque, manufacturerId: u16, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QBluetoothDeviceInfo_ManufacturerData(@ptrCast(self), @bitCast(manufacturerId));
+    /// ` manufacturerId: u16 `
+    ///
+    pub fn ManufacturerData(self: QBluetoothDeviceInfo, allocator: std.mem.Allocator, manufacturerId: u16) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QBluetoothDeviceInfo_ManufacturerData(@ptrCast(self.ptr), @bitCast(manufacturerId));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbluetoothdeviceinfo.ManufacturerData: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -279,39 +292,38 @@ pub const qbluetoothdeviceinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
     /// ` manufacturerId: u16 `
     ///
     /// ` data: []u8 `
     ///
-    pub fn SetManufacturerData(self: ?*anyopaque, manufacturerId: u16, data: []u8) bool {
+    pub fn SetManufacturerData(self: QBluetoothDeviceInfo, manufacturerId: u16, data: []u8) bool {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.QBluetoothDeviceInfo_SetManufacturerData(@ptrCast(self), @bitCast(manufacturerId), data_str);
+        return qtc.QBluetoothDeviceInfo_SetManufacturerData(@ptrCast(self.ptr), @bitCast(manufacturerId), data_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothdeviceinfo.html#manufacturerData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ManufacturerData2(self: ?*anyopaque, allocator: std.mem.Allocator) map_u16_sliceu8 {
-        const _map: qtc.libqt_map = qtc.QBluetoothDeviceInfo_ManufacturerData2(@ptrCast(self));
-        var _ret: map_u16_sliceu8 = .empty;
+    pub fn ManufacturerData2(self: QBluetoothDeviceInfo, allocator: std.mem.Allocator) Map_u16_Sliceu8 {
+        const _map: qtc.libqt_map = qtc.QBluetoothDeviceInfo_ManufacturerData2(@ptrCast(self.ptr));
+        var _ret: Map_u16_Sliceu8 = .empty;
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
                 const _value_list = _values[i];
                 const _value_strings: [*]qtc.libqt_string = @ptrCast(@alignCast(_value_list.data));
-                for (0.._value_list.len) |j| {
+                for (0.._value_list.len) |j|
                     qtc.libqt_free(_value_strings[j].data);
-                }
                 qtc.libqt_free(_value_list.data);
             }
             qtc.libqt_free(_map.keys);
@@ -339,16 +351,17 @@ pub const qbluetoothdeviceinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ServiceIds(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QBluetoothUuid {
-        const _arr: qtc.libqt_list = qtc.QBluetoothDeviceInfo_ServiceIds(@ptrCast(self));
+    pub fn ServiceIds(self: QBluetoothDeviceInfo, allocator: std.mem.Allocator) []QBluetoothUuid {
+        const _arr: qtc.libqt_list = qtc.QBluetoothDeviceInfo_ServiceIds(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QBluetoothUuid, _arr.len) catch @panic("qbluetoothdeviceinfo.ServiceIds: Memory allocation failed");
+        const _ret = allocator.alloc(QBluetoothUuid, _arr.len) catch @panic("qbluetoothdeviceinfo.ServiceIds: Memory allocation failed");
         const _data: [*]QtC.QBluetoothUuid = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -356,14 +369,15 @@ pub const qbluetoothdeviceinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
-    ///
-    /// ` serviceId: QtC.QBluetoothUuid `
+    /// ` self: QBluetoothDeviceInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ServiceData(self: ?*anyopaque, serviceId: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QBluetoothDeviceInfo_ServiceData(@ptrCast(self), @ptrCast(serviceId));
+    /// ` serviceId: QBluetoothUuid `
+    ///
+    pub fn ServiceData(self: QBluetoothDeviceInfo, allocator: std.mem.Allocator, serviceId: anytype) []u8 {
+        comptime _ = @TypeOf(serviceId)._is_QBluetoothUuid;
+        var _bytearray: qtc.libqt_string = qtc.QBluetoothDeviceInfo_ServiceData(@ptrCast(self.ptr), @ptrCast(serviceId.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbluetoothdeviceinfo.ServiceData: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -374,39 +388,39 @@ pub const qbluetoothdeviceinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
-    /// ` serviceId: QtC.QBluetoothUuid `
+    /// ` serviceId: QBluetoothUuid `
     ///
     /// ` data: []u8 `
     ///
-    pub fn SetServiceData(self: ?*anyopaque, serviceId: ?*anyopaque, data: []u8) bool {
+    pub fn SetServiceData(self: QBluetoothDeviceInfo, serviceId: anytype, data: []u8) bool {
+        comptime _ = @TypeOf(serviceId)._is_QBluetoothUuid;
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.QBluetoothDeviceInfo_SetServiceData(@ptrCast(self), @ptrCast(serviceId), data_str);
+        return qtc.QBluetoothDeviceInfo_SetServiceData(@ptrCast(self.ptr), @ptrCast(serviceId.ptr), data_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothdeviceinfo.html#serviceData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ServiceData2(self: ?*anyopaque, allocator: std.mem.Allocator) map_qtcqbluetoothuuid_sliceu8 {
-        const _map: qtc.libqt_map = qtc.QBluetoothDeviceInfo_ServiceData2(@ptrCast(self));
-        var _ret: map_qtcqbluetoothuuid_sliceu8 = .empty;
+    pub fn ServiceData2(self: QBluetoothDeviceInfo, allocator: std.mem.Allocator) Map_QBluetoothUuid_Sliceu8 {
+        const _map: qtc.libqt_map = qtc.QBluetoothDeviceInfo_ServiceData2(@ptrCast(self.ptr));
+        var _ret: Map_QBluetoothUuid_Sliceu8 = .empty;
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
                 const _value_list = _values[i];
                 const _value_strings: [*]qtc.libqt_string = @ptrCast(@alignCast(_value_list.data));
-                for (0.._value_list.len) |j| {
+                for (0.._value_list.len) |j|
                     qtc.libqt_free(_value_strings[j].data);
-                }
                 qtc.libqt_free(_value_list.data);
             }
             qtc.libqt_free(_map.keys);
@@ -425,7 +439,7 @@ pub const qbluetoothdeviceinfo = struct {
                 @memcpy(_vslice, _value_strings[j].data);
                 _value_slice[j] = _vslice;
             }
-            _ret.put(allocator, @ptrCast(_key), _value_slice) catch @panic("qbluetoothdeviceinfo.ServiceData2: Memory allocation failed");
+            _ret.put(allocator, .{ .ptr = @ptrCast(_key) }, _value_slice) catch @panic("qbluetoothdeviceinfo.ServiceData2: Memory allocation failed");
         }
         return _ret;
     }
@@ -434,48 +448,49 @@ pub const qbluetoothdeviceinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
     /// ` coreConfigs: flag of qbluetoothdeviceinfo_enums.CoreConfiguration `
     ///
-    pub fn SetCoreConfigurations(self: ?*anyopaque, coreConfigs: i32) void {
-        qtc.QBluetoothDeviceInfo_SetCoreConfigurations(@ptrCast(self), @bitCast(coreConfigs));
+    pub fn SetCoreConfigurations(self: QBluetoothDeviceInfo, coreConfigs: i32) void {
+        qtc.QBluetoothDeviceInfo_SetCoreConfigurations(@ptrCast(self.ptr), @bitCast(coreConfigs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothdeviceinfo.html#coreConfigurations)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
     /// ## Returns:
     ///
     /// ` flag of qbluetoothdeviceinfo_enums.CoreConfiguration `
     ///
-    pub fn CoreConfigurations(self: ?*anyopaque) i32 {
-        return qtc.QBluetoothDeviceInfo_CoreConfigurations(@ptrCast(self));
+    pub fn CoreConfigurations(self: QBluetoothDeviceInfo) i32 {
+        return qtc.QBluetoothDeviceInfo_CoreConfigurations(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothdeviceinfo.html#setDeviceUuid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
-    /// ` uuid: QtC.QBluetoothUuid `
+    /// ` uuid: QBluetoothUuid `
     ///
-    pub fn SetDeviceUuid(self: ?*anyopaque, uuid: ?*anyopaque) void {
-        qtc.QBluetoothDeviceInfo_SetDeviceUuid(@ptrCast(self), @ptrCast(uuid));
+    pub fn SetDeviceUuid(self: QBluetoothDeviceInfo, uuid: anytype) void {
+        comptime _ = @TypeOf(uuid)._is_QBluetoothUuid;
+        qtc.QBluetoothDeviceInfo_SetDeviceUuid(@ptrCast(self.ptr), @ptrCast(uuid.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothdeviceinfo.html#deviceUuid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
-    pub fn DeviceUuid(self: ?*anyopaque) QtC.QBluetoothUuid {
-        return qtc.QBluetoothDeviceInfo_DeviceUuid(@ptrCast(self));
+    pub fn DeviceUuid(self: QBluetoothDeviceInfo) QBluetoothUuid {
+        return .{ .ptr = qtc.QBluetoothDeviceInfo_DeviceUuid(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -488,10 +503,10 @@ pub const qbluetoothdeviceinfo = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QBluetoothDeviceInfo `
+    /// ` self: QBluetoothDeviceInfo `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QBluetoothDeviceInfo_Delete(@ptrCast(self));
+    pub fn Delete(self: QBluetoothDeviceInfo) void {
+        qtc.QBluetoothDeviceInfo_Delete(@ptrCast(self.ptr));
     }
 };
 

@@ -3,22 +3,29 @@ const qtc = @import("qt6c");
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qfactoryinterface.html)
-pub const qfactoryinterface = struct {
+pub const QFactoryInterface = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfactoryinterface.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QFactoryInterface,
+
+    pub const _is_QFactoryInterface = {};
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfactoryinterface.html#keys)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFactoryInterface `
+    /// ` self: QFactoryInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Keys(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QFactoryInterface_Keys(@ptrCast(self));
+    pub fn Keys(self: QFactoryInterface, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QFactoryInterface_Keys(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfactoryinterface.Keys: Memory allocation failed");
@@ -41,9 +48,9 @@ pub const qfactoryinterface = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QFactoryInterface `
+    /// ` self: QFactoryInterface `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QFactoryInterface_Delete(@ptrCast(self));
+    pub fn Delete(self: QFactoryInterface) void {
+        qtc.QFactoryInterface_Delete(@ptrCast(self.ptr));
     }
 };

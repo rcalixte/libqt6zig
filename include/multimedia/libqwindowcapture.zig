@@ -1,36 +1,58 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QCapturableWindow = @import("libqt6").QCapturableWindow;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QMediaCaptureSession = @import("libqt6").QMediaCaptureSession;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qwindowcapture_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowcapture.html)
-pub const qwindowcapture = struct {
+pub const QWindowCapture = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowcapture.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QWindowCapture,
+
+    pub const _is_QWindowCapture = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QWindowCapture object.
     ///
-    pub fn New() QtC.QWindowCapture {
-        return qtc.QWindowCapture_new();
+    pub fn New() QWindowCapture {
+        return .{ .ptr = qtc.QWindowCapture_new() };
     }
 
     /// New2 constructs a new QWindowCapture object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.QWindowCapture {
-        return qtc.QWindowCapture_new2(@ptrCast(parent));
+    pub fn New2(parent: anytype) QWindowCapture {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QWindowCapture_new2(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QWindowCapture_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QWindowCapture) QMetaObject {
+        return .{ .ptr = qtc.QWindowCapture_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -39,12 +61,12 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QWindowCapture_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QWindowCapture, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QWindowCapture_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -57,33 +79,33 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QWindowCapture_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QWindowCapture) QMetaObject {
+        return .{ .ptr = qtc.QWindowCapture_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QWindowCapture, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QWindowCapture_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QWindowCapture_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` callback: *const fn (self: QtC.QWindowCapture, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QWindowCapture, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QWindowCapture_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QWindowCapture, callback: *const fn (QWindowCapture, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QWindowCapture_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -94,18 +116,18 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QWindowCapture, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QWindowCapture_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QWindowCapture_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -113,20 +135,20 @@ pub const qwindowcapture = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QWindowCapture_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QWindowCapture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QWindowCapture_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` callback: *const fn (self: QtC.QWindowCapture, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QWindowCapture, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QWindowCapture_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QWindowCapture, callback: *const fn (QWindowCapture, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QWindowCapture_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -137,7 +159,7 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -145,19 +167,19 @@ pub const qwindowcapture = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QWindowCapture_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QWindowCapture, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QWindowCapture_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -172,12 +194,13 @@ pub const qwindowcapture = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CapturableWindows(allocator: std.mem.Allocator) []QtC.QCapturableWindow {
+    pub fn CapturableWindows(allocator: std.mem.Allocator) []QCapturableWindow {
         const _arr: qtc.libqt_list = qtc.QWindowCapture_CapturableWindows();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QCapturableWindow, _arr.len) catch @panic("qwindowcapture.CapturableWindows: Memory allocation failed");
+        const _ret = allocator.alloc(QCapturableWindow, _arr.len) catch @panic("qwindowcapture.CapturableWindows: Memory allocation failed");
         const _data: [*]QtC.QCapturableWindow = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -185,68 +208,69 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn CaptureSession(self: ?*anyopaque) QtC.QMediaCaptureSession {
-        return qtc.QWindowCapture_CaptureSession(@ptrCast(self));
+    pub fn CaptureSession(self: QWindowCapture) QMediaCaptureSession {
+        return .{ .ptr = qtc.QWindowCapture_CaptureSession(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowcapture.html#setWindow)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` window: QtC.QCapturableWindow `
+    /// ` window: QCapturableWindow `
     ///
-    pub fn SetWindow(self: ?*anyopaque, window: QtC.QCapturableWindow) void {
-        qtc.QWindowCapture_SetWindow(@ptrCast(self), @ptrCast(window));
+    pub fn SetWindow(self: QWindowCapture, window: anytype) void {
+        comptime _ = @TypeOf(window)._is_QCapturableWindow;
+        qtc.QWindowCapture_SetWindow(@ptrCast(self.ptr), @ptrCast(window.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowcapture.html#window)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QCapturableWindow {
-        return qtc.QWindowCapture_Window(@ptrCast(self));
+    pub fn Window(self: QWindowCapture) QCapturableWindow {
+        return .{ .ptr = qtc.QWindowCapture_Window(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowcapture.html#isActive)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn IsActive(self: ?*anyopaque) bool {
-        return qtc.QWindowCapture_IsActive(@ptrCast(self));
+    pub fn IsActive(self: QWindowCapture) bool {
+        return qtc.QWindowCapture_IsActive(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowcapture.html#error)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ## Returns:
     ///
     /// ` qwindowcapture_enums.Error `
     ///
-    pub fn Error(self: ?*anyopaque) i32 {
-        return qtc.QWindowCapture_Error(@ptrCast(self));
+    pub fn Error(self: QWindowCapture) i32 {
+        return qtc.QWindowCapture_Error(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowcapture.html#errorString)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWindowCapture_ErrorString(@ptrCast(self));
+    pub fn ErrorString(self: QWindowCapture, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWindowCapture_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwindowcapture.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -257,145 +281,146 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` active: bool `
     ///
-    pub fn SetActive(self: ?*anyopaque, active: bool) void {
-        qtc.QWindowCapture_SetActive(@ptrCast(self), active);
+    pub fn SetActive(self: QWindowCapture, active: bool) void {
+        qtc.QWindowCapture_SetActive(@ptrCast(self.ptr), active);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowcapture.html#start)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn Start(self: ?*anyopaque) void {
-        qtc.QWindowCapture_Start(@ptrCast(self));
+    pub fn Start(self: QWindowCapture) void {
+        qtc.QWindowCapture_Start(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowcapture.html#stop)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn Stop(self: ?*anyopaque) void {
-        qtc.QWindowCapture_Stop(@ptrCast(self));
+    pub fn Stop(self: QWindowCapture) void {
+        qtc.QWindowCapture_Stop(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowcapture.html#activeChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` param1: bool `
     ///
-    pub fn ActiveChanged(self: ?*anyopaque, param1: bool) void {
-        qtc.QWindowCapture_ActiveChanged(@ptrCast(self), param1);
+    pub fn ActiveChanged(self: QWindowCapture, param1: bool) void {
+        qtc.QWindowCapture_ActiveChanged(@ptrCast(self.ptr), param1);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowcapture.html#activeChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` callback: *const fn (self: QtC.QWindowCapture, param1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QWindowCapture, param1: bool) callconv(.c) void `
     ///
-    pub fn OnActiveChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QWindowCapture_Connect_ActiveChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActiveChanged(self: QWindowCapture, callback: *const fn (QWindowCapture, bool) callconv(.c) void) void {
+        qtc.QWindowCapture_Connect_ActiveChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowcapture.html#windowChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` window: QtC.QCapturableWindow `
+    /// ` window: QCapturableWindow `
     ///
-    pub fn WindowChanged(self: ?*anyopaque, window: QtC.QCapturableWindow) void {
-        qtc.QWindowCapture_WindowChanged(@ptrCast(self), @ptrCast(window));
+    pub fn WindowChanged(self: QWindowCapture, window: anytype) void {
+        comptime _ = @TypeOf(window)._is_QCapturableWindow;
+        qtc.QWindowCapture_WindowChanged(@ptrCast(self.ptr), @ptrCast(window.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowcapture.html#windowChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` callback: *const fn (self: QtC.QWindowCapture, window: QtC.QCapturableWindow) callconv(.c) void `
+    /// ` callback: *const fn (self: QWindowCapture, window: QCapturableWindow) callconv(.c) void `
     ///
-    pub fn OnWindowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QCapturableWindow) callconv(.c) void) void {
-        qtc.QWindowCapture_Connect_WindowChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowChanged(self: QWindowCapture, callback: *const fn (QWindowCapture, QCapturableWindow) callconv(.c) void) void {
+        qtc.QWindowCapture_Connect_WindowChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowcapture.html#errorChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn ErrorChanged(self: ?*anyopaque) void {
-        qtc.QWindowCapture_ErrorChanged(@ptrCast(self));
+    pub fn ErrorChanged(self: QWindowCapture) void {
+        qtc.QWindowCapture_ErrorChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowcapture.html#errorChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` callback: *const fn (self: QtC.QWindowCapture) callconv(.c) void `
+    /// ` callback: *const fn (self: QWindowCapture) callconv(.c) void `
     ///
-    pub fn OnErrorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QWindowCapture_Connect_ErrorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnErrorChanged(self: QWindowCapture, callback: *const fn (QWindowCapture) callconv(.c) void) void {
+        qtc.QWindowCapture_Connect_ErrorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowcapture.html#errorOccurred)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` errorVal: qwindowcapture_enums.Error `
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn ErrorOccurred(self: ?*anyopaque, errorVal: i32, errorString: []const u8) void {
+    pub fn ErrorOccurred(self: QWindowCapture, errorVal: i32, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QWindowCapture_ErrorOccurred(@ptrCast(self), @bitCast(errorVal), errorString_str);
+        qtc.QWindowCapture_ErrorOccurred(@ptrCast(self.ptr), @bitCast(errorVal), errorString_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwindowcapture.html#errorOccurred)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` callback: *const fn (self: QtC.QWindowCapture, errorVal: qwindowcapture_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QWindowCapture, errorVal: qwindowcapture_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWindowCapture_Connect_ErrorOccurred(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnErrorOccurred(self: QWindowCapture, callback: *const fn (QWindowCapture, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWindowCapture_Connect_ErrorOccurred(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -409,15 +434,15 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -433,12 +458,12 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QWindowCapture, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwindowcapture.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -451,12 +476,12 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QWindowCapture, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -465,10 +490,10 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QWindowCapture) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -477,10 +502,10 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QWindowCapture) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -489,10 +514,10 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QWindowCapture) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -501,10 +526,10 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QWindowCapture) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -513,12 +538,12 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QWindowCapture, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -527,10 +552,10 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QWindowCapture) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -539,12 +564,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QWindowCapture, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -553,12 +579,12 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QWindowCapture, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -567,12 +593,12 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QWindowCapture, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -581,12 +607,12 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QWindowCapture, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -595,12 +621,12 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QWindowCapture, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -609,16 +635,17 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QWindowCapture, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qwindowcapture.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qwindowcapture.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -628,12 +655,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QWindowCapture, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -642,12 +670,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QWindowCapture, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -656,12 +685,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QWindowCapture, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -670,18 +700,20 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -690,16 +722,20 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -708,18 +744,19 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QWindowCapture, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -728,18 +765,20 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -748,16 +787,20 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -766,10 +809,10 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QWindowCapture) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -778,12 +821,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QWindowCapture, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -792,10 +836,11 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -804,10 +849,10 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QWindowCapture) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -816,10 +861,10 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QWindowCapture) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -828,15 +873,16 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QWindowCapture, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -845,13 +891,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QWindowCapture, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -860,17 +906,16 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QWindowCapture, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qwindowcapture.DynamicPropertyNames: Memory allocation failed");
@@ -889,10 +934,10 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QWindowCapture) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -901,10 +946,10 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QWindowCapture) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -913,10 +958,10 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QWindowCapture) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -925,12 +970,12 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` callback: *const fn (self: QtC.QWindowCapture) callconv(.c) void `
+    /// ` callback: *const fn (self: QWindowCapture) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QWindowCapture, callback: *const fn (QWindowCapture) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -939,10 +984,10 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QWindowCapture) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -951,13 +996,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QWindowCapture, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -966,10 +1011,10 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QWindowCapture) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -978,14 +1023,14 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QWindowCapture, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -994,14 +1039,14 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QWindowCapture, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1010,20 +1055,22 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1032,18 +1079,22 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1052,9 +1103,9 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1062,10 +1113,11 @@ pub const qwindowcapture = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QWindowCapture, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1074,13 +1126,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QWindowCapture, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1089,15 +1141,16 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QWindowCapture, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1106,18 +1159,19 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QWindowCapture, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1126,15 +1180,16 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QWindowCapture, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1143,12 +1198,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QWindowCapture, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1157,12 +1213,12 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` callback: *const fn (self: QtC.QWindowCapture, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QWindowCapture, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QWindowCapture, callback: *const fn (QWindowCapture, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1173,12 +1229,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QWindowCapture_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QWindowCapture, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QWindowCapture_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1193,12 +1250,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QWindowCapture_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QWindowCapture, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QWindowCapture_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1209,12 +1267,12 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWindowCapture`
+    /// ` self: QWindowCapture`
     ///
-    /// ` callback: *const fn (self: QtC.QWindowCapture, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QWindowCapture, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWindowCapture_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QWindowCapture, callback: *const fn (QWindowCapture, QEvent) callconv(.c) bool) void {
+        qtc.QWindowCapture_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1225,14 +1283,16 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QWindowCapture_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QWindowCapture, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QWindowCapture_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1247,14 +1307,16 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QWindowCapture_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QWindowCapture, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QWindowCapture_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1265,12 +1327,12 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWindowCapture`
+    /// ` self: QWindowCapture`
     ///
-    /// ` callback: *const fn (self: QtC.QWindowCapture, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QWindowCapture, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWindowCapture_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QWindowCapture, callback: *const fn (QWindowCapture, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QWindowCapture_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1281,12 +1343,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWindowCapture_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QWindowCapture, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QWindowCapture_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1301,12 +1364,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWindowCapture_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QWindowCapture, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QWindowCapture_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1317,12 +1381,12 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWindowCapture`
+    /// ` self: QWindowCapture`
     ///
-    /// ` callback: *const fn (self: QtC.QWindowCapture, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWindowCapture, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindowCapture_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QWindowCapture, callback: *const fn (QWindowCapture, QTimerEvent) callconv(.c) void) void {
+        qtc.QWindowCapture_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1333,12 +1397,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWindowCapture_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QWindowCapture, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QWindowCapture_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1353,12 +1418,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWindowCapture_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QWindowCapture, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QWindowCapture_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1369,12 +1435,12 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWindowCapture`
+    /// ` self: QWindowCapture`
     ///
-    /// ` callback: *const fn (self: QtC.QWindowCapture, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWindowCapture, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindowCapture_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QWindowCapture, callback: *const fn (QWindowCapture, QChildEvent) callconv(.c) void) void {
+        qtc.QWindowCapture_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1385,12 +1451,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWindowCapture_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QWindowCapture, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QWindowCapture_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1405,12 +1472,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWindowCapture_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QWindowCapture, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QWindowCapture_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1421,12 +1489,12 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWindowCapture`
+    /// ` self: QWindowCapture`
     ///
-    /// ` callback: *const fn (self: QtC.QWindowCapture, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWindowCapture, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindowCapture_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QWindowCapture, callback: *const fn (QWindowCapture, QEvent) callconv(.c) void) void {
+        qtc.QWindowCapture_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1437,12 +1505,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWindowCapture_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QWindowCapture, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QWindowCapture_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1457,12 +1526,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWindowCapture_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QWindowCapture, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QWindowCapture_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1473,12 +1543,12 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWindowCapture`
+    /// ` self: QWindowCapture`
     ///
-    /// ` callback: *const fn (self: QtC.QWindowCapture, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QWindowCapture, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindowCapture_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QWindowCapture, callback: *const fn (QWindowCapture, QMetaMethod) callconv(.c) void) void {
+        qtc.QWindowCapture_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1489,12 +1559,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWindowCapture_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QWindowCapture, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QWindowCapture_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1509,12 +1580,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWindowCapture_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QWindowCapture, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QWindowCapture_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1525,12 +1597,12 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWindowCapture`
+    /// ` self: QWindowCapture`
     ///
-    /// ` callback: *const fn (self: QtC.QWindowCapture, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QWindowCapture, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindowCapture_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QWindowCapture, callback: *const fn (QWindowCapture, QMetaMethod) callconv(.c) void) void {
+        qtc.QWindowCapture_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1541,10 +1613,10 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QWindowCapture_Sender(@ptrCast(self));
+    pub fn Sender(self: QWindowCapture) QObject {
+        return .{ .ptr = qtc.QWindowCapture_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -1559,10 +1631,10 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QWindowCapture_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QWindowCapture) QObject {
+        return .{ .ptr = qtc.QWindowCapture_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1573,12 +1645,12 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWindowCapture`
+    /// ` self: QWindowCapture`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QWindowCapture_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QWindowCapture, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QWindowCapture_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1589,10 +1661,10 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QWindowCapture_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QWindowCapture) i32 {
+        return qtc.QWindowCapture_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -1607,10 +1679,10 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QWindowCapture_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QWindowCapture) i32 {
+        return qtc.QWindowCapture_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1621,12 +1693,12 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWindowCapture`
+    /// ` self: QWindowCapture`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QWindowCapture_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QWindowCapture, callback: *const fn () callconv(.c) i32) void {
+        qtc.QWindowCapture_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1637,13 +1709,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QWindowCapture, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QWindowCapture_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QWindowCapture_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -1658,13 +1730,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QWindowCapture, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QWindowCapture_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QWindowCapture_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1675,12 +1747,12 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWindowCapture`
+    /// ` self: QWindowCapture`
     ///
-    /// ` callback: *const fn (self: QtC.QWindowCapture, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QWindowCapture, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QWindowCapture_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QWindowCapture, callback: *const fn (QWindowCapture, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QWindowCapture_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1691,12 +1763,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QWindowCapture_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QWindowCapture, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QWindowCapture_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -1711,12 +1784,13 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QWindowCapture_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QWindowCapture, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QWindowCapture_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1727,12 +1801,12 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWindowCapture`
+    /// ` self: QWindowCapture`
     ///
-    /// ` callback: *const fn (self: QtC.QWindowCapture, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QWindowCapture, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWindowCapture_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QWindowCapture, callback: *const fn (QWindowCapture, QMetaMethod) callconv(.c) bool) void {
+        qtc.QWindowCapture_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1743,12 +1817,12 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    /// ` callback: *const fn (self: QtC.QWindowCapture, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QWindowCapture, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QWindowCapture, callback: *const fn (QWindowCapture, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1761,10 +1835,10 @@ pub const qwindowcapture = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QWindowCapture `
+    /// ` self: QWindowCapture `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QWindowCapture_Delete(@ptrCast(self));
+    pub fn Delete(self: QWindowCapture) void {
+        qtc.QWindowCapture_Delete(@ptrCast(self.ptr));
     }
 };
 

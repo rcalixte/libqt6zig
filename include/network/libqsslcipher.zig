@@ -4,11 +4,19 @@ const qssl_enums = @import("libqssl.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcipher.html)
-pub const qsslcipher = struct {
+pub const QSslCipher = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcipher.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QSslCipher,
+
+    pub const _is_QSslCipher = {};
+
     /// New constructs a new QSslCipher object.
     ///
-    pub fn New() QtC.QSslCipher {
-        return qtc.QSslCipher_new();
+    pub fn New() QSslCipher {
+        return .{ .ptr = qtc.QSslCipher_new() };
     }
 
     /// New2 constructs a new QSslCipher object.
@@ -17,13 +25,12 @@ pub const qsslcipher = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn New2(name: []const u8) QtC.QSslCipher {
+    pub fn New2(name: []const u8) QSslCipher {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-
-        return qtc.QSslCipher_new2(name_str);
+        return .{ .ptr = qtc.QSslCipher_new2(name_str) };
     }
 
     /// New3 constructs a new QSslCipher object.
@@ -34,93 +41,97 @@ pub const qsslcipher = struct {
     ///
     /// ` protocol: qssl_enums.SslProtocol `
     ///
-    pub fn New3(name: []const u8, protocol: i32) QtC.QSslCipher {
+    pub fn New3(name: []const u8, protocol: i32) QSslCipher {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-
-        return qtc.QSslCipher_new3(name_str, @bitCast(protocol));
+        return .{ .ptr = qtc.QSslCipher_new3(name_str, @bitCast(protocol)) };
     }
 
     /// New4 constructs a new QSslCipher object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QSslCipher `
+    /// ` other: QSslCipher `
     ///
-    pub fn New4(other: ?*anyopaque) QtC.QSslCipher {
-        return qtc.QSslCipher_new4(@ptrCast(other));
+    pub fn New4(other: anytype) QSslCipher {
+        comptime _ = @TypeOf(other)._is_QSslCipher;
+        return .{ .ptr = qtc.QSslCipher_new4(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcipher.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslCipher `
+    /// ` self: QSslCipher `
     ///
-    /// ` other: QtC.QSslCipher `
+    /// ` other: QSslCipher `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QSslCipher_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QSslCipher, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QSslCipher;
+        qtc.QSslCipher_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcipher.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslCipher `
+    /// ` self: QSslCipher `
     ///
-    /// ` other: QtC.QSslCipher `
+    /// ` other: QSslCipher `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QSslCipher_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QSslCipher, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QSslCipher;
+        qtc.QSslCipher_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcipher.html#operator-eq-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslCipher `
+    /// ` self: QSslCipher `
     ///
-    /// ` other: QtC.QSslCipher `
+    /// ` other: QSslCipher `
     ///
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QSslCipher_OperatorEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorEqual(self: QSslCipher, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QSslCipher;
+        return qtc.QSslCipher_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcipher.html#operator-not-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslCipher `
+    /// ` self: QSslCipher `
     ///
-    /// ` other: QtC.QSslCipher `
+    /// ` other: QSslCipher `
     ///
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QSslCipher_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorNotEqual(self: QSslCipher, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QSslCipher;
+        return qtc.QSslCipher_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcipher.html#isNull)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslCipher `
+    /// ` self: QSslCipher `
     ///
-    pub fn IsNull(self: ?*anyopaque) bool {
-        return qtc.QSslCipher_IsNull(@ptrCast(self));
+    pub fn IsNull(self: QSslCipher) bool {
+        return qtc.QSslCipher_IsNull(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcipher.html#name)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslCipher `
+    /// ` self: QSslCipher `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QSslCipher_Name(@ptrCast(self));
+    pub fn Name(self: QSslCipher, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QSslCipher_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslcipher.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -131,32 +142,32 @@ pub const qsslcipher = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslCipher `
+    /// ` self: QSslCipher `
     ///
-    pub fn SupportedBits(self: ?*anyopaque) i32 {
-        return qtc.QSslCipher_SupportedBits(@ptrCast(self));
+    pub fn SupportedBits(self: QSslCipher) i32 {
+        return qtc.QSslCipher_SupportedBits(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcipher.html#usedBits)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslCipher `
+    /// ` self: QSslCipher `
     ///
-    pub fn UsedBits(self: ?*anyopaque) i32 {
-        return qtc.QSslCipher_UsedBits(@ptrCast(self));
+    pub fn UsedBits(self: QSslCipher) i32 {
+        return qtc.QSslCipher_UsedBits(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslcipher.html#keyExchangeMethod)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslCipher `
+    /// ` self: QSslCipher `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn KeyExchangeMethod(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QSslCipher_KeyExchangeMethod(@ptrCast(self));
+    pub fn KeyExchangeMethod(self: QSslCipher, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QSslCipher_KeyExchangeMethod(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslcipher.KeyExchangeMethod: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -167,12 +178,12 @@ pub const qsslcipher = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslCipher `
+    /// ` self: QSslCipher `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AuthenticationMethod(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QSslCipher_AuthenticationMethod(@ptrCast(self));
+    pub fn AuthenticationMethod(self: QSslCipher, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QSslCipher_AuthenticationMethod(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslcipher.AuthenticationMethod: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -183,12 +194,12 @@ pub const qsslcipher = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslCipher `
+    /// ` self: QSslCipher `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EncryptionMethod(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QSslCipher_EncryptionMethod(@ptrCast(self));
+    pub fn EncryptionMethod(self: QSslCipher, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QSslCipher_EncryptionMethod(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslcipher.EncryptionMethod: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -199,12 +210,12 @@ pub const qsslcipher = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslCipher `
+    /// ` self: QSslCipher `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ProtocolString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QSslCipher_ProtocolString(@ptrCast(self));
+    pub fn ProtocolString(self: QSslCipher, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QSslCipher_ProtocolString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslcipher.ProtocolString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -215,14 +226,14 @@ pub const qsslcipher = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslCipher `
+    /// ` self: QSslCipher `
     ///
     /// ## Returns:
     ///
     /// ` qssl_enums.SslProtocol `
     ///
-    pub fn Protocol(self: ?*anyopaque) i32 {
-        return qtc.QSslCipher_Protocol(@ptrCast(self));
+    pub fn Protocol(self: QSslCipher) i32 {
+        return qtc.QSslCipher_Protocol(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -235,9 +246,9 @@ pub const qsslcipher = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QSslCipher `
+    /// ` self: QSslCipher `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QSslCipher_Delete(@ptrCast(self));
+    pub fn Delete(self: QSslCipher) void {
+        qtc.QSslCipher_Delete(@ptrCast(self.ptr));
     }
 };

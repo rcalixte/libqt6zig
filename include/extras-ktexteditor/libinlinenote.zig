@@ -1,106 +1,120 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KTextEditor__Cursor = @import("libqt6").KTextEditor__Cursor;
+const KTextEditor__InlineNoteProvider = @import("libqt6").KTextEditor__InlineNoteProvider;
+const KTextEditor__View = @import("libqt6").KTextEditor__View;
+const QFont = @import("libqt6").QFont;
 
 /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenote.html)
-pub const ktexteditor__inlinenote = struct {
+pub const KTextEditor__InlineNote = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenote.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KTextEditor__InlineNote,
+
+    pub const _is_KTextEditor__InlineNote = {};
+
     /// New constructs a new KTextEditor::InlineNote object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.KTextEditor__InlineNote `
+    /// ` other: KTextEditor__InlineNote `
     ///
-    pub fn New(other: ?*anyopaque) QtC.KTextEditor__InlineNote {
-        return qtc.KTextEditor__InlineNote_new(@ptrCast(other));
+    pub fn New(other: anytype) KTextEditor__InlineNote {
+        comptime _ = @TypeOf(other)._is_KTextEditor__InlineNote;
+        return .{ .ptr = qtc.KTextEditor__InlineNote_new(@ptrCast(other.ptr)) };
     }
 
     /// New2 constructs a new KTextEditor::InlineNote object and invalidates the source KTextEditor::InlineNote object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.KTextEditor__InlineNote `
+    /// ` other: KTextEditor__InlineNote `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.KTextEditor__InlineNote {
-        return qtc.KTextEditor__InlineNote_new2(@ptrCast(other));
+    pub fn New2(other: anytype) KTextEditor__InlineNote {
+        comptime _ = @TypeOf(other)._is_KTextEditor__InlineNote;
+        return .{ .ptr = qtc.KTextEditor__InlineNote_new2(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenote.html#width)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__InlineNote `
+    /// ` self: KTextEditor__InlineNote `
     ///
-    pub fn Width(self: ?*anyopaque) f64 {
-        return qtc.KTextEditor__InlineNote_Width(@ptrCast(self));
+    pub fn Width(self: KTextEditor__InlineNote) f64 {
+        return qtc.KTextEditor__InlineNote_Width(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenote.html#provider)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__InlineNote `
+    /// ` self: KTextEditor__InlineNote `
     ///
-    pub fn Provider(self: ?*anyopaque) QtC.KTextEditor__InlineNoteProvider {
-        return qtc.KTextEditor__InlineNote_Provider(@ptrCast(self));
+    pub fn Provider(self: KTextEditor__InlineNote) KTextEditor__InlineNoteProvider {
+        return .{ .ptr = qtc.KTextEditor__InlineNote_Provider(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenote.html#view)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__InlineNote `
+    /// ` self: KTextEditor__InlineNote `
     ///
-    pub fn View(self: ?*anyopaque) QtC.KTextEditor__View {
-        return qtc.KTextEditor__InlineNote_View(@ptrCast(self));
+    pub fn View(self: KTextEditor__InlineNote) KTextEditor__View {
+        return .{ .ptr = qtc.KTextEditor__InlineNote_View(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenote.html#position)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__InlineNote `
+    /// ` self: KTextEditor__InlineNote `
     ///
-    pub fn Position(self: ?*anyopaque) QtC.KTextEditor__Cursor {
-        return qtc.KTextEditor__InlineNote_Position(@ptrCast(self));
+    pub fn Position(self: KTextEditor__InlineNote) KTextEditor__Cursor {
+        return .{ .ptr = qtc.KTextEditor__InlineNote_Position(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenote.html#index)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__InlineNote `
+    /// ` self: KTextEditor__InlineNote `
     ///
-    pub fn Index(self: ?*anyopaque) i32 {
-        return qtc.KTextEditor__InlineNote_Index(@ptrCast(self));
+    pub fn Index(self: KTextEditor__InlineNote) i32 {
+        return qtc.KTextEditor__InlineNote_Index(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenote.html#underMouse)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__InlineNote `
+    /// ` self: KTextEditor__InlineNote `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.KTextEditor__InlineNote_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: KTextEditor__InlineNote) bool {
+        return qtc.KTextEditor__InlineNote_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenote.html#font)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__InlineNote `
+    /// ` self: KTextEditor__InlineNote `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.KTextEditor__InlineNote_Font(@ptrCast(self));
+    pub fn Font(self: KTextEditor__InlineNote) QFont {
+        return .{ .ptr = qtc.KTextEditor__InlineNote_Font(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-inlinenote.html#lineHeight)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KTextEditor__InlineNote `
+    /// ` self: KTextEditor__InlineNote `
     ///
-    pub fn LineHeight(self: ?*anyopaque) i32 {
-        return qtc.KTextEditor__InlineNote_LineHeight(@ptrCast(self));
+    pub fn LineHeight(self: KTextEditor__InlineNote) i32 {
+        return qtc.KTextEditor__InlineNote_LineHeight(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -111,9 +125,9 @@ pub const ktexteditor__inlinenote = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KTextEditor__InlineNote `
+    /// ` self: KTextEditor__InlineNote `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KTextEditor__InlineNote_Delete(@ptrCast(self));
+    pub fn Delete(self: KTextEditor__InlineNote) void {
+        qtc.KTextEditor__InlineNote_Delete(@ptrCast(self.ptr));
     }
 };

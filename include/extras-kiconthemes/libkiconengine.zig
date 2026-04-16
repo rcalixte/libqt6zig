@@ -1,41 +1,57 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KIconColors = @import("libqt6").KIconColors;
+const KIconLoader = @import("libqt6").KIconLoader;
+const QDataStream = @import("libqt6").QDataStream;
+const QIconEngine = @import("libqt6").QIconEngine;
+const QPainter = @import("libqt6").QPainter;
+const QPixmap = @import("libqt6").QPixmap;
+const QRect = @import("libqt6").QRect;
+const QSize = @import("libqt6").QSize;
 const qicon_enums = @import("../libqicon.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kiconengine.html)
-pub const kiconengine = struct {
+pub const KIconEngine = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kiconengine.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KIconEngine,
+
+    pub const _is_KIconEngine = {};
+    pub const _is_QIconEngine = {};
+
     /// New constructs a new KIconEngine object.
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` iconName: []const u8 `
     ///
-    /// ` iconLoader: QtC.KIconLoader `
+    /// ` iconLoader: KIconLoader `
     ///
     /// ` overlays: []const []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn New(iconName: []const u8, iconLoader: ?*anyopaque, overlays: []const []const u8, allocator: std.mem.Allocator) QtC.KIconEngine {
+    pub fn New(allocator: std.mem.Allocator, iconName: []const u8, iconLoader: anytype, overlays: []const []const u8) KIconEngine {
         const iconName_str = qtc.libqt_string{
             .len = iconName.len,
             .data = iconName.ptr,
         };
+        comptime _ = @TypeOf(iconLoader)._is_KIconLoader;
         const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("kiconengine.New: Memory allocation failed");
         defer allocator.free(overlays_arr);
-        for (overlays, 0..overlays.len) |item, i| {
+        for (overlays, 0..overlays.len) |item, i|
             overlays_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const overlays_list = qtc.libqt_list{
             .len = overlays.len,
             .data = overlays_arr.ptr,
         };
-
-        return qtc.KIconEngine_new(iconName_str, @ptrCast(iconLoader), overlays_list);
+        return .{ .ptr = qtc.KIconEngine_new(iconName_str, @ptrCast(iconLoader.ptr), overlays_list) };
     }
 
     /// New2 constructs a new KIconEngine object.
@@ -44,15 +60,15 @@ pub const kiconengine = struct {
     ///
     /// ` iconName: []const u8 `
     ///
-    /// ` iconLoader: QtC.KIconLoader `
+    /// ` iconLoader: KIconLoader `
     ///
-    pub fn New2(iconName: []const u8, iconLoader: ?*anyopaque) QtC.KIconEngine {
+    pub fn New2(iconName: []const u8, iconLoader: anytype) KIconEngine {
         const iconName_str = qtc.libqt_string{
             .len = iconName.len,
             .data = iconName.ptr,
         };
-
-        return qtc.KIconEngine_new2(iconName_str, @ptrCast(iconLoader));
+        comptime _ = @TypeOf(iconLoader)._is_KIconLoader;
+        return .{ .ptr = qtc.KIconEngine_new2(iconName_str, @ptrCast(iconLoader.ptr)) };
     }
 
     /// New3 constructs a new KIconEngine object.
@@ -61,78 +77,81 @@ pub const kiconengine = struct {
     ///
     /// ` iconName: []const u8 `
     ///
-    /// ` colors: QtC.KIconColors `
+    /// ` colors: KIconColors `
     ///
-    /// ` iconLoader: QtC.KIconLoader `
+    /// ` iconLoader: KIconLoader `
     ///
-    pub fn New3(iconName: []const u8, colors: ?*anyopaque, iconLoader: ?*anyopaque) QtC.KIconEngine {
+    pub fn New3(iconName: []const u8, colors: anytype, iconLoader: anytype) KIconEngine {
         const iconName_str = qtc.libqt_string{
             .len = iconName.len,
             .data = iconName.ptr,
         };
-
-        return qtc.KIconEngine_new3(iconName_str, @ptrCast(colors), @ptrCast(iconLoader));
+        comptime _ = @TypeOf(colors)._is_KIconColors;
+        comptime _ = @TypeOf(iconLoader)._is_KIconLoader;
+        return .{ .ptr = qtc.KIconEngine_new3(iconName_str, @ptrCast(colors.ptr), @ptrCast(iconLoader.ptr)) };
     }
 
     /// New4 constructs a new KIconEngine object.
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` iconName: []const u8 `
     ///
-    /// ` colors: QtC.KIconColors `
+    /// ` colors: KIconColors `
     ///
-    /// ` iconLoader: QtC.KIconLoader `
+    /// ` iconLoader: KIconLoader `
     ///
     /// ` overlays: []const []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn New4(iconName: []const u8, colors: ?*anyopaque, iconLoader: ?*anyopaque, overlays: []const []const u8, allocator: std.mem.Allocator) QtC.KIconEngine {
+    pub fn New4(allocator: std.mem.Allocator, iconName: []const u8, colors: anytype, iconLoader: anytype, overlays: []const []const u8) KIconEngine {
         const iconName_str = qtc.libqt_string{
             .len = iconName.len,
             .data = iconName.ptr,
         };
+        comptime _ = @TypeOf(colors)._is_KIconColors;
+        comptime _ = @TypeOf(iconLoader)._is_KIconLoader;
         const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("kiconengine.New4: Memory allocation failed");
         defer allocator.free(overlays_arr);
-        for (overlays, 0..overlays.len) |item, i| {
+        for (overlays, 0..overlays.len) |item, i|
             overlays_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const overlays_list = qtc.libqt_list{
             .len = overlays.len,
             .data = overlays_arr.ptr,
         };
-
-        return qtc.KIconEngine_new4(iconName_str, @ptrCast(colors), @ptrCast(iconLoader), overlays_list);
+        return .{ .ptr = qtc.KIconEngine_new4(iconName_str, @ptrCast(colors.ptr), @ptrCast(iconLoader.ptr), overlays_list) };
     }
 
     /// New5 constructs a new KIconEngine object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.KIconEngine `
+    /// ` param1: KIconEngine `
     ///
-    pub fn New5(param1: ?*anyopaque) QtC.KIconEngine {
-        return qtc.KIconEngine_new5(@ptrCast(param1));
+    pub fn New5(param1: anytype) KIconEngine {
+        comptime _ = @TypeOf(param1)._is_KIconEngine;
+        return .{ .ptr = qtc.KIconEngine_new5(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#actualSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    /// ` size: QtC.QSize `
+    /// ` size: QSize `
     ///
     /// ` mode: qicon_enums.Mode `
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn ActualSize(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QSize {
-        return qtc.KIconEngine_ActualSize(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state));
+    pub fn ActualSize(self: KIconEngine, size: anytype, mode: i32, state: i32) QSize {
+        comptime _ = @TypeOf(size)._is_QSize;
+        return .{ .ptr = qtc.KIconEngine_ActualSize(@ptrCast(self.ptr), @ptrCast(size.ptr), @bitCast(mode), @bitCast(state)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#actualSize)
@@ -141,12 +160,12 @@ pub const kiconengine = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    /// ` callback: *const fn (self: QtC.KIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) QtC.QSize `
+    /// ` callback: *const fn (self: KIconEngine, size: QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) QSize `
     ///
-    pub fn OnActualSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.QSize) void {
-        qtc.KIconEngine_OnActualSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActualSize(self: KIconEngine, callback: *const fn (KIconEngine, QSize, i32, i32) callconv(.c) QSize) void {
+        qtc.KIconEngine_OnActualSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperActualSize` instead
@@ -159,34 +178,37 @@ pub const kiconengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    /// ` size: QtC.QSize `
+    /// ` size: QSize `
     ///
     /// ` mode: qicon_enums.Mode `
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn SuperActualSize(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QSize {
-        return qtc.KIconEngine_SuperActualSize(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state));
+    pub fn SuperActualSize(self: KIconEngine, size: anytype, mode: i32, state: i32) QSize {
+        comptime _ = @TypeOf(size)._is_QSize;
+        return .{ .ptr = qtc.KIconEngine_SuperActualSize(@ptrCast(self.ptr), @ptrCast(size.ptr), @bitCast(mode), @bitCast(state)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#paint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` rect: QtC.QRect `
+    /// ` rect: QRect `
     ///
     /// ` mode: qicon_enums.Mode `
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn Paint(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, mode: i32, state: i32) void {
-        qtc.KIconEngine_Paint(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @bitCast(mode), @bitCast(state));
+    pub fn Paint(self: KIconEngine, painter: anytype, rect: anytype, mode: i32, state: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(rect)._is_QRect;
+        qtc.KIconEngine_Paint(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @bitCast(mode), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#paint)
@@ -195,12 +217,12 @@ pub const kiconengine = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    /// ` callback: *const fn (self: QtC.KIconEngine, painter: QtC.QPainter, rect: QtC.QRect, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconEngine, painter: QPainter, rect: QRect, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void `
     ///
-    pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KIconEngine_OnPaint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaint(self: KIconEngine, callback: *const fn (KIconEngine, QPainter, QRect, i32, i32) callconv(.c) void) void {
+        qtc.KIconEngine_OnPaint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperPaint` instead
@@ -213,34 +235,37 @@ pub const kiconengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` rect: QtC.QRect `
+    /// ` rect: QRect `
     ///
     /// ` mode: qicon_enums.Mode `
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn SuperPaint(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, mode: i32, state: i32) void {
-        qtc.KIconEngine_SuperPaint(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @bitCast(mode), @bitCast(state));
+    pub fn SuperPaint(self: KIconEngine, painter: anytype, rect: anytype, mode: i32, state: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(rect)._is_QRect;
+        qtc.KIconEngine_SuperPaint(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @bitCast(mode), @bitCast(state));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#pixmap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    /// ` size: QtC.QSize `
+    /// ` size: QSize `
     ///
     /// ` mode: qicon_enums.Mode `
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn Pixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QPixmap {
-        return qtc.KIconEngine_Pixmap(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state));
+    pub fn Pixmap(self: KIconEngine, size: anytype, mode: i32, state: i32) QPixmap {
+        comptime _ = @TypeOf(size)._is_QSize;
+        return .{ .ptr = qtc.KIconEngine_Pixmap(@ptrCast(self.ptr), @ptrCast(size.ptr), @bitCast(mode), @bitCast(state)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#pixmap)
@@ -249,12 +274,12 @@ pub const kiconengine = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    /// ` callback: *const fn (self: QtC.KIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) QtC.QPixmap `
+    /// ` callback: *const fn (self: KIconEngine, size: QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) QPixmap `
     ///
-    pub fn OnPixmap(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.QPixmap) void {
-        qtc.KIconEngine_OnPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPixmap(self: KIconEngine, callback: *const fn (KIconEngine, QSize, i32, i32) callconv(.c) QPixmap) void {
+        qtc.KIconEngine_OnPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperPixmap` instead
@@ -267,25 +292,26 @@ pub const kiconengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    /// ` size: QtC.QSize `
+    /// ` size: QSize `
     ///
     /// ` mode: qicon_enums.Mode `
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn SuperPixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QPixmap {
-        return qtc.KIconEngine_SuperPixmap(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state));
+    pub fn SuperPixmap(self: KIconEngine, size: anytype, mode: i32, state: i32) QPixmap {
+        comptime _ = @TypeOf(size)._is_QSize;
+        return .{ .ptr = qtc.KIconEngine_SuperPixmap(@ptrCast(self.ptr), @ptrCast(size.ptr), @bitCast(mode), @bitCast(state)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#scaledPixmap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    /// ` size: QtC.QSize `
+    /// ` size: QSize `
     ///
     /// ` mode: qicon_enums.Mode `
     ///
@@ -293,8 +319,9 @@ pub const kiconengine = struct {
     ///
     /// ` scale: f64 `
     ///
-    pub fn ScaledPixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32, scale: f64) QtC.QPixmap {
-        return qtc.KIconEngine_ScaledPixmap(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state), @bitCast(scale));
+    pub fn ScaledPixmap(self: KIconEngine, size: anytype, mode: i32, state: i32, scale: f64) QPixmap {
+        comptime _ = @TypeOf(size)._is_QSize;
+        return .{ .ptr = qtc.KIconEngine_ScaledPixmap(@ptrCast(self.ptr), @ptrCast(size.ptr), @bitCast(mode), @bitCast(state), @bitCast(scale)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#scaledPixmap)
@@ -303,12 +330,12 @@ pub const kiconengine = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    /// ` callback: *const fn (self: QtC.KIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State, scale: f64) callconv(.c) QtC.QPixmap `
+    /// ` callback: *const fn (self: KIconEngine, size: QSize, mode: qicon_enums.Mode, state: qicon_enums.State, scale: f64) callconv(.c) QPixmap `
     ///
-    pub fn OnScaledPixmap(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, f64) callconv(.c) QtC.QPixmap) void {
-        qtc.KIconEngine_OnScaledPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnScaledPixmap(self: KIconEngine, callback: *const fn (KIconEngine, QSize, i32, i32, f64) callconv(.c) QPixmap) void {
+        qtc.KIconEngine_OnScaledPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperScaledPixmap` instead
@@ -321,9 +348,9 @@ pub const kiconengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    /// ` size: QtC.QSize `
+    /// ` size: QSize `
     ///
     /// ` mode: qicon_enums.Mode `
     ///
@@ -331,20 +358,21 @@ pub const kiconengine = struct {
     ///
     /// ` scale: f64 `
     ///
-    pub fn SuperScaledPixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32, scale: f64) QtC.QPixmap {
-        return qtc.KIconEngine_SuperScaledPixmap(@ptrCast(self), @ptrCast(size), @bitCast(mode), @bitCast(state), @bitCast(scale));
+    pub fn SuperScaledPixmap(self: KIconEngine, size: anytype, mode: i32, state: i32, scale: f64) QPixmap {
+        comptime _ = @TypeOf(size)._is_QSize;
+        return .{ .ptr = qtc.KIconEngine_SuperScaledPixmap(@ptrCast(self.ptr), @ptrCast(size.ptr), @bitCast(mode), @bitCast(state), @bitCast(scale)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#iconName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KIconEngine_IconName(@ptrCast(self));
+    pub fn IconName(self: KIconEngine, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KIconEngine_IconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kiconengine.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -355,16 +383,16 @@ pub const kiconengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnIconName(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KIconEngine_OnIconName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIconName(self: KIconEngine, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KIconEngine_OnIconName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIconName` instead
@@ -377,12 +405,12 @@ pub const kiconengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperIconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KIconEngine_SuperIconName(@ptrCast(self));
+    pub fn SuperIconName(self: KIconEngine, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KIconEngine_SuperIconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kiconengine.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -393,20 +421,21 @@ pub const kiconengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` mode: qicon_enums.Mode `
     ///
     /// ` state: qicon_enums.State `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn AvailableSizes(self: ?*anyopaque, mode: i32, state: i32, allocator: std.mem.Allocator) []QtC.QSize {
-        const _arr: qtc.libqt_list = qtc.KIconEngine_AvailableSizes(@ptrCast(self), @bitCast(mode), @bitCast(state));
+    pub fn AvailableSizes(self: KIconEngine, allocator: std.mem.Allocator, mode: i32, state: i32) []QSize {
+        const _arr: qtc.libqt_list = qtc.KIconEngine_AvailableSizes(@ptrCast(self.ptr), @bitCast(mode), @bitCast(state));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QSize, _arr.len) catch @panic("kiconengine.AvailableSizes: Memory allocation failed");
+        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("kiconengine.AvailableSizes: Memory allocation failed");
         const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -414,20 +443,20 @@ pub const kiconengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    /// ` callback: *const fn (self: QtC.KIconEngine, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) qtc.libqt_list `
+    /// ` callback: *const fn (self: KIconEngine, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of []QtC.QSize `
+    /// ` C ABI representation of []QSize `
     ///
-    pub fn OnAvailableSizes(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) qtc.libqt_list) void {
-        qtc.KIconEngine_OnAvailableSizes(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAvailableSizes(self: KIconEngine, callback: *const fn (KIconEngine, i32, i32) callconv(.c) qtc.libqt_list) void {
+        qtc.KIconEngine_OnAvailableSizes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperAvailableSizes` instead
@@ -440,20 +469,21 @@ pub const kiconengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` mode: qicon_enums.Mode `
     ///
     /// ` state: qicon_enums.State `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn SuperAvailableSizes(self: ?*anyopaque, mode: i32, state: i32, allocator: std.mem.Allocator) []QtC.QSize {
-        const _arr: qtc.libqt_list = qtc.KIconEngine_SuperAvailableSizes(@ptrCast(self), @bitCast(mode), @bitCast(state));
+    pub fn SuperAvailableSizes(self: KIconEngine, allocator: std.mem.Allocator, mode: i32, state: i32) []QSize {
+        const _arr: qtc.libqt_list = qtc.KIconEngine_SuperAvailableSizes(@ptrCast(self.ptr), @bitCast(mode), @bitCast(state));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QSize, _arr.len) catch @panic("kiconengine.AvailableSizes: Memory allocation failed");
+        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("kiconengine.AvailableSizes: Memory allocation failed");
         const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -461,10 +491,10 @@ pub const kiconengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    pub fn IsNull(self: ?*anyopaque) bool {
-        return qtc.KIconEngine_IsNull(@ptrCast(self));
+    pub fn IsNull(self: KIconEngine) bool {
+        return qtc.KIconEngine_IsNull(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#isNull)
@@ -473,12 +503,12 @@ pub const kiconengine = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsNull(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KIconEngine_OnIsNull(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsNull(self: KIconEngine, callback: *const fn () callconv(.c) bool) void {
+        qtc.KIconEngine_OnIsNull(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIsNull` instead
@@ -491,22 +521,22 @@ pub const kiconengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    pub fn SuperIsNull(self: ?*anyopaque) bool {
-        return qtc.KIconEngine_SuperIsNull(@ptrCast(self));
+    pub fn SuperIsNull(self: KIconEngine) bool {
+        return qtc.KIconEngine_SuperIsNull(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#key)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Key(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KIconEngine_Key(@ptrCast(self));
+    pub fn Key(self: KIconEngine, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KIconEngine_Key(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kiconengine.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -517,16 +547,16 @@ pub const kiconengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnKey(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KIconEngine_OnKey(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKey(self: KIconEngine, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KIconEngine_OnKey(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperKey` instead
@@ -539,12 +569,12 @@ pub const kiconengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperKey(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KIconEngine_SuperKey(@ptrCast(self));
+    pub fn SuperKey(self: KIconEngine, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KIconEngine_SuperKey(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kiconengine.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -555,10 +585,10 @@ pub const kiconengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    pub fn Clone(self: ?*anyopaque) QtC.QIconEngine {
-        return qtc.KIconEngine_Clone(@ptrCast(self));
+    pub fn Clone(self: KIconEngine) QIconEngine {
+        return .{ .ptr = qtc.KIconEngine_Clone(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#clone)
@@ -567,12 +597,12 @@ pub const kiconengine = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QIconEngine `
+    /// ` callback: *const fn () callconv(.c) QIconEngine `
     ///
-    pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QIconEngine) void {
-        qtc.KIconEngine_OnClone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClone(self: KIconEngine, callback: *const fn () callconv(.c) QIconEngine) void {
+        qtc.KIconEngine_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperClone` instead
@@ -585,22 +615,23 @@ pub const kiconengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    pub fn SuperClone(self: ?*anyopaque) QtC.QIconEngine {
-        return qtc.KIconEngine_SuperClone(@ptrCast(self));
+    pub fn SuperClone(self: KIconEngine) QIconEngine {
+        return .{ .ptr = qtc.KIconEngine_SuperClone(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#read)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    /// ` in: QtC.QDataStream `
+    /// ` in: QDataStream `
     ///
-    pub fn Read(self: ?*anyopaque, in: ?*anyopaque) bool {
-        return qtc.KIconEngine_Read(@ptrCast(self), @ptrCast(in));
+    pub fn Read(self: KIconEngine, in: anytype) bool {
+        comptime _ = @TypeOf(in)._is_QDataStream;
+        return qtc.KIconEngine_Read(@ptrCast(self.ptr), @ptrCast(in.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#read)
@@ -609,12 +640,12 @@ pub const kiconengine = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    /// ` callback: *const fn (self: QtC.KIconEngine, in: QtC.QDataStream) callconv(.c) bool `
+    /// ` callback: *const fn (self: KIconEngine, in: QDataStream) callconv(.c) bool `
     ///
-    pub fn OnRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIconEngine_OnRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRead(self: KIconEngine, callback: *const fn (KIconEngine, QDataStream) callconv(.c) bool) void {
+        qtc.KIconEngine_OnRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRead` instead
@@ -627,24 +658,26 @@ pub const kiconengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    /// ` in: QtC.QDataStream `
+    /// ` in: QDataStream `
     ///
-    pub fn SuperRead(self: ?*anyopaque, in: ?*anyopaque) bool {
-        return qtc.KIconEngine_SuperRead(@ptrCast(self), @ptrCast(in));
+    pub fn SuperRead(self: KIconEngine, in: anytype) bool {
+        comptime _ = @TypeOf(in)._is_QDataStream;
+        return qtc.KIconEngine_SuperRead(@ptrCast(self.ptr), @ptrCast(in.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#write)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    /// ` out: QtC.QDataStream `
+    /// ` out: QDataStream `
     ///
-    pub fn Write(self: ?*anyopaque, out: ?*anyopaque) bool {
-        return qtc.KIconEngine_Write(@ptrCast(self), @ptrCast(out));
+    pub fn Write(self: KIconEngine, out: anytype) bool {
+        comptime _ = @TypeOf(out)._is_QDataStream;
+        return qtc.KIconEngine_Write(@ptrCast(self.ptr), @ptrCast(out.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#write)
@@ -653,12 +686,12 @@ pub const kiconengine = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    /// ` callback: *const fn (self: QtC.KIconEngine, out: QtC.QDataStream) callconv(.c) bool `
+    /// ` callback: *const fn (self: KIconEngine, out: QDataStream) callconv(.c) bool `
     ///
-    pub fn OnWrite(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIconEngine_OnWrite(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWrite(self: KIconEngine, callback: *const fn (KIconEngine, QDataStream) callconv(.c) bool) void {
+        qtc.KIconEngine_OnWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperWrite` instead
@@ -671,12 +704,13 @@ pub const kiconengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    /// ` out: QtC.QDataStream `
+    /// ` out: QDataStream `
     ///
-    pub fn SuperWrite(self: ?*anyopaque, out: ?*anyopaque) bool {
-        return qtc.KIconEngine_SuperWrite(@ptrCast(self), @ptrCast(out));
+    pub fn SuperWrite(self: KIconEngine, out: anytype) bool {
+        comptime _ = @TypeOf(out)._is_QDataStream;
+        return qtc.KIconEngine_SuperWrite(@ptrCast(self.ptr), @ptrCast(out.ptr));
     }
 
     /// Inherited from QIconEngine
@@ -687,16 +721,17 @@ pub const kiconengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    /// ` pixmap: QtC.QPixmap `
+    /// ` pixmap: QPixmap `
     ///
     /// ` mode: qicon_enums.Mode `
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn AddPixmap(self: ?*anyopaque, pixmap: ?*anyopaque, mode: i32, state: i32) void {
-        qtc.KIconEngine_AddPixmap(@ptrCast(self), @ptrCast(pixmap), @bitCast(mode), @bitCast(state));
+    pub fn AddPixmap(self: KIconEngine, pixmap: anytype, mode: i32, state: i32) void {
+        comptime _ = @TypeOf(pixmap)._is_QPixmap;
+        qtc.KIconEngine_AddPixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr), @bitCast(mode), @bitCast(state));
     }
 
     /// ### DEPRECATED: Use `SuperAddPixmap` instead
@@ -711,16 +746,17 @@ pub const kiconengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    /// ` pixmap: QtC.QPixmap `
+    /// ` pixmap: QPixmap `
     ///
     /// ` mode: qicon_enums.Mode `
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn SuperAddPixmap(self: ?*anyopaque, pixmap: ?*anyopaque, mode: i32, state: i32) void {
-        qtc.KIconEngine_SuperAddPixmap(@ptrCast(self), @ptrCast(pixmap), @bitCast(mode), @bitCast(state));
+    pub fn SuperAddPixmap(self: KIconEngine, pixmap: anytype, mode: i32, state: i32) void {
+        comptime _ = @TypeOf(pixmap)._is_QPixmap;
+        qtc.KIconEngine_SuperAddPixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr), @bitCast(mode), @bitCast(state));
     }
 
     /// Inherited from QIconEngine
@@ -731,12 +767,12 @@ pub const kiconengine = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconEngine`
+    /// ` self: KIconEngine`
     ///
-    /// ` callback: *const fn (self: QtC.KIconEngine, pixmap: QtC.QPixmap, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconEngine, pixmap: QPixmap, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void `
     ///
-    pub fn OnAddPixmap(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KIconEngine_OnAddPixmap(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAddPixmap(self: KIconEngine, callback: *const fn (KIconEngine, QPixmap, i32, i32) callconv(.c) void) void {
+        qtc.KIconEngine_OnAddPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIconEngine
@@ -747,22 +783,23 @@ pub const kiconengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
     /// ` fileName: []const u8 `
     ///
-    /// ` size: QtC.QSize `
+    /// ` size: QSize `
     ///
     /// ` mode: qicon_enums.Mode `
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn AddFile(self: ?*anyopaque, fileName: []const u8, size: ?*anyopaque, mode: i32, state: i32) void {
+    pub fn AddFile(self: KIconEngine, fileName: []const u8, size: anytype, mode: i32, state: i32) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        qtc.KIconEngine_AddFile(@ptrCast(self), fileName_str, @ptrCast(size), @bitCast(mode), @bitCast(state));
+        comptime _ = @TypeOf(size)._is_QSize;
+        qtc.KIconEngine_AddFile(@ptrCast(self.ptr), fileName_str, @ptrCast(size.ptr), @bitCast(mode), @bitCast(state));
     }
 
     /// ### DEPRECATED: Use `SuperAddFile` instead
@@ -777,22 +814,23 @@ pub const kiconengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
     /// ` fileName: []const u8 `
     ///
-    /// ` size: QtC.QSize `
+    /// ` size: QSize `
     ///
     /// ` mode: qicon_enums.Mode `
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn SuperAddFile(self: ?*anyopaque, fileName: []const u8, size: ?*anyopaque, mode: i32, state: i32) void {
+    pub fn SuperAddFile(self: KIconEngine, fileName: []const u8, size: anytype, mode: i32, state: i32) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        qtc.KIconEngine_SuperAddFile(@ptrCast(self), fileName_str, @ptrCast(size), @bitCast(mode), @bitCast(state));
+        comptime _ = @TypeOf(size)._is_QSize;
+        qtc.KIconEngine_SuperAddFile(@ptrCast(self.ptr), fileName_str, @ptrCast(size.ptr), @bitCast(mode), @bitCast(state));
     }
 
     /// Inherited from QIconEngine
@@ -803,12 +841,12 @@ pub const kiconengine = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconEngine`
+    /// ` self: KIconEngine`
     ///
-    /// ` callback: *const fn (self: QtC.KIconEngine, fileName: [*:0]const u8, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconEngine, fileName: [*:0]const u8, size: QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void `
     ///
-    pub fn OnAddFile(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KIconEngine_OnAddFile(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAddFile(self: KIconEngine, callback: *const fn (KIconEngine, [*:0]const u8, QSize, i32, i32) callconv(.c) void) void {
+        qtc.KIconEngine_OnAddFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIconEngine
@@ -819,14 +857,14 @@ pub const kiconengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
     /// ` id: i32 `
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KIconEngine_VirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
+    pub fn VirtualHook(self: KIconEngine, id: i32, data: ?*anyopaque) void {
+        qtc.KIconEngine_VirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(data));
     }
 
     /// ### DEPRECATED: Use `SuperVirtualHook` instead
@@ -841,14 +879,14 @@ pub const kiconengine = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
     /// ` id: i32 `
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn SuperVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KIconEngine_SuperVirtualHook(@ptrCast(self), @bitCast(id), @ptrCast(data));
+    pub fn SuperVirtualHook(self: KIconEngine, id: i32, data: ?*anyopaque) void {
+        qtc.KIconEngine_SuperVirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(data));
     }
 
     /// Inherited from QIconEngine
@@ -859,12 +897,12 @@ pub const kiconengine = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIconEngine`
+    /// ` self: KIconEngine`
     ///
-    /// ` callback: *const fn (self: QtC.KIconEngine, id: i32, data: ?*anyopaque) callconv(.c) void `
+    /// ` callback: *const fn (self: KIconEngine, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIconEngine_OnVirtualHook(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVirtualHook(self: KIconEngine, callback: *const fn (KIconEngine, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIconEngine_OnVirtualHook(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -877,9 +915,9 @@ pub const kiconengine = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KIconEngine `
+    /// ` self: KIconEngine `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KIconEngine_Delete(@ptrCast(self));
+    pub fn Delete(self: KIconEngine) void {
+        qtc.KIconEngine_Delete(@ptrCast(self.ptr));
     }
 };

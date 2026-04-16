@@ -1,46 +1,73 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const Accounts__Account = @import("libqt6").Accounts__Account;
+const Accounts__AuthData = @import("libqt6").Accounts__AuthData;
+const Accounts__Service = @import("libqt6").Accounts__Service;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const account_enums = @import("libaccount.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AccountService.html)
-pub const accounts__accountservice = struct {
+pub const Accounts__AccountService = extern struct {
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AccountService.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Accounts__AccountService,
+
+    pub const _is_Accounts__AccountService = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new Accounts::AccountService object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` account: QtC.Accounts__Account `
+    /// ` account: Accounts__Account `
     ///
-    /// ` service: QtC.Accounts__Service `
+    /// ` service: Accounts__Service `
     ///
-    pub fn New(account: ?*anyopaque, service: ?*anyopaque) QtC.Accounts__AccountService {
-        return qtc.Accounts__AccountService_new(@ptrCast(account), @ptrCast(service));
+    pub fn New(account: anytype, service: anytype) Accounts__AccountService {
+        comptime _ = @TypeOf(account)._is_Accounts__Account;
+        comptime _ = @TypeOf(service)._is_Accounts__Service;
+        return .{ .ptr = qtc.Accounts__AccountService_new(@ptrCast(account.ptr), @ptrCast(service.ptr)) };
     }
 
     /// New2 constructs a new Accounts::AccountService object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` account: QtC.Accounts__Account `
+    /// ` account: Accounts__Account `
     ///
-    /// ` service: QtC.Accounts__Service `
+    /// ` service: Accounts__Service `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(account: ?*anyopaque, service: ?*anyopaque, parent: ?*anyopaque) QtC.Accounts__AccountService {
-        return qtc.Accounts__AccountService_new2(@ptrCast(account), @ptrCast(service), @ptrCast(parent));
+    pub fn New2(account: anytype, service: anytype, parent: anytype) Accounts__AccountService {
+        comptime _ = @TypeOf(account)._is_Accounts__Account;
+        comptime _ = @TypeOf(service)._is_Accounts__Service;
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.Accounts__AccountService_new2(@ptrCast(account.ptr), @ptrCast(service.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.Accounts__AccountService_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: Accounts__AccountService) QMetaObject {
+        return .{ .ptr = qtc.Accounts__AccountService_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -49,12 +76,12 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.Accounts__AccountService_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: Accounts__AccountService, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.Accounts__AccountService_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -67,33 +94,33 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.Accounts__AccountService_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: Accounts__AccountService) QMetaObject {
+        return .{ .ptr = qtc.Accounts__AccountService_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: Accounts__AccountService, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.Accounts__AccountService_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.Accounts__AccountService_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` callback: *const fn (self: QtC.Accounts__AccountService, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: Accounts__AccountService, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.Accounts__AccountService_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: Accounts__AccountService, callback: *const fn (Accounts__AccountService, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.Accounts__AccountService_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -104,18 +131,18 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: Accounts__AccountService, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.Accounts__AccountService_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.Accounts__AccountService_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -123,20 +150,20 @@ pub const accounts__accountservice = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.Accounts__AccountService_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: Accounts__AccountService, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.Accounts__AccountService_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` callback: *const fn (self: QtC.Accounts__AccountService, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: Accounts__AccountService, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.Accounts__AccountService_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: Accounts__AccountService, callback: *const fn (Accounts__AccountService, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.Accounts__AccountService_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -147,7 +174,7 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -155,19 +182,19 @@ pub const accounts__accountservice = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.Accounts__AccountService_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: Accounts__AccountService, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.Accounts__AccountService_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -180,57 +207,56 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn Account(self: ?*anyopaque) QtC.Accounts__Account {
-        return qtc.Accounts__AccountService_Account(@ptrCast(self));
+    pub fn Account(self: Accounts__AccountService) Accounts__Account {
+        return .{ .ptr = qtc.Accounts__AccountService_Account(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AccountService.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn Service(self: ?*anyopaque) QtC.Accounts__Service {
-        return qtc.Accounts__AccountService_Service(@ptrCast(self));
+    pub fn Service(self: Accounts__AccountService) Accounts__Service {
+        return .{ .ptr = qtc.Accounts__AccountService_Service(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AccountService.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn Enabled(self: ?*anyopaque) bool {
-        return qtc.Accounts__AccountService_Enabled(@ptrCast(self));
+    pub fn Enabled(self: Accounts__AccountService) bool {
+        return qtc.Accounts__AccountService_Enabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AccountService.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.Accounts__AccountService_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: Accounts__AccountService) bool {
+        return qtc.Accounts__AccountService_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AccountService.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllKeys(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.Accounts__AccountService_AllKeys(@ptrCast(self));
+    pub fn AllKeys(self: Accounts__AccountService, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.Accounts__AccountService_AllKeys(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("accounts__accountservice.AllKeys: Memory allocation failed");
@@ -247,33 +273,32 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` prefix: []const u8 `
     ///
-    pub fn BeginGroup(self: ?*anyopaque, prefix: []const u8) void {
+    pub fn BeginGroup(self: Accounts__AccountService, prefix: []const u8) void {
         const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
-        qtc.Accounts__AccountService_BeginGroup(@ptrCast(self), prefix_str);
+        qtc.Accounts__AccountService_BeginGroup(@ptrCast(self.ptr), prefix_str);
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AccountService.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ChildGroups(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.Accounts__AccountService_ChildGroups(@ptrCast(self));
+    pub fn ChildGroups(self: Accounts__AccountService, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.Accounts__AccountService_ChildGroups(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("accounts__accountservice.ChildGroups: Memory allocation failed");
@@ -290,17 +315,16 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ChildKeys(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.Accounts__AccountService_ChildKeys(@ptrCast(self));
+    pub fn ChildKeys(self: Accounts__AccountService, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.Accounts__AccountService_ChildKeys(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("accounts__accountservice.ChildKeys: Memory allocation failed");
@@ -317,48 +341,48 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn Clear(self: ?*anyopaque) void {
-        qtc.Accounts__AccountService_Clear(@ptrCast(self));
+    pub fn Clear(self: Accounts__AccountService) void {
+        qtc.Accounts__AccountService_Clear(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AccountService.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Contains(self: ?*anyopaque, key: []const u8) bool {
+    pub fn Contains(self: Accounts__AccountService, key: []const u8) bool {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        return qtc.Accounts__AccountService_Contains(@ptrCast(self), key_str);
+        return qtc.Accounts__AccountService_Contains(@ptrCast(self.ptr), key_str);
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AccountService.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn EndGroup(self: ?*anyopaque) void {
-        qtc.Accounts__AccountService_EndGroup(@ptrCast(self));
+    pub fn EndGroup(self: Accounts__AccountService) void {
+        qtc.Accounts__AccountService_EndGroup(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AccountService.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Group(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Accounts__AccountService_Group(@ptrCast(self));
+    pub fn Group(self: Accounts__AccountService, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Accounts__AccountService_Group(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__accountservice.Group: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -369,113 +393,115 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Remove(self: ?*anyopaque, key: []const u8) void {
+    pub fn Remove(self: Accounts__AccountService, key: []const u8) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        qtc.Accounts__AccountService_Remove(@ptrCast(self), key_str);
+        qtc.Accounts__AccountService_Remove(@ptrCast(self.ptr), key_str);
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AccountService.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` key: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetValue(self: ?*anyopaque, key: [:0]const u8, value: ?*anyopaque) void {
+    pub fn SetValue(self: Accounts__AccountService, key: [:0]const u8, value: anytype) void {
         const key_Cstring = key.ptr;
-        qtc.Accounts__AccountService_SetValue(@ptrCast(self), key_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.Accounts__AccountService_SetValue(@ptrCast(self.ptr), key_Cstring, @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AccountService.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` key: []const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetValue2(self: ?*anyopaque, key: []const u8, value: ?*anyopaque) void {
+    pub fn SetValue2(self: Accounts__AccountService, key: []const u8, value: anytype) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        qtc.Accounts__AccountService_SetValue2(@ptrCast(self), key_str, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.Accounts__AccountService_SetValue2(@ptrCast(self.ptr), key_str, @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AccountService.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` key: []const u8 `
     ///
-    /// ` defaultValue: QtC.QVariant `
+    /// ` defaultValue: QVariant `
     ///
-    pub fn Value(self: ?*anyopaque, key: []const u8, defaultValue: ?*anyopaque) QtC.QVariant {
+    pub fn Value(self: Accounts__AccountService, key: []const u8, defaultValue: anytype) QVariant {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        return qtc.Accounts__AccountService_Value(@ptrCast(self), key_str, @ptrCast(defaultValue));
+        comptime _ = @TypeOf(defaultValue)._is_QVariant;
+        return .{ .ptr = qtc.Accounts__AccountService_Value(@ptrCast(self.ptr), key_str, @ptrCast(defaultValue.ptr)) };
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AccountService.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Value2(self: ?*anyopaque, key: []const u8) QtC.QVariant {
+    pub fn Value2(self: Accounts__AccountService, key: []const u8) QVariant {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        return qtc.Accounts__AccountService_Value2(@ptrCast(self), key_str);
+        return .{ .ptr = qtc.Accounts__AccountService_Value2(@ptrCast(self.ptr), key_str) };
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AccountService.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` key: [:0]const u8 `
     ///
-    pub fn Value3(self: ?*anyopaque, key: [:0]const u8) QtC.QVariant {
+    pub fn Value3(self: Accounts__AccountService, key: [:0]const u8) QVariant {
         const key_Cstring = key.ptr;
-        return qtc.Accounts__AccountService_Value3(@ptrCast(self), key_Cstring);
+        return .{ .ptr = qtc.Accounts__AccountService_Value3(@ptrCast(self.ptr), key_Cstring) };
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AccountService.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ChangedFields(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.Accounts__AccountService_ChangedFields(@ptrCast(self));
+    pub fn ChangedFields(self: Accounts__AccountService, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.Accounts__AccountService_ChangedFields(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("accounts__accountservice.ChangedFields: Memory allocation failed");
@@ -492,45 +518,45 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn AuthData(self: ?*anyopaque) QtC.Accounts__AuthData {
-        return qtc.Accounts__AccountService_AuthData(@ptrCast(self));
+    pub fn AuthData(self: Accounts__AccountService) Accounts__AuthData {
+        return .{ .ptr = qtc.Accounts__AccountService_AuthData(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AccountService.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` isEnabled: bool `
     ///
-    pub fn Enabled2(self: ?*anyopaque, isEnabled: bool) void {
-        qtc.Accounts__AccountService_Enabled2(@ptrCast(self), isEnabled);
+    pub fn Enabled2(self: Accounts__AccountService, isEnabled: bool) void {
+        qtc.Accounts__AccountService_Enabled2(@ptrCast(self.ptr), isEnabled);
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AccountService.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn Changed(self: ?*anyopaque) void {
-        qtc.Accounts__AccountService_Changed(@ptrCast(self));
+    pub fn Changed(self: Accounts__AccountService) void {
+        qtc.Accounts__AccountService_Changed(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -544,15 +570,15 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -566,53 +592,54 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` key: []const u8 `
     ///
-    /// ` defaultValue: QtC.QVariant `
+    /// ` defaultValue: QVariant `
     ///
     /// ` source: *account_enums.SettingSource `
     ///
-    pub fn Value32(self: ?*anyopaque, key: []const u8, defaultValue: ?*anyopaque, source: *i32) QtC.QVariant {
+    pub fn Value32(self: Accounts__AccountService, key: []const u8, defaultValue: anytype, source: *i32) QVariant {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        return qtc.Accounts__AccountService_Value32(@ptrCast(self), key_str, @ptrCast(defaultValue), @ptrCast(source));
+        comptime _ = @TypeOf(defaultValue)._is_QVariant;
+        return .{ .ptr = qtc.Accounts__AccountService_Value32(@ptrCast(self.ptr), key_str, @ptrCast(defaultValue.ptr), @ptrCast(source)) };
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AccountService.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` key: []const u8 `
     ///
     /// ` source: *account_enums.SettingSource `
     ///
-    pub fn Value22(self: ?*anyopaque, key: []const u8, source: *i32) QtC.QVariant {
+    pub fn Value22(self: Accounts__AccountService, key: []const u8, source: *i32) QVariant {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        return qtc.Accounts__AccountService_Value22(@ptrCast(self), key_str, @ptrCast(source));
+        return .{ .ptr = qtc.Accounts__AccountService_Value22(@ptrCast(self.ptr), key_str, @ptrCast(source)) };
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AccountService.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` key: [:0]const u8 `
     ///
     /// ` source: *account_enums.SettingSource `
     ///
-    pub fn Value23(self: ?*anyopaque, key: [:0]const u8, source: *i32) QtC.QVariant {
+    pub fn Value23(self: Accounts__AccountService, key: [:0]const u8, source: *i32) QVariant {
         const key_Cstring = key.ptr;
-        return qtc.Accounts__AccountService_Value23(@ptrCast(self), key_Cstring, @ptrCast(source));
+        return .{ .ptr = qtc.Accounts__AccountService_Value23(@ptrCast(self.ptr), key_Cstring, @ptrCast(source)) };
     }
 
     /// Inherited from QObject
@@ -621,12 +648,12 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: Accounts__AccountService, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__accountservice.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -639,12 +666,12 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: Accounts__AccountService, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -653,10 +680,10 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: Accounts__AccountService) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -665,10 +692,10 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: Accounts__AccountService) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -677,10 +704,10 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: Accounts__AccountService) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -689,10 +716,10 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: Accounts__AccountService) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -701,12 +728,12 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: Accounts__AccountService, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -715,10 +742,10 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: Accounts__AccountService) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -727,12 +754,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: Accounts__AccountService, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -741,12 +769,12 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: Accounts__AccountService, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -755,12 +783,12 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: Accounts__AccountService, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -769,12 +797,12 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: Accounts__AccountService, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -783,12 +811,12 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: Accounts__AccountService, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -797,16 +825,17 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: Accounts__AccountService, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("accounts__accountservice.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("accounts__accountservice.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -816,12 +845,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: Accounts__AccountService, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -830,12 +860,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: Accounts__AccountService, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -844,12 +875,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: Accounts__AccountService, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -858,18 +890,20 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -878,16 +912,20 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -896,18 +934,19 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: Accounts__AccountService, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -916,18 +955,20 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -936,16 +977,20 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -954,10 +999,10 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: Accounts__AccountService) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -966,12 +1011,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: Accounts__AccountService, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -980,10 +1026,11 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -992,10 +1039,10 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: Accounts__AccountService) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1004,10 +1051,10 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: Accounts__AccountService) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1016,15 +1063,16 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: Accounts__AccountService, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1033,13 +1081,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: Accounts__AccountService, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1048,17 +1096,16 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: Accounts__AccountService, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("accounts__accountservice.DynamicPropertyNames: Memory allocation failed");
@@ -1077,10 +1124,10 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: Accounts__AccountService) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1089,10 +1136,10 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: Accounts__AccountService) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1101,10 +1148,10 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: Accounts__AccountService) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1113,12 +1160,12 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` callback: *const fn (self: QtC.Accounts__AccountService) callconv(.c) void `
+    /// ` callback: *const fn (self: Accounts__AccountService) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: Accounts__AccountService, callback: *const fn (Accounts__AccountService) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1127,10 +1174,10 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: Accounts__AccountService) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1139,13 +1186,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: Accounts__AccountService, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1154,10 +1201,10 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: Accounts__AccountService) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1166,14 +1213,14 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: Accounts__AccountService, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1182,14 +1229,14 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: Accounts__AccountService, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1198,20 +1245,22 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1220,18 +1269,22 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1240,9 +1293,9 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1250,10 +1303,11 @@ pub const accounts__accountservice = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: Accounts__AccountService, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1262,13 +1316,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: Accounts__AccountService, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1277,15 +1331,16 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: Accounts__AccountService, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1294,18 +1349,19 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: Accounts__AccountService, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1314,15 +1370,16 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: Accounts__AccountService, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1331,12 +1388,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: Accounts__AccountService, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1345,12 +1403,12 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` callback: *const fn (self: QtC.Accounts__AccountService, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: Accounts__AccountService, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: Accounts__AccountService, callback: *const fn (Accounts__AccountService, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1361,12 +1419,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.Accounts__AccountService_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: Accounts__AccountService, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.Accounts__AccountService_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1381,12 +1440,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.Accounts__AccountService_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: Accounts__AccountService, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.Accounts__AccountService_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1397,12 +1457,12 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Accounts__AccountService`
+    /// ` self: Accounts__AccountService`
     ///
-    /// ` callback: *const fn (self: QtC.Accounts__AccountService, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: Accounts__AccountService, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Accounts__AccountService_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: Accounts__AccountService, callback: *const fn (Accounts__AccountService, QEvent) callconv(.c) bool) void {
+        qtc.Accounts__AccountService_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1413,14 +1473,16 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.Accounts__AccountService_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: Accounts__AccountService, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.Accounts__AccountService_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1435,14 +1497,16 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.Accounts__AccountService_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: Accounts__AccountService, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.Accounts__AccountService_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1453,12 +1517,12 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Accounts__AccountService`
+    /// ` self: Accounts__AccountService`
     ///
-    /// ` callback: *const fn (self: QtC.Accounts__AccountService, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: Accounts__AccountService, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Accounts__AccountService_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: Accounts__AccountService, callback: *const fn (Accounts__AccountService, QObject, QEvent) callconv(.c) bool) void {
+        qtc.Accounts__AccountService_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1469,12 +1533,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Accounts__AccountService_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: Accounts__AccountService, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.Accounts__AccountService_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1489,12 +1554,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Accounts__AccountService_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: Accounts__AccountService, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.Accounts__AccountService_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1505,12 +1571,12 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Accounts__AccountService`
+    /// ` self: Accounts__AccountService`
     ///
-    /// ` callback: *const fn (self: QtC.Accounts__AccountService, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: Accounts__AccountService, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Accounts__AccountService_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: Accounts__AccountService, callback: *const fn (Accounts__AccountService, QTimerEvent) callconv(.c) void) void {
+        qtc.Accounts__AccountService_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1521,12 +1587,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Accounts__AccountService_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: Accounts__AccountService, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.Accounts__AccountService_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1541,12 +1608,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Accounts__AccountService_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: Accounts__AccountService, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.Accounts__AccountService_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1557,12 +1625,12 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Accounts__AccountService`
+    /// ` self: Accounts__AccountService`
     ///
-    /// ` callback: *const fn (self: QtC.Accounts__AccountService, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: Accounts__AccountService, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Accounts__AccountService_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: Accounts__AccountService, callback: *const fn (Accounts__AccountService, QChildEvent) callconv(.c) void) void {
+        qtc.Accounts__AccountService_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1573,12 +1641,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Accounts__AccountService_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: Accounts__AccountService, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.Accounts__AccountService_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1593,12 +1662,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.Accounts__AccountService_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: Accounts__AccountService, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.Accounts__AccountService_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1609,12 +1679,12 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Accounts__AccountService`
+    /// ` self: Accounts__AccountService`
     ///
-    /// ` callback: *const fn (self: QtC.Accounts__AccountService, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: Accounts__AccountService, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Accounts__AccountService_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: Accounts__AccountService, callback: *const fn (Accounts__AccountService, QEvent) callconv(.c) void) void {
+        qtc.Accounts__AccountService_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1625,12 +1695,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.Accounts__AccountService_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: Accounts__AccountService, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.Accounts__AccountService_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1645,12 +1716,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.Accounts__AccountService_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: Accounts__AccountService, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.Accounts__AccountService_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1661,12 +1733,12 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Accounts__AccountService`
+    /// ` self: Accounts__AccountService`
     ///
-    /// ` callback: *const fn (self: QtC.Accounts__AccountService, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: Accounts__AccountService, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Accounts__AccountService_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: Accounts__AccountService, callback: *const fn (Accounts__AccountService, QMetaMethod) callconv(.c) void) void {
+        qtc.Accounts__AccountService_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1677,12 +1749,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.Accounts__AccountService_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: Accounts__AccountService, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.Accounts__AccountService_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1697,12 +1770,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.Accounts__AccountService_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: Accounts__AccountService, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.Accounts__AccountService_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1713,12 +1787,12 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Accounts__AccountService`
+    /// ` self: Accounts__AccountService`
     ///
-    /// ` callback: *const fn (self: QtC.Accounts__AccountService, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: Accounts__AccountService, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Accounts__AccountService_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: Accounts__AccountService, callback: *const fn (Accounts__AccountService, QMetaMethod) callconv(.c) void) void {
+        qtc.Accounts__AccountService_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1729,10 +1803,10 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.Accounts__AccountService_Sender(@ptrCast(self));
+    pub fn Sender(self: Accounts__AccountService) QObject {
+        return .{ .ptr = qtc.Accounts__AccountService_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -1747,10 +1821,10 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.Accounts__AccountService_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: Accounts__AccountService) QObject {
+        return .{ .ptr = qtc.Accounts__AccountService_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1761,12 +1835,12 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Accounts__AccountService`
+    /// ` self: Accounts__AccountService`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.Accounts__AccountService_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: Accounts__AccountService, callback: *const fn () callconv(.c) QObject) void {
+        qtc.Accounts__AccountService_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1777,10 +1851,10 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.Accounts__AccountService_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: Accounts__AccountService) i32 {
+        return qtc.Accounts__AccountService_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -1795,10 +1869,10 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.Accounts__AccountService_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: Accounts__AccountService) i32 {
+        return qtc.Accounts__AccountService_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1809,12 +1883,12 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Accounts__AccountService`
+    /// ` self: Accounts__AccountService`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.Accounts__AccountService_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: Accounts__AccountService, callback: *const fn () callconv(.c) i32) void {
+        qtc.Accounts__AccountService_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1825,13 +1899,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: Accounts__AccountService, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.Accounts__AccountService_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.Accounts__AccountService_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -1846,13 +1920,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: Accounts__AccountService, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.Accounts__AccountService_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.Accounts__AccountService_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1863,12 +1937,12 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Accounts__AccountService`
+    /// ` self: Accounts__AccountService`
     ///
-    /// ` callback: *const fn (self: QtC.Accounts__AccountService, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: Accounts__AccountService, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Accounts__AccountService_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: Accounts__AccountService, callback: *const fn (Accounts__AccountService, [*:0]const u8) callconv(.c) i32) void {
+        qtc.Accounts__AccountService_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1879,12 +1953,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.Accounts__AccountService_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: Accounts__AccountService, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.Accounts__AccountService_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -1899,12 +1974,13 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.Accounts__AccountService_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: Accounts__AccountService, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.Accounts__AccountService_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1915,12 +1991,12 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Accounts__AccountService`
+    /// ` self: Accounts__AccountService`
     ///
-    /// ` callback: *const fn (self: QtC.Accounts__AccountService, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: Accounts__AccountService, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Accounts__AccountService_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: Accounts__AccountService, callback: *const fn (Accounts__AccountService, QMetaMethod) callconv(.c) bool) void {
+        qtc.Accounts__AccountService_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1931,12 +2007,12 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    /// ` callback: *const fn (self: QtC.Accounts__AccountService, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: Accounts__AccountService, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: Accounts__AccountService, callback: *const fn (Accounts__AccountService, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1949,9 +2025,9 @@ pub const accounts__accountservice = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Accounts__AccountService `
+    /// ` self: Accounts__AccountService `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Accounts__AccountService_Delete(@ptrCast(self));
+    pub fn Delete(self: Accounts__AccountService) void {
+        qtc.Accounts__AccountService_Delete(@ptrCast(self.ptr));
     }
 };

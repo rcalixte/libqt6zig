@@ -1,130 +1,144 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KUnitConversion__UnitCategory = @import("libqt6").KUnitConversion__UnitCategory;
+const QChar = @import("libqt6").QChar;
 const std = @import("std");
 const unit_enums = enums;
 
 /// ### [Upstream resources](https://api.kde.org/kunitconversion-unit.html)
-pub const kunitconversion__unit = struct {
+pub const KUnitConversion__Unit = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kunitconversion-unit.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KUnitConversion__Unit,
+
+    pub const _is_KUnitConversion__Unit = {};
+
     /// New constructs a new KUnitConversion::Unit object.
     ///
-    pub fn New() QtC.KUnitConversion__Unit {
-        return qtc.KUnitConversion__Unit_new();
+    pub fn New() KUnitConversion__Unit {
+        return .{ .ptr = qtc.KUnitConversion__Unit_new() };
     }
 
     /// New2 constructs a new KUnitConversion::Unit object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.KUnitConversion__Unit `
+    /// ` other: KUnitConversion__Unit `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.KUnitConversion__Unit {
-        return qtc.KUnitConversion__Unit_new2(@ptrCast(other));
+    pub fn New2(other: anytype) KUnitConversion__Unit {
+        comptime _ = @TypeOf(other)._is_KUnitConversion__Unit;
+        return .{ .ptr = qtc.KUnitConversion__Unit_new2(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unit.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUnitConversion__Unit `
+    /// ` self: KUnitConversion__Unit `
     ///
-    /// ` other: QtC.KUnitConversion__Unit `
+    /// ` other: KUnitConversion__Unit `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.KUnitConversion__Unit_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: KUnitConversion__Unit, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_KUnitConversion__Unit;
+        qtc.KUnitConversion__Unit_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unit.html#operator-eq-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUnitConversion__Unit `
+    /// ` self: KUnitConversion__Unit `
     ///
-    /// ` other: QtC.KUnitConversion__Unit `
+    /// ` other: KUnitConversion__Unit `
     ///
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.KUnitConversion__Unit_OperatorEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorEqual(self: KUnitConversion__Unit, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_KUnitConversion__Unit;
+        return qtc.KUnitConversion__Unit_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unit.html#operator-not-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUnitConversion__Unit `
+    /// ` self: KUnitConversion__Unit `
     ///
-    /// ` other: QtC.KUnitConversion__Unit `
+    /// ` other: KUnitConversion__Unit `
     ///
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.KUnitConversion__Unit_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorNotEqual(self: KUnitConversion__Unit, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_KUnitConversion__Unit;
+        return qtc.KUnitConversion__Unit_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unit.html#isNull)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUnitConversion__Unit `
+    /// ` self: KUnitConversion__Unit `
     ///
-    pub fn IsNull(self: ?*anyopaque) bool {
-        return qtc.KUnitConversion__Unit_IsNull(@ptrCast(self));
+    pub fn IsNull(self: KUnitConversion__Unit) bool {
+        return qtc.KUnitConversion__Unit_IsNull(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unit.html#isValid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUnitConversion__Unit `
+    /// ` self: KUnitConversion__Unit `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.KUnitConversion__Unit_IsValid(@ptrCast(self));
+    pub fn IsValid(self: KUnitConversion__Unit) bool {
+        return qtc.KUnitConversion__Unit_IsValid(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unit.html#id)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUnitConversion__Unit `
+    /// ` self: KUnitConversion__Unit `
     ///
     /// ## Returns:
     ///
     /// ` unit_enums.UnitId `
     ///
-    pub fn Id(self: ?*anyopaque) i32 {
-        return qtc.KUnitConversion__Unit_Id(@ptrCast(self));
+    pub fn Id(self: KUnitConversion__Unit) i32 {
+        return qtc.KUnitConversion__Unit_Id(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unit.html#categoryId)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUnitConversion__Unit `
+    /// ` self: KUnitConversion__Unit `
     ///
     /// ## Returns:
     ///
     /// ` unit_enums.CategoryId `
     ///
-    pub fn CategoryId(self: ?*anyopaque) i32 {
-        return qtc.KUnitConversion__Unit_CategoryId(@ptrCast(self));
+    pub fn CategoryId(self: KUnitConversion__Unit) i32 {
+        return qtc.KUnitConversion__Unit_CategoryId(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unit.html#category)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUnitConversion__Unit `
+    /// ` self: KUnitConversion__Unit `
     ///
-    pub fn Category(self: ?*anyopaque) QtC.KUnitConversion__UnitCategory {
-        return qtc.KUnitConversion__Unit_Category(@ptrCast(self));
+    pub fn Category(self: KUnitConversion__Unit) KUnitConversion__UnitCategory {
+        return .{ .ptr = qtc.KUnitConversion__Unit_Category(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kunitconversion-unit.html#description)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUnitConversion__Unit `
+    /// ` self: KUnitConversion__Unit `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KUnitConversion__Unit_Description(@ptrCast(self));
+    pub fn Description(self: KUnitConversion__Unit, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KUnitConversion__Unit_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__unit.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -135,12 +149,12 @@ pub const kunitconversion__unit = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUnitConversion__Unit `
+    /// ` self: KUnitConversion__Unit `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Symbol(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KUnitConversion__Unit_Symbol(@ptrCast(self));
+    pub fn Symbol(self: KUnitConversion__Unit, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KUnitConversion__Unit_Symbol(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__unit.Symbol: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -151,14 +165,14 @@ pub const kunitconversion__unit = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUnitConversion__Unit `
-    ///
-    /// ` value: f64 `
+    /// ` self: KUnitConversion__Unit `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: ?*anyopaque, value: f64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KUnitConversion__Unit_ToString(@ptrCast(self), @bitCast(value));
+    /// ` value: f64 `
+    ///
+    pub fn ToString(self: KUnitConversion__Unit, allocator: std.mem.Allocator, value: f64) []const u8 {
+        var _str = qtc.KUnitConversion__Unit_ToString(@ptrCast(self.ptr), @bitCast(value));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__unit.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -169,14 +183,14 @@ pub const kunitconversion__unit = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUnitConversion__Unit `
-    ///
-    /// ` value: f64 `
+    /// ` self: KUnitConversion__Unit `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToSymbolString(self: ?*anyopaque, value: f64, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KUnitConversion__Unit_ToSymbolString(@ptrCast(self), @bitCast(value));
+    /// ` value: f64 `
+    ///
+    pub fn ToSymbolString(self: KUnitConversion__Unit, allocator: std.mem.Allocator, value: f64) []const u8 {
+        var _str = qtc.KUnitConversion__Unit_ToSymbolString(@ptrCast(self.ptr), @bitCast(value));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__unit.ToSymbolString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -187,16 +201,16 @@ pub const kunitconversion__unit = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUnitConversion__Unit `
+    /// ` self: KUnitConversion__Unit `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` value: f64 `
     ///
     /// ` fieldWidth: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn ToString2(self: ?*anyopaque, value: f64, fieldWidth: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KUnitConversion__Unit_ToString2(@ptrCast(self), @bitCast(value), @bitCast(fieldWidth));
+    pub fn ToString2(self: KUnitConversion__Unit, allocator: std.mem.Allocator, value: f64, fieldWidth: i32) []const u8 {
+        var _str = qtc.KUnitConversion__Unit_ToString2(@ptrCast(self.ptr), @bitCast(value), @bitCast(fieldWidth));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__unit.ToString2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -207,7 +221,9 @@ pub const kunitconversion__unit = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUnitConversion__Unit `
+    /// ` self: KUnitConversion__Unit `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` value: f64 `
     ///
@@ -215,10 +231,8 @@ pub const kunitconversion__unit = struct {
     ///
     /// ` format: u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn ToString3(self: ?*anyopaque, value: f64, fieldWidth: i32, format: u8, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KUnitConversion__Unit_ToString3(@ptrCast(self), @bitCast(value), @bitCast(fieldWidth), @bitCast(format));
+    pub fn ToString3(self: KUnitConversion__Unit, allocator: std.mem.Allocator, value: f64, fieldWidth: i32, format: u8) []const u8 {
+        var _str = qtc.KUnitConversion__Unit_ToString3(@ptrCast(self.ptr), @bitCast(value), @bitCast(fieldWidth), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__unit.ToString3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -229,7 +243,9 @@ pub const kunitconversion__unit = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUnitConversion__Unit `
+    /// ` self: KUnitConversion__Unit `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` value: f64 `
     ///
@@ -239,10 +255,8 @@ pub const kunitconversion__unit = struct {
     ///
     /// ` precision: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn ToString4(self: ?*anyopaque, value: f64, fieldWidth: i32, format: u8, precision: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KUnitConversion__Unit_ToString4(@ptrCast(self), @bitCast(value), @bitCast(fieldWidth), @bitCast(format), @bitCast(precision));
+    pub fn ToString4(self: KUnitConversion__Unit, allocator: std.mem.Allocator, value: f64, fieldWidth: i32, format: u8, precision: i32) []const u8 {
+        var _str = qtc.KUnitConversion__Unit_ToString4(@ptrCast(self.ptr), @bitCast(value), @bitCast(fieldWidth), @bitCast(format), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__unit.ToString4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -253,7 +267,9 @@ pub const kunitconversion__unit = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUnitConversion__Unit `
+    /// ` self: KUnitConversion__Unit `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` value: f64 `
     ///
@@ -263,12 +279,11 @@ pub const kunitconversion__unit = struct {
     ///
     /// ` precision: i32 `
     ///
-    /// ` fillChar: QtC.QChar `
+    /// ` fillChar: QChar `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn ToString5(self: ?*anyopaque, value: f64, fieldWidth: i32, format: u8, precision: i32, fillChar: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KUnitConversion__Unit_ToString5(@ptrCast(self), @bitCast(value), @bitCast(fieldWidth), @bitCast(format), @bitCast(precision), @ptrCast(fillChar));
+    pub fn ToString5(self: KUnitConversion__Unit, allocator: std.mem.Allocator, value: f64, fieldWidth: i32, format: u8, precision: i32, fillChar: anytype) []const u8 {
+        comptime _ = @TypeOf(fillChar)._is_QChar;
+        var _str = qtc.KUnitConversion__Unit_ToString5(@ptrCast(self.ptr), @bitCast(value), @bitCast(fieldWidth), @bitCast(format), @bitCast(precision), @ptrCast(fillChar.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__unit.ToString5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -279,16 +294,16 @@ pub const kunitconversion__unit = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUnitConversion__Unit `
+    /// ` self: KUnitConversion__Unit `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` value: f64 `
     ///
     /// ` fieldWidth: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn ToSymbolString2(self: ?*anyopaque, value: f64, fieldWidth: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KUnitConversion__Unit_ToSymbolString2(@ptrCast(self), @bitCast(value), @bitCast(fieldWidth));
+    pub fn ToSymbolString2(self: KUnitConversion__Unit, allocator: std.mem.Allocator, value: f64, fieldWidth: i32) []const u8 {
+        var _str = qtc.KUnitConversion__Unit_ToSymbolString2(@ptrCast(self.ptr), @bitCast(value), @bitCast(fieldWidth));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__unit.ToSymbolString2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -299,7 +314,9 @@ pub const kunitconversion__unit = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUnitConversion__Unit `
+    /// ` self: KUnitConversion__Unit `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` value: f64 `
     ///
@@ -307,10 +324,8 @@ pub const kunitconversion__unit = struct {
     ///
     /// ` format: u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn ToSymbolString3(self: ?*anyopaque, value: f64, fieldWidth: i32, format: u8, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KUnitConversion__Unit_ToSymbolString3(@ptrCast(self), @bitCast(value), @bitCast(fieldWidth), @bitCast(format));
+    pub fn ToSymbolString3(self: KUnitConversion__Unit, allocator: std.mem.Allocator, value: f64, fieldWidth: i32, format: u8) []const u8 {
+        var _str = qtc.KUnitConversion__Unit_ToSymbolString3(@ptrCast(self.ptr), @bitCast(value), @bitCast(fieldWidth), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__unit.ToSymbolString3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -321,7 +336,9 @@ pub const kunitconversion__unit = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUnitConversion__Unit `
+    /// ` self: KUnitConversion__Unit `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` value: f64 `
     ///
@@ -331,10 +348,8 @@ pub const kunitconversion__unit = struct {
     ///
     /// ` precision: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn ToSymbolString4(self: ?*anyopaque, value: f64, fieldWidth: i32, format: u8, precision: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KUnitConversion__Unit_ToSymbolString4(@ptrCast(self), @bitCast(value), @bitCast(fieldWidth), @bitCast(format), @bitCast(precision));
+    pub fn ToSymbolString4(self: KUnitConversion__Unit, allocator: std.mem.Allocator, value: f64, fieldWidth: i32, format: u8, precision: i32) []const u8 {
+        var _str = qtc.KUnitConversion__Unit_ToSymbolString4(@ptrCast(self.ptr), @bitCast(value), @bitCast(fieldWidth), @bitCast(format), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__unit.ToSymbolString4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -345,7 +360,9 @@ pub const kunitconversion__unit = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KUnitConversion__Unit `
+    /// ` self: KUnitConversion__Unit `
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` value: f64 `
     ///
@@ -355,12 +372,11 @@ pub const kunitconversion__unit = struct {
     ///
     /// ` precision: i32 `
     ///
-    /// ` fillChar: QtC.QChar `
+    /// ` fillChar: QChar `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn ToSymbolString5(self: ?*anyopaque, value: f64, fieldWidth: i32, format: u8, precision: i32, fillChar: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KUnitConversion__Unit_ToSymbolString5(@ptrCast(self), @bitCast(value), @bitCast(fieldWidth), @bitCast(format), @bitCast(precision), @ptrCast(fillChar));
+    pub fn ToSymbolString5(self: KUnitConversion__Unit, allocator: std.mem.Allocator, value: f64, fieldWidth: i32, format: u8, precision: i32, fillChar: anytype) []const u8 {
+        comptime _ = @TypeOf(fillChar)._is_QChar;
+        var _str = qtc.KUnitConversion__Unit_ToSymbolString5(@ptrCast(self.ptr), @bitCast(value), @bitCast(fieldWidth), @bitCast(format), @bitCast(precision), @ptrCast(fillChar.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__unit.ToSymbolString5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -375,10 +391,10 @@ pub const kunitconversion__unit = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KUnitConversion__Unit `
+    /// ` self: KUnitConversion__Unit `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KUnitConversion__Unit_Delete(@ptrCast(self));
+    pub fn Delete(self: KUnitConversion__Unit) void {
+        qtc.KUnitConversion__Unit_Delete(@ptrCast(self.ptr));
     }
 };
 

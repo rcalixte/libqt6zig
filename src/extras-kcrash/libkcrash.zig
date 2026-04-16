@@ -1,12 +1,21 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QVariant = @import("libqt6").QVariant;
 const kcrash_enums = enums;
 const std = @import("std");
-const map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
-const map_constu8_qtcqvariant = std.StringHashMapUnmanaged(QtC.QVariant);
+const Map_constu8_QVariant = std.StringHashMapUnmanaged(QVariant);
+const Map_constu8_constu8 = std.StringHashMapUnmanaged([]const u8);
 
 /// ### [Upstream resources](https://api.kde.org/kcrash.html)
-pub const kcrash = struct {
+pub const KCrash = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kcrash.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KCrash,
+
+    pub const _is_KCrash = {};
+
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#initialize)
     ///
     pub fn Initialize() void {
@@ -107,11 +116,11 @@ pub const kcrash = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: map_constu8_constu8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetErrorTags(param1: map_constu8_constu8, allocator: std.mem.Allocator) void {
+    /// ` param1: Map_constu8_constu8 `
+    ///
+    pub fn SetErrorTags(allocator: std.mem.Allocator, param1: Map_constu8_constu8) void {
         const param1_count = param1.count();
         const param1_keys = allocator.alloc(qtc.libqt_string, param1_count) catch @panic("kcrash.SetErrorTags: Memory allocation failed");
         defer allocator.free(param1_keys);
@@ -143,11 +152,11 @@ pub const kcrash = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: map_constu8_constu8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetErrorExtraData(param1: map_constu8_constu8, allocator: std.mem.Allocator) void {
+    /// ` param1: Map_constu8_constu8 `
+    ///
+    pub fn SetErrorExtraData(allocator: std.mem.Allocator, param1: Map_constu8_constu8) void {
         const param1_count = param1.count();
         const param1_keys = allocator.alloc(qtc.libqt_string, param1_count) catch @panic("kcrash.SetErrorExtraData: Memory allocation failed");
         defer allocator.free(param1_keys);
@@ -179,11 +188,11 @@ pub const kcrash = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: map_constu8_qtcqvariant `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetGPUData(param1: map_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
+    /// ` param1: Map_constu8_QVariant `
+    ///
+    pub fn SetGPUData(allocator: std.mem.Allocator, param1: Map_constu8_QVariant) void {
         const param1_count = param1.count();
         const param1_keys = allocator.alloc(qtc.libqt_string, param1_count) catch @panic("kcrash.SetGPUData: Memory allocation failed");
         defer allocator.free(param1_keys);
@@ -197,7 +206,7 @@ pub const kcrash = struct {
                 .len = param1_key.len,
                 .data = param1_key.ptr,
             };
-            param1_values[i] = @ptrCast(it_entry.value_ptr.*);
+            param1_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const param1_map = qtc.libqt_map{
             .len = param1_count,

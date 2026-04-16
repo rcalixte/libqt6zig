@@ -4,21 +4,30 @@ const error_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
-pub const accounts__error = struct {
+pub const Accounts__Error = extern struct {
+    /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Accounts__Error,
+
+    pub const _is_Accounts__Error = {};
+
     /// New constructs a new Accounts::Error object.
     ///
-    pub fn New() QtC.Accounts__Error {
-        return qtc.Accounts__Error_new();
+    pub fn New() Accounts__Error {
+        return .{ .ptr = qtc.Accounts__Error_new() };
     }
 
     /// New2 constructs a new Accounts::Error object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` src: QtC.Accounts__Error `
+    /// ` src: Accounts__Error `
     ///
-    pub fn New2(src: ?*anyopaque) QtC.Accounts__Error {
-        return qtc.Accounts__Error_new2(@ptrCast(src));
+    pub fn New2(src: anytype) Accounts__Error {
+        comptime _ = @TypeOf(src)._is_Accounts__Error;
+        return .{ .ptr = qtc.Accounts__Error_new2(@ptrCast(src.ptr)) };
     }
 
     /// New3 constructs a new Accounts::Error object.
@@ -27,8 +36,8 @@ pub const accounts__error = struct {
     ///
     /// ` typeVal: error_enums.ErrorType `
     ///
-    pub fn New3(typeVal: i32) QtC.Accounts__Error {
-        return qtc.Accounts__Error_new3(@bitCast(typeVal));
+    pub fn New3(typeVal: i32) Accounts__Error {
+        return .{ .ptr = qtc.Accounts__Error_new3(@bitCast(typeVal)) };
     }
 
     /// New4 constructs a new Accounts::Error object.
@@ -39,51 +48,51 @@ pub const accounts__error = struct {
     ///
     /// ` message: []const u8 `
     ///
-    pub fn New4(typeVal: i32, message: []const u8) QtC.Accounts__Error {
+    pub fn New4(typeVal: i32, message: []const u8) Accounts__Error {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-
-        return qtc.Accounts__Error_new4(@bitCast(typeVal), message_str);
+        return .{ .ptr = qtc.Accounts__Error_new4(@bitCast(typeVal), message_str) };
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__Error `
+    /// ` self: Accounts__Error `
     ///
-    /// ` src: QtC.Accounts__Error `
+    /// ` src: Accounts__Error `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, src: ?*anyopaque) void {
-        qtc.Accounts__Error_OperatorAssign(@ptrCast(self), @ptrCast(src));
+    pub fn OperatorAssign(self: Accounts__Error, src: anytype) void {
+        comptime _ = @TypeOf(src)._is_Accounts__Error;
+        qtc.Accounts__Error_OperatorAssign(@ptrCast(self.ptr), @ptrCast(src.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__Error `
+    /// ` self: Accounts__Error `
     ///
     /// ## Returns:
     ///
     /// ` error_enums.ErrorType `
     ///
-    pub fn Type(self: ?*anyopaque) i32 {
-        return qtc.Accounts__Error_Type(@ptrCast(self));
+    pub fn Type(self: Accounts__Error) i32 {
+        return qtc.Accounts__Error_Type(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Error.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Accounts__Error `
+    /// ` self: Accounts__Error `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Message(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Accounts__Error_Message(@ptrCast(self));
+    pub fn Message(self: Accounts__Error, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Accounts__Error_Message(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__error.Message: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -100,10 +109,10 @@ pub const accounts__error = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Accounts__Error `
+    /// ` self: Accounts__Error `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Accounts__Error_Delete(@ptrCast(self));
+    pub fn Delete(self: Accounts__Error) void {
+        qtc.Accounts__Error_Delete(@ptrCast(self.ptr));
     }
 };
 

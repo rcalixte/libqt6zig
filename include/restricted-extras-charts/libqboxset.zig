@@ -1,15 +1,36 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBrush = @import("libqt6").QBrush;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QPen = @import("libqt6").QPen;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html)
-pub const qboxset = struct {
+pub const QBoxSet = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QBoxSet,
+
+    pub const _is_QBoxSet = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QBoxSet object.
     ///
-    pub fn New() QtC.QBoxSet {
-        return qtc.QBoxSet_new();
+    pub fn New() QBoxSet {
+        return .{ .ptr = qtc.QBoxSet_new() };
     }
 
     /// New2 constructs a new QBoxSet object.
@@ -26,8 +47,8 @@ pub const qboxset = struct {
     ///
     /// ` ue: f64 `
     ///
-    pub fn New2(le: f64, lq: f64, m: f64, uq: f64, ue: f64) QtC.QBoxSet {
-        return qtc.QBoxSet_new2(@bitCast(le), @bitCast(lq), @bitCast(m), @bitCast(uq), @bitCast(ue));
+    pub fn New2(le: f64, lq: f64, m: f64, uq: f64, ue: f64) QBoxSet {
+        return .{ .ptr = qtc.QBoxSet_new2(@bitCast(le), @bitCast(lq), @bitCast(m), @bitCast(uq), @bitCast(ue)) };
     }
 
     /// New3 constructs a new QBoxSet object.
@@ -36,13 +57,12 @@ pub const qboxset = struct {
     ///
     /// ` label: []const u8 `
     ///
-    pub fn New3(label: []const u8) QtC.QBoxSet {
+    pub fn New3(label: []const u8) QBoxSet {
         const label_str = qtc.libqt_string{
             .len = label.len,
             .data = label.ptr,
         };
-
-        return qtc.QBoxSet_new3(label_str);
+        return .{ .ptr = qtc.QBoxSet_new3(label_str) };
     }
 
     /// New4 constructs a new QBoxSet object.
@@ -51,15 +71,15 @@ pub const qboxset = struct {
     ///
     /// ` label: []const u8 `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New4(label: []const u8, parent: ?*anyopaque) QtC.QBoxSet {
+    pub fn New4(label: []const u8, parent: anytype) QBoxSet {
         const label_str = qtc.libqt_string{
             .len = label.len,
             .data = label.ptr,
         };
-
-        return qtc.QBoxSet_new4(label_str, @ptrCast(parent));
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QBoxSet_new4(label_str, @ptrCast(parent.ptr)) };
     }
 
     /// New5 constructs a new QBoxSet object.
@@ -78,13 +98,12 @@ pub const qboxset = struct {
     ///
     /// ` label: []const u8 `
     ///
-    pub fn New5(le: f64, lq: f64, m: f64, uq: f64, ue: f64, label: []const u8) QtC.QBoxSet {
+    pub fn New5(le: f64, lq: f64, m: f64, uq: f64, ue: f64, label: []const u8) QBoxSet {
         const label_str = qtc.libqt_string{
             .len = label.len,
             .data = label.ptr,
         };
-
-        return qtc.QBoxSet_new5(@bitCast(le), @bitCast(lq), @bitCast(m), @bitCast(uq), @bitCast(ue), label_str);
+        return .{ .ptr = qtc.QBoxSet_new5(@bitCast(le), @bitCast(lq), @bitCast(m), @bitCast(uq), @bitCast(ue), label_str) };
     }
 
     /// New6 constructs a new QBoxSet object.
@@ -103,25 +122,25 @@ pub const qboxset = struct {
     ///
     /// ` label: []const u8 `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New6(le: f64, lq: f64, m: f64, uq: f64, ue: f64, label: []const u8, parent: ?*anyopaque) QtC.QBoxSet {
+    pub fn New6(le: f64, lq: f64, m: f64, uq: f64, ue: f64, label: []const u8, parent: anytype) QBoxSet {
         const label_str = qtc.libqt_string{
             .len = label.len,
             .data = label.ptr,
         };
-
-        return qtc.QBoxSet_new6(@bitCast(le), @bitCast(lq), @bitCast(m), @bitCast(uq), @bitCast(ue), label_str, @ptrCast(parent));
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QBoxSet_new6(@bitCast(le), @bitCast(lq), @bitCast(m), @bitCast(uq), @bitCast(ue), label_str, @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QBoxSet_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QBoxSet) QMetaObject {
+        return .{ .ptr = qtc.QBoxSet_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -130,12 +149,12 @@ pub const qboxset = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QBoxSet_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QBoxSet, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QBoxSet_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -148,33 +167,33 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QBoxSet_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QBoxSet) QMetaObject {
+        return .{ .ptr = qtc.QBoxSet_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QBoxSet, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QBoxSet_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QBoxSet_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QBoxSet, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QBoxSet_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QBoxSet, callback: *const fn (QBoxSet, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QBoxSet_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -185,18 +204,18 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QBoxSet, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QBoxSet_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QBoxSet_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -204,20 +223,20 @@ pub const qboxset = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QBoxSet_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QBoxSet, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QBoxSet_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QBoxSet, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QBoxSet_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QBoxSet, callback: *const fn (QBoxSet, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QBoxSet_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -228,7 +247,7 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -236,19 +255,19 @@ pub const qboxset = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QBoxSet_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QBoxSet, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QBoxSet_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -261,66 +280,66 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` value: f64 `
     ///
-    pub fn Append(self: ?*anyopaque, value: f64) void {
-        qtc.QBoxSet_Append(@ptrCast(self), @bitCast(value));
+    pub fn Append(self: QBoxSet, value: f64) void {
+        qtc.QBoxSet_Append(@ptrCast(self.ptr), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#append)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` values: []f64 `
     ///
-    pub fn Append2(self: ?*anyopaque, values: []f64) void {
+    pub fn Append2(self: QBoxSet, values: []f64) void {
         const values_list = qtc.libqt_list{
             .len = values.len,
             .data = values.ptr,
         };
-        qtc.QBoxSet_Append2(@ptrCast(self), values_list);
+        qtc.QBoxSet_Append2(@ptrCast(self.ptr), values_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#clear)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn Clear(self: ?*anyopaque) void {
-        qtc.QBoxSet_Clear(@ptrCast(self));
+    pub fn Clear(self: QBoxSet) void {
+        qtc.QBoxSet_Clear(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#setLabel)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` label: []const u8 `
     ///
-    pub fn SetLabel(self: ?*anyopaque, label: []const u8) void {
+    pub fn SetLabel(self: QBoxSet, label: []const u8) void {
         const label_str = qtc.libqt_string{
             .len = label.len,
             .data = label.ptr,
         };
-        qtc.QBoxSet_SetLabel(@ptrCast(self), label_str);
+        qtc.QBoxSet_SetLabel(@ptrCast(self.ptr), label_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#label)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Label(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QBoxSet_Label(@ptrCast(self));
+    pub fn Label(self: QBoxSet, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QBoxSet_Label(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qboxset.Label: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -331,341 +350,343 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` value: *const f64 `
     ///
-    pub fn OperatorShiftLeft(self: ?*anyopaque, value: *const f64) QtC.QBoxSet {
-        return qtc.QBoxSet_OperatorShiftLeft(@ptrCast(self), @ptrCast(value));
+    pub fn OperatorShiftLeft(self: QBoxSet, value: *const f64) QBoxSet {
+        return .{ .ptr = qtc.QBoxSet_OperatorShiftLeft(@ptrCast(self.ptr), @ptrCast(value)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#setValue)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` index: i32 `
     ///
     /// ` value: f64 `
     ///
-    pub fn SetValue(self: ?*anyopaque, index: i32, value: f64) void {
-        qtc.QBoxSet_SetValue(@ptrCast(self), @bitCast(index), @bitCast(value));
+    pub fn SetValue(self: QBoxSet, index: i32, value: f64) void {
+        qtc.QBoxSet_SetValue(@ptrCast(self.ptr), @bitCast(index), @bitCast(value));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#at)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` index: i32 `
     ///
-    pub fn At(self: ?*anyopaque, index: i32) f64 {
-        return qtc.QBoxSet_At(@ptrCast(self), @bitCast(index));
+    pub fn At(self: QBoxSet, index: i32) f64 {
+        return qtc.QBoxSet_At(@ptrCast(self.ptr), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#operator-5b-5d)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` index: i32 `
     ///
-    pub fn OperatorSubscript(self: ?*anyopaque, index: i32) f64 {
-        return qtc.QBoxSet_OperatorSubscript(@ptrCast(self), @bitCast(index));
+    pub fn OperatorSubscript(self: QBoxSet, index: i32) f64 {
+        return qtc.QBoxSet_OperatorSubscript(@ptrCast(self.ptr), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#count)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn Count(self: ?*anyopaque) i32 {
-        return qtc.QBoxSet_Count(@ptrCast(self));
+    pub fn Count(self: QBoxSet) i32 {
+        return qtc.QBoxSet_Count(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#setPen)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` pen: QtC.QPen `
+    /// ` pen: QPen `
     ///
-    pub fn SetPen(self: ?*anyopaque, pen: ?*anyopaque) void {
-        qtc.QBoxSet_SetPen(@ptrCast(self), @ptrCast(pen));
+    pub fn SetPen(self: QBoxSet, pen: anytype) void {
+        comptime _ = @TypeOf(pen)._is_QPen;
+        qtc.QBoxSet_SetPen(@ptrCast(self.ptr), @ptrCast(pen.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#pen)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn Pen(self: ?*anyopaque) QtC.QPen {
-        return qtc.QBoxSet_Pen(@ptrCast(self));
+    pub fn Pen(self: QBoxSet) QPen {
+        return .{ .ptr = qtc.QBoxSet_Pen(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#setBrush)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` brush: QtC.QBrush `
+    /// ` brush: QBrush `
     ///
-    pub fn SetBrush(self: ?*anyopaque, brush: ?*anyopaque) void {
-        qtc.QBoxSet_SetBrush(@ptrCast(self), @ptrCast(brush));
+    pub fn SetBrush(self: QBoxSet, brush: anytype) void {
+        comptime _ = @TypeOf(brush)._is_QBrush;
+        qtc.QBoxSet_SetBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#brush)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn Brush(self: ?*anyopaque) QtC.QBrush {
-        return qtc.QBoxSet_Brush(@ptrCast(self));
+    pub fn Brush(self: QBoxSet) QBrush {
+        return .{ .ptr = qtc.QBoxSet_Brush(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#clicked)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn Clicked(self: ?*anyopaque) void {
-        qtc.QBoxSet_Clicked(@ptrCast(self));
+    pub fn Clicked(self: QBoxSet) void {
+        qtc.QBoxSet_Clicked(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#clicked)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QBoxSet) callconv(.c) void `
     ///
-    pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxSet_Connect_Clicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClicked(self: QBoxSet, callback: *const fn (QBoxSet) callconv(.c) void) void {
+        qtc.QBoxSet_Connect_Clicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#hovered)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` status: bool `
     ///
-    pub fn Hovered(self: ?*anyopaque, status: bool) void {
-        qtc.QBoxSet_Hovered(@ptrCast(self), status);
+    pub fn Hovered(self: QBoxSet, status: bool) void {
+        qtc.QBoxSet_Hovered(@ptrCast(self.ptr), status);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#hovered)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet, status: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QBoxSet, status: bool) callconv(.c) void `
     ///
-    pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QBoxSet_Connect_Hovered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHovered(self: QBoxSet, callback: *const fn (QBoxSet, bool) callconv(.c) void) void {
+        qtc.QBoxSet_Connect_Hovered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#pressed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn Pressed(self: ?*anyopaque) void {
-        qtc.QBoxSet_Pressed(@ptrCast(self));
+    pub fn Pressed(self: QBoxSet) void {
+        qtc.QBoxSet_Pressed(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#pressed)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QBoxSet) callconv(.c) void `
     ///
-    pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxSet_Connect_Pressed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPressed(self: QBoxSet, callback: *const fn (QBoxSet) callconv(.c) void) void {
+        qtc.QBoxSet_Connect_Pressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#released)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn Released(self: ?*anyopaque) void {
-        qtc.QBoxSet_Released(@ptrCast(self));
+    pub fn Released(self: QBoxSet) void {
+        qtc.QBoxSet_Released(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#released)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QBoxSet) callconv(.c) void `
     ///
-    pub fn OnReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxSet_Connect_Released(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReleased(self: QBoxSet, callback: *const fn (QBoxSet) callconv(.c) void) void {
+        qtc.QBoxSet_Connect_Released(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#doubleClicked)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn DoubleClicked(self: ?*anyopaque) void {
-        qtc.QBoxSet_DoubleClicked(@ptrCast(self));
+    pub fn DoubleClicked(self: QBoxSet) void {
+        qtc.QBoxSet_DoubleClicked(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#doubleClicked)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QBoxSet) callconv(.c) void `
     ///
-    pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxSet_Connect_DoubleClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDoubleClicked(self: QBoxSet, callback: *const fn (QBoxSet) callconv(.c) void) void {
+        qtc.QBoxSet_Connect_DoubleClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#penChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn PenChanged(self: ?*anyopaque) void {
-        qtc.QBoxSet_PenChanged(@ptrCast(self));
+    pub fn PenChanged(self: QBoxSet) void {
+        qtc.QBoxSet_PenChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#penChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QBoxSet) callconv(.c) void `
     ///
-    pub fn OnPenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxSet_Connect_PenChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPenChanged(self: QBoxSet, callback: *const fn (QBoxSet) callconv(.c) void) void {
+        qtc.QBoxSet_Connect_PenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#brushChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn BrushChanged(self: ?*anyopaque) void {
-        qtc.QBoxSet_BrushChanged(@ptrCast(self));
+    pub fn BrushChanged(self: QBoxSet) void {
+        qtc.QBoxSet_BrushChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#brushChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QBoxSet) callconv(.c) void `
     ///
-    pub fn OnBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxSet_Connect_BrushChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBrushChanged(self: QBoxSet, callback: *const fn (QBoxSet) callconv(.c) void) void {
+        qtc.QBoxSet_Connect_BrushChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#valuesChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn ValuesChanged(self: ?*anyopaque) void {
-        qtc.QBoxSet_ValuesChanged(@ptrCast(self));
+    pub fn ValuesChanged(self: QBoxSet) void {
+        qtc.QBoxSet_ValuesChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#valuesChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QBoxSet) callconv(.c) void `
     ///
-    pub fn OnValuesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxSet_Connect_ValuesChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnValuesChanged(self: QBoxSet, callback: *const fn (QBoxSet) callconv(.c) void) void {
+        qtc.QBoxSet_Connect_ValuesChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#valueChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` index: i32 `
     ///
-    pub fn ValueChanged(self: ?*anyopaque, index: i32) void {
-        qtc.QBoxSet_ValueChanged(@ptrCast(self), @bitCast(index));
+    pub fn ValueChanged(self: QBoxSet, index: i32) void {
+        qtc.QBoxSet_ValueChanged(@ptrCast(self.ptr), @bitCast(index));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#valueChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet, index: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QBoxSet, index: i32) callconv(.c) void `
     ///
-    pub fn OnValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QBoxSet_Connect_ValueChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnValueChanged(self: QBoxSet, callback: *const fn (QBoxSet, i32) callconv(.c) void) void {
+        qtc.QBoxSet_Connect_ValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#cleared)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn Cleared(self: ?*anyopaque) void {
-        qtc.QBoxSet_Cleared(@ptrCast(self));
+    pub fn Cleared(self: QBoxSet) void {
+        qtc.QBoxSet_Cleared(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qboxset-qtcharts.html#cleared)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QBoxSet) callconv(.c) void `
     ///
-    pub fn OnCleared(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxSet_Connect_Cleared(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCleared(self: QBoxSet, callback: *const fn (QBoxSet) callconv(.c) void) void {
+        qtc.QBoxSet_Connect_Cleared(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -679,15 +700,15 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -703,12 +724,12 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QBoxSet, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qboxset.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -721,12 +742,12 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QBoxSet, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -735,10 +756,10 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QBoxSet) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -747,10 +768,10 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QBoxSet) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -759,10 +780,10 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QBoxSet) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -771,10 +792,10 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QBoxSet) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -783,12 +804,12 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QBoxSet, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -797,10 +818,10 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QBoxSet) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -809,12 +830,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QBoxSet, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -823,12 +845,12 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QBoxSet, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -837,12 +859,12 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QBoxSet, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -851,12 +873,12 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QBoxSet, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -865,12 +887,12 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QBoxSet, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -879,16 +901,17 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QBoxSet, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qboxset.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qboxset.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -898,12 +921,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QBoxSet, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -912,12 +936,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QBoxSet, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -926,12 +951,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QBoxSet, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -940,18 +966,20 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -960,16 +988,20 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -978,18 +1010,19 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QBoxSet, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -998,18 +1031,20 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1018,16 +1053,20 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1036,10 +1075,10 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QBoxSet) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1048,12 +1087,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QBoxSet, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1062,10 +1102,11 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1074,10 +1115,10 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QBoxSet) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1086,10 +1127,10 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QBoxSet) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1098,15 +1139,16 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QBoxSet, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1115,13 +1157,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QBoxSet, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1130,17 +1172,16 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QBoxSet, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qboxset.DynamicPropertyNames: Memory allocation failed");
@@ -1159,10 +1200,10 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QBoxSet) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1171,10 +1212,10 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QBoxSet) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1183,10 +1224,10 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QBoxSet) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1195,12 +1236,12 @@ pub const qboxset = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet) callconv(.c) void `
+    /// ` callback: *const fn (self: QBoxSet) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QBoxSet, callback: *const fn (QBoxSet) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1209,10 +1250,10 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QBoxSet) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1221,13 +1262,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QBoxSet, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1236,10 +1277,10 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QBoxSet) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1248,14 +1289,14 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QBoxSet, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1264,14 +1305,14 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QBoxSet, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1280,20 +1321,22 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1302,18 +1345,22 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1322,9 +1369,9 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1332,10 +1379,11 @@ pub const qboxset = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QBoxSet, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1344,13 +1392,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QBoxSet, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1359,15 +1407,16 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QBoxSet, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1376,18 +1425,19 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QBoxSet, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1396,15 +1446,16 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QBoxSet, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1413,12 +1464,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QBoxSet, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1427,12 +1479,12 @@ pub const qboxset = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QBoxSet, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QBoxSet, callback: *const fn (QBoxSet, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1443,12 +1495,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QBoxSet_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QBoxSet, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QBoxSet_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1463,12 +1516,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QBoxSet_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QBoxSet, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QBoxSet_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1479,12 +1533,12 @@ pub const qboxset = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet`
+    /// ` self: QBoxSet`
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QBoxSet, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QBoxSet_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QBoxSet, callback: *const fn (QBoxSet, QEvent) callconv(.c) bool) void {
+        qtc.QBoxSet_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1495,14 +1549,16 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QBoxSet_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QBoxSet, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QBoxSet_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1517,14 +1573,16 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QBoxSet_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QBoxSet, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QBoxSet_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1535,12 +1593,12 @@ pub const qboxset = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet`
+    /// ` self: QBoxSet`
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QBoxSet, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QBoxSet_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QBoxSet, callback: *const fn (QBoxSet, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QBoxSet_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1551,12 +1609,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QBoxSet_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QBoxSet, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QBoxSet_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1571,12 +1630,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QBoxSet_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QBoxSet, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QBoxSet_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1587,12 +1647,12 @@ pub const qboxset = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet`
+    /// ` self: QBoxSet`
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QBoxSet, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxSet_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QBoxSet, callback: *const fn (QBoxSet, QTimerEvent) callconv(.c) void) void {
+        qtc.QBoxSet_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1603,12 +1663,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QBoxSet_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QBoxSet, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QBoxSet_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1623,12 +1684,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QBoxSet_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QBoxSet, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QBoxSet_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1639,12 +1701,12 @@ pub const qboxset = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet`
+    /// ` self: QBoxSet`
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QBoxSet, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxSet_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QBoxSet, callback: *const fn (QBoxSet, QChildEvent) callconv(.c) void) void {
+        qtc.QBoxSet_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1655,12 +1717,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QBoxSet_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QBoxSet, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QBoxSet_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1675,12 +1738,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QBoxSet_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QBoxSet, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QBoxSet_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1691,12 +1755,12 @@ pub const qboxset = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet`
+    /// ` self: QBoxSet`
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QBoxSet, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxSet_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QBoxSet, callback: *const fn (QBoxSet, QEvent) callconv(.c) void) void {
+        qtc.QBoxSet_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1707,12 +1771,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QBoxSet_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QBoxSet, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QBoxSet_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1727,12 +1792,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QBoxSet_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QBoxSet, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QBoxSet_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1743,12 +1809,12 @@ pub const qboxset = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet`
+    /// ` self: QBoxSet`
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QBoxSet, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxSet_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QBoxSet, callback: *const fn (QBoxSet, QMetaMethod) callconv(.c) void) void {
+        qtc.QBoxSet_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1759,12 +1825,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QBoxSet_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QBoxSet, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QBoxSet_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1779,12 +1846,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QBoxSet_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QBoxSet, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QBoxSet_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1795,12 +1863,12 @@ pub const qboxset = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet`
+    /// ` self: QBoxSet`
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QBoxSet, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxSet_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QBoxSet, callback: *const fn (QBoxSet, QMetaMethod) callconv(.c) void) void {
+        qtc.QBoxSet_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1811,10 +1879,10 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QBoxSet_Sender(@ptrCast(self));
+    pub fn Sender(self: QBoxSet) QObject {
+        return .{ .ptr = qtc.QBoxSet_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -1829,10 +1897,10 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QBoxSet_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QBoxSet) QObject {
+        return .{ .ptr = qtc.QBoxSet_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1843,12 +1911,12 @@ pub const qboxset = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet`
+    /// ` self: QBoxSet`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QBoxSet_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QBoxSet, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QBoxSet_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1859,10 +1927,10 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QBoxSet_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QBoxSet) i32 {
+        return qtc.QBoxSet_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -1877,10 +1945,10 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QBoxSet_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QBoxSet) i32 {
+        return qtc.QBoxSet_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1891,12 +1959,12 @@ pub const qboxset = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet`
+    /// ` self: QBoxSet`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QBoxSet_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QBoxSet, callback: *const fn () callconv(.c) i32) void {
+        qtc.QBoxSet_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1907,13 +1975,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QBoxSet, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QBoxSet_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QBoxSet_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -1928,13 +1996,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QBoxSet, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QBoxSet_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QBoxSet_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1945,12 +2013,12 @@ pub const qboxset = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet`
+    /// ` self: QBoxSet`
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QBoxSet, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QBoxSet_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QBoxSet, callback: *const fn (QBoxSet, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QBoxSet_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1961,12 +2029,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QBoxSet_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QBoxSet, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QBoxSet_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -1981,12 +2050,13 @@ pub const qboxset = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QBoxSet_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QBoxSet, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QBoxSet_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1997,12 +2067,12 @@ pub const qboxset = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet`
+    /// ` self: QBoxSet`
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QBoxSet, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QBoxSet_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QBoxSet, callback: *const fn (QBoxSet, QMetaMethod) callconv(.c) bool) void {
+        qtc.QBoxSet_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2013,12 +2083,12 @@ pub const qboxset = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    /// ` callback: *const fn (self: QtC.QBoxSet, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QBoxSet, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QBoxSet, callback: *const fn (QBoxSet, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -2031,10 +2101,10 @@ pub const qboxset = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QBoxSet `
+    /// ` self: QBoxSet `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QBoxSet_Delete(@ptrCast(self));
+    pub fn Delete(self: QBoxSet) void {
+        qtc.QBoxSet_Delete(@ptrCast(self.ptr));
     }
 };
 

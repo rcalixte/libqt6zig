@@ -3,55 +3,65 @@ const qtc = @import("qt6c");
 const qelapsedtimer_enums = enums;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html)
-pub const qelapsedtimer = struct {
+pub const QElapsedTimer = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QElapsedTimer,
+
+    pub const _is_QElapsedTimer = {};
+
     /// New constructs a new QElapsedTimer object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QElapsedTimer `
+    /// ` other: QElapsedTimer `
     ///
-    pub fn New(other: ?*anyopaque) QtC.QElapsedTimer {
-        return qtc.QElapsedTimer_new(@ptrCast(other));
+    pub fn New(other: anytype) QElapsedTimer {
+        comptime _ = @TypeOf(other)._is_QElapsedTimer;
+        return .{ .ptr = qtc.QElapsedTimer_new(@ptrCast(other.ptr)) };
     }
 
     /// New2 constructs a new QElapsedTimer object and invalidates the source QElapsedTimer object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QElapsedTimer `
+    /// ` other: QElapsedTimer `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QElapsedTimer {
-        return qtc.QElapsedTimer_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QElapsedTimer {
+        comptime _ = @TypeOf(other)._is_QElapsedTimer;
+        return .{ .ptr = qtc.QElapsedTimer_new2(@ptrCast(other.ptr)) };
     }
 
     /// New3 constructs a new QElapsedTimer object.
     ///
-    pub fn New3() QtC.QElapsedTimer {
-        return qtc.QElapsedTimer_new3();
+    pub fn New3() QElapsedTimer {
+        return .{ .ptr = qtc.QElapsedTimer_new3() };
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QElapsedTimer `
+    /// ` self: QElapsedTimer `
     ///
-    /// ` other: QtC.QElapsedTimer `
+    /// ` other: QElapsedTimer `
     ///
-    pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QElapsedTimer_CopyAssign(@ptrCast(self), @ptrCast(other));
+    pub fn CopyAssign(self: QElapsedTimer, other: QElapsedTimer) void {
+        qtc.QElapsedTimer_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QElapsedTimer `
+    /// ` self: QElapsedTimer `
     ///
-    /// ` other: QtC.QElapsedTimer `
+    /// ` other: QElapsedTimer `
     ///
-    pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QElapsedTimer_MoveAssign(@ptrCast(self), @ptrCast(other));
+    pub fn MoveAssign(self: QElapsedTimer, other: QElapsedTimer) void {
+        qtc.QElapsedTimer_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#clockType)
@@ -74,106 +84,108 @@ pub const qelapsedtimer = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QElapsedTimer `
+    /// ` self: QElapsedTimer `
     ///
-    pub fn Start(self: ?*anyopaque) void {
-        qtc.QElapsedTimer_Start(@ptrCast(self));
+    pub fn Start(self: QElapsedTimer) void {
+        qtc.QElapsedTimer_Start(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#restart)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QElapsedTimer `
+    /// ` self: QElapsedTimer `
     ///
-    pub fn Restart(self: ?*anyopaque) i64 {
-        return qtc.QElapsedTimer_Restart(@ptrCast(self));
+    pub fn Restart(self: QElapsedTimer) i64 {
+        return qtc.QElapsedTimer_Restart(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#invalidate)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QElapsedTimer `
+    /// ` self: QElapsedTimer `
     ///
-    pub fn Invalidate(self: ?*anyopaque) void {
-        qtc.QElapsedTimer_Invalidate(@ptrCast(self));
+    pub fn Invalidate(self: QElapsedTimer) void {
+        qtc.QElapsedTimer_Invalidate(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#isValid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QElapsedTimer `
+    /// ` self: QElapsedTimer `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.QElapsedTimer_IsValid(@ptrCast(self));
+    pub fn IsValid(self: QElapsedTimer) bool {
+        return qtc.QElapsedTimer_IsValid(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#nsecsElapsed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QElapsedTimer `
+    /// ` self: QElapsedTimer `
     ///
-    pub fn NsecsElapsed(self: ?*anyopaque) i64 {
-        return qtc.QElapsedTimer_NsecsElapsed(@ptrCast(self));
+    pub fn NsecsElapsed(self: QElapsedTimer) i64 {
+        return qtc.QElapsedTimer_NsecsElapsed(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#elapsed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QElapsedTimer `
+    /// ` self: QElapsedTimer `
     ///
-    pub fn Elapsed(self: ?*anyopaque) i64 {
-        return qtc.QElapsedTimer_Elapsed(@ptrCast(self));
+    pub fn Elapsed(self: QElapsedTimer) i64 {
+        return qtc.QElapsedTimer_Elapsed(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#hasExpired)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QElapsedTimer `
+    /// ` self: QElapsedTimer `
     ///
     /// ` timeout: i64 `
     ///
-    pub fn HasExpired(self: ?*anyopaque, timeout: i64) bool {
-        return qtc.QElapsedTimer_HasExpired(@ptrCast(self), @bitCast(timeout));
+    pub fn HasExpired(self: QElapsedTimer, timeout: i64) bool {
+        return qtc.QElapsedTimer_HasExpired(@ptrCast(self.ptr), @bitCast(timeout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#msecsSinceReference)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QElapsedTimer `
+    /// ` self: QElapsedTimer `
     ///
-    pub fn MsecsSinceReference(self: ?*anyopaque) i64 {
-        return qtc.QElapsedTimer_MsecsSinceReference(@ptrCast(self));
+    pub fn MsecsSinceReference(self: QElapsedTimer) i64 {
+        return qtc.QElapsedTimer_MsecsSinceReference(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#msecsTo)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QElapsedTimer `
+    /// ` self: QElapsedTimer `
     ///
-    /// ` other: QtC.QElapsedTimer `
+    /// ` other: QElapsedTimer `
     ///
-    pub fn MsecsTo(self: ?*anyopaque, other: ?*anyopaque) i64 {
-        return qtc.QElapsedTimer_MsecsTo(@ptrCast(self), @ptrCast(other));
+    pub fn MsecsTo(self: QElapsedTimer, other: anytype) i64 {
+        comptime _ = @TypeOf(other)._is_QElapsedTimer;
+        return qtc.QElapsedTimer_MsecsTo(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qelapsedtimer.html#secsTo)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QElapsedTimer `
+    /// ` self: QElapsedTimer `
     ///
-    /// ` other: QtC.QElapsedTimer `
+    /// ` other: QElapsedTimer `
     ///
-    pub fn SecsTo(self: ?*anyopaque, other: ?*anyopaque) i64 {
-        return qtc.QElapsedTimer_SecsTo(@ptrCast(self), @ptrCast(other));
+    pub fn SecsTo(self: QElapsedTimer, other: anytype) i64 {
+        comptime _ = @TypeOf(other)._is_QElapsedTimer;
+        return qtc.QElapsedTimer_SecsTo(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -186,10 +198,10 @@ pub const qelapsedtimer = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QElapsedTimer `
+    /// ` self: QElapsedTimer `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QElapsedTimer_Delete(@ptrCast(self));
+    pub fn Delete(self: QElapsedTimer) void {
+        qtc.QElapsedTimer_Delete(@ptrCast(self.ptr));
     }
 };
 

@@ -1,70 +1,86 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QEventPoint = @import("libqt6").QEventPoint;
+const QPoint = @import("libqt6").QPoint;
+const QWidget = @import("libqt6").QWidget;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html)
-pub const qtest__qtoucheventwidgetsequence = struct {
+pub const QTest__QTouchEventWidgetSequence = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QTest__QTouchEventWidgetSequence,
+
+    pub const _is_QTest__QTouchEventWidgetSequence = {};
+    pub const _is_QTest__QTouchEventSequence = {};
+
     /// New constructs a new QTest::QTouchEventWidgetSequence object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QTest__QTouchEventWidgetSequence `
+    /// ` param1: QTest__QTouchEventWidgetSequence `
     ///
-    pub fn New(param1: ?*anyopaque) QtC.QTest__QTouchEventWidgetSequence {
-        return qtc.QTest__QTouchEventWidgetSequence_new(@ptrCast(param1));
+    pub fn New(param1: anytype) QTest__QTouchEventWidgetSequence {
+        comptime _ = @TypeOf(param1)._is_QTest__QTouchEventWidgetSequence;
+        return .{ .ptr = qtc.QTest__QTouchEventWidgetSequence_new(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#press)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTest__QTouchEventWidgetSequence `
+    /// ` self: QTest__QTouchEventWidgetSequence `
     ///
     /// ` touchId: i32 `
     ///
-    /// ` pt: QtC.QPoint `
+    /// ` pt: QPoint `
     ///
-    pub fn Press(self: ?*anyopaque, touchId: i32, pt: ?*anyopaque) QtC.QTest__QTouchEventWidgetSequence {
-        return qtc.QTest__QTouchEventWidgetSequence_Press(@ptrCast(self), @bitCast(touchId), @ptrCast(pt));
+    pub fn Press(self: QTest__QTouchEventWidgetSequence, touchId: i32, pt: anytype) QTest__QTouchEventWidgetSequence {
+        comptime _ = @TypeOf(pt)._is_QPoint;
+        return .{ .ptr = qtc.QTest__QTouchEventWidgetSequence_Press(@ptrCast(self.ptr), @bitCast(touchId), @ptrCast(pt.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#move)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTest__QTouchEventWidgetSequence `
+    /// ` self: QTest__QTouchEventWidgetSequence `
     ///
     /// ` touchId: i32 `
     ///
-    /// ` pt: QtC.QPoint `
+    /// ` pt: QPoint `
     ///
-    pub fn Move(self: ?*anyopaque, touchId: i32, pt: ?*anyopaque) QtC.QTest__QTouchEventWidgetSequence {
-        return qtc.QTest__QTouchEventWidgetSequence_Move(@ptrCast(self), @bitCast(touchId), @ptrCast(pt));
+    pub fn Move(self: QTest__QTouchEventWidgetSequence, touchId: i32, pt: anytype) QTest__QTouchEventWidgetSequence {
+        comptime _ = @TypeOf(pt)._is_QPoint;
+        return .{ .ptr = qtc.QTest__QTouchEventWidgetSequence_Move(@ptrCast(self.ptr), @bitCast(touchId), @ptrCast(pt.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#release)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTest__QTouchEventWidgetSequence `
+    /// ` self: QTest__QTouchEventWidgetSequence `
     ///
     /// ` touchId: i32 `
     ///
-    /// ` pt: QtC.QPoint `
+    /// ` pt: QPoint `
     ///
-    pub fn Release(self: ?*anyopaque, touchId: i32, pt: ?*anyopaque) QtC.QTest__QTouchEventWidgetSequence {
-        return qtc.QTest__QTouchEventWidgetSequence_Release(@ptrCast(self), @bitCast(touchId), @ptrCast(pt));
+    pub fn Release(self: QTest__QTouchEventWidgetSequence, touchId: i32, pt: anytype) QTest__QTouchEventWidgetSequence {
+        comptime _ = @TypeOf(pt)._is_QPoint;
+        return .{ .ptr = qtc.QTest__QTouchEventWidgetSequence_Release(@ptrCast(self.ptr), @bitCast(touchId), @ptrCast(pt.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#stationary)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTest__QTouchEventWidgetSequence `
+    /// ` self: QTest__QTouchEventWidgetSequence `
     ///
     /// ` touchId: i32 `
     ///
-    pub fn Stationary(self: ?*anyopaque, touchId: i32) QtC.QTest__QTouchEventWidgetSequence {
-        return qtc.QTest__QTouchEventWidgetSequence_Stationary(@ptrCast(self), @bitCast(touchId));
+    pub fn Stationary(self: QTest__QTouchEventWidgetSequence, touchId: i32) QTest__QTouchEventWidgetSequence {
+        return .{ .ptr = qtc.QTest__QTouchEventWidgetSequence_Stationary(@ptrCast(self.ptr), @bitCast(touchId)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#stationary)
@@ -73,12 +89,12 @@ pub const qtest__qtoucheventwidgetsequence = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTest__QTouchEventWidgetSequence `
+    /// ` self: QTest__QTouchEventWidgetSequence `
     ///
-    /// ` callback: *const fn (self: QtC.QTest__QTouchEventWidgetSequence, touchId: i32) callconv(.c) QtC.QTest__QTouchEventWidgetSequence `
+    /// ` callback: *const fn (self: QTest__QTouchEventWidgetSequence, touchId: i32) callconv(.c) QTest__QTouchEventWidgetSequence `
     ///
-    pub fn OnStationary(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QTest__QTouchEventWidgetSequence) void {
-        qtc.QTest__QTouchEventWidgetSequence_OnStationary(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStationary(self: QTest__QTouchEventWidgetSequence, callback: *const fn (QTest__QTouchEventWidgetSequence, i32) callconv(.c) QTest__QTouchEventWidgetSequence) void {
+        qtc.QTest__QTouchEventWidgetSequence_OnStationary(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperStationary` instead
@@ -91,24 +107,24 @@ pub const qtest__qtoucheventwidgetsequence = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTest__QTouchEventWidgetSequence `
+    /// ` self: QTest__QTouchEventWidgetSequence `
     ///
     /// ` touchId: i32 `
     ///
-    pub fn SuperStationary(self: ?*anyopaque, touchId: i32) QtC.QTest__QTouchEventWidgetSequence {
-        return qtc.QTest__QTouchEventWidgetSequence_SuperStationary(@ptrCast(self), @bitCast(touchId));
+    pub fn SuperStationary(self: QTest__QTouchEventWidgetSequence, touchId: i32) QTest__QTouchEventWidgetSequence {
+        return .{ .ptr = qtc.QTest__QTouchEventWidgetSequence_SuperStationary(@ptrCast(self.ptr), @bitCast(touchId)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#commit)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTest__QTouchEventWidgetSequence `
+    /// ` self: QTest__QTouchEventWidgetSequence `
     ///
     /// ` processEvents: bool `
     ///
-    pub fn Commit(self: ?*anyopaque, processEvents: bool) bool {
-        return qtc.QTest__QTouchEventWidgetSequence_Commit(@ptrCast(self), processEvents);
+    pub fn Commit(self: QTest__QTouchEventWidgetSequence, processEvents: bool) bool {
+        return qtc.QTest__QTouchEventWidgetSequence_Commit(@ptrCast(self.ptr), processEvents);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#commit)
@@ -117,12 +133,12 @@ pub const qtest__qtoucheventwidgetsequence = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTest__QTouchEventWidgetSequence `
+    /// ` self: QTest__QTouchEventWidgetSequence `
     ///
-    /// ` callback: *const fn (self: QtC.QTest__QTouchEventWidgetSequence, processEvents: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTest__QTouchEventWidgetSequence, processEvents: bool) callconv(.c) bool `
     ///
-    pub fn OnCommit(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QTest__QTouchEventWidgetSequence_OnCommit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCommit(self: QTest__QTouchEventWidgetSequence, callback: *const fn (QTest__QTouchEventWidgetSequence, bool) callconv(.c) bool) void {
+        qtc.QTest__QTouchEventWidgetSequence_OnCommit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCommit` instead
@@ -135,60 +151,66 @@ pub const qtest__qtoucheventwidgetsequence = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTest__QTouchEventWidgetSequence `
+    /// ` self: QTest__QTouchEventWidgetSequence `
     ///
     /// ` processEvents: bool `
     ///
-    pub fn SuperCommit(self: ?*anyopaque, processEvents: bool) bool {
-        return qtc.QTest__QTouchEventWidgetSequence_SuperCommit(@ptrCast(self), processEvents);
+    pub fn SuperCommit(self: QTest__QTouchEventWidgetSequence, processEvents: bool) bool {
+        return qtc.QTest__QTouchEventWidgetSequence_SuperCommit(@ptrCast(self.ptr), processEvents);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#press)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTest__QTouchEventWidgetSequence `
+    /// ` self: QTest__QTouchEventWidgetSequence `
     ///
     /// ` touchId: i32 `
     ///
-    /// ` pt: QtC.QPoint `
+    /// ` pt: QPoint `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn Press3(self: ?*anyopaque, touchId: i32, pt: ?*anyopaque, widget: ?*anyopaque) QtC.QTest__QTouchEventWidgetSequence {
-        return qtc.QTest__QTouchEventWidgetSequence_Press3(@ptrCast(self), @bitCast(touchId), @ptrCast(pt), @ptrCast(widget));
+    pub fn Press3(self: QTest__QTouchEventWidgetSequence, touchId: i32, pt: anytype, widget: anytype) QTest__QTouchEventWidgetSequence {
+        comptime _ = @TypeOf(pt)._is_QPoint;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return .{ .ptr = qtc.QTest__QTouchEventWidgetSequence_Press3(@ptrCast(self.ptr), @bitCast(touchId), @ptrCast(pt.ptr), @ptrCast(widget.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#move)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTest__QTouchEventWidgetSequence `
+    /// ` self: QTest__QTouchEventWidgetSequence `
     ///
     /// ` touchId: i32 `
     ///
-    /// ` pt: QtC.QPoint `
+    /// ` pt: QPoint `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn Move3(self: ?*anyopaque, touchId: i32, pt: ?*anyopaque, widget: ?*anyopaque) QtC.QTest__QTouchEventWidgetSequence {
-        return qtc.QTest__QTouchEventWidgetSequence_Move3(@ptrCast(self), @bitCast(touchId), @ptrCast(pt), @ptrCast(widget));
+    pub fn Move3(self: QTest__QTouchEventWidgetSequence, touchId: i32, pt: anytype, widget: anytype) QTest__QTouchEventWidgetSequence {
+        comptime _ = @TypeOf(pt)._is_QPoint;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return .{ .ptr = qtc.QTest__QTouchEventWidgetSequence_Move3(@ptrCast(self.ptr), @bitCast(touchId), @ptrCast(pt.ptr), @ptrCast(widget.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#release)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTest__QTouchEventWidgetSequence `
+    /// ` self: QTest__QTouchEventWidgetSequence `
     ///
     /// ` touchId: i32 `
     ///
-    /// ` pt: QtC.QPoint `
+    /// ` pt: QPoint `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn Release3(self: ?*anyopaque, touchId: i32, pt: ?*anyopaque, widget: ?*anyopaque) QtC.QTest__QTouchEventWidgetSequence {
-        return qtc.QTest__QTouchEventWidgetSequence_Release3(@ptrCast(self), @bitCast(touchId), @ptrCast(pt), @ptrCast(widget));
+    pub fn Release3(self: QTest__QTouchEventWidgetSequence, touchId: i32, pt: anytype, widget: anytype) QTest__QTouchEventWidgetSequence {
+        comptime _ = @TypeOf(pt)._is_QPoint;
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return .{ .ptr = qtc.QTest__QTouchEventWidgetSequence_Release3(@ptrCast(self.ptr), @bitCast(touchId), @ptrCast(pt.ptr), @ptrCast(widget.ptr)) };
     }
 
     /// Inherited from QTest::QTouchEventSequence
@@ -199,12 +221,12 @@ pub const qtest__qtoucheventwidgetsequence = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTest__QTouchEventWidgetSequence `
+    /// ` self: QTest__QTouchEventWidgetSequence `
     ///
     /// ` touchId: i32 `
     ///
-    pub fn Point(self: ?*anyopaque, touchId: i32) QtC.QEventPoint {
-        return qtc.QTest__QTouchEventWidgetSequence_Point(@ptrCast(self), @bitCast(touchId));
+    pub fn Point(self: QTest__QTouchEventWidgetSequence, touchId: i32) QEventPoint {
+        return .{ .ptr = qtc.QTest__QTouchEventWidgetSequence_Point(@ptrCast(self.ptr), @bitCast(touchId)) };
     }
 
     /// ### DEPRECATED: Use `SuperPoint` instead
@@ -219,12 +241,12 @@ pub const qtest__qtoucheventwidgetsequence = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTest__QTouchEventWidgetSequence `
+    /// ` self: QTest__QTouchEventWidgetSequence `
     ///
     /// ` touchId: i32 `
     ///
-    pub fn SuperPoint(self: ?*anyopaque, touchId: i32) QtC.QEventPoint {
-        return qtc.QTest__QTouchEventWidgetSequence_SuperPoint(@ptrCast(self), @bitCast(touchId));
+    pub fn SuperPoint(self: QTest__QTouchEventWidgetSequence, touchId: i32) QEventPoint {
+        return .{ .ptr = qtc.QTest__QTouchEventWidgetSequence_SuperPoint(@ptrCast(self.ptr), @bitCast(touchId)) };
     }
 
     /// Inherited from QTest::QTouchEventSequence
@@ -235,12 +257,12 @@ pub const qtest__qtoucheventwidgetsequence = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTest__QTouchEventWidgetSequence`
+    /// ` self: QTest__QTouchEventWidgetSequence`
     ///
-    /// ` callback: *const fn (self: QtC.QTest__QTouchEventWidgetSequence, touchId: i32) callconv(.c) QtC.QEventPoint `
+    /// ` callback: *const fn (self: QTest__QTouchEventWidgetSequence, touchId: i32) callconv(.c) QEventPoint `
     ///
-    pub fn OnPoint(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QEventPoint) void {
-        qtc.QTest__QTouchEventWidgetSequence_OnPoint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPoint(self: QTest__QTouchEventWidgetSequence, callback: *const fn (QTest__QTouchEventWidgetSequence, i32) callconv(.c) QEventPoint) void {
+        qtc.QTest__QTouchEventWidgetSequence_OnPoint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTest::QTouchEventSequence
@@ -251,12 +273,12 @@ pub const qtest__qtoucheventwidgetsequence = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTest__QTouchEventWidgetSequence `
+    /// ` self: QTest__QTouchEventWidgetSequence `
     ///
     /// ` touchId: i32 `
     ///
-    pub fn PointOrPreviousPoint(self: ?*anyopaque, touchId: i32) QtC.QEventPoint {
-        return qtc.QTest__QTouchEventWidgetSequence_PointOrPreviousPoint(@ptrCast(self), @bitCast(touchId));
+    pub fn PointOrPreviousPoint(self: QTest__QTouchEventWidgetSequence, touchId: i32) QEventPoint {
+        return .{ .ptr = qtc.QTest__QTouchEventWidgetSequence_PointOrPreviousPoint(@ptrCast(self.ptr), @bitCast(touchId)) };
     }
 
     /// ### DEPRECATED: Use `SuperPointOrPreviousPoint` instead
@@ -271,12 +293,12 @@ pub const qtest__qtoucheventwidgetsequence = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTest__QTouchEventWidgetSequence `
+    /// ` self: QTest__QTouchEventWidgetSequence `
     ///
     /// ` touchId: i32 `
     ///
-    pub fn SuperPointOrPreviousPoint(self: ?*anyopaque, touchId: i32) QtC.QEventPoint {
-        return qtc.QTest__QTouchEventWidgetSequence_SuperPointOrPreviousPoint(@ptrCast(self), @bitCast(touchId));
+    pub fn SuperPointOrPreviousPoint(self: QTest__QTouchEventWidgetSequence, touchId: i32) QEventPoint {
+        return .{ .ptr = qtc.QTest__QTouchEventWidgetSequence_SuperPointOrPreviousPoint(@ptrCast(self.ptr), @bitCast(touchId)) };
     }
 
     /// Inherited from QTest::QTouchEventSequence
@@ -287,12 +309,12 @@ pub const qtest__qtoucheventwidgetsequence = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTest__QTouchEventWidgetSequence`
+    /// ` self: QTest__QTouchEventWidgetSequence`
     ///
-    /// ` callback: *const fn (self: QtC.QTest__QTouchEventWidgetSequence, touchId: i32) callconv(.c) QtC.QEventPoint `
+    /// ` callback: *const fn (self: QTest__QTouchEventWidgetSequence, touchId: i32) callconv(.c) QEventPoint `
     ///
-    pub fn OnPointOrPreviousPoint(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QEventPoint) void {
-        qtc.QTest__QTouchEventWidgetSequence_OnPointOrPreviousPoint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPointOrPreviousPoint(self: QTest__QTouchEventWidgetSequence, callback: *const fn (QTest__QTouchEventWidgetSequence, i32) callconv(.c) QEventPoint) void {
+        qtc.QTest__QTouchEventWidgetSequence_OnPointOrPreviousPoint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -303,9 +325,9 @@ pub const qtest__qtoucheventwidgetsequence = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QTest__QTouchEventWidgetSequence `
+    /// ` self: QTest__QTouchEventWidgetSequence `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QTest__QTouchEventWidgetSequence_Delete(@ptrCast(self));
+    pub fn Delete(self: QTest__QTouchEventWidgetSequence) void {
+        qtc.QTest__QTouchEventWidgetSequence_Delete(@ptrCast(self.ptr));
     }
 };

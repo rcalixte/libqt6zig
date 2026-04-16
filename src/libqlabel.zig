@@ -1,5 +1,67 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAction = @import("libqt6").QAction;
+const QActionEvent = @import("libqt6").QActionEvent;
+const QBackingStore = @import("libqt6").QBackingStore;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBitmap = @import("libqt6").QBitmap;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QCloseEvent = @import("libqt6").QCloseEvent;
+const QContextMenuEvent = @import("libqt6").QContextMenuEvent;
+const QCursor = @import("libqt6").QCursor;
+const QDragEnterEvent = @import("libqt6").QDragEnterEvent;
+const QDragLeaveEvent = @import("libqt6").QDragLeaveEvent;
+const QDragMoveEvent = @import("libqt6").QDragMoveEvent;
+const QDropEvent = @import("libqt6").QDropEvent;
+const QEnterEvent = @import("libqt6").QEnterEvent;
+const QEvent = @import("libqt6").QEvent;
+const QFocusEvent = @import("libqt6").QFocusEvent;
+const QFont = @import("libqt6").QFont;
+const QFontInfo = @import("libqt6").QFontInfo;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QGraphicsEffect = @import("libqt6").QGraphicsEffect;
+const QGraphicsProxyWidget = @import("libqt6").QGraphicsProxyWidget;
+const QHideEvent = @import("libqt6").QHideEvent;
+const QIcon = @import("libqt6").QIcon;
+const QInputMethodEvent = @import("libqt6").QInputMethodEvent;
+const QKeyEvent = @import("libqt6").QKeyEvent;
+const QKeySequence = @import("libqt6").QKeySequence;
+const QLayout = @import("libqt6").QLayout;
+const QLocale = @import("libqt6").QLocale;
+const QMargins = @import("libqt6").QMargins;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMouseEvent = @import("libqt6").QMouseEvent;
+const QMoveEvent = @import("libqt6").QMoveEvent;
+const QMovie = @import("libqt6").QMovie;
+const QObject = @import("libqt6").QObject;
+const QPaintDevice = @import("libqt6").QPaintDevice;
+const QPaintEngine = @import("libqt6").QPaintEngine;
+const QPaintEvent = @import("libqt6").QPaintEvent;
+const QPainter = @import("libqt6").QPainter;
+const QPalette = @import("libqt6").QPalette;
+const QPicture = @import("libqt6").QPicture;
+const QPixmap = @import("libqt6").QPixmap;
+const QPoint = @import("libqt6").QPoint;
+const QPointF = @import("libqt6").QPointF;
+const QRect = @import("libqt6").QRect;
+const QRegion = @import("libqt6").QRegion;
+const QResizeEvent = @import("libqt6").QResizeEvent;
+const QScreen = @import("libqt6").QScreen;
+const QShowEvent = @import("libqt6").QShowEvent;
+const QSize = @import("libqt6").QSize;
+const QSizePolicy = @import("libqt6").QSizePolicy;
+const QStyle = @import("libqt6").QStyle;
+const QStyleOptionFrame = @import("libqt6").QStyleOptionFrame;
+const QTabletEvent = @import("libqt6").QTabletEvent;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QUrl = @import("libqt6").QUrl;
+const QVariant = @import("libqt6").QVariant;
+const QWheelEvent = @import("libqt6").QWheelEvent;
+const QWidget = @import("libqt6").QWidget;
+const QWindow = @import("libqt6").QWindow;
 const qframe_enums = @import("libqframe.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
@@ -10,21 +72,34 @@ const qwidget_enums = @import("libqwidget.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html)
-pub const qlabel = struct {
+pub const QLabel = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QLabel,
+
+    pub const _is_QLabel = {};
+    pub const _is_QFrame = {};
+    pub const _is_QWidget = {};
+    pub const _is_QObject = {};
+    pub const _is_QPaintDevice = {};
+
     /// New constructs a new QLabel object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.QLabel {
-        return qtc.QLabel_new(@ptrCast(parent));
+    pub fn New(parent: anytype) QLabel {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QLabel_new(@ptrCast(parent.ptr)) };
     }
 
     /// New2 constructs a new QLabel object.
     ///
-    pub fn New2() QtC.QLabel {
-        return qtc.QLabel_new2();
+    pub fn New2() QLabel {
+        return .{ .ptr = qtc.QLabel_new2() };
     }
 
     /// New3 constructs a new QLabel object.
@@ -33,25 +108,25 @@ pub const qlabel = struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn New3(text: []const u8) QtC.QLabel {
+    pub fn New3(text: []const u8) QLabel {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-
-        return qtc.QLabel_new3(text_str);
+        return .{ .ptr = qtc.QLabel_new3(text_str) };
     }
 
     /// New4 constructs a new QLabel object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn New4(parent: ?*anyopaque, f: i32) QtC.QLabel {
-        return qtc.QLabel_new4(@ptrCast(parent), @bitCast(f));
+    pub fn New4(parent: anytype, f: i32) QLabel {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QLabel_new4(@ptrCast(parent.ptr), @bitCast(f)) };
     }
 
     /// New5 constructs a new QLabel object.
@@ -60,15 +135,15 @@ pub const qlabel = struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New5(text: []const u8, parent: ?*anyopaque) QtC.QLabel {
+    pub fn New5(text: []const u8, parent: anytype) QLabel {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-
-        return qtc.QLabel_new5(text_str, @ptrCast(parent));
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QLabel_new5(text_str, @ptrCast(parent.ptr)) };
     }
 
     /// New6 constructs a new QLabel object.
@@ -77,27 +152,27 @@ pub const qlabel = struct {
     ///
     /// ` text: []const u8 `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn New6(text: []const u8, parent: ?*anyopaque, f: i32) QtC.QLabel {
+    pub fn New6(text: []const u8, parent: anytype, f: i32) QLabel {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-
-        return qtc.QLabel_new6(text_str, @ptrCast(parent), @bitCast(f));
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QLabel_new6(text_str, @ptrCast(parent.ptr), @bitCast(f)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QLabel_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QLabel) QMetaObject {
+        return .{ .ptr = qtc.QLabel_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -106,12 +181,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QLabel_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QLabel, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QLabel_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -124,33 +199,33 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QLabel_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QLabel) QMetaObject {
+        return .{ .ptr = qtc.QLabel_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QLabel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QLabel_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QLabel_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QLabel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QLabel_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QLabel, callback: *const fn (QLabel, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QLabel_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -161,18 +236,18 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QLabel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QLabel_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QLabel_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -180,20 +255,20 @@ pub const qlabel = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QLabel_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QLabel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QLabel_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QLabel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QLabel_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QLabel, callback: *const fn (QLabel, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QLabel_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -204,7 +279,7 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -212,19 +287,19 @@ pub const qlabel = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QLabel_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QLabel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QLabel_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -237,12 +312,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLabel_Text(@ptrCast(self));
+    pub fn Text(self: QLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QLabel_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlabel.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -253,216 +328,216 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` param1: qnamespace_enums.ReturnByValueConstant `
     ///
-    pub fn Pixmap(self: ?*anyopaque, param1: i32) QtC.QPixmap {
-        return qtc.QLabel_Pixmap(@ptrCast(self), @bitCast(param1));
+    pub fn Pixmap(self: QLabel, param1: i32) QPixmap {
+        return .{ .ptr = qtc.QLabel_Pixmap(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#pixmap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Pixmap2(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QLabel_Pixmap2(@ptrCast(self));
+    pub fn Pixmap2(self: QLabel) QPixmap {
+        return .{ .ptr = qtc.QLabel_Pixmap2(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#picture)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` param1: qnamespace_enums.ReturnByValueConstant `
     ///
-    pub fn Picture(self: ?*anyopaque, param1: i32) QtC.QPicture {
-        return qtc.QLabel_Picture(@ptrCast(self), @bitCast(param1));
+    pub fn Picture(self: QLabel, param1: i32) QPicture {
+        return .{ .ptr = qtc.QLabel_Picture(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#picture)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Picture2(self: ?*anyopaque) QtC.QPicture {
-        return qtc.QLabel_Picture2(@ptrCast(self));
+    pub fn Picture2(self: QLabel) QPicture {
+        return .{ .ptr = qtc.QLabel_Picture2(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#movie)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Movie(self: ?*anyopaque) QtC.QMovie {
-        return qtc.QLabel_Movie(@ptrCast(self));
+    pub fn Movie(self: QLabel) QMovie {
+        return .{ .ptr = qtc.QLabel_Movie(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#textFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.TextFormat `
     ///
-    pub fn TextFormat(self: ?*anyopaque) i32 {
-        return qtc.QLabel_TextFormat(@ptrCast(self));
+    pub fn TextFormat(self: QLabel) i32 {
+        return qtc.QLabel_TextFormat(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setTextFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` textFormat: qnamespace_enums.TextFormat `
     ///
-    pub fn SetTextFormat(self: ?*anyopaque, textFormat: i32) void {
-        qtc.QLabel_SetTextFormat(@ptrCast(self), @bitCast(textFormat));
+    pub fn SetTextFormat(self: QLabel, textFormat: i32) void {
+        qtc.QLabel_SetTextFormat(@ptrCast(self.ptr), @bitCast(textFormat));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setResourceProvider)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` provider: *const fn (funcparam1: QtC.QUrl) callconv(.c) QtC.QVariant `
+    /// ` provider: *const fn (funcparam1: QUrl) callconv(.c) QVariant `
     ///
-    pub fn SetResourceProvider(self: ?*anyopaque, provider: *const fn (?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QLabel_SetResourceProvider(@ptrCast(self), @bitCast(@intFromPtr(provider)));
+    pub fn SetResourceProvider(self: QLabel, provider: *const fn (QUrl) callconv(.c) QVariant) void {
+        qtc.QLabel_SetResourceProvider(@ptrCast(self.ptr), @bitCast(@intFromPtr(provider)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#alignment)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: ?*anyopaque) i32 {
-        return qtc.QLabel_Alignment(@ptrCast(self));
+    pub fn Alignment(self: QLabel) i32 {
+        return qtc.QLabel_Alignment(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setAlignment)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment(self: ?*anyopaque, alignment: i32) void {
-        qtc.QLabel_SetAlignment(@ptrCast(self), @bitCast(alignment));
+    pub fn SetAlignment(self: QLabel, alignment: i32) void {
+        qtc.QLabel_SetAlignment(@ptrCast(self.ptr), @bitCast(alignment));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setWordWrap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWordWrap(self: ?*anyopaque, on: bool) void {
-        qtc.QLabel_SetWordWrap(@ptrCast(self), on);
+    pub fn SetWordWrap(self: QLabel, on: bool) void {
+        qtc.QLabel_SetWordWrap(@ptrCast(self.ptr), on);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#wordWrap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn WordWrap(self: ?*anyopaque) bool {
-        return qtc.QLabel_WordWrap(@ptrCast(self));
+    pub fn WordWrap(self: QLabel) bool {
+        return qtc.QLabel_WordWrap(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#indent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Indent(self: ?*anyopaque) i32 {
-        return qtc.QLabel_Indent(@ptrCast(self));
+    pub fn Indent(self: QLabel) i32 {
+        return qtc.QLabel_Indent(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setIndent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` indent: i32 `
     ///
-    pub fn SetIndent(self: ?*anyopaque, indent: i32) void {
-        qtc.QLabel_SetIndent(@ptrCast(self), @bitCast(indent));
+    pub fn SetIndent(self: QLabel, indent: i32) void {
+        qtc.QLabel_SetIndent(@ptrCast(self.ptr), @bitCast(indent));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#margin)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Margin(self: ?*anyopaque) i32 {
-        return qtc.QLabel_Margin(@ptrCast(self));
+    pub fn Margin(self: QLabel) i32 {
+        return qtc.QLabel_Margin(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setMargin)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` margin: i32 `
     ///
-    pub fn SetMargin(self: ?*anyopaque, margin: i32) void {
-        qtc.QLabel_SetMargin(@ptrCast(self), @bitCast(margin));
+    pub fn SetMargin(self: QLabel, margin: i32) void {
+        qtc.QLabel_SetMargin(@ptrCast(self.ptr), @bitCast(margin));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#hasScaledContents)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn HasScaledContents(self: ?*anyopaque) bool {
-        return qtc.QLabel_HasScaledContents(@ptrCast(self));
+    pub fn HasScaledContents(self: QLabel) bool {
+        return qtc.QLabel_HasScaledContents(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setScaledContents)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` scaledContents: bool `
     ///
-    pub fn SetScaledContents(self: ?*anyopaque, scaledContents: bool) void {
-        qtc.QLabel_SetScaledContents(@ptrCast(self), scaledContents);
+    pub fn SetScaledContents(self: QLabel, scaledContents: bool) void {
+        qtc.QLabel_SetScaledContents(@ptrCast(self.ptr), scaledContents);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#sizeHint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QLabel_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: QLabel) QSize {
+        return .{ .ptr = qtc.QLabel_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#sizeHint)
@@ -471,12 +546,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QLabel_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHint(self: QLabel, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QLabel_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSizeHint` instead
@@ -489,20 +564,20 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QLabel_SuperSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: QLabel) QSize {
+        return .{ .ptr = qtc.QLabel_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#minimumSizeHint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QLabel_MinimumSizeHint(@ptrCast(self));
+    pub fn MinimumSizeHint(self: QLabel) QSize {
+        return .{ .ptr = qtc.QLabel_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#minimumSizeHint)
@@ -511,12 +586,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QLabel_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumSizeHint(self: QLabel, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QLabel_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
@@ -529,44 +604,45 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QLabel_SuperMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: QLabel) QSize {
+        return .{ .ptr = qtc.QLabel_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setBuddy)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` buddy: QtC.QWidget `
+    /// ` buddy: QWidget `
     ///
-    pub fn SetBuddy(self: ?*anyopaque, buddy: ?*anyopaque) void {
-        qtc.QLabel_SetBuddy(@ptrCast(self), @ptrCast(buddy));
+    pub fn SetBuddy(self: QLabel, buddy: anytype) void {
+        comptime _ = @TypeOf(buddy)._is_QWidget;
+        qtc.QLabel_SetBuddy(@ptrCast(self.ptr), @ptrCast(buddy.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#buddy)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Buddy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QLabel_Buddy(@ptrCast(self));
+    pub fn Buddy(self: QLabel) QWidget {
+        return .{ .ptr = qtc.QLabel_Buddy(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#heightForWidth)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QLabel_HeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn HeightForWidth(self: QLabel, param1: i32) i32 {
+        return qtc.QLabel_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#heightForWidth)
@@ -575,12 +651,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, param1: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QLabel, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QLabel_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeightForWidth(self: QLabel, callback: *const fn (QLabel, i32) callconv(.c) i32) void {
+        qtc.QLabel_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperHeightForWidth` instead
@@ -593,96 +669,96 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QLabel_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: QLabel, param1: i32) i32 {
+        return qtc.QLabel_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#openExternalLinks)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn OpenExternalLinks(self: ?*anyopaque) bool {
-        return qtc.QLabel_OpenExternalLinks(@ptrCast(self));
+    pub fn OpenExternalLinks(self: QLabel) bool {
+        return qtc.QLabel_OpenExternalLinks(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setOpenExternalLinks)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` open: bool `
     ///
-    pub fn SetOpenExternalLinks(self: ?*anyopaque, open: bool) void {
-        qtc.QLabel_SetOpenExternalLinks(@ptrCast(self), open);
+    pub fn SetOpenExternalLinks(self: QLabel, open: bool) void {
+        qtc.QLabel_SetOpenExternalLinks(@ptrCast(self.ptr), open);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setTextInteractionFlags)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` flags: flag of qnamespace_enums.TextInteractionFlag `
     ///
-    pub fn SetTextInteractionFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QLabel_SetTextInteractionFlags(@ptrCast(self), @bitCast(flags));
+    pub fn SetTextInteractionFlags(self: QLabel, flags: i32) void {
+        qtc.QLabel_SetTextInteractionFlags(@ptrCast(self.ptr), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#textInteractionFlags)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.TextInteractionFlag `
     ///
-    pub fn TextInteractionFlags(self: ?*anyopaque) i32 {
-        return qtc.QLabel_TextInteractionFlags(@ptrCast(self));
+    pub fn TextInteractionFlags(self: QLabel) i32 {
+        return qtc.QLabel_TextInteractionFlags(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setSelection)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` param1: i32 `
     ///
     /// ` param2: i32 `
     ///
-    pub fn SetSelection(self: ?*anyopaque, param1: i32, param2: i32) void {
-        qtc.QLabel_SetSelection(@ptrCast(self), @bitCast(param1), @bitCast(param2));
+    pub fn SetSelection(self: QLabel, param1: i32, param2: i32) void {
+        qtc.QLabel_SetSelection(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#hasSelectedText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn HasSelectedText(self: ?*anyopaque) bool {
-        return qtc.QLabel_HasSelectedText(@ptrCast(self));
+    pub fn HasSelectedText(self: QLabel) bool {
+        return qtc.QLabel_HasSelectedText(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#selectedText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QLabel_SelectedText(@ptrCast(self));
+    pub fn SelectedText(self: QLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QLabel_SelectedText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlabel.SelectedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -693,164 +769,168 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn SelectionStart(self: ?*anyopaque) i32 {
-        return qtc.QLabel_SelectionStart(@ptrCast(self));
+    pub fn SelectionStart(self: QLabel) i32 {
+        return qtc.QLabel_SelectionStart(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SetText(self: QLabel, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QLabel_SetText(@ptrCast(self), text_str);
+        qtc.QLabel_SetText(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setPixmap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` pixmap: QtC.QPixmap `
+    /// ` pixmap: QPixmap `
     ///
-    pub fn SetPixmap(self: ?*anyopaque, pixmap: ?*anyopaque) void {
-        qtc.QLabel_SetPixmap(@ptrCast(self), @ptrCast(pixmap));
+    pub fn SetPixmap(self: QLabel, pixmap: anytype) void {
+        comptime _ = @TypeOf(pixmap)._is_QPixmap;
+        qtc.QLabel_SetPixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setPicture)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` picture: QtC.QPicture `
+    /// ` picture: QPicture `
     ///
-    pub fn SetPicture(self: ?*anyopaque, picture: ?*anyopaque) void {
-        qtc.QLabel_SetPicture(@ptrCast(self), @ptrCast(picture));
+    pub fn SetPicture(self: QLabel, picture: anytype) void {
+        comptime _ = @TypeOf(picture)._is_QPicture;
+        qtc.QLabel_SetPicture(@ptrCast(self.ptr), @ptrCast(picture.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setMovie)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` movie: QtC.QMovie `
+    /// ` movie: QMovie `
     ///
-    pub fn SetMovie(self: ?*anyopaque, movie: ?*anyopaque) void {
-        qtc.QLabel_SetMovie(@ptrCast(self), @ptrCast(movie));
+    pub fn SetMovie(self: QLabel, movie: anytype) void {
+        comptime _ = @TypeOf(movie)._is_QMovie;
+        qtc.QLabel_SetMovie(@ptrCast(self.ptr), @ptrCast(movie.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setNum)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` num: i32 `
     ///
-    pub fn SetNum(self: ?*anyopaque, num: i32) void {
-        qtc.QLabel_SetNum(@ptrCast(self), @bitCast(num));
+    pub fn SetNum(self: QLabel, num: i32) void {
+        qtc.QLabel_SetNum(@ptrCast(self.ptr), @bitCast(num));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#setNum)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` num: f64 `
     ///
-    pub fn SetNum2(self: ?*anyopaque, num: f64) void {
-        qtc.QLabel_SetNum2(@ptrCast(self), @bitCast(num));
+    pub fn SetNum2(self: QLabel, num: f64) void {
+        qtc.QLabel_SetNum2(@ptrCast(self.ptr), @bitCast(num));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#clear)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Clear(self: ?*anyopaque) void {
-        qtc.QLabel_Clear(@ptrCast(self));
+    pub fn Clear(self: QLabel) void {
+        qtc.QLabel_Clear(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#linkActivated)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` link: []const u8 `
     ///
-    pub fn LinkActivated(self: ?*anyopaque, link: []const u8) void {
+    pub fn LinkActivated(self: QLabel, link: []const u8) void {
         const link_str = qtc.libqt_string{
             .len = link.len,
             .data = link.ptr,
         };
-        qtc.QLabel_LinkActivated(@ptrCast(self), link_str);
+        qtc.QLabel_LinkActivated(@ptrCast(self.ptr), link_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#linkActivated)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, link: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, link: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnLinkActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QLabel_Connect_LinkActivated(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLinkActivated(self: QLabel, callback: *const fn (QLabel, [*:0]const u8) callconv(.c) void) void {
+        qtc.QLabel_Connect_LinkActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#linkHovered)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` link: []const u8 `
     ///
-    pub fn LinkHovered(self: ?*anyopaque, link: []const u8) void {
+    pub fn LinkHovered(self: QLabel, link: []const u8) void {
         const link_str = qtc.libqt_string{
             .len = link.len,
             .data = link.ptr,
         };
-        qtc.QLabel_LinkHovered(@ptrCast(self), link_str);
+        qtc.QLabel_LinkHovered(@ptrCast(self.ptr), link_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#linkHovered)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, link: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, link: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnLinkHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QLabel_Connect_LinkHovered(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLinkHovered(self: QLabel, callback: *const fn (QLabel, [*:0]const u8) callconv(.c) void) void {
+        qtc.QLabel_Connect_LinkHovered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#event)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QLabel_Event(@ptrCast(self), @ptrCast(e));
+    pub fn Event(self: QLabel, e: anytype) bool {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        return qtc.QLabel_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#event)
@@ -859,12 +939,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, e: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QLabel, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QLabel_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QLabel, callback: *const fn (QLabel, QEvent) callconv(.c) bool) void {
+        qtc.QLabel_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -877,24 +957,26 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QLabel_SuperEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperEvent(self: QLabel, e: anytype) bool {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        return qtc.QLabel_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#keyPressEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` ev: QtC.QKeyEvent `
+    /// ` ev: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QLabel_KeyPressEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn KeyPressEvent(self: QLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QKeyEvent;
+        qtc.QLabel_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#keyPressEvent)
@@ -903,12 +985,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, ev: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, ev: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyPressEvent(self: QLabel, callback: *const fn (QLabel, QKeyEvent) callconv(.c) void) void {
+        qtc.QLabel_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
@@ -921,24 +1003,26 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` ev: QtC.QKeyEvent `
+    /// ` ev: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QLabel_SuperKeyPressEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperKeyPressEvent(self: QLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QKeyEvent;
+        qtc.QLabel_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#paintEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QPaintEvent `
+    /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QLabel_PaintEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn PaintEvent(self: QLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPaintEvent;
+        qtc.QLabel_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#paintEvent)
@@ -947,12 +1031,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, param1: QtC.QPaintEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEvent(self: QLabel, callback: *const fn (QLabel, QPaintEvent) callconv(.c) void) void {
+        qtc.QLabel_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperPaintEvent` instead
@@ -965,24 +1049,26 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QPaintEvent `
+    /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QLabel_SuperPaintEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperPaintEvent(self: QLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPaintEvent;
+        qtc.QLabel_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#changeEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QLabel_ChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ChangeEvent(self: QLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.QLabel_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#changeEvent)
@@ -991,12 +1077,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, param1: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangeEvent(self: QLabel, callback: *const fn (QLabel, QEvent) callconv(.c) void) void {
+        qtc.QLabel_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperChangeEvent` instead
@@ -1009,24 +1095,26 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QLabel_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: QLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.QLabel_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#mousePressEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` ev: QtC.QMouseEvent `
+    /// ` ev: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QLabel_MousePressEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn MousePressEvent(self: QLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QMouseEvent;
+        qtc.QLabel_MousePressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#mousePressEvent)
@@ -1035,12 +1123,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, ev: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, ev: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMousePressEvent(self: QLabel, callback: *const fn (QLabel, QMouseEvent) callconv(.c) void) void {
+        qtc.QLabel_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMousePressEvent` instead
@@ -1053,24 +1141,26 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` ev: QtC.QMouseEvent `
+    /// ` ev: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QLabel_SuperMousePressEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperMousePressEvent(self: QLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QMouseEvent;
+        qtc.QLabel_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#mouseMoveEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` ev: QtC.QMouseEvent `
+    /// ` ev: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QLabel_MouseMoveEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn MouseMoveEvent(self: QLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QMouseEvent;
+        qtc.QLabel_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#mouseMoveEvent)
@@ -1079,12 +1169,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, ev: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, ev: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseMoveEvent(self: QLabel, callback: *const fn (QLabel, QMouseEvent) callconv(.c) void) void {
+        qtc.QLabel_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
@@ -1097,24 +1187,26 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` ev: QtC.QMouseEvent `
+    /// ` ev: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QLabel_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperMouseMoveEvent(self: QLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QMouseEvent;
+        qtc.QLabel_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#mouseReleaseEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` ev: QtC.QMouseEvent `
+    /// ` ev: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QLabel_MouseReleaseEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn MouseReleaseEvent(self: QLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QMouseEvent;
+        qtc.QLabel_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#mouseReleaseEvent)
@@ -1123,12 +1215,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, ev: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, ev: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseReleaseEvent(self: QLabel, callback: *const fn (QLabel, QMouseEvent) callconv(.c) void) void {
+        qtc.QLabel_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
@@ -1141,24 +1233,26 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` ev: QtC.QMouseEvent `
+    /// ` ev: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QLabel_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperMouseReleaseEvent(self: QLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QMouseEvent;
+        qtc.QLabel_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#contextMenuEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` ev: QtC.QContextMenuEvent `
+    /// ` ev: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QLabel_ContextMenuEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn ContextMenuEvent(self: QLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QContextMenuEvent;
+        qtc.QLabel_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#contextMenuEvent)
@@ -1167,12 +1261,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, ev: QtC.QContextMenuEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, ev: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuEvent(self: QLabel, callback: *const fn (QLabel, QContextMenuEvent) callconv(.c) void) void {
+        qtc.QLabel_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
@@ -1185,24 +1279,26 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` ev: QtC.QContextMenuEvent `
+    /// ` ev: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QLabel_SuperContextMenuEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperContextMenuEvent(self: QLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QContextMenuEvent;
+        qtc.QLabel_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#focusInEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` ev: QtC.QFocusEvent `
+    /// ` ev: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QLabel_FocusInEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn FocusInEvent(self: QLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QFocusEvent;
+        qtc.QLabel_FocusInEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#focusInEvent)
@@ -1211,12 +1307,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, ev: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, ev: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusInEvent(self: QLabel, callback: *const fn (QLabel, QFocusEvent) callconv(.c) void) void {
+        qtc.QLabel_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperFocusInEvent` instead
@@ -1229,24 +1325,26 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` ev: QtC.QFocusEvent `
+    /// ` ev: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QLabel_SuperFocusInEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperFocusInEvent(self: QLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QFocusEvent;
+        qtc.QLabel_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#focusOutEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` ev: QtC.QFocusEvent `
+    /// ` ev: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QLabel_FocusOutEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn FocusOutEvent(self: QLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QFocusEvent;
+        qtc.QLabel_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#focusOutEvent)
@@ -1255,12 +1353,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, ev: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, ev: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusOutEvent(self: QLabel, callback: *const fn (QLabel, QFocusEvent) callconv(.c) void) void {
+        qtc.QLabel_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
@@ -1273,24 +1371,25 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` ev: QtC.QFocusEvent `
+    /// ` ev: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QLabel_SuperFocusOutEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperFocusOutEvent(self: QLabel, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QFocusEvent;
+        qtc.QLabel_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#focusNextPrevChild)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QLabel_FocusNextPrevChild(@ptrCast(self), next);
+    pub fn FocusNextPrevChild(self: QLabel, next: bool) bool {
+        return qtc.QLabel_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#focusNextPrevChild)
@@ -1299,12 +1398,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, next: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: QLabel, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QLabel_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextPrevChild(self: QLabel, callback: *const fn (QLabel, bool) callconv(.c) bool) void {
+        qtc.QLabel_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
@@ -1317,25 +1416,25 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QLabel_SuperFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: QLabel, next: bool) bool {
+        return qtc.QLabel_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -1349,15 +1448,15 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -1373,10 +1472,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn FrameStyle(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameStyle(@ptrCast(self));
+    pub fn FrameStyle(self: QLabel) i32 {
+        return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -1385,12 +1484,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self), @bitCast(frameStyle));
+    pub fn SetFrameStyle(self: QLabel, frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
     }
 
     /// Inherited from QFrame
@@ -1399,10 +1498,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn FrameWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameWidth(@ptrCast(self));
+    pub fn FrameWidth(self: QLabel) i32 {
+        return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -1411,14 +1510,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ## Returns:
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameShape(@ptrCast(self));
+    pub fn FrameShape(self: QLabel) i32 {
+        return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -1427,12 +1526,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self), @bitCast(frameShape));
+    pub fn SetFrameShape(self: QLabel, frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
     }
 
     /// Inherited from QFrame
@@ -1441,14 +1540,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ## Returns:
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameShadow(@ptrCast(self));
+    pub fn FrameShadow(self: QLabel) i32 {
+        return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -1457,12 +1556,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self), @bitCast(frameShadow));
+    pub fn SetFrameShadow(self: QLabel, frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
     }
 
     /// Inherited from QFrame
@@ -1471,10 +1570,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn LineWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_LineWidth(@ptrCast(self));
+    pub fn LineWidth(self: QLabel) i32 {
+        return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -1483,12 +1582,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self), @bitCast(lineWidth));
+    pub fn SetLineWidth(self: QLabel, lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
     }
 
     /// Inherited from QFrame
@@ -1497,10 +1596,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn MidLineWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_MidLineWidth(@ptrCast(self));
+    pub fn MidLineWidth(self: QLabel) i32 {
+        return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -1509,12 +1608,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self), @bitCast(midLineWidth));
+    pub fn SetMidLineWidth(self: QLabel, midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
     }
 
     /// Inherited from QFrame
@@ -1523,10 +1622,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn FrameRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QFrame_FrameRect(@ptrCast(self));
+    pub fn FrameRect(self: QLabel) QRect {
+        return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QFrame
@@ -1535,12 +1634,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` frameRect: QtC.QRect `
+    /// ` frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: ?*anyopaque, frameRect: ?*anyopaque) void {
-        qtc.QFrame_SetFrameRect(@ptrCast(self), @ptrCast(frameRect));
+    pub fn SetFrameRect(self: QLabel, frameRect: anytype) void {
+        comptime _ = @TypeOf(frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
     }
 
     /// Inherited from QWidget
@@ -1549,10 +1649,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn WinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_WinId(@ptrCast(self));
+    pub fn WinId(self: QLabel) usize {
+        return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1561,10 +1661,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn CreateWinId(self: ?*anyopaque) void {
-        qtc.QWidget_CreateWinId(@ptrCast(self));
+    pub fn CreateWinId(self: QLabel) void {
+        qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1573,10 +1673,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn InternalWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_InternalWinId(@ptrCast(self));
+    pub fn InternalWinId(self: QLabel) usize {
+        return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1585,10 +1685,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
+    pub fn EffectiveWinId(self: QLabel) usize {
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1597,10 +1697,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QWidget_Style(@ptrCast(self));
+    pub fn Style(self: QLabel) QStyle {
+        return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1609,12 +1709,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetStyle(self: QLabel, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// Inherited from QWidget
@@ -1623,10 +1724,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsTopLevel(@ptrCast(self));
+    pub fn IsTopLevel(self: QLabel) bool {
+        return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1635,10 +1736,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn IsWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindow(@ptrCast(self));
+    pub fn IsWindow(self: QLabel) bool {
+        return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1647,10 +1748,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn IsModal(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsModal(@ptrCast(self));
+    pub fn IsModal(self: QLabel) bool {
+        return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1659,14 +1760,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowModality(@ptrCast(self));
+    pub fn WindowModality(self: QLabel) i32 {
+        return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1675,12 +1776,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
+    pub fn SetWindowModality(self: QLabel, windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -1689,10 +1790,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: QLabel) bool {
+        return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1701,12 +1802,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsEnabledTo(self: QLabel, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -1715,12 +1817,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: QLabel, enabled: bool) void {
+        qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -1729,12 +1831,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
+    pub fn SetDisabled(self: QLabel, disabled: bool) void {
+        qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
 
     /// Inherited from QWidget
@@ -1743,12 +1845,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+    pub fn SetWindowModified(self: QLabel, windowModified: bool) void {
+        qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
 
     /// Inherited from QWidget
@@ -1757,10 +1859,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_FrameGeometry(@ptrCast(self));
+    pub fn FrameGeometry(self: QLabel) QRect {
+        return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1769,10 +1871,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Geometry(@ptrCast(self));
+    pub fn Geometry(self: QLabel) QRect {
+        return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1781,10 +1883,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_NormalGeometry(@ptrCast(self));
+    pub fn NormalGeometry(self: QLabel) QRect {
+        return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1793,10 +1895,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn X(self: ?*anyopaque) i32 {
-        return qtc.QWidget_X(@ptrCast(self));
+    pub fn X(self: QLabel) i32 {
+        return qtc.QWidget_X(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1805,10 +1907,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Y(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Y(@ptrCast(self));
+    pub fn Y(self: QLabel) i32 {
+        return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1817,10 +1919,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_Pos(@ptrCast(self));
+    pub fn Pos(self: QLabel) QPoint {
+        return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1829,10 +1931,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: QLabel) QSize {
+        return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1841,10 +1943,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_Size(@ptrCast(self));
+    pub fn Size(self: QLabel) QSize {
+        return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1853,10 +1955,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Width(@ptrCast(self));
+    pub fn Width(self: QLabel) i32 {
+        return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1865,10 +1967,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Height(@ptrCast(self));
+    pub fn Height(self: QLabel) i32 {
+        return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1877,10 +1979,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: QLabel) QRect {
+        return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1889,10 +1991,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ChildrenRect(@ptrCast(self));
+    pub fn ChildrenRect(self: QLabel) QRect {
+        return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1901,10 +2003,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
+    pub fn ChildrenRegion(self: QLabel) QRegion {
+        return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1913,10 +2015,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: QLabel) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1925,10 +2027,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: QLabel) QSize {
+        return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1937,10 +2039,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: QLabel) i32 {
+        return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1949,10 +2051,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: QLabel) i32 {
+        return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1961,10 +2063,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: QLabel) i32 {
+        return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1973,10 +2075,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: QLabel) i32 {
+        return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1985,12 +2087,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` minimumSize: QtC.QSize `
+    /// ` minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+    pub fn SetMinimumSize(self: QLabel, minimumSize: anytype) void {
+        comptime _ = @TypeOf(minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1999,14 +2102,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` minw: i32 `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
+    pub fn SetMinimumSize2(self: QLabel, minw: i32, minh: i32) void {
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -2015,12 +2118,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` maximumSize: QtC.QSize `
+    /// ` maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+    pub fn SetMaximumSize(self: QLabel, maximumSize: anytype) void {
+        comptime _ = @TypeOf(maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -2029,14 +2133,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` maxw: i32 `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
+    pub fn SetMaximumSize2(self: QLabel, maxw: i32, maxh: i32) void {
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -2045,12 +2149,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
+    pub fn SetMinimumWidth(self: QLabel, minw: i32) void {
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -2059,12 +2163,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
+    pub fn SetMinimumHeight(self: QLabel, minh: i32) void {
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -2073,12 +2177,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
+    pub fn SetMaximumWidth(self: QLabel, maxw: i32) void {
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -2087,12 +2191,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
+    pub fn SetMaximumHeight(self: QLabel, maxh: i32) void {
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -2101,10 +2205,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeIncrement(@ptrCast(self));
+    pub fn SizeIncrement(self: QLabel) QSize {
+        return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2113,12 +2217,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` sizeIncrement: QtC.QSize `
+    /// ` sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+    pub fn SetSizeIncrement(self: QLabel, sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
     }
 
     /// Inherited from QWidget
@@ -2127,14 +2232,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetSizeIncrement2(self: QLabel, w: i32, h: i32) void {
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2143,10 +2248,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_BaseSize(@ptrCast(self));
+    pub fn BaseSize(self: QLabel) QSize {
+        return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2155,12 +2260,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` baseSize: QtC.QSize `
+    /// ` baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+    pub fn SetBaseSize(self: QLabel, baseSize: anytype) void {
+        comptime _ = @TypeOf(baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -2169,14 +2275,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` basew: i32 `
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
+    pub fn SetBaseSize2(self: QLabel, basew: i32, baseh: i32) void {
+        qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -2185,12 +2291,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` fixedSize: QtC.QSize `
+    /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+    pub fn SetFixedSize(self: QLabel, fixedSize: anytype) void {
+        comptime _ = @TypeOf(fixedSize)._is_QSize;
+        qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -2199,14 +2306,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetFixedSize2(self: QLabel, w: i32, h: i32) void {
+        qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2215,12 +2322,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetFixedWidth(self: QLabel, w: i32) void {
+        qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -2229,12 +2336,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
+    pub fn SetFixedHeight(self: QLabel, h: i32) void {
+        qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2243,12 +2350,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal(self: QLabel, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2257,12 +2365,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: QLabel, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2271,12 +2380,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal(self: QLabel, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2285,12 +2395,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: QLabel, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2299,12 +2410,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent(self: QLabel, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2313,12 +2425,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: QLabel, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2327,12 +2440,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent(self: QLabel, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2341,12 +2455,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: QLabel, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2355,14 +2470,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo(self: QLabel, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2371,14 +2488,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo2(self: QLabel, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2387,14 +2506,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom(self: QLabel, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2403,14 +2524,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom2(self: QLabel, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2419,10 +2542,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_Window(@ptrCast(self));
+    pub fn Window(self: QLabel) QWidget {
+        return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2431,10 +2554,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
+    pub fn NativeParentWidget(self: QLabel) QWidget {
+        return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2443,10 +2566,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
+    pub fn TopLevelWidget(self: QLabel) QWidget {
+        return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2455,10 +2578,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QWidget_Palette(@ptrCast(self));
+    pub fn Palette(self: QLabel) QPalette {
+        return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2467,12 +2590,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn SetPalette(self: QLabel, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// Inherited from QWidget
@@ -2481,12 +2605,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
+    pub fn SetBackgroundRole(self: QLabel, backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -2495,14 +2619,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_BackgroundRole(@ptrCast(self));
+    pub fn BackgroundRole(self: QLabel) i32 {
+        return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2511,12 +2635,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
+    pub fn SetForegroundRole(self: QLabel, foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -2525,14 +2649,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ForegroundRole(@ptrCast(self));
+    pub fn ForegroundRole(self: QLabel) i32 {
+        return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2541,10 +2665,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QWidget_Font(@ptrCast(self));
+    pub fn Font(self: QLabel) QFont {
+        return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2553,12 +2677,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: QLabel, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QWidget
@@ -2567,10 +2692,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QWidget_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: QLabel) QFontMetrics {
+        return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2579,10 +2704,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QWidget_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: QLabel) QFontInfo {
+        return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2591,10 +2716,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
-        return qtc.QWidget_Cursor(@ptrCast(self));
+    pub fn Cursor(self: QLabel) QCursor {
+        return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2603,12 +2728,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetCursor(self: QLabel, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QWidget
@@ -2617,10 +2743,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn UnsetCursor(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetCursor(@ptrCast(self));
+    pub fn UnsetCursor(self: QLabel) void {
+        qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2629,12 +2755,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
+    pub fn SetMouseTracking(self: QLabel, enable: bool) void {
+        qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -2643,10 +2769,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
+    pub fn HasMouseTracking(self: QLabel) bool {
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2655,10 +2781,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.QWidget_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: QLabel) bool {
+        return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2667,12 +2793,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
+    pub fn SetTabletTracking(self: QLabel, enable: bool) void {
+        qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -2681,10 +2807,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
+    pub fn HasTabletTracking(self: QLabel) bool {
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2693,12 +2819,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` mask: QtC.QBitmap `
+    /// ` mask: QBitmap `
     ///
-    pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask(self: QLabel, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -2707,12 +2834,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` mask: QtC.QRegion `
+    /// ` mask: QRegion `
     ///
-    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: QLabel, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -2721,10 +2849,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_Mask(@ptrCast(self));
+    pub fn Mask(self: QLabel) QRegion {
+        return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2733,10 +2861,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn ClearMask(self: ?*anyopaque) void {
-        qtc.QWidget_ClearMask(@ptrCast(self));
+    pub fn ClearMask(self: QLabel) void {
+        qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2745,12 +2873,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
+    pub fn Render(self: QLabel, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QWidget
@@ -2759,12 +2888,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: QLabel, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -2773,10 +2903,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab(@ptrCast(self));
+    pub fn Grab(self: QLabel) QPixmap {
+        return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2785,10 +2915,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
-        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
+    pub fn GraphicsEffect(self: QLabel) QGraphicsEffect {
+        return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2797,12 +2927,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` effect: QtC.QGraphicsEffect `
+    /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+    pub fn SetGraphicsEffect(self: QLabel, effect: anytype) void {
+        comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
 
     /// Inherited from QWidget
@@ -2811,12 +2942,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn GrabGesture(self: QLabel, typeVal: i32) void {
+        qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -2825,12 +2956,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn UngrabGesture(self: QLabel, typeVal: i32) void {
+        qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -2839,16 +2970,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
+    pub fn SetWindowTitle(self: QLabel, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
-        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
 
     /// Inherited from QWidget
@@ -2857,16 +2988,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
+    pub fn SetStyleSheet(self: QLabel, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
-        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
 
     /// Inherited from QWidget
@@ -2875,12 +3006,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: QLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlabel.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2893,12 +3024,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+    pub fn WindowTitle(self: QLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlabel.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2911,12 +3042,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetWindowIcon(self: QLabel, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -2925,10 +3057,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QWidget_WindowIcon(@ptrCast(self));
+    pub fn WindowIcon(self: QLabel) QIcon {
+        return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2937,16 +3069,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
+    pub fn SetWindowIconText(self: QLabel, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
-        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
 
     /// Inherited from QWidget
@@ -2955,12 +3087,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+    pub fn WindowIconText(self: QLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlabel.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2973,16 +3105,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
+    pub fn SetWindowRole(self: QLabel, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
-        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
 
     /// Inherited from QWidget
@@ -2991,12 +3123,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
+    pub fn WindowRole(self: QLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlabel.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3009,16 +3141,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
+    pub fn SetWindowFilePath(self: QLabel, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
 
     /// Inherited from QWidget
@@ -3027,12 +3159,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+    pub fn WindowFilePath(self: QLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlabel.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3045,12 +3177,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetWindowOpacity(self: QLabel, level: f64) void {
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -3059,10 +3191,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return qtc.QWidget_WindowOpacity(@ptrCast(self));
+    pub fn WindowOpacity(self: QLabel) f64 {
+        return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3071,10 +3203,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindowModified(@ptrCast(self));
+    pub fn IsWindowModified(self: QLabel) bool {
+        return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3083,16 +3215,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: QLabel, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// Inherited from QWidget
@@ -3101,12 +3233,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: QLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlabel.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3119,12 +3251,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
+    pub fn SetToolTipDuration(self: QLabel, msec: i32) void {
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -3133,10 +3265,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
+    pub fn ToolTipDuration(self: QLabel) i32 {
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3145,16 +3277,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: QLabel, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QWidget
@@ -3163,12 +3295,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: QLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlabel.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3181,16 +3313,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: QLabel, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// Inherited from QWidget
@@ -3199,12 +3331,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: QLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlabel.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3217,12 +3349,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+    pub fn AccessibleName(self: QLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlabel.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3235,16 +3367,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetAccessibleName(self: QLabel, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QWidget
@@ -3253,12 +3385,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+    pub fn AccessibleDescription(self: QLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlabel.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3271,16 +3403,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetAccessibleDescription(self: QLabel, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// Inherited from QWidget
@@ -3289,12 +3421,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: QLabel, direction: i32) void {
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -3303,14 +3435,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QWidget_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: QLabel) i32 {
+        return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3319,10 +3451,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
+    pub fn UnsetLayoutDirection(self: QLabel) void {
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3331,12 +3463,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: QLabel, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// Inherited from QWidget
@@ -3345,10 +3478,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QWidget_Locale(@ptrCast(self));
+    pub fn Locale(self: QLabel) QLocale {
+        return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3357,10 +3490,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn UnsetLocale(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLocale(@ptrCast(self));
+    pub fn UnsetLocale(self: QLabel) void {
+        qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3369,10 +3502,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
+    pub fn IsRightToLeft(self: QLabel) bool {
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3381,10 +3514,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
+    pub fn IsLeftToRight(self: QLabel) bool {
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3393,10 +3526,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn SetFocus(self: ?*anyopaque) void {
-        qtc.QWidget_SetFocus(@ptrCast(self));
+    pub fn SetFocus(self: QLabel) void {
+        qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3405,10 +3538,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
+    pub fn IsActiveWindow(self: QLabel) bool {
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3417,10 +3550,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn ActivateWindow(self: ?*anyopaque) void {
-        qtc.QWidget_ActivateWindow(@ptrCast(self));
+    pub fn ActivateWindow(self: QLabel) void {
+        qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3429,10 +3562,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn ClearFocus(self: ?*anyopaque) void {
-        qtc.QWidget_ClearFocus(@ptrCast(self));
+    pub fn ClearFocus(self: QLabel) void {
+        qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3441,12 +3574,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
+    pub fn SetFocus2(self: QLabel, reason: i32) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -3455,14 +3588,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_FocusPolicy(@ptrCast(self));
+    pub fn FocusPolicy(self: QLabel) i32 {
+        return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3471,12 +3604,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetFocusPolicy(self: QLabel, policy: i32) void {
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -3485,10 +3618,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn HasFocus(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasFocus(@ptrCast(self));
+    pub fn HasFocus(self: QLabel) bool {
+        return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3497,12 +3630,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QWidget `
+    /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QWidget;
+        qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidget
@@ -3511,12 +3646,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` focusProxy: QtC.QWidget `
+    /// ` focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+    pub fn SetFocusProxy(self: QLabel, focusProxy: anytype) void {
+        comptime _ = @TypeOf(focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
     }
 
     /// Inherited from QWidget
@@ -3525,10 +3661,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusProxy(@ptrCast(self));
+    pub fn FocusProxy(self: QLabel) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3537,14 +3673,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
+    pub fn ContextMenuPolicy(self: QLabel) i32 {
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3553,12 +3689,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetContextMenuPolicy(self: QLabel, policy: i32) void {
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -3567,10 +3703,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn GrabMouse(self: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse(@ptrCast(self));
+    pub fn GrabMouse(self: QLabel) void {
+        qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3579,12 +3715,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: QLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3593,10 +3730,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn ReleaseMouse(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseMouse(@ptrCast(self));
+    pub fn ReleaseMouse(self: QLabel) void {
+        qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3605,10 +3742,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn GrabKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_GrabKeyboard(@ptrCast(self));
+    pub fn GrabKeyboard(self: QLabel) void {
+        qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3617,10 +3754,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
+    pub fn ReleaseKeyboard(self: QLabel) void {
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3629,12 +3766,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+    pub fn GrabShortcut(self: QLabel, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// Inherited from QWidget
@@ -3643,12 +3781,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
+    pub fn ReleaseShortcut(self: QLabel, id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -3657,12 +3795,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutEnabled(self: QLabel, id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -3671,28 +3809,28 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutAutoRepeat(self: QLabel, id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QtC.QWidget {
-        return qtc.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QtC.QWidget {
-        return qtc.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
 
     /// Inherited from QWidget
@@ -3701,10 +3839,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
+    pub fn UpdatesEnabled(self: QLabel) bool {
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3713,12 +3851,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+    pub fn SetUpdatesEnabled(self: QLabel, enable: bool) void {
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -3727,10 +3865,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    pub fn GraphicsProxyWidget(self: QLabel) QGraphicsProxyWidget {
+        return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3739,10 +3877,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Update(self: ?*anyopaque) void {
-        qtc.QWidget_Update(@ptrCast(self));
+    pub fn Update(self: QLabel) void {
+        qtc.QWidget_Update(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3751,10 +3889,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Repaint(self: ?*anyopaque) void {
-        qtc.QWidget_Repaint(@ptrCast(self));
+    pub fn Repaint(self: QLabel) void {
+        qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3763,7 +3901,7 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` x: i32 `
     ///
@@ -3773,8 +3911,8 @@ pub const qlabel = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Update2(self: QLabel, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3783,12 +3921,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: QLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3797,12 +3936,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: QLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3811,7 +3951,7 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` x: i32 `
     ///
@@ -3821,8 +3961,8 @@ pub const qlabel = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Repaint2(self: QLabel, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3831,12 +3971,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: QLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3845,12 +3986,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: QLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3859,12 +4001,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
+    pub fn SetHidden(self: QLabel, hidden: bool) void {
+        qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
 
     /// Inherited from QWidget
@@ -3873,10 +4015,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QWidget_Show(@ptrCast(self));
+    pub fn Show(self: QLabel) void {
+        qtc.QWidget_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3885,10 +4027,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QWidget_Hide(@ptrCast(self));
+    pub fn Hide(self: QLabel) void {
+        qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3897,10 +4039,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn ShowMinimized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMinimized(@ptrCast(self));
+    pub fn ShowMinimized(self: QLabel) void {
+        qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3909,10 +4051,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn ShowMaximized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMaximized(@ptrCast(self));
+    pub fn ShowMaximized(self: QLabel) void {
+        qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3921,10 +4063,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn ShowFullScreen(self: ?*anyopaque) void {
-        qtc.QWidget_ShowFullScreen(@ptrCast(self));
+    pub fn ShowFullScreen(self: QLabel) void {
+        qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3933,10 +4075,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn ShowNormal(self: ?*anyopaque) void {
-        qtc.QWidget_ShowNormal(@ptrCast(self));
+    pub fn ShowNormal(self: QLabel) void {
+        qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3945,10 +4087,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Close(self: ?*anyopaque) bool {
-        return qtc.QWidget_Close(@ptrCast(self));
+    pub fn Close(self: QLabel) bool {
+        return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3957,10 +4099,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Raise(self: ?*anyopaque) void {
-        qtc.QWidget_Raise(@ptrCast(self));
+    pub fn Raise(self: QLabel) void {
+        qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3969,10 +4111,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Lower(self: ?*anyopaque) void {
-        qtc.QWidget_Lower(@ptrCast(self));
+    pub fn Lower(self: QLabel) void {
+        qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3981,12 +4123,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+    pub fn StackUnder(self: QLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3995,14 +4138,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn Move(self: QLabel, x: i32, y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -4011,12 +4154,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: QLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4025,14 +4169,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn Resize(self: QLabel, w: i32, h: i32) void {
+        qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4041,12 +4185,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QSize `
+    /// ` param1: QSize `
     ///
-    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: QLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4055,7 +4200,7 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` x: i32 `
     ///
@@ -4065,8 +4210,8 @@ pub const qlabel = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetGeometry(self: QLabel, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -4075,12 +4220,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` geometry: QtC.QRect `
+    /// ` geometry: QRect `
     ///
-    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: QLabel, geometry: anytype) void {
+        comptime _ = @TypeOf(geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
     }
 
     /// Inherited from QWidget
@@ -4089,12 +4235,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+    pub fn SaveGeometry(self: QLabel, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qlabel.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -4107,16 +4253,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
+    pub fn RestoreGeometry(self: QLabel, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
-        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
 
     /// Inherited from QWidget
@@ -4125,10 +4271,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QWidget_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: QLabel) void {
+        qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4137,10 +4283,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: QLabel) bool {
+        return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4149,12 +4295,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsVisibleTo(self: QLabel, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4163,10 +4310,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn IsHidden(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsHidden(@ptrCast(self));
+    pub fn IsHidden(self: QLabel) bool {
+        return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4175,10 +4322,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn IsMinimized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMinimized(@ptrCast(self));
+    pub fn IsMinimized(self: QLabel) bool {
+        return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4187,10 +4334,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn IsMaximized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMaximized(@ptrCast(self));
+    pub fn IsMaximized(self: QLabel) bool {
+        return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4199,10 +4346,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsFullScreen(@ptrCast(self));
+    pub fn IsFullScreen(self: QLabel) bool {
+        return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4211,14 +4358,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowState(@ptrCast(self));
+    pub fn WindowState(self: QLabel) i32 {
+        return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4227,12 +4374,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
+    pub fn SetWindowState(self: QLabel, state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -4241,12 +4388,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
+    pub fn OverrideWindowState(self: QLabel, state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -4255,10 +4402,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QWidget_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: QLabel) QSizePolicy {
+        return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4267,12 +4414,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` sizePolicy: QtC.QSizePolicy `
+    /// ` sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
-        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    pub fn SetSizePolicy(self: QLabel, sizePolicy: anytype) void {
+        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
     }
 
     /// Inherited from QWidget
@@ -4281,14 +4429,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` horizontal: qsizepolicy_enums.Policy `
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
+    pub fn SetSizePolicy2(self: QLabel, horizontal: i32, vertical: i32) void {
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -4297,10 +4445,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_VisibleRegion(@ptrCast(self));
+    pub fn VisibleRegion(self: QLabel) QRegion {
+        return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4309,7 +4457,7 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` left: i32 `
     ///
@@ -4319,8 +4467,8 @@ pub const qlabel = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: QLabel, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -4329,12 +4477,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: QLabel, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QWidget
@@ -4343,10 +4492,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QWidget_ContentsMargins(@ptrCast(self));
+    pub fn ContentsMargins(self: QLabel) QMargins {
+        return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4355,10 +4504,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: QLabel) QRect {
+        return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4367,10 +4516,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidget_Layout(@ptrCast(self));
+    pub fn Layout(self: QLabel) QLayout {
+        return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4379,12 +4528,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` layout: QtC.QLayout `
+    /// ` layout: QLayout `
     ///
-    pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetLayout(self: QLabel, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// Inherited from QWidget
@@ -4393,10 +4543,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QWidget_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: QLabel) void {
+        qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4405,12 +4555,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QLabel, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QWidget
@@ -4419,14 +4570,15 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
+    pub fn SetParent2(self: QLabel, parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -4435,14 +4587,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Scroll(self: QLabel, dx: i32, dy: i32) void {
+        qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -4451,16 +4603,17 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    /// ` param3: QtC.QRect `
+    /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
+    pub fn Scroll2(self: QLabel, dx: i32, dy: i32, param3: anytype) void {
+        comptime _ = @TypeOf(param3)._is_QRect;
+        qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QWidget
@@ -4469,10 +4622,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusWidget(@ptrCast(self));
+    pub fn FocusWidget(self: QLabel) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4481,10 +4634,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
+    pub fn NextInFocusChain(self: QLabel) QWidget {
+        return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4493,10 +4646,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
+    pub fn PreviousInFocusChain(self: QLabel) QWidget {
+        return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4505,10 +4658,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return qtc.QWidget_AcceptDrops(@ptrCast(self));
+    pub fn AcceptDrops(self: QLabel) bool {
+        return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4517,12 +4670,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
+    pub fn SetAcceptDrops(self: QLabel, on: bool) void {
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QWidget
@@ -4531,12 +4684,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+    pub fn AddAction(self: QLabel, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -4545,16 +4699,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn AddActions(self: QLabel, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -4563,18 +4717,19 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn InsertActions(self: QLabel, before: anytype, actions: []QAction) void {
+        comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -4583,14 +4738,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn InsertAction(self: QLabel, before: anytype, action: anytype) void {
+        comptime _ = @TypeOf(before)._is_QAction;
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -4599,12 +4756,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn RemoveAction(self: QLabel, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -4613,16 +4771,17 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+    pub fn Actions(self: QLabel, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qlabel.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qlabel.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -4632,16 +4791,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: QLabel, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction2(@ptrCast(self), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -4650,18 +4809,19 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: QLabel, icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -4670,18 +4830,19 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: QLabel, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4690,20 +4851,22 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: QLabel, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4712,10 +4875,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: QLabel) QWidget {
+        return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4724,12 +4887,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetWindowFlags(self: QLabel, typeVal: i32) void {
+        qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -4738,14 +4901,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowFlags(@ptrCast(self));
+    pub fn WindowFlags(self: QLabel) i32 {
+        return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4754,12 +4917,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
+    pub fn SetWindowFlag(self: QLabel, param1: i32) void {
+        qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4768,12 +4931,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn OverrideWindowFlags(self: QLabel, typeVal: i32) void {
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -4782,14 +4945,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowType(@ptrCast(self));
+    pub fn WindowType(self: QLabel) i32 {
+        return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4800,8 +4963,8 @@ pub const qlabel = struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QtC.QWidget {
-        return qtc.QWidget_Find(@bitCast(param1));
+    pub fn Find(param1: usize) QWidget {
+        return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -4810,14 +4973,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: QLabel, x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QWidget
@@ -4826,12 +4989,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: QLabel, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4840,12 +5004,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: QLabel, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4854,12 +5019,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn SetAttribute(self: QLabel, param1: i32) void {
+        qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4868,12 +5033,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn TestAttribute(self: QLabel, param1: i32) bool {
+        return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4882,10 +5047,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn EnsurePolished(self: ?*anyopaque) void {
-        qtc.QWidget_EnsurePolished(@ptrCast(self));
+    pub fn EnsurePolished(self: QLabel) void {
+        qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4894,12 +5059,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` child: QtC.QWidget `
+    /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+    pub fn IsAncestorOf(self: QLabel, child: anytype) bool {
+        comptime _ = @TypeOf(child)._is_QWidget;
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from QWidget
@@ -4908,10 +5074,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
+    pub fn AutoFillBackground(self: QLabel) bool {
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4920,12 +5086,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+    pub fn SetAutoFillBackground(self: QLabel, enabled: bool) void {
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -4934,10 +5100,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
-        return qtc.QWidget_BackingStore(@ptrCast(self));
+    pub fn BackingStore(self: QLabel) QBackingStore {
+        return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4946,10 +5112,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QWidget_WindowHandle(@ptrCast(self));
+    pub fn WindowHandle(self: QLabel) QWindow {
+        return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4958,10 +5124,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
-        return qtc.QWidget_Screen(@ptrCast(self));
+    pub fn Screen(self: QLabel) QScreen {
+        return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4970,12 +5136,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+    pub fn SetScreen(self: QLabel, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QWidget
@@ -4984,10 +5151,11 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
+    pub fn CreateWindowContainer(window: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4996,16 +5164,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn WindowTitleChanged(self: QLabel, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QWidget
@@ -5014,12 +5182,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowTitleChanged(self: QLabel, callback: *const fn (QLabel, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5028,12 +5196,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+    pub fn WindowIconChanged(self: QLabel, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -5042,12 +5211,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, icon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconChanged(self: QLabel, callback: *const fn (QLabel, QIcon) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5056,16 +5225,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
+    pub fn WindowIconTextChanged(self: QLabel, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
-        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
 
     /// Inherited from QWidget
@@ -5074,12 +5243,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, iconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconTextChanged(self: QLabel, callback: *const fn (QLabel, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5088,12 +5257,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+    pub fn CustomContextMenuRequested(self: QLabel, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QWidget
@@ -5102,12 +5272,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomContextMenuRequested(self: QLabel, callback: *const fn (QLabel, QPoint) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5116,14 +5286,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i32 {
-        return qtc.QWidget_InputMethodHints(@ptrCast(self));
+    pub fn InputMethodHints(self: QLabel) i32 {
+        return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5132,12 +5302,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetInputMethodHints(self: QLabel, hints: i32) void {
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -5146,14 +5316,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: QLabel, target: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -5162,16 +5334,19 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render3(self: QLabel, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -5180,18 +5355,21 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render4(self: QLabel, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -5200,14 +5378,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: QLabel, painter: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -5216,16 +5396,19 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render32(self: QLabel, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -5234,18 +5417,21 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render42(self: QLabel, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -5254,12 +5440,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Grab1(self: QLabel, rectangle: anytype) QPixmap {
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5268,14 +5455,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
+    pub fn GrabGesture2(self: QLabel, typeVal: i32, flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -5284,14 +5471,15 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
+    pub fn GrabShortcut2(self: QLabel, key: anytype, context: i32) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -5300,14 +5488,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutEnabled2(self: QLabel, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -5316,14 +5504,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutAutoRepeat2(self: QLabel, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -5332,14 +5520,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetWindowFlag2(self: QLabel, param1: i32, on: bool) void {
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -5348,14 +5536,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetAttribute2(self: QLabel, param1: i32, on: bool) void {
+        qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -5364,12 +5552,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5378,14 +5568,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
+    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QObject
@@ -5394,12 +5586,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QLabel, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlabel.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5412,12 +5604,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QLabel, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -5426,10 +5618,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QLabel) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5438,10 +5630,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QLabel) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5450,10 +5642,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QLabel) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5462,10 +5654,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QLabel) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5474,12 +5666,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QLabel, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -5488,10 +5680,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QLabel) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5500,12 +5692,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QLabel, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -5514,12 +5707,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QLabel, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -5528,12 +5721,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QLabel, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -5542,12 +5735,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QLabel, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -5556,12 +5749,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QLabel, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -5570,16 +5763,17 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QLabel, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qlabel.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qlabel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -5589,12 +5783,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QLabel, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -5603,12 +5798,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QLabel, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -5617,18 +5813,20 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -5637,16 +5835,20 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5655,18 +5857,19 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QLabel, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -5675,18 +5878,20 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5695,16 +5900,20 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -5713,10 +5922,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QLabel) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5725,12 +5934,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QLabel, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -5739,10 +5949,11 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -5751,10 +5962,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QLabel) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5763,10 +5974,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QLabel) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5775,15 +5986,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QLabel, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -5792,13 +6004,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QLabel, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -5807,17 +6019,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QLabel, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qlabel.DynamicPropertyNames: Memory allocation failed");
@@ -5836,10 +6047,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QLabel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5848,10 +6059,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QLabel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5860,10 +6071,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QLabel) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5872,12 +6083,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn (self: QtC.QLabel) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QLabel, callback: *const fn (QLabel) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5886,10 +6097,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QLabel) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5898,13 +6109,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QLabel, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -5913,10 +6124,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QLabel) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5925,14 +6136,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QLabel, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -5941,14 +6152,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QLabel, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -5957,20 +6168,22 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -5979,18 +6192,22 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -5999,9 +6216,9 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6009,10 +6226,11 @@ pub const qlabel = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QLabel, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -6021,13 +6239,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QLabel, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -6036,15 +6254,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QLabel, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -6053,18 +6272,19 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QLabel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -6073,15 +6293,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QLabel, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -6090,12 +6311,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -6104,12 +6326,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QLabel, callback: *const fn (QLabel, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -6118,10 +6340,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: QLabel) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6130,10 +6352,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: QLabel) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6142,10 +6364,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: QLabel) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6154,10 +6376,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: QLabel) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6166,10 +6388,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: QLabel) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6178,10 +6400,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: QLabel) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6190,10 +6412,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: QLabel) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6202,10 +6424,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: QLabel) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6214,10 +6436,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: QLabel) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6226,10 +6448,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: QLabel) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6238,10 +6460,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: QLabel) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6274,12 +6496,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` option: QtC.QStyleOptionFrame `
+    /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QLabel_InitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn InitStyleOption(self: QLabel, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
+        qtc.QLabel_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitStyleOption` instead
@@ -6294,12 +6517,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` option: QtC.QStyleOptionFrame `
+    /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QLabel_SuperInitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitStyleOption(self: QLabel, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
+        qtc.QLabel_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// Inherited from QFrame
@@ -6310,12 +6534,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, option: QtC.QStyleOptionFrame) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnInitStyleOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitStyleOption(self: QLabel, callback: *const fn (QLabel, QStyleOptionFrame) callconv(.c) void) void {
+        qtc.QLabel_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6326,10 +6550,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.QLabel_DevType(@ptrCast(self));
+    pub fn DevType(self: QLabel) i32 {
+        return qtc.QLabel_DevType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDevType` instead
@@ -6344,10 +6568,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn SuperDevType(self: ?*anyopaque) i32 {
-        return qtc.QLabel_SuperDevType(@ptrCast(self));
+    pub fn SuperDevType(self: QLabel) i32 {
+        return qtc.QLabel_SuperDevType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6358,12 +6582,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QLabel_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDevType(self: QLabel, callback: *const fn () callconv(.c) i32) void {
+        qtc.QLabel_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6374,12 +6598,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QLabel_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: QLabel, visible: bool) void {
+        qtc.QLabel_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### DEPRECATED: Use `SuperSetVisible` instead
@@ -6394,12 +6618,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QLabel_SuperSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: QLabel, visible: bool) void {
+        qtc.QLabel_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QWidget
@@ -6410,12 +6634,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QLabel_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetVisible(self: QLabel, callback: *const fn (QLabel, bool) callconv(.c) void) void {
+        qtc.QLabel_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6426,10 +6650,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QLabel_HasHeightForWidth(@ptrCast(self));
+    pub fn HasHeightForWidth(self: QLabel) bool {
+        return qtc.QLabel_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
@@ -6444,10 +6668,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QLabel_SuperHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: QLabel) bool {
+        return qtc.QLabel_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6458,12 +6682,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QLabel_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasHeightForWidth(self: QLabel, callback: *const fn () callconv(.c) bool) void {
+        qtc.QLabel_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6474,10 +6698,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QLabel_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: QLabel) QPaintEngine {
+        return .{ .ptr = qtc.QLabel_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperPaintEngine` instead
@@ -6492,10 +6716,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QLabel_SuperPaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: QLabel) QPaintEngine {
+        return .{ .ptr = qtc.QLabel_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6506,12 +6730,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QLabel_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEngine(self: QLabel, callback: *const fn () callconv(.c) QPaintEngine) void {
+        qtc.QLabel_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6522,12 +6746,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseDoubleClickEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QLabel_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
@@ -6542,12 +6767,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QLabel_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6558,12 +6784,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseDoubleClickEvent(self: QLabel, callback: *const fn (QLabel, QMouseEvent) callconv(.c) void) void {
+        qtc.QLabel_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6574,12 +6800,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_WheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn WheelEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.QLabel_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperWheelEvent` instead
@@ -6594,12 +6821,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.QLabel_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6610,12 +6838,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, event: QtC.QWheelEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWheelEvent(self: QLabel, callback: *const fn (QLabel, QWheelEvent) callconv(.c) void) void {
+        qtc.QLabel_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6626,12 +6854,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyReleaseEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QLabel_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
@@ -6646,12 +6875,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QLabel_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6662,12 +6892,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyReleaseEvent(self: QLabel, callback: *const fn (QLabel, QKeyEvent) callconv(.c) void) void {
+        qtc.QLabel_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6678,12 +6908,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_EnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn EnterEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QLabel_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEnterEvent` instead
@@ -6698,12 +6929,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QLabel_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6714,12 +6946,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, event: QtC.QEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnterEvent(self: QLabel, callback: *const fn (QLabel, QEnterEvent) callconv(.c) void) void {
+        qtc.QLabel_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6730,12 +6962,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_LeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn LeaveEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QLabel_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLeaveEvent` instead
@@ -6750,12 +6983,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QLabel_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6766,12 +7000,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeaveEvent(self: QLabel, callback: *const fn (QLabel, QEvent) callconv(.c) void) void {
+        qtc.QLabel_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6782,12 +7016,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_MoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MoveEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QLabel_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMoveEvent` instead
@@ -6802,12 +7037,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QLabel_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6818,12 +7054,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, event: QtC.QMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveEvent(self: QLabel, callback: *const fn (QLabel, QMoveEvent) callconv(.c) void) void {
+        qtc.QLabel_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6834,12 +7070,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_ResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ResizeEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.QLabel_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResizeEvent` instead
@@ -6854,12 +7091,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.QLabel_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6870,12 +7108,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, event: QtC.QResizeEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResizeEvent(self: QLabel, callback: *const fn (QLabel, QResizeEvent) callconv(.c) void) void {
+        qtc.QLabel_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6886,12 +7124,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_CloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CloseEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QLabel_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEvent` instead
@@ -6906,12 +7145,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QLabel_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6922,12 +7162,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, event: QtC.QCloseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEvent(self: QLabel, callback: *const fn (QLabel, QCloseEvent) callconv(.c) void) void {
+        qtc.QLabel_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6938,12 +7178,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_TabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TabletEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QLabel_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTabletEvent` instead
@@ -6958,12 +7199,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QLabel_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6974,12 +7216,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, event: QtC.QTabletEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabletEvent(self: QLabel, callback: *const fn (QLabel, QTabletEvent) callconv(.c) void) void {
+        qtc.QLabel_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6990,12 +7232,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_ActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ActionEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QLabel_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperActionEvent` instead
@@ -7010,12 +7253,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_SuperActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QLabel_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7026,12 +7270,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, event: QtC.QActionEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionEvent(self: QLabel, callback: *const fn (QLabel, QActionEvent) callconv(.c) void) void {
+        qtc.QLabel_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7042,12 +7286,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_DragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragEnterEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QLabel_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
@@ -7062,12 +7307,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QLabel_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7078,12 +7324,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, event: QtC.QDragEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragEnterEvent(self: QLabel, callback: *const fn (QLabel, QDragEnterEvent) callconv(.c) void) void {
+        qtc.QLabel_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7094,12 +7340,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_DragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragMoveEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QLabel_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
@@ -7114,12 +7361,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QLabel_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7130,12 +7378,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, event: QtC.QDragMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragMoveEvent(self: QLabel, callback: *const fn (QLabel, QDragMoveEvent) callconv(.c) void) void {
+        qtc.QLabel_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7146,12 +7394,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragLeaveEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QLabel_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
@@ -7166,12 +7415,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QLabel_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7182,12 +7432,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, event: QtC.QDragLeaveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragLeaveEvent(self: QLabel, callback: *const fn (QLabel, QDragLeaveEvent) callconv(.c) void) void {
+        qtc.QLabel_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7198,12 +7448,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_DropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DropEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QLabel_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropEvent` instead
@@ -7218,12 +7469,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_SuperDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QLabel_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7234,12 +7486,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, event: QtC.QDropEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropEvent(self: QLabel, callback: *const fn (QLabel, QDropEvent) callconv(.c) void) void {
+        qtc.QLabel_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7250,12 +7502,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_ShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ShowEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.QLabel_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperShowEvent` instead
@@ -7270,12 +7523,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_SuperShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.QLabel_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7286,12 +7540,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, event: QtC.QShowEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShowEvent(self: QLabel, callback: *const fn (QLabel, QShowEvent) callconv(.c) void) void {
+        qtc.QLabel_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7302,12 +7556,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_HideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn HideEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QLabel_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHideEvent` instead
@@ -7322,12 +7577,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_SuperHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QLabel_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7338,12 +7594,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, event: QtC.QHideEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHideEvent(self: QLabel, callback: *const fn (QLabel, QHideEvent) callconv(.c) void) void {
+        qtc.QLabel_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7354,7 +7610,7 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` eventType: []u8 `
     ///
@@ -7362,12 +7618,12 @@ pub const qlabel = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn NativeEvent(self: QLabel, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QLabel_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QLabel_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### DEPRECATED: Use `SuperNativeEvent` instead
@@ -7382,7 +7638,7 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` eventType: []u8 `
     ///
@@ -7390,12 +7646,12 @@ pub const qlabel = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: QLabel, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QLabel_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QLabel_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -7406,12 +7662,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QLabel, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QLabel_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNativeEvent(self: QLabel, callback: *const fn (QLabel, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.QLabel_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7422,12 +7678,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QLabel_Metric(@ptrCast(self), @bitCast(param1));
+    pub fn Metric(self: QLabel, param1: i32) i32 {
+        return qtc.QLabel_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperMetric` instead
@@ -7442,12 +7698,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QLabel_SuperMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: QLabel, param1: i32) i32 {
+        return qtc.QLabel_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7458,12 +7714,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QLabel, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QLabel_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetric(self: QLabel, callback: *const fn (QLabel, i32) callconv(.c) i32) void {
+        qtc.QLabel_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7474,12 +7730,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QLabel_InitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn InitPainter(self: QLabel, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QLabel_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitPainter` instead
@@ -7494,12 +7751,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QLabel_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: QLabel, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QLabel_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -7510,12 +7768,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, painter: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitPainter(self: QLabel, callback: *const fn (QLabel, QPainter) callconv(.c) void) void {
+        qtc.QLabel_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7526,12 +7784,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QLabel_Redirected(@ptrCast(self), @ptrCast(offset));
+    pub fn Redirected(self: QLabel, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QLabel_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperRedirected` instead
@@ -7546,12 +7805,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QLabel_SuperRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: QLabel, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QLabel_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7562,12 +7822,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    /// ` callback: *const fn (self: QLabel, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QLabel_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: QLabel, callback: *const fn (QLabel, QPoint) callconv(.c) QPaintDevice) void {
+        qtc.QLabel_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7578,10 +7838,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QLabel_SharedPainter(@ptrCast(self));
+    pub fn SharedPainter(self: QLabel) QPainter {
+        return .{ .ptr = qtc.QLabel_SharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSharedPainter` instead
@@ -7596,10 +7856,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QLabel_SuperSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: QLabel) QPainter {
+        return .{ .ptr = qtc.QLabel_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7610,12 +7870,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QLabel_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSharedPainter(self: QLabel, callback: *const fn () callconv(.c) QPainter) void {
+        qtc.QLabel_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7626,12 +7886,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QLabel_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn InputMethodEvent(self: QLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QLabel_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
@@ -7646,12 +7907,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QLabel_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: QLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QLabel_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -7662,12 +7924,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, param1: QtC.QInputMethodEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodEvent(self: QLabel, callback: *const fn (QLabel, QInputMethodEvent) callconv(.c) void) void {
+        qtc.QLabel_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7678,12 +7940,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QLabel_InputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn InputMethodQuery(self: QLabel, param1: i32) QVariant {
+        return .{ .ptr = qtc.QLabel_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
@@ -7698,12 +7960,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QLabel_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: QLabel, param1: i32) QVariant {
+        return .{ .ptr = qtc.QLabel_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -7714,12 +7976,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QLabel, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QLabel_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodQuery(self: QLabel, callback: *const fn (QLabel, i32) callconv(.c) QVariant) void {
+        qtc.QLabel_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7730,14 +7992,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QLabel_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QLabel, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QLabel_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -7752,14 +8016,16 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QLabel_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QLabel, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QLabel_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7770,12 +8036,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QLabel, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QLabel_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QLabel, callback: *const fn (QLabel, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QLabel_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7786,12 +8052,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QLabel_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -7806,12 +8073,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QLabel_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7822,12 +8090,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QLabel, callback: *const fn (QLabel, QTimerEvent) callconv(.c) void) void {
+        qtc.QLabel_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7838,12 +8106,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QLabel_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -7858,12 +8127,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QLabel_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7874,12 +8144,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QLabel, callback: *const fn (QLabel, QChildEvent) callconv(.c) void) void {
+        qtc.QLabel_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7890,12 +8160,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QLabel_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -7910,12 +8181,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QLabel_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QLabel, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QLabel_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7926,12 +8198,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QLabel, callback: *const fn (QLabel, QEvent) callconv(.c) void) void {
+        qtc.QLabel_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7942,12 +8214,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QLabel_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QLabel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QLabel_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -7962,12 +8235,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QLabel_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QLabel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QLabel_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -7978,12 +8252,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QLabel, callback: *const fn (QLabel, QMetaMethod) callconv(.c) void) void {
+        qtc.QLabel_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7994,12 +8268,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QLabel_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QLabel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QLabel_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -8014,12 +8289,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QLabel_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QLabel, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QLabel_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -8030,12 +8306,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QLabel, callback: *const fn (QLabel, QMetaMethod) callconv(.c) void) void {
+        qtc.QLabel_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -8046,12 +8322,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QPainter `
+    /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QLabel_DrawFrame(@ptrCast(self), @ptrCast(param1));
+    pub fn DrawFrame(self: QLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPainter;
+        qtc.QLabel_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDrawFrame` instead
@@ -8066,12 +8343,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` param1: QtC.QPainter `
+    /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QLabel_SuperDrawFrame(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDrawFrame(self: QLabel, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPainter;
+        qtc.QLabel_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QFrame
@@ -8082,12 +8360,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, param1: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLabel_OnDrawFrame(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDrawFrame(self: QLabel, callback: *const fn (QLabel, QPainter) callconv(.c) void) void {
+        qtc.QLabel_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8098,10 +8376,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QLabel_UpdateMicroFocus(@ptrCast(self));
+    pub fn UpdateMicroFocus(self: QLabel) void {
+        qtc.QLabel_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
@@ -8116,10 +8394,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QLabel_SuperUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: QLabel) void {
+        qtc.QLabel_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8130,12 +8408,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QLabel_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateMicroFocus(self: QLabel, callback: *const fn () callconv(.c) void) void {
+        qtc.QLabel_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8146,10 +8424,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Create(self: ?*anyopaque) void {
-        qtc.QLabel_Create(@ptrCast(self));
+    pub fn Create(self: QLabel) void {
+        qtc.QLabel_Create(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -8164,10 +8442,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn SuperCreate(self: ?*anyopaque) void {
-        qtc.QLabel_SuperCreate(@ptrCast(self));
+    pub fn SuperCreate(self: QLabel) void {
+        qtc.QLabel_SuperCreate(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8178,12 +8456,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QLabel_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: QLabel, callback: *const fn () callconv(.c) void) void {
+        qtc.QLabel_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8194,10 +8472,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Destroy(self: ?*anyopaque) void {
-        qtc.QLabel_Destroy(@ptrCast(self));
+    pub fn Destroy(self: QLabel) void {
+        qtc.QLabel_Destroy(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDestroy` instead
@@ -8212,10 +8490,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn SuperDestroy(self: ?*anyopaque) void {
-        qtc.QLabel_SuperDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: QLabel) void {
+        qtc.QLabel_SuperDestroy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8226,12 +8504,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QLabel_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroy(self: QLabel, callback: *const fn () callconv(.c) void) void {
+        qtc.QLabel_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8242,10 +8520,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QLabel_FocusNextChild(@ptrCast(self));
+    pub fn FocusNextChild(self: QLabel) bool {
+        return qtc.QLabel_FocusNextChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextChild` instead
@@ -8260,10 +8538,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QLabel_SuperFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: QLabel) bool {
+        return qtc.QLabel_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8274,12 +8552,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QLabel_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextChild(self: QLabel, callback: *const fn () callconv(.c) bool) void {
+        qtc.QLabel_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8290,10 +8568,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QLabel_FocusPreviousChild(@ptrCast(self));
+    pub fn FocusPreviousChild(self: QLabel) bool {
+        return qtc.QLabel_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
@@ -8308,10 +8586,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QLabel_SuperFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: QLabel) bool {
+        return qtc.QLabel_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8322,12 +8600,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QLabel_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusPreviousChild(self: QLabel, callback: *const fn () callconv(.c) bool) void {
+        qtc.QLabel_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8338,10 +8616,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QLabel_Sender(@ptrCast(self));
+    pub fn Sender(self: QLabel) QObject {
+        return .{ .ptr = qtc.QLabel_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -8356,10 +8634,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QLabel_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QLabel) QObject {
+        return .{ .ptr = qtc.QLabel_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -8370,12 +8648,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QLabel_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QLabel, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QLabel_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8386,10 +8664,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QLabel_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QLabel) i32 {
+        return qtc.QLabel_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -8404,10 +8682,10 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QLabel_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QLabel) i32 {
+        return qtc.QLabel_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8418,12 +8696,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QLabel_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QLabel, callback: *const fn () callconv(.c) i32) void {
+        qtc.QLabel_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8434,13 +8712,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QLabel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QLabel_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QLabel_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -8455,13 +8733,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QLabel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QLabel_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QLabel_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -8472,12 +8750,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QLabel, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QLabel_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QLabel, callback: *const fn (QLabel, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QLabel_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8488,12 +8766,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QLabel_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QLabel, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QLabel_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -8508,12 +8787,13 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QLabel_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QLabel, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QLabel_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -8524,12 +8804,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QLabel, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QLabel_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QLabel, callback: *const fn (QLabel, QMetaMethod) callconv(.c) bool) void {
+        qtc.QLabel_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -8540,14 +8820,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QLabel_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn GetDecodedMetricF(self: QLabel, metricA: i32, metricB: i32) f64 {
+        return qtc.QLabel_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
@@ -8562,14 +8842,14 @@ pub const qlabel = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QLabel_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: QLabel, metricA: i32, metricB: i32) f64 {
+        return qtc.QLabel_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -8580,12 +8860,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel`
+    /// ` self: QLabel`
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    /// ` callback: *const fn (self: QLabel, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QLabel_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetDecodedMetricF(self: QLabel, callback: *const fn (QLabel, i32, i32) callconv(.c) f64) void {
+        qtc.QLabel_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8596,12 +8876,12 @@ pub const qlabel = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    /// ` callback: *const fn (self: QtC.QLabel, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QLabel, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QLabel, callback: *const fn (QLabel, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -8614,9 +8894,9 @@ pub const qlabel = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QLabel `
+    /// ` self: QLabel `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QLabel_Delete(@ptrCast(self));
+    pub fn Delete(self: QLabel) void {
+        qtc.QLabel_Delete(@ptrCast(self.ptr));
     }
 };

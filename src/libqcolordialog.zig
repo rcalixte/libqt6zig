@@ -1,5 +1,64 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAction = @import("libqt6").QAction;
+const QActionEvent = @import("libqt6").QActionEvent;
+const QBackingStore = @import("libqt6").QBackingStore;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBitmap = @import("libqt6").QBitmap;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QCloseEvent = @import("libqt6").QCloseEvent;
+const QColor = @import("libqt6").QColor;
+const QContextMenuEvent = @import("libqt6").QContextMenuEvent;
+const QCursor = @import("libqt6").QCursor;
+const QDragEnterEvent = @import("libqt6").QDragEnterEvent;
+const QDragLeaveEvent = @import("libqt6").QDragLeaveEvent;
+const QDragMoveEvent = @import("libqt6").QDragMoveEvent;
+const QDropEvent = @import("libqt6").QDropEvent;
+const QEnterEvent = @import("libqt6").QEnterEvent;
+const QEvent = @import("libqt6").QEvent;
+const QFocusEvent = @import("libqt6").QFocusEvent;
+const QFont = @import("libqt6").QFont;
+const QFontInfo = @import("libqt6").QFontInfo;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QGraphicsEffect = @import("libqt6").QGraphicsEffect;
+const QGraphicsProxyWidget = @import("libqt6").QGraphicsProxyWidget;
+const QHideEvent = @import("libqt6").QHideEvent;
+const QIcon = @import("libqt6").QIcon;
+const QInputMethodEvent = @import("libqt6").QInputMethodEvent;
+const QKeyEvent = @import("libqt6").QKeyEvent;
+const QKeySequence = @import("libqt6").QKeySequence;
+const QLayout = @import("libqt6").QLayout;
+const QLocale = @import("libqt6").QLocale;
+const QMargins = @import("libqt6").QMargins;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMouseEvent = @import("libqt6").QMouseEvent;
+const QMoveEvent = @import("libqt6").QMoveEvent;
+const QObject = @import("libqt6").QObject;
+const QPaintDevice = @import("libqt6").QPaintDevice;
+const QPaintEngine = @import("libqt6").QPaintEngine;
+const QPaintEvent = @import("libqt6").QPaintEvent;
+const QPainter = @import("libqt6").QPainter;
+const QPalette = @import("libqt6").QPalette;
+const QPixmap = @import("libqt6").QPixmap;
+const QPoint = @import("libqt6").QPoint;
+const QPointF = @import("libqt6").QPointF;
+const QRect = @import("libqt6").QRect;
+const QRegion = @import("libqt6").QRegion;
+const QResizeEvent = @import("libqt6").QResizeEvent;
+const QScreen = @import("libqt6").QScreen;
+const QShowEvent = @import("libqt6").QShowEvent;
+const QSize = @import("libqt6").QSize;
+const QSizePolicy = @import("libqt6").QSizePolicy;
+const QStyle = @import("libqt6").QStyle;
+const QTabletEvent = @import("libqt6").QTabletEvent;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
+const QWheelEvent = @import("libqt6").QWheelEvent;
+const QWidget = @import("libqt6").QWidget;
+const QWindow = @import("libqt6").QWindow;
 const qcolordialog_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
@@ -10,53 +69,69 @@ const qwidget_enums = @import("libqwidget.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html)
-pub const qcolordialog = struct {
+pub const QColorDialog = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QColorDialog,
+
+    pub const _is_QColorDialog = {};
+    pub const _is_QDialog = {};
+    pub const _is_QWidget = {};
+    pub const _is_QObject = {};
+    pub const _is_QPaintDevice = {};
+
     /// New constructs a new QColorDialog object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.QColorDialog {
-        return qtc.QColorDialog_new(@ptrCast(parent));
+    pub fn New(parent: anytype) QColorDialog {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QColorDialog_new(@ptrCast(parent.ptr)) };
     }
 
     /// New2 constructs a new QColorDialog object.
     ///
-    pub fn New2() QtC.QColorDialog {
-        return qtc.QColorDialog_new2();
+    pub fn New2() QColorDialog {
+        return .{ .ptr = qtc.QColorDialog_new2() };
     }
 
     /// New3 constructs a new QColorDialog object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` initial: QtC.QColor `
+    /// ` initial: QColor `
     ///
-    pub fn New3(initial: ?*anyopaque) QtC.QColorDialog {
-        return qtc.QColorDialog_new3(@ptrCast(initial));
+    pub fn New3(initial: anytype) QColorDialog {
+        comptime _ = @TypeOf(initial)._is_QColor;
+        return .{ .ptr = qtc.QColorDialog_new3(@ptrCast(initial.ptr)) };
     }
 
     /// New4 constructs a new QColorDialog object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` initial: QtC.QColor `
+    /// ` initial: QColor `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New4(initial: ?*anyopaque, parent: ?*anyopaque) QtC.QColorDialog {
-        return qtc.QColorDialog_new4(@ptrCast(initial), @ptrCast(parent));
+    pub fn New4(initial: anytype, parent: anytype) QColorDialog {
+        comptime _ = @TypeOf(initial)._is_QColor;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QColorDialog_new4(@ptrCast(initial.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QColorDialog_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QColorDialog) QMetaObject {
+        return .{ .ptr = qtc.QColorDialog_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -65,12 +140,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QColorDialog_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QColorDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QColorDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -83,33 +158,33 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QColorDialog_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QColorDialog) QMetaObject {
+        return .{ .ptr = qtc.QColorDialog_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QColorDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QColorDialog_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QColorDialog_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QColorDialog, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QColorDialog_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QColorDialog, callback: *const fn (QColorDialog, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QColorDialog_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -120,18 +195,18 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QColorDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QColorDialog_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QColorDialog_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -139,20 +214,20 @@ pub const qcolordialog = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QColorDialog_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QColorDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QColorDialog_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QColorDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QColorDialog_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QColorDialog, callback: *const fn (QColorDialog, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QColorDialog_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -163,7 +238,7 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -171,19 +246,19 @@ pub const qcolordialog = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QColorDialog_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QColorDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QColorDialog_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -196,94 +271,95 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn SetCurrentColor(self: ?*anyopaque, color: ?*anyopaque) void {
-        qtc.QColorDialog_SetCurrentColor(@ptrCast(self), @ptrCast(color));
+    pub fn SetCurrentColor(self: QColorDialog, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.QColorDialog_SetCurrentColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#currentColor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn CurrentColor(self: ?*anyopaque) QtC.QColor {
-        return qtc.QColorDialog_CurrentColor(@ptrCast(self));
+    pub fn CurrentColor(self: QColorDialog) QColor {
+        return .{ .ptr = qtc.QColorDialog_CurrentColor(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#selectedColor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SelectedColor(self: ?*anyopaque) QtC.QColor {
-        return qtc.QColorDialog_SelectedColor(@ptrCast(self));
+    pub fn SelectedColor(self: QColorDialog) QColor {
+        return .{ .ptr = qtc.QColorDialog_SelectedColor(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#setOption)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` option: qcolordialog_enums.ColorDialogOption `
     ///
-    pub fn SetOption(self: ?*anyopaque, option: i32) void {
-        qtc.QColorDialog_SetOption(@ptrCast(self), @bitCast(option));
+    pub fn SetOption(self: QColorDialog, option: i32) void {
+        qtc.QColorDialog_SetOption(@ptrCast(self.ptr), @bitCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#testOption)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` option: qcolordialog_enums.ColorDialogOption `
     ///
-    pub fn TestOption(self: ?*anyopaque, option: i32) bool {
-        return qtc.QColorDialog_TestOption(@ptrCast(self), @bitCast(option));
+    pub fn TestOption(self: QColorDialog, option: i32) bool {
+        return qtc.QColorDialog_TestOption(@ptrCast(self.ptr), @bitCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#setOptions)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` options: flag of qcolordialog_enums.ColorDialogOption `
     ///
-    pub fn SetOptions(self: ?*anyopaque, options: i32) void {
-        qtc.QColorDialog_SetOptions(@ptrCast(self), @bitCast(options));
+    pub fn SetOptions(self: QColorDialog, options: i32) void {
+        qtc.QColorDialog_SetOptions(@ptrCast(self.ptr), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#options)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ## Returns:
     ///
     /// ` flag of qcolordialog_enums.ColorDialogOption `
     ///
-    pub fn Options(self: ?*anyopaque) i32 {
-        return qtc.QColorDialog_Options(@ptrCast(self));
+    pub fn Options(self: QColorDialog) i32 {
+        return qtc.QColorDialog_Options(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#setVisible)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QColorDialog_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: QColorDialog, visible: bool) void {
+        qtc.QColorDialog_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#setVisible)
@@ -292,12 +368,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QColorDialog_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetVisible(self: QColorDialog, callback: *const fn (QColorDialog, bool) callconv(.c) void) void {
+        qtc.QColorDialog_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetVisible` instead
@@ -310,18 +386,18 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QColorDialog_SuperSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: QColorDialog, visible: bool) void {
+        qtc.QColorDialog_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#getColor)
     ///
-    pub fn GetColor() QtC.QColor {
-        return qtc.QColorDialog_GetColor();
+    pub fn GetColor() QColor {
+        return .{ .ptr = qtc.QColorDialog_GetColor() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#customCount)
@@ -336,8 +412,8 @@ pub const qcolordialog = struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn CustomColor(index: i32) QtC.QColor {
-        return qtc.QColorDialog_CustomColor(@bitCast(index));
+    pub fn CustomColor(index: i32) QColor {
+        return .{ .ptr = qtc.QColorDialog_CustomColor(@bitCast(index)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#setCustomColor)
@@ -346,10 +422,11 @@ pub const qcolordialog = struct {
     ///
     /// ` index: i32 `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn SetCustomColor(index: i32, color: QtC.QColor) void {
-        qtc.QColorDialog_SetCustomColor(@bitCast(index), @ptrCast(color));
+    pub fn SetCustomColor(index: i32, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.QColorDialog_SetCustomColor(@bitCast(index), @ptrCast(color.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#standardColor)
@@ -358,8 +435,8 @@ pub const qcolordialog = struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn StandardColor(index: i32) QtC.QColor {
-        return qtc.QColorDialog_StandardColor(@bitCast(index));
+    pub fn StandardColor(index: i32) QColor {
+        return .{ .ptr = qtc.QColorDialog_StandardColor(@bitCast(index)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#setStandardColor)
@@ -368,70 +445,74 @@ pub const qcolordialog = struct {
     ///
     /// ` index: i32 `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn SetStandardColor(index: i32, color: QtC.QColor) void {
-        qtc.QColorDialog_SetStandardColor(@bitCast(index), @ptrCast(color));
+    pub fn SetStandardColor(index: i32, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.QColorDialog_SetStandardColor(@bitCast(index), @ptrCast(color.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#currentColorChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn CurrentColorChanged(self: ?*anyopaque, color: ?*anyopaque) void {
-        qtc.QColorDialog_CurrentColorChanged(@ptrCast(self), @ptrCast(color));
+    pub fn CurrentColorChanged(self: QColorDialog, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.QColorDialog_CurrentColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#currentColorChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, color: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, color: QColor) callconv(.c) void `
     ///
-    pub fn OnCurrentColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_Connect_CurrentColorChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCurrentColorChanged(self: QColorDialog, callback: *const fn (QColorDialog, QColor) callconv(.c) void) void {
+        qtc.QColorDialog_Connect_CurrentColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#colorSelected)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` color: QtC.QColor `
+    /// ` color: QColor `
     ///
-    pub fn ColorSelected(self: ?*anyopaque, color: ?*anyopaque) void {
-        qtc.QColorDialog_ColorSelected(@ptrCast(self), @ptrCast(color));
+    pub fn ColorSelected(self: QColorDialog, color: anytype) void {
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.QColorDialog_ColorSelected(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#colorSelected)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, color: QtC.QColor) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, color: QColor) callconv(.c) void `
     ///
-    pub fn OnColorSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_Connect_ColorSelected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnColorSelected(self: QColorDialog, callback: *const fn (QColorDialog, QColor) callconv(.c) void) void {
+        qtc.QColorDialog_Connect_ColorSelected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#changeEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn ChangeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_ChangeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChangeEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QColorDialog_ChangeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#changeEvent)
@@ -440,12 +521,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangeEvent(self: QColorDialog, callback: *const fn (QColorDialog, QEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperChangeEvent` instead
@@ -458,24 +539,25 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperChangeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_SuperChangeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChangeEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QColorDialog_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#done)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` result: i32 `
     ///
-    pub fn Done(self: ?*anyopaque, result: i32) void {
-        qtc.QColorDialog_Done(@ptrCast(self), @bitCast(result));
+    pub fn Done(self: QColorDialog, result: i32) void {
+        qtc.QColorDialog_Done(@ptrCast(self.ptr), @bitCast(result));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#done)
@@ -484,12 +566,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, result: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, result: i32) callconv(.c) void `
     ///
-    pub fn OnDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QColorDialog_OnDone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDone(self: QColorDialog, callback: *const fn (QColorDialog, i32) callconv(.c) void) void {
+        qtc.QColorDialog_OnDone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDone` instead
@@ -502,25 +584,25 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` result: i32 `
     ///
-    pub fn SuperDone(self: ?*anyopaque, result: i32) void {
-        qtc.QColorDialog_SuperDone(@ptrCast(self), @bitCast(result));
+    pub fn SuperDone(self: QColorDialog, result: i32) void {
+        qtc.QColorDialog_SuperDone(@ptrCast(self.ptr), @bitCast(result));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -534,15 +616,15 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -556,74 +638,81 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` option: qcolordialog_enums.ColorDialogOption `
     ///
     /// ` on: bool `
     ///
-    pub fn SetOption2(self: ?*anyopaque, option: i32, on: bool) void {
-        qtc.QColorDialog_SetOption2(@ptrCast(self), @bitCast(option), on);
+    pub fn SetOption2(self: QColorDialog, option: i32, on: bool) void {
+        qtc.QColorDialog_SetOption2(@ptrCast(self.ptr), @bitCast(option), on);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#getColor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` initial: QtC.QColor `
+    /// ` initial: QColor `
     ///
-    pub fn GetColor1(initial: ?*anyopaque) QtC.QColor {
-        return qtc.QColorDialog_GetColor1(@ptrCast(initial));
+    pub fn GetColor1(initial: anytype) QColor {
+        comptime _ = @TypeOf(initial)._is_QColor;
+        return .{ .ptr = qtc.QColorDialog_GetColor1(@ptrCast(initial.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#getColor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` initial: QtC.QColor `
+    /// ` initial: QColor `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn GetColor2(initial: ?*anyopaque, parent: ?*anyopaque) QtC.QColor {
-        return qtc.QColorDialog_GetColor2(@ptrCast(initial), @ptrCast(parent));
+    pub fn GetColor2(initial: anytype, parent: anytype) QColor {
+        comptime _ = @TypeOf(initial)._is_QColor;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QColorDialog_GetColor2(@ptrCast(initial.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#getColor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` initial: QtC.QColor `
+    /// ` initial: QColor `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn GetColor3(initial: ?*anyopaque, parent: ?*anyopaque, title: []const u8) QtC.QColor {
+    pub fn GetColor3(initial: anytype, parent: anytype, title: []const u8) QColor {
+        comptime _ = @TypeOf(initial)._is_QColor;
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        return qtc.QColorDialog_GetColor3(@ptrCast(initial), @ptrCast(parent), title_str);
+        return .{ .ptr = qtc.QColorDialog_GetColor3(@ptrCast(initial.ptr), @ptrCast(parent.ptr), title_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#getColor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` initial: QtC.QColor `
+    /// ` initial: QColor `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
     /// ` options: flag of qcolordialog_enums.ColorDialogOption `
     ///
-    pub fn GetColor4(initial: ?*anyopaque, parent: ?*anyopaque, title: []const u8, options: i32) QtC.QColor {
+    pub fn GetColor4(initial: anytype, parent: anytype, title: []const u8, options: i32) QColor {
+        comptime _ = @TypeOf(initial)._is_QColor;
+        comptime _ = @TypeOf(parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        return qtc.QColorDialog_GetColor4(@ptrCast(initial), @ptrCast(parent), title_str, @bitCast(options));
+        return .{ .ptr = qtc.QColorDialog_GetColor4(@ptrCast(initial.ptr), @ptrCast(parent.ptr), title_str, @bitCast(options)) };
     }
 
     /// Inherited from QDialog
@@ -632,10 +721,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Result(self: ?*anyopaque) i32 {
-        return qtc.QDialog_Result(@ptrCast(self));
+    pub fn Result(self: QColorDialog) i32 {
+        return qtc.QDialog_Result(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -644,12 +733,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` sizeGripEnabled: bool `
     ///
-    pub fn SetSizeGripEnabled(self: ?*anyopaque, sizeGripEnabled: bool) void {
-        qtc.QDialog_SetSizeGripEnabled(@ptrCast(self), sizeGripEnabled);
+    pub fn SetSizeGripEnabled(self: QColorDialog, sizeGripEnabled: bool) void {
+        qtc.QDialog_SetSizeGripEnabled(@ptrCast(self.ptr), sizeGripEnabled);
     }
 
     /// Inherited from QDialog
@@ -658,10 +747,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn IsSizeGripEnabled(self: ?*anyopaque) bool {
-        return qtc.QDialog_IsSizeGripEnabled(@ptrCast(self));
+    pub fn IsSizeGripEnabled(self: QColorDialog) bool {
+        return qtc.QDialog_IsSizeGripEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -670,12 +759,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` modal: bool `
     ///
-    pub fn SetModal(self: ?*anyopaque, modal: bool) void {
-        qtc.QDialog_SetModal(@ptrCast(self), modal);
+    pub fn SetModal(self: QColorDialog, modal: bool) void {
+        qtc.QDialog_SetModal(@ptrCast(self.ptr), modal);
     }
 
     /// Inherited from QDialog
@@ -684,12 +773,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` r: i32 `
     ///
-    pub fn SetResult(self: ?*anyopaque, r: i32) void {
-        qtc.QDialog_SetResult(@ptrCast(self), @bitCast(r));
+    pub fn SetResult(self: QColorDialog, r: i32) void {
+        qtc.QDialog_SetResult(@ptrCast(self.ptr), @bitCast(r));
     }
 
     /// Inherited from QDialog
@@ -698,12 +787,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` result: i32 `
     ///
-    pub fn Finished(self: ?*anyopaque, result: i32) void {
-        qtc.QDialog_Finished(@ptrCast(self), @bitCast(result));
+    pub fn Finished(self: QColorDialog, result: i32) void {
+        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(result));
     }
 
     /// Inherited from QDialog
@@ -712,12 +801,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, result: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, result: i32) callconv(.c) void `
     ///
-    pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDialog_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFinished(self: QColorDialog, callback: *const fn (QColorDialog, i32) callconv(.c) void) void {
+        qtc.QDialog_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -726,10 +815,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Accepted(self: ?*anyopaque) void {
-        qtc.QDialog_Accepted(@ptrCast(self));
+    pub fn Accepted(self: QColorDialog) void {
+        qtc.QDialog_Accepted(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -738,12 +827,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog) callconv(.c) void `
     ///
-    pub fn OnAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QDialog_Connect_Accepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAccepted(self: QColorDialog, callback: *const fn (QColorDialog) callconv(.c) void) void {
+        qtc.QDialog_Connect_Accepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -752,10 +841,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Rejected(self: ?*anyopaque) void {
-        qtc.QDialog_Rejected(@ptrCast(self));
+    pub fn Rejected(self: QColorDialog) void {
+        qtc.QDialog_Rejected(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -764,12 +853,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog) callconv(.c) void `
     ///
-    pub fn OnRejected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QDialog_Connect_Rejected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRejected(self: QColorDialog, callback: *const fn (QColorDialog) callconv(.c) void) void {
+        qtc.QDialog_Connect_Rejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -778,10 +867,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn WinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_WinId(@ptrCast(self));
+    pub fn WinId(self: QColorDialog) usize {
+        return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -790,10 +879,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn CreateWinId(self: ?*anyopaque) void {
-        qtc.QWidget_CreateWinId(@ptrCast(self));
+    pub fn CreateWinId(self: QColorDialog) void {
+        qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -802,10 +891,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn InternalWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_InternalWinId(@ptrCast(self));
+    pub fn InternalWinId(self: QColorDialog) usize {
+        return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -814,10 +903,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
+    pub fn EffectiveWinId(self: QColorDialog) usize {
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -826,10 +915,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QWidget_Style(@ptrCast(self));
+    pub fn Style(self: QColorDialog) QStyle {
+        return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -838,12 +927,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetStyle(self: QColorDialog, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// Inherited from QWidget
@@ -852,10 +942,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsTopLevel(@ptrCast(self));
+    pub fn IsTopLevel(self: QColorDialog) bool {
+        return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -864,10 +954,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn IsWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindow(@ptrCast(self));
+    pub fn IsWindow(self: QColorDialog) bool {
+        return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -876,10 +966,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn IsModal(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsModal(@ptrCast(self));
+    pub fn IsModal(self: QColorDialog) bool {
+        return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -888,14 +978,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowModality(@ptrCast(self));
+    pub fn WindowModality(self: QColorDialog) i32 {
+        return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -904,12 +994,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
+    pub fn SetWindowModality(self: QColorDialog, windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -918,10 +1008,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: QColorDialog) bool {
+        return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -930,12 +1020,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsEnabledTo(self: QColorDialog, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -944,12 +1035,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: QColorDialog, enabled: bool) void {
+        qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -958,12 +1049,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
+    pub fn SetDisabled(self: QColorDialog, disabled: bool) void {
+        qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
 
     /// Inherited from QWidget
@@ -972,12 +1063,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+    pub fn SetWindowModified(self: QColorDialog, windowModified: bool) void {
+        qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
 
     /// Inherited from QWidget
@@ -986,10 +1077,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_FrameGeometry(@ptrCast(self));
+    pub fn FrameGeometry(self: QColorDialog) QRect {
+        return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -998,10 +1089,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Geometry(@ptrCast(self));
+    pub fn Geometry(self: QColorDialog) QRect {
+        return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1010,10 +1101,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_NormalGeometry(@ptrCast(self));
+    pub fn NormalGeometry(self: QColorDialog) QRect {
+        return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1022,10 +1113,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn X(self: ?*anyopaque) i32 {
-        return qtc.QWidget_X(@ptrCast(self));
+    pub fn X(self: QColorDialog) i32 {
+        return qtc.QWidget_X(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1034,10 +1125,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Y(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Y(@ptrCast(self));
+    pub fn Y(self: QColorDialog) i32 {
+        return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1046,10 +1137,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_Pos(@ptrCast(self));
+    pub fn Pos(self: QColorDialog) QPoint {
+        return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1058,10 +1149,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: QColorDialog) QSize {
+        return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1070,10 +1161,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_Size(@ptrCast(self));
+    pub fn Size(self: QColorDialog) QSize {
+        return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1082,10 +1173,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Width(@ptrCast(self));
+    pub fn Width(self: QColorDialog) i32 {
+        return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1094,10 +1185,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Height(@ptrCast(self));
+    pub fn Height(self: QColorDialog) i32 {
+        return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1106,10 +1197,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: QColorDialog) QRect {
+        return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1118,10 +1209,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ChildrenRect(@ptrCast(self));
+    pub fn ChildrenRect(self: QColorDialog) QRect {
+        return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1130,10 +1221,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
+    pub fn ChildrenRegion(self: QColorDialog) QRegion {
+        return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1142,10 +1233,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: QColorDialog) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1154,10 +1245,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: QColorDialog) QSize {
+        return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1166,10 +1257,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: QColorDialog) i32 {
+        return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1178,10 +1269,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: QColorDialog) i32 {
+        return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1190,10 +1281,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: QColorDialog) i32 {
+        return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1202,10 +1293,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: QColorDialog) i32 {
+        return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1214,12 +1305,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` minimumSize: QtC.QSize `
+    /// ` minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+    pub fn SetMinimumSize(self: QColorDialog, minimumSize: anytype) void {
+        comptime _ = @TypeOf(minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1228,14 +1320,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` minw: i32 `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
+    pub fn SetMinimumSize2(self: QColorDialog, minw: i32, minh: i32) void {
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -1244,12 +1336,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` maximumSize: QtC.QSize `
+    /// ` maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+    pub fn SetMaximumSize(self: QColorDialog, maximumSize: anytype) void {
+        comptime _ = @TypeOf(maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1258,14 +1351,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` maxw: i32 `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
+    pub fn SetMaximumSize2(self: QColorDialog, maxw: i32, maxh: i32) void {
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -1274,12 +1367,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
+    pub fn SetMinimumWidth(self: QColorDialog, minw: i32) void {
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -1288,12 +1381,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
+    pub fn SetMinimumHeight(self: QColorDialog, minh: i32) void {
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -1302,12 +1395,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
+    pub fn SetMaximumWidth(self: QColorDialog, maxw: i32) void {
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -1316,12 +1409,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
+    pub fn SetMaximumHeight(self: QColorDialog, maxh: i32) void {
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -1330,10 +1423,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeIncrement(@ptrCast(self));
+    pub fn SizeIncrement(self: QColorDialog) QSize {
+        return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1342,12 +1435,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` sizeIncrement: QtC.QSize `
+    /// ` sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+    pub fn SetSizeIncrement(self: QColorDialog, sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
     }
 
     /// Inherited from QWidget
@@ -1356,14 +1450,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetSizeIncrement2(self: QColorDialog, w: i32, h: i32) void {
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1372,10 +1466,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_BaseSize(@ptrCast(self));
+    pub fn BaseSize(self: QColorDialog) QSize {
+        return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1384,12 +1478,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` baseSize: QtC.QSize `
+    /// ` baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+    pub fn SetBaseSize(self: QColorDialog, baseSize: anytype) void {
+        comptime _ = @TypeOf(baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1398,14 +1493,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` basew: i32 `
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
+    pub fn SetBaseSize2(self: QColorDialog, basew: i32, baseh: i32) void {
+        qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -1414,12 +1509,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` fixedSize: QtC.QSize `
+    /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+    pub fn SetFixedSize(self: QColorDialog, fixedSize: anytype) void {
+        comptime _ = @TypeOf(fixedSize)._is_QSize;
+        qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1428,14 +1524,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetFixedSize2(self: QColorDialog, w: i32, h: i32) void {
+        qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1444,12 +1540,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetFixedWidth(self: QColorDialog, w: i32) void {
+        qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -1458,12 +1554,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
+    pub fn SetFixedHeight(self: QColorDialog, h: i32) void {
+        qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -1472,12 +1568,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal(self: QColorDialog, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1486,12 +1583,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: QColorDialog, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1500,12 +1598,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal(self: QColorDialog, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1514,12 +1613,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: QColorDialog, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1528,12 +1628,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent(self: QColorDialog, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1542,12 +1643,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: QColorDialog, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1556,12 +1658,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent(self: QColorDialog, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1570,12 +1673,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: QColorDialog, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1584,14 +1688,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo(self: QColorDialog, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1600,14 +1706,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo2(self: QColorDialog, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1616,14 +1724,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom(self: QColorDialog, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1632,14 +1742,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom2(self: QColorDialog, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1648,10 +1760,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_Window(@ptrCast(self));
+    pub fn Window(self: QColorDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1660,10 +1772,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
+    pub fn NativeParentWidget(self: QColorDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1672,10 +1784,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
+    pub fn TopLevelWidget(self: QColorDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1684,10 +1796,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QWidget_Palette(@ptrCast(self));
+    pub fn Palette(self: QColorDialog) QPalette {
+        return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1696,12 +1808,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn SetPalette(self: QColorDialog, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// Inherited from QWidget
@@ -1710,12 +1823,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
+    pub fn SetBackgroundRole(self: QColorDialog, backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -1724,14 +1837,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_BackgroundRole(@ptrCast(self));
+    pub fn BackgroundRole(self: QColorDialog) i32 {
+        return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1740,12 +1853,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
+    pub fn SetForegroundRole(self: QColorDialog, foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -1754,14 +1867,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ForegroundRole(@ptrCast(self));
+    pub fn ForegroundRole(self: QColorDialog) i32 {
+        return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1770,10 +1883,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QWidget_Font(@ptrCast(self));
+    pub fn Font(self: QColorDialog) QFont {
+        return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1782,12 +1895,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: QColorDialog, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QWidget
@@ -1796,10 +1910,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QWidget_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: QColorDialog) QFontMetrics {
+        return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1808,10 +1922,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QWidget_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: QColorDialog) QFontInfo {
+        return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1820,10 +1934,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
-        return qtc.QWidget_Cursor(@ptrCast(self));
+    pub fn Cursor(self: QColorDialog) QCursor {
+        return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1832,12 +1946,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetCursor(self: QColorDialog, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QWidget
@@ -1846,10 +1961,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn UnsetCursor(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetCursor(@ptrCast(self));
+    pub fn UnsetCursor(self: QColorDialog) void {
+        qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1858,12 +1973,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
+    pub fn SetMouseTracking(self: QColorDialog, enable: bool) void {
+        qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -1872,10 +1987,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
+    pub fn HasMouseTracking(self: QColorDialog) bool {
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1884,10 +1999,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.QWidget_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: QColorDialog) bool {
+        return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1896,12 +2011,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
+    pub fn SetTabletTracking(self: QColorDialog, enable: bool) void {
+        qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -1910,10 +2025,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
+    pub fn HasTabletTracking(self: QColorDialog) bool {
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1922,12 +2037,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` mask: QtC.QBitmap `
+    /// ` mask: QBitmap `
     ///
-    pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask(self: QColorDialog, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -1936,12 +2052,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` mask: QtC.QRegion `
+    /// ` mask: QRegion `
     ///
-    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: QColorDialog, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -1950,10 +2067,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_Mask(@ptrCast(self));
+    pub fn Mask(self: QColorDialog) QRegion {
+        return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1962,10 +2079,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn ClearMask(self: ?*anyopaque) void {
-        qtc.QWidget_ClearMask(@ptrCast(self));
+    pub fn ClearMask(self: QColorDialog) void {
+        qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1974,12 +2091,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
+    pub fn Render(self: QColorDialog, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QWidget
@@ -1988,12 +2106,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: QColorDialog, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -2002,10 +2121,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab(@ptrCast(self));
+    pub fn Grab(self: QColorDialog) QPixmap {
+        return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2014,10 +2133,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
-        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
+    pub fn GraphicsEffect(self: QColorDialog) QGraphicsEffect {
+        return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2026,12 +2145,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` effect: QtC.QGraphicsEffect `
+    /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+    pub fn SetGraphicsEffect(self: QColorDialog, effect: anytype) void {
+        comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
 
     /// Inherited from QWidget
@@ -2040,12 +2160,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn GrabGesture(self: QColorDialog, typeVal: i32) void {
+        qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -2054,12 +2174,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn UngrabGesture(self: QColorDialog, typeVal: i32) void {
+        qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -2068,16 +2188,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
+    pub fn SetWindowTitle(self: QColorDialog, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
-        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
 
     /// Inherited from QWidget
@@ -2086,16 +2206,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
+    pub fn SetStyleSheet(self: QColorDialog, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
-        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
 
     /// Inherited from QWidget
@@ -2104,12 +2224,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcolordialog.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2122,12 +2242,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+    pub fn WindowTitle(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcolordialog.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2140,12 +2260,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetWindowIcon(self: QColorDialog, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -2154,10 +2275,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QWidget_WindowIcon(@ptrCast(self));
+    pub fn WindowIcon(self: QColorDialog) QIcon {
+        return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2166,16 +2287,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
+    pub fn SetWindowIconText(self: QColorDialog, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
-        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
 
     /// Inherited from QWidget
@@ -2184,12 +2305,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+    pub fn WindowIconText(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcolordialog.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2202,16 +2323,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
+    pub fn SetWindowRole(self: QColorDialog, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
-        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
 
     /// Inherited from QWidget
@@ -2220,12 +2341,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
+    pub fn WindowRole(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcolordialog.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2238,16 +2359,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
+    pub fn SetWindowFilePath(self: QColorDialog, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
 
     /// Inherited from QWidget
@@ -2256,12 +2377,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+    pub fn WindowFilePath(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcolordialog.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2274,12 +2395,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetWindowOpacity(self: QColorDialog, level: f64) void {
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -2288,10 +2409,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return qtc.QWidget_WindowOpacity(@ptrCast(self));
+    pub fn WindowOpacity(self: QColorDialog) f64 {
+        return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2300,10 +2421,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindowModified(@ptrCast(self));
+    pub fn IsWindowModified(self: QColorDialog) bool {
+        return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2312,16 +2433,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: QColorDialog, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// Inherited from QWidget
@@ -2330,12 +2451,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcolordialog.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2348,12 +2469,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
+    pub fn SetToolTipDuration(self: QColorDialog, msec: i32) void {
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -2362,10 +2483,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
+    pub fn ToolTipDuration(self: QColorDialog) i32 {
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2374,16 +2495,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: QColorDialog, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QWidget
@@ -2392,12 +2513,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcolordialog.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2410,16 +2531,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: QColorDialog, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// Inherited from QWidget
@@ -2428,12 +2549,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcolordialog.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2446,12 +2567,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+    pub fn AccessibleName(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcolordialog.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2464,16 +2585,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetAccessibleName(self: QColorDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QWidget
@@ -2482,12 +2603,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+    pub fn AccessibleDescription(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcolordialog.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2500,16 +2621,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetAccessibleDescription(self: QColorDialog, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// Inherited from QWidget
@@ -2518,12 +2639,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: QColorDialog, direction: i32) void {
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -2532,14 +2653,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QWidget_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: QColorDialog) i32 {
+        return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2548,10 +2669,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
+    pub fn UnsetLayoutDirection(self: QColorDialog) void {
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2560,12 +2681,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: QColorDialog, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// Inherited from QWidget
@@ -2574,10 +2696,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QWidget_Locale(@ptrCast(self));
+    pub fn Locale(self: QColorDialog) QLocale {
+        return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2586,10 +2708,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn UnsetLocale(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLocale(@ptrCast(self));
+    pub fn UnsetLocale(self: QColorDialog) void {
+        qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2598,10 +2720,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
+    pub fn IsRightToLeft(self: QColorDialog) bool {
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2610,10 +2732,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
+    pub fn IsLeftToRight(self: QColorDialog) bool {
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2622,10 +2744,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SetFocus(self: ?*anyopaque) void {
-        qtc.QWidget_SetFocus(@ptrCast(self));
+    pub fn SetFocus(self: QColorDialog) void {
+        qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2634,10 +2756,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
+    pub fn IsActiveWindow(self: QColorDialog) bool {
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2646,10 +2768,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn ActivateWindow(self: ?*anyopaque) void {
-        qtc.QWidget_ActivateWindow(@ptrCast(self));
+    pub fn ActivateWindow(self: QColorDialog) void {
+        qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2658,10 +2780,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn ClearFocus(self: ?*anyopaque) void {
-        qtc.QWidget_ClearFocus(@ptrCast(self));
+    pub fn ClearFocus(self: QColorDialog) void {
+        qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2670,12 +2792,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
+    pub fn SetFocus2(self: QColorDialog, reason: i32) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -2684,14 +2806,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_FocusPolicy(@ptrCast(self));
+    pub fn FocusPolicy(self: QColorDialog) i32 {
+        return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2700,12 +2822,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetFocusPolicy(self: QColorDialog, policy: i32) void {
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -2714,10 +2836,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn HasFocus(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasFocus(@ptrCast(self));
+    pub fn HasFocus(self: QColorDialog) bool {
+        return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2726,12 +2848,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QWidget `
+    /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QWidget;
+        qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidget
@@ -2740,12 +2864,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` focusProxy: QtC.QWidget `
+    /// ` focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+    pub fn SetFocusProxy(self: QColorDialog, focusProxy: anytype) void {
+        comptime _ = @TypeOf(focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
     }
 
     /// Inherited from QWidget
@@ -2754,10 +2879,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusProxy(@ptrCast(self));
+    pub fn FocusProxy(self: QColorDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2766,14 +2891,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
+    pub fn ContextMenuPolicy(self: QColorDialog) i32 {
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2782,12 +2907,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetContextMenuPolicy(self: QColorDialog, policy: i32) void {
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -2796,10 +2921,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn GrabMouse(self: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse(@ptrCast(self));
+    pub fn GrabMouse(self: QColorDialog) void {
+        qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2808,12 +2933,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: QColorDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -2822,10 +2948,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn ReleaseMouse(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseMouse(@ptrCast(self));
+    pub fn ReleaseMouse(self: QColorDialog) void {
+        qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2834,10 +2960,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn GrabKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_GrabKeyboard(@ptrCast(self));
+    pub fn GrabKeyboard(self: QColorDialog) void {
+        qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2846,10 +2972,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
+    pub fn ReleaseKeyboard(self: QColorDialog) void {
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2858,12 +2984,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+    pub fn GrabShortcut(self: QColorDialog, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// Inherited from QWidget
@@ -2872,12 +2999,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
+    pub fn ReleaseShortcut(self: QColorDialog, id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -2886,12 +3013,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutEnabled(self: QColorDialog, id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -2900,28 +3027,28 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutAutoRepeat(self: QColorDialog, id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QtC.QWidget {
-        return qtc.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QtC.QWidget {
-        return qtc.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
 
     /// Inherited from QWidget
@@ -2930,10 +3057,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
+    pub fn UpdatesEnabled(self: QColorDialog) bool {
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2942,12 +3069,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+    pub fn SetUpdatesEnabled(self: QColorDialog, enable: bool) void {
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -2956,10 +3083,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    pub fn GraphicsProxyWidget(self: QColorDialog) QGraphicsProxyWidget {
+        return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2968,10 +3095,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Update(self: ?*anyopaque) void {
-        qtc.QWidget_Update(@ptrCast(self));
+    pub fn Update(self: QColorDialog) void {
+        qtc.QWidget_Update(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2980,10 +3107,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Repaint(self: ?*anyopaque) void {
-        qtc.QWidget_Repaint(@ptrCast(self));
+    pub fn Repaint(self: QColorDialog) void {
+        qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2992,7 +3119,7 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` x: i32 `
     ///
@@ -3002,8 +3129,8 @@ pub const qcolordialog = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Update2(self: QColorDialog, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3012,12 +3139,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: QColorDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3026,12 +3154,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: QColorDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3040,7 +3169,7 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` x: i32 `
     ///
@@ -3050,8 +3179,8 @@ pub const qcolordialog = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Repaint2(self: QColorDialog, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3060,12 +3189,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: QColorDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3074,12 +3204,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: QColorDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3088,12 +3219,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
+    pub fn SetHidden(self: QColorDialog, hidden: bool) void {
+        qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
 
     /// Inherited from QWidget
@@ -3102,10 +3233,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QWidget_Show(@ptrCast(self));
+    pub fn Show(self: QColorDialog) void {
+        qtc.QWidget_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3114,10 +3245,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QWidget_Hide(@ptrCast(self));
+    pub fn Hide(self: QColorDialog) void {
+        qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3126,10 +3257,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn ShowMinimized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMinimized(@ptrCast(self));
+    pub fn ShowMinimized(self: QColorDialog) void {
+        qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3138,10 +3269,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn ShowMaximized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMaximized(@ptrCast(self));
+    pub fn ShowMaximized(self: QColorDialog) void {
+        qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3150,10 +3281,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn ShowFullScreen(self: ?*anyopaque) void {
-        qtc.QWidget_ShowFullScreen(@ptrCast(self));
+    pub fn ShowFullScreen(self: QColorDialog) void {
+        qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3162,10 +3293,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn ShowNormal(self: ?*anyopaque) void {
-        qtc.QWidget_ShowNormal(@ptrCast(self));
+    pub fn ShowNormal(self: QColorDialog) void {
+        qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3174,10 +3305,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Close(self: ?*anyopaque) bool {
-        return qtc.QWidget_Close(@ptrCast(self));
+    pub fn Close(self: QColorDialog) bool {
+        return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3186,10 +3317,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Raise(self: ?*anyopaque) void {
-        qtc.QWidget_Raise(@ptrCast(self));
+    pub fn Raise(self: QColorDialog) void {
+        qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3198,10 +3329,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Lower(self: ?*anyopaque) void {
-        qtc.QWidget_Lower(@ptrCast(self));
+    pub fn Lower(self: QColorDialog) void {
+        qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3210,12 +3341,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+    pub fn StackUnder(self: QColorDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3224,14 +3356,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn Move(self: QColorDialog, x: i32, y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -3240,12 +3372,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: QColorDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3254,14 +3387,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn Resize(self: QColorDialog, w: i32, h: i32) void {
+        qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3270,12 +3403,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QSize `
+    /// ` param1: QSize `
     ///
-    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: QColorDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3284,7 +3418,7 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` x: i32 `
     ///
@@ -3294,8 +3428,8 @@ pub const qcolordialog = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetGeometry(self: QColorDialog, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3304,12 +3438,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` geometry: QtC.QRect `
+    /// ` geometry: QRect `
     ///
-    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: QColorDialog, geometry: anytype) void {
+        comptime _ = @TypeOf(geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
     }
 
     /// Inherited from QWidget
@@ -3318,12 +3453,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+    pub fn SaveGeometry(self: QColorDialog, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcolordialog.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3336,16 +3471,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
+    pub fn RestoreGeometry(self: QColorDialog, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
-        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
 
     /// Inherited from QWidget
@@ -3354,10 +3489,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QWidget_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: QColorDialog) void {
+        qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3366,10 +3501,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: QColorDialog) bool {
+        return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3378,12 +3513,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsVisibleTo(self: QColorDialog, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3392,10 +3528,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn IsHidden(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsHidden(@ptrCast(self));
+    pub fn IsHidden(self: QColorDialog) bool {
+        return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3404,10 +3540,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn IsMinimized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMinimized(@ptrCast(self));
+    pub fn IsMinimized(self: QColorDialog) bool {
+        return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3416,10 +3552,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn IsMaximized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMaximized(@ptrCast(self));
+    pub fn IsMaximized(self: QColorDialog) bool {
+        return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3428,10 +3564,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsFullScreen(@ptrCast(self));
+    pub fn IsFullScreen(self: QColorDialog) bool {
+        return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3440,14 +3576,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowState(@ptrCast(self));
+    pub fn WindowState(self: QColorDialog) i32 {
+        return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3456,12 +3592,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
+    pub fn SetWindowState(self: QColorDialog, state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -3470,12 +3606,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
+    pub fn OverrideWindowState(self: QColorDialog, state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -3484,10 +3620,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QWidget_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: QColorDialog) QSizePolicy {
+        return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3496,12 +3632,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` sizePolicy: QtC.QSizePolicy `
+    /// ` sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
-        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    pub fn SetSizePolicy(self: QColorDialog, sizePolicy: anytype) void {
+        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
     }
 
     /// Inherited from QWidget
@@ -3510,14 +3647,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` horizontal: qsizepolicy_enums.Policy `
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
+    pub fn SetSizePolicy2(self: QColorDialog, horizontal: i32, vertical: i32) void {
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -3526,10 +3663,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_VisibleRegion(@ptrCast(self));
+    pub fn VisibleRegion(self: QColorDialog) QRegion {
+        return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3538,7 +3675,7 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` left: i32 `
     ///
@@ -3548,8 +3685,8 @@ pub const qcolordialog = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: QColorDialog, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -3558,12 +3695,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: QColorDialog, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QWidget
@@ -3572,10 +3710,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QWidget_ContentsMargins(@ptrCast(self));
+    pub fn ContentsMargins(self: QColorDialog) QMargins {
+        return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3584,10 +3722,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: QColorDialog) QRect {
+        return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3596,10 +3734,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidget_Layout(@ptrCast(self));
+    pub fn Layout(self: QColorDialog) QLayout {
+        return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3608,12 +3746,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` layout: QtC.QLayout `
+    /// ` layout: QLayout `
     ///
-    pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetLayout(self: QColorDialog, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// Inherited from QWidget
@@ -3622,10 +3761,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QWidget_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: QColorDialog) void {
+        qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3634,12 +3773,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QColorDialog, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QWidget
@@ -3648,14 +3788,15 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
+    pub fn SetParent2(self: QColorDialog, parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -3664,14 +3805,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Scroll(self: QColorDialog, dx: i32, dy: i32) void {
+        qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -3680,16 +3821,17 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    /// ` param3: QtC.QRect `
+    /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
+    pub fn Scroll2(self: QColorDialog, dx: i32, dy: i32, param3: anytype) void {
+        comptime _ = @TypeOf(param3)._is_QRect;
+        qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QWidget
@@ -3698,10 +3840,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusWidget(@ptrCast(self));
+    pub fn FocusWidget(self: QColorDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3710,10 +3852,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
+    pub fn NextInFocusChain(self: QColorDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3722,10 +3864,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
+    pub fn PreviousInFocusChain(self: QColorDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3734,10 +3876,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return qtc.QWidget_AcceptDrops(@ptrCast(self));
+    pub fn AcceptDrops(self: QColorDialog) bool {
+        return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3746,12 +3888,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
+    pub fn SetAcceptDrops(self: QColorDialog, on: bool) void {
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QWidget
@@ -3760,12 +3902,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+    pub fn AddAction(self: QColorDialog, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -3774,16 +3917,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn AddActions(self: QColorDialog, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -3792,18 +3935,19 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn InsertActions(self: QColorDialog, before: anytype, actions: []QAction) void {
+        comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -3812,14 +3956,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn InsertAction(self: QColorDialog, before: anytype, action: anytype) void {
+        comptime _ = @TypeOf(before)._is_QAction;
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -3828,12 +3974,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn RemoveAction(self: QColorDialog, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -3842,16 +3989,17 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+    pub fn Actions(self: QColorDialog, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qcolordialog.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qcolordialog.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -3861,16 +4009,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: QColorDialog, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction2(@ptrCast(self), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -3879,18 +4027,19 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: QColorDialog, icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -3899,18 +4048,19 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: QColorDialog, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3919,20 +4069,22 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: QColorDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3941,10 +4093,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: QColorDialog) QWidget {
+        return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3953,12 +4105,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetWindowFlags(self: QColorDialog, typeVal: i32) void {
+        qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -3967,14 +4119,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowFlags(@ptrCast(self));
+    pub fn WindowFlags(self: QColorDialog) i32 {
+        return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3983,12 +4135,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
+    pub fn SetWindowFlag(self: QColorDialog, param1: i32) void {
+        qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -3997,12 +4149,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn OverrideWindowFlags(self: QColorDialog, typeVal: i32) void {
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -4011,14 +4163,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowType(@ptrCast(self));
+    pub fn WindowType(self: QColorDialog) i32 {
+        return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4029,8 +4181,8 @@ pub const qcolordialog = struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QtC.QWidget {
-        return qtc.QWidget_Find(@bitCast(param1));
+    pub fn Find(param1: usize) QWidget {
+        return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -4039,14 +4191,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: QColorDialog, x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QWidget
@@ -4055,12 +4207,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: QColorDialog, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4069,12 +4222,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: QColorDialog, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4083,12 +4237,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn SetAttribute(self: QColorDialog, param1: i32) void {
+        qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4097,12 +4251,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn TestAttribute(self: QColorDialog, param1: i32) bool {
+        return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4111,10 +4265,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn EnsurePolished(self: ?*anyopaque) void {
-        qtc.QWidget_EnsurePolished(@ptrCast(self));
+    pub fn EnsurePolished(self: QColorDialog) void {
+        qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4123,12 +4277,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` child: QtC.QWidget `
+    /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+    pub fn IsAncestorOf(self: QColorDialog, child: anytype) bool {
+        comptime _ = @TypeOf(child)._is_QWidget;
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from QWidget
@@ -4137,10 +4292,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
+    pub fn AutoFillBackground(self: QColorDialog) bool {
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4149,12 +4304,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+    pub fn SetAutoFillBackground(self: QColorDialog, enabled: bool) void {
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -4163,10 +4318,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
-        return qtc.QWidget_BackingStore(@ptrCast(self));
+    pub fn BackingStore(self: QColorDialog) QBackingStore {
+        return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4175,10 +4330,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QWidget_WindowHandle(@ptrCast(self));
+    pub fn WindowHandle(self: QColorDialog) QWindow {
+        return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4187,10 +4342,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
-        return qtc.QWidget_Screen(@ptrCast(self));
+    pub fn Screen(self: QColorDialog) QScreen {
+        return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4199,12 +4354,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+    pub fn SetScreen(self: QColorDialog, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QWidget
@@ -4213,10 +4369,11 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
+    pub fn CreateWindowContainer(window: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4225,16 +4382,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn WindowTitleChanged(self: QColorDialog, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QWidget
@@ -4243,12 +4400,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowTitleChanged(self: QColorDialog, callback: *const fn (QColorDialog, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4257,12 +4414,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+    pub fn WindowIconChanged(self: QColorDialog, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -4271,12 +4429,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, icon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconChanged(self: QColorDialog, callback: *const fn (QColorDialog, QIcon) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4285,16 +4443,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
+    pub fn WindowIconTextChanged(self: QColorDialog, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
-        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
 
     /// Inherited from QWidget
@@ -4303,12 +4461,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, iconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconTextChanged(self: QColorDialog, callback: *const fn (QColorDialog, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4317,12 +4475,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+    pub fn CustomContextMenuRequested(self: QColorDialog, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QWidget
@@ -4331,12 +4490,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomContextMenuRequested(self: QColorDialog, callback: *const fn (QColorDialog, QPoint) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4345,14 +4504,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i32 {
-        return qtc.QWidget_InputMethodHints(@ptrCast(self));
+    pub fn InputMethodHints(self: QColorDialog) i32 {
+        return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4361,12 +4520,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetInputMethodHints(self: QColorDialog, hints: i32) void {
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -4375,14 +4534,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: QColorDialog, target: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -4391,16 +4552,19 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render3(self: QColorDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -4409,18 +4573,21 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render4(self: QColorDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -4429,14 +4596,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: QColorDialog, painter: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -4445,16 +4614,19 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render32(self: QColorDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -4463,18 +4635,21 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render42(self: QColorDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -4483,12 +4658,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Grab1(self: QColorDialog, rectangle: anytype) QPixmap {
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4497,14 +4673,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
+    pub fn GrabGesture2(self: QColorDialog, typeVal: i32, flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -4513,14 +4689,15 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
+    pub fn GrabShortcut2(self: QColorDialog, key: anytype, context: i32) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -4529,14 +4706,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutEnabled2(self: QColorDialog, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -4545,14 +4722,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutAutoRepeat2(self: QColorDialog, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -4561,14 +4738,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetWindowFlag2(self: QColorDialog, param1: i32, on: bool) void {
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -4577,14 +4754,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetAttribute2(self: QColorDialog, param1: i32, on: bool) void {
+        qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -4593,12 +4770,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4607,14 +4786,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
+    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QObject
@@ -4623,12 +4804,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcolordialog.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4641,12 +4822,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QColorDialog, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -4655,10 +4836,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QColorDialog) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4667,10 +4848,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QColorDialog) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4679,10 +4860,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QColorDialog) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4691,10 +4872,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QColorDialog) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4703,12 +4884,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QColorDialog, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -4717,10 +4898,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QColorDialog) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -4729,12 +4910,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QColorDialog, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -4743,12 +4925,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QColorDialog, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -4757,12 +4939,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QColorDialog, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -4771,12 +4953,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QColorDialog, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4785,12 +4967,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QColorDialog, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -4799,16 +4981,17 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QColorDialog, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qcolordialog.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcolordialog.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -4818,12 +5001,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QColorDialog, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -4832,12 +5016,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QColorDialog, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -4846,18 +5031,20 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -4866,16 +5053,20 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -4884,18 +5075,19 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QColorDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -4904,18 +5096,20 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -4924,16 +5118,20 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -4942,10 +5140,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QColorDialog) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4954,12 +5152,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QColorDialog, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -4968,10 +5167,11 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -4980,10 +5180,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QColorDialog) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -4992,10 +5192,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QColorDialog) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5004,15 +5204,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QColorDialog, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -5021,13 +5222,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QColorDialog, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -5036,17 +5237,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QColorDialog, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcolordialog.DynamicPropertyNames: Memory allocation failed");
@@ -5065,10 +5265,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QColorDialog) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5077,10 +5277,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QColorDialog) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5089,10 +5289,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QColorDialog) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5101,12 +5301,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QColorDialog, callback: *const fn (QColorDialog) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5115,10 +5315,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QColorDialog) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5127,13 +5327,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QColorDialog, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -5142,10 +5342,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QColorDialog) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5154,14 +5354,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QColorDialog, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -5170,14 +5370,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QColorDialog, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -5186,20 +5386,22 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -5208,18 +5410,22 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -5228,9 +5434,9 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5238,10 +5444,11 @@ pub const qcolordialog = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QColorDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -5250,13 +5457,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QColorDialog, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5265,15 +5472,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QColorDialog, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -5282,18 +5490,19 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QColorDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5302,15 +5511,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QColorDialog, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5319,12 +5529,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QColorDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -5333,12 +5544,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QColorDialog, callback: *const fn (QColorDialog, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -5347,10 +5558,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: QColorDialog) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5359,10 +5570,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: QColorDialog) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5371,10 +5582,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: QColorDialog) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5383,10 +5594,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: QColorDialog) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5395,10 +5606,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: QColorDialog) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5407,10 +5618,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: QColorDialog) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5419,10 +5630,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: QColorDialog) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5431,10 +5642,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: QColorDialog) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5443,10 +5654,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: QColorDialog) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5455,10 +5666,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: QColorDialog) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5467,10 +5678,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: QColorDialog) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -5503,10 +5714,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QColorDialog_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: QColorDialog) QSize {
+        return .{ .ptr = qtc.QColorDialog_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSizeHint` instead
@@ -5521,10 +5732,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QColorDialog_SuperSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: QColorDialog) QSize {
+        return .{ .ptr = qtc.QColorDialog_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QDialog
@@ -5535,12 +5746,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QColorDialog_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHint(self: QColorDialog, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QColorDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5551,10 +5762,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QColorDialog_MinimumSizeHint(@ptrCast(self));
+    pub fn MinimumSizeHint(self: QColorDialog) QSize {
+        return .{ .ptr = qtc.QColorDialog_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
@@ -5569,10 +5780,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QColorDialog_SuperMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: QColorDialog) QSize {
+        return .{ .ptr = qtc.QColorDialog_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QDialog
@@ -5583,12 +5794,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QColorDialog_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumSizeHint(self: QColorDialog, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QColorDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5599,10 +5810,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Open(self: ?*anyopaque) void {
-        qtc.QColorDialog_Open(@ptrCast(self));
+    pub fn Open(self: QColorDialog) void {
+        qtc.QColorDialog_Open(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperOpen` instead
@@ -5617,10 +5828,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SuperOpen(self: ?*anyopaque) void {
-        qtc.QColorDialog_SuperOpen(@ptrCast(self));
+    pub fn SuperOpen(self: QColorDialog) void {
+        qtc.QColorDialog_SuperOpen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -5631,12 +5842,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnOpen(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QColorDialog_OnOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnOpen(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QColorDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5647,10 +5858,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Exec(self: ?*anyopaque) i32 {
-        return qtc.QColorDialog_Exec(@ptrCast(self));
+    pub fn Exec(self: QColorDialog) i32 {
+        return qtc.QColorDialog_Exec(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperExec` instead
@@ -5665,10 +5876,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SuperExec(self: ?*anyopaque) i32 {
-        return qtc.QColorDialog_SuperExec(@ptrCast(self));
+    pub fn SuperExec(self: QColorDialog) i32 {
+        return qtc.QColorDialog_SuperExec(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -5679,12 +5890,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnExec(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QColorDialog_OnExec(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnExec(self: QColorDialog, callback: *const fn () callconv(.c) i32) void {
+        qtc.QColorDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5695,10 +5906,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Accept(self: ?*anyopaque) void {
-        qtc.QColorDialog_Accept(@ptrCast(self));
+    pub fn Accept(self: QColorDialog) void {
+        qtc.QColorDialog_Accept(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperAccept` instead
@@ -5713,10 +5924,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SuperAccept(self: ?*anyopaque) void {
-        qtc.QColorDialog_SuperAccept(@ptrCast(self));
+    pub fn SuperAccept(self: QColorDialog) void {
+        qtc.QColorDialog_SuperAccept(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -5727,12 +5938,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAccept(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QColorDialog_OnAccept(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAccept(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QColorDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5743,10 +5954,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Reject(self: ?*anyopaque) void {
-        qtc.QColorDialog_Reject(@ptrCast(self));
+    pub fn Reject(self: QColorDialog) void {
+        qtc.QColorDialog_Reject(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperReject` instead
@@ -5761,10 +5972,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SuperReject(self: ?*anyopaque) void {
-        qtc.QColorDialog_SuperReject(@ptrCast(self));
+    pub fn SuperReject(self: QColorDialog) void {
+        qtc.QColorDialog_SuperReject(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -5775,12 +5986,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReject(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QColorDialog_OnReject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReject(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QColorDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5791,12 +6002,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QKeyEvent `
+    /// ` param1: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QColorDialog_KeyPressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn KeyPressEvent(self: QColorDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QKeyEvent;
+        qtc.QColorDialog_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
@@ -5811,12 +6023,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QKeyEvent `
+    /// ` param1: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QColorDialog_SuperKeyPressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperKeyPressEvent(self: QColorDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QKeyEvent;
+        qtc.QColorDialog_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -5827,12 +6040,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, param1: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, param1: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyPressEvent(self: QColorDialog, callback: *const fn (QColorDialog, QKeyEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5843,12 +6056,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QCloseEvent `
+    /// ` param1: QCloseEvent `
     ///
-    pub fn CloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QColorDialog_CloseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn CloseEvent(self: QColorDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCloseEvent;
+        qtc.QColorDialog_CloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEvent` instead
@@ -5863,12 +6077,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QCloseEvent `
+    /// ` param1: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QColorDialog_SuperCloseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperCloseEvent(self: QColorDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCloseEvent;
+        qtc.QColorDialog_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -5879,12 +6094,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, param1: QtC.QCloseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, param1: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEvent(self: QColorDialog, callback: *const fn (QColorDialog, QCloseEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5895,12 +6110,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QShowEvent `
+    /// ` param1: QShowEvent `
     ///
-    pub fn ShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QColorDialog_ShowEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ShowEvent(self: QColorDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QShowEvent;
+        qtc.QColorDialog_ShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperShowEvent` instead
@@ -5915,12 +6131,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QShowEvent `
+    /// ` param1: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QColorDialog_SuperShowEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperShowEvent(self: QColorDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QShowEvent;
+        qtc.QColorDialog_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -5931,12 +6148,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, param1: QtC.QShowEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, param1: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShowEvent(self: QColorDialog, callback: *const fn (QColorDialog, QShowEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5947,12 +6164,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QResizeEvent `
+    /// ` param1: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QColorDialog_ResizeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ResizeEvent(self: QColorDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QResizeEvent;
+        qtc.QColorDialog_ResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResizeEvent` instead
@@ -5967,12 +6185,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QResizeEvent `
+    /// ` param1: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QColorDialog_SuperResizeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperResizeEvent(self: QColorDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QResizeEvent;
+        qtc.QColorDialog_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -5983,12 +6202,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, param1: QtC.QResizeEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, param1: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResizeEvent(self: QColorDialog, callback: *const fn (QColorDialog, QResizeEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -5999,12 +6218,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QContextMenuEvent `
+    /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QColorDialog_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ContextMenuEvent(self: QColorDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
+        qtc.QColorDialog_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
@@ -6019,12 +6239,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QContextMenuEvent `
+    /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QColorDialog_SuperContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperContextMenuEvent(self: QColorDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
+        qtc.QColorDialog_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -6035,12 +6256,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, param1: QtC.QContextMenuEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuEvent(self: QColorDialog, callback: *const fn (QColorDialog, QContextMenuEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -6051,14 +6272,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    /// ` param2: QtC.QEvent `
+    /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.QColorDialog_EventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn EventFilter(self: QColorDialog, param1: anytype, param2: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        comptime _ = @TypeOf(param2)._is_QEvent;
+        return qtc.QColorDialog_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -6073,14 +6296,16 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    /// ` param2: QtC.QEvent `
+    /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.QColorDialog_SuperEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn SuperEventFilter(self: QColorDialog, param1: anytype, param2: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        comptime _ = @TypeOf(param2)._is_QEvent;
+        return qtc.QColorDialog_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QDialog
@@ -6091,12 +6316,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, param1: QtC.QObject, param2: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QColorDialog, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QColorDialog_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QColorDialog, callback: *const fn (QColorDialog, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QColorDialog_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6107,10 +6332,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.QColorDialog_DevType(@ptrCast(self));
+    pub fn DevType(self: QColorDialog) i32 {
+        return qtc.QColorDialog_DevType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDevType` instead
@@ -6125,10 +6350,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SuperDevType(self: ?*anyopaque) i32 {
-        return qtc.QColorDialog_SuperDevType(@ptrCast(self));
+    pub fn SuperDevType(self: QColorDialog) i32 {
+        return qtc.QColorDialog_SuperDevType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6139,12 +6364,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QColorDialog_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDevType(self: QColorDialog, callback: *const fn () callconv(.c) i32) void {
+        qtc.QColorDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6155,12 +6380,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QColorDialog_HeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn HeightForWidth(self: QColorDialog, param1: i32) i32 {
+        return qtc.QColorDialog_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperHeightForWidth` instead
@@ -6175,12 +6400,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QColorDialog_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: QColorDialog, param1: i32) i32 {
+        return qtc.QColorDialog_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6191,12 +6416,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, param1: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QColorDialog, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QColorDialog_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeightForWidth(self: QColorDialog, callback: *const fn (QColorDialog, i32) callconv(.c) i32) void {
+        qtc.QColorDialog_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6207,10 +6432,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QColorDialog_HasHeightForWidth(@ptrCast(self));
+    pub fn HasHeightForWidth(self: QColorDialog) bool {
+        return qtc.QColorDialog_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
@@ -6225,10 +6450,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QColorDialog_SuperHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: QColorDialog) bool {
+        return qtc.QColorDialog_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6239,12 +6464,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QColorDialog_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasHeightForWidth(self: QColorDialog, callback: *const fn () callconv(.c) bool) void {
+        qtc.QColorDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6255,10 +6480,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QColorDialog_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: QColorDialog) QPaintEngine {
+        return .{ .ptr = qtc.QColorDialog_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperPaintEngine` instead
@@ -6273,10 +6498,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QColorDialog_SuperPaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: QColorDialog) QPaintEngine {
+        return .{ .ptr = qtc.QColorDialog_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6287,12 +6512,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QColorDialog_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEngine(self: QColorDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+        qtc.QColorDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6303,12 +6528,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QColorDialog_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QColorDialog, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QColorDialog_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -6323,12 +6549,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QColorDialog_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QColorDialog, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QColorDialog_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6339,12 +6566,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QColorDialog, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QColorDialog_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QColorDialog, callback: *const fn (QColorDialog, QEvent) callconv(.c) bool) void {
+        qtc.QColorDialog_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6355,12 +6582,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_MousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MousePressEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QColorDialog_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMousePressEvent` instead
@@ -6375,12 +6603,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QColorDialog_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6391,12 +6620,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMousePressEvent(self: QColorDialog, callback: *const fn (QColorDialog, QMouseEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6407,12 +6636,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseReleaseEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QColorDialog_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
@@ -6427,12 +6657,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QColorDialog_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6443,12 +6674,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseReleaseEvent(self: QColorDialog, callback: *const fn (QColorDialog, QMouseEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6459,12 +6690,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseDoubleClickEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QColorDialog_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
@@ -6479,12 +6711,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QColorDialog_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6495,12 +6728,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseDoubleClickEvent(self: QColorDialog, callback: *const fn (QColorDialog, QMouseEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6511,12 +6744,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseMoveEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QColorDialog_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
@@ -6531,12 +6765,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QColorDialog_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6547,12 +6782,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseMoveEvent(self: QColorDialog, callback: *const fn (QColorDialog, QMouseEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6563,12 +6798,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_WheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn WheelEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.QColorDialog_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperWheelEvent` instead
@@ -6583,12 +6819,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.QColorDialog_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6599,12 +6836,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QWheelEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWheelEvent(self: QColorDialog, callback: *const fn (QColorDialog, QWheelEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6615,12 +6852,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyReleaseEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QColorDialog_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
@@ -6635,12 +6873,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QColorDialog_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6651,12 +6890,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyReleaseEvent(self: QColorDialog, callback: *const fn (QColorDialog, QKeyEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6667,12 +6906,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_FocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusInEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QColorDialog_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusInEvent` instead
@@ -6687,12 +6927,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QColorDialog_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6703,12 +6944,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusInEvent(self: QColorDialog, callback: *const fn (QColorDialog, QFocusEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6719,12 +6960,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_FocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusOutEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QColorDialog_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
@@ -6739,12 +6981,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QColorDialog_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6755,12 +6998,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusOutEvent(self: QColorDialog, callback: *const fn (QColorDialog, QFocusEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6771,12 +7014,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_EnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn EnterEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QColorDialog_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEnterEvent` instead
@@ -6791,12 +7035,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QColorDialog_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6807,12 +7052,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnterEvent(self: QColorDialog, callback: *const fn (QColorDialog, QEnterEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6823,12 +7068,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_LeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn LeaveEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QColorDialog_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLeaveEvent` instead
@@ -6843,12 +7089,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QColorDialog_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6859,12 +7106,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeaveEvent(self: QColorDialog, callback: *const fn (QColorDialog, QEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6875,12 +7122,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QPaintEvent `
+    /// ` event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_PaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn PaintEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QPaintEvent;
+        qtc.QColorDialog_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperPaintEvent` instead
@@ -6895,12 +7143,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QPaintEvent `
+    /// ` event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_SuperPaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperPaintEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QPaintEvent;
+        qtc.QColorDialog_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6911,12 +7160,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QPaintEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEvent(self: QColorDialog, callback: *const fn (QColorDialog, QPaintEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6927,12 +7176,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_MoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MoveEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QColorDialog_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMoveEvent` instead
@@ -6947,12 +7197,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QColorDialog_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6963,12 +7214,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveEvent(self: QColorDialog, callback: *const fn (QColorDialog, QMoveEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6979,12 +7230,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_TabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TabletEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QColorDialog_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTabletEvent` instead
@@ -6999,12 +7251,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QColorDialog_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7015,12 +7268,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QTabletEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabletEvent(self: QColorDialog, callback: *const fn (QColorDialog, QTabletEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7031,12 +7284,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_ActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ActionEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QColorDialog_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperActionEvent` instead
@@ -7051,12 +7305,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_SuperActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QColorDialog_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7067,12 +7322,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QActionEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionEvent(self: QColorDialog, callback: *const fn (QColorDialog, QActionEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7083,12 +7338,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_DragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragEnterEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QColorDialog_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
@@ -7103,12 +7359,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QColorDialog_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7119,12 +7376,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QDragEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragEnterEvent(self: QColorDialog, callback: *const fn (QColorDialog, QDragEnterEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7135,12 +7392,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_DragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragMoveEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QColorDialog_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
@@ -7155,12 +7413,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QColorDialog_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7171,12 +7430,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QDragMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragMoveEvent(self: QColorDialog, callback: *const fn (QColorDialog, QDragMoveEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7187,12 +7446,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragLeaveEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QColorDialog_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
@@ -7207,12 +7467,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QColorDialog_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7223,12 +7484,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QDragLeaveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragLeaveEvent(self: QColorDialog, callback: *const fn (QColorDialog, QDragLeaveEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7239,12 +7500,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_DropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DropEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QColorDialog_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropEvent` instead
@@ -7259,12 +7521,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_SuperDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QColorDialog_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7275,12 +7538,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QDropEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropEvent(self: QColorDialog, callback: *const fn (QColorDialog, QDropEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7291,12 +7554,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_HideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn HideEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QColorDialog_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHideEvent` instead
@@ -7311,12 +7575,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_SuperHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QColorDialog_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7327,12 +7592,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QHideEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHideEvent(self: QColorDialog, callback: *const fn (QColorDialog, QHideEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7343,7 +7608,7 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` eventType: []u8 `
     ///
@@ -7351,12 +7616,12 @@ pub const qcolordialog = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn NativeEvent(self: QColorDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QColorDialog_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QColorDialog_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### DEPRECATED: Use `SuperNativeEvent` instead
@@ -7371,7 +7636,7 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` eventType: []u8 `
     ///
@@ -7379,12 +7644,12 @@ pub const qcolordialog = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: QColorDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QColorDialog_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QColorDialog_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -7395,12 +7660,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QColorDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QColorDialog_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNativeEvent(self: QColorDialog, callback: *const fn (QColorDialog, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.QColorDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7411,12 +7676,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QColorDialog_Metric(@ptrCast(self), @bitCast(param1));
+    pub fn Metric(self: QColorDialog, param1: i32) i32 {
+        return qtc.QColorDialog_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperMetric` instead
@@ -7431,12 +7696,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QColorDialog_SuperMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: QColorDialog, param1: i32) i32 {
+        return qtc.QColorDialog_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7447,12 +7712,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QColorDialog, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QColorDialog_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetric(self: QColorDialog, callback: *const fn (QColorDialog, i32) callconv(.c) i32) void {
+        qtc.QColorDialog_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7463,12 +7728,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QColorDialog_InitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn InitPainter(self: QColorDialog, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QColorDialog_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitPainter` instead
@@ -7483,12 +7749,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QColorDialog_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: QColorDialog, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QColorDialog_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -7499,12 +7766,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, painter: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitPainter(self: QColorDialog, callback: *const fn (QColorDialog, QPainter) callconv(.c) void) void {
+        qtc.QColorDialog_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7515,12 +7782,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QColorDialog_Redirected(@ptrCast(self), @ptrCast(offset));
+    pub fn Redirected(self: QColorDialog, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QColorDialog_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperRedirected` instead
@@ -7535,12 +7803,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QColorDialog_SuperRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: QColorDialog, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QColorDialog_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7551,12 +7820,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    /// ` callback: *const fn (self: QColorDialog, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QColorDialog_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: QColorDialog, callback: *const fn (QColorDialog, QPoint) callconv(.c) QPaintDevice) void {
+        qtc.QColorDialog_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7567,10 +7836,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QColorDialog_SharedPainter(@ptrCast(self));
+    pub fn SharedPainter(self: QColorDialog) QPainter {
+        return .{ .ptr = qtc.QColorDialog_SharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSharedPainter` instead
@@ -7585,10 +7854,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QColorDialog_SuperSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: QColorDialog) QPainter {
+        return .{ .ptr = qtc.QColorDialog_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -7599,12 +7868,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QColorDialog_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSharedPainter(self: QColorDialog, callback: *const fn () callconv(.c) QPainter) void {
+        qtc.QColorDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7615,12 +7884,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QColorDialog_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn InputMethodEvent(self: QColorDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QColorDialog_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
@@ -7635,12 +7905,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QColorDialog_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: QColorDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QColorDialog_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -7651,12 +7922,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, param1: QtC.QInputMethodEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodEvent(self: QColorDialog, callback: *const fn (QColorDialog, QInputMethodEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7667,12 +7938,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QColorDialog_InputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn InputMethodQuery(self: QColorDialog, param1: i32) QVariant {
+        return .{ .ptr = qtc.QColorDialog_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
@@ -7687,12 +7958,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QColorDialog_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: QColorDialog, param1: i32) QVariant {
+        return .{ .ptr = qtc.QColorDialog_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -7703,12 +7974,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QColorDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QColorDialog_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodQuery(self: QColorDialog, callback: *const fn (QColorDialog, i32) callconv(.c) QVariant) void {
+        qtc.QColorDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7719,12 +7990,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QColorDialog_FocusNextPrevChild(@ptrCast(self), next);
+    pub fn FocusNextPrevChild(self: QColorDialog, next: bool) bool {
+        return qtc.QColorDialog_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
@@ -7739,12 +8010,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QColorDialog_SuperFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: QColorDialog, next: bool) bool {
+        return qtc.QColorDialog_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// Inherited from QWidget
@@ -7755,12 +8026,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, next: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: QColorDialog, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QColorDialog_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextPrevChild(self: QColorDialog, callback: *const fn (QColorDialog, bool) callconv(.c) bool) void {
+        qtc.QColorDialog_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7771,12 +8042,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QColorDialog_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -7791,12 +8063,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QColorDialog_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7807,12 +8080,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QColorDialog, callback: *const fn (QColorDialog, QTimerEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7823,12 +8096,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QColorDialog_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -7843,12 +8117,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QColorDialog_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7859,12 +8134,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QColorDialog, callback: *const fn (QColorDialog, QChildEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7875,12 +8150,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QColorDialog_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -7895,12 +8171,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QColorDialog_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QColorDialog, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QColorDialog_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -7911,12 +8188,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QColorDialog, callback: *const fn (QColorDialog, QEvent) callconv(.c) void) void {
+        qtc.QColorDialog_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7927,12 +8204,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QColorDialog_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QColorDialog, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QColorDialog_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -7947,12 +8225,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QColorDialog_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QColorDialog, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QColorDialog_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -7963,12 +8242,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QColorDialog, callback: *const fn (QColorDialog, QMetaMethod) callconv(.c) void) void {
+        qtc.QColorDialog_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7979,12 +8258,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QColorDialog_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QColorDialog, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QColorDialog_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -7999,12 +8279,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QColorDialog_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QColorDialog, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QColorDialog_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -8015,12 +8296,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QColorDialog, callback: *const fn (QColorDialog, QMetaMethod) callconv(.c) void) void {
+        qtc.QColorDialog_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -8031,12 +8312,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn AdjustPosition(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QColorDialog_AdjustPosition(@ptrCast(self), @ptrCast(param1));
+    pub fn AdjustPosition(self: QColorDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QColorDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperAdjustPosition` instead
@@ -8051,12 +8333,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn SuperAdjustPosition(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QColorDialog_SuperAdjustPosition(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperAdjustPosition(self: QColorDialog, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QColorDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -8067,12 +8350,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, param1: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, param1: QWidget) callconv(.c) void `
     ///
-    pub fn OnAdjustPosition(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QColorDialog_OnAdjustPosition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAdjustPosition(self: QColorDialog, callback: *const fn (QColorDialog, QWidget) callconv(.c) void) void {
+        qtc.QColorDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8083,10 +8366,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QColorDialog_UpdateMicroFocus(@ptrCast(self));
+    pub fn UpdateMicroFocus(self: QColorDialog) void {
+        qtc.QColorDialog_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
@@ -8101,10 +8384,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QColorDialog_SuperUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: QColorDialog) void {
+        qtc.QColorDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8115,12 +8398,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QColorDialog_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateMicroFocus(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QColorDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8131,10 +8414,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Create(self: ?*anyopaque) void {
-        qtc.QColorDialog_Create(@ptrCast(self));
+    pub fn Create(self: QColorDialog) void {
+        qtc.QColorDialog_Create(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -8149,10 +8432,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SuperCreate(self: ?*anyopaque) void {
-        qtc.QColorDialog_SuperCreate(@ptrCast(self));
+    pub fn SuperCreate(self: QColorDialog) void {
+        qtc.QColorDialog_SuperCreate(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8163,12 +8446,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QColorDialog_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QColorDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8179,10 +8462,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Destroy(self: ?*anyopaque) void {
-        qtc.QColorDialog_Destroy(@ptrCast(self));
+    pub fn Destroy(self: QColorDialog) void {
+        qtc.QColorDialog_Destroy(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDestroy` instead
@@ -8197,10 +8480,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SuperDestroy(self: ?*anyopaque) void {
-        qtc.QColorDialog_SuperDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: QColorDialog) void {
+        qtc.QColorDialog_SuperDestroy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8211,12 +8494,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QColorDialog_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroy(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
+        qtc.QColorDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8227,10 +8510,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QColorDialog_FocusNextChild(@ptrCast(self));
+    pub fn FocusNextChild(self: QColorDialog) bool {
+        return qtc.QColorDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextChild` instead
@@ -8245,10 +8528,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QColorDialog_SuperFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: QColorDialog) bool {
+        return qtc.QColorDialog_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8259,12 +8542,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QColorDialog_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextChild(self: QColorDialog, callback: *const fn () callconv(.c) bool) void {
+        qtc.QColorDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8275,10 +8558,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QColorDialog_FocusPreviousChild(@ptrCast(self));
+    pub fn FocusPreviousChild(self: QColorDialog) bool {
+        return qtc.QColorDialog_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
@@ -8293,10 +8576,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QColorDialog_SuperFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: QColorDialog) bool {
+        return qtc.QColorDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8307,12 +8590,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QColorDialog_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusPreviousChild(self: QColorDialog, callback: *const fn () callconv(.c) bool) void {
+        qtc.QColorDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8323,10 +8606,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QColorDialog_Sender(@ptrCast(self));
+    pub fn Sender(self: QColorDialog) QObject {
+        return .{ .ptr = qtc.QColorDialog_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -8341,10 +8624,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QColorDialog_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QColorDialog) QObject {
+        return .{ .ptr = qtc.QColorDialog_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -8355,12 +8638,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QColorDialog_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QColorDialog, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QColorDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8371,10 +8654,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QColorDialog_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QColorDialog) i32 {
+        return qtc.QColorDialog_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -8389,10 +8672,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QColorDialog_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QColorDialog) i32 {
+        return qtc.QColorDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8403,12 +8686,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QColorDialog_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QColorDialog, callback: *const fn () callconv(.c) i32) void {
+        qtc.QColorDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8419,13 +8702,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QColorDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QColorDialog_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QColorDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -8440,13 +8723,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QColorDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QColorDialog_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QColorDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -8457,12 +8740,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QColorDialog, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QColorDialog_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QColorDialog, callback: *const fn (QColorDialog, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QColorDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8473,12 +8756,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QColorDialog_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QColorDialog, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QColorDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -8493,12 +8777,13 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QColorDialog_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QColorDialog, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QColorDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -8509,12 +8794,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QColorDialog, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QColorDialog_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QColorDialog, callback: *const fn (QColorDialog, QMetaMethod) callconv(.c) bool) void {
+        qtc.QColorDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -8525,14 +8810,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QColorDialog_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn GetDecodedMetricF(self: QColorDialog, metricA: i32, metricB: i32) f64 {
+        return qtc.QColorDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
@@ -8547,14 +8832,14 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QColorDialog_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: QColorDialog, metricA: i32, metricB: i32) f64 {
+        return qtc.QColorDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -8565,12 +8850,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog`
+    /// ` self: QColorDialog`
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    /// ` callback: *const fn (self: QColorDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QColorDialog_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetDecodedMetricF(self: QColorDialog, callback: *const fn (QColorDialog, i32, i32) callconv(.c) f64) void {
+        qtc.QColorDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8581,12 +8866,12 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    /// ` callback: *const fn (self: QtC.QColorDialog, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QColorDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QColorDialog, callback: *const fn (QColorDialog, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -8599,10 +8884,10 @@ pub const qcolordialog = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QColorDialog `
+    /// ` self: QColorDialog `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QColorDialog_Delete(@ptrCast(self));
+    pub fn Delete(self: QColorDialog) void {
+        qtc.QColorDialog_Delete(@ptrCast(self.ptr));
     }
 };
 

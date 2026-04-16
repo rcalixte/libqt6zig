@@ -1,5 +1,13 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QVariant = @import("libqt6").QVariant;
 const battery_enums = enums;
 const deviceinterface_enums = @import("libdeviceinterface.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
@@ -7,31 +15,41 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/solid-battery.html)
-pub const solid__battery = struct {
+pub const Solid__Battery = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/solid-battery.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.Solid__Battery,
+
+    pub const _is_Solid__Battery = {};
+    pub const _is_Solid__DeviceInterface = {};
+    pub const _is_QObject = {};
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.Solid__Battery_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: Solid__Battery) QMetaObject {
+        return .{ .ptr = qtc.Solid__Battery_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: Solid__Battery, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.Solid__Battery_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.Solid__Battery_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -39,19 +57,19 @@ pub const solid__battery = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.Solid__Battery_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: Solid__Battery, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.Solid__Battery_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -74,194 +92,194 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn IsPresent(self: ?*anyopaque) bool {
-        return qtc.Solid__Battery_IsPresent(@ptrCast(self));
+    pub fn IsPresent(self: Solid__Battery) bool {
+        return qtc.Solid__Battery_IsPresent(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#type)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ## Returns:
     ///
     /// ` battery_enums.BatteryType `
     ///
-    pub fn Type(self: ?*anyopaque) i32 {
-        return qtc.Solid__Battery_Type(@ptrCast(self));
+    pub fn Type(self: Solid__Battery) i32 {
+        return qtc.Solid__Battery_Type(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#chargePercent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn ChargePercent(self: ?*anyopaque) i32 {
-        return qtc.Solid__Battery_ChargePercent(@ptrCast(self));
+    pub fn ChargePercent(self: Solid__Battery) i32 {
+        return qtc.Solid__Battery_ChargePercent(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#capacity)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn Capacity(self: ?*anyopaque) i32 {
-        return qtc.Solid__Battery_Capacity(@ptrCast(self));
+    pub fn Capacity(self: Solid__Battery) i32 {
+        return qtc.Solid__Battery_Capacity(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#cycleCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn CycleCount(self: ?*anyopaque) i32 {
-        return qtc.Solid__Battery_CycleCount(@ptrCast(self));
+    pub fn CycleCount(self: Solid__Battery) i32 {
+        return qtc.Solid__Battery_CycleCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#isRechargeable)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn IsRechargeable(self: ?*anyopaque) bool {
-        return qtc.Solid__Battery_IsRechargeable(@ptrCast(self));
+    pub fn IsRechargeable(self: Solid__Battery) bool {
+        return qtc.Solid__Battery_IsRechargeable(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#isPowerSupply)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn IsPowerSupply(self: ?*anyopaque) bool {
-        return qtc.Solid__Battery_IsPowerSupply(@ptrCast(self));
+    pub fn IsPowerSupply(self: Solid__Battery) bool {
+        return qtc.Solid__Battery_IsPowerSupply(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#chargeState)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ## Returns:
     ///
     /// ` battery_enums.ChargeState `
     ///
-    pub fn ChargeState(self: ?*anyopaque) i32 {
-        return qtc.Solid__Battery_ChargeState(@ptrCast(self));
+    pub fn ChargeState(self: Solid__Battery) i32 {
+        return qtc.Solid__Battery_ChargeState(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#timeToEmpty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn TimeToEmpty(self: ?*anyopaque) isize {
-        return qtc.Solid__Battery_TimeToEmpty(@ptrCast(self));
+    pub fn TimeToEmpty(self: Solid__Battery) isize {
+        return qtc.Solid__Battery_TimeToEmpty(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#timeToFull)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn TimeToFull(self: ?*anyopaque) isize {
-        return qtc.Solid__Battery_TimeToFull(@ptrCast(self));
+    pub fn TimeToFull(self: Solid__Battery) isize {
+        return qtc.Solid__Battery_TimeToFull(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#technology)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ## Returns:
     ///
     /// ` battery_enums.Technology `
     ///
-    pub fn Technology(self: ?*anyopaque) i32 {
-        return qtc.Solid__Battery_Technology(@ptrCast(self));
+    pub fn Technology(self: Solid__Battery) i32 {
+        return qtc.Solid__Battery_Technology(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#energy)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn Energy(self: ?*anyopaque) f64 {
-        return qtc.Solid__Battery_Energy(@ptrCast(self));
+    pub fn Energy(self: Solid__Battery) f64 {
+        return qtc.Solid__Battery_Energy(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#energyFull)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn EnergyFull(self: ?*anyopaque) f64 {
-        return qtc.Solid__Battery_EnergyFull(@ptrCast(self));
+    pub fn EnergyFull(self: Solid__Battery) f64 {
+        return qtc.Solid__Battery_EnergyFull(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#energyFullDesign)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn EnergyFullDesign(self: ?*anyopaque) f64 {
-        return qtc.Solid__Battery_EnergyFullDesign(@ptrCast(self));
+    pub fn EnergyFullDesign(self: Solid__Battery) f64 {
+        return qtc.Solid__Battery_EnergyFullDesign(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#energyRate)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn EnergyRate(self: ?*anyopaque) f64 {
-        return qtc.Solid__Battery_EnergyRate(@ptrCast(self));
+    pub fn EnergyRate(self: Solid__Battery) f64 {
+        return qtc.Solid__Battery_EnergyRate(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#voltage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn Voltage(self: ?*anyopaque) f64 {
-        return qtc.Solid__Battery_Voltage(@ptrCast(self));
+    pub fn Voltage(self: Solid__Battery) f64 {
+        return qtc.Solid__Battery_Voltage(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#temperature)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn Temperature(self: ?*anyopaque) f64 {
-        return qtc.Solid__Battery_Temperature(@ptrCast(self));
+    pub fn Temperature(self: Solid__Battery) f64 {
+        return qtc.Solid__Battery_Temperature(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#serial)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Serial(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Solid__Battery_Serial(@ptrCast(self));
+    pub fn Serial(self: Solid__Battery, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Solid__Battery_Serial(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__battery.Serial: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -272,467 +290,467 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn RemainingTime(self: ?*anyopaque) isize {
-        return qtc.Solid__Battery_RemainingTime(@ptrCast(self));
+    pub fn RemainingTime(self: Solid__Battery) isize {
+        return qtc.Solid__Battery_RemainingTime(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#presentStateChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` newState: bool `
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn PresentStateChanged(self: ?*anyopaque, newState: bool, udi: []const u8) void {
+    pub fn PresentStateChanged(self: Solid__Battery, newState: bool, udi: []const u8) void {
         const udi_str = qtc.libqt_string{
             .len = udi.len,
             .data = udi.ptr,
         };
-        qtc.Solid__Battery_PresentStateChanged(@ptrCast(self), newState, udi_str);
+        qtc.Solid__Battery_PresentStateChanged(@ptrCast(self.ptr), newState, udi_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#presentStateChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__Battery, newState: bool, udi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: Solid__Battery, newState: bool, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnPresentStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_PresentStateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPresentStateChanged(self: Solid__Battery, callback: *const fn (Solid__Battery, bool, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_PresentStateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#chargePercentChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` value: i32 `
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn ChargePercentChanged(self: ?*anyopaque, value: i32, udi: []const u8) void {
+    pub fn ChargePercentChanged(self: Solid__Battery, value: i32, udi: []const u8) void {
         const udi_str = qtc.libqt_string{
             .len = udi.len,
             .data = udi.ptr,
         };
-        qtc.Solid__Battery_ChargePercentChanged(@ptrCast(self), @bitCast(value), udi_str);
+        qtc.Solid__Battery_ChargePercentChanged(@ptrCast(self.ptr), @bitCast(value), udi_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#chargePercentChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__Battery, value: i32, udi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: Solid__Battery, value: i32, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnChargePercentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_ChargePercentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChargePercentChanged(self: Solid__Battery, callback: *const fn (Solid__Battery, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_ChargePercentChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#capacityChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` value: i32 `
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn CapacityChanged(self: ?*anyopaque, value: i32, udi: []const u8) void {
+    pub fn CapacityChanged(self: Solid__Battery, value: i32, udi: []const u8) void {
         const udi_str = qtc.libqt_string{
             .len = udi.len,
             .data = udi.ptr,
         };
-        qtc.Solid__Battery_CapacityChanged(@ptrCast(self), @bitCast(value), udi_str);
+        qtc.Solid__Battery_CapacityChanged(@ptrCast(self.ptr), @bitCast(value), udi_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#capacityChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__Battery, value: i32, udi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: Solid__Battery, value: i32, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnCapacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_CapacityChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCapacityChanged(self: Solid__Battery, callback: *const fn (Solid__Battery, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_CapacityChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#cycleCountChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` value: i32 `
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn CycleCountChanged(self: ?*anyopaque, value: i32, udi: []const u8) void {
+    pub fn CycleCountChanged(self: Solid__Battery, value: i32, udi: []const u8) void {
         const udi_str = qtc.libqt_string{
             .len = udi.len,
             .data = udi.ptr,
         };
-        qtc.Solid__Battery_CycleCountChanged(@ptrCast(self), @bitCast(value), udi_str);
+        qtc.Solid__Battery_CycleCountChanged(@ptrCast(self.ptr), @bitCast(value), udi_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#cycleCountChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__Battery, value: i32, udi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: Solid__Battery, value: i32, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnCycleCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_CycleCountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCycleCountChanged(self: Solid__Battery, callback: *const fn (Solid__Battery, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_CycleCountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#powerSupplyStateChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` newState: bool `
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn PowerSupplyStateChanged(self: ?*anyopaque, newState: bool, udi: []const u8) void {
+    pub fn PowerSupplyStateChanged(self: Solid__Battery, newState: bool, udi: []const u8) void {
         const udi_str = qtc.libqt_string{
             .len = udi.len,
             .data = udi.ptr,
         };
-        qtc.Solid__Battery_PowerSupplyStateChanged(@ptrCast(self), newState, udi_str);
+        qtc.Solid__Battery_PowerSupplyStateChanged(@ptrCast(self.ptr), newState, udi_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#powerSupplyStateChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__Battery, newState: bool, udi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: Solid__Battery, newState: bool, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnPowerSupplyStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_PowerSupplyStateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPowerSupplyStateChanged(self: Solid__Battery, callback: *const fn (Solid__Battery, bool, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_PowerSupplyStateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#chargeStateChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` newState: i32 `
     ///
-    pub fn ChargeStateChanged(self: ?*anyopaque, newState: i32) void {
-        qtc.Solid__Battery_ChargeStateChanged(@ptrCast(self), @bitCast(newState));
+    pub fn ChargeStateChanged(self: Solid__Battery, newState: i32) void {
+        qtc.Solid__Battery_ChargeStateChanged(@ptrCast(self.ptr), @bitCast(newState));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#chargeStateChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__Battery, newState: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: Solid__Battery, newState: i32) callconv(.c) void `
     ///
-    pub fn OnChargeStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_ChargeStateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChargeStateChanged(self: Solid__Battery, callback: *const fn (Solid__Battery, i32) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_ChargeStateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#timeToEmptyChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` time: isize `
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn TimeToEmptyChanged(self: ?*anyopaque, time: isize, udi: []const u8) void {
+    pub fn TimeToEmptyChanged(self: Solid__Battery, time: isize, udi: []const u8) void {
         const udi_str = qtc.libqt_string{
             .len = udi.len,
             .data = udi.ptr,
         };
-        qtc.Solid__Battery_TimeToEmptyChanged(@ptrCast(self), @bitCast(time), udi_str);
+        qtc.Solid__Battery_TimeToEmptyChanged(@ptrCast(self.ptr), @bitCast(time), udi_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#timeToEmptyChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__Battery, time: isize, udi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: Solid__Battery, time: isize, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTimeToEmptyChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, isize, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_TimeToEmptyChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimeToEmptyChanged(self: Solid__Battery, callback: *const fn (Solid__Battery, isize, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_TimeToEmptyChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#timeToFullChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` time: isize `
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn TimeToFullChanged(self: ?*anyopaque, time: isize, udi: []const u8) void {
+    pub fn TimeToFullChanged(self: Solid__Battery, time: isize, udi: []const u8) void {
         const udi_str = qtc.libqt_string{
             .len = udi.len,
             .data = udi.ptr,
         };
-        qtc.Solid__Battery_TimeToFullChanged(@ptrCast(self), @bitCast(time), udi_str);
+        qtc.Solid__Battery_TimeToFullChanged(@ptrCast(self.ptr), @bitCast(time), udi_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#timeToFullChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__Battery, time: isize, udi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: Solid__Battery, time: isize, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTimeToFullChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, isize, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_TimeToFullChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimeToFullChanged(self: Solid__Battery, callback: *const fn (Solid__Battery, isize, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_TimeToFullChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#energyChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` energy: f64 `
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn EnergyChanged(self: ?*anyopaque, energy: f64, udi: []const u8) void {
+    pub fn EnergyChanged(self: Solid__Battery, energy: f64, udi: []const u8) void {
         const udi_str = qtc.libqt_string{
             .len = udi.len,
             .data = udi.ptr,
         };
-        qtc.Solid__Battery_EnergyChanged(@ptrCast(self), @bitCast(energy), udi_str);
+        qtc.Solid__Battery_EnergyChanged(@ptrCast(self.ptr), @bitCast(energy), udi_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#energyChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__Battery, energy: f64, udi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: Solid__Battery, energy: f64, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnEnergyChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_EnergyChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnergyChanged(self: Solid__Battery, callback: *const fn (Solid__Battery, f64, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_EnergyChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#energyFullChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` energy: f64 `
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn EnergyFullChanged(self: ?*anyopaque, energy: f64, udi: []const u8) void {
+    pub fn EnergyFullChanged(self: Solid__Battery, energy: f64, udi: []const u8) void {
         const udi_str = qtc.libqt_string{
             .len = udi.len,
             .data = udi.ptr,
         };
-        qtc.Solid__Battery_EnergyFullChanged(@ptrCast(self), @bitCast(energy), udi_str);
+        qtc.Solid__Battery_EnergyFullChanged(@ptrCast(self.ptr), @bitCast(energy), udi_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#energyFullChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__Battery, energy: f64, udi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: Solid__Battery, energy: f64, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnEnergyFullChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_EnergyFullChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnergyFullChanged(self: Solid__Battery, callback: *const fn (Solid__Battery, f64, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_EnergyFullChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#energyFullDesignChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` energy: f64 `
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn EnergyFullDesignChanged(self: ?*anyopaque, energy: f64, udi: []const u8) void {
+    pub fn EnergyFullDesignChanged(self: Solid__Battery, energy: f64, udi: []const u8) void {
         const udi_str = qtc.libqt_string{
             .len = udi.len,
             .data = udi.ptr,
         };
-        qtc.Solid__Battery_EnergyFullDesignChanged(@ptrCast(self), @bitCast(energy), udi_str);
+        qtc.Solid__Battery_EnergyFullDesignChanged(@ptrCast(self.ptr), @bitCast(energy), udi_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#energyFullDesignChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__Battery, energy: f64, udi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: Solid__Battery, energy: f64, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnEnergyFullDesignChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_EnergyFullDesignChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnergyFullDesignChanged(self: Solid__Battery, callback: *const fn (Solid__Battery, f64, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_EnergyFullDesignChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#energyRateChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` energyRate: f64 `
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn EnergyRateChanged(self: ?*anyopaque, energyRate: f64, udi: []const u8) void {
+    pub fn EnergyRateChanged(self: Solid__Battery, energyRate: f64, udi: []const u8) void {
         const udi_str = qtc.libqt_string{
             .len = udi.len,
             .data = udi.ptr,
         };
-        qtc.Solid__Battery_EnergyRateChanged(@ptrCast(self), @bitCast(energyRate), udi_str);
+        qtc.Solid__Battery_EnergyRateChanged(@ptrCast(self.ptr), @bitCast(energyRate), udi_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#energyRateChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__Battery, energyRate: f64, udi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: Solid__Battery, energyRate: f64, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnEnergyRateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_EnergyRateChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnergyRateChanged(self: Solid__Battery, callback: *const fn (Solid__Battery, f64, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_EnergyRateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#voltageChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` voltage: f64 `
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn VoltageChanged(self: ?*anyopaque, voltage: f64, udi: []const u8) void {
+    pub fn VoltageChanged(self: Solid__Battery, voltage: f64, udi: []const u8) void {
         const udi_str = qtc.libqt_string{
             .len = udi.len,
             .data = udi.ptr,
         };
-        qtc.Solid__Battery_VoltageChanged(@ptrCast(self), @bitCast(voltage), udi_str);
+        qtc.Solid__Battery_VoltageChanged(@ptrCast(self.ptr), @bitCast(voltage), udi_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#voltageChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__Battery, voltage: f64, udi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: Solid__Battery, voltage: f64, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnVoltageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_VoltageChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnVoltageChanged(self: Solid__Battery, callback: *const fn (Solid__Battery, f64, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_VoltageChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#temperatureChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` temperature: f64 `
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn TemperatureChanged(self: ?*anyopaque, temperature: f64, udi: []const u8) void {
+    pub fn TemperatureChanged(self: Solid__Battery, temperature: f64, udi: []const u8) void {
         const udi_str = qtc.libqt_string{
             .len = udi.len,
             .data = udi.ptr,
         };
-        qtc.Solid__Battery_TemperatureChanged(@ptrCast(self), @bitCast(temperature), udi_str);
+        qtc.Solid__Battery_TemperatureChanged(@ptrCast(self.ptr), @bitCast(temperature), udi_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#temperatureChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__Battery, temperature: f64, udi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: Solid__Battery, temperature: f64, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTemperatureChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_TemperatureChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTemperatureChanged(self: Solid__Battery, callback: *const fn (Solid__Battery, f64, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_TemperatureChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#remainingTimeChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` time: isize `
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn RemainingTimeChanged(self: ?*anyopaque, time: isize, udi: []const u8) void {
+    pub fn RemainingTimeChanged(self: Solid__Battery, time: isize, udi: []const u8) void {
         const udi_str = qtc.libqt_string{
             .len = udi.len,
             .data = udi.ptr,
         };
-        qtc.Solid__Battery_RemainingTimeChanged(@ptrCast(self), @bitCast(time), udi_str);
+        qtc.Solid__Battery_RemainingTimeChanged(@ptrCast(self.ptr), @bitCast(time), udi_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#remainingTimeChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__Battery, time: isize, udi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: Solid__Battery, time: isize, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnRemainingTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, isize, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_RemainingTimeChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRemainingTimeChanged(self: Solid__Battery, callback: *const fn (Solid__Battery, isize, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_RemainingTimeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -746,15 +764,15 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -768,30 +786,30 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` newState: i32 `
     ///
     /// ` udi: []const u8 `
     ///
-    pub fn ChargeStateChanged2(self: ?*anyopaque, newState: i32, udi: []const u8) void {
+    pub fn ChargeStateChanged2(self: Solid__Battery, newState: i32, udi: []const u8) void {
         const udi_str = qtc.libqt_string{
             .len = udi.len,
             .data = udi.ptr,
         };
-        qtc.Solid__Battery_ChargeStateChanged2(@ptrCast(self), @bitCast(newState), udi_str);
+        qtc.Solid__Battery_ChargeStateChanged2(@ptrCast(self.ptr), @bitCast(newState), udi_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/solid-battery.html#chargeStateChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__Battery, newState: i32, udi: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: Solid__Battery, newState: i32, udi: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnChargeStateChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_ChargeStateChanged2(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChargeStateChanged2(self: Solid__Battery, callback: *const fn (Solid__Battery, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_ChargeStateChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Solid::DeviceInterface
@@ -800,10 +818,10 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.Solid__DeviceInterface_IsValid(@ptrCast(self));
+    pub fn IsValid(self: Solid__Battery) bool {
+        return qtc.Solid__DeviceInterface_IsValid(@ptrCast(self.ptr));
     }
 
     /// Inherited from Solid::DeviceInterface
@@ -812,11 +830,11 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` typeVal: deviceinterface_enums.Type `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TypeToString(typeVal: i32, allocator: std.mem.Allocator) []const u8 {
+    /// ` typeVal: deviceinterface_enums.Type `
+    ///
+    pub fn TypeToString(allocator: std.mem.Allocator, typeVal: i32) []const u8 {
         var _str = qtc.Solid__DeviceInterface_TypeToString(@bitCast(typeVal));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__battery.TypeToString: Memory allocation failed");
@@ -850,11 +868,11 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` typeVal: deviceinterface_enums.Type `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TypeDescription(typeVal: i32, allocator: std.mem.Allocator) []const u8 {
+    /// ` typeVal: deviceinterface_enums.Type `
+    ///
+    pub fn TypeDescription(allocator: std.mem.Allocator, typeVal: i32) []const u8 {
         var _str = qtc.Solid__DeviceInterface_TypeDescription(@bitCast(typeVal));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__battery.TypeDescription: Memory allocation failed");
@@ -868,12 +886,13 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: Solid__Battery, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -882,14 +901,16 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: Solid__Battery, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -898,12 +919,12 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: Solid__Battery, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__battery.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -916,12 +937,12 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: Solid__Battery, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -930,10 +951,10 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: Solid__Battery) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -942,10 +963,10 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: Solid__Battery) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -954,10 +975,10 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: Solid__Battery) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -966,10 +987,10 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: Solid__Battery) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -978,12 +999,12 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: Solid__Battery, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -992,10 +1013,10 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: Solid__Battery) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1004,12 +1025,13 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: Solid__Battery, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1018,12 +1040,12 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: Solid__Battery, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1032,12 +1054,12 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: Solid__Battery, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1046,12 +1068,12 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: Solid__Battery, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1060,12 +1082,12 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: Solid__Battery, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1074,16 +1096,17 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: Solid__Battery, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("solid__battery.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("solid__battery.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1093,12 +1116,13 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: Solid__Battery, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1107,12 +1131,13 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: Solid__Battery, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1121,12 +1146,13 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: Solid__Battery, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1135,18 +1161,20 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1155,16 +1183,20 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1173,18 +1205,19 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: Solid__Battery, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1193,18 +1226,20 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1213,16 +1248,20 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1231,10 +1270,10 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: Solid__Battery) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1243,12 +1282,13 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: Solid__Battery, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1257,10 +1297,11 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1269,10 +1310,10 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: Solid__Battery) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1281,10 +1322,10 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: Solid__Battery) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1293,15 +1334,16 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: Solid__Battery, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1310,13 +1352,13 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: Solid__Battery, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1325,17 +1367,16 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: Solid__Battery, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("solid__battery.DynamicPropertyNames: Memory allocation failed");
@@ -1354,10 +1395,10 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: Solid__Battery) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1366,10 +1407,10 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: Solid__Battery) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1378,10 +1419,10 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: Solid__Battery) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1390,12 +1431,12 @@ pub const solid__battery = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__Battery) callconv(.c) void `
+    /// ` callback: *const fn (self: Solid__Battery) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: Solid__Battery, callback: *const fn (Solid__Battery) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1404,10 +1445,10 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: Solid__Battery) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1416,13 +1457,13 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: Solid__Battery, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1431,10 +1472,10 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: Solid__Battery) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1443,14 +1484,14 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: Solid__Battery, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1459,14 +1500,14 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: Solid__Battery, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1475,20 +1516,22 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1497,18 +1540,22 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1517,9 +1564,9 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1527,10 +1574,11 @@ pub const solid__battery = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: Solid__Battery, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1539,13 +1587,13 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: Solid__Battery, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1554,15 +1602,16 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: Solid__Battery, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1571,18 +1620,19 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: Solid__Battery, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1591,15 +1641,16 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: Solid__Battery, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1608,12 +1659,13 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: Solid__Battery, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1622,12 +1674,12 @@ pub const solid__battery = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__Battery, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: Solid__Battery, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: Solid__Battery, callback: *const fn (Solid__Battery, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1638,12 +1690,12 @@ pub const solid__battery = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    /// ` callback: *const fn (self: QtC.Solid__Battery, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: Solid__Battery, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: Solid__Battery, callback: *const fn (Solid__Battery, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1654,10 +1706,10 @@ pub const solid__battery = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.Solid__Battery `
+    /// ` self: Solid__Battery `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.Solid__Battery_Delete(@ptrCast(self));
+    pub fn Delete(self: Solid__Battery) void {
+        qtc.Solid__Battery_Delete(@ptrCast(self.ptr));
     }
 };
 

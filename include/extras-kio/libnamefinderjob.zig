@@ -1,39 +1,64 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KJob = @import("libqt6").KJob;
+const KJobUiDelegate = @import("libqt6").KJobUiDelegate;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QUrl = @import("libqt6").QUrl;
+const QVariant = @import("libqt6").QVariant;
 const kjob_enums = @import("../extras-kcoreaddons/libkjob.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kio-namefinderjob.html)
-pub const kio__namefinderjob = struct {
+pub const KIO__NameFinderJob = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kio-namefinderjob.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KIO__NameFinderJob,
+
+    pub const _is_KIO__NameFinderJob = {};
+    pub const _is_KCompositeJob = {};
+    pub const _is_KJob = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new KIO::NameFinderJob object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` baseUrl: QtC.QUrl `
+    /// ` baseUrl: QUrl `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New(baseUrl: ?*anyopaque, name: []const u8, parent: ?*anyopaque) QtC.KIO__NameFinderJob {
+    pub fn New(baseUrl: anytype, name: []const u8, parent: anytype) KIO__NameFinderJob {
+        comptime _ = @TypeOf(baseUrl)._is_QUrl;
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-
-        return qtc.KIO__NameFinderJob_new(@ptrCast(baseUrl), name_str, @ptrCast(parent));
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.KIO__NameFinderJob_new(@ptrCast(baseUrl.ptr), name_str, @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KIO__NameFinderJob_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: KIO__NameFinderJob) QMetaObject {
+        return .{ .ptr = qtc.KIO__NameFinderJob_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -42,12 +67,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.KIO__NameFinderJob_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: KIO__NameFinderJob, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.KIO__NameFinderJob_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -60,33 +85,33 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.KIO__NameFinderJob_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: KIO__NameFinderJob) QMetaObject {
+        return .{ .ptr = qtc.KIO__NameFinderJob_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: KIO__NameFinderJob, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KIO__NameFinderJob_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.KIO__NameFinderJob_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.KIO__NameFinderJob_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.KIO__NameFinderJob_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -97,18 +122,18 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: KIO__NameFinderJob, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.KIO__NameFinderJob_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.KIO__NameFinderJob_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -116,20 +141,20 @@ pub const kio__namefinderjob = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KIO__NameFinderJob_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: KIO__NameFinderJob, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KIO__NameFinderJob_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.KIO__NameFinderJob_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.KIO__NameFinderJob_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -140,7 +165,7 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -148,19 +173,19 @@ pub const kio__namefinderjob = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.KIO__NameFinderJob_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: KIO__NameFinderJob, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.KIO__NameFinderJob_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -173,10 +198,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn Start(self: ?*anyopaque) void {
-        qtc.KIO__NameFinderJob_Start(@ptrCast(self));
+    pub fn Start(self: KIO__NameFinderJob) void {
+        qtc.KIO__NameFinderJob_Start(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-namefinderjob.html#start)
@@ -185,12 +210,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStart(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnStart(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStart(self: KIO__NameFinderJob, callback: *const fn () callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnStart(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperStart` instead
@@ -203,42 +228,42 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn SuperStart(self: ?*anyopaque) void {
-        qtc.KIO__NameFinderJob_SuperStart(@ptrCast(self));
+    pub fn SuperStart(self: KIO__NameFinderJob) void {
+        qtc.KIO__NameFinderJob_SuperStart(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-namefinderjob.html#finalUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn FinalUrl(self: ?*anyopaque) QtC.QUrl {
-        return qtc.KIO__NameFinderJob_FinalUrl(@ptrCast(self));
+    pub fn FinalUrl(self: KIO__NameFinderJob) QUrl {
+        return .{ .ptr = qtc.KIO__NameFinderJob_FinalUrl(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-namefinderjob.html#baseUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn BaseUrl(self: ?*anyopaque) QtC.QUrl {
-        return qtc.KIO__NameFinderJob_BaseUrl(@ptrCast(self));
+    pub fn BaseUrl(self: KIO__NameFinderJob) QUrl {
+        return .{ .ptr = qtc.KIO__NameFinderJob_BaseUrl(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-namefinderjob.html#finalName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FinalName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KIO__NameFinderJob_FinalName(@ptrCast(self));
+    pub fn FinalName(self: KIO__NameFinderJob, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KIO__NameFinderJob_FinalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__namefinderjob.FinalName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -249,13 +274,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -269,15 +294,15 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -293,12 +318,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` delegate: QtC.KJobUiDelegate `
+    /// ` delegate: KJobUiDelegate `
     ///
-    pub fn SetUiDelegate(self: ?*anyopaque, delegate: ?*anyopaque) void {
-        qtc.KJob_SetUiDelegate(@ptrCast(self), @ptrCast(delegate));
+    pub fn SetUiDelegate(self: KIO__NameFinderJob, delegate: anytype) void {
+        comptime _ = @TypeOf(delegate)._is_KJobUiDelegate;
+        qtc.KJob_SetUiDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
     }
 
     /// Inherited from KJob
@@ -307,10 +333,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn UiDelegate(self: ?*anyopaque) QtC.KJobUiDelegate {
-        return qtc.KJob_UiDelegate(@ptrCast(self));
+    pub fn UiDelegate(self: KIO__NameFinderJob) KJobUiDelegate {
+        return .{ .ptr = qtc.KJob_UiDelegate(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from KJob
@@ -319,14 +345,14 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ## Returns:
     ///
     /// ` flag of kjob_enums.Capability `
     ///
-    pub fn Capabilities(self: ?*anyopaque) i32 {
-        return qtc.KJob_Capabilities(@ptrCast(self));
+    pub fn Capabilities(self: KIO__NameFinderJob) i32 {
+        return qtc.KJob_Capabilities(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -335,10 +361,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn IsSuspended(self: ?*anyopaque) bool {
-        return qtc.KJob_IsSuspended(@ptrCast(self));
+    pub fn IsSuspended(self: KIO__NameFinderJob) bool {
+        return qtc.KJob_IsSuspended(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -347,10 +373,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn Kill(self: ?*anyopaque) bool {
-        return qtc.KJob_Kill(@ptrCast(self));
+    pub fn Kill(self: KIO__NameFinderJob) bool {
+        return qtc.KJob_Kill(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -359,10 +385,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn Suspend(self: ?*anyopaque) bool {
-        return qtc.KJob_Suspend(@ptrCast(self));
+    pub fn Suspend(self: KIO__NameFinderJob) bool {
+        return qtc.KJob_Suspend(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -371,10 +397,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn Resume(self: ?*anyopaque) bool {
-        return qtc.KJob_Resume(@ptrCast(self));
+    pub fn Resume(self: KIO__NameFinderJob) bool {
+        return qtc.KJob_Resume(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -383,10 +409,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn Exec(self: ?*anyopaque) bool {
-        return qtc.KJob_Exec(@ptrCast(self));
+    pub fn Exec(self: KIO__NameFinderJob) bool {
+        return qtc.KJob_Exec(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -395,10 +421,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn Error(self: ?*anyopaque) i32 {
-        return qtc.KJob_Error(@ptrCast(self));
+    pub fn Error(self: KIO__NameFinderJob) i32 {
+        return qtc.KJob_Error(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -407,12 +433,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KJob_ErrorText(@ptrCast(self));
+    pub fn ErrorText(self: KIO__NameFinderJob, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KJob_ErrorText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__namefinderjob.ErrorText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -425,12 +451,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn ProcessedAmount(self: ?*anyopaque, unit: i32) usize {
-        return qtc.KJob_ProcessedAmount(@ptrCast(self), @bitCast(unit));
+    pub fn ProcessedAmount(self: KIO__NameFinderJob, unit: i32) usize {
+        return qtc.KJob_ProcessedAmount(@ptrCast(self.ptr), @bitCast(unit));
     }
 
     /// Inherited from KJob
@@ -439,12 +465,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn TotalAmount(self: ?*anyopaque, unit: i32) usize {
-        return qtc.KJob_TotalAmount(@ptrCast(self), @bitCast(unit));
+    pub fn TotalAmount(self: KIO__NameFinderJob, unit: i32) usize {
+        return qtc.KJob_TotalAmount(@ptrCast(self.ptr), @bitCast(unit));
     }
 
     /// Inherited from KJob
@@ -453,10 +479,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn Percent(self: ?*anyopaque) usize {
-        return qtc.KJob_Percent(@ptrCast(self));
+    pub fn Percent(self: KIO__NameFinderJob) usize {
+        return qtc.KJob_Percent(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -465,12 +491,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` autodelete: bool `
     ///
-    pub fn SetAutoDelete(self: ?*anyopaque, autodelete: bool) void {
-        qtc.KJob_SetAutoDelete(@ptrCast(self), autodelete);
+    pub fn SetAutoDelete(self: KIO__NameFinderJob, autodelete: bool) void {
+        qtc.KJob_SetAutoDelete(@ptrCast(self.ptr), autodelete);
     }
 
     /// Inherited from KJob
@@ -479,10 +505,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn IsAutoDelete(self: ?*anyopaque) bool {
-        return qtc.KJob_IsAutoDelete(@ptrCast(self));
+    pub fn IsAutoDelete(self: KIO__NameFinderJob) bool {
+        return qtc.KJob_IsAutoDelete(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -491,10 +517,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn SetFinishedNotificationHidden(self: ?*anyopaque) void {
-        qtc.KJob_SetFinishedNotificationHidden(@ptrCast(self));
+    pub fn SetFinishedNotificationHidden(self: KIO__NameFinderJob) void {
+        qtc.KJob_SetFinishedNotificationHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -503,10 +529,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn IsFinishedNotificationHidden(self: ?*anyopaque) bool {
-        return qtc.KJob_IsFinishedNotificationHidden(@ptrCast(self));
+    pub fn IsFinishedNotificationHidden(self: KIO__NameFinderJob) bool {
+        return qtc.KJob_IsFinishedNotificationHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -515,10 +541,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn IsStartedWithExec(self: ?*anyopaque) bool {
-        return qtc.KJob_IsStartedWithExec(@ptrCast(self));
+    pub fn IsStartedWithExec(self: KIO__NameFinderJob) bool {
+        return qtc.KJob_IsStartedWithExec(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -527,10 +553,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn ElapsedTime(self: ?*anyopaque) i64 {
-        return qtc.KJob_ElapsedTime(@ptrCast(self));
+    pub fn ElapsedTime(self: KIO__NameFinderJob) i64 {
+        return qtc.KJob_ElapsedTime(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -539,18 +565,19 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` job: QtC.KJob `
+    /// ` job: KJob `
     ///
     /// ` message: []const u8 `
     ///
-    pub fn InfoMessage(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
+    pub fn InfoMessage(self: KIO__NameFinderJob, job: anytype, message: []const u8) void {
+        comptime _ = @TypeOf(job)._is_KJob;
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-        qtc.KJob_InfoMessage(@ptrCast(self), @ptrCast(job), message_str);
+        qtc.KJob_InfoMessage(@ptrCast(self.ptr), @ptrCast(job.ptr), message_str);
     }
 
     /// Inherited from KJob
@@ -559,12 +586,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, job: KJob, message: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnInfoMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJob_Connect_InfoMessage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInfoMessage(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, KJob, [*:0]const u8) callconv(.c) void) void {
+        qtc.KJob_Connect_InfoMessage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -573,18 +600,19 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` job: QtC.KJob `
+    /// ` job: KJob `
     ///
     /// ` message: []const u8 `
     ///
-    pub fn Warning(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
+    pub fn Warning(self: KIO__NameFinderJob, job: anytype, message: []const u8) void {
+        comptime _ = @TypeOf(job)._is_KJob;
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-        qtc.KJob_Warning(@ptrCast(self), @ptrCast(job), message_str);
+        qtc.KJob_Warning(@ptrCast(self.ptr), @ptrCast(job.ptr), message_str);
     }
 
     /// Inherited from KJob
@@ -593,12 +621,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, job: KJob, message: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWarning(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJob_Connect_Warning(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWarning(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, KJob, [*:0]const u8) callconv(.c) void) void {
+        qtc.KJob_Connect_Warning(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -607,14 +635,15 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` job: QtC.KJob `
+    /// ` job: KJob `
     ///
     /// ` size: usize `
     ///
-    pub fn TotalSize(self: ?*anyopaque, job: ?*anyopaque, size: usize) void {
-        qtc.KJob_TotalSize(@ptrCast(self), @ptrCast(job), @bitCast(size));
+    pub fn TotalSize(self: KIO__NameFinderJob, job: anytype, size: usize) void {
+        comptime _ = @TypeOf(job)._is_KJob;
+        qtc.KJob_TotalSize(@ptrCast(self.ptr), @ptrCast(job.ptr), @bitCast(size));
     }
 
     /// Inherited from KJob
@@ -623,12 +652,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, size: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, job: KJob, size: usize) callconv(.c) void `
     ///
-    pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
-        qtc.KJob_Connect_TotalSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTotalSize(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, KJob, usize) callconv(.c) void) void {
+        qtc.KJob_Connect_TotalSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -637,14 +666,15 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` job: QtC.KJob `
+    /// ` job: KJob `
     ///
     /// ` size: usize `
     ///
-    pub fn ProcessedSize(self: ?*anyopaque, job: ?*anyopaque, size: usize) void {
-        qtc.KJob_ProcessedSize(@ptrCast(self), @ptrCast(job), @bitCast(size));
+    pub fn ProcessedSize(self: KIO__NameFinderJob, job: anytype, size: usize) void {
+        comptime _ = @TypeOf(job)._is_KJob;
+        qtc.KJob_ProcessedSize(@ptrCast(self.ptr), @ptrCast(job.ptr), @bitCast(size));
     }
 
     /// Inherited from KJob
@@ -653,12 +683,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, size: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, job: KJob, size: usize) callconv(.c) void `
     ///
-    pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
-        qtc.KJob_Connect_ProcessedSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnProcessedSize(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, KJob, usize) callconv(.c) void) void {
+        qtc.KJob_Connect_ProcessedSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -667,14 +697,15 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` job: QtC.KJob `
+    /// ` job: KJob `
     ///
     /// ` speed: usize `
     ///
-    pub fn Speed(self: ?*anyopaque, job: ?*anyopaque, speed: usize) void {
-        qtc.KJob_Speed(@ptrCast(self), @ptrCast(job), @bitCast(speed));
+    pub fn Speed(self: KIO__NameFinderJob, job: anytype, speed: usize) void {
+        comptime _ = @TypeOf(job)._is_KJob;
+        qtc.KJob_Speed(@ptrCast(self.ptr), @ptrCast(job.ptr), @bitCast(speed));
     }
 
     /// Inherited from KJob
@@ -683,12 +714,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, speed: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, job: KJob, speed: usize) callconv(.c) void `
     ///
-    pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
-        qtc.KJob_Connect_Speed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSpeed(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, KJob, usize) callconv(.c) void) void {
+        qtc.KJob_Connect_Speed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -697,12 +728,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` verbosity: kjob_enums.KillVerbosity `
     ///
-    pub fn Kill1(self: ?*anyopaque, verbosity: i32) bool {
-        return qtc.KJob_Kill1(@ptrCast(self), @bitCast(verbosity));
+    pub fn Kill1(self: KIO__NameFinderJob, verbosity: i32) bool {
+        return qtc.KJob_Kill1(@ptrCast(self.ptr), @bitCast(verbosity));
     }
 
     /// Inherited from KJob
@@ -711,12 +742,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` hide: bool `
     ///
-    pub fn SetFinishedNotificationHidden1(self: ?*anyopaque, hide: bool) void {
-        qtc.KJob_SetFinishedNotificationHidden1(@ptrCast(self), hide);
+    pub fn SetFinishedNotificationHidden1(self: KIO__NameFinderJob, hide: bool) void {
+        qtc.KJob_SetFinishedNotificationHidden1(@ptrCast(self.ptr), hide);
     }
 
     /// Inherited from QObject
@@ -725,12 +756,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: KIO__NameFinderJob, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__namefinderjob.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -743,12 +774,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: KIO__NameFinderJob, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -757,10 +788,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: KIO__NameFinderJob) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -769,10 +800,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: KIO__NameFinderJob) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -781,10 +812,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: KIO__NameFinderJob) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -793,10 +824,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: KIO__NameFinderJob) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -805,12 +836,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: KIO__NameFinderJob, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -819,10 +850,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: KIO__NameFinderJob) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -831,12 +862,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: KIO__NameFinderJob, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -845,12 +877,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: KIO__NameFinderJob, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -859,12 +891,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: KIO__NameFinderJob, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -873,12 +905,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: KIO__NameFinderJob, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -887,12 +919,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: KIO__NameFinderJob, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -901,16 +933,17 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: KIO__NameFinderJob, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("kio__namefinderjob.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kio__namefinderjob.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -920,12 +953,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: KIO__NameFinderJob, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -934,12 +968,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: KIO__NameFinderJob, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -948,12 +983,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: KIO__NameFinderJob, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -962,18 +998,20 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -982,16 +1020,20 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1000,18 +1042,19 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: KIO__NameFinderJob, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1020,18 +1063,20 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1040,16 +1085,20 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1058,10 +1107,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: KIO__NameFinderJob) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1070,12 +1119,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: KIO__NameFinderJob, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1084,10 +1134,11 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1096,10 +1147,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: KIO__NameFinderJob) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1108,10 +1159,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: KIO__NameFinderJob) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1120,15 +1171,16 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: KIO__NameFinderJob, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1137,13 +1189,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: KIO__NameFinderJob, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1152,17 +1204,16 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: KIO__NameFinderJob, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kio__namefinderjob.DynamicPropertyNames: Memory allocation failed");
@@ -1181,10 +1232,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: KIO__NameFinderJob) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1193,10 +1244,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: KIO__NameFinderJob) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1205,10 +1256,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: KIO__NameFinderJob) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1217,12 +1268,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1231,10 +1282,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: KIO__NameFinderJob) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1243,13 +1294,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: KIO__NameFinderJob, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1258,10 +1309,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: KIO__NameFinderJob) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1270,14 +1321,14 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: KIO__NameFinderJob, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1286,14 +1337,14 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: KIO__NameFinderJob, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1302,20 +1353,22 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1324,18 +1377,22 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1344,9 +1401,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1354,10 +1411,11 @@ pub const kio__namefinderjob = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: KIO__NameFinderJob, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1366,13 +1424,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: KIO__NameFinderJob, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1381,15 +1439,16 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: KIO__NameFinderJob, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1398,18 +1457,19 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: KIO__NameFinderJob, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1418,15 +1478,16 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: KIO__NameFinderJob, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1435,12 +1496,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: KIO__NameFinderJob, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1449,12 +1511,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompositeJob
@@ -1465,12 +1527,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` job: QtC.KJob `
+    /// ` job: KJob `
     ///
-    pub fn AddSubjob(self: ?*anyopaque, job: ?*anyopaque) bool {
-        return qtc.KIO__NameFinderJob_AddSubjob(@ptrCast(self), @ptrCast(job));
+    pub fn AddSubjob(self: KIO__NameFinderJob, job: anytype) bool {
+        comptime _ = @TypeOf(job)._is_KJob;
+        return qtc.KIO__NameFinderJob_AddSubjob(@ptrCast(self.ptr), @ptrCast(job.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperAddSubjob` instead
@@ -1485,12 +1548,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` job: QtC.KJob `
+    /// ` job: KJob `
     ///
-    pub fn SuperAddSubjob(self: ?*anyopaque, job: ?*anyopaque) bool {
-        return qtc.KIO__NameFinderJob_SuperAddSubjob(@ptrCast(self), @ptrCast(job));
+    pub fn SuperAddSubjob(self: KIO__NameFinderJob, job: anytype) bool {
+        comptime _ = @TypeOf(job)._is_KJob;
+        return qtc.KIO__NameFinderJob_SuperAddSubjob(@ptrCast(self.ptr), @ptrCast(job.ptr));
     }
 
     /// Inherited from KCompositeJob
@@ -1501,12 +1565,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob) callconv(.c) bool `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, job: KJob) callconv(.c) bool `
     ///
-    pub fn OnAddSubjob(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIO__NameFinderJob_OnAddSubjob(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAddSubjob(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, KJob) callconv(.c) bool) void {
+        qtc.KIO__NameFinderJob_OnAddSubjob(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompositeJob
@@ -1517,12 +1581,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` job: QtC.KJob `
+    /// ` job: KJob `
     ///
-    pub fn RemoveSubjob(self: ?*anyopaque, job: ?*anyopaque) bool {
-        return qtc.KIO__NameFinderJob_RemoveSubjob(@ptrCast(self), @ptrCast(job));
+    pub fn RemoveSubjob(self: KIO__NameFinderJob, job: anytype) bool {
+        comptime _ = @TypeOf(job)._is_KJob;
+        return qtc.KIO__NameFinderJob_RemoveSubjob(@ptrCast(self.ptr), @ptrCast(job.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperRemoveSubjob` instead
@@ -1537,12 +1602,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` job: QtC.KJob `
+    /// ` job: KJob `
     ///
-    pub fn SuperRemoveSubjob(self: ?*anyopaque, job: ?*anyopaque) bool {
-        return qtc.KIO__NameFinderJob_SuperRemoveSubjob(@ptrCast(self), @ptrCast(job));
+    pub fn SuperRemoveSubjob(self: KIO__NameFinderJob, job: anytype) bool {
+        comptime _ = @TypeOf(job)._is_KJob;
+        return qtc.KIO__NameFinderJob_SuperRemoveSubjob(@ptrCast(self.ptr), @ptrCast(job.ptr));
     }
 
     /// Inherited from KCompositeJob
@@ -1553,12 +1619,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob) callconv(.c) bool `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, job: KJob) callconv(.c) bool `
     ///
-    pub fn OnRemoveSubjob(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIO__NameFinderJob_OnRemoveSubjob(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRemoveSubjob(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, KJob) callconv(.c) bool) void {
+        qtc.KIO__NameFinderJob_OnRemoveSubjob(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompositeJob
@@ -1569,12 +1635,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` job: QtC.KJob `
+    /// ` job: KJob `
     ///
-    pub fn SlotResult(self: ?*anyopaque, job: ?*anyopaque) void {
-        qtc.KIO__NameFinderJob_SlotResult(@ptrCast(self), @ptrCast(job));
+    pub fn SlotResult(self: KIO__NameFinderJob, job: anytype) void {
+        comptime _ = @TypeOf(job)._is_KJob;
+        qtc.KIO__NameFinderJob_SlotResult(@ptrCast(self.ptr), @ptrCast(job.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSlotResult` instead
@@ -1589,12 +1656,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` job: QtC.KJob `
+    /// ` job: KJob `
     ///
-    pub fn SuperSlotResult(self: ?*anyopaque, job: ?*anyopaque) void {
-        qtc.KIO__NameFinderJob_SuperSlotResult(@ptrCast(self), @ptrCast(job));
+    pub fn SuperSlotResult(self: KIO__NameFinderJob, job: anytype) void {
+        comptime _ = @TypeOf(job)._is_KJob;
+        qtc.KIO__NameFinderJob_SuperSlotResult(@ptrCast(self.ptr), @ptrCast(job.ptr));
     }
 
     /// Inherited from KCompositeJob
@@ -1605,12 +1673,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, job: KJob) callconv(.c) void `
     ///
-    pub fn OnSlotResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnSlotResult(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSlotResult(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, KJob) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnSlotResult(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompositeJob
@@ -1621,18 +1689,19 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` job: QtC.KJob `
+    /// ` job: KJob `
     ///
     /// ` message: []const u8 `
     ///
-    pub fn SlotInfoMessage(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
+    pub fn SlotInfoMessage(self: KIO__NameFinderJob, job: anytype, message: []const u8) void {
+        comptime _ = @TypeOf(job)._is_KJob;
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-        qtc.KIO__NameFinderJob_SlotInfoMessage(@ptrCast(self), @ptrCast(job), message_str);
+        qtc.KIO__NameFinderJob_SlotInfoMessage(@ptrCast(self.ptr), @ptrCast(job.ptr), message_str);
     }
 
     /// ### DEPRECATED: Use `SuperSlotInfoMessage` instead
@@ -1647,18 +1716,19 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` job: QtC.KJob `
+    /// ` job: KJob `
     ///
     /// ` message: []const u8 `
     ///
-    pub fn SuperSlotInfoMessage(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
+    pub fn SuperSlotInfoMessage(self: KIO__NameFinderJob, job: anytype, message: []const u8) void {
+        comptime _ = @TypeOf(job)._is_KJob;
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-        qtc.KIO__NameFinderJob_SuperSlotInfoMessage(@ptrCast(self), @ptrCast(job), message_str);
+        qtc.KIO__NameFinderJob_SuperSlotInfoMessage(@ptrCast(self.ptr), @ptrCast(job.ptr), message_str);
     }
 
     /// Inherited from KCompositeJob
@@ -1669,12 +1739,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, job: KJob, message: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSlotInfoMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnSlotInfoMessage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSlotInfoMessage(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, KJob, [*:0]const u8) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnSlotInfoMessage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1685,10 +1755,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn DoKill(self: ?*anyopaque) bool {
-        return qtc.KIO__NameFinderJob_DoKill(@ptrCast(self));
+    pub fn DoKill(self: KIO__NameFinderJob) bool {
+        return qtc.KIO__NameFinderJob_DoKill(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDoKill` instead
@@ -1703,10 +1773,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn SuperDoKill(self: ?*anyopaque) bool {
-        return qtc.KIO__NameFinderJob_SuperDoKill(@ptrCast(self));
+    pub fn SuperDoKill(self: KIO__NameFinderJob) bool {
+        return qtc.KIO__NameFinderJob_SuperDoKill(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -1717,12 +1787,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnDoKill(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KIO__NameFinderJob_OnDoKill(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDoKill(self: KIO__NameFinderJob, callback: *const fn () callconv(.c) bool) void {
+        qtc.KIO__NameFinderJob_OnDoKill(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1733,10 +1803,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn DoSuspend(self: ?*anyopaque) bool {
-        return qtc.KIO__NameFinderJob_DoSuspend(@ptrCast(self));
+    pub fn DoSuspend(self: KIO__NameFinderJob) bool {
+        return qtc.KIO__NameFinderJob_DoSuspend(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDoSuspend` instead
@@ -1751,10 +1821,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn SuperDoSuspend(self: ?*anyopaque) bool {
-        return qtc.KIO__NameFinderJob_SuperDoSuspend(@ptrCast(self));
+    pub fn SuperDoSuspend(self: KIO__NameFinderJob) bool {
+        return qtc.KIO__NameFinderJob_SuperDoSuspend(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -1765,12 +1835,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnDoSuspend(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KIO__NameFinderJob_OnDoSuspend(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDoSuspend(self: KIO__NameFinderJob, callback: *const fn () callconv(.c) bool) void {
+        qtc.KIO__NameFinderJob_OnDoSuspend(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1781,10 +1851,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn DoResume(self: ?*anyopaque) bool {
-        return qtc.KIO__NameFinderJob_DoResume(@ptrCast(self));
+    pub fn DoResume(self: KIO__NameFinderJob) bool {
+        return qtc.KIO__NameFinderJob_DoResume(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDoResume` instead
@@ -1799,10 +1869,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn SuperDoResume(self: ?*anyopaque) bool {
-        return qtc.KIO__NameFinderJob_SuperDoResume(@ptrCast(self));
+    pub fn SuperDoResume(self: KIO__NameFinderJob) bool {
+        return qtc.KIO__NameFinderJob_SuperDoResume(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -1813,12 +1883,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnDoResume(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KIO__NameFinderJob_OnDoResume(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDoResume(self: KIO__NameFinderJob, callback: *const fn () callconv(.c) bool) void {
+        qtc.KIO__NameFinderJob_OnDoResume(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1829,12 +1899,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KIO__NameFinderJob_ErrorString(@ptrCast(self));
+    pub fn ErrorString(self: KIO__NameFinderJob, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KIO__NameFinderJob_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__namefinderjob.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1853,12 +1923,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KIO__NameFinderJob_SuperErrorString(@ptrCast(self));
+    pub fn SuperErrorString(self: KIO__NameFinderJob, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KIO__NameFinderJob_SuperErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__namefinderjob.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1871,16 +1941,16 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnErrorString(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.KIO__NameFinderJob_OnErrorString(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnErrorString(self: KIO__NameFinderJob, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KIO__NameFinderJob_OnErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1891,12 +1961,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KIO__NameFinderJob_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: KIO__NameFinderJob, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KIO__NameFinderJob_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1911,12 +1982,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KIO__NameFinderJob_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: KIO__NameFinderJob, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KIO__NameFinderJob_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1927,12 +1999,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIO__NameFinderJob_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, QEvent) callconv(.c) bool) void {
+        qtc.KIO__NameFinderJob_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1943,14 +2015,16 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KIO__NameFinderJob_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: KIO__NameFinderJob, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KIO__NameFinderJob_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1965,14 +2039,16 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KIO__NameFinderJob_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: KIO__NameFinderJob, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.KIO__NameFinderJob_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1983,12 +2059,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIO__NameFinderJob_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, QObject, QEvent) callconv(.c) bool) void {
+        qtc.KIO__NameFinderJob_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1999,12 +2075,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIO__NameFinderJob_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: KIO__NameFinderJob, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KIO__NameFinderJob_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -2019,12 +2096,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIO__NameFinderJob_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: KIO__NameFinderJob, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.KIO__NameFinderJob_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2035,12 +2113,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, QTimerEvent) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2051,12 +2129,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIO__NameFinderJob_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: KIO__NameFinderJob, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KIO__NameFinderJob_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -2071,12 +2150,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIO__NameFinderJob_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: KIO__NameFinderJob, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.KIO__NameFinderJob_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2087,12 +2167,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, QChildEvent) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2103,12 +2183,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIO__NameFinderJob_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: KIO__NameFinderJob, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KIO__NameFinderJob_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -2123,12 +2204,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KIO__NameFinderJob_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: KIO__NameFinderJob, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.KIO__NameFinderJob_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -2139,12 +2221,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, QEvent) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2155,12 +2237,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KIO__NameFinderJob_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: KIO__NameFinderJob, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KIO__NameFinderJob_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -2175,12 +2258,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KIO__NameFinderJob_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: KIO__NameFinderJob, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KIO__NameFinderJob_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2191,12 +2275,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, QMetaMethod) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2207,12 +2291,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KIO__NameFinderJob_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: KIO__NameFinderJob, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KIO__NameFinderJob_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -2227,12 +2312,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KIO__NameFinderJob_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: KIO__NameFinderJob, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.KIO__NameFinderJob_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2243,12 +2329,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, QMetaMethod) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompositeJob
@@ -2259,10 +2345,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn HasSubjobs(self: ?*anyopaque) bool {
-        return qtc.KIO__NameFinderJob_HasSubjobs(@ptrCast(self));
+    pub fn HasSubjobs(self: KIO__NameFinderJob) bool {
+        return qtc.KIO__NameFinderJob_HasSubjobs(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasSubjobs` instead
@@ -2277,10 +2363,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn SuperHasSubjobs(self: ?*anyopaque) bool {
-        return qtc.KIO__NameFinderJob_SuperHasSubjobs(@ptrCast(self));
+    pub fn SuperHasSubjobs(self: KIO__NameFinderJob) bool {
+        return qtc.KIO__NameFinderJob_SuperHasSubjobs(@ptrCast(self.ptr));
     }
 
     /// Inherited from KCompositeJob
@@ -2291,12 +2377,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasSubjobs(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KIO__NameFinderJob_OnHasSubjobs(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasSubjobs(self: KIO__NameFinderJob, callback: *const fn () callconv(.c) bool) void {
+        qtc.KIO__NameFinderJob_OnHasSubjobs(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompositeJob
@@ -2307,16 +2393,17 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Subjobs(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KJob {
-        const _arr: qtc.libqt_list = qtc.KIO__NameFinderJob_Subjobs(@ptrCast(self));
+    pub fn Subjobs(self: KIO__NameFinderJob, allocator: std.mem.Allocator) []KJob {
+        const _arr: qtc.libqt_list = qtc.KIO__NameFinderJob_Subjobs(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KJob, _arr.len) catch @panic("kio__namefinderjob.Subjobs: Memory allocation failed");
+        const _ret = allocator.alloc(KJob, _arr.len) catch @panic("kio__namefinderjob.Subjobs: Memory allocation failed");
         const _data: [*]QtC.KJob = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2332,16 +2419,17 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperSubjobs(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KJob {
-        const _arr: qtc.libqt_list = qtc.KIO__NameFinderJob_SuperSubjobs(@ptrCast(self));
+    pub fn SuperSubjobs(self: KIO__NameFinderJob, allocator: std.mem.Allocator) []KJob {
+        const _arr: qtc.libqt_list = qtc.KIO__NameFinderJob_SuperSubjobs(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KJob, _arr.len) catch @panic("kio__namefinderjob.Subjobs: Memory allocation failed");
+        const _ret = allocator.alloc(KJob, _arr.len) catch @panic("kio__namefinderjob.Subjobs: Memory allocation failed");
         const _data: [*]QtC.KJob = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2351,20 +2439,20 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
     /// ` callback: *const fn () callconv(.c) qtc.libqt_list `
     ///
     /// ## Callback Returns:
     ///
-    /// ` C ABI representation of []QtC.KJob `
+    /// ` C ABI representation of []KJob `
     ///
-    pub fn OnSubjobs(self: ?*anyopaque, callback: *const fn () callconv(.c) qtc.libqt_list) void {
-        qtc.KIO__NameFinderJob_OnSubjobs(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSubjobs(self: KIO__NameFinderJob, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+        qtc.KIO__NameFinderJob_OnSubjobs(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompositeJob
@@ -2375,10 +2463,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn ClearSubjobs(self: ?*anyopaque) void {
-        qtc.KIO__NameFinderJob_ClearSubjobs(@ptrCast(self));
+    pub fn ClearSubjobs(self: KIO__NameFinderJob) void {
+        qtc.KIO__NameFinderJob_ClearSubjobs(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperClearSubjobs` instead
@@ -2393,10 +2481,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn SuperClearSubjobs(self: ?*anyopaque) void {
-        qtc.KIO__NameFinderJob_SuperClearSubjobs(@ptrCast(self));
+    pub fn SuperClearSubjobs(self: KIO__NameFinderJob) void {
+        qtc.KIO__NameFinderJob_SuperClearSubjobs(@ptrCast(self.ptr));
     }
 
     /// Inherited from KCompositeJob
@@ -2407,12 +2495,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnClearSubjobs(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnClearSubjobs(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClearSubjobs(self: KIO__NameFinderJob, callback: *const fn () callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnClearSubjobs(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2423,12 +2511,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` capabilities: flag of kjob_enums.Capability `
     ///
-    pub fn SetCapabilities(self: ?*anyopaque, capabilities: i32) void {
-        qtc.KIO__NameFinderJob_SetCapabilities(@ptrCast(self), @bitCast(capabilities));
+    pub fn SetCapabilities(self: KIO__NameFinderJob, capabilities: i32) void {
+        qtc.KIO__NameFinderJob_SetCapabilities(@ptrCast(self.ptr), @bitCast(capabilities));
     }
 
     /// ### DEPRECATED: Use `SuperSetCapabilities` instead
@@ -2443,12 +2531,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` capabilities: flag of kjob_enums.Capability `
     ///
-    pub fn SuperSetCapabilities(self: ?*anyopaque, capabilities: i32) void {
-        qtc.KIO__NameFinderJob_SuperSetCapabilities(@ptrCast(self), @bitCast(capabilities));
+    pub fn SuperSetCapabilities(self: KIO__NameFinderJob, capabilities: i32) void {
+        qtc.KIO__NameFinderJob_SuperSetCapabilities(@ptrCast(self.ptr), @bitCast(capabilities));
     }
 
     /// Inherited from KJob
@@ -2459,12 +2547,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, capabilities: flag of kjob_enums.Capability) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, capabilities: flag of kjob_enums.Capability) callconv(.c) void `
     ///
-    pub fn OnSetCapabilities(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnSetCapabilities(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetCapabilities(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, i32) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnSetCapabilities(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2475,10 +2563,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn IsFinished(self: ?*anyopaque) bool {
-        return qtc.KIO__NameFinderJob_IsFinished(@ptrCast(self));
+    pub fn IsFinished(self: KIO__NameFinderJob) bool {
+        return qtc.KIO__NameFinderJob_IsFinished(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsFinished` instead
@@ -2493,10 +2581,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn SuperIsFinished(self: ?*anyopaque) bool {
-        return qtc.KIO__NameFinderJob_SuperIsFinished(@ptrCast(self));
+    pub fn SuperIsFinished(self: KIO__NameFinderJob) bool {
+        return qtc.KIO__NameFinderJob_SuperIsFinished(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -2507,12 +2595,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsFinished(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.KIO__NameFinderJob_OnIsFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsFinished(self: KIO__NameFinderJob, callback: *const fn () callconv(.c) bool) void {
+        qtc.KIO__NameFinderJob_OnIsFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2523,12 +2611,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` errorCode: i32 `
     ///
-    pub fn SetError(self: ?*anyopaque, errorCode: i32) void {
-        qtc.KIO__NameFinderJob_SetError(@ptrCast(self), @bitCast(errorCode));
+    pub fn SetError(self: KIO__NameFinderJob, errorCode: i32) void {
+        qtc.KIO__NameFinderJob_SetError(@ptrCast(self.ptr), @bitCast(errorCode));
     }
 
     /// ### DEPRECATED: Use `SuperSetError` instead
@@ -2543,12 +2631,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` errorCode: i32 `
     ///
-    pub fn SuperSetError(self: ?*anyopaque, errorCode: i32) void {
-        qtc.KIO__NameFinderJob_SuperSetError(@ptrCast(self), @bitCast(errorCode));
+    pub fn SuperSetError(self: KIO__NameFinderJob, errorCode: i32) void {
+        qtc.KIO__NameFinderJob_SuperSetError(@ptrCast(self.ptr), @bitCast(errorCode));
     }
 
     /// Inherited from KJob
@@ -2559,12 +2647,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, errorCode: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, errorCode: i32) callconv(.c) void `
     ///
-    pub fn OnSetError(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnSetError(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetError(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, i32) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnSetError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2575,16 +2663,16 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` errorText: []const u8 `
     ///
-    pub fn SetErrorText(self: ?*anyopaque, errorText: []const u8) void {
+    pub fn SetErrorText(self: KIO__NameFinderJob, errorText: []const u8) void {
         const errorText_str = qtc.libqt_string{
             .len = errorText.len,
             .data = errorText.ptr,
         };
-        qtc.KIO__NameFinderJob_SetErrorText(@ptrCast(self), errorText_str);
+        qtc.KIO__NameFinderJob_SetErrorText(@ptrCast(self.ptr), errorText_str);
     }
 
     /// ### DEPRECATED: Use `SuperSetErrorText` instead
@@ -2599,16 +2687,16 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` errorText: []const u8 `
     ///
-    pub fn SuperSetErrorText(self: ?*anyopaque, errorText: []const u8) void {
+    pub fn SuperSetErrorText(self: KIO__NameFinderJob, errorText: []const u8) void {
         const errorText_str = qtc.libqt_string{
             .len = errorText.len,
             .data = errorText.ptr,
         };
-        qtc.KIO__NameFinderJob_SuperSetErrorText(@ptrCast(self), errorText_str);
+        qtc.KIO__NameFinderJob_SuperSetErrorText(@ptrCast(self.ptr), errorText_str);
     }
 
     /// Inherited from KJob
@@ -2619,12 +2707,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, errorText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, errorText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetErrorText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnSetErrorText(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetErrorText(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, [*:0]const u8) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnSetErrorText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2635,14 +2723,14 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` unit: kjob_enums.Unit `
     ///
     /// ` amount: usize `
     ///
-    pub fn SetProcessedAmount(self: ?*anyopaque, unit: i32, amount: usize) void {
-        qtc.KIO__NameFinderJob_SetProcessedAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
+    pub fn SetProcessedAmount(self: KIO__NameFinderJob, unit: i32, amount: usize) void {
+        qtc.KIO__NameFinderJob_SetProcessedAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
     }
 
     /// ### DEPRECATED: Use `SuperSetProcessedAmount` instead
@@ -2657,14 +2745,14 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` unit: kjob_enums.Unit `
     ///
     /// ` amount: usize `
     ///
-    pub fn SuperSetProcessedAmount(self: ?*anyopaque, unit: i32, amount: usize) void {
-        qtc.KIO__NameFinderJob_SuperSetProcessedAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
+    pub fn SuperSetProcessedAmount(self: KIO__NameFinderJob, unit: i32, amount: usize) void {
+        qtc.KIO__NameFinderJob_SuperSetProcessedAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
     }
 
     /// Inherited from KJob
@@ -2675,12 +2763,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnSetProcessedAmount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, usize) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnSetProcessedAmount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetProcessedAmount(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, i32, usize) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnSetProcessedAmount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2691,14 +2779,14 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` unit: kjob_enums.Unit `
     ///
     /// ` amount: usize `
     ///
-    pub fn SetTotalAmount(self: ?*anyopaque, unit: i32, amount: usize) void {
-        qtc.KIO__NameFinderJob_SetTotalAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
+    pub fn SetTotalAmount(self: KIO__NameFinderJob, unit: i32, amount: usize) void {
+        qtc.KIO__NameFinderJob_SetTotalAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
     }
 
     /// ### DEPRECATED: Use `SuperSetTotalAmount` instead
@@ -2713,14 +2801,14 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` unit: kjob_enums.Unit `
     ///
     /// ` amount: usize `
     ///
-    pub fn SuperSetTotalAmount(self: ?*anyopaque, unit: i32, amount: usize) void {
-        qtc.KIO__NameFinderJob_SuperSetTotalAmount(@ptrCast(self), @bitCast(unit), @bitCast(amount));
+    pub fn SuperSetTotalAmount(self: KIO__NameFinderJob, unit: i32, amount: usize) void {
+        qtc.KIO__NameFinderJob_SuperSetTotalAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
     }
 
     /// Inherited from KJob
@@ -2731,12 +2819,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnSetTotalAmount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, usize) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnSetTotalAmount(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetTotalAmount(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, i32, usize) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnSetTotalAmount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2747,12 +2835,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn SetProgressUnit(self: ?*anyopaque, unit: i32) void {
-        qtc.KIO__NameFinderJob_SetProgressUnit(@ptrCast(self), @bitCast(unit));
+    pub fn SetProgressUnit(self: KIO__NameFinderJob, unit: i32) void {
+        qtc.KIO__NameFinderJob_SetProgressUnit(@ptrCast(self.ptr), @bitCast(unit));
     }
 
     /// ### DEPRECATED: Use `SuperSetProgressUnit` instead
@@ -2767,12 +2855,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn SuperSetProgressUnit(self: ?*anyopaque, unit: i32) void {
-        qtc.KIO__NameFinderJob_SuperSetProgressUnit(@ptrCast(self), @bitCast(unit));
+    pub fn SuperSetProgressUnit(self: KIO__NameFinderJob, unit: i32) void {
+        qtc.KIO__NameFinderJob_SuperSetProgressUnit(@ptrCast(self.ptr), @bitCast(unit));
     }
 
     /// Inherited from KJob
@@ -2783,12 +2871,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, unit: kjob_enums.Unit) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, unit: kjob_enums.Unit) callconv(.c) void `
     ///
-    pub fn OnSetProgressUnit(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnSetProgressUnit(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetProgressUnit(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, i32) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnSetProgressUnit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2799,12 +2887,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` percentage: usize `
     ///
-    pub fn SetPercent(self: ?*anyopaque, percentage: usize) void {
-        qtc.KIO__NameFinderJob_SetPercent(@ptrCast(self), @bitCast(percentage));
+    pub fn SetPercent(self: KIO__NameFinderJob, percentage: usize) void {
+        qtc.KIO__NameFinderJob_SetPercent(@ptrCast(self.ptr), @bitCast(percentage));
     }
 
     /// ### DEPRECATED: Use `SuperSetPercent` instead
@@ -2819,12 +2907,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` percentage: usize `
     ///
-    pub fn SuperSetPercent(self: ?*anyopaque, percentage: usize) void {
-        qtc.KIO__NameFinderJob_SuperSetPercent(@ptrCast(self), @bitCast(percentage));
+    pub fn SuperSetPercent(self: KIO__NameFinderJob, percentage: usize) void {
+        qtc.KIO__NameFinderJob_SuperSetPercent(@ptrCast(self.ptr), @bitCast(percentage));
     }
 
     /// Inherited from KJob
@@ -2835,12 +2923,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, percentage: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, percentage: usize) callconv(.c) void `
     ///
-    pub fn OnSetPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, usize) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnSetPercent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetPercent(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, usize) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnSetPercent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2851,10 +2939,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn EmitResult(self: ?*anyopaque) void {
-        qtc.KIO__NameFinderJob_EmitResult(@ptrCast(self));
+    pub fn EmitResult(self: KIO__NameFinderJob) void {
+        qtc.KIO__NameFinderJob_EmitResult(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEmitResult` instead
@@ -2869,10 +2957,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn SuperEmitResult(self: ?*anyopaque) void {
-        qtc.KIO__NameFinderJob_SuperEmitResult(@ptrCast(self));
+    pub fn SuperEmitResult(self: KIO__NameFinderJob) void {
+        qtc.KIO__NameFinderJob_SuperEmitResult(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -2883,12 +2971,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEmitResult(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnEmitResult(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEmitResult(self: KIO__NameFinderJob, callback: *const fn () callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnEmitResult(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2899,14 +2987,14 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` processedAmount: usize `
     ///
     /// ` totalAmount: usize `
     ///
-    pub fn EmitPercent(self: ?*anyopaque, processedAmount: usize, totalAmount: usize) void {
-        qtc.KIO__NameFinderJob_EmitPercent(@ptrCast(self), @bitCast(processedAmount), @bitCast(totalAmount));
+    pub fn EmitPercent(self: KIO__NameFinderJob, processedAmount: usize, totalAmount: usize) void {
+        qtc.KIO__NameFinderJob_EmitPercent(@ptrCast(self.ptr), @bitCast(processedAmount), @bitCast(totalAmount));
     }
 
     /// ### DEPRECATED: Use `SuperEmitPercent` instead
@@ -2921,14 +3009,14 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` processedAmount: usize `
     ///
     /// ` totalAmount: usize `
     ///
-    pub fn SuperEmitPercent(self: ?*anyopaque, processedAmount: usize, totalAmount: usize) void {
-        qtc.KIO__NameFinderJob_SuperEmitPercent(@ptrCast(self), @bitCast(processedAmount), @bitCast(totalAmount));
+    pub fn SuperEmitPercent(self: KIO__NameFinderJob, processedAmount: usize, totalAmount: usize) void {
+        qtc.KIO__NameFinderJob_SuperEmitPercent(@ptrCast(self.ptr), @bitCast(processedAmount), @bitCast(totalAmount));
     }
 
     /// Inherited from KJob
@@ -2939,12 +3027,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, processedAmount: usize, totalAmount: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, processedAmount: usize, totalAmount: usize) callconv(.c) void `
     ///
-    pub fn OnEmitPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, usize, usize) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnEmitPercent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEmitPercent(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, usize, usize) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnEmitPercent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2955,12 +3043,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` speed: usize `
     ///
-    pub fn EmitSpeed(self: ?*anyopaque, speed: usize) void {
-        qtc.KIO__NameFinderJob_EmitSpeed(@ptrCast(self), @bitCast(speed));
+    pub fn EmitSpeed(self: KIO__NameFinderJob, speed: usize) void {
+        qtc.KIO__NameFinderJob_EmitSpeed(@ptrCast(self.ptr), @bitCast(speed));
     }
 
     /// ### DEPRECATED: Use `SuperEmitSpeed` instead
@@ -2975,12 +3063,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` speed: usize `
     ///
-    pub fn SuperEmitSpeed(self: ?*anyopaque, speed: usize) void {
-        qtc.KIO__NameFinderJob_SuperEmitSpeed(@ptrCast(self), @bitCast(speed));
+    pub fn SuperEmitSpeed(self: KIO__NameFinderJob, speed: usize) void {
+        qtc.KIO__NameFinderJob_SuperEmitSpeed(@ptrCast(self.ptr), @bitCast(speed));
     }
 
     /// Inherited from KJob
@@ -2991,12 +3079,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, speed: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, speed: usize) callconv(.c) void `
     ///
-    pub fn OnEmitSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, usize) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnEmitSpeed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEmitSpeed(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, usize) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnEmitSpeed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -3007,10 +3095,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn StartElapsedTimer(self: ?*anyopaque) void {
-        qtc.KIO__NameFinderJob_StartElapsedTimer(@ptrCast(self));
+    pub fn StartElapsedTimer(self: KIO__NameFinderJob) void {
+        qtc.KIO__NameFinderJob_StartElapsedTimer(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperStartElapsedTimer` instead
@@ -3025,10 +3113,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn SuperStartElapsedTimer(self: ?*anyopaque) void {
-        qtc.KIO__NameFinderJob_SuperStartElapsedTimer(@ptrCast(self));
+    pub fn SuperStartElapsedTimer(self: KIO__NameFinderJob) void {
+        qtc.KIO__NameFinderJob_SuperStartElapsedTimer(@ptrCast(self.ptr));
     }
 
     /// Inherited from KJob
@@ -3039,12 +3127,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStartElapsedTimer(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnStartElapsedTimer(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnStartElapsedTimer(self: KIO__NameFinderJob, callback: *const fn () callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnStartElapsedTimer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3055,10 +3143,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KIO__NameFinderJob_Sender(@ptrCast(self));
+    pub fn Sender(self: KIO__NameFinderJob) QObject {
+        return .{ .ptr = qtc.KIO__NameFinderJob_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -3073,10 +3161,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KIO__NameFinderJob_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: KIO__NameFinderJob) QObject {
+        return .{ .ptr = qtc.KIO__NameFinderJob_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3087,12 +3175,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KIO__NameFinderJob_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: KIO__NameFinderJob, callback: *const fn () callconv(.c) QObject) void {
+        qtc.KIO__NameFinderJob_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3103,10 +3191,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KIO__NameFinderJob_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: KIO__NameFinderJob) i32 {
+        return qtc.KIO__NameFinderJob_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -3121,10 +3209,10 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KIO__NameFinderJob_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: KIO__NameFinderJob) i32 {
+        return qtc.KIO__NameFinderJob_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3135,12 +3223,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KIO__NameFinderJob_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: KIO__NameFinderJob, callback: *const fn () callconv(.c) i32) void {
+        qtc.KIO__NameFinderJob_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3151,13 +3239,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: KIO__NameFinderJob, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KIO__NameFinderJob_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.KIO__NameFinderJob_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -3172,13 +3260,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: KIO__NameFinderJob, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.KIO__NameFinderJob_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.KIO__NameFinderJob_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3189,12 +3277,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KIO__NameFinderJob_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KIO__NameFinderJob_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3205,12 +3293,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KIO__NameFinderJob_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: KIO__NameFinderJob, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KIO__NameFinderJob_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -3225,12 +3314,13 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KIO__NameFinderJob_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: KIO__NameFinderJob, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.KIO__NameFinderJob_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3241,12 +3331,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob`
+    /// ` self: KIO__NameFinderJob`
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIO__NameFinderJob_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, QMetaMethod) callconv(.c) bool) void {
+        qtc.KIO__NameFinderJob_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -3257,12 +3347,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, job: KJob) callconv(.c) void `
     ///
-    pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFinished(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, KJob) callconv(.c) void) void {
+        qtc.KJob_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -3273,12 +3363,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, job: KJob) callconv(.c) void `
     ///
-    pub fn OnSuspended(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Suspended(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSuspended(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, KJob) callconv(.c) void) void {
+        qtc.KJob_Connect_Suspended(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -3289,12 +3379,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, job: KJob) callconv(.c) void `
     ///
-    pub fn OnResumed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Resumed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResumed(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, KJob) callconv(.c) void) void {
+        qtc.KJob_Connect_Resumed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -3305,12 +3395,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, job: KJob) callconv(.c) void `
     ///
-    pub fn OnResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Result(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResult(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, KJob) callconv(.c) void) void {
+        qtc.KJob_Connect_Result(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -3321,12 +3411,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, job: KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnTotalAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, usize) callconv(.c) void) void {
-        qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTotalAmountChanged(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, KJob, i32, usize) callconv(.c) void) void {
+        qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -3337,12 +3427,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, job: KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnProcessedAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, usize) callconv(.c) void) void {
-        qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnProcessedAmountChanged(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, KJob, i32, usize) callconv(.c) void) void {
+        qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -3353,12 +3443,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, percent: usize) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, job: KJob, percent: usize) callconv(.c) void `
     ///
-    pub fn OnPercentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, usize) callconv(.c) void) void {
-        qtc.KJob_Connect_PercentChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPercentChanged(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, KJob, usize) callconv(.c) void) void {
+        qtc.KJob_Connect_PercentChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3369,12 +3459,12 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    /// ` callback: *const fn (self: QtC.KIO__NameFinderJob, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: KIO__NameFinderJob, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: KIO__NameFinderJob, callback: *const fn (KIO__NameFinderJob, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -3385,9 +3475,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KIO__NameFinderJob `
+    /// ` self: KIO__NameFinderJob `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KIO__NameFinderJob_Delete(@ptrCast(self));
+    pub fn Delete(self: KIO__NameFinderJob) void {
+        qtc.KIO__NameFinderJob_Delete(@ptrCast(self.ptr));
     }
 };

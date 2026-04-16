@@ -1,5 +1,16 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QDateTime = @import("libqt6").QDateTime;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qfiledevice_enums = @import("libqfiledevice.zig").enums;
 const qiodevicebase_enums = @import("libqiodevicebase.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
@@ -7,11 +18,23 @@ const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html)
-pub const qfile = struct {
+pub const QFile = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QFile,
+
+    pub const _is_QFile = {};
+    pub const _is_QFileDevice = {};
+    pub const _is_QIODevice = {};
+    pub const _is_QObject = {};
+    pub const _is_QIODeviceBase = {};
+
     /// New constructs a new QFile object.
     ///
-    pub fn New() QtC.QFile {
-        return qtc.QFile_new();
+    pub fn New() QFile {
+        return .{ .ptr = qtc.QFile_new() };
     }
 
     /// New2 constructs a new QFile object.
@@ -20,23 +43,23 @@ pub const qfile = struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn New2(name: []const u8) QtC.QFile {
+    pub fn New2(name: []const u8) QFile {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-
-        return qtc.QFile_new2(name_str);
+        return .{ .ptr = qtc.QFile_new2(name_str) };
     }
 
     /// New3 constructs a new QFile object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New3(parent: ?*anyopaque) QtC.QFile {
-        return qtc.QFile_new3(@ptrCast(parent));
+    pub fn New3(parent: anytype) QFile {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QFile_new3(@ptrCast(parent.ptr)) };
     }
 
     /// New4 constructs a new QFile object.
@@ -45,25 +68,25 @@ pub const qfile = struct {
     ///
     /// ` name: []const u8 `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New4(name: []const u8, parent: ?*anyopaque) QtC.QFile {
+    pub fn New4(name: []const u8, parent: anytype) QFile {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-
-        return qtc.QFile_new4(name_str, @ptrCast(parent));
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QFile_new4(name_str, @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QFile_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QFile) QMetaObject {
+        return .{ .ptr = qtc.QFile_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -72,12 +95,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QFile_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QFile, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QFile_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -90,33 +113,33 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QFile_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QFile) QMetaObject {
+        return .{ .ptr = qtc.QFile_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QFile, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QFile_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QFile_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` callback: *const fn (self: QtC.QFile, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QFile, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QFile_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QFile, callback: *const fn (QFile, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QFile_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -127,18 +150,18 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QFile, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QFile_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QFile_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -146,20 +169,20 @@ pub const qfile = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QFile_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QFile, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QFile_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` callback: *const fn (self: QtC.QFile, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QFile, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QFile_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QFile, callback: *const fn (QFile, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QFile_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -170,7 +193,7 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -178,19 +201,19 @@ pub const qfile = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QFile_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QFile, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QFile_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -203,12 +226,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QFile_FileName(@ptrCast(self));
+    pub fn FileName(self: QFile, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QFile_FileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfile.FileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -219,16 +242,16 @@ pub const qfile = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator`, as the library handles deallocation.
+    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnFileName(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
-        qtc.QFile_OnFileName(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFileName(self: QFile, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.QFile_OnFileName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperFileName` instead
@@ -241,12 +264,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperFileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QFile_SuperFileName(@ptrCast(self));
+    pub fn SuperFileName(self: QFile, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QFile_SuperFileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfile.FileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -257,27 +280,27 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetFileName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetFileName(self: QFile, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QFile_SetFileName(@ptrCast(self), name_str);
+        qtc.QFile_SetFileName(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#encodeName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` fileName: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EncodeName(fileName: []const u8, allocator: std.mem.Allocator) []u8 {
+    /// ` fileName: []const u8 `
+    ///
+    pub fn EncodeName(allocator: std.mem.Allocator, fileName: []const u8) []u8 {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -293,11 +316,11 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` localFileName: []u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DecodeName(localFileName: []u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` localFileName: []u8 `
+    ///
+    pub fn DecodeName(allocator: std.mem.Allocator, localFileName: []u8) []const u8 {
         const localFileName_str = qtc.libqt_string{
             .len = localFileName.len,
             .data = localFileName.ptr,
@@ -313,11 +336,11 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` localFileName: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DecodeName2(localFileName: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` localFileName: [:0]const u8 `
+    ///
+    pub fn DecodeName2(allocator: std.mem.Allocator, localFileName: [:0]const u8) []const u8 {
         const localFileName_Cstring = localFileName.ptr;
         var _str = qtc.QFile_DecodeName2(localFileName_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -330,10 +353,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn Exists(self: ?*anyopaque) bool {
-        return qtc.QFile_Exists(@ptrCast(self));
+    pub fn Exists(self: QFile) bool {
+        return qtc.QFile_Exists(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#exists)
@@ -354,12 +377,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SymLinkTarget(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QFile_SymLinkTarget(@ptrCast(self));
+    pub fn SymLinkTarget(self: QFile, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QFile_SymLinkTarget(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfile.SymLinkTarget: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -370,11 +393,11 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` fileName: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SymLinkTarget2(fileName: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` fileName: []const u8 `
+    ///
+    pub fn SymLinkTarget2(allocator: std.mem.Allocator, fileName: []const u8) []const u8 {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -390,10 +413,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn Remove(self: ?*anyopaque) bool {
-        return qtc.QFile_Remove(@ptrCast(self));
+    pub fn Remove(self: QFile) bool {
+        return qtc.QFile_Remove(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#remove)
@@ -414,10 +437,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn MoveToTrash(self: ?*anyopaque) bool {
-        return qtc.QFile_MoveToTrash(@ptrCast(self));
+    pub fn MoveToTrash(self: QFile) bool {
+        return qtc.QFile_MoveToTrash(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#moveToTrash)
@@ -438,16 +461,16 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` newName: []const u8 `
     ///
-    pub fn Rename(self: ?*anyopaque, newName: []const u8) bool {
+    pub fn Rename(self: QFile, newName: []const u8) bool {
         const newName_str = qtc.libqt_string{
             .len = newName.len,
             .data = newName.ptr,
         };
-        return qtc.QFile_Rename(@ptrCast(self), newName_str);
+        return qtc.QFile_Rename(@ptrCast(self.ptr), newName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#rename)
@@ -474,16 +497,16 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` newName: []const u8 `
     ///
-    pub fn Link(self: ?*anyopaque, newName: []const u8) bool {
+    pub fn Link(self: QFile, newName: []const u8) bool {
         const newName_str = qtc.libqt_string{
             .len = newName.len,
             .data = newName.ptr,
         };
-        return qtc.QFile_Link(@ptrCast(self), newName_str);
+        return qtc.QFile_Link(@ptrCast(self.ptr), newName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#link)
@@ -510,16 +533,16 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` newName: []const u8 `
     ///
-    pub fn Copy(self: ?*anyopaque, newName: []const u8) bool {
+    pub fn Copy(self: QFile, newName: []const u8) bool {
         const newName_str = qtc.libqt_string{
             .len = newName.len,
             .data = newName.ptr,
         };
-        return qtc.QFile_Copy(@ptrCast(self), newName_str);
+        return qtc.QFile_Copy(@ptrCast(self.ptr), newName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#copy)
@@ -546,12 +569,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` flags: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn Open(self: ?*anyopaque, flags: i32) bool {
-        return qtc.QFile_Open(@ptrCast(self), @bitCast(flags));
+    pub fn Open(self: QFile, flags: i32) bool {
+        return qtc.QFile_Open(@ptrCast(self.ptr), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#open)
@@ -560,12 +583,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` callback: *const fn (self: QtC.QFile, flags: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFile, flags: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
     ///
-    pub fn OnOpen(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QFile_OnOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnOpen(self: QFile, callback: *const fn (QFile, i32) callconv(.c) bool) void {
+        qtc.QFile_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperOpen` instead
@@ -578,50 +601,50 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` flags: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperOpen(self: ?*anyopaque, flags: i32) bool {
-        return qtc.QFile_SuperOpen(@ptrCast(self), @bitCast(flags));
+    pub fn SuperOpen(self: QFile, flags: i32) bool {
+        return qtc.QFile_SuperOpen(@ptrCast(self.ptr), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#open)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` flags: flag of qiodevicebase_enums.OpenModeFlag `
     ///
     /// ` permissions: flag of qfiledevice_enums.Permission `
     ///
-    pub fn Open2(self: ?*anyopaque, flags: i32, permissions: i32) bool {
-        return qtc.QFile_Open2(@ptrCast(self), @bitCast(flags), @bitCast(permissions));
+    pub fn Open2(self: QFile, flags: i32, permissions: i32) bool {
+        return qtc.QFile_Open2(@ptrCast(self.ptr), @bitCast(flags), @bitCast(permissions));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#open)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` fd: i32 `
     ///
     /// ` ioFlags: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn Open4(self: ?*anyopaque, fd: i32, ioFlags: i32) bool {
-        return qtc.QFile_Open4(@ptrCast(self), @bitCast(fd), @bitCast(ioFlags));
+    pub fn Open4(self: QFile, fd: i32, ioFlags: i32) bool {
+        return qtc.QFile_Open4(@ptrCast(self.ptr), @bitCast(fd), @bitCast(ioFlags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#size)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn Size(self: ?*anyopaque) i64 {
-        return qtc.QFile_Size(@ptrCast(self));
+    pub fn Size(self: QFile) i64 {
+        return qtc.QFile_Size(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#size)
@@ -630,12 +653,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnSize(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QFile_OnSize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSize(self: QFile, callback: *const fn () callconv(.c) i64) void {
+        qtc.QFile_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSize` instead
@@ -648,22 +671,22 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn SuperSize(self: ?*anyopaque) i64 {
-        return qtc.QFile_SuperSize(@ptrCast(self));
+    pub fn SuperSize(self: QFile) i64 {
+        return qtc.QFile_SuperSize(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#resize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` sz: i64 `
     ///
-    pub fn Resize(self: ?*anyopaque, sz: i64) bool {
-        return qtc.QFile_Resize(@ptrCast(self), @bitCast(sz));
+    pub fn Resize(self: QFile, sz: i64) bool {
+        return qtc.QFile_Resize(@ptrCast(self.ptr), @bitCast(sz));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#resize)
@@ -672,12 +695,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` callback: *const fn (self: QtC.QFile, sz: i64) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFile, sz: i64) callconv(.c) bool `
     ///
-    pub fn OnResize(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.QFile_OnResize(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResize(self: QFile, callback: *const fn (QFile, i64) callconv(.c) bool) void {
+        qtc.QFile_OnResize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperResize` instead
@@ -690,12 +713,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` sz: i64 `
     ///
-    pub fn SuperResize(self: ?*anyopaque, sz: i64) bool {
-        return qtc.QFile_SuperResize(@ptrCast(self), @bitCast(sz));
+    pub fn SuperResize(self: QFile, sz: i64) bool {
+        return qtc.QFile_SuperResize(@ptrCast(self.ptr), @bitCast(sz));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#resize)
@@ -718,14 +741,14 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ## Returns:
     ///
     /// ` flag of qfiledevice_enums.Permission `
     ///
-    pub fn Permissions(self: ?*anyopaque) i32 {
-        return qtc.QFile_Permissions(@ptrCast(self));
+    pub fn Permissions(self: QFile) i32 {
+        return qtc.QFile_Permissions(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#permissions)
@@ -734,12 +757,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnPermissions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QFile_OnPermissions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPermissions(self: QFile, callback: *const fn () callconv(.c) i32) void {
+        qtc.QFile_OnPermissions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperPermissions` instead
@@ -752,14 +775,14 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ## Returns:
     ///
     /// ` flag of qfiledevice_enums.Permission `
     ///
-    pub fn SuperPermissions(self: ?*anyopaque) i32 {
-        return qtc.QFile_SuperPermissions(@ptrCast(self));
+    pub fn SuperPermissions(self: QFile) i32 {
+        return qtc.QFile_SuperPermissions(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#permissions)
@@ -784,12 +807,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` permissionSpec: flag of qfiledevice_enums.Permission `
     ///
-    pub fn SetPermissions(self: ?*anyopaque, permissionSpec: i32) bool {
-        return qtc.QFile_SetPermissions(@ptrCast(self), @bitCast(permissionSpec));
+    pub fn SetPermissions(self: QFile, permissionSpec: i32) bool {
+        return qtc.QFile_SetPermissions(@ptrCast(self.ptr), @bitCast(permissionSpec));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#setPermissions)
@@ -798,12 +821,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` callback: *const fn (self: QtC.QFile, permissionSpec: flag of qfiledevice_enums.Permission) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFile, permissionSpec: flag of qfiledevice_enums.Permission) callconv(.c) bool `
     ///
-    pub fn OnSetPermissions(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QFile_OnSetPermissions(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetPermissions(self: QFile, callback: *const fn (QFile, i32) callconv(.c) bool) void {
+        qtc.QFile_OnSetPermissions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetPermissions` instead
@@ -816,12 +839,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` permissionSpec: flag of qfiledevice_enums.Permission `
     ///
-    pub fn SuperSetPermissions(self: ?*anyopaque, permissionSpec: i32) bool {
-        return qtc.QFile_SuperSetPermissions(@ptrCast(self), @bitCast(permissionSpec));
+    pub fn SuperSetPermissions(self: QFile, permissionSpec: i32) bool {
+        return qtc.QFile_SuperSetPermissions(@ptrCast(self.ptr), @bitCast(permissionSpec));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfile.html#setPermissions)
@@ -844,13 +867,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -864,15 +887,15 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -886,7 +909,7 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` fd: i32 `
     ///
@@ -894,8 +917,8 @@ pub const qfile = struct {
     ///
     /// ` handleFlags: flag of qfiledevice_enums.FileHandleFlag `
     ///
-    pub fn Open33(self: ?*anyopaque, fd: i32, ioFlags: i32, handleFlags: i32) bool {
-        return qtc.QFile_Open33(@ptrCast(self), @bitCast(fd), @bitCast(ioFlags), @bitCast(handleFlags));
+    pub fn Open33(self: QFile, fd: i32, ioFlags: i32, handleFlags: i32) bool {
+        return qtc.QFile_Open33(@ptrCast(self.ptr), @bitCast(fd), @bitCast(ioFlags), @bitCast(handleFlags));
     }
 
     /// Inherited from QFileDevice
@@ -904,14 +927,14 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ## Returns:
     ///
     /// ` qfiledevice_enums.FileError `
     ///
-    pub fn Error(self: ?*anyopaque) i32 {
-        return qtc.QFileDevice_Error(@ptrCast(self));
+    pub fn Error(self: QFile) i32 {
+        return qtc.QFileDevice_Error(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFileDevice
@@ -920,10 +943,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn UnsetError(self: ?*anyopaque) void {
-        qtc.QFileDevice_UnsetError(@ptrCast(self));
+    pub fn UnsetError(self: QFile) void {
+        qtc.QFileDevice_UnsetError(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFileDevice
@@ -932,10 +955,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn Handle(self: ?*anyopaque) i32 {
-        return qtc.QFileDevice_Handle(@ptrCast(self));
+    pub fn Handle(self: QFile) i32 {
+        return qtc.QFileDevice_Handle(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFileDevice
@@ -944,10 +967,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn Flush(self: ?*anyopaque) bool {
-        return qtc.QFileDevice_Flush(@ptrCast(self));
+    pub fn Flush(self: QFile) bool {
+        return qtc.QFileDevice_Flush(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFileDevice
@@ -956,14 +979,14 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` offset: i64 `
     ///
     /// ` size: i64 `
     ///
-    pub fn Map(self: ?*anyopaque, offset: i64, size: i64) ?*u8 {
-        return @ptrCast(qtc.QFileDevice_Map(@ptrCast(self), @bitCast(offset), @bitCast(size)));
+    pub fn Map(self: QFile, offset: i64, size: i64) ?*u8 {
+        return @ptrCast(qtc.QFileDevice_Map(@ptrCast(self.ptr), @bitCast(offset), @bitCast(size)));
     }
 
     /// Inherited from QFileDevice
@@ -972,12 +995,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` address: *u8 `
     ///
-    pub fn Unmap(self: ?*anyopaque, address: *u8) bool {
-        return qtc.QFileDevice_Unmap(@ptrCast(self), @ptrCast(address));
+    pub fn Unmap(self: QFile, address: *u8) bool {
+        return qtc.QFileDevice_Unmap(@ptrCast(self.ptr), @ptrCast(address));
     }
 
     /// Inherited from QFileDevice
@@ -986,12 +1009,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` time: qfiledevice_enums.FileTime `
     ///
-    pub fn FileTime(self: ?*anyopaque, time: i32) QtC.QDateTime {
-        return qtc.QFileDevice_FileTime(@ptrCast(self), @bitCast(time));
+    pub fn FileTime(self: QFile, time: i32) QDateTime {
+        return .{ .ptr = qtc.QFileDevice_FileTime(@ptrCast(self.ptr), @bitCast(time)) };
     }
 
     /// Inherited from QFileDevice
@@ -1000,14 +1023,15 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` newDate: QtC.QDateTime `
+    /// ` newDate: QDateTime `
     ///
     /// ` fileTime: qfiledevice_enums.FileTime `
     ///
-    pub fn SetFileTime(self: ?*anyopaque, newDate: ?*anyopaque, fileTime: i32) bool {
-        return qtc.QFileDevice_SetFileTime(@ptrCast(self), @ptrCast(newDate), @bitCast(fileTime));
+    pub fn SetFileTime(self: QFile, newDate: anytype, fileTime: i32) bool {
+        comptime _ = @TypeOf(newDate)._is_QDateTime;
+        return qtc.QFileDevice_SetFileTime(@ptrCast(self.ptr), @ptrCast(newDate.ptr), @bitCast(fileTime));
     }
 
     /// Inherited from QFileDevice
@@ -1016,7 +1040,7 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` offset: i64 `
     ///
@@ -1024,8 +1048,8 @@ pub const qfile = struct {
     ///
     /// ` flags: flag of qfiledevice_enums.MemoryMapFlag `
     ///
-    pub fn Map3(self: ?*anyopaque, offset: i64, size: i64, flags: i32) ?*u8 {
-        return @ptrCast(qtc.QFileDevice_Map3(@ptrCast(self), @bitCast(offset), @bitCast(size), @bitCast(flags)));
+    pub fn Map3(self: QFile, offset: i64, size: i64, flags: i32) ?*u8 {
+        return @ptrCast(qtc.QFileDevice_Map3(@ptrCast(self.ptr), @bitCast(offset), @bitCast(size), @bitCast(flags)));
     }
 
     /// Inherited from QIODevice
@@ -1034,14 +1058,14 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ## Returns:
     ///
     /// ` flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn OpenMode(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_OpenMode(@ptrCast(self));
+    pub fn OpenMode(self: QFile) i32 {
+        return qtc.QIODevice_OpenMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1050,12 +1074,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetTextModeEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QIODevice_SetTextModeEnabled(@ptrCast(self), enabled);
+    pub fn SetTextModeEnabled(self: QFile, enabled: bool) void {
+        qtc.QIODevice_SetTextModeEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QIODevice
@@ -1064,10 +1088,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn IsTextModeEnabled(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsTextModeEnabled(@ptrCast(self));
+    pub fn IsTextModeEnabled(self: QFile) bool {
+        return qtc.QIODevice_IsTextModeEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1076,10 +1100,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn IsOpen(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsOpen(@ptrCast(self));
+    pub fn IsOpen(self: QFile) bool {
+        return qtc.QIODevice_IsOpen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1088,10 +1112,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn IsReadable(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsReadable(@ptrCast(self));
+    pub fn IsReadable(self: QFile) bool {
+        return qtc.QIODevice_IsReadable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1100,10 +1124,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn IsWritable(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsWritable(@ptrCast(self));
+    pub fn IsWritable(self: QFile) bool {
+        return qtc.QIODevice_IsWritable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1112,10 +1136,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn ReadChannelCount(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_ReadChannelCount(@ptrCast(self));
+    pub fn ReadChannelCount(self: QFile) i32 {
+        return qtc.QIODevice_ReadChannelCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1124,10 +1148,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn WriteChannelCount(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_WriteChannelCount(@ptrCast(self));
+    pub fn WriteChannelCount(self: QFile) i32 {
+        return qtc.QIODevice_WriteChannelCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1136,10 +1160,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn CurrentReadChannel(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_CurrentReadChannel(@ptrCast(self));
+    pub fn CurrentReadChannel(self: QFile) i32 {
+        return qtc.QIODevice_CurrentReadChannel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1148,12 +1172,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentReadChannel(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self), @bitCast(channel));
+    pub fn SetCurrentReadChannel(self: QFile, channel: i32) void {
+        qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -1162,10 +1186,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn CurrentWriteChannel(self: ?*anyopaque) i32 {
-        return qtc.QIODevice_CurrentWriteChannel(@ptrCast(self));
+    pub fn CurrentWriteChannel(self: QFile) i32 {
+        return qtc.QIODevice_CurrentWriteChannel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1174,12 +1198,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentWriteChannel(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self), @bitCast(channel));
+    pub fn SetCurrentWriteChannel(self: QFile, channel: i32) void {
+        qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -1188,15 +1212,15 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Read(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn Read(self: QFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Read(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QIODevice_Read(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -1205,14 +1229,14 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
-    ///
-    /// ` maxlen: i64 `
+    /// ` self: QFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @bitCast(maxlen));
+    /// ` maxlen: i64 `
+    ///
+    pub fn Read2(self: QFile, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfile.Read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1225,12 +1249,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadAll(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self));
+    pub fn ReadAll(self: QFile, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfile.ReadAll: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1243,15 +1267,15 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLine(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn ReadLine(self: QFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_ReadLine(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QIODevice_ReadLine(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -1260,12 +1284,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadLine2(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self));
+    pub fn ReadLine2(self: QFile, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfile.ReadLine2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1278,10 +1302,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn StartTransaction(self: ?*anyopaque) void {
-        qtc.QIODevice_StartTransaction(@ptrCast(self));
+    pub fn StartTransaction(self: QFile) void {
+        qtc.QIODevice_StartTransaction(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1290,10 +1314,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn CommitTransaction(self: ?*anyopaque) void {
-        qtc.QIODevice_CommitTransaction(@ptrCast(self));
+    pub fn CommitTransaction(self: QFile) void {
+        qtc.QIODevice_CommitTransaction(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1302,10 +1326,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn RollbackTransaction(self: ?*anyopaque) void {
-        qtc.QIODevice_RollbackTransaction(@ptrCast(self));
+    pub fn RollbackTransaction(self: QFile) void {
+        qtc.QIODevice_RollbackTransaction(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1314,10 +1338,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn IsTransactionStarted(self: ?*anyopaque) bool {
-        return qtc.QIODevice_IsTransactionStarted(@ptrCast(self));
+    pub fn IsTransactionStarted(self: QFile) bool {
+        return qtc.QIODevice_IsTransactionStarted(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1326,15 +1350,15 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` data: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn Write(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn Write(self: QFile, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Write(@ptrCast(self), data_Cstring, @bitCast(lenVal));
+        return qtc.QIODevice_Write(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
     }
 
     /// Inherited from QIODevice
@@ -1343,13 +1367,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` data: [:0]const u8 `
     ///
-    pub fn Write2(self: ?*anyopaque, data: [:0]const u8) i64 {
+    pub fn Write2(self: QFile, data: [:0]const u8) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Write2(@ptrCast(self), data_Cstring);
+        return qtc.QIODevice_Write2(@ptrCast(self.ptr), data_Cstring);
     }
 
     /// Inherited from QIODevice
@@ -1358,16 +1382,16 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` data: []u8 `
     ///
-    pub fn Write3(self: ?*anyopaque, data: []u8) i64 {
+    pub fn Write3(self: QFile, data: []u8) i64 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.QIODevice_Write3(@ptrCast(self), data_str);
+        return qtc.QIODevice_Write3(@ptrCast(self.ptr), data_str);
     }
 
     /// Inherited from QIODevice
@@ -1376,15 +1400,15 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Peek(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn Peek(self: QFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Peek(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QIODevice_Peek(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QIODevice
@@ -1393,14 +1417,14 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
-    ///
-    /// ` maxlen: i64 `
+    /// ` self: QFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @bitCast(maxlen));
+    /// ` maxlen: i64 `
+    ///
+    pub fn Peek2(self: QFile, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfile.Peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1413,12 +1437,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn Skip(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QIODevice_Skip(@ptrCast(self), @bitCast(maxSize));
+    pub fn Skip(self: QFile, maxSize: i64) i64 {
+        return qtc.QIODevice_Skip(@ptrCast(self.ptr), @bitCast(maxSize));
     }
 
     /// Inherited from QIODevice
@@ -1427,12 +1451,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` c: u8 `
     ///
-    pub fn UngetChar(self: ?*anyopaque, c: u8) void {
-        qtc.QIODevice_UngetChar(@ptrCast(self), @bitCast(c));
+    pub fn UngetChar(self: QFile, c: u8) void {
+        qtc.QIODevice_UngetChar(@ptrCast(self.ptr), @bitCast(c));
     }
 
     /// Inherited from QIODevice
@@ -1441,12 +1465,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` c: u8 `
     ///
-    pub fn PutChar(self: ?*anyopaque, c: u8) bool {
-        return qtc.QIODevice_PutChar(@ptrCast(self), @bitCast(c));
+    pub fn PutChar(self: QFile, c: u8) bool {
+        return qtc.QIODevice_PutChar(@ptrCast(self.ptr), @bitCast(c));
     }
 
     /// Inherited from QIODevice
@@ -1455,13 +1479,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` c: [:0]u8 `
     ///
-    pub fn GetChar(self: ?*anyopaque, c: [:0]u8) bool {
+    pub fn GetChar(self: QFile, c: [:0]u8) bool {
         const c_Cstring = c.ptr;
-        return qtc.QIODevice_GetChar(@ptrCast(self), c_Cstring);
+        return qtc.QIODevice_GetChar(@ptrCast(self.ptr), c_Cstring);
     }
 
     /// Inherited from QIODevice
@@ -1470,12 +1494,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QIODevice_ErrorString(@ptrCast(self));
+    pub fn ErrorString(self: QFile, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QIODevice_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfile.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1488,10 +1512,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn ReadyRead(self: ?*anyopaque) void {
-        qtc.QIODevice_ReadyRead(@ptrCast(self));
+    pub fn ReadyRead(self: QFile) void {
+        qtc.QIODevice_ReadyRead(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1500,12 +1524,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` callback: *const fn (self: QtC.QFile) callconv(.c) void `
+    /// ` callback: *const fn (self: QFile) callconv(.c) void `
     ///
-    pub fn OnReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadyRead(self: QFile, callback: *const fn (QFile) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1514,12 +1538,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` channel: i32 `
     ///
-    pub fn ChannelReadyRead(self: ?*anyopaque, channel: i32) void {
-        qtc.QIODevice_ChannelReadyRead(@ptrCast(self), @bitCast(channel));
+    pub fn ChannelReadyRead(self: QFile, channel: i32) void {
+        qtc.QIODevice_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(channel));
     }
 
     /// Inherited from QIODevice
@@ -1528,12 +1552,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` callback: *const fn (self: QtC.QFile, channel: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QFile, channel: i32) callconv(.c) void `
     ///
-    pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChannelReadyRead(self: QFile, callback: *const fn (QFile, i32) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1542,12 +1566,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` bytes: i64 `
     ///
-    pub fn BytesWritten(self: ?*anyopaque, bytes: i64) void {
-        qtc.QIODevice_BytesWritten(@ptrCast(self), @bitCast(bytes));
+    pub fn BytesWritten(self: QFile, bytes: i64) void {
+        qtc.QIODevice_BytesWritten(@ptrCast(self.ptr), @bitCast(bytes));
     }
 
     /// Inherited from QIODevice
@@ -1556,12 +1580,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` callback: *const fn (self: QtC.QFile, bytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QFile, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBytesWritten(self: QFile, callback: *const fn (QFile, i64) callconv(.c) void) void {
+        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1570,14 +1594,14 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` channel: i32 `
     ///
     /// ` bytes: i64 `
     ///
-    pub fn ChannelBytesWritten(self: ?*anyopaque, channel: i32, bytes: i64) void {
-        qtc.QIODevice_ChannelBytesWritten(@ptrCast(self), @bitCast(channel), @bitCast(bytes));
+    pub fn ChannelBytesWritten(self: QFile, channel: i32, bytes: i64) void {
+        qtc.QIODevice_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(channel), @bitCast(bytes));
     }
 
     /// Inherited from QIODevice
@@ -1586,12 +1610,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` callback: *const fn (self: QtC.QFile, channel: i32, bytes: i64) callconv(.c) void `
+    /// ` callback: *const fn (self: QFile, channel: i32, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChannelBytesWritten(self: QFile, callback: *const fn (QFile, i32, i64) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1600,10 +1624,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn AboutToClose(self: ?*anyopaque) void {
-        qtc.QIODevice_AboutToClose(@ptrCast(self));
+    pub fn AboutToClose(self: QFile) void {
+        qtc.QIODevice_AboutToClose(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1612,12 +1636,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` callback: *const fn (self: QtC.QFile) callconv(.c) void `
+    /// ` callback: *const fn (self: QFile) callconv(.c) void `
     ///
-    pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAboutToClose(self: QFile, callback: *const fn (QFile) callconv(.c) void) void {
+        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1626,10 +1650,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn ReadChannelFinished(self: ?*anyopaque) void {
-        qtc.QIODevice_ReadChannelFinished(@ptrCast(self));
+    pub fn ReadChannelFinished(self: QFile) void {
+        qtc.QIODevice_ReadChannelFinished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -1638,12 +1662,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` callback: *const fn (self: QtC.QFile) callconv(.c) void `
+    /// ` callback: *const fn (self: QFile) callconv(.c) void `
     ///
-    pub fn OnReadChannelFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadChannelFinished(self: QFile, callback: *const fn (QFile) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1652,14 +1676,14 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
-    ///
-    /// ` maxlen: i64 `
+    /// ` self: QFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @bitCast(maxlen));
+    /// ` maxlen: i64 `
+    ///
+    pub fn ReadLine1(self: QFile, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfile.ReadLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1672,12 +1696,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QFile, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfile.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1690,12 +1714,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QFile, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -1704,10 +1728,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QFile) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1716,10 +1740,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QFile) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1728,10 +1752,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QFile) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1740,10 +1764,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QFile) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1752,12 +1776,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QFile, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -1766,10 +1790,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QFile) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1778,12 +1802,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QFile, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -1792,12 +1817,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QFile, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -1806,12 +1831,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QFile, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -1820,12 +1845,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QFile, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1834,12 +1859,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QFile, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1848,16 +1873,17 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QFile, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qfile.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qfile.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1867,12 +1893,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QFile, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1881,12 +1908,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QFile, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1895,12 +1923,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QFile, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1909,18 +1938,20 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1929,16 +1960,20 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1947,18 +1982,19 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QFile, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1967,18 +2003,20 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1987,16 +2025,20 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -2005,10 +2047,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QFile) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2017,12 +2059,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QFile, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -2031,10 +2074,11 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -2043,10 +2087,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QFile) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2055,10 +2099,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QFile) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2067,15 +2111,16 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QFile, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -2084,13 +2129,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QFile, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -2099,17 +2144,16 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QFile, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qfile.DynamicPropertyNames: Memory allocation failed");
@@ -2128,10 +2172,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QFile) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2140,10 +2184,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QFile) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2152,10 +2196,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QFile) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2164,12 +2208,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` callback: *const fn (self: QtC.QFile) callconv(.c) void `
+    /// ` callback: *const fn (self: QFile) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QFile, callback: *const fn (QFile) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2178,10 +2222,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QFile) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -2190,13 +2234,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QFile, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -2205,10 +2249,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QFile) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2217,14 +2261,14 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QFile, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2233,14 +2277,14 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QFile, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2249,20 +2293,22 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -2271,18 +2317,22 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2291,9 +2341,9 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2301,10 +2351,11 @@ pub const qfile = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QFile, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -2313,13 +2364,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QFile, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2328,15 +2379,16 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QFile, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -2345,18 +2397,19 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QFile, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2365,15 +2418,16 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QFile, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -2382,12 +2436,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QFile, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -2396,12 +2451,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` callback: *const fn (self: QtC.QFile, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QFile, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QFile, callback: *const fn (QFile, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -2412,10 +2467,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn Close(self: ?*anyopaque) void {
-        qtc.QFile_Close(@ptrCast(self));
+    pub fn Close(self: QFile) void {
+        qtc.QFile_Close(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperClose` instead
@@ -2430,10 +2485,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn SuperClose(self: ?*anyopaque) void {
-        qtc.QFile_SuperClose(@ptrCast(self));
+    pub fn SuperClose(self: QFile) void {
+        qtc.QFile_SuperClose(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFileDevice
@@ -2444,12 +2499,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnClose(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QFile_OnClose(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnClose(self: QFile, callback: *const fn () callconv(.c) void) void {
+        qtc.QFile_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -2460,10 +2515,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn IsSequential(self: ?*anyopaque) bool {
-        return qtc.QFile_IsSequential(@ptrCast(self));
+    pub fn IsSequential(self: QFile) bool {
+        return qtc.QFile_IsSequential(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSequential` instead
@@ -2478,10 +2533,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn SuperIsSequential(self: ?*anyopaque) bool {
-        return qtc.QFile_SuperIsSequential(@ptrCast(self));
+    pub fn SuperIsSequential(self: QFile) bool {
+        return qtc.QFile_SuperIsSequential(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFileDevice
@@ -2492,12 +2547,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsSequential(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QFile_OnIsSequential(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSequential(self: QFile, callback: *const fn () callconv(.c) bool) void {
+        qtc.QFile_OnIsSequential(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -2508,10 +2563,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn Pos(self: ?*anyopaque) i64 {
-        return qtc.QFile_Pos(@ptrCast(self));
+    pub fn Pos(self: QFile) i64 {
+        return qtc.QFile_Pos(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperPos` instead
@@ -2526,10 +2581,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn SuperPos(self: ?*anyopaque) i64 {
-        return qtc.QFile_SuperPos(@ptrCast(self));
+    pub fn SuperPos(self: QFile) i64 {
+        return qtc.QFile_SuperPos(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFileDevice
@@ -2540,12 +2595,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnPos(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QFile_OnPos(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPos(self: QFile, callback: *const fn () callconv(.c) i64) void {
+        qtc.QFile_OnPos(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -2556,12 +2611,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` offset: i64 `
     ///
-    pub fn Seek(self: ?*anyopaque, offset: i64) bool {
-        return qtc.QFile_Seek(@ptrCast(self), @bitCast(offset));
+    pub fn Seek(self: QFile, offset: i64) bool {
+        return qtc.QFile_Seek(@ptrCast(self.ptr), @bitCast(offset));
     }
 
     /// ### DEPRECATED: Use `SuperSeek` instead
@@ -2576,12 +2631,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` offset: i64 `
     ///
-    pub fn SuperSeek(self: ?*anyopaque, offset: i64) bool {
-        return qtc.QFile_SuperSeek(@ptrCast(self), @bitCast(offset));
+    pub fn SuperSeek(self: QFile, offset: i64) bool {
+        return qtc.QFile_SuperSeek(@ptrCast(self.ptr), @bitCast(offset));
     }
 
     /// Inherited from QFileDevice
@@ -2592,12 +2647,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
-    /// ` callback: *const fn (self: QtC.QFile, offset: i64) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFile, offset: i64) callconv(.c) bool `
     ///
-    pub fn OnSeek(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.QFile_OnSeek(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSeek(self: QFile, callback: *const fn (QFile, i64) callconv(.c) bool) void {
+        qtc.QFile_OnSeek(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -2608,10 +2663,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn AtEnd(self: ?*anyopaque) bool {
-        return qtc.QFile_AtEnd(@ptrCast(self));
+    pub fn AtEnd(self: QFile) bool {
+        return qtc.QFile_AtEnd(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperAtEnd` instead
@@ -2626,10 +2681,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn SuperAtEnd(self: ?*anyopaque) bool {
-        return qtc.QFile_SuperAtEnd(@ptrCast(self));
+    pub fn SuperAtEnd(self: QFile) bool {
+        return qtc.QFile_SuperAtEnd(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFileDevice
@@ -2640,12 +2695,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnAtEnd(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QFile_OnAtEnd(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAtEnd(self: QFile, callback: *const fn () callconv(.c) bool) void {
+        qtc.QFile_OnAtEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -2656,15 +2711,15 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn ReadData(self: QFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QFile_ReadData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QFile_ReadData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// ### DEPRECATED: Use `SuperReadData` instead
@@ -2679,15 +2734,15 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn SuperReadData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn SuperReadData(self: QFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QFile_SuperReadData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QFile_SuperReadData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QFileDevice
@@ -2698,12 +2753,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
-    /// ` callback: *const fn (self: QtC.QFile, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: QFile, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
-    pub fn OnReadData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, i64) callconv(.c) i64) void {
-        qtc.QFile_OnReadData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadData(self: QFile, callback: *const fn (QFile, qtc.libqt_string, i64) callconv(.c) i64) void {
+        qtc.QFile_OnReadData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -2714,15 +2769,15 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` data: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn WriteData(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn WriteData(self: QFile, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QFile_WriteData(@ptrCast(self), data_Cstring, @bitCast(lenVal));
+        return qtc.QFile_WriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
     }
 
     /// ### DEPRECATED: Use `SuperWriteData` instead
@@ -2737,15 +2792,15 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` data: [:0]const u8 `
     ///
     /// ` lenVal: i64 `
     ///
-    pub fn SuperWriteData(self: ?*anyopaque, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn SuperWriteData(self: QFile, data: [:0]const u8, lenVal: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QFile_SuperWriteData(@ptrCast(self), data_Cstring, @bitCast(lenVal));
+        return qtc.QFile_SuperWriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
     }
 
     /// Inherited from QFileDevice
@@ -2756,12 +2811,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
-    /// ` callback: *const fn (self: QtC.QFile, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: QFile, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 `
     ///
-    pub fn OnWriteData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
-        qtc.QFile_OnWriteData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWriteData(self: QFile, callback: *const fn (QFile, [*:0]const u8, i64) callconv(.c) i64) void {
+        qtc.QFile_OnWriteData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -2772,15 +2827,15 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn ReadLineData(self: QFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QFile_ReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QFile_ReadLineData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// ### DEPRECATED: Use `SuperReadLineData` instead
@@ -2795,15 +2850,15 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn SuperReadLineData(self: ?*anyopaque, data: [:0]u8, maxlen: i64) i64 {
+    pub fn SuperReadLineData(self: QFile, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QFile_SuperReadLineData(@ptrCast(self), data_Cstring, @bitCast(maxlen));
+        return qtc.QFile_SuperReadLineData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
     /// Inherited from QFileDevice
@@ -2814,12 +2869,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
-    /// ` callback: *const fn (self: QtC.QFile, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: QFile, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
-    pub fn OnReadLineData(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, i64) callconv(.c) i64) void {
-        qtc.QFile_OnReadLineData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReadLineData(self: QFile, callback: *const fn (QFile, qtc.libqt_string, i64) callconv(.c) i64) void {
+        qtc.QFile_OnReadLineData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2830,10 +2885,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn Reset(self: ?*anyopaque) bool {
-        return qtc.QFile_Reset(@ptrCast(self));
+    pub fn Reset(self: QFile) bool {
+        return qtc.QFile_Reset(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperReset` instead
@@ -2848,10 +2903,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn SuperReset(self: ?*anyopaque) bool {
-        return qtc.QFile_SuperReset(@ptrCast(self));
+    pub fn SuperReset(self: QFile) bool {
+        return qtc.QFile_SuperReset(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -2862,12 +2917,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QFile_OnReset(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReset(self: QFile, callback: *const fn () callconv(.c) bool) void {
+        qtc.QFile_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2878,10 +2933,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn BytesAvailable(self: ?*anyopaque) i64 {
-        return qtc.QFile_BytesAvailable(@ptrCast(self));
+    pub fn BytesAvailable(self: QFile) i64 {
+        return qtc.QFile_BytesAvailable(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperBytesAvailable` instead
@@ -2896,10 +2951,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn SuperBytesAvailable(self: ?*anyopaque) i64 {
-        return qtc.QFile_SuperBytesAvailable(@ptrCast(self));
+    pub fn SuperBytesAvailable(self: QFile) i64 {
+        return qtc.QFile_SuperBytesAvailable(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -2910,12 +2965,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnBytesAvailable(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QFile_OnBytesAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBytesAvailable(self: QFile, callback: *const fn () callconv(.c) i64) void {
+        qtc.QFile_OnBytesAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2926,10 +2981,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn BytesToWrite(self: ?*anyopaque) i64 {
-        return qtc.QFile_BytesToWrite(@ptrCast(self));
+    pub fn BytesToWrite(self: QFile) i64 {
+        return qtc.QFile_BytesToWrite(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperBytesToWrite` instead
@@ -2944,10 +2999,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn SuperBytesToWrite(self: ?*anyopaque) i64 {
-        return qtc.QFile_SuperBytesToWrite(@ptrCast(self));
+    pub fn SuperBytesToWrite(self: QFile) i64 {
+        return qtc.QFile_SuperBytesToWrite(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -2958,12 +3013,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnBytesToWrite(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
-        qtc.QFile_OnBytesToWrite(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBytesToWrite(self: QFile, callback: *const fn () callconv(.c) i64) void {
+        qtc.QFile_OnBytesToWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2974,10 +3029,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn CanReadLine(self: ?*anyopaque) bool {
-        return qtc.QFile_CanReadLine(@ptrCast(self));
+    pub fn CanReadLine(self: QFile) bool {
+        return qtc.QFile_CanReadLine(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCanReadLine` instead
@@ -2992,10 +3047,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn SuperCanReadLine(self: ?*anyopaque) bool {
-        return qtc.QFile_SuperCanReadLine(@ptrCast(self));
+    pub fn SuperCanReadLine(self: QFile) bool {
+        return qtc.QFile_SuperCanReadLine(@ptrCast(self.ptr));
     }
 
     /// Inherited from QIODevice
@@ -3006,12 +3061,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnCanReadLine(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QFile_OnCanReadLine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCanReadLine(self: QFile, callback: *const fn () callconv(.c) bool) void {
+        qtc.QFile_OnCanReadLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3022,12 +3077,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QFile_WaitForReadyRead(@ptrCast(self), @bitCast(msecs));
+    pub fn WaitForReadyRead(self: QFile, msecs: i32) bool {
+        return qtc.QFile_WaitForReadyRead(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// ### DEPRECATED: Use `SuperWaitForReadyRead` instead
@@ -3042,12 +3097,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForReadyRead(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QFile_SuperWaitForReadyRead(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForReadyRead(self: QFile, msecs: i32) bool {
+        return qtc.QFile_SuperWaitForReadyRead(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// Inherited from QIODevice
@@ -3058,12 +3113,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
-    /// ` callback: *const fn (self: QtC.QFile, msecs: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFile, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QFile_OnWaitForReadyRead(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWaitForReadyRead(self: QFile, callback: *const fn (QFile, i32) callconv(.c) bool) void {
+        qtc.QFile_OnWaitForReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3074,12 +3129,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QFile_WaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
+    pub fn WaitForBytesWritten(self: QFile, msecs: i32) bool {
+        return qtc.QFile_WaitForBytesWritten(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// ### DEPRECATED: Use `SuperWaitForBytesWritten` instead
@@ -3094,12 +3149,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForBytesWritten(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QFile_SuperWaitForBytesWritten(@ptrCast(self), @bitCast(msecs));
+    pub fn SuperWaitForBytesWritten(self: QFile, msecs: i32) bool {
+        return qtc.QFile_SuperWaitForBytesWritten(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// Inherited from QIODevice
@@ -3110,12 +3165,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
-    /// ` callback: *const fn (self: QtC.QFile, msecs: i32) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFile, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QFile_OnWaitForBytesWritten(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWaitForBytesWritten(self: QFile, callback: *const fn (QFile, i32) callconv(.c) bool) void {
+        qtc.QFile_OnWaitForBytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3126,12 +3181,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn SkipData(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QFile_SkipData(@ptrCast(self), @bitCast(maxSize));
+    pub fn SkipData(self: QFile, maxSize: i64) i64 {
+        return qtc.QFile_SkipData(@ptrCast(self.ptr), @bitCast(maxSize));
     }
 
     /// ### DEPRECATED: Use `SuperSkipData` instead
@@ -3146,12 +3201,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn SuperSkipData(self: ?*anyopaque, maxSize: i64) i64 {
-        return qtc.QFile_SuperSkipData(@ptrCast(self), @bitCast(maxSize));
+    pub fn SuperSkipData(self: QFile, maxSize: i64) i64 {
+        return qtc.QFile_SuperSkipData(@ptrCast(self.ptr), @bitCast(maxSize));
     }
 
     /// Inherited from QIODevice
@@ -3162,12 +3217,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
-    /// ` callback: *const fn (self: QtC.QFile, maxSize: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: QFile, maxSize: i64) callconv(.c) i64 `
     ///
-    pub fn OnSkipData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) i64) void {
-        qtc.QFile_OnSkipData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSkipData(self: QFile, callback: *const fn (QFile, i64) callconv(.c) i64) void {
+        qtc.QFile_OnSkipData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3178,12 +3233,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QFile_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QFile, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QFile_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -3198,12 +3254,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QFile_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QFile, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QFile_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3214,12 +3271,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
-    /// ` callback: *const fn (self: QtC.QFile, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFile, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFile_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QFile, callback: *const fn (QFile, QEvent) callconv(.c) bool) void {
+        qtc.QFile_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3230,14 +3287,16 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QFile_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QFile, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QFile_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -3252,14 +3311,16 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QFile_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QFile, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QFile_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3270,12 +3331,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
-    /// ` callback: *const fn (self: QtC.QFile, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFile, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFile_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QFile, callback: *const fn (QFile, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QFile_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3286,12 +3347,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFile_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QFile, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QFile_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -3306,12 +3368,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFile_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QFile, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QFile_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3322,12 +3385,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
-    /// ` callback: *const fn (self: QtC.QFile, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFile, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFile_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QFile, callback: *const fn (QFile, QTimerEvent) callconv(.c) void) void {
+        qtc.QFile_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3338,12 +3401,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFile_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QFile, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QFile_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -3358,12 +3422,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFile_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QFile, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QFile_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3374,12 +3439,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
-    /// ` callback: *const fn (self: QtC.QFile, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFile, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFile_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QFile, callback: *const fn (QFile, QChildEvent) callconv(.c) void) void {
+        qtc.QFile_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3390,12 +3455,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFile_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QFile, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QFile_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -3410,12 +3476,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QFile_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QFile, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QFile_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -3426,12 +3493,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
-    /// ` callback: *const fn (self: QtC.QFile, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QFile, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFile_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QFile, callback: *const fn (QFile, QEvent) callconv(.c) void) void {
+        qtc.QFile_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3442,12 +3509,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QFile_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QFile, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QFile_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -3462,12 +3530,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QFile_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QFile, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QFile_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3478,12 +3547,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
-    /// ` callback: *const fn (self: QtC.QFile, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QFile, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFile_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QFile, callback: *const fn (QFile, QMetaMethod) callconv(.c) void) void {
+        qtc.QFile_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3494,12 +3563,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QFile_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QFile, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QFile_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -3514,12 +3584,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QFile_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QFile, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QFile_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3530,12 +3601,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
-    /// ` callback: *const fn (self: QtC.QFile, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QFile, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QFile_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QFile, callback: *const fn (QFile, QMetaMethod) callconv(.c) void) void {
+        qtc.QFile_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3546,12 +3617,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SetOpenMode(self: ?*anyopaque, openMode: i32) void {
-        qtc.QFile_SetOpenMode(@ptrCast(self), @bitCast(openMode));
+    pub fn SetOpenMode(self: QFile, openMode: i32) void {
+        qtc.QFile_SetOpenMode(@ptrCast(self.ptr), @bitCast(openMode));
     }
 
     /// ### DEPRECATED: Use `SuperSetOpenMode` instead
@@ -3566,12 +3637,12 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperSetOpenMode(self: ?*anyopaque, openMode: i32) void {
-        qtc.QFile_SuperSetOpenMode(@ptrCast(self), @bitCast(openMode));
+    pub fn SuperSetOpenMode(self: QFile, openMode: i32) void {
+        qtc.QFile_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(openMode));
     }
 
     /// Inherited from QIODevice
@@ -3582,12 +3653,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
-    /// ` callback: *const fn (self: QtC.QFile, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
+    /// ` callback: *const fn (self: QFile, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
     ///
-    pub fn OnSetOpenMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QFile_OnSetOpenMode(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetOpenMode(self: QFile, callback: *const fn (QFile, i32) callconv(.c) void) void {
+        qtc.QFile_OnSetOpenMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -3598,16 +3669,16 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn SetErrorString(self: ?*anyopaque, errorString: []const u8) void {
+    pub fn SetErrorString(self: QFile, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QFile_SetErrorString(@ptrCast(self), errorString_str);
+        qtc.QFile_SetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
     /// ### DEPRECATED: Use `SuperSetErrorString` instead
@@ -3622,16 +3693,16 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn SuperSetErrorString(self: ?*anyopaque, errorString: []const u8) void {
+    pub fn SuperSetErrorString(self: QFile, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
-        qtc.QFile_SuperSetErrorString(@ptrCast(self), errorString_str);
+        qtc.QFile_SuperSetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
     /// Inherited from QIODevice
@@ -3642,12 +3713,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
-    /// ` callback: *const fn (self: QtC.QFile, errorString: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QFile, errorString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetErrorString(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QFile_OnSetErrorString(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetErrorString(self: QFile, callback: *const fn (QFile, [*:0]const u8) callconv(.c) void) void {
+        qtc.QFile_OnSetErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3658,10 +3729,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QFile_Sender(@ptrCast(self));
+    pub fn Sender(self: QFile) QObject {
+        return .{ .ptr = qtc.QFile_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -3676,10 +3747,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QFile_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QFile) QObject {
+        return .{ .ptr = qtc.QFile_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -3690,12 +3761,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QFile_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QFile, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QFile_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3706,10 +3777,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QFile_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QFile) i32 {
+        return qtc.QFile_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -3724,10 +3795,10 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QFile_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QFile) i32 {
+        return qtc.QFile_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -3738,12 +3809,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QFile_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QFile, callback: *const fn () callconv(.c) i32) void {
+        qtc.QFile_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3754,13 +3825,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QFile, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QFile_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QFile_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -3775,13 +3846,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QFile, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QFile_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QFile_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -3792,12 +3863,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
-    /// ` callback: *const fn (self: QtC.QFile, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QFile, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QFile_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QFile, callback: *const fn (QFile, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QFile_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3808,12 +3879,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QFile_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QFile, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QFile_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -3828,12 +3900,13 @@ pub const qfile = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QFile_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QFile, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QFile_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -3844,12 +3917,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile`
+    /// ` self: QFile`
     ///
-    /// ` callback: *const fn (self: QtC.QFile, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QFile, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QFile_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QFile, callback: *const fn (QFile, QMetaMethod) callconv(.c) bool) void {
+        qtc.QFile_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3860,12 +3933,12 @@ pub const qfile = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    /// ` callback: *const fn (self: QtC.QFile, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QFile, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QFile, callback: *const fn (QFile, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -3878,9 +3951,9 @@ pub const qfile = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QFile `
+    /// ` self: QFile `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QFile_Delete(@ptrCast(self));
+    pub fn Delete(self: QFile) void {
+        qtc.QFile_Delete(@ptrCast(self.ptr));
     }
 };

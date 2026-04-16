@@ -1,5 +1,75 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAction = @import("libqt6").QAction;
+const QActionEvent = @import("libqt6").QActionEvent;
+const QBackingStore = @import("libqt6").QBackingStore;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBitmap = @import("libqt6").QBitmap;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QCloseEvent = @import("libqt6").QCloseEvent;
+const QColor = @import("libqt6").QColor;
+const QContextMenuEvent = @import("libqt6").QContextMenuEvent;
+const QCursor = @import("libqt6").QCursor;
+const QDragEnterEvent = @import("libqt6").QDragEnterEvent;
+const QDragLeaveEvent = @import("libqt6").QDragLeaveEvent;
+const QDragMoveEvent = @import("libqt6").QDragMoveEvent;
+const QDropEvent = @import("libqt6").QDropEvent;
+const QEnterEvent = @import("libqt6").QEnterEvent;
+const QEvent = @import("libqt6").QEvent;
+const QFocusEvent = @import("libqt6").QFocusEvent;
+const QFont = @import("libqt6").QFont;
+const QFontInfo = @import("libqt6").QFontInfo;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QGraphicsEffect = @import("libqt6").QGraphicsEffect;
+const QGraphicsProxyWidget = @import("libqt6").QGraphicsProxyWidget;
+const QHideEvent = @import("libqt6").QHideEvent;
+const QIcon = @import("libqt6").QIcon;
+const QInputMethodEvent = @import("libqt6").QInputMethodEvent;
+const QKeyEvent = @import("libqt6").QKeyEvent;
+const QKeySequence = @import("libqt6").QKeySequence;
+const QLayout = @import("libqt6").QLayout;
+const QLocale = @import("libqt6").QLocale;
+const QMargins = @import("libqt6").QMargins;
+const QMenu = @import("libqt6").QMenu;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMimeData = @import("libqt6").QMimeData;
+const QMouseEvent = @import("libqt6").QMouseEvent;
+const QMoveEvent = @import("libqt6").QMoveEvent;
+const QObject = @import("libqt6").QObject;
+const QPagedPaintDevice = @import("libqt6").QPagedPaintDevice;
+const QPaintDevice = @import("libqt6").QPaintDevice;
+const QPaintEngine = @import("libqt6").QPaintEngine;
+const QPaintEvent = @import("libqt6").QPaintEvent;
+const QPainter = @import("libqt6").QPainter;
+const QPalette = @import("libqt6").QPalette;
+const QPixmap = @import("libqt6").QPixmap;
+const QPoint = @import("libqt6").QPoint;
+const QPointF = @import("libqt6").QPointF;
+const QRect = @import("libqt6").QRect;
+const QRegion = @import("libqt6").QRegion;
+const QRegularExpression = @import("libqt6").QRegularExpression;
+const QResizeEvent = @import("libqt6").QResizeEvent;
+const QScreen = @import("libqt6").QScreen;
+const QScrollBar = @import("libqt6").QScrollBar;
+const QShowEvent = @import("libqt6").QShowEvent;
+const QSize = @import("libqt6").QSize;
+const QSizePolicy = @import("libqt6").QSizePolicy;
+const QStyle = @import("libqt6").QStyle;
+const QStyleOptionFrame = @import("libqt6").QStyleOptionFrame;
+const QTabletEvent = @import("libqt6").QTabletEvent;
+const QTextCharFormat = @import("libqt6").QTextCharFormat;
+const QTextCursor = @import("libqt6").QTextCursor;
+const QTextDocument = @import("libqt6").QTextDocument;
+const QTextEdit__ExtraSelection = @import("libqt6").QTextEdit__ExtraSelection;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QUrl = @import("libqt6").QUrl;
+const QVariant = @import("libqt6").QVariant;
+const QWheelEvent = @import("libqt6").QWheelEvent;
+const QWidget = @import("libqt6").QWidget;
+const QWindow = @import("libqt6").QWindow;
 const qabstractscrollarea_enums = @import("libqabstractscrollarea.zig").enums;
 const qframe_enums = @import("libqframe.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
@@ -15,31 +85,46 @@ const qwidget_enums = @import("libqwidget.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html)
-pub const qtextbrowser = struct {
+pub const QTextBrowser = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QTextBrowser,
+
+    pub const _is_QTextBrowser = {};
+    pub const _is_QTextEdit = {};
+    pub const _is_QAbstractScrollArea = {};
+    pub const _is_QFrame = {};
+    pub const _is_QWidget = {};
+    pub const _is_QObject = {};
+    pub const _is_QPaintDevice = {};
+
     /// New constructs a new QTextBrowser object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.QTextBrowser {
-        return qtc.QTextBrowser_new(@ptrCast(parent));
+    pub fn New(parent: anytype) QTextBrowser {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QTextBrowser_new(@ptrCast(parent.ptr)) };
     }
 
     /// New2 constructs a new QTextBrowser object.
     ///
-    pub fn New2() QtC.QTextBrowser {
-        return qtc.QTextBrowser_new2();
+    pub fn New2() QTextBrowser {
+        return .{ .ptr = qtc.QTextBrowser_new2() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QTextBrowser_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QTextBrowser) QMetaObject {
+        return .{ .ptr = qtc.QTextBrowser_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -48,12 +133,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QTextBrowser_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QTextBrowser, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QTextBrowser_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -66,33 +151,33 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QTextBrowser_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QTextBrowser) QMetaObject {
+        return .{ .ptr = qtc.QTextBrowser_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QTextBrowser, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QTextBrowser_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QTextBrowser_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QTextBrowser, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QTextBrowser_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QTextBrowser, callback: *const fn (QTextBrowser, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QTextBrowser_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -103,18 +188,18 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QTextBrowser, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QTextBrowser_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QTextBrowser_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -122,20 +207,20 @@ pub const qtextbrowser = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTextBrowser_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QTextBrowser, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QTextBrowser_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTextBrowser, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QTextBrowser_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QTextBrowser, callback: *const fn (QTextBrowser, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QTextBrowser_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -146,7 +231,7 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -154,19 +239,19 @@ pub const qtextbrowser = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTextBrowser_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QTextBrowser, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QTextBrowser_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -179,41 +264,40 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Source(self: ?*anyopaque) QtC.QUrl {
-        return qtc.QTextBrowser_Source(@ptrCast(self));
+    pub fn Source(self: QTextBrowser) QUrl {
+        return .{ .ptr = qtc.QTextBrowser_Source(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#sourceType)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ## Returns:
     ///
     /// ` qtextdocument_enums.ResourceType `
     ///
-    pub fn SourceType(self: ?*anyopaque) i32 {
-        return qtc.QTextBrowser_SourceType(@ptrCast(self));
+    pub fn SourceType(self: QTextBrowser) i32 {
+        return qtc.QTextBrowser_SourceType(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#searchPaths)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SearchPaths(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QTextBrowser_SearchPaths(@ptrCast(self));
+    pub fn SearchPaths(self: QTextBrowser, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QTextBrowser_SearchPaths(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qtextbrowser.SearchPaths: Memory allocation failed");
@@ -230,40 +314,40 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
-    ///
-    /// ` paths: []const []const u8 `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetSearchPaths(self: ?*anyopaque, paths: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` paths: []const []const u8 `
+    ///
+    pub fn SetSearchPaths(self: QTextBrowser, allocator: std.mem.Allocator, paths: []const []const u8) void {
         const paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("qtextbrowser.SetSearchPaths: Memory allocation failed");
         defer allocator.free(paths_arr);
-        for (paths, 0..paths.len) |item, i| {
+        for (paths, 0..paths.len) |item, i|
             paths_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const paths_list = qtc.libqt_list{
             .len = paths.len,
             .data = paths_arr.ptr,
         };
-        qtc.QTextBrowser_SetSearchPaths(@ptrCast(self), paths_list);
+        qtc.QTextBrowser_SetSearchPaths(@ptrCast(self.ptr), paths_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#loadResource)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` typeVal: i32 `
     ///
-    /// ` name: QtC.QUrl `
+    /// ` name: QUrl `
     ///
-    pub fn LoadResource(self: ?*anyopaque, typeVal: i32, name: ?*anyopaque) QtC.QVariant {
-        return qtc.QTextBrowser_LoadResource(@ptrCast(self), @bitCast(typeVal), @ptrCast(name));
+    pub fn LoadResource(self: QTextBrowser, typeVal: i32, name: anytype) QVariant {
+        comptime _ = @TypeOf(name)._is_QUrl;
+        return .{ .ptr = qtc.QTextBrowser_LoadResource(@ptrCast(self.ptr), @bitCast(typeVal), @ptrCast(name.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#loadResource)
@@ -272,12 +356,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, typeVal: i32, name: QtC.QUrl) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QTextBrowser, typeVal: i32, name: QUrl) callconv(.c) QVariant `
     ///
-    pub fn OnLoadResource(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QTextBrowser_OnLoadResource(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLoadResource(self: QTextBrowser, callback: *const fn (QTextBrowser, i32, QUrl) callconv(.c) QVariant) void {
+        qtc.QTextBrowser_OnLoadResource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperLoadResource` instead
@@ -290,58 +374,59 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` typeVal: i32 `
     ///
-    /// ` name: QtC.QUrl `
+    /// ` name: QUrl `
     ///
-    pub fn SuperLoadResource(self: ?*anyopaque, typeVal: i32, name: ?*anyopaque) QtC.QVariant {
-        return qtc.QTextBrowser_SuperLoadResource(@ptrCast(self), @bitCast(typeVal), @ptrCast(name));
+    pub fn SuperLoadResource(self: QTextBrowser, typeVal: i32, name: anytype) QVariant {
+        comptime _ = @TypeOf(name)._is_QUrl;
+        return .{ .ptr = qtc.QTextBrowser_SuperLoadResource(@ptrCast(self.ptr), @bitCast(typeVal), @ptrCast(name.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#isBackwardAvailable)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn IsBackwardAvailable(self: ?*anyopaque) bool {
-        return qtc.QTextBrowser_IsBackwardAvailable(@ptrCast(self));
+    pub fn IsBackwardAvailable(self: QTextBrowser) bool {
+        return qtc.QTextBrowser_IsBackwardAvailable(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#isForwardAvailable)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn IsForwardAvailable(self: ?*anyopaque) bool {
-        return qtc.QTextBrowser_IsForwardAvailable(@ptrCast(self));
+    pub fn IsForwardAvailable(self: QTextBrowser) bool {
+        return qtc.QTextBrowser_IsForwardAvailable(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#clearHistory)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn ClearHistory(self: ?*anyopaque) void {
-        qtc.QTextBrowser_ClearHistory(@ptrCast(self));
+    pub fn ClearHistory(self: QTextBrowser) void {
+        qtc.QTextBrowser_ClearHistory(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#historyTitle)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
-    ///
-    /// ` param1: i32 `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn HistoryTitle(self: ?*anyopaque, param1: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextBrowser_HistoryTitle(@ptrCast(self), @bitCast(param1));
+    /// ` param1: i32 `
+    ///
+    pub fn HistoryTitle(self: QTextBrowser, allocator: std.mem.Allocator, param1: i32) []const u8 {
+        var _str = qtc.QTextBrowser_HistoryTitle(@ptrCast(self.ptr), @bitCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextbrowser.HistoryTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -352,98 +437,99 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HistoryUrl(self: ?*anyopaque, param1: i32) QtC.QUrl {
-        return qtc.QTextBrowser_HistoryUrl(@ptrCast(self), @bitCast(param1));
+    pub fn HistoryUrl(self: QTextBrowser, param1: i32) QUrl {
+        return .{ .ptr = qtc.QTextBrowser_HistoryUrl(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#backwardHistoryCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn BackwardHistoryCount(self: ?*anyopaque) i32 {
-        return qtc.QTextBrowser_BackwardHistoryCount(@ptrCast(self));
+    pub fn BackwardHistoryCount(self: QTextBrowser) i32 {
+        return qtc.QTextBrowser_BackwardHistoryCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#forwardHistoryCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn ForwardHistoryCount(self: ?*anyopaque) i32 {
-        return qtc.QTextBrowser_ForwardHistoryCount(@ptrCast(self));
+    pub fn ForwardHistoryCount(self: QTextBrowser) i32 {
+        return qtc.QTextBrowser_ForwardHistoryCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#openExternalLinks)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn OpenExternalLinks(self: ?*anyopaque) bool {
-        return qtc.QTextBrowser_OpenExternalLinks(@ptrCast(self));
+    pub fn OpenExternalLinks(self: QTextBrowser) bool {
+        return qtc.QTextBrowser_OpenExternalLinks(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#setOpenExternalLinks)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` open: bool `
     ///
-    pub fn SetOpenExternalLinks(self: ?*anyopaque, open: bool) void {
-        qtc.QTextBrowser_SetOpenExternalLinks(@ptrCast(self), open);
+    pub fn SetOpenExternalLinks(self: QTextBrowser, open: bool) void {
+        qtc.QTextBrowser_SetOpenExternalLinks(@ptrCast(self.ptr), open);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#openLinks)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn OpenLinks(self: ?*anyopaque) bool {
-        return qtc.QTextBrowser_OpenLinks(@ptrCast(self));
+    pub fn OpenLinks(self: QTextBrowser) bool {
+        return qtc.QTextBrowser_OpenLinks(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#setOpenLinks)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` open: bool `
     ///
-    pub fn SetOpenLinks(self: ?*anyopaque, open: bool) void {
-        qtc.QTextBrowser_SetOpenLinks(@ptrCast(self), open);
+    pub fn SetOpenLinks(self: QTextBrowser, open: bool) void {
+        qtc.QTextBrowser_SetOpenLinks(@ptrCast(self.ptr), open);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#setSource)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` name: QtC.QUrl `
+    /// ` name: QUrl `
     ///
-    pub fn SetSource(self: ?*anyopaque, name: ?*anyopaque) void {
-        qtc.QTextBrowser_SetSource(@ptrCast(self), @ptrCast(name));
+    pub fn SetSource(self: QTextBrowser, name: anytype) void {
+        comptime _ = @TypeOf(name)._is_QUrl;
+        qtc.QTextBrowser_SetSource(@ptrCast(self.ptr), @ptrCast(name.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#backward)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Backward(self: ?*anyopaque) void {
-        qtc.QTextBrowser_Backward(@ptrCast(self));
+    pub fn Backward(self: QTextBrowser) void {
+        qtc.QTextBrowser_Backward(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#backward)
@@ -452,12 +538,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnBackward(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTextBrowser_OnBackward(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBackward(self: QTextBrowser, callback: *const fn () callconv(.c) void) void {
+        qtc.QTextBrowser_OnBackward(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperBackward` instead
@@ -470,20 +556,20 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SuperBackward(self: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperBackward(@ptrCast(self));
+    pub fn SuperBackward(self: QTextBrowser) void {
+        qtc.QTextBrowser_SuperBackward(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#forward)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Forward(self: ?*anyopaque) void {
-        qtc.QTextBrowser_Forward(@ptrCast(self));
+    pub fn Forward(self: QTextBrowser) void {
+        qtc.QTextBrowser_Forward(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#forward)
@@ -492,12 +578,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnForward(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTextBrowser_OnForward(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnForward(self: QTextBrowser, callback: *const fn () callconv(.c) void) void {
+        qtc.QTextBrowser_OnForward(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperForward` instead
@@ -510,20 +596,20 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SuperForward(self: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperForward(@ptrCast(self));
+    pub fn SuperForward(self: QTextBrowser) void {
+        qtc.QTextBrowser_SuperForward(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#home)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Home(self: ?*anyopaque) void {
-        qtc.QTextBrowser_Home(@ptrCast(self));
+    pub fn Home(self: QTextBrowser) void {
+        qtc.QTextBrowser_Home(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#home)
@@ -532,12 +618,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnHome(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTextBrowser_OnHome(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHome(self: QTextBrowser, callback: *const fn () callconv(.c) void) void {
+        qtc.QTextBrowser_OnHome(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperHome` instead
@@ -550,20 +636,20 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SuperHome(self: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperHome(@ptrCast(self));
+    pub fn SuperHome(self: QTextBrowser) void {
+        qtc.QTextBrowser_SuperHome(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#reload)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Reload(self: ?*anyopaque) void {
-        qtc.QTextBrowser_Reload(@ptrCast(self));
+    pub fn Reload(self: QTextBrowser) void {
+        qtc.QTextBrowser_Reload(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#reload)
@@ -572,12 +658,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReload(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTextBrowser_OnReload(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReload(self: QTextBrowser, callback: *const fn () callconv(.c) void) void {
+        qtc.QTextBrowser_OnReload(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperReload` instead
@@ -590,164 +676,168 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SuperReload(self: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperReload(@ptrCast(self));
+    pub fn SuperReload(self: QTextBrowser) void {
+        qtc.QTextBrowser_SuperReload(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#backwardAvailable)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` param1: bool `
     ///
-    pub fn BackwardAvailable(self: ?*anyopaque, param1: bool) void {
-        qtc.QTextBrowser_BackwardAvailable(@ptrCast(self), param1);
+    pub fn BackwardAvailable(self: QTextBrowser, param1: bool) void {
+        qtc.QTextBrowser_BackwardAvailable(@ptrCast(self.ptr), param1);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#backwardAvailable)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, param1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, param1: bool) callconv(.c) void `
     ///
-    pub fn OnBackwardAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTextBrowser_Connect_BackwardAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnBackwardAvailable(self: QTextBrowser, callback: *const fn (QTextBrowser, bool) callconv(.c) void) void {
+        qtc.QTextBrowser_Connect_BackwardAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#forwardAvailable)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` param1: bool `
     ///
-    pub fn ForwardAvailable(self: ?*anyopaque, param1: bool) void {
-        qtc.QTextBrowser_ForwardAvailable(@ptrCast(self), param1);
+    pub fn ForwardAvailable(self: QTextBrowser, param1: bool) void {
+        qtc.QTextBrowser_ForwardAvailable(@ptrCast(self.ptr), param1);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#forwardAvailable)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, param1: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, param1: bool) callconv(.c) void `
     ///
-    pub fn OnForwardAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTextBrowser_Connect_ForwardAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnForwardAvailable(self: QTextBrowser, callback: *const fn (QTextBrowser, bool) callconv(.c) void) void {
+        qtc.QTextBrowser_Connect_ForwardAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#historyChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn HistoryChanged(self: ?*anyopaque) void {
-        qtc.QTextBrowser_HistoryChanged(@ptrCast(self));
+    pub fn HistoryChanged(self: QTextBrowser) void {
+        qtc.QTextBrowser_HistoryChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#historyChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser) callconv(.c) void `
     ///
-    pub fn OnHistoryChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_Connect_HistoryChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHistoryChanged(self: QTextBrowser, callback: *const fn (QTextBrowser) callconv(.c) void) void {
+        qtc.QTextBrowser_Connect_HistoryChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#sourceChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QUrl `
+    /// ` param1: QUrl `
     ///
-    pub fn SourceChanged(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTextBrowser_SourceChanged(@ptrCast(self), @ptrCast(param1));
+    pub fn SourceChanged(self: QTextBrowser, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QUrl;
+        qtc.QTextBrowser_SourceChanged(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#sourceChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, param1: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, param1: QUrl) callconv(.c) void `
     ///
-    pub fn OnSourceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_Connect_SourceChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSourceChanged(self: QTextBrowser, callback: *const fn (QTextBrowser, QUrl) callconv(.c) void) void {
+        qtc.QTextBrowser_Connect_SourceChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#highlighted)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QUrl `
+    /// ` param1: QUrl `
     ///
-    pub fn Highlighted(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTextBrowser_Highlighted(@ptrCast(self), @ptrCast(param1));
+    pub fn Highlighted(self: QTextBrowser, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QUrl;
+        qtc.QTextBrowser_Highlighted(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#highlighted)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, param1: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, param1: QUrl) callconv(.c) void `
     ///
-    pub fn OnHighlighted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_Connect_Highlighted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHighlighted(self: QTextBrowser, callback: *const fn (QTextBrowser, QUrl) callconv(.c) void) void {
+        qtc.QTextBrowser_Connect_Highlighted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#anchorClicked)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QUrl `
+    /// ` param1: QUrl `
     ///
-    pub fn AnchorClicked(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTextBrowser_AnchorClicked(@ptrCast(self), @ptrCast(param1));
+    pub fn AnchorClicked(self: QTextBrowser, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QUrl;
+        qtc.QTextBrowser_AnchorClicked(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#anchorClicked)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, param1: QtC.QUrl) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, param1: QUrl) callconv(.c) void `
     ///
-    pub fn OnAnchorClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_Connect_AnchorClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAnchorClicked(self: QTextBrowser, callback: *const fn (QTextBrowser, QUrl) callconv(.c) void) void {
+        qtc.QTextBrowser_Connect_AnchorClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#event)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QTextBrowser_Event(@ptrCast(self), @ptrCast(e));
+    pub fn Event(self: QTextBrowser, e: anytype) bool {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        return qtc.QTextBrowser_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#event)
@@ -756,12 +846,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, e: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTextBrowser, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTextBrowser_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QEvent) callconv(.c) bool) void {
+        qtc.QTextBrowser_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -774,24 +864,26 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, e: ?*anyopaque) bool {
-        return qtc.QTextBrowser_SuperEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperEvent(self: QTextBrowser, e: anytype) bool {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        return qtc.QTextBrowser_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#keyPressEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` ev: QtC.QKeyEvent `
+    /// ` ev: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QTextBrowser_KeyPressEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn KeyPressEvent(self: QTextBrowser, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QKeyEvent;
+        qtc.QTextBrowser_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#keyPressEvent)
@@ -800,12 +892,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, ev: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, ev: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyPressEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QKeyEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
@@ -818,24 +910,26 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` ev: QtC.QKeyEvent `
+    /// ` ev: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperKeyPressEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperKeyPressEvent(self: QTextBrowser, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QKeyEvent;
+        qtc.QTextBrowser_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#mouseMoveEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` ev: QtC.QMouseEvent `
+    /// ` ev: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QTextBrowser_MouseMoveEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn MouseMoveEvent(self: QTextBrowser, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QMouseEvent;
+        qtc.QTextBrowser_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#mouseMoveEvent)
@@ -844,12 +938,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, ev: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, ev: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseMoveEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QMouseEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
@@ -862,24 +956,26 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` ev: QtC.QMouseEvent `
+    /// ` ev: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperMouseMoveEvent(self: QTextBrowser, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QMouseEvent;
+        qtc.QTextBrowser_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#mousePressEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` ev: QtC.QMouseEvent `
+    /// ` ev: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QTextBrowser_MousePressEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn MousePressEvent(self: QTextBrowser, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QMouseEvent;
+        qtc.QTextBrowser_MousePressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#mousePressEvent)
@@ -888,12 +984,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, ev: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, ev: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMousePressEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QMouseEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMousePressEvent` instead
@@ -906,24 +1002,26 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` ev: QtC.QMouseEvent `
+    /// ` ev: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperMousePressEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperMousePressEvent(self: QTextBrowser, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QMouseEvent;
+        qtc.QTextBrowser_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#mouseReleaseEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` ev: QtC.QMouseEvent `
+    /// ` ev: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QTextBrowser_MouseReleaseEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn MouseReleaseEvent(self: QTextBrowser, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QMouseEvent;
+        qtc.QTextBrowser_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#mouseReleaseEvent)
@@ -932,12 +1030,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, ev: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, ev: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseReleaseEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QMouseEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
@@ -950,24 +1048,26 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` ev: QtC.QMouseEvent `
+    /// ` ev: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperMouseReleaseEvent(self: QTextBrowser, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QMouseEvent;
+        qtc.QTextBrowser_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#focusOutEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` ev: QtC.QFocusEvent `
+    /// ` ev: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QTextBrowser_FocusOutEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn FocusOutEvent(self: QTextBrowser, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QFocusEvent;
+        qtc.QTextBrowser_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#focusOutEvent)
@@ -976,12 +1076,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, ev: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, ev: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusOutEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QFocusEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
@@ -994,24 +1094,25 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` ev: QtC.QFocusEvent `
+    /// ` ev: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: ?*anyopaque, ev: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperFocusOutEvent(@ptrCast(self), @ptrCast(ev));
+    pub fn SuperFocusOutEvent(self: QTextBrowser, ev: anytype) void {
+        comptime _ = @TypeOf(ev)._is_QFocusEvent;
+        qtc.QTextBrowser_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#focusNextPrevChild)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QTextBrowser_FocusNextPrevChild(@ptrCast(self), next);
+    pub fn FocusNextPrevChild(self: QTextBrowser, next: bool) bool {
+        return qtc.QTextBrowser_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#focusNextPrevChild)
@@ -1020,12 +1121,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, next: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTextBrowser, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QTextBrowser_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextPrevChild(self: QTextBrowser, callback: *const fn (QTextBrowser, bool) callconv(.c) bool) void {
+        qtc.QTextBrowser_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
@@ -1038,24 +1139,25 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QTextBrowser_SuperFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: QTextBrowser, next: bool) bool {
+        return qtc.QTextBrowser_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#paintEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QPaintEvent `
+    /// ` e: QPaintEvent `
     ///
-    pub fn PaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_PaintEvent(@ptrCast(self), @ptrCast(e));
+    pub fn PaintEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QPaintEvent;
+        qtc.QTextBrowser_PaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#paintEvent)
@@ -1064,12 +1166,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, e: QtC.QPaintEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, e: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QPaintEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperPaintEvent` instead
@@ -1082,26 +1184,28 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QPaintEvent `
+    /// ` e: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperPaintEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperPaintEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QPaintEvent;
+        qtc.QTextBrowser_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#doSetSource)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` name: QtC.QUrl `
+    /// ` name: QUrl `
     ///
     /// ` typeVal: qtextdocument_enums.ResourceType `
     ///
-    pub fn DoSetSource(self: ?*anyopaque, name: ?*anyopaque, typeVal: i32) void {
-        qtc.QTextBrowser_DoSetSource(@ptrCast(self), @ptrCast(name), @bitCast(typeVal));
+    pub fn DoSetSource(self: QTextBrowser, name: anytype, typeVal: i32) void {
+        comptime _ = @TypeOf(name)._is_QUrl;
+        qtc.QTextBrowser_DoSetSource(@ptrCast(self.ptr), @ptrCast(name.ptr), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextbrowser.html#doSetSource)
@@ -1110,12 +1214,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, name: QtC.QUrl, typeVal: qtextdocument_enums.ResourceType) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, name: QUrl, typeVal: qtextdocument_enums.ResourceType) callconv(.c) void `
     ///
-    pub fn OnDoSetSource(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTextBrowser_OnDoSetSource(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDoSetSource(self: QTextBrowser, callback: *const fn (QTextBrowser, QUrl, i32) callconv(.c) void) void {
+        qtc.QTextBrowser_OnDoSetSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDoSetSource` instead
@@ -1128,27 +1232,28 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` name: QtC.QUrl `
+    /// ` name: QUrl `
     ///
     /// ` typeVal: qtextdocument_enums.ResourceType `
     ///
-    pub fn SuperDoSetSource(self: ?*anyopaque, name: ?*anyopaque, typeVal: i32) void {
-        qtc.QTextBrowser_SuperDoSetSource(@ptrCast(self), @ptrCast(name), @bitCast(typeVal));
+    pub fn SuperDoSetSource(self: QTextBrowser, name: anytype, typeVal: i32) void {
+        comptime _ = @TypeOf(name)._is_QUrl;
+        qtc.QTextBrowser_SuperDoSetSource(@ptrCast(self.ptr), @ptrCast(name.ptr), @bitCast(typeVal));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -1162,15 +1267,15 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -1184,14 +1289,15 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` name: QtC.QUrl `
+    /// ` name: QUrl `
     ///
     /// ` typeVal: qtextdocument_enums.ResourceType `
     ///
-    pub fn SetSource2(self: ?*anyopaque, name: ?*anyopaque, typeVal: i32) void {
-        qtc.QTextBrowser_SetSource2(@ptrCast(self), @ptrCast(name), @bitCast(typeVal));
+    pub fn SetSource2(self: QTextBrowser, name: anytype, typeVal: i32) void {
+        comptime _ = @TypeOf(name)._is_QUrl;
+        qtc.QTextBrowser_SetSource2(@ptrCast(self.ptr), @ptrCast(name.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QTextEdit
@@ -1200,12 +1306,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` document: QtC.QTextDocument `
+    /// ` document: QTextDocument `
     ///
-    pub fn SetDocument(self: ?*anyopaque, document: ?*anyopaque) void {
-        qtc.QTextEdit_SetDocument(@ptrCast(self), @ptrCast(document));
+    pub fn SetDocument(self: QTextBrowser, document: anytype) void {
+        comptime _ = @TypeOf(document)._is_QTextDocument;
+        qtc.QTextEdit_SetDocument(@ptrCast(self.ptr), @ptrCast(document.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -1214,10 +1321,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Document(self: ?*anyopaque) QtC.QTextDocument {
-        return qtc.QTextEdit_Document(@ptrCast(self));
+    pub fn Document(self: QTextBrowser) QTextDocument {
+        return .{ .ptr = qtc.QTextEdit_Document(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QTextEdit
@@ -1226,16 +1333,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` placeholderText: []const u8 `
     ///
-    pub fn SetPlaceholderText(self: ?*anyopaque, placeholderText: []const u8) void {
+    pub fn SetPlaceholderText(self: QTextBrowser, placeholderText: []const u8) void {
         const placeholderText_str = qtc.libqt_string{
             .len = placeholderText.len,
             .data = placeholderText.ptr,
         };
-        qtc.QTextEdit_SetPlaceholderText(@ptrCast(self), placeholderText_str);
+        qtc.QTextEdit_SetPlaceholderText(@ptrCast(self.ptr), placeholderText_str);
     }
 
     /// Inherited from QTextEdit
@@ -1244,12 +1351,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PlaceholderText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextEdit_PlaceholderText(@ptrCast(self));
+    pub fn PlaceholderText(self: QTextBrowser, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTextEdit_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextbrowser.PlaceholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1262,12 +1369,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` cursor: QtC.QTextCursor `
+    /// ` cursor: QTextCursor `
     ///
-    pub fn SetTextCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QTextEdit_SetTextCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetTextCursor(self: QTextBrowser, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QTextCursor;
+        qtc.QTextEdit_SetTextCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -1276,10 +1384,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn TextCursor(self: ?*anyopaque) QtC.QTextCursor {
-        return qtc.QTextEdit_TextCursor(@ptrCast(self));
+    pub fn TextCursor(self: QTextBrowser) QTextCursor {
+        return .{ .ptr = qtc.QTextEdit_TextCursor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QTextEdit
@@ -1288,10 +1396,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn IsReadOnly(self: ?*anyopaque) bool {
-        return qtc.QTextEdit_IsReadOnly(@ptrCast(self));
+    pub fn IsReadOnly(self: QTextBrowser) bool {
+        return qtc.QTextEdit_IsReadOnly(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -1300,12 +1408,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` ro: bool `
     ///
-    pub fn SetReadOnly(self: ?*anyopaque, ro: bool) void {
-        qtc.QTextEdit_SetReadOnly(@ptrCast(self), ro);
+    pub fn SetReadOnly(self: QTextBrowser, ro: bool) void {
+        qtc.QTextEdit_SetReadOnly(@ptrCast(self.ptr), ro);
     }
 
     /// Inherited from QTextEdit
@@ -1314,12 +1422,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` flags: flag of qnamespace_enums.TextInteractionFlag `
     ///
-    pub fn SetTextInteractionFlags(self: ?*anyopaque, flags: i32) void {
-        qtc.QTextEdit_SetTextInteractionFlags(@ptrCast(self), @bitCast(flags));
+    pub fn SetTextInteractionFlags(self: QTextBrowser, flags: i32) void {
+        qtc.QTextEdit_SetTextInteractionFlags(@ptrCast(self.ptr), @bitCast(flags));
     }
 
     /// Inherited from QTextEdit
@@ -1328,14 +1436,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.TextInteractionFlag `
     ///
-    pub fn TextInteractionFlags(self: ?*anyopaque) i32 {
-        return qtc.QTextEdit_TextInteractionFlags(@ptrCast(self));
+    pub fn TextInteractionFlags(self: QTextBrowser) i32 {
+        return qtc.QTextEdit_TextInteractionFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -1344,10 +1452,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn FontPointSize(self: ?*anyopaque) f64 {
-        return qtc.QTextEdit_FontPointSize(@ptrCast(self));
+    pub fn FontPointSize(self: QTextBrowser) f64 {
+        return qtc.QTextEdit_FontPointSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -1356,12 +1464,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FontFamily(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextEdit_FontFamily(@ptrCast(self));
+    pub fn FontFamily(self: QTextBrowser, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTextEdit_FontFamily(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextbrowser.FontFamily: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1374,10 +1482,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn FontWeight(self: ?*anyopaque) i32 {
-        return qtc.QTextEdit_FontWeight(@ptrCast(self));
+    pub fn FontWeight(self: QTextBrowser) i32 {
+        return qtc.QTextEdit_FontWeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -1386,10 +1494,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn FontUnderline(self: ?*anyopaque) bool {
-        return qtc.QTextEdit_FontUnderline(@ptrCast(self));
+    pub fn FontUnderline(self: QTextBrowser) bool {
+        return qtc.QTextEdit_FontUnderline(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -1398,10 +1506,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn FontItalic(self: ?*anyopaque) bool {
-        return qtc.QTextEdit_FontItalic(@ptrCast(self));
+    pub fn FontItalic(self: QTextBrowser) bool {
+        return qtc.QTextEdit_FontItalic(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -1410,10 +1518,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn TextColor(self: ?*anyopaque) QtC.QColor {
-        return qtc.QTextEdit_TextColor(@ptrCast(self));
+    pub fn TextColor(self: QTextBrowser) QColor {
+        return .{ .ptr = qtc.QTextEdit_TextColor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QTextEdit
@@ -1422,10 +1530,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn TextBackgroundColor(self: ?*anyopaque) QtC.QColor {
-        return qtc.QTextEdit_TextBackgroundColor(@ptrCast(self));
+    pub fn TextBackgroundColor(self: QTextBrowser) QColor {
+        return .{ .ptr = qtc.QTextEdit_TextBackgroundColor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QTextEdit
@@ -1434,10 +1542,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn CurrentFont(self: ?*anyopaque) QtC.QFont {
-        return qtc.QTextEdit_CurrentFont(@ptrCast(self));
+    pub fn CurrentFont(self: QTextBrowser) QFont {
+        return .{ .ptr = qtc.QTextEdit_CurrentFont(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QTextEdit
@@ -1446,14 +1554,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: ?*anyopaque) i32 {
-        return qtc.QTextEdit_Alignment(@ptrCast(self));
+    pub fn Alignment(self: QTextBrowser) i32 {
+        return qtc.QTextEdit_Alignment(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -1462,12 +1570,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` modifier: QtC.QTextCharFormat `
+    /// ` modifier: QTextCharFormat `
     ///
-    pub fn MergeCurrentCharFormat(self: ?*anyopaque, modifier: ?*anyopaque) void {
-        qtc.QTextEdit_MergeCurrentCharFormat(@ptrCast(self), @ptrCast(modifier));
+    pub fn MergeCurrentCharFormat(self: QTextBrowser, modifier: anytype) void {
+        comptime _ = @TypeOf(modifier)._is_QTextCharFormat;
+        qtc.QTextEdit_MergeCurrentCharFormat(@ptrCast(self.ptr), @ptrCast(modifier.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -1476,12 +1585,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` format: QtC.QTextCharFormat `
+    /// ` format: QTextCharFormat `
     ///
-    pub fn SetCurrentCharFormat(self: ?*anyopaque, format: ?*anyopaque) void {
-        qtc.QTextEdit_SetCurrentCharFormat(@ptrCast(self), @ptrCast(format));
+    pub fn SetCurrentCharFormat(self: QTextBrowser, format: anytype) void {
+        comptime _ = @TypeOf(format)._is_QTextCharFormat;
+        qtc.QTextEdit_SetCurrentCharFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -1490,10 +1600,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn CurrentCharFormat(self: ?*anyopaque) QtC.QTextCharFormat {
-        return qtc.QTextEdit_CurrentCharFormat(@ptrCast(self));
+    pub fn CurrentCharFormat(self: QTextBrowser) QTextCharFormat {
+        return .{ .ptr = qtc.QTextEdit_CurrentCharFormat(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QTextEdit
@@ -1502,14 +1612,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ## Returns:
     ///
     /// ` flag of qtextedit_enums.AutoFormattingFlag `
     ///
-    pub fn AutoFormatting(self: ?*anyopaque) i32 {
-        return qtc.QTextEdit_AutoFormatting(@ptrCast(self));
+    pub fn AutoFormatting(self: QTextBrowser) i32 {
+        return qtc.QTextEdit_AutoFormatting(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -1518,12 +1628,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` features: flag of qtextedit_enums.AutoFormattingFlag `
     ///
-    pub fn SetAutoFormatting(self: ?*anyopaque, features: i32) void {
-        qtc.QTextEdit_SetAutoFormatting(@ptrCast(self), @bitCast(features));
+    pub fn SetAutoFormatting(self: QTextBrowser, features: i32) void {
+        qtc.QTextEdit_SetAutoFormatting(@ptrCast(self.ptr), @bitCast(features));
     }
 
     /// Inherited from QTextEdit
@@ -1532,10 +1642,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn TabChangesFocus(self: ?*anyopaque) bool {
-        return qtc.QTextEdit_TabChangesFocus(@ptrCast(self));
+    pub fn TabChangesFocus(self: QTextBrowser) bool {
+        return qtc.QTextEdit_TabChangesFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -1544,12 +1654,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` b: bool `
     ///
-    pub fn SetTabChangesFocus(self: ?*anyopaque, b: bool) void {
-        qtc.QTextEdit_SetTabChangesFocus(@ptrCast(self), b);
+    pub fn SetTabChangesFocus(self: QTextBrowser, b: bool) void {
+        qtc.QTextEdit_SetTabChangesFocus(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QTextEdit
@@ -1558,16 +1668,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn SetDocumentTitle(self: ?*anyopaque, title: []const u8) void {
+    pub fn SetDocumentTitle(self: QTextBrowser, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QTextEdit_SetDocumentTitle(@ptrCast(self), title_str);
+        qtc.QTextEdit_SetDocumentTitle(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QTextEdit
@@ -1576,12 +1686,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DocumentTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextEdit_DocumentTitle(@ptrCast(self));
+    pub fn DocumentTitle(self: QTextBrowser, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTextEdit_DocumentTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextbrowser.DocumentTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1594,10 +1704,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn IsUndoRedoEnabled(self: ?*anyopaque) bool {
-        return qtc.QTextEdit_IsUndoRedoEnabled(@ptrCast(self));
+    pub fn IsUndoRedoEnabled(self: QTextBrowser) bool {
+        return qtc.QTextEdit_IsUndoRedoEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -1606,12 +1716,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUndoRedoEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QTextEdit_SetUndoRedoEnabled(@ptrCast(self), enable);
+    pub fn SetUndoRedoEnabled(self: QTextBrowser, enable: bool) void {
+        qtc.QTextEdit_SetUndoRedoEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QTextEdit
@@ -1620,14 +1730,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ## Returns:
     ///
     /// ` qtextedit_enums.LineWrapMode `
     ///
-    pub fn LineWrapMode(self: ?*anyopaque) i32 {
-        return qtc.QTextEdit_LineWrapMode(@ptrCast(self));
+    pub fn LineWrapMode(self: QTextBrowser) i32 {
+        return qtc.QTextEdit_LineWrapMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -1636,12 +1746,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` mode: qtextedit_enums.LineWrapMode `
     ///
-    pub fn SetLineWrapMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QTextEdit_SetLineWrapMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetLineWrapMode(self: QTextBrowser, mode: i32) void {
+        qtc.QTextEdit_SetLineWrapMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// Inherited from QTextEdit
@@ -1650,10 +1760,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn LineWrapColumnOrWidth(self: ?*anyopaque) i32 {
-        return qtc.QTextEdit_LineWrapColumnOrWidth(@ptrCast(self));
+    pub fn LineWrapColumnOrWidth(self: QTextBrowser) i32 {
+        return qtc.QTextEdit_LineWrapColumnOrWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -1662,12 +1772,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetLineWrapColumnOrWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QTextEdit_SetLineWrapColumnOrWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetLineWrapColumnOrWidth(self: QTextBrowser, w: i32) void {
+        qtc.QTextEdit_SetLineWrapColumnOrWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QTextEdit
@@ -1676,14 +1786,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ## Returns:
     ///
     /// ` qtextoption_enums.WrapMode `
     ///
-    pub fn WordWrapMode(self: ?*anyopaque) i32 {
-        return qtc.QTextEdit_WordWrapMode(@ptrCast(self));
+    pub fn WordWrapMode(self: QTextBrowser) i32 {
+        return qtc.QTextEdit_WordWrapMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -1692,12 +1802,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` policy: qtextoption_enums.WrapMode `
     ///
-    pub fn SetWordWrapMode(self: ?*anyopaque, policy: i32) void {
-        qtc.QTextEdit_SetWordWrapMode(@ptrCast(self), @bitCast(policy));
+    pub fn SetWordWrapMode(self: QTextBrowser, policy: i32) void {
+        qtc.QTextEdit_SetWordWrapMode(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QTextEdit
@@ -1706,16 +1816,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` exp: []const u8 `
     ///
-    pub fn Find(self: ?*anyopaque, exp: []const u8) bool {
+    pub fn Find(self: QTextBrowser, exp: []const u8) bool {
         const exp_str = qtc.libqt_string{
             .len = exp.len,
             .data = exp.ptr,
         };
-        return qtc.QTextEdit_Find(@ptrCast(self), exp_str);
+        return qtc.QTextEdit_Find(@ptrCast(self.ptr), exp_str);
     }
 
     /// Inherited from QTextEdit
@@ -1724,12 +1834,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` exp: QtC.QRegularExpression `
+    /// ` exp: QRegularExpression `
     ///
-    pub fn Find2(self: ?*anyopaque, exp: ?*anyopaque) bool {
-        return qtc.QTextEdit_Find2(@ptrCast(self), @ptrCast(exp));
+    pub fn Find2(self: QTextBrowser, exp: anytype) bool {
+        comptime _ = @TypeOf(exp)._is_QRegularExpression;
+        return qtc.QTextEdit_Find2(@ptrCast(self.ptr), @ptrCast(exp.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -1738,12 +1849,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToPlainText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextEdit_ToPlainText(@ptrCast(self));
+    pub fn ToPlainText(self: QTextBrowser, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTextEdit_ToPlainText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextbrowser.ToPlainText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1756,12 +1867,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToHtml(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextEdit_ToHtml(@ptrCast(self));
+    pub fn ToHtml(self: QTextBrowser, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTextEdit_ToHtml(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextbrowser.ToHtml: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1774,12 +1885,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToMarkdown(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextEdit_ToMarkdown(@ptrCast(self));
+    pub fn ToMarkdown(self: QTextBrowser, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTextEdit_ToMarkdown(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextbrowser.ToMarkdown: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1792,10 +1903,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn EnsureCursorVisible(self: ?*anyopaque) void {
-        qtc.QTextEdit_EnsureCursorVisible(@ptrCast(self));
+    pub fn EnsureCursorVisible(self: QTextBrowser) void {
+        qtc.QTextEdit_EnsureCursorVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -1804,10 +1915,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn CreateStandardContextMenu(self: ?*anyopaque) QtC.QMenu {
-        return qtc.QTextEdit_CreateStandardContextMenu(@ptrCast(self));
+    pub fn CreateStandardContextMenu(self: QTextBrowser) QMenu {
+        return .{ .ptr = qtc.QTextEdit_CreateStandardContextMenu(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QTextEdit
@@ -1816,12 +1927,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` position: QtC.QPoint `
+    /// ` position: QPoint `
     ///
-    pub fn CreateStandardContextMenu2(self: ?*anyopaque, position: ?*anyopaque) QtC.QMenu {
-        return qtc.QTextEdit_CreateStandardContextMenu2(@ptrCast(self), @ptrCast(position));
+    pub fn CreateStandardContextMenu2(self: QTextBrowser, position: anytype) QMenu {
+        comptime _ = @TypeOf(position)._is_QPoint;
+        return .{ .ptr = qtc.QTextEdit_CreateStandardContextMenu2(@ptrCast(self.ptr), @ptrCast(position.ptr)) };
     }
 
     /// Inherited from QTextEdit
@@ -1830,12 +1942,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CursorForPosition(self: ?*anyopaque, pos: ?*anyopaque) QtC.QTextCursor {
-        return qtc.QTextEdit_CursorForPosition(@ptrCast(self), @ptrCast(pos));
+    pub fn CursorForPosition(self: QTextBrowser, pos: anytype) QTextCursor {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        return .{ .ptr = qtc.QTextEdit_CursorForPosition(@ptrCast(self.ptr), @ptrCast(pos.ptr)) };
     }
 
     /// Inherited from QTextEdit
@@ -1844,12 +1957,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` cursor: QtC.QTextCursor `
+    /// ` cursor: QTextCursor `
     ///
-    pub fn CursorRect(self: ?*anyopaque, cursor: ?*anyopaque) QtC.QRect {
-        return qtc.QTextEdit_CursorRect(@ptrCast(self), @ptrCast(cursor));
+    pub fn CursorRect(self: QTextBrowser, cursor: anytype) QRect {
+        comptime _ = @TypeOf(cursor)._is_QTextCursor;
+        return .{ .ptr = qtc.QTextEdit_CursorRect(@ptrCast(self.ptr), @ptrCast(cursor.ptr)) };
     }
 
     /// Inherited from QTextEdit
@@ -1858,10 +1972,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn CursorRect2(self: ?*anyopaque) QtC.QRect {
-        return qtc.QTextEdit_CursorRect2(@ptrCast(self));
+    pub fn CursorRect2(self: QTextBrowser) QRect {
+        return .{ .ptr = qtc.QTextEdit_CursorRect2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QTextEdit
@@ -1870,14 +1984,15 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
-    ///
-    /// ` pos: QtC.QPoint `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AnchorAt(self: ?*anyopaque, pos: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextEdit_AnchorAt(@ptrCast(self), @ptrCast(pos));
+    /// ` pos: QPoint `
+    ///
+    pub fn AnchorAt(self: QTextBrowser, allocator: std.mem.Allocator, pos: anytype) []const u8 {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        var _str = qtc.QTextEdit_AnchorAt(@ptrCast(self.ptr), @ptrCast(pos.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextbrowser.AnchorAt: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -1890,10 +2005,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn OverwriteMode(self: ?*anyopaque) bool {
-        return qtc.QTextEdit_OverwriteMode(@ptrCast(self));
+    pub fn OverwriteMode(self: QTextBrowser) bool {
+        return qtc.QTextEdit_OverwriteMode(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -1902,12 +2017,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` overwrite: bool `
     ///
-    pub fn SetOverwriteMode(self: ?*anyopaque, overwrite: bool) void {
-        qtc.QTextEdit_SetOverwriteMode(@ptrCast(self), overwrite);
+    pub fn SetOverwriteMode(self: QTextBrowser, overwrite: bool) void {
+        qtc.QTextEdit_SetOverwriteMode(@ptrCast(self.ptr), overwrite);
     }
 
     /// Inherited from QTextEdit
@@ -1916,10 +2031,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn TabStopDistance(self: ?*anyopaque) f64 {
-        return qtc.QTextEdit_TabStopDistance(@ptrCast(self));
+    pub fn TabStopDistance(self: QTextBrowser) f64 {
+        return qtc.QTextEdit_TabStopDistance(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -1928,12 +2043,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` distance: f64 `
     ///
-    pub fn SetTabStopDistance(self: ?*anyopaque, distance: f64) void {
-        qtc.QTextEdit_SetTabStopDistance(@ptrCast(self), @bitCast(distance));
+    pub fn SetTabStopDistance(self: QTextBrowser, distance: f64) void {
+        qtc.QTextEdit_SetTabStopDistance(@ptrCast(self.ptr), @bitCast(distance));
     }
 
     /// Inherited from QTextEdit
@@ -1942,10 +2057,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn CursorWidth(self: ?*anyopaque) i32 {
-        return qtc.QTextEdit_CursorWidth(@ptrCast(self));
+    pub fn CursorWidth(self: QTextBrowser) i32 {
+        return qtc.QTextEdit_CursorWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -1954,12 +2069,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` width: i32 `
     ///
-    pub fn SetCursorWidth(self: ?*anyopaque, width: i32) void {
-        qtc.QTextEdit_SetCursorWidth(@ptrCast(self), @bitCast(width));
+    pub fn SetCursorWidth(self: QTextBrowser, width: i32) void {
+        qtc.QTextEdit_SetCursorWidth(@ptrCast(self.ptr), @bitCast(width));
     }
 
     /// Inherited from QTextEdit
@@ -1968,10 +2083,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn AcceptRichText(self: ?*anyopaque) bool {
-        return qtc.QTextEdit_AcceptRichText(@ptrCast(self));
+    pub fn AcceptRichText(self: QTextBrowser) bool {
+        return qtc.QTextEdit_AcceptRichText(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -1980,12 +2095,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` accept: bool `
     ///
-    pub fn SetAcceptRichText(self: ?*anyopaque, accept: bool) void {
-        qtc.QTextEdit_SetAcceptRichText(@ptrCast(self), accept);
+    pub fn SetAcceptRichText(self: QTextBrowser, accept: bool) void {
+        qtc.QTextEdit_SetAcceptRichText(@ptrCast(self.ptr), accept);
     }
 
     /// Inherited from QTextEdit
@@ -1994,16 +2109,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` selections: []QtC.QTextEdit__ExtraSelection `
+    /// ` selections: []QTextEdit__ExtraSelection `
     ///
-    pub fn SetExtraSelections(self: ?*anyopaque, selections: []QtC.QTextEdit__ExtraSelection) void {
+    pub fn SetExtraSelections(self: QTextBrowser, selections: []QTextEdit__ExtraSelection) void {
         const selections_list = qtc.libqt_list{
             .len = selections.len,
             .data = @ptrCast(selections.ptr),
         };
-        qtc.QTextEdit_SetExtraSelections(@ptrCast(self), selections_list);
+        qtc.QTextEdit_SetExtraSelections(@ptrCast(self.ptr), selections_list);
     }
 
     /// Inherited from QTextEdit
@@ -2012,16 +2127,17 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExtraSelections(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTextEdit__ExtraSelection {
-        const _arr: qtc.libqt_list = qtc.QTextEdit_ExtraSelections(@ptrCast(self));
+    pub fn ExtraSelections(self: QTextBrowser, allocator: std.mem.Allocator) []QTextEdit__ExtraSelection {
+        const _arr: qtc.libqt_list = qtc.QTextEdit_ExtraSelections(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QTextEdit__ExtraSelection, _arr.len) catch @panic("qtextbrowser.ExtraSelections: Memory allocation failed");
+        const _ret = allocator.alloc(QTextEdit__ExtraSelection, _arr.len) catch @panic("qtextbrowser.ExtraSelections: Memory allocation failed");
         const _data: [*]QtC.QTextEdit__ExtraSelection = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2031,12 +2147,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` operation: qtextcursor_enums.MoveOperation `
     ///
-    pub fn MoveCursor(self: ?*anyopaque, operation: i32) void {
-        qtc.QTextEdit_MoveCursor(@ptrCast(self), @bitCast(operation));
+    pub fn MoveCursor(self: QTextBrowser, operation: i32) void {
+        qtc.QTextEdit_MoveCursor(@ptrCast(self.ptr), @bitCast(operation));
     }
 
     /// Inherited from QTextEdit
@@ -2045,10 +2161,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn CanPaste(self: ?*anyopaque) bool {
-        return qtc.QTextEdit_CanPaste(@ptrCast(self));
+    pub fn CanPaste(self: QTextBrowser) bool {
+        return qtc.QTextEdit_CanPaste(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -2057,12 +2173,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` printer: QtC.QPagedPaintDevice `
+    /// ` printer: QPagedPaintDevice `
     ///
-    pub fn Print(self: ?*anyopaque, printer: ?*anyopaque) void {
-        qtc.QTextEdit_Print(@ptrCast(self), @ptrCast(printer));
+    pub fn Print(self: QTextBrowser, printer: anytype) void {
+        comptime _ = @TypeOf(printer)._is_QPagedPaintDevice;
+        qtc.QTextEdit_Print(@ptrCast(self.ptr), @ptrCast(printer.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -2071,14 +2188,15 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    /// ` argument: QtC.QVariant `
+    /// ` argument: QVariant `
     ///
-    pub fn InputMethodQuery2(self: ?*anyopaque, query: i32, argument: QtC.QVariant) QtC.QVariant {
-        return qtc.QTextEdit_InputMethodQuery2(@ptrCast(self), @bitCast(query), @ptrCast(argument));
+    pub fn InputMethodQuery2(self: QTextBrowser, query: i32, argument: anytype) QVariant {
+        comptime _ = @TypeOf(argument)._is_QVariant;
+        return .{ .ptr = qtc.QTextEdit_InputMethodQuery2(@ptrCast(self.ptr), @bitCast(query), @ptrCast(argument.ptr)) };
     }
 
     /// Inherited from QTextEdit
@@ -2087,12 +2205,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` s: f64 `
     ///
-    pub fn SetFontPointSize(self: ?*anyopaque, s: f64) void {
-        qtc.QTextEdit_SetFontPointSize(@ptrCast(self), @bitCast(s));
+    pub fn SetFontPointSize(self: QTextBrowser, s: f64) void {
+        qtc.QTextEdit_SetFontPointSize(@ptrCast(self.ptr), @bitCast(s));
     }
 
     /// Inherited from QTextEdit
@@ -2101,16 +2219,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` fontFamily: []const u8 `
     ///
-    pub fn SetFontFamily(self: ?*anyopaque, fontFamily: []const u8) void {
+    pub fn SetFontFamily(self: QTextBrowser, fontFamily: []const u8) void {
         const fontFamily_str = qtc.libqt_string{
             .len = fontFamily.len,
             .data = fontFamily.ptr,
         };
-        qtc.QTextEdit_SetFontFamily(@ptrCast(self), fontFamily_str);
+        qtc.QTextEdit_SetFontFamily(@ptrCast(self.ptr), fontFamily_str);
     }
 
     /// Inherited from QTextEdit
@@ -2119,12 +2237,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFontWeight(self: ?*anyopaque, w: i32) void {
-        qtc.QTextEdit_SetFontWeight(@ptrCast(self), @bitCast(w));
+    pub fn SetFontWeight(self: QTextBrowser, w: i32) void {
+        qtc.QTextEdit_SetFontWeight(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QTextEdit
@@ -2133,12 +2251,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` b: bool `
     ///
-    pub fn SetFontUnderline(self: ?*anyopaque, b: bool) void {
-        qtc.QTextEdit_SetFontUnderline(@ptrCast(self), b);
+    pub fn SetFontUnderline(self: QTextBrowser, b: bool) void {
+        qtc.QTextEdit_SetFontUnderline(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QTextEdit
@@ -2147,12 +2265,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` b: bool `
     ///
-    pub fn SetFontItalic(self: ?*anyopaque, b: bool) void {
-        qtc.QTextEdit_SetFontItalic(@ptrCast(self), b);
+    pub fn SetFontItalic(self: QTextBrowser, b: bool) void {
+        qtc.QTextEdit_SetFontItalic(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QTextEdit
@@ -2161,12 +2279,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` c: QtC.QColor `
+    /// ` c: QColor `
     ///
-    pub fn SetTextColor(self: ?*anyopaque, c: ?*anyopaque) void {
-        qtc.QTextEdit_SetTextColor(@ptrCast(self), @ptrCast(c));
+    pub fn SetTextColor(self: QTextBrowser, c: anytype) void {
+        comptime _ = @TypeOf(c)._is_QColor;
+        qtc.QTextEdit_SetTextColor(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -2175,12 +2294,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` c: QtC.QColor `
+    /// ` c: QColor `
     ///
-    pub fn SetTextBackgroundColor(self: ?*anyopaque, c: ?*anyopaque) void {
-        qtc.QTextEdit_SetTextBackgroundColor(@ptrCast(self), @ptrCast(c));
+    pub fn SetTextBackgroundColor(self: QTextBrowser, c: anytype) void {
+        comptime _ = @TypeOf(c)._is_QColor;
+        qtc.QTextEdit_SetTextBackgroundColor(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -2189,12 +2309,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` f: QtC.QFont `
+    /// ` f: QFont `
     ///
-    pub fn SetCurrentFont(self: ?*anyopaque, f: ?*anyopaque) void {
-        qtc.QTextEdit_SetCurrentFont(@ptrCast(self), @ptrCast(f));
+    pub fn SetCurrentFont(self: QTextBrowser, f: anytype) void {
+        comptime _ = @TypeOf(f)._is_QFont;
+        qtc.QTextEdit_SetCurrentFont(@ptrCast(self.ptr), @ptrCast(f.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -2203,12 +2324,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` a: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment(self: ?*anyopaque, a: i32) void {
-        qtc.QTextEdit_SetAlignment(@ptrCast(self), @bitCast(a));
+    pub fn SetAlignment(self: QTextBrowser, a: i32) void {
+        qtc.QTextEdit_SetAlignment(@ptrCast(self.ptr), @bitCast(a));
     }
 
     /// Inherited from QTextEdit
@@ -2217,16 +2338,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetPlainText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SetPlainText(self: QTextBrowser, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QTextEdit_SetPlainText(@ptrCast(self), text_str);
+        qtc.QTextEdit_SetPlainText(@ptrCast(self.ptr), text_str);
     }
 
     /// Inherited from QTextEdit
@@ -2235,16 +2356,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetHtml(self: ?*anyopaque, text: []const u8) void {
+    pub fn SetHtml(self: QTextBrowser, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QTextEdit_SetHtml(@ptrCast(self), text_str);
+        qtc.QTextEdit_SetHtml(@ptrCast(self.ptr), text_str);
     }
 
     /// Inherited from QTextEdit
@@ -2253,16 +2374,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` markdown: []const u8 `
     ///
-    pub fn SetMarkdown(self: ?*anyopaque, markdown: []const u8) void {
+    pub fn SetMarkdown(self: QTextBrowser, markdown: []const u8) void {
         const markdown_str = qtc.libqt_string{
             .len = markdown.len,
             .data = markdown.ptr,
         };
-        qtc.QTextEdit_SetMarkdown(@ptrCast(self), markdown_str);
+        qtc.QTextEdit_SetMarkdown(@ptrCast(self.ptr), markdown_str);
     }
 
     /// Inherited from QTextEdit
@@ -2271,16 +2392,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SetText(self: QTextBrowser, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QTextEdit_SetText(@ptrCast(self), text_str);
+        qtc.QTextEdit_SetText(@ptrCast(self.ptr), text_str);
     }
 
     /// Inherited from QTextEdit
@@ -2289,10 +2410,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Cut(self: ?*anyopaque) void {
-        qtc.QTextEdit_Cut(@ptrCast(self));
+    pub fn Cut(self: QTextBrowser) void {
+        qtc.QTextEdit_Cut(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -2301,10 +2422,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Copy(self: ?*anyopaque) void {
-        qtc.QTextEdit_Copy(@ptrCast(self));
+    pub fn Copy(self: QTextBrowser) void {
+        qtc.QTextEdit_Copy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -2313,10 +2434,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Paste(self: ?*anyopaque) void {
-        qtc.QTextEdit_Paste(@ptrCast(self));
+    pub fn Paste(self: QTextBrowser) void {
+        qtc.QTextEdit_Paste(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -2325,10 +2446,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Undo(self: ?*anyopaque) void {
-        qtc.QTextEdit_Undo(@ptrCast(self));
+    pub fn Undo(self: QTextBrowser) void {
+        qtc.QTextEdit_Undo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -2337,10 +2458,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Redo(self: ?*anyopaque) void {
-        qtc.QTextEdit_Redo(@ptrCast(self));
+    pub fn Redo(self: QTextBrowser) void {
+        qtc.QTextEdit_Redo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -2349,10 +2470,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Clear(self: ?*anyopaque) void {
-        qtc.QTextEdit_Clear(@ptrCast(self));
+    pub fn Clear(self: QTextBrowser) void {
+        qtc.QTextEdit_Clear(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -2361,10 +2482,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SelectAll(self: ?*anyopaque) void {
-        qtc.QTextEdit_SelectAll(@ptrCast(self));
+    pub fn SelectAll(self: QTextBrowser) void {
+        qtc.QTextEdit_SelectAll(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -2373,16 +2494,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertPlainText(self: ?*anyopaque, text: []const u8) void {
+    pub fn InsertPlainText(self: QTextBrowser, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QTextEdit_InsertPlainText(@ptrCast(self), text_str);
+        qtc.QTextEdit_InsertPlainText(@ptrCast(self.ptr), text_str);
     }
 
     /// Inherited from QTextEdit
@@ -2391,16 +2512,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertHtml(self: ?*anyopaque, text: []const u8) void {
+    pub fn InsertHtml(self: QTextBrowser, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QTextEdit_InsertHtml(@ptrCast(self), text_str);
+        qtc.QTextEdit_InsertHtml(@ptrCast(self.ptr), text_str);
     }
 
     /// Inherited from QTextEdit
@@ -2409,16 +2530,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn Append(self: ?*anyopaque, text: []const u8) void {
+    pub fn Append(self: QTextBrowser, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QTextEdit_Append(@ptrCast(self), text_str);
+        qtc.QTextEdit_Append(@ptrCast(self.ptr), text_str);
     }
 
     /// Inherited from QTextEdit
@@ -2427,16 +2548,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn ScrollToAnchor(self: ?*anyopaque, name: []const u8) void {
+    pub fn ScrollToAnchor(self: QTextBrowser, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QTextEdit_ScrollToAnchor(@ptrCast(self), name_str);
+        qtc.QTextEdit_ScrollToAnchor(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QTextEdit
@@ -2445,10 +2566,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn ZoomIn(self: ?*anyopaque) void {
-        qtc.QTextEdit_ZoomIn(@ptrCast(self));
+    pub fn ZoomIn(self: QTextBrowser) void {
+        qtc.QTextEdit_ZoomIn(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -2457,10 +2578,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn ZoomOut(self: ?*anyopaque) void {
-        qtc.QTextEdit_ZoomOut(@ptrCast(self));
+    pub fn ZoomOut(self: QTextBrowser) void {
+        qtc.QTextEdit_ZoomOut(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -2469,10 +2590,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn TextChanged(self: ?*anyopaque) void {
-        qtc.QTextEdit_TextChanged(@ptrCast(self));
+    pub fn TextChanged(self: QTextBrowser) void {
+        qtc.QTextEdit_TextChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -2481,12 +2602,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser) callconv(.c) void `
     ///
-    pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTextEdit_Connect_TextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTextChanged(self: QTextBrowser, callback: *const fn (QTextBrowser) callconv(.c) void) void {
+        qtc.QTextEdit_Connect_TextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -2495,12 +2616,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` b: bool `
     ///
-    pub fn UndoAvailable(self: ?*anyopaque, b: bool) void {
-        qtc.QTextEdit_UndoAvailable(@ptrCast(self), b);
+    pub fn UndoAvailable(self: QTextBrowser, b: bool) void {
+        qtc.QTextEdit_UndoAvailable(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QTextEdit
@@ -2509,12 +2630,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, b: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, b: bool) callconv(.c) void `
     ///
-    pub fn OnUndoAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTextEdit_Connect_UndoAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUndoAvailable(self: QTextBrowser, callback: *const fn (QTextBrowser, bool) callconv(.c) void) void {
+        qtc.QTextEdit_Connect_UndoAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -2523,12 +2644,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` b: bool `
     ///
-    pub fn RedoAvailable(self: ?*anyopaque, b: bool) void {
-        qtc.QTextEdit_RedoAvailable(@ptrCast(self), b);
+    pub fn RedoAvailable(self: QTextBrowser, b: bool) void {
+        qtc.QTextEdit_RedoAvailable(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QTextEdit
@@ -2537,12 +2658,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, b: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, b: bool) callconv(.c) void `
     ///
-    pub fn OnRedoAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTextEdit_Connect_RedoAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedoAvailable(self: QTextBrowser, callback: *const fn (QTextBrowser, bool) callconv(.c) void) void {
+        qtc.QTextEdit_Connect_RedoAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -2551,12 +2672,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` format: QtC.QTextCharFormat `
+    /// ` format: QTextCharFormat `
     ///
-    pub fn CurrentCharFormatChanged(self: ?*anyopaque, format: ?*anyopaque) void {
-        qtc.QTextEdit_CurrentCharFormatChanged(@ptrCast(self), @ptrCast(format));
+    pub fn CurrentCharFormatChanged(self: QTextBrowser, format: anytype) void {
+        comptime _ = @TypeOf(format)._is_QTextCharFormat;
+        qtc.QTextEdit_CurrentCharFormatChanged(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -2565,12 +2687,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, format: QtC.QTextCharFormat) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, format: QTextCharFormat) callconv(.c) void `
     ///
-    pub fn OnCurrentCharFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextEdit_Connect_CurrentCharFormatChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCurrentCharFormatChanged(self: QTextBrowser, callback: *const fn (QTextBrowser, QTextCharFormat) callconv(.c) void) void {
+        qtc.QTextEdit_Connect_CurrentCharFormatChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -2579,12 +2701,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` b: bool `
     ///
-    pub fn CopyAvailable(self: ?*anyopaque, b: bool) void {
-        qtc.QTextEdit_CopyAvailable(@ptrCast(self), b);
+    pub fn CopyAvailable(self: QTextBrowser, b: bool) void {
+        qtc.QTextEdit_CopyAvailable(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QTextEdit
@@ -2593,12 +2715,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, b: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, b: bool) callconv(.c) void `
     ///
-    pub fn OnCopyAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTextEdit_Connect_CopyAvailable(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCopyAvailable(self: QTextBrowser, callback: *const fn (QTextBrowser, bool) callconv(.c) void) void {
+        qtc.QTextEdit_Connect_CopyAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -2607,10 +2729,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SelectionChanged(self: ?*anyopaque) void {
-        qtc.QTextEdit_SelectionChanged(@ptrCast(self));
+    pub fn SelectionChanged(self: QTextBrowser) void {
+        qtc.QTextEdit_SelectionChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -2619,12 +2741,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser) callconv(.c) void `
     ///
-    pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTextEdit_Connect_SelectionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSelectionChanged(self: QTextBrowser, callback: *const fn (QTextBrowser) callconv(.c) void) void {
+        qtc.QTextEdit_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -2633,10 +2755,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn CursorPositionChanged(self: ?*anyopaque) void {
-        qtc.QTextEdit_CursorPositionChanged(@ptrCast(self));
+    pub fn CursorPositionChanged(self: QTextBrowser) void {
+        qtc.QTextEdit_CursorPositionChanged(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -2645,12 +2767,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser) callconv(.c) void `
     ///
-    pub fn OnCursorPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTextEdit_Connect_CursorPositionChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCursorPositionChanged(self: QTextBrowser, callback: *const fn (QTextBrowser) callconv(.c) void) void {
+        qtc.QTextEdit_Connect_CursorPositionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -2659,18 +2781,18 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` exp: []const u8 `
     ///
     /// ` options: flag of qtextdocument_enums.FindFlag `
     ///
-    pub fn Find22(self: ?*anyopaque, exp: []const u8, options: i32) bool {
+    pub fn Find22(self: QTextBrowser, exp: []const u8, options: i32) bool {
         const exp_str = qtc.libqt_string{
             .len = exp.len,
             .data = exp.ptr,
         };
-        return qtc.QTextEdit_Find22(@ptrCast(self), exp_str, @bitCast(options));
+        return qtc.QTextEdit_Find22(@ptrCast(self.ptr), exp_str, @bitCast(options));
     }
 
     /// Inherited from QTextEdit
@@ -2679,14 +2801,15 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` exp: QtC.QRegularExpression `
+    /// ` exp: QRegularExpression `
     ///
     /// ` options: flag of qtextdocument_enums.FindFlag `
     ///
-    pub fn Find23(self: ?*anyopaque, exp: ?*anyopaque, options: i32) bool {
-        return qtc.QTextEdit_Find23(@ptrCast(self), @ptrCast(exp), @bitCast(options));
+    pub fn Find23(self: QTextBrowser, exp: anytype, options: i32) bool {
+        comptime _ = @TypeOf(exp)._is_QRegularExpression;
+        return qtc.QTextEdit_Find23(@ptrCast(self.ptr), @ptrCast(exp.ptr), @bitCast(options));
     }
 
     /// Inherited from QTextEdit
@@ -2695,14 +2818,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
-    ///
-    /// ` features: flag of qtextdocument_enums.MarkdownFeature `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToMarkdown1(self: ?*anyopaque, features: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTextEdit_ToMarkdown1(@ptrCast(self), @bitCast(features));
+    /// ` features: flag of qtextdocument_enums.MarkdownFeature `
+    ///
+    pub fn ToMarkdown1(self: QTextBrowser, allocator: std.mem.Allocator, features: i32) []const u8 {
+        var _str = qtc.QTextEdit_ToMarkdown1(@ptrCast(self.ptr), @bitCast(features));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextbrowser.ToMarkdown1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2715,14 +2838,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` operation: qtextcursor_enums.MoveOperation `
     ///
     /// ` mode: qtextcursor_enums.MoveMode `
     ///
-    pub fn MoveCursor2(self: ?*anyopaque, operation: i32, mode: i32) void {
-        qtc.QTextEdit_MoveCursor2(@ptrCast(self), @bitCast(operation), @bitCast(mode));
+    pub fn MoveCursor2(self: QTextBrowser, operation: i32, mode: i32) void {
+        qtc.QTextEdit_MoveCursor2(@ptrCast(self.ptr), @bitCast(operation), @bitCast(mode));
     }
 
     /// Inherited from QTextEdit
@@ -2731,12 +2854,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` range: i32 `
     ///
-    pub fn ZoomIn1(self: ?*anyopaque, range: i32) void {
-        qtc.QTextEdit_ZoomIn1(@ptrCast(self), @bitCast(range));
+    pub fn ZoomIn1(self: QTextBrowser, range: i32) void {
+        qtc.QTextEdit_ZoomIn1(@ptrCast(self.ptr), @bitCast(range));
     }
 
     /// Inherited from QTextEdit
@@ -2745,12 +2868,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` range: i32 `
     ///
-    pub fn ZoomOut1(self: ?*anyopaque, range: i32) void {
-        qtc.QTextEdit_ZoomOut1(@ptrCast(self), @bitCast(range));
+    pub fn ZoomOut1(self: QTextBrowser, range: i32) void {
+        qtc.QTextEdit_ZoomOut1(@ptrCast(self.ptr), @bitCast(range));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -2759,14 +2882,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn VerticalScrollBarPolicy(self: ?*anyopaque) i32 {
-        return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self));
+    pub fn VerticalScrollBarPolicy(self: QTextBrowser) i32 {
+        return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -2775,12 +2898,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self), @bitCast(verticalScrollBarPolicy));
+    pub fn SetVerticalScrollBarPolicy(self: QTextBrowser, verticalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(verticalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -2789,10 +2912,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn VerticalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
-        return qtc.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self));
+    pub fn VerticalScrollBar(self: QTextBrowser) QScrollBar {
+        return .{ .ptr = qtc.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -2801,12 +2924,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` scrollbar: QtC.QScrollBar `
+    /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetVerticalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self), @ptrCast(scrollbar));
+    pub fn SetVerticalScrollBar(self: QTextBrowser, scrollbar: anytype) void {
+        comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
+        qtc.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -2815,14 +2939,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn HorizontalScrollBarPolicy(self: ?*anyopaque) i32 {
-        return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self));
+    pub fn HorizontalScrollBarPolicy(self: QTextBrowser) i32 {
+        return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -2831,12 +2955,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self), @bitCast(horizontalScrollBarPolicy));
+    pub fn SetHorizontalScrollBarPolicy(self: QTextBrowser, horizontalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(horizontalScrollBarPolicy));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -2845,10 +2969,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn HorizontalScrollBar(self: ?*anyopaque) QtC.QScrollBar {
-        return qtc.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self));
+    pub fn HorizontalScrollBar(self: QTextBrowser) QScrollBar {
+        return .{ .ptr = qtc.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -2857,12 +2981,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` scrollbar: QtC.QScrollBar `
+    /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetHorizontalScrollBar(self: ?*anyopaque, scrollbar: ?*anyopaque) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self), @ptrCast(scrollbar));
+    pub fn SetHorizontalScrollBar(self: QTextBrowser, scrollbar: anytype) void {
+        comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
+        qtc.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -2871,10 +2996,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn CornerWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QAbstractScrollArea_CornerWidget(@ptrCast(self));
+    pub fn CornerWidget(self: QTextBrowser) QWidget {
+        return .{ .ptr = qtc.QAbstractScrollArea_CornerWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -2883,12 +3008,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SetCornerWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QAbstractScrollArea_SetCornerWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn SetCornerWidget(self: QTextBrowser, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QAbstractScrollArea_SetCornerWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -2897,14 +3023,15 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i32) void {
-        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @bitCast(alignment));
+    pub fn AddScrollBarWidget(self: QTextBrowser, widget: anytype, alignment: i32) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr), @bitCast(alignment));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -2913,18 +3040,19 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
-    ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i32, allocator: std.mem.Allocator) []QtC.QWidget {
-        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @bitCast(alignment));
+    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    ///
+    pub fn ScrollBarWidgets(self: QTextBrowser, allocator: std.mem.Allocator, alignment: i32) []QWidget {
+        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self.ptr), @bitCast(alignment));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("qtextbrowser.ScrollBarWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("qtextbrowser.ScrollBarWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -2934,10 +3062,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Viewport(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QAbstractScrollArea_Viewport(@ptrCast(self));
+    pub fn Viewport(self: QTextBrowser) QWidget {
+        return .{ .ptr = qtc.QAbstractScrollArea_Viewport(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -2946,12 +3074,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SetViewport(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QAbstractScrollArea_SetViewport(@ptrCast(self), @ptrCast(widget));
+    pub fn SetViewport(self: QTextBrowser, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QAbstractScrollArea_SetViewport(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -2960,10 +3089,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn MaximumViewportSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self));
+    pub fn MaximumViewportSize(self: QTextBrowser) QSize {
+        return .{ .ptr = qtc.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -2972,14 +3101,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ## Returns:
     ///
     /// ` qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SizeAdjustPolicy(self: ?*anyopaque) i32 {
-        return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self));
+    pub fn SizeAdjustPolicy(self: QTextBrowser) i32 {
+        return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -2988,12 +3117,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` policy: qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetSizeAdjustPolicy(self: QTextBrowser, policy: i32) void {
+        qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QFrame
@@ -3002,10 +3131,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn FrameStyle(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameStyle(@ptrCast(self));
+    pub fn FrameStyle(self: QTextBrowser) i32 {
+        return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -3014,12 +3143,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: ?*anyopaque, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self), @bitCast(frameStyle));
+    pub fn SetFrameStyle(self: QTextBrowser, frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
     }
 
     /// Inherited from QFrame
@@ -3028,10 +3157,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn FrameWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameWidth(@ptrCast(self));
+    pub fn FrameWidth(self: QTextBrowser) i32 {
+        return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -3040,14 +3169,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ## Returns:
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameShape(@ptrCast(self));
+    pub fn FrameShape(self: QTextBrowser) i32 {
+        return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -3056,12 +3185,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self), @bitCast(frameShape));
+    pub fn SetFrameShape(self: QTextBrowser, frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
     }
 
     /// Inherited from QFrame
@@ -3070,14 +3199,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ## Returns:
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: ?*anyopaque) i32 {
-        return qtc.QFrame_FrameShadow(@ptrCast(self));
+    pub fn FrameShadow(self: QTextBrowser) i32 {
+        return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -3086,12 +3215,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self), @bitCast(frameShadow));
+    pub fn SetFrameShadow(self: QTextBrowser, frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
     }
 
     /// Inherited from QFrame
@@ -3100,10 +3229,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn LineWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_LineWidth(@ptrCast(self));
+    pub fn LineWidth(self: QTextBrowser) i32 {
+        return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -3112,12 +3241,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: ?*anyopaque, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self), @bitCast(lineWidth));
+    pub fn SetLineWidth(self: QTextBrowser, lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
     }
 
     /// Inherited from QFrame
@@ -3126,10 +3255,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn MidLineWidth(self: ?*anyopaque) i32 {
-        return qtc.QFrame_MidLineWidth(@ptrCast(self));
+    pub fn MidLineWidth(self: QTextBrowser) i32 {
+        return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QFrame
@@ -3138,12 +3267,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: ?*anyopaque, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self), @bitCast(midLineWidth));
+    pub fn SetMidLineWidth(self: QTextBrowser, midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
     }
 
     /// Inherited from QFrame
@@ -3152,10 +3281,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn FrameRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QFrame_FrameRect(@ptrCast(self));
+    pub fn FrameRect(self: QTextBrowser) QRect {
+        return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QFrame
@@ -3164,12 +3293,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` frameRect: QtC.QRect `
+    /// ` frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: ?*anyopaque, frameRect: ?*anyopaque) void {
-        qtc.QFrame_SetFrameRect(@ptrCast(self), @ptrCast(frameRect));
+    pub fn SetFrameRect(self: QTextBrowser, frameRect: anytype) void {
+        comptime _ = @TypeOf(frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
     }
 
     /// Inherited from QWidget
@@ -3178,10 +3308,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn WinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_WinId(@ptrCast(self));
+    pub fn WinId(self: QTextBrowser) usize {
+        return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3190,10 +3320,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn CreateWinId(self: ?*anyopaque) void {
-        qtc.QWidget_CreateWinId(@ptrCast(self));
+    pub fn CreateWinId(self: QTextBrowser) void {
+        qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3202,10 +3332,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn InternalWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_InternalWinId(@ptrCast(self));
+    pub fn InternalWinId(self: QTextBrowser) usize {
+        return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3214,10 +3344,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
+    pub fn EffectiveWinId(self: QTextBrowser) usize {
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3226,10 +3356,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QWidget_Style(@ptrCast(self));
+    pub fn Style(self: QTextBrowser) QStyle {
+        return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3238,12 +3368,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetStyle(self: QTextBrowser, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// Inherited from QWidget
@@ -3252,10 +3383,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsTopLevel(@ptrCast(self));
+    pub fn IsTopLevel(self: QTextBrowser) bool {
+        return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3264,10 +3395,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn IsWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindow(@ptrCast(self));
+    pub fn IsWindow(self: QTextBrowser) bool {
+        return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3276,10 +3407,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn IsModal(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsModal(@ptrCast(self));
+    pub fn IsModal(self: QTextBrowser) bool {
+        return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3288,14 +3419,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowModality(@ptrCast(self));
+    pub fn WindowModality(self: QTextBrowser) i32 {
+        return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3304,12 +3435,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
+    pub fn SetWindowModality(self: QTextBrowser, windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -3318,10 +3449,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: QTextBrowser) bool {
+        return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3330,12 +3461,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsEnabledTo(self: QTextBrowser, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3344,12 +3476,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: QTextBrowser, enabled: bool) void {
+        qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -3358,12 +3490,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
+    pub fn SetDisabled(self: QTextBrowser, disabled: bool) void {
+        qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
 
     /// Inherited from QWidget
@@ -3372,12 +3504,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+    pub fn SetWindowModified(self: QTextBrowser, windowModified: bool) void {
+        qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
 
     /// Inherited from QWidget
@@ -3386,10 +3518,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_FrameGeometry(@ptrCast(self));
+    pub fn FrameGeometry(self: QTextBrowser) QRect {
+        return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3398,10 +3530,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Geometry(@ptrCast(self));
+    pub fn Geometry(self: QTextBrowser) QRect {
+        return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3410,10 +3542,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_NormalGeometry(@ptrCast(self));
+    pub fn NormalGeometry(self: QTextBrowser) QRect {
+        return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3422,10 +3554,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn X(self: ?*anyopaque) i32 {
-        return qtc.QWidget_X(@ptrCast(self));
+    pub fn X(self: QTextBrowser) i32 {
+        return qtc.QWidget_X(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3434,10 +3566,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Y(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Y(@ptrCast(self));
+    pub fn Y(self: QTextBrowser) i32 {
+        return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3446,10 +3578,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_Pos(@ptrCast(self));
+    pub fn Pos(self: QTextBrowser) QPoint {
+        return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3458,10 +3590,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: QTextBrowser) QSize {
+        return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3470,10 +3602,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_Size(@ptrCast(self));
+    pub fn Size(self: QTextBrowser) QSize {
+        return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3482,10 +3614,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Width(@ptrCast(self));
+    pub fn Width(self: QTextBrowser) i32 {
+        return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3494,10 +3626,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Height(@ptrCast(self));
+    pub fn Height(self: QTextBrowser) i32 {
+        return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3506,10 +3638,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: QTextBrowser) QRect {
+        return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3518,10 +3650,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ChildrenRect(@ptrCast(self));
+    pub fn ChildrenRect(self: QTextBrowser) QRect {
+        return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3530,10 +3662,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
+    pub fn ChildrenRegion(self: QTextBrowser) QRegion {
+        return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3542,10 +3674,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: QTextBrowser) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3554,10 +3686,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: QTextBrowser) QSize {
+        return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3566,10 +3698,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: QTextBrowser) i32 {
+        return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3578,10 +3710,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: QTextBrowser) i32 {
+        return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3590,10 +3722,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: QTextBrowser) i32 {
+        return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3602,10 +3734,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: QTextBrowser) i32 {
+        return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3614,12 +3746,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` minimumSize: QtC.QSize `
+    /// ` minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+    pub fn SetMinimumSize(self: QTextBrowser, minimumSize: anytype) void {
+        comptime _ = @TypeOf(minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -3628,14 +3761,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` minw: i32 `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
+    pub fn SetMinimumSize2(self: QTextBrowser, minw: i32, minh: i32) void {
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -3644,12 +3777,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` maximumSize: QtC.QSize `
+    /// ` maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+    pub fn SetMaximumSize(self: QTextBrowser, maximumSize: anytype) void {
+        comptime _ = @TypeOf(maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -3658,14 +3792,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` maxw: i32 `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
+    pub fn SetMaximumSize2(self: QTextBrowser, maxw: i32, maxh: i32) void {
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -3674,12 +3808,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
+    pub fn SetMinimumWidth(self: QTextBrowser, minw: i32) void {
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -3688,12 +3822,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
+    pub fn SetMinimumHeight(self: QTextBrowser, minh: i32) void {
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -3702,12 +3836,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
+    pub fn SetMaximumWidth(self: QTextBrowser, maxw: i32) void {
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -3716,12 +3850,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
+    pub fn SetMaximumHeight(self: QTextBrowser, maxh: i32) void {
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -3730,10 +3864,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeIncrement(@ptrCast(self));
+    pub fn SizeIncrement(self: QTextBrowser) QSize {
+        return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3742,12 +3876,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` sizeIncrement: QtC.QSize `
+    /// ` sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+    pub fn SetSizeIncrement(self: QTextBrowser, sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
     }
 
     /// Inherited from QWidget
@@ -3756,14 +3891,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetSizeIncrement2(self: QTextBrowser, w: i32, h: i32) void {
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3772,10 +3907,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_BaseSize(@ptrCast(self));
+    pub fn BaseSize(self: QTextBrowser) QSize {
+        return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3784,12 +3919,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` baseSize: QtC.QSize `
+    /// ` baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+    pub fn SetBaseSize(self: QTextBrowser, baseSize: anytype) void {
+        comptime _ = @TypeOf(baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -3798,14 +3934,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` basew: i32 `
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
+    pub fn SetBaseSize2(self: QTextBrowser, basew: i32, baseh: i32) void {
+        qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -3814,12 +3950,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` fixedSize: QtC.QSize `
+    /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+    pub fn SetFixedSize(self: QTextBrowser, fixedSize: anytype) void {
+        comptime _ = @TypeOf(fixedSize)._is_QSize;
+        qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -3828,14 +3965,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetFixedSize2(self: QTextBrowser, w: i32, h: i32) void {
+        qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3844,12 +3981,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetFixedWidth(self: QTextBrowser, w: i32) void {
+        qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -3858,12 +3995,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
+    pub fn SetFixedHeight(self: QTextBrowser, h: i32) void {
+        qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3872,12 +4009,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal(self: QTextBrowser, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3886,12 +4024,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: QTextBrowser, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3900,12 +4039,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal(self: QTextBrowser, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3914,12 +4054,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: QTextBrowser, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3928,12 +4069,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent(self: QTextBrowser, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3942,12 +4084,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: QTextBrowser, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3956,12 +4099,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent(self: QTextBrowser, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3970,12 +4114,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: QTextBrowser, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3984,14 +4129,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo(self: QTextBrowser, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4000,14 +4147,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo2(self: QTextBrowser, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4016,14 +4165,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom(self: QTextBrowser, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4032,14 +4183,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom2(self: QTextBrowser, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4048,10 +4201,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_Window(@ptrCast(self));
+    pub fn Window(self: QTextBrowser) QWidget {
+        return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4060,10 +4213,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
+    pub fn NativeParentWidget(self: QTextBrowser) QWidget {
+        return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4072,10 +4225,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
+    pub fn TopLevelWidget(self: QTextBrowser) QWidget {
+        return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4084,10 +4237,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QWidget_Palette(@ptrCast(self));
+    pub fn Palette(self: QTextBrowser) QPalette {
+        return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4096,12 +4249,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn SetPalette(self: QTextBrowser, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// Inherited from QWidget
@@ -4110,12 +4264,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
+    pub fn SetBackgroundRole(self: QTextBrowser, backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -4124,14 +4278,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_BackgroundRole(@ptrCast(self));
+    pub fn BackgroundRole(self: QTextBrowser) i32 {
+        return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4140,12 +4294,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
+    pub fn SetForegroundRole(self: QTextBrowser, foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -4154,14 +4308,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ForegroundRole(@ptrCast(self));
+    pub fn ForegroundRole(self: QTextBrowser) i32 {
+        return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4170,10 +4324,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QWidget_Font(@ptrCast(self));
+    pub fn Font(self: QTextBrowser) QFont {
+        return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4182,12 +4336,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: QTextBrowser, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QWidget
@@ -4196,10 +4351,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QWidget_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: QTextBrowser) QFontMetrics {
+        return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4208,10 +4363,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QWidget_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: QTextBrowser) QFontInfo {
+        return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4220,10 +4375,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
-        return qtc.QWidget_Cursor(@ptrCast(self));
+    pub fn Cursor(self: QTextBrowser) QCursor {
+        return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4232,12 +4387,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetCursor(self: QTextBrowser, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QWidget
@@ -4246,10 +4402,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn UnsetCursor(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetCursor(@ptrCast(self));
+    pub fn UnsetCursor(self: QTextBrowser) void {
+        qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4258,12 +4414,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
+    pub fn SetMouseTracking(self: QTextBrowser, enable: bool) void {
+        qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -4272,10 +4428,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
+    pub fn HasMouseTracking(self: QTextBrowser) bool {
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4284,10 +4440,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.QWidget_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: QTextBrowser) bool {
+        return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4296,12 +4452,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
+    pub fn SetTabletTracking(self: QTextBrowser, enable: bool) void {
+        qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -4310,10 +4466,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
+    pub fn HasTabletTracking(self: QTextBrowser) bool {
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4322,12 +4478,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` mask: QtC.QBitmap `
+    /// ` mask: QBitmap `
     ///
-    pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask(self: QTextBrowser, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -4336,12 +4493,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` mask: QtC.QRegion `
+    /// ` mask: QRegion `
     ///
-    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: QTextBrowser, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -4350,10 +4508,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_Mask(@ptrCast(self));
+    pub fn Mask(self: QTextBrowser) QRegion {
+        return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4362,10 +4520,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn ClearMask(self: ?*anyopaque) void {
-        qtc.QWidget_ClearMask(@ptrCast(self));
+    pub fn ClearMask(self: QTextBrowser) void {
+        qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4374,12 +4532,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
+    pub fn Render(self: QTextBrowser, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QWidget
@@ -4388,12 +4547,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: QTextBrowser, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -4402,10 +4562,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab(@ptrCast(self));
+    pub fn Grab(self: QTextBrowser) QPixmap {
+        return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4414,10 +4574,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
-        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
+    pub fn GraphicsEffect(self: QTextBrowser) QGraphicsEffect {
+        return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4426,12 +4586,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` effect: QtC.QGraphicsEffect `
+    /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+    pub fn SetGraphicsEffect(self: QTextBrowser, effect: anytype) void {
+        comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
 
     /// Inherited from QWidget
@@ -4440,12 +4601,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn GrabGesture(self: QTextBrowser, typeVal: i32) void {
+        qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -4454,12 +4615,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn UngrabGesture(self: QTextBrowser, typeVal: i32) void {
+        qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -4468,16 +4629,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
+    pub fn SetWindowTitle(self: QTextBrowser, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
-        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
 
     /// Inherited from QWidget
@@ -4486,16 +4647,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
+    pub fn SetStyleSheet(self: QTextBrowser, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
-        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
 
     /// Inherited from QWidget
@@ -4504,12 +4665,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: QTextBrowser, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextbrowser.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4522,12 +4683,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+    pub fn WindowTitle(self: QTextBrowser, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextbrowser.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4540,12 +4701,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetWindowIcon(self: QTextBrowser, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -4554,10 +4716,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QWidget_WindowIcon(@ptrCast(self));
+    pub fn WindowIcon(self: QTextBrowser) QIcon {
+        return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4566,16 +4728,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
+    pub fn SetWindowIconText(self: QTextBrowser, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
-        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
 
     /// Inherited from QWidget
@@ -4584,12 +4746,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+    pub fn WindowIconText(self: QTextBrowser, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextbrowser.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4602,16 +4764,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
+    pub fn SetWindowRole(self: QTextBrowser, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
-        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
 
     /// Inherited from QWidget
@@ -4620,12 +4782,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
+    pub fn WindowRole(self: QTextBrowser, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextbrowser.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4638,16 +4800,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
+    pub fn SetWindowFilePath(self: QTextBrowser, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
 
     /// Inherited from QWidget
@@ -4656,12 +4818,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+    pub fn WindowFilePath(self: QTextBrowser, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextbrowser.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4674,12 +4836,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetWindowOpacity(self: QTextBrowser, level: f64) void {
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -4688,10 +4850,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return qtc.QWidget_WindowOpacity(@ptrCast(self));
+    pub fn WindowOpacity(self: QTextBrowser) f64 {
+        return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4700,10 +4862,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindowModified(@ptrCast(self));
+    pub fn IsWindowModified(self: QTextBrowser) bool {
+        return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4712,16 +4874,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: QTextBrowser, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// Inherited from QWidget
@@ -4730,12 +4892,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: QTextBrowser, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextbrowser.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4748,12 +4910,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
+    pub fn SetToolTipDuration(self: QTextBrowser, msec: i32) void {
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -4762,10 +4924,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
+    pub fn ToolTipDuration(self: QTextBrowser) i32 {
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4774,16 +4936,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: QTextBrowser, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QWidget
@@ -4792,12 +4954,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: QTextBrowser, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextbrowser.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4810,16 +4972,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: QTextBrowser, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// Inherited from QWidget
@@ -4828,12 +4990,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: QTextBrowser, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextbrowser.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4846,12 +5008,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+    pub fn AccessibleName(self: QTextBrowser, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextbrowser.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4864,16 +5026,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetAccessibleName(self: QTextBrowser, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QWidget
@@ -4882,12 +5044,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+    pub fn AccessibleDescription(self: QTextBrowser, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextbrowser.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -4900,16 +5062,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetAccessibleDescription(self: QTextBrowser, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// Inherited from QWidget
@@ -4918,12 +5080,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: QTextBrowser, direction: i32) void {
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -4932,14 +5094,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QWidget_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: QTextBrowser) i32 {
+        return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4948,10 +5110,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
+    pub fn UnsetLayoutDirection(self: QTextBrowser) void {
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4960,12 +5122,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: QTextBrowser, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// Inherited from QWidget
@@ -4974,10 +5137,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QWidget_Locale(@ptrCast(self));
+    pub fn Locale(self: QTextBrowser) QLocale {
+        return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4986,10 +5149,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn UnsetLocale(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLocale(@ptrCast(self));
+    pub fn UnsetLocale(self: QTextBrowser) void {
+        qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4998,10 +5161,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
+    pub fn IsRightToLeft(self: QTextBrowser) bool {
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5010,10 +5173,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
+    pub fn IsLeftToRight(self: QTextBrowser) bool {
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5022,10 +5185,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SetFocus(self: ?*anyopaque) void {
-        qtc.QWidget_SetFocus(@ptrCast(self));
+    pub fn SetFocus(self: QTextBrowser) void {
+        qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5034,10 +5197,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
+    pub fn IsActiveWindow(self: QTextBrowser) bool {
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5046,10 +5209,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn ActivateWindow(self: ?*anyopaque) void {
-        qtc.QWidget_ActivateWindow(@ptrCast(self));
+    pub fn ActivateWindow(self: QTextBrowser) void {
+        qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5058,10 +5221,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn ClearFocus(self: ?*anyopaque) void {
-        qtc.QWidget_ClearFocus(@ptrCast(self));
+    pub fn ClearFocus(self: QTextBrowser) void {
+        qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5070,12 +5233,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
+    pub fn SetFocus2(self: QTextBrowser, reason: i32) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -5084,14 +5247,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_FocusPolicy(@ptrCast(self));
+    pub fn FocusPolicy(self: QTextBrowser) i32 {
+        return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5100,12 +5263,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetFocusPolicy(self: QTextBrowser, policy: i32) void {
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -5114,10 +5277,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn HasFocus(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasFocus(@ptrCast(self));
+    pub fn HasFocus(self: QTextBrowser) bool {
+        return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5126,12 +5289,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QWidget `
+    /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QWidget;
+        qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidget
@@ -5140,12 +5305,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` focusProxy: QtC.QWidget `
+    /// ` focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+    pub fn SetFocusProxy(self: QTextBrowser, focusProxy: anytype) void {
+        comptime _ = @TypeOf(focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
     }
 
     /// Inherited from QWidget
@@ -5154,10 +5320,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusProxy(@ptrCast(self));
+    pub fn FocusProxy(self: QTextBrowser) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5166,14 +5332,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
+    pub fn ContextMenuPolicy(self: QTextBrowser) i32 {
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5182,12 +5348,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetContextMenuPolicy(self: QTextBrowser, policy: i32) void {
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -5196,10 +5362,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn GrabMouse(self: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse(@ptrCast(self));
+    pub fn GrabMouse(self: QTextBrowser) void {
+        qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5208,12 +5374,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: QTextBrowser, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -5222,10 +5389,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn ReleaseMouse(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseMouse(@ptrCast(self));
+    pub fn ReleaseMouse(self: QTextBrowser) void {
+        qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5234,10 +5401,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn GrabKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_GrabKeyboard(@ptrCast(self));
+    pub fn GrabKeyboard(self: QTextBrowser) void {
+        qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5246,10 +5413,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
+    pub fn ReleaseKeyboard(self: QTextBrowser) void {
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5258,12 +5425,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+    pub fn GrabShortcut(self: QTextBrowser, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// Inherited from QWidget
@@ -5272,12 +5440,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
+    pub fn ReleaseShortcut(self: QTextBrowser, id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -5286,12 +5454,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutEnabled(self: QTextBrowser, id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -5300,28 +5468,28 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutAutoRepeat(self: QTextBrowser, id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QtC.QWidget {
-        return qtc.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QtC.QWidget {
-        return qtc.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
 
     /// Inherited from QWidget
@@ -5330,10 +5498,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
+    pub fn UpdatesEnabled(self: QTextBrowser) bool {
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5342,12 +5510,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+    pub fn SetUpdatesEnabled(self: QTextBrowser, enable: bool) void {
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -5356,10 +5524,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    pub fn GraphicsProxyWidget(self: QTextBrowser) QGraphicsProxyWidget {
+        return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5368,10 +5536,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Update(self: ?*anyopaque) void {
-        qtc.QWidget_Update(@ptrCast(self));
+    pub fn Update(self: QTextBrowser) void {
+        qtc.QWidget_Update(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5380,10 +5548,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Repaint(self: ?*anyopaque) void {
-        qtc.QWidget_Repaint(@ptrCast(self));
+    pub fn Repaint(self: QTextBrowser) void {
+        qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5392,7 +5560,7 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` x: i32 `
     ///
@@ -5402,8 +5570,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Update2(self: QTextBrowser, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -5412,12 +5580,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: QTextBrowser, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -5426,12 +5595,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: QTextBrowser, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -5440,7 +5610,7 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` x: i32 `
     ///
@@ -5450,8 +5620,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Repaint2(self: QTextBrowser, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -5460,12 +5630,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: QTextBrowser, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -5474,12 +5645,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: QTextBrowser, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -5488,12 +5660,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
+    pub fn SetHidden(self: QTextBrowser, hidden: bool) void {
+        qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
 
     /// Inherited from QWidget
@@ -5502,10 +5674,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QWidget_Show(@ptrCast(self));
+    pub fn Show(self: QTextBrowser) void {
+        qtc.QWidget_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5514,10 +5686,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QWidget_Hide(@ptrCast(self));
+    pub fn Hide(self: QTextBrowser) void {
+        qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5526,10 +5698,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn ShowMinimized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMinimized(@ptrCast(self));
+    pub fn ShowMinimized(self: QTextBrowser) void {
+        qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5538,10 +5710,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn ShowMaximized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMaximized(@ptrCast(self));
+    pub fn ShowMaximized(self: QTextBrowser) void {
+        qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5550,10 +5722,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn ShowFullScreen(self: ?*anyopaque) void {
-        qtc.QWidget_ShowFullScreen(@ptrCast(self));
+    pub fn ShowFullScreen(self: QTextBrowser) void {
+        qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5562,10 +5734,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn ShowNormal(self: ?*anyopaque) void {
-        qtc.QWidget_ShowNormal(@ptrCast(self));
+    pub fn ShowNormal(self: QTextBrowser) void {
+        qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5574,10 +5746,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Close(self: ?*anyopaque) bool {
-        return qtc.QWidget_Close(@ptrCast(self));
+    pub fn Close(self: QTextBrowser) bool {
+        return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5586,10 +5758,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Raise(self: ?*anyopaque) void {
-        qtc.QWidget_Raise(@ptrCast(self));
+    pub fn Raise(self: QTextBrowser) void {
+        qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5598,10 +5770,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Lower(self: ?*anyopaque) void {
-        qtc.QWidget_Lower(@ptrCast(self));
+    pub fn Lower(self: QTextBrowser) void {
+        qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5610,12 +5782,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+    pub fn StackUnder(self: QTextBrowser, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -5624,14 +5797,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn Move(self: QTextBrowser, x: i32, y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -5640,12 +5813,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: QTextBrowser, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -5654,14 +5828,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn Resize(self: QTextBrowser, w: i32, h: i32) void {
+        qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -5670,12 +5844,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QSize `
+    /// ` param1: QSize `
     ///
-    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: QTextBrowser, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -5684,7 +5859,7 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` x: i32 `
     ///
@@ -5694,8 +5869,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetGeometry(self: QTextBrowser, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -5704,12 +5879,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` geometry: QtC.QRect `
+    /// ` geometry: QRect `
     ///
-    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: QTextBrowser, geometry: anytype) void {
+        comptime _ = @TypeOf(geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
     }
 
     /// Inherited from QWidget
@@ -5718,12 +5894,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+    pub fn SaveGeometry(self: QTextBrowser, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtextbrowser.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -5736,16 +5912,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
+    pub fn RestoreGeometry(self: QTextBrowser, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
-        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
 
     /// Inherited from QWidget
@@ -5754,10 +5930,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QWidget_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: QTextBrowser) void {
+        qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5766,10 +5942,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: QTextBrowser) bool {
+        return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5778,12 +5954,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsVisibleTo(self: QTextBrowser, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -5792,10 +5969,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn IsHidden(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsHidden(@ptrCast(self));
+    pub fn IsHidden(self: QTextBrowser) bool {
+        return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5804,10 +5981,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn IsMinimized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMinimized(@ptrCast(self));
+    pub fn IsMinimized(self: QTextBrowser) bool {
+        return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5816,10 +5993,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn IsMaximized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMaximized(@ptrCast(self));
+    pub fn IsMaximized(self: QTextBrowser) bool {
+        return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5828,10 +6005,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsFullScreen(@ptrCast(self));
+    pub fn IsFullScreen(self: QTextBrowser) bool {
+        return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5840,14 +6017,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowState(@ptrCast(self));
+    pub fn WindowState(self: QTextBrowser) i32 {
+        return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5856,12 +6033,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
+    pub fn SetWindowState(self: QTextBrowser, state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -5870,12 +6047,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
+    pub fn OverrideWindowState(self: QTextBrowser, state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -5884,10 +6061,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QWidget_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: QTextBrowser) QSizePolicy {
+        return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5896,12 +6073,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` sizePolicy: QtC.QSizePolicy `
+    /// ` sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
-        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    pub fn SetSizePolicy(self: QTextBrowser, sizePolicy: anytype) void {
+        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
     }
 
     /// Inherited from QWidget
@@ -5910,14 +6088,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` horizontal: qsizepolicy_enums.Policy `
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
+    pub fn SetSizePolicy2(self: QTextBrowser, horizontal: i32, vertical: i32) void {
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -5926,10 +6104,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_VisibleRegion(@ptrCast(self));
+    pub fn VisibleRegion(self: QTextBrowser) QRegion {
+        return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5938,7 +6116,7 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` left: i32 `
     ///
@@ -5948,8 +6126,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: QTextBrowser, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -5958,12 +6136,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: QTextBrowser, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QWidget
@@ -5972,10 +6151,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QWidget_ContentsMargins(@ptrCast(self));
+    pub fn ContentsMargins(self: QTextBrowser) QMargins {
+        return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5984,10 +6163,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: QTextBrowser) QRect {
+        return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5996,10 +6175,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidget_Layout(@ptrCast(self));
+    pub fn Layout(self: QTextBrowser) QLayout {
+        return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6008,12 +6187,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` layout: QtC.QLayout `
+    /// ` layout: QLayout `
     ///
-    pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetLayout(self: QTextBrowser, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// Inherited from QWidget
@@ -6022,10 +6202,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QWidget_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: QTextBrowser) void {
+        qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6034,12 +6214,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QTextBrowser, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QWidget
@@ -6048,14 +6229,15 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
+    pub fn SetParent2(self: QTextBrowser, parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -6064,14 +6246,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Scroll(self: QTextBrowser, dx: i32, dy: i32) void {
+        qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -6080,16 +6262,17 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    /// ` param3: QtC.QRect `
+    /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
+    pub fn Scroll2(self: QTextBrowser, dx: i32, dy: i32, param3: anytype) void {
+        comptime _ = @TypeOf(param3)._is_QRect;
+        qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QWidget
@@ -6098,10 +6281,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusWidget(@ptrCast(self));
+    pub fn FocusWidget(self: QTextBrowser) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6110,10 +6293,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
+    pub fn NextInFocusChain(self: QTextBrowser) QWidget {
+        return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6122,10 +6305,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
+    pub fn PreviousInFocusChain(self: QTextBrowser) QWidget {
+        return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6134,10 +6317,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return qtc.QWidget_AcceptDrops(@ptrCast(self));
+    pub fn AcceptDrops(self: QTextBrowser) bool {
+        return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6146,12 +6329,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
+    pub fn SetAcceptDrops(self: QTextBrowser, on: bool) void {
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QWidget
@@ -6160,12 +6343,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+    pub fn AddAction(self: QTextBrowser, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -6174,16 +6358,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn AddActions(self: QTextBrowser, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -6192,18 +6376,19 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn InsertActions(self: QTextBrowser, before: anytype, actions: []QAction) void {
+        comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -6212,14 +6397,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn InsertAction(self: QTextBrowser, before: anytype, action: anytype) void {
+        comptime _ = @TypeOf(before)._is_QAction;
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -6228,12 +6415,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn RemoveAction(self: QTextBrowser, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -6242,16 +6430,17 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+    pub fn Actions(self: QTextBrowser, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qtextbrowser.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qtextbrowser.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -6261,16 +6450,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: QTextBrowser, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction2(@ptrCast(self), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -6279,18 +6468,19 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: QTextBrowser, icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -6299,18 +6489,19 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: QTextBrowser, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6319,20 +6510,22 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: QTextBrowser, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6341,10 +6534,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: QTextBrowser) QWidget {
+        return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6353,12 +6546,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetWindowFlags(self: QTextBrowser, typeVal: i32) void {
+        qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -6367,14 +6560,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowFlags(@ptrCast(self));
+    pub fn WindowFlags(self: QTextBrowser) i32 {
+        return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6383,12 +6576,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
+    pub fn SetWindowFlag(self: QTextBrowser, param1: i32) void {
+        qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6397,12 +6590,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn OverrideWindowFlags(self: QTextBrowser, typeVal: i32) void {
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -6411,14 +6604,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowType(@ptrCast(self));
+    pub fn WindowType(self: QTextBrowser) i32 {
+        return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6427,14 +6620,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: QTextBrowser, x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QWidget
@@ -6443,12 +6636,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: QTextBrowser, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6457,12 +6651,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: QTextBrowser, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6471,12 +6666,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn SetAttribute(self: QTextBrowser, param1: i32) void {
+        qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6485,12 +6680,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn TestAttribute(self: QTextBrowser, param1: i32) bool {
+        return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6499,10 +6694,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn EnsurePolished(self: ?*anyopaque) void {
-        qtc.QWidget_EnsurePolished(@ptrCast(self));
+    pub fn EnsurePolished(self: QTextBrowser) void {
+        qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6511,12 +6706,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` child: QtC.QWidget `
+    /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+    pub fn IsAncestorOf(self: QTextBrowser, child: anytype) bool {
+        comptime _ = @TypeOf(child)._is_QWidget;
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from QWidget
@@ -6525,10 +6721,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
+    pub fn AutoFillBackground(self: QTextBrowser) bool {
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6537,12 +6733,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+    pub fn SetAutoFillBackground(self: QTextBrowser, enabled: bool) void {
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -6551,10 +6747,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
-        return qtc.QWidget_BackingStore(@ptrCast(self));
+    pub fn BackingStore(self: QTextBrowser) QBackingStore {
+        return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6563,10 +6759,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QWidget_WindowHandle(@ptrCast(self));
+    pub fn WindowHandle(self: QTextBrowser) QWindow {
+        return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6575,10 +6771,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
-        return qtc.QWidget_Screen(@ptrCast(self));
+    pub fn Screen(self: QTextBrowser) QScreen {
+        return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6587,12 +6783,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+    pub fn SetScreen(self: QTextBrowser, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QWidget
@@ -6601,10 +6798,11 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
+    pub fn CreateWindowContainer(window: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6613,16 +6811,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn WindowTitleChanged(self: QTextBrowser, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QWidget
@@ -6631,12 +6829,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowTitleChanged(self: QTextBrowser, callback: *const fn (QTextBrowser, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6645,12 +6843,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+    pub fn WindowIconChanged(self: QTextBrowser, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -6659,12 +6858,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, icon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconChanged(self: QTextBrowser, callback: *const fn (QTextBrowser, QIcon) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6673,16 +6872,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
+    pub fn WindowIconTextChanged(self: QTextBrowser, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
-        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
 
     /// Inherited from QWidget
@@ -6691,12 +6890,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, iconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconTextChanged(self: QTextBrowser, callback: *const fn (QTextBrowser, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6705,12 +6904,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+    pub fn CustomContextMenuRequested(self: QTextBrowser, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QWidget
@@ -6719,12 +6919,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomContextMenuRequested(self: QTextBrowser, callback: *const fn (QTextBrowser, QPoint) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6733,14 +6933,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i32 {
-        return qtc.QWidget_InputMethodHints(@ptrCast(self));
+    pub fn InputMethodHints(self: QTextBrowser) i32 {
+        return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6749,12 +6949,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetInputMethodHints(self: QTextBrowser, hints: i32) void {
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -6763,14 +6963,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: QTextBrowser, target: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -6779,16 +6981,19 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render3(self: QTextBrowser, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -6797,18 +7002,21 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render4(self: QTextBrowser, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -6817,14 +7025,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: QTextBrowser, painter: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -6833,16 +7043,19 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render32(self: QTextBrowser, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -6851,18 +7064,21 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render42(self: QTextBrowser, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -6871,12 +7087,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Grab1(self: QTextBrowser, rectangle: anytype) QPixmap {
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6885,14 +7102,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
+    pub fn GrabGesture2(self: QTextBrowser, typeVal: i32, flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -6901,14 +7118,15 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
+    pub fn GrabShortcut2(self: QTextBrowser, key: anytype, context: i32) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -6917,14 +7135,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutEnabled2(self: QTextBrowser, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -6933,14 +7151,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutAutoRepeat2(self: QTextBrowser, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -6949,14 +7167,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetWindowFlag2(self: QTextBrowser, param1: i32, on: bool) void {
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -6965,14 +7183,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetAttribute2(self: QTextBrowser, param1: i32, on: bool) void {
+        qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -6981,12 +7199,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6995,14 +7215,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
+    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QObject
@@ -7011,12 +7233,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QTextBrowser, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextbrowser.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -7029,12 +7251,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QTextBrowser, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -7043,10 +7265,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QTextBrowser) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -7055,10 +7277,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QTextBrowser) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -7067,10 +7289,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QTextBrowser) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -7079,10 +7301,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QTextBrowser) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -7091,12 +7313,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QTextBrowser, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -7105,10 +7327,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QTextBrowser) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -7117,12 +7339,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QTextBrowser, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -7131,12 +7354,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QTextBrowser, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -7145,12 +7368,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QTextBrowser, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -7159,12 +7382,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QTextBrowser, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -7173,12 +7396,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QTextBrowser, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -7187,16 +7410,17 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QTextBrowser, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qtextbrowser.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qtextbrowser.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -7206,12 +7430,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QTextBrowser, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -7220,12 +7445,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QTextBrowser, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -7234,18 +7460,20 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -7254,16 +7482,20 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -7272,18 +7504,19 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QTextBrowser, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -7292,18 +7525,20 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -7312,16 +7547,20 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -7330,10 +7569,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QTextBrowser) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -7342,12 +7581,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QTextBrowser, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -7356,10 +7596,11 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -7368,10 +7609,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QTextBrowser) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -7380,10 +7621,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QTextBrowser) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -7392,15 +7633,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QTextBrowser, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -7409,13 +7651,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QTextBrowser, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -7424,17 +7666,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QTextBrowser, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qtextbrowser.DynamicPropertyNames: Memory allocation failed");
@@ -7453,10 +7694,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QTextBrowser) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -7465,10 +7706,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QTextBrowser) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -7477,10 +7718,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QTextBrowser) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -7489,12 +7730,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QTextBrowser, callback: *const fn (QTextBrowser) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7503,10 +7744,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QTextBrowser) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -7515,13 +7756,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QTextBrowser, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -7530,10 +7771,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QTextBrowser) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -7542,14 +7783,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QTextBrowser, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -7558,14 +7799,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QTextBrowser, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -7574,20 +7815,22 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -7596,18 +7839,22 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -7616,9 +7863,9 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7626,10 +7873,11 @@ pub const qtextbrowser = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QTextBrowser, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -7638,13 +7886,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QTextBrowser, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -7653,15 +7901,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QTextBrowser, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -7670,18 +7919,19 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QTextBrowser, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -7690,15 +7940,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QTextBrowser, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -7707,12 +7958,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QTextBrowser, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -7721,12 +7973,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QTextBrowser, callback: *const fn (QTextBrowser, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -7735,10 +7987,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: QTextBrowser) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7747,10 +7999,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: QTextBrowser) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7759,10 +8011,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: QTextBrowser) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7771,10 +8023,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: QTextBrowser) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7783,10 +8035,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: QTextBrowser) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7795,10 +8047,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: QTextBrowser) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7807,10 +8059,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: QTextBrowser) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7819,10 +8071,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: QTextBrowser) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7831,10 +8083,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: QTextBrowser) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7843,10 +8095,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: QTextBrowser) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7855,10 +8107,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: QTextBrowser) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -7891,12 +8143,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` property: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, property: i32) QtC.QVariant {
-        return qtc.QTextBrowser_InputMethodQuery(@ptrCast(self), @bitCast(property));
+    pub fn InputMethodQuery(self: QTextBrowser, property: i32) QVariant {
+        return .{ .ptr = qtc.QTextBrowser_InputMethodQuery(@ptrCast(self.ptr), @bitCast(property)) };
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
@@ -7911,12 +8163,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` property: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: ?*anyopaque, property: i32) QtC.QVariant {
-        return qtc.QTextBrowser_SuperInputMethodQuery(@ptrCast(self), @bitCast(property));
+    pub fn SuperInputMethodQuery(self: QTextBrowser, property: i32) QVariant {
+        return .{ .ptr = qtc.QTextBrowser_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(property)) };
     }
 
     /// Inherited from QTextEdit
@@ -7927,12 +8179,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, property: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QTextBrowser, property: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QTextBrowser_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodQuery(self: QTextBrowser, callback: *const fn (QTextBrowser, i32) callconv(.c) QVariant) void {
+        qtc.QTextBrowser_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -7943,12 +8195,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QTimerEvent `
+    /// ` e: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_TimerEvent(@ptrCast(self), @ptrCast(e));
+    pub fn TimerEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QTimerEvent;
+        qtc.QTextBrowser_TimerEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -7963,12 +8216,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QTimerEvent `
+    /// ` e: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperTimerEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperTimerEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QTimerEvent;
+        qtc.QTextBrowser_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -7979,12 +8233,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, e: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, e: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QTimerEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -7995,12 +8249,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QKeyEvent `
+    /// ` e: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_KeyReleaseEvent(@ptrCast(self), @ptrCast(e));
+    pub fn KeyReleaseEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QKeyEvent;
+        qtc.QTextBrowser_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
@@ -8015,12 +8270,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QKeyEvent `
+    /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperKeyReleaseEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QKeyEvent;
+        qtc.QTextBrowser_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -8031,12 +8287,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, e: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyReleaseEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QKeyEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8047,12 +8303,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QResizeEvent `
+    /// ` e: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_ResizeEvent(@ptrCast(self), @ptrCast(e));
+    pub fn ResizeEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QResizeEvent;
+        qtc.QTextBrowser_ResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResizeEvent` instead
@@ -8067,12 +8324,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QResizeEvent `
+    /// ` e: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperResizeEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperResizeEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QResizeEvent;
+        qtc.QTextBrowser_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -8083,12 +8341,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, e: QtC.QResizeEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, e: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResizeEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QResizeEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8099,12 +8357,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QMouseEvent `
+    /// ` e: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(e));
+    pub fn MouseDoubleClickEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QMouseEvent;
+        qtc.QTextBrowser_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
@@ -8119,12 +8378,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QMouseEvent `
+    /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperMouseDoubleClickEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QMouseEvent;
+        qtc.QTextBrowser_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -8135,12 +8395,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, e: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseDoubleClickEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QMouseEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8151,12 +8411,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QContextMenuEvent `
+    /// ` e: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_ContextMenuEvent(@ptrCast(self), @ptrCast(e));
+    pub fn ContextMenuEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QContextMenuEvent;
+        qtc.QTextBrowser_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
@@ -8171,12 +8432,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QContextMenuEvent `
+    /// ` e: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperContextMenuEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperContextMenuEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QContextMenuEvent;
+        qtc.QTextBrowser_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -8187,12 +8449,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, e: QtC.QContextMenuEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, e: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QContextMenuEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8203,12 +8465,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QDragEnterEvent `
+    /// ` e: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_DragEnterEvent(@ptrCast(self), @ptrCast(e));
+    pub fn DragEnterEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QDragEnterEvent;
+        qtc.QTextBrowser_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
@@ -8223,12 +8486,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QDragEnterEvent `
+    /// ` e: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperDragEnterEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDragEnterEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QDragEnterEvent;
+        qtc.QTextBrowser_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -8239,12 +8503,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, e: QtC.QDragEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, e: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragEnterEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QDragEnterEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8255,12 +8519,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QDragLeaveEvent `
+    /// ` e: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_DragLeaveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn DragLeaveEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QDragLeaveEvent;
+        qtc.QTextBrowser_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
@@ -8275,12 +8540,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QDragLeaveEvent `
+    /// ` e: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDragLeaveEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QDragLeaveEvent;
+        qtc.QTextBrowser_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -8291,12 +8557,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, e: QtC.QDragLeaveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, e: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragLeaveEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QDragLeaveEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8307,12 +8573,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QDragMoveEvent `
+    /// ` e: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_DragMoveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn DragMoveEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QDragMoveEvent;
+        qtc.QTextBrowser_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
@@ -8327,12 +8594,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QDragMoveEvent `
+    /// ` e: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperDragMoveEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDragMoveEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QDragMoveEvent;
+        qtc.QTextBrowser_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -8343,12 +8611,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, e: QtC.QDragMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, e: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragMoveEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QDragMoveEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8359,12 +8627,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QDropEvent `
+    /// ` e: QDropEvent `
     ///
-    pub fn DropEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_DropEvent(@ptrCast(self), @ptrCast(e));
+    pub fn DropEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QDropEvent;
+        qtc.QTextBrowser_DropEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropEvent` instead
@@ -8379,12 +8648,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QDropEvent `
+    /// ` e: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperDropEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperDropEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QDropEvent;
+        qtc.QTextBrowser_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -8395,12 +8665,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, e: QtC.QDropEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, e: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QDropEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8411,12 +8681,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QFocusEvent `
+    /// ` e: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_FocusInEvent(@ptrCast(self), @ptrCast(e));
+    pub fn FocusInEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QFocusEvent;
+        qtc.QTextBrowser_FocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusInEvent` instead
@@ -8431,12 +8702,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QFocusEvent `
+    /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperFocusInEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperFocusInEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QFocusEvent;
+        qtc.QTextBrowser_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -8447,12 +8719,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, e: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusInEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QFocusEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8463,12 +8735,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QShowEvent `
+    /// ` param1: QShowEvent `
     ///
-    pub fn ShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTextBrowser_ShowEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ShowEvent(self: QTextBrowser, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QShowEvent;
+        qtc.QTextBrowser_ShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperShowEvent` instead
@@ -8483,12 +8756,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QShowEvent `
+    /// ` param1: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperShowEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperShowEvent(self: QTextBrowser, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QShowEvent;
+        qtc.QTextBrowser_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -8499,12 +8773,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, param1: QtC.QShowEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, param1: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShowEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QShowEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8515,12 +8789,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn ChangeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_ChangeEvent(@ptrCast(self), @ptrCast(e));
+    pub fn ChangeEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        qtc.QTextBrowser_ChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChangeEvent` instead
@@ -8535,12 +8810,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QEvent `
+    /// ` e: QEvent `
     ///
-    pub fn SuperChangeEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperChangeEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperChangeEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QEvent;
+        qtc.QTextBrowser_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -8551,12 +8827,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, e: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, e: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangeEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8567,12 +8843,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QWheelEvent `
+    /// ` e: QWheelEvent `
     ///
-    pub fn WheelEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_WheelEvent(@ptrCast(self), @ptrCast(e));
+    pub fn WheelEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QWheelEvent;
+        qtc.QTextBrowser_WheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperWheelEvent` instead
@@ -8587,12 +8864,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` e: QtC.QWheelEvent `
+    /// ` e: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperWheelEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SuperWheelEvent(self: QTextBrowser, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QWheelEvent;
+        qtc.QTextBrowser_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -8603,12 +8881,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, e: QtC.QWheelEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, e: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWheelEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QWheelEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8619,10 +8897,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn CreateMimeDataFromSelection(self: ?*anyopaque) QtC.QMimeData {
-        return qtc.QTextBrowser_CreateMimeDataFromSelection(@ptrCast(self));
+    pub fn CreateMimeDataFromSelection(self: QTextBrowser) QMimeData {
+        return .{ .ptr = qtc.QTextBrowser_CreateMimeDataFromSelection(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperCreateMimeDataFromSelection` instead
@@ -8637,10 +8915,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SuperCreateMimeDataFromSelection(self: ?*anyopaque) QtC.QMimeData {
-        return qtc.QTextBrowser_SuperCreateMimeDataFromSelection(@ptrCast(self));
+    pub fn SuperCreateMimeDataFromSelection(self: QTextBrowser) QMimeData {
+        return .{ .ptr = qtc.QTextBrowser_SuperCreateMimeDataFromSelection(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QTextEdit
@@ -8651,12 +8929,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMimeData `
+    /// ` callback: *const fn () callconv(.c) QMimeData `
     ///
-    pub fn OnCreateMimeDataFromSelection(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMimeData) void {
-        qtc.QTextBrowser_OnCreateMimeDataFromSelection(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreateMimeDataFromSelection(self: QTextBrowser, callback: *const fn () callconv(.c) QMimeData) void {
+        qtc.QTextBrowser_OnCreateMimeDataFromSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8667,12 +8945,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` source: QtC.QMimeData `
+    /// ` source: QMimeData `
     ///
-    pub fn CanInsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) bool {
-        return qtc.QTextBrowser_CanInsertFromMimeData(@ptrCast(self), @ptrCast(source));
+    pub fn CanInsertFromMimeData(self: QTextBrowser, source: anytype) bool {
+        comptime _ = @TypeOf(source)._is_QMimeData;
+        return qtc.QTextBrowser_CanInsertFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCanInsertFromMimeData` instead
@@ -8687,12 +8966,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` source: QtC.QMimeData `
+    /// ` source: QMimeData `
     ///
-    pub fn SuperCanInsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) bool {
-        return qtc.QTextBrowser_SuperCanInsertFromMimeData(@ptrCast(self), @ptrCast(source));
+    pub fn SuperCanInsertFromMimeData(self: QTextBrowser, source: anytype) bool {
+        comptime _ = @TypeOf(source)._is_QMimeData;
+        return qtc.QTextBrowser_SuperCanInsertFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -8703,12 +8983,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, source: QtC.QMimeData) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTextBrowser, source: QMimeData) callconv(.c) bool `
     ///
-    pub fn OnCanInsertFromMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTextBrowser_OnCanInsertFromMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCanInsertFromMimeData(self: QTextBrowser, callback: *const fn (QTextBrowser, QMimeData) callconv(.c) bool) void {
+        qtc.QTextBrowser_OnCanInsertFromMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8719,12 +8999,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` source: QtC.QMimeData `
+    /// ` source: QMimeData `
     ///
-    pub fn InsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) void {
-        qtc.QTextBrowser_InsertFromMimeData(@ptrCast(self), @ptrCast(source));
+    pub fn InsertFromMimeData(self: QTextBrowser, source: anytype) void {
+        comptime _ = @TypeOf(source)._is_QMimeData;
+        qtc.QTextBrowser_InsertFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInsertFromMimeData` instead
@@ -8739,12 +9020,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` source: QtC.QMimeData `
+    /// ` source: QMimeData `
     ///
-    pub fn SuperInsertFromMimeData(self: ?*anyopaque, source: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperInsertFromMimeData(@ptrCast(self), @ptrCast(source));
+    pub fn SuperInsertFromMimeData(self: QTextBrowser, source: anytype) void {
+        comptime _ = @TypeOf(source)._is_QMimeData;
+        qtc.QTextBrowser_SuperInsertFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -8755,12 +9037,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, source: QtC.QMimeData) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, source: QMimeData) callconv(.c) void `
     ///
-    pub fn OnInsertFromMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnInsertFromMimeData(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInsertFromMimeData(self: QTextBrowser, callback: *const fn (QTextBrowser, QMimeData) callconv(.c) void) void {
+        qtc.QTextBrowser_OnInsertFromMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8771,12 +9053,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTextBrowser_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn InputMethodEvent(self: QTextBrowser, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QTextBrowser_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
@@ -8791,12 +9074,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: QTextBrowser, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QTextBrowser_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -8807,12 +9091,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, param1: QtC.QInputMethodEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QInputMethodEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8823,14 +9107,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn ScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QTextBrowser_ScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn ScrollContentsBy(self: QTextBrowser, dx: i32, dy: i32) void {
+        qtc.QTextBrowser_ScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// ### DEPRECATED: Use `SuperScrollContentsBy` instead
@@ -8845,14 +9129,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn SuperScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QTextBrowser_SuperScrollContentsBy(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn SuperScrollContentsBy(self: QTextBrowser, dx: i32, dy: i32) void {
+        qtc.QTextBrowser_SuperScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QTextEdit
@@ -8863,12 +9147,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, dx: i32, dy: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, dx: i32, dy: i32) callconv(.c) void `
     ///
-    pub fn OnScrollContentsBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTextBrowser_OnScrollContentsBy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnScrollContentsBy(self: QTextBrowser, callback: *const fn (QTextBrowser, i32, i32) callconv(.c) void) void {
+        qtc.QTextBrowser_OnScrollContentsBy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -8879,12 +9163,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` cursor: QtC.QTextCursor `
+    /// ` cursor: QTextCursor `
     ///
-    pub fn DoSetTextCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QTextBrowser_DoSetTextCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn DoSetTextCursor(self: QTextBrowser, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QTextCursor;
+        qtc.QTextBrowser_DoSetTextCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDoSetTextCursor` instead
@@ -8899,12 +9184,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` cursor: QtC.QTextCursor `
+    /// ` cursor: QTextCursor `
     ///
-    pub fn SuperDoSetTextCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperDoSetTextCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SuperDoSetTextCursor(self: QTextBrowser, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QTextCursor;
+        qtc.QTextBrowser_SuperDoSetTextCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QTextEdit
@@ -8915,12 +9201,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, cursor: QtC.QTextCursor) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, cursor: QTextCursor) callconv(.c) void `
     ///
-    pub fn OnDoSetTextCursor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnDoSetTextCursor(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDoSetTextCursor(self: QTextBrowser, callback: *const fn (QTextBrowser, QTextCursor) callconv(.c) void) void {
+        qtc.QTextBrowser_OnDoSetTextCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8931,10 +9217,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTextBrowser_MinimumSizeHint(@ptrCast(self));
+    pub fn MinimumSizeHint(self: QTextBrowser) QSize {
+        return .{ .ptr = qtc.QTextBrowser_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
@@ -8949,10 +9235,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTextBrowser_SuperMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: QTextBrowser) QSize {
+        return .{ .ptr = qtc.QTextBrowser_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8963,12 +9249,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QTextBrowser_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumSizeHint(self: QTextBrowser, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QTextBrowser_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8979,10 +9265,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTextBrowser_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: QTextBrowser) QSize {
+        return .{ .ptr = qtc.QTextBrowser_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSizeHint` instead
@@ -8997,10 +9283,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTextBrowser_SuperSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: QTextBrowser) QSize {
+        return .{ .ptr = qtc.QTextBrowser_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9011,12 +9297,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QTextBrowser_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHint(self: QTextBrowser, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QTextBrowser_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9027,12 +9313,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` viewport: QtC.QWidget `
+    /// ` viewport: QWidget `
     ///
-    pub fn SetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
-        qtc.QTextBrowser_SetupViewport(@ptrCast(self), @ptrCast(viewport));
+    pub fn SetupViewport(self: QTextBrowser, viewport: anytype) void {
+        comptime _ = @TypeOf(viewport)._is_QWidget;
+        qtc.QTextBrowser_SetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSetupViewport` instead
@@ -9047,12 +9334,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` viewport: QtC.QWidget `
+    /// ` viewport: QWidget `
     ///
-    pub fn SuperSetupViewport(self: ?*anyopaque, viewport: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperSetupViewport(@ptrCast(self), @ptrCast(viewport));
+    pub fn SuperSetupViewport(self: QTextBrowser, viewport: anytype) void {
+        comptime _ = @TypeOf(viewport)._is_QWidget;
+        qtc.QTextBrowser_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9063,12 +9351,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, viewport: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, viewport: QWidget) callconv(.c) void `
     ///
-    pub fn OnSetupViewport(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnSetupViewport(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetupViewport(self: QTextBrowser, callback: *const fn (QTextBrowser, QWidget) callconv(.c) void) void {
+        qtc.QTextBrowser_OnSetupViewport(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9079,14 +9367,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    /// ` param2: QtC.QEvent `
+    /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.QTextBrowser_EventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn EventFilter(self: QTextBrowser, param1: anytype, param2: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        comptime _ = @TypeOf(param2)._is_QEvent;
+        return qtc.QTextBrowser_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -9101,14 +9391,16 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    /// ` param2: QtC.QEvent `
+    /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.QTextBrowser_SuperEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn SuperEventFilter(self: QTextBrowser, param1: anytype, param2: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        comptime _ = @TypeOf(param2)._is_QEvent;
+        return qtc.QTextBrowser_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9119,12 +9411,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, param1: QtC.QObject, param2: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTextBrowser, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTextBrowser_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QTextBrowser, callback: *const fn (QTextBrowser, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QTextBrowser_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9135,12 +9427,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn ViewportEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QTextBrowser_ViewportEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ViewportEvent(self: QTextBrowser, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        return qtc.QTextBrowser_ViewportEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperViewportEvent` instead
@@ -9155,12 +9448,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn SuperViewportEvent(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QTextBrowser_SuperViewportEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperViewportEvent(self: QTextBrowser, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        return qtc.QTextBrowser_SuperViewportEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9171,12 +9465,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, param1: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTextBrowser, param1: QEvent) callconv(.c) bool `
     ///
-    pub fn OnViewportEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTextBrowser_OnViewportEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnViewportEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QEvent) callconv(.c) bool) void {
+        qtc.QTextBrowser_OnViewportEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9187,10 +9481,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn ViewportSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTextBrowser_ViewportSizeHint(@ptrCast(self));
+    pub fn ViewportSizeHint(self: QTextBrowser) QSize {
+        return .{ .ptr = qtc.QTextBrowser_ViewportSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperViewportSizeHint` instead
@@ -9205,10 +9499,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SuperViewportSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QTextBrowser_SuperViewportSizeHint(@ptrCast(self));
+    pub fn SuperViewportSizeHint(self: QTextBrowser) QSize {
+        return .{ .ptr = qtc.QTextBrowser_SuperViewportSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9219,12 +9513,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnViewportSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QTextBrowser_OnViewportSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnViewportSizeHint(self: QTextBrowser, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QTextBrowser_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -9235,12 +9529,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` option: QtC.QStyleOptionFrame `
+    /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QTextBrowser_InitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn InitStyleOption(self: QTextBrowser, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
+        qtc.QTextBrowser_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitStyleOption` instead
@@ -9255,12 +9550,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` option: QtC.QStyleOptionFrame `
+    /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: ?*anyopaque, option: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperInitStyleOption(@ptrCast(self), @ptrCast(option));
+    pub fn SuperInitStyleOption(self: QTextBrowser, option: anytype) void {
+        comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
+        qtc.QTextBrowser_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// Inherited from QFrame
@@ -9271,12 +9567,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, option: QtC.QStyleOptionFrame) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnInitStyleOption(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitStyleOption(self: QTextBrowser, callback: *const fn (QTextBrowser, QStyleOptionFrame) callconv(.c) void) void {
+        qtc.QTextBrowser_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9287,10 +9583,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.QTextBrowser_DevType(@ptrCast(self));
+    pub fn DevType(self: QTextBrowser) i32 {
+        return qtc.QTextBrowser_DevType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDevType` instead
@@ -9305,10 +9601,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SuperDevType(self: ?*anyopaque) i32 {
-        return qtc.QTextBrowser_SuperDevType(@ptrCast(self));
+    pub fn SuperDevType(self: QTextBrowser) i32 {
+        return qtc.QTextBrowser_SuperDevType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9319,12 +9615,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTextBrowser_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDevType(self: QTextBrowser, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTextBrowser_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9335,12 +9631,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QTextBrowser_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: QTextBrowser, visible: bool) void {
+        qtc.QTextBrowser_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### DEPRECATED: Use `SuperSetVisible` instead
@@ -9355,12 +9651,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QTextBrowser_SuperSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: QTextBrowser, visible: bool) void {
+        qtc.QTextBrowser_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QWidget
@@ -9371,12 +9667,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTextBrowser_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetVisible(self: QTextBrowser, callback: *const fn (QTextBrowser, bool) callconv(.c) void) void {
+        qtc.QTextBrowser_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9387,12 +9683,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTextBrowser_HeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn HeightForWidth(self: QTextBrowser, param1: i32) i32 {
+        return qtc.QTextBrowser_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperHeightForWidth` instead
@@ -9407,12 +9703,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTextBrowser_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: QTextBrowser, param1: i32) i32 {
+        return qtc.QTextBrowser_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -9423,12 +9719,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, param1: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTextBrowser, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QTextBrowser_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeightForWidth(self: QTextBrowser, callback: *const fn (QTextBrowser, i32) callconv(.c) i32) void {
+        qtc.QTextBrowser_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9439,10 +9735,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QTextBrowser_HasHeightForWidth(@ptrCast(self));
+    pub fn HasHeightForWidth(self: QTextBrowser) bool {
+        return qtc.QTextBrowser_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
@@ -9457,10 +9753,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QTextBrowser_SuperHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: QTextBrowser) bool {
+        return qtc.QTextBrowser_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -9471,12 +9767,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTextBrowser_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasHeightForWidth(self: QTextBrowser, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTextBrowser_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9487,10 +9783,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QTextBrowser_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: QTextBrowser) QPaintEngine {
+        return .{ .ptr = qtc.QTextBrowser_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperPaintEngine` instead
@@ -9505,10 +9801,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QTextBrowser_SuperPaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: QTextBrowser) QPaintEngine {
+        return .{ .ptr = qtc.QTextBrowser_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -9519,12 +9815,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QTextBrowser_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEngine(self: QTextBrowser, callback: *const fn () callconv(.c) QPaintEngine) void {
+        qtc.QTextBrowser_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9535,12 +9831,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_EnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn EnterEvent(self: QTextBrowser, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QTextBrowser_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEnterEvent` instead
@@ -9555,12 +9852,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: QTextBrowser, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QTextBrowser_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -9571,12 +9869,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, event: QtC.QEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnterEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QEnterEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9587,12 +9885,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_LeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn LeaveEvent(self: QTextBrowser, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QTextBrowser_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLeaveEvent` instead
@@ -9607,12 +9906,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: QTextBrowser, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QTextBrowser_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -9623,12 +9923,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeaveEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9639,12 +9939,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_MoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MoveEvent(self: QTextBrowser, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QTextBrowser_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMoveEvent` instead
@@ -9659,12 +9960,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: QTextBrowser, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QTextBrowser_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -9675,12 +9977,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, event: QtC.QMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QMoveEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9691,12 +9993,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_CloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CloseEvent(self: QTextBrowser, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QTextBrowser_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEvent` instead
@@ -9711,12 +10014,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: QTextBrowser, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QTextBrowser_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -9727,12 +10031,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, event: QtC.QCloseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QCloseEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9743,12 +10047,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_TabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TabletEvent(self: QTextBrowser, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QTextBrowser_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTabletEvent` instead
@@ -9763,12 +10068,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: QTextBrowser, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QTextBrowser_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -9779,12 +10085,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, event: QtC.QTabletEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabletEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QTabletEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9795,12 +10101,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_ActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ActionEvent(self: QTextBrowser, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QTextBrowser_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperActionEvent` instead
@@ -9815,12 +10122,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: QTextBrowser, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QTextBrowser_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -9831,12 +10139,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, event: QtC.QActionEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QActionEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9847,12 +10155,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_HideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn HideEvent(self: QTextBrowser, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QTextBrowser_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHideEvent` instead
@@ -9867,12 +10176,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: QTextBrowser, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QTextBrowser_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -9883,12 +10193,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, event: QtC.QHideEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHideEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QHideEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9899,7 +10209,7 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` eventType: []u8 `
     ///
@@ -9907,12 +10217,12 @@ pub const qtextbrowser = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn NativeEvent(self: QTextBrowser, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QTextBrowser_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QTextBrowser_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### DEPRECATED: Use `SuperNativeEvent` instead
@@ -9927,7 +10237,7 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` eventType: []u8 `
     ///
@@ -9935,12 +10245,12 @@ pub const qtextbrowser = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: QTextBrowser, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QTextBrowser_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QTextBrowser_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -9951,12 +10261,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTextBrowser, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QTextBrowser_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNativeEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.QTextBrowser_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9967,12 +10277,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTextBrowser_Metric(@ptrCast(self), @bitCast(param1));
+    pub fn Metric(self: QTextBrowser, param1: i32) i32 {
+        return qtc.QTextBrowser_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperMetric` instead
@@ -9987,12 +10297,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QTextBrowser_SuperMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: QTextBrowser, param1: i32) i32 {
+        return qtc.QTextBrowser_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -10003,12 +10313,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTextBrowser, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QTextBrowser_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetric(self: QTextBrowser, callback: *const fn (QTextBrowser, i32) callconv(.c) i32) void {
+        qtc.QTextBrowser_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10019,12 +10329,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QTextBrowser_InitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn InitPainter(self: QTextBrowser, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QTextBrowser_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitPainter` instead
@@ -10039,12 +10350,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: QTextBrowser, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QTextBrowser_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -10055,12 +10367,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, painter: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitPainter(self: QTextBrowser, callback: *const fn (QTextBrowser, QPainter) callconv(.c) void) void {
+        qtc.QTextBrowser_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10071,12 +10383,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QTextBrowser_Redirected(@ptrCast(self), @ptrCast(offset));
+    pub fn Redirected(self: QTextBrowser, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QTextBrowser_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperRedirected` instead
@@ -10091,12 +10404,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QTextBrowser_SuperRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: QTextBrowser, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QTextBrowser_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10107,12 +10421,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    /// ` callback: *const fn (self: QTextBrowser, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QTextBrowser_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: QTextBrowser, callback: *const fn (QTextBrowser, QPoint) callconv(.c) QPaintDevice) void {
+        qtc.QTextBrowser_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10123,10 +10437,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QTextBrowser_SharedPainter(@ptrCast(self));
+    pub fn SharedPainter(self: QTextBrowser) QPainter {
+        return .{ .ptr = qtc.QTextBrowser_SharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSharedPainter` instead
@@ -10141,10 +10455,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QTextBrowser_SuperSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: QTextBrowser) QPainter {
+        return .{ .ptr = qtc.QTextBrowser_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10155,12 +10469,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QTextBrowser_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSharedPainter(self: QTextBrowser, callback: *const fn () callconv(.c) QPainter) void {
+        qtc.QTextBrowser_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10171,12 +10485,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QTextBrowser, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QTextBrowser_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -10191,12 +10506,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QTextBrowser, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QTextBrowser_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -10207,12 +10523,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QChildEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10223,12 +10539,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QTextBrowser, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QTextBrowser_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -10243,12 +10560,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QTextBrowser, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QTextBrowser_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -10259,12 +10577,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QTextBrowser, callback: *const fn (QTextBrowser, QEvent) callconv(.c) void) void {
+        qtc.QTextBrowser_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10275,12 +10593,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTextBrowser_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QTextBrowser, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QTextBrowser_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -10295,12 +10614,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QTextBrowser, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QTextBrowser_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -10311,12 +10631,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QTextBrowser, callback: *const fn (QTextBrowser, QMetaMethod) callconv(.c) void) void {
+        qtc.QTextBrowser_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10327,12 +10647,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTextBrowser_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QTextBrowser, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QTextBrowser_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -10347,12 +10668,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QTextBrowser, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QTextBrowser_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -10363,12 +10685,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QTextBrowser, callback: *const fn (QTextBrowser, QMetaMethod) callconv(.c) void) void {
+        qtc.QTextBrowser_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -10379,12 +10701,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` range: f32 `
     ///
-    pub fn ZoomInF(self: ?*anyopaque, range: f32) void {
-        qtc.QTextBrowser_ZoomInF(@ptrCast(self), @bitCast(range));
+    pub fn ZoomInF(self: QTextBrowser, range: f32) void {
+        qtc.QTextBrowser_ZoomInF(@ptrCast(self.ptr), @bitCast(range));
     }
 
     /// ### DEPRECATED: Use `SuperZoomInF` instead
@@ -10399,12 +10721,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` range: f32 `
     ///
-    pub fn SuperZoomInF(self: ?*anyopaque, range: f32) void {
-        qtc.QTextBrowser_SuperZoomInF(@ptrCast(self), @bitCast(range));
+    pub fn SuperZoomInF(self: QTextBrowser, range: f32) void {
+        qtc.QTextBrowser_SuperZoomInF(@ptrCast(self.ptr), @bitCast(range));
     }
 
     /// Inherited from QTextEdit
@@ -10415,12 +10737,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, range: f32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, range: f32) callconv(.c) void `
     ///
-    pub fn OnZoomInF(self: ?*anyopaque, callback: *const fn (?*anyopaque, f32) callconv(.c) void) void {
-        qtc.QTextBrowser_OnZoomInF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnZoomInF(self: QTextBrowser, callback: *const fn (QTextBrowser, f32) callconv(.c) void) void {
+        qtc.QTextBrowser_OnZoomInF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10431,7 +10753,7 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` left: i32 `
     ///
@@ -10441,8 +10763,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QTextBrowser_SetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetViewportMargins(self: QTextBrowser, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QTextBrowser_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// ### DEPRECATED: Use `SuperSetViewportMargins` instead
@@ -10457,7 +10779,7 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` left: i32 `
     ///
@@ -10467,8 +10789,8 @@ pub const qtextbrowser = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SuperSetViewportMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QTextBrowser_SuperSetViewportMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SuperSetViewportMargins(self: QTextBrowser, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QTextBrowser_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10479,12 +10801,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
     ///
-    pub fn OnSetViewportMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.QTextBrowser_OnSetViewportMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetViewportMargins(self: QTextBrowser, callback: *const fn (QTextBrowser, i32, i32, i32, i32) callconv(.c) void) void {
+        qtc.QTextBrowser_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10495,10 +10817,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn ViewportMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QTextBrowser_ViewportMargins(@ptrCast(self));
+    pub fn ViewportMargins(self: QTextBrowser) QMargins {
+        return .{ .ptr = qtc.QTextBrowser_ViewportMargins(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperViewportMargins` instead
@@ -10513,10 +10835,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SuperViewportMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QTextBrowser_SuperViewportMargins(@ptrCast(self));
+    pub fn SuperViewportMargins(self: QTextBrowser) QMargins {
+        return .{ .ptr = qtc.QTextBrowser_SuperViewportMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QAbstractScrollArea
@@ -10527,12 +10849,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMargins `
+    /// ` callback: *const fn () callconv(.c) QMargins `
     ///
-    pub fn OnViewportMargins(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMargins) void {
-        qtc.QTextBrowser_OnViewportMargins(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnViewportMargins(self: QTextBrowser, callback: *const fn () callconv(.c) QMargins) void {
+        qtc.QTextBrowser_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -10543,12 +10865,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QPainter `
+    /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTextBrowser_DrawFrame(@ptrCast(self), @ptrCast(param1));
+    pub fn DrawFrame(self: QTextBrowser, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPainter;
+        qtc.QTextBrowser_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDrawFrame` instead
@@ -10563,12 +10886,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` param1: QtC.QPainter `
+    /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperDrawFrame(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperDrawFrame(self: QTextBrowser, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPainter;
+        qtc.QTextBrowser_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QFrame
@@ -10579,12 +10903,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, param1: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextBrowser_OnDrawFrame(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDrawFrame(self: QTextBrowser, callback: *const fn (QTextBrowser, QPainter) callconv(.c) void) void {
+        qtc.QTextBrowser_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10595,10 +10919,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QTextBrowser_UpdateMicroFocus(@ptrCast(self));
+    pub fn UpdateMicroFocus(self: QTextBrowser) void {
+        qtc.QTextBrowser_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
@@ -10613,10 +10937,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: QTextBrowser) void {
+        qtc.QTextBrowser_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10627,12 +10951,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTextBrowser_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateMicroFocus(self: QTextBrowser, callback: *const fn () callconv(.c) void) void {
+        qtc.QTextBrowser_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10643,10 +10967,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Create(self: ?*anyopaque) void {
-        qtc.QTextBrowser_Create(@ptrCast(self));
+    pub fn Create(self: QTextBrowser) void {
+        qtc.QTextBrowser_Create(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -10661,10 +10985,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SuperCreate(self: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperCreate(@ptrCast(self));
+    pub fn SuperCreate(self: QTextBrowser) void {
+        qtc.QTextBrowser_SuperCreate(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10675,12 +10999,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTextBrowser_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: QTextBrowser, callback: *const fn () callconv(.c) void) void {
+        qtc.QTextBrowser_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10691,10 +11015,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Destroy(self: ?*anyopaque) void {
-        qtc.QTextBrowser_Destroy(@ptrCast(self));
+    pub fn Destroy(self: QTextBrowser) void {
+        qtc.QTextBrowser_Destroy(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDestroy` instead
@@ -10709,10 +11033,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SuperDestroy(self: ?*anyopaque) void {
-        qtc.QTextBrowser_SuperDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: QTextBrowser) void {
+        qtc.QTextBrowser_SuperDestroy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10723,12 +11047,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QTextBrowser_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroy(self: QTextBrowser, callback: *const fn () callconv(.c) void) void {
+        qtc.QTextBrowser_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10739,10 +11063,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QTextBrowser_FocusNextChild(@ptrCast(self));
+    pub fn FocusNextChild(self: QTextBrowser) bool {
+        return qtc.QTextBrowser_FocusNextChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextChild` instead
@@ -10757,10 +11081,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QTextBrowser_SuperFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: QTextBrowser) bool {
+        return qtc.QTextBrowser_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10771,12 +11095,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTextBrowser_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextChild(self: QTextBrowser, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTextBrowser_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10787,10 +11111,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QTextBrowser_FocusPreviousChild(@ptrCast(self));
+    pub fn FocusPreviousChild(self: QTextBrowser) bool {
+        return qtc.QTextBrowser_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
@@ -10805,10 +11129,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QTextBrowser_SuperFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: QTextBrowser) bool {
+        return qtc.QTextBrowser_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10819,12 +11143,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QTextBrowser_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusPreviousChild(self: QTextBrowser, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTextBrowser_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10835,10 +11159,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QTextBrowser_Sender(@ptrCast(self));
+    pub fn Sender(self: QTextBrowser) QObject {
+        return .{ .ptr = qtc.QTextBrowser_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -10853,10 +11177,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QTextBrowser_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QTextBrowser) QObject {
+        return .{ .ptr = qtc.QTextBrowser_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -10867,12 +11191,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QTextBrowser_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QTextBrowser, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QTextBrowser_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10883,10 +11207,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QTextBrowser_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QTextBrowser) i32 {
+        return qtc.QTextBrowser_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -10901,10 +11225,10 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QTextBrowser_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QTextBrowser) i32 {
+        return qtc.QTextBrowser_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -10915,12 +11239,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTextBrowser_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QTextBrowser, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTextBrowser_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10931,13 +11255,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QTextBrowser, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QTextBrowser_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QTextBrowser_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -10952,13 +11276,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QTextBrowser, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QTextBrowser_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QTextBrowser_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -10969,12 +11293,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTextBrowser, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QTextBrowser_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QTextBrowser, callback: *const fn (QTextBrowser, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QTextBrowser_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10985,12 +11309,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QTextBrowser_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QTextBrowser, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QTextBrowser_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -11005,12 +11330,13 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QTextBrowser_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QTextBrowser, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QTextBrowser_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -11021,12 +11347,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTextBrowser, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTextBrowser_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QTextBrowser, callback: *const fn (QTextBrowser, QMetaMethod) callconv(.c) bool) void {
+        qtc.QTextBrowser_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -11037,14 +11363,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QTextBrowser_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn GetDecodedMetricF(self: QTextBrowser, metricA: i32, metricB: i32) f64 {
+        return qtc.QTextBrowser_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
@@ -11059,14 +11385,14 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QTextBrowser_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: QTextBrowser, metricA: i32, metricB: i32) f64 {
+        return qtc.QTextBrowser_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -11077,12 +11403,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser`
+    /// ` self: QTextBrowser`
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    /// ` callback: *const fn (self: QTextBrowser, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QTextBrowser_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetDecodedMetricF(self: QTextBrowser, callback: *const fn (QTextBrowser, i32, i32) callconv(.c) f64) void {
+        qtc.QTextBrowser_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11093,12 +11419,12 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    /// ` callback: *const fn (self: QtC.QTextBrowser, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextBrowser, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QTextBrowser, callback: *const fn (QTextBrowser, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -11111,9 +11437,9 @@ pub const qtextbrowser = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QTextBrowser `
+    /// ` self: QTextBrowser `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QTextBrowser_Delete(@ptrCast(self));
+    pub fn Delete(self: QTextBrowser) void {
+        qtc.QTextBrowser_Delete(@ptrCast(self.ptr));
     }
 };

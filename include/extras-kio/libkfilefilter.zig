@@ -3,16 +3,26 @@ const qtc = @import("qt6c");
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kfilefilter.html)
-pub const kfilefilter = struct {
+pub const KFileFilter = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kfilefilter.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KFileFilter,
+
+    pub const _is_KFileFilter = {};
+
     /// New constructs a new KFileFilter object.
     ///
-    pub fn New() QtC.KFileFilter {
-        return qtc.KFileFilter_new();
+    pub fn New() KFileFilter {
+        return .{ .ptr = qtc.KFileFilter_new() };
     }
 
     /// New2 constructs a new KFileFilter object.
     ///
     /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` label: []const u8 `
     ///
@@ -20,85 +30,83 @@ pub const kfilefilter = struct {
     ///
     /// ` mimePatterns: []const []const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn New2(label: []const u8, filePatterns: []const []const u8, mimePatterns: []const []const u8, allocator: std.mem.Allocator) QtC.KFileFilter {
+    pub fn New2(allocator: std.mem.Allocator, label: []const u8, filePatterns: []const []const u8, mimePatterns: []const []const u8) KFileFilter {
         const label_str = qtc.libqt_string{
             .len = label.len,
             .data = label.ptr,
         };
         const filePatterns_arr = allocator.alloc(qtc.libqt_string, filePatterns.len) catch @panic("kfilefilter.New2: Memory allocation failed");
         defer allocator.free(filePatterns_arr);
-        for (filePatterns, 0..filePatterns.len) |item, i| {
+        for (filePatterns, 0..filePatterns.len) |item, i|
             filePatterns_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const filePatterns_list = qtc.libqt_list{
             .len = filePatterns.len,
             .data = filePatterns_arr.ptr,
         };
         const mimePatterns_arr = allocator.alloc(qtc.libqt_string, mimePatterns.len) catch @panic("kfilefilter.New2: Memory allocation failed");
         defer allocator.free(mimePatterns_arr);
-        for (mimePatterns, 0..mimePatterns.len) |item, i| {
+        for (mimePatterns, 0..mimePatterns.len) |item, i|
             mimePatterns_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const mimePatterns_list = qtc.libqt_list{
             .len = mimePatterns.len,
             .data = mimePatterns_arr.ptr,
         };
-
-        return qtc.KFileFilter_new2(label_str, filePatterns_list, mimePatterns_list);
+        return .{ .ptr = qtc.KFileFilter_new2(label_str, filePatterns_list, mimePatterns_list) };
     }
 
     /// New3 constructs a new KFileFilter object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.KFileFilter `
+    /// ` other: KFileFilter `
     ///
-    pub fn New3(other: ?*anyopaque) QtC.KFileFilter {
-        return qtc.KFileFilter_new3(@ptrCast(other));
+    pub fn New3(other: anytype) KFileFilter {
+        comptime _ = @TypeOf(other)._is_KFileFilter;
+        return .{ .ptr = qtc.KFileFilter_new3(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilefilter.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileFilter `
+    /// ` self: KFileFilter `
     ///
-    /// ` other: QtC.KFileFilter `
+    /// ` other: KFileFilter `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.KFileFilter_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: KFileFilter, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_KFileFilter;
+        qtc.KFileFilter_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilefilter.html#operator-eq-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileFilter `
+    /// ` self: KFileFilter `
     ///
-    /// ` other: QtC.KFileFilter `
+    /// ` other: KFileFilter `
     ///
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.KFileFilter_OperatorEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorEqual(self: KFileFilter, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_KFileFilter;
+        return qtc.KFileFilter_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilefilter.html#label)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileFilter `
+    /// ` self: KFileFilter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Label(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KFileFilter_Label(@ptrCast(self));
+    pub fn Label(self: KFileFilter, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KFileFilter_Label(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilefilter.Label: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -109,17 +117,16 @@ pub const kfilefilter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileFilter `
+    /// ` self: KFileFilter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FilePatterns(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KFileFilter_FilePatterns(@ptrCast(self));
+    pub fn FilePatterns(self: KFileFilter, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KFileFilter_FilePatterns(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kfilefilter.FilePatterns: Memory allocation failed");
@@ -136,17 +143,16 @@ pub const kfilefilter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileFilter `
+    /// ` self: KFileFilter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimePatterns(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.KFileFilter_MimePatterns(@ptrCast(self));
+    pub fn MimePatterns(self: KFileFilter, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.KFileFilter_MimePatterns(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kfilefilter.MimePatterns: Memory allocation failed");
@@ -163,12 +169,12 @@ pub const kfilefilter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileFilter `
+    /// ` self: KFileFilter `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToFilterString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.KFileFilter_ToFilterString(@ptrCast(self));
+    pub fn ToFilterString(self: KFileFilter, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.KFileFilter_ToFilterString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilefilter.ToFilterString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -179,20 +185,20 @@ pub const kfilefilter = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileFilter `
+    /// ` self: KFileFilter `
     ///
-    pub fn IsEmpty(self: ?*anyopaque) bool {
-        return qtc.KFileFilter_IsEmpty(@ptrCast(self));
+    pub fn IsEmpty(self: KFileFilter) bool {
+        return qtc.KFileFilter_IsEmpty(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilefilter.html#isValid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KFileFilter `
+    /// ` self: KFileFilter `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.KFileFilter_IsValid(@ptrCast(self));
+    pub fn IsValid(self: KFileFilter) bool {
+        return qtc.KFileFilter_IsValid(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilefilter.html#fromMimeType)
@@ -201,40 +207,40 @@ pub const kfilefilter = struct {
     ///
     /// ` mimeType: []const u8 `
     ///
-    pub fn FromMimeType(mimeType: []const u8) QtC.KFileFilter {
+    pub fn FromMimeType(mimeType: []const u8) KFileFilter {
         const mimeType_str = qtc.libqt_string{
             .len = mimeType.len,
             .data = mimeType.ptr,
         };
-        return qtc.KFileFilter_FromMimeType(mimeType_str);
+        return .{ .ptr = qtc.KFileFilter_FromMimeType(mimeType_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfilefilter.html#fromMimeTypes)
     ///
     /// ## Parameter(s):
     ///
-    /// ` mimeTypes: []const []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FromMimeTypes(mimeTypes: []const []const u8, allocator: std.mem.Allocator) []QtC.KFileFilter {
+    /// ` mimeTypes: []const []const u8 `
+    ///
+    pub fn FromMimeTypes(allocator: std.mem.Allocator, mimeTypes: []const []const u8) []KFileFilter {
         const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("kfilefilter.FromMimeTypes: Memory allocation failed");
         defer allocator.free(mimeTypes_arr);
-        for (mimeTypes, 0..mimeTypes.len) |item, i| {
+        for (mimeTypes, 0..mimeTypes.len) |item, i|
             mimeTypes_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const mimeTypes_list = qtc.libqt_list{
             .len = mimeTypes.len,
             .data = mimeTypes_arr.ptr,
         };
         const _arr: qtc.libqt_list = qtc.KFileFilter_FromMimeTypes(mimeTypes_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KFileFilter, _arr.len) catch @panic("kfilefilter.FromMimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc(KFileFilter, _arr.len) catch @panic("kfilefilter.FromMimeTypes: Memory allocation failed");
         const _data: [*]QtC.KFileFilter = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -248,9 +254,9 @@ pub const kfilefilter = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KFileFilter `
+    /// ` self: KFileFilter `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KFileFilter_Delete(@ptrCast(self));
+    pub fn Delete(self: KFileFilter) void {
+        qtc.KFileFilter_Delete(@ptrCast(self.ptr));
     }
 };

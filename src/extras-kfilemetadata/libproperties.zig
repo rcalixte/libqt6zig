@@ -1,6 +1,3 @@
-const QtC = @import("qt6zig");
-const qtc = @import("qt6c");
-
 /// ### [Upstream resources](https://api.kde.org/kfilemetadata-properties.html#public-types)
 pub const enums = struct {
     pub const Property = enum(i32) {

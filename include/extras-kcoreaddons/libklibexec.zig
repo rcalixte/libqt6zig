@@ -3,18 +3,26 @@ const qtc = @import("qt6c");
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/klibexec.html)
-pub const klibexec = struct {
+pub const KLibexec = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/klibexec.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KLibexec,
+
+    pub const _is_KLibexec = {};
+
     /// ### [Upstream resources](https://api.kde.org/klibexec.html#pathFromAddress)
     ///
     /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
     ///
     /// ` param1: []const u8 `
     ///
     /// ` param2: ?*anyopaque `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn PathFromAddress(param1: []const u8, param2: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+    pub fn PathFromAddress(allocator: std.mem.Allocator, param1: []const u8, param2: ?*anyopaque) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -30,11 +38,11 @@ pub const klibexec = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PathCandidates(param1: []const u8, allocator: std.mem.Allocator) []const []const u8 {
+    /// ` param1: []const u8 `
+    ///
+    pub fn PathCandidates(allocator: std.mem.Allocator, param1: []const u8) []const []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -42,9 +50,8 @@ pub const klibexec = struct {
         const _arr: qtc.libqt_list = qtc.KLibexec_PathCandidates(param1_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("klibexec.PathCandidates: Memory allocation failed");
@@ -61,11 +68,11 @@ pub const klibexec = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Path(param1: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` param1: []const u8 `
+    ///
+    pub fn Path(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -81,11 +88,11 @@ pub const klibexec = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn KdeFrameworksPaths(param1: []const u8, allocator: std.mem.Allocator) []const []const u8 {
+    /// ` param1: []const u8 `
+    ///
+    pub fn KdeFrameworksPaths(allocator: std.mem.Allocator, param1: []const u8) []const []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -93,9 +100,8 @@ pub const klibexec = struct {
         const _arr: qtc.libqt_list = qtc.KLibexec_KdeFrameworksPaths(param1_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("klibexec.KdeFrameworksPaths: Memory allocation failed");

@@ -1,12 +1,21 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const KConfig = @import("libqt6").KConfig;
 
 /// ### [Upstream resources](https://api.kde.org/kconfiggui.html)
-pub const kconfiggui = struct {
+pub const KConfigGui = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kconfiggui.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KConfigGui,
+
+    pub const _is_KConfigGui = {};
+
     /// ### [Upstream resources](https://api.kde.org/kconfiggui.html#sessionConfig)
     ///
-    pub fn SessionConfig() QtC.KConfig {
-        return qtc.KConfigGui_SessionConfig();
+    pub fn SessionConfig() KConfig {
+        return .{ .ptr = qtc.KConfigGui_SessionConfig() };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggui.html#setSessionConfig)

@@ -1,77 +1,88 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QUrl = @import("libqt6").QUrl;
 const qwebengineloadinginfo_enums = enums;
 const std = @import("std");
-const arraymap_u8_sliceu8 = std.array_hash_map.String([][]u8);
+const ArrayMap_u8_Sliceu8 = std.array_hash_map.String([][]u8);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html)
-pub const qwebengineloadinginfo = struct {
+pub const QWebEngineLoadingInfo = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QWebEngineLoadingInfo,
+
+    pub const _is_QWebEngineLoadingInfo = {};
+
     /// New constructs a new QWebEngineLoadingInfo object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QWebEngineLoadingInfo `
+    /// ` other: QWebEngineLoadingInfo `
     ///
-    pub fn New(other: ?*anyopaque) QtC.QWebEngineLoadingInfo {
-        return qtc.QWebEngineLoadingInfo_new(@ptrCast(other));
+    pub fn New(other: anytype) QWebEngineLoadingInfo {
+        comptime _ = @TypeOf(other)._is_QWebEngineLoadingInfo;
+        return .{ .ptr = qtc.QWebEngineLoadingInfo_new(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineLoadingInfo `
+    /// ` self: QWebEngineLoadingInfo `
     ///
-    /// ` other: QtC.QWebEngineLoadingInfo `
+    /// ` other: QWebEngineLoadingInfo `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QWebEngineLoadingInfo_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QWebEngineLoadingInfo, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QWebEngineLoadingInfo;
+        qtc.QWebEngineLoadingInfo_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#url)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineLoadingInfo `
+    /// ` self: QWebEngineLoadingInfo `
     ///
-    pub fn Url(self: ?*anyopaque) QtC.QUrl {
-        return qtc.QWebEngineLoadingInfo_Url(@ptrCast(self));
+    pub fn Url(self: QWebEngineLoadingInfo) QUrl {
+        return .{ .ptr = qtc.QWebEngineLoadingInfo_Url(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#isErrorPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineLoadingInfo `
+    /// ` self: QWebEngineLoadingInfo `
     ///
-    pub fn IsErrorPage(self: ?*anyopaque) bool {
-        return qtc.QWebEngineLoadingInfo_IsErrorPage(@ptrCast(self));
+    pub fn IsErrorPage(self: QWebEngineLoadingInfo) bool {
+        return qtc.QWebEngineLoadingInfo_IsErrorPage(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#status)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineLoadingInfo `
+    /// ` self: QWebEngineLoadingInfo `
     ///
     /// ## Returns:
     ///
     /// ` qwebengineloadinginfo_enums.LoadStatus `
     ///
-    pub fn Status(self: ?*anyopaque) i32 {
-        return qtc.QWebEngineLoadingInfo_Status(@ptrCast(self));
+    pub fn Status(self: QWebEngineLoadingInfo) i32 {
+        return qtc.QWebEngineLoadingInfo_Status(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#errorString)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineLoadingInfo `
+    /// ` self: QWebEngineLoadingInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWebEngineLoadingInfo_ErrorString(@ptrCast(self));
+    pub fn ErrorString(self: QWebEngineLoadingInfo, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWebEngineLoadingInfo_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineloadinginfo.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -82,37 +93,37 @@ pub const qwebengineloadinginfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineLoadingInfo `
+    /// ` self: QWebEngineLoadingInfo `
     ///
     /// ## Returns:
     ///
     /// ` qwebengineloadinginfo_enums.ErrorDomain `
     ///
-    pub fn ErrorDomain(self: ?*anyopaque) i32 {
-        return qtc.QWebEngineLoadingInfo_ErrorDomain(@ptrCast(self));
+    pub fn ErrorDomain(self: QWebEngineLoadingInfo) i32 {
+        return qtc.QWebEngineLoadingInfo_ErrorDomain(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#errorCode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineLoadingInfo `
+    /// ` self: QWebEngineLoadingInfo `
     ///
-    pub fn ErrorCode(self: ?*anyopaque) i32 {
-        return qtc.QWebEngineLoadingInfo_ErrorCode(@ptrCast(self));
+    pub fn ErrorCode(self: QWebEngineLoadingInfo) i32 {
+        return qtc.QWebEngineLoadingInfo_ErrorCode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#responseHeaders)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWebEngineLoadingInfo `
+    /// ` self: QWebEngineLoadingInfo `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ResponseHeaders(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_u8_sliceu8 {
-        const _map: qtc.libqt_map = qtc.QWebEngineLoadingInfo_ResponseHeaders(@ptrCast(self));
-        var _ret: arraymap_u8_sliceu8 = .empty;
+    pub fn ResponseHeaders(self: QWebEngineLoadingInfo, allocator: std.mem.Allocator) ArrayMap_u8_Sliceu8 {
+        const _map: qtc.libqt_map = qtc.QWebEngineLoadingInfo_ResponseHeaders(@ptrCast(self.ptr));
+        var _ret: ArrayMap_u8_Sliceu8 = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
@@ -120,9 +131,8 @@ pub const qwebengineloadinginfo = struct {
                 qtc.libqt_free(_keys[i].data);
                 const _value_list = _values[i];
                 const _value_strings: [*]qtc.libqt_string = @ptrCast(@alignCast(_value_list.data));
-                for (0.._value_list.len) |j| {
+                for (0.._value_list.len) |j|
                     qtc.libqt_free(_value_strings[j].data);
-                }
                 qtc.libqt_free(_value_list.data);
             }
             qtc.libqt_free(_map.keys);
@@ -158,10 +168,10 @@ pub const qwebengineloadinginfo = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QWebEngineLoadingInfo `
+    /// ` self: QWebEngineLoadingInfo `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QWebEngineLoadingInfo_Delete(@ptrCast(self));
+    pub fn Delete(self: QWebEngineLoadingInfo) void {
+        qtc.QWebEngineLoadingInfo_Delete(@ptrCast(self.ptr));
     }
 };
 

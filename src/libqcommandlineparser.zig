@@ -1,25 +1,35 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QCommandLineOption = @import("libqt6").QCommandLineOption;
+const QCoreApplication = @import("libqt6").QCoreApplication;
 const qcommandlineparser_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html)
-pub const qcommandlineparser = struct {
+pub const QCommandLineParser = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QCommandLineParser,
+
+    pub const _is_QCommandLineParser = {};
+
     /// New constructs a new QCommandLineParser object.
     ///
-    pub fn New() QtC.QCommandLineParser {
-        return qtc.QCommandLineParser_new();
+    pub fn New() QCommandLineParser {
+        return .{ .ptr = qtc.QCommandLineParser_new() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` sourceText: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(sourceText: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` sourceText: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, sourceText: [:0]const u8) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         var _str = qtc.QObject_Tr(sourceText_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -32,100 +42,101 @@ pub const qcommandlineparser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
+    /// ` self: QCommandLineParser `
     ///
     /// ` parsingMode: qcommandlineparser_enums.SingleDashWordOptionMode `
     ///
-    pub fn SetSingleDashWordOptionMode(self: ?*anyopaque, parsingMode: i32) void {
-        qtc.QCommandLineParser_SetSingleDashWordOptionMode(@ptrCast(self), @bitCast(parsingMode));
+    pub fn SetSingleDashWordOptionMode(self: QCommandLineParser, parsingMode: i32) void {
+        qtc.QCommandLineParser_SetSingleDashWordOptionMode(@ptrCast(self.ptr), @bitCast(parsingMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html#setOptionsAfterPositionalArgumentsMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
+    /// ` self: QCommandLineParser `
     ///
     /// ` mode: qcommandlineparser_enums.OptionsAfterPositionalArgumentsMode `
     ///
-    pub fn SetOptionsAfterPositionalArgumentsMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QCommandLineParser_SetOptionsAfterPositionalArgumentsMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetOptionsAfterPositionalArgumentsMode(self: QCommandLineParser, mode: i32) void {
+        qtc.QCommandLineParser_SetOptionsAfterPositionalArgumentsMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html#addOption)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
+    /// ` self: QCommandLineParser `
     ///
-    /// ` commandLineOption: QtC.QCommandLineOption `
+    /// ` commandLineOption: QCommandLineOption `
     ///
-    pub fn AddOption(self: ?*anyopaque, commandLineOption: ?*anyopaque) bool {
-        return qtc.QCommandLineParser_AddOption(@ptrCast(self), @ptrCast(commandLineOption));
+    pub fn AddOption(self: QCommandLineParser, commandLineOption: anytype) bool {
+        comptime _ = @TypeOf(commandLineOption)._is_QCommandLineOption;
+        return qtc.QCommandLineParser_AddOption(@ptrCast(self.ptr), @ptrCast(commandLineOption.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html#addOptions)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
+    /// ` self: QCommandLineParser `
     ///
-    /// ` options: []QtC.QCommandLineOption `
+    /// ` options: []QCommandLineOption `
     ///
-    pub fn AddOptions(self: ?*anyopaque, options: []QtC.QCommandLineOption) bool {
+    pub fn AddOptions(self: QCommandLineParser, options: []QCommandLineOption) bool {
         const options_list = qtc.libqt_list{
             .len = options.len,
             .data = @ptrCast(options.ptr),
         };
-        return qtc.QCommandLineParser_AddOptions(@ptrCast(self), options_list);
+        return qtc.QCommandLineParser_AddOptions(@ptrCast(self.ptr), options_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html#addVersionOption)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
+    /// ` self: QCommandLineParser `
     ///
-    pub fn AddVersionOption(self: ?*anyopaque) QtC.QCommandLineOption {
-        return qtc.QCommandLineParser_AddVersionOption(@ptrCast(self));
+    pub fn AddVersionOption(self: QCommandLineParser) QCommandLineOption {
+        return .{ .ptr = qtc.QCommandLineParser_AddVersionOption(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html#addHelpOption)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
+    /// ` self: QCommandLineParser `
     ///
-    pub fn AddHelpOption(self: ?*anyopaque) QtC.QCommandLineOption {
-        return qtc.QCommandLineParser_AddHelpOption(@ptrCast(self));
+    pub fn AddHelpOption(self: QCommandLineParser) QCommandLineOption {
+        return .{ .ptr = qtc.QCommandLineParser_AddHelpOption(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html#setApplicationDescription)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
+    /// ` self: QCommandLineParser `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetApplicationDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetApplicationDescription(self: QCommandLineParser, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QCommandLineParser_SetApplicationDescription(@ptrCast(self), description_str);
+        qtc.QCommandLineParser_SetApplicationDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html#applicationDescription)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
+    /// ` self: QCommandLineParser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ApplicationDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QCommandLineParser_ApplicationDescription(@ptrCast(self));
+    pub fn ApplicationDescription(self: QCommandLineParser, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QCommandLineParser_ApplicationDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcommandlineparser.ApplicationDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -136,13 +147,13 @@ pub const qcommandlineparser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
+    /// ` self: QCommandLineParser `
     ///
     /// ` name: []const u8 `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn AddPositionalArgument(self: ?*anyopaque, name: []const u8, description: []const u8) void {
+    pub fn AddPositionalArgument(self: QCommandLineParser, name: []const u8, description: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -151,93 +162,92 @@ pub const qcommandlineparser = struct {
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QCommandLineParser_AddPositionalArgument(@ptrCast(self), name_str, description_str);
+        qtc.QCommandLineParser_AddPositionalArgument(@ptrCast(self.ptr), name_str, description_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html#clearPositionalArguments)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
+    /// ` self: QCommandLineParser `
     ///
-    pub fn ClearPositionalArguments(self: ?*anyopaque) void {
-        qtc.QCommandLineParser_ClearPositionalArguments(@ptrCast(self));
+    pub fn ClearPositionalArguments(self: QCommandLineParser) void {
+        qtc.QCommandLineParser_ClearPositionalArguments(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html#process)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
-    ///
-    /// ` arguments: []const []const u8 `
+    /// ` self: QCommandLineParser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Process(self: ?*anyopaque, arguments: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` arguments: []const []const u8 `
+    ///
+    pub fn Process(self: QCommandLineParser, allocator: std.mem.Allocator, arguments: []const []const u8) void {
         const arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("qcommandlineparser.Process: Memory allocation failed");
         defer allocator.free(arguments_arr);
-        for (arguments, 0..arguments.len) |item, i| {
+        for (arguments, 0..arguments.len) |item, i|
             arguments_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const arguments_list = qtc.libqt_list{
             .len = arguments.len,
             .data = arguments_arr.ptr,
         };
-        qtc.QCommandLineParser_Process(@ptrCast(self), arguments_list);
+        qtc.QCommandLineParser_Process(@ptrCast(self.ptr), arguments_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html#process)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
+    /// ` self: QCommandLineParser `
     ///
-    /// ` app: QtC.QCoreApplication `
+    /// ` app: QCoreApplication `
     ///
-    pub fn Process2(self: ?*anyopaque, app: ?*anyopaque) void {
-        qtc.QCommandLineParser_Process2(@ptrCast(self), @ptrCast(app));
+    pub fn Process2(self: QCommandLineParser, app: anytype) void {
+        comptime _ = @TypeOf(app)._is_QCoreApplication;
+        qtc.QCommandLineParser_Process2(@ptrCast(self.ptr), @ptrCast(app.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html#parse)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
-    ///
-    /// ` arguments: []const []const u8 `
+    /// ` self: QCommandLineParser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Parse(self: ?*anyopaque, arguments: []const []const u8, allocator: std.mem.Allocator) bool {
+    /// ` arguments: []const []const u8 `
+    ///
+    pub fn Parse(self: QCommandLineParser, allocator: std.mem.Allocator, arguments: []const []const u8) bool {
         const arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("qcommandlineparser.Parse: Memory allocation failed");
         defer allocator.free(arguments_arr);
-        for (arguments, 0..arguments.len) |item, i| {
+        for (arguments, 0..arguments.len) |item, i|
             arguments_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const arguments_list = qtc.libqt_list{
             .len = arguments.len,
             .data = arguments_arr.ptr,
         };
-        return qtc.QCommandLineParser_Parse(@ptrCast(self), arguments_list);
+        return qtc.QCommandLineParser_Parse(@ptrCast(self.ptr), arguments_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html#errorText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
+    /// ` self: QCommandLineParser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QCommandLineParser_ErrorText(@ptrCast(self));
+    pub fn ErrorText(self: QCommandLineParser, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QCommandLineParser_ErrorText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcommandlineparser.ErrorText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -248,34 +258,34 @@ pub const qcommandlineparser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
+    /// ` self: QCommandLineParser `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn IsSet(self: ?*anyopaque, name: []const u8) bool {
+    pub fn IsSet(self: QCommandLineParser, name: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QCommandLineParser_IsSet(@ptrCast(self), name_str);
+        return qtc.QCommandLineParser_IsSet(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html#value)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
-    ///
-    /// ` name: []const u8 `
+    /// ` self: QCommandLineParser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Value(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` name: []const u8 `
+    ///
+    pub fn Value(self: QCommandLineParser, allocator: std.mem.Allocator, name: []const u8) []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        var _str = qtc.QCommandLineParser_Value(@ptrCast(self), name_str);
+        var _str = qtc.QCommandLineParser_Value(@ptrCast(self.ptr), name_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcommandlineparser.Value: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -286,23 +296,22 @@ pub const qcommandlineparser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
-    ///
-    /// ` name: []const u8 `
+    /// ` self: QCommandLineParser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Values(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const []const u8 {
+    /// ` name: []const u8 `
+    ///
+    pub fn Values(self: QCommandLineParser, allocator: std.mem.Allocator, name: []const u8) []const []const u8 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.QCommandLineParser_Values(@ptrCast(self), name_str);
+        const _arr: qtc.libqt_list = qtc.QCommandLineParser_Values(@ptrCast(self.ptr), name_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcommandlineparser.Values: Memory allocation failed");
@@ -319,26 +328,28 @@ pub const qcommandlineparser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
+    /// ` self: QCommandLineParser `
     ///
-    /// ` option: QtC.QCommandLineOption `
+    /// ` option: QCommandLineOption `
     ///
-    pub fn IsSet2(self: ?*anyopaque, option: ?*anyopaque) bool {
-        return qtc.QCommandLineParser_IsSet2(@ptrCast(self), @ptrCast(option));
+    pub fn IsSet2(self: QCommandLineParser, option: anytype) bool {
+        comptime _ = @TypeOf(option)._is_QCommandLineOption;
+        return qtc.QCommandLineParser_IsSet2(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html#value)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
-    ///
-    /// ` option: QtC.QCommandLineOption `
+    /// ` self: QCommandLineParser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Value2(self: ?*anyopaque, option: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QCommandLineParser_Value2(@ptrCast(self), @ptrCast(option));
+    /// ` option: QCommandLineOption `
+    ///
+    pub fn Value2(self: QCommandLineParser, allocator: std.mem.Allocator, option: anytype) []const u8 {
+        comptime _ = @TypeOf(option)._is_QCommandLineOption;
+        var _str = qtc.QCommandLineParser_Value2(@ptrCast(self.ptr), @ptrCast(option.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcommandlineparser.Value2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -349,19 +360,19 @@ pub const qcommandlineparser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
-    ///
-    /// ` option: QtC.QCommandLineOption `
+    /// ` self: QCommandLineParser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Values2(self: ?*anyopaque, option: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QCommandLineParser_Values2(@ptrCast(self), @ptrCast(option));
+    /// ` option: QCommandLineOption `
+    ///
+    pub fn Values2(self: QCommandLineParser, allocator: std.mem.Allocator, option: anytype) []const []const u8 {
+        comptime _ = @TypeOf(option)._is_QCommandLineOption;
+        const _arr: qtc.libqt_list = qtc.QCommandLineParser_Values2(@ptrCast(self.ptr), @ptrCast(option.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcommandlineparser.Values2: Memory allocation failed");
@@ -378,17 +389,16 @@ pub const qcommandlineparser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
+    /// ` self: QCommandLineParser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PositionalArguments(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QCommandLineParser_PositionalArguments(@ptrCast(self));
+    pub fn PositionalArguments(self: QCommandLineParser, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QCommandLineParser_PositionalArguments(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcommandlineparser.PositionalArguments: Memory allocation failed");
@@ -405,17 +415,16 @@ pub const qcommandlineparser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
+    /// ` self: QCommandLineParser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn OptionNames(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QCommandLineParser_OptionNames(@ptrCast(self));
+    pub fn OptionNames(self: QCommandLineParser, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QCommandLineParser_OptionNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcommandlineparser.OptionNames: Memory allocation failed");
@@ -432,17 +441,16 @@ pub const qcommandlineparser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
+    /// ` self: QCommandLineParser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UnknownOptionNames(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QCommandLineParser_UnknownOptionNames(@ptrCast(self));
+    pub fn UnknownOptionNames(self: QCommandLineParser, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QCommandLineParser_UnknownOptionNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcommandlineparser.UnknownOptionNames: Memory allocation failed");
@@ -459,32 +467,32 @@ pub const qcommandlineparser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
+    /// ` self: QCommandLineParser `
     ///
-    pub fn ShowVersion(self: ?*anyopaque) void {
-        qtc.QCommandLineParser_ShowVersion(@ptrCast(self));
+    pub fn ShowVersion(self: QCommandLineParser) void {
+        qtc.QCommandLineParser_ShowVersion(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html#showHelp)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
+    /// ` self: QCommandLineParser `
     ///
-    pub fn ShowHelp(self: ?*anyopaque) void {
-        qtc.QCommandLineParser_ShowHelp(@ptrCast(self));
+    pub fn ShowHelp(self: QCommandLineParser) void {
+        qtc.QCommandLineParser_ShowHelp(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html#helpText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
+    /// ` self: QCommandLineParser `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn HelpText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QCommandLineParser_HelpText(@ptrCast(self));
+    pub fn HelpText(self: QCommandLineParser, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QCommandLineParser_HelpText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcommandlineparser.HelpText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -495,13 +503,13 @@ pub const qcommandlineparser = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` sourceText: [:0]const u8 `
     ///
     /// ` disambiguation: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(sourceText: [:0]const u8, disambiguation: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, sourceText: [:0]const u8, disambiguation: [:0]const u8) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QObject_Tr2(sourceText_Cstring, disambiguation_Cstring);
@@ -515,15 +523,15 @@ pub const qcommandlineparser = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` sourceText: [:0]const u8 `
     ///
     /// ` disambiguation: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(sourceText: [:0]const u8, disambiguation: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, sourceText: [:0]const u8, disambiguation: [:0]const u8, n: i32) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @bitCast(n));
@@ -537,7 +545,7 @@ pub const qcommandlineparser = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
+    /// ` self: QCommandLineParser `
     ///
     /// ` name: []const u8 `
     ///
@@ -545,7 +553,7 @@ pub const qcommandlineparser = struct {
     ///
     /// ` syntax: []const u8 `
     ///
-    pub fn AddPositionalArgument3(self: ?*anyopaque, name: []const u8, description: []const u8, syntax: []const u8) void {
+    pub fn AddPositionalArgument3(self: QCommandLineParser, name: []const u8, description: []const u8, syntax: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -558,19 +566,19 @@ pub const qcommandlineparser = struct {
             .len = syntax.len,
             .data = syntax.ptr,
         };
-        qtc.QCommandLineParser_AddPositionalArgument3(@ptrCast(self), name_str, description_str, syntax_str);
+        qtc.QCommandLineParser_AddPositionalArgument3(@ptrCast(self.ptr), name_str, description_str, syntax_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcommandlineparser.html#showHelp)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QCommandLineParser `
+    /// ` self: QCommandLineParser `
     ///
     /// ` exitCode: i32 `
     ///
-    pub fn ShowHelp1(self: ?*anyopaque, exitCode: i32) void {
-        qtc.QCommandLineParser_ShowHelp1(@ptrCast(self), @bitCast(exitCode));
+    pub fn ShowHelp1(self: QCommandLineParser, exitCode: i32) void {
+        qtc.QCommandLineParser_ShowHelp1(@ptrCast(self.ptr), @bitCast(exitCode));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -583,10 +591,10 @@ pub const qcommandlineparser = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QCommandLineParser `
+    /// ` self: QCommandLineParser `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QCommandLineParser_Delete(@ptrCast(self));
+    pub fn Delete(self: QCommandLineParser) void {
+        qtc.QCommandLineParser_Delete(@ptrCast(self.ptr));
     }
 };
 

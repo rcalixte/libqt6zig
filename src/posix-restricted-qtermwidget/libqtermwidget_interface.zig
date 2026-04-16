@@ -1,218 +1,230 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAction = @import("libqt6").QAction;
+const QFont = @import("libqt6").QFont;
+const QKeyEvent = @import("libqt6").QKeyEvent;
+const QPoint = @import("libqt6").QPoint;
 const qtermwidget_interface_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
-pub const qtermwidgetinterface = struct {
+pub const QTermWidgetInterface = extern struct {
+    /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QTermWidgetInterface,
+
+    pub const _is_QTermWidgetInterface = {};
+
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetTerminalSizeHint(self: ?*anyopaque, enabled: bool) void {
-        qtc.QTermWidgetInterface_SetTerminalSizeHint(@ptrCast(self), enabled);
+    pub fn SetTerminalSizeHint(self: QTermWidgetInterface, enabled: bool) void {
+        qtc.QTermWidgetInterface_SetTerminalSizeHint(@ptrCast(self.ptr), enabled);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
-    pub fn TerminalSizeHint(self: ?*anyopaque) bool {
-        return qtc.QTermWidgetInterface_TerminalSizeHint(@ptrCast(self));
+    pub fn TerminalSizeHint(self: QTermWidgetInterface) bool {
+        return qtc.QTermWidgetInterface_TerminalSizeHint(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
-    pub fn StartShellProgram(self: ?*anyopaque) void {
-        qtc.QTermWidgetInterface_StartShellProgram(@ptrCast(self));
+    pub fn StartShellProgram(self: QTermWidgetInterface) void {
+        qtc.QTermWidgetInterface_StartShellProgram(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
-    pub fn StartTerminalTeletype(self: ?*anyopaque) void {
-        qtc.QTermWidgetInterface_StartTerminalTeletype(@ptrCast(self));
+    pub fn StartTerminalTeletype(self: QTermWidgetInterface) void {
+        qtc.QTermWidgetInterface_StartTerminalTeletype(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
-    pub fn GetShellPID(self: ?*anyopaque) i32 {
-        return qtc.QTermWidgetInterface_GetShellPID(@ptrCast(self));
+    pub fn GetShellPID(self: QTermWidgetInterface) i32 {
+        return qtc.QTermWidgetInterface_GetShellPID(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
-    pub fn GetForegroundProcessId(self: ?*anyopaque) i32 {
-        return qtc.QTermWidgetInterface_GetForegroundProcessId(@ptrCast(self));
+    pub fn GetForegroundProcessId(self: QTermWidgetInterface) i32 {
+        return qtc.QTermWidgetInterface_GetForegroundProcessId(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` dir: []const u8 `
     ///
-    pub fn ChangeDir(self: ?*anyopaque, dir: []const u8) void {
+    pub fn ChangeDir(self: QTermWidgetInterface, dir: []const u8) void {
         const dir_str = qtc.libqt_string{
             .len = dir.len,
             .data = dir.ptr,
         };
-        qtc.QTermWidgetInterface_ChangeDir(@ptrCast(self), dir_str);
+        qtc.QTermWidgetInterface_ChangeDir(@ptrCast(self.ptr), dir_str);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetTerminalFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QTermWidgetInterface_SetTerminalFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetTerminalFont(self: QTermWidgetInterface, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QTermWidgetInterface_SetTerminalFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
-    pub fn GetTerminalFont(self: ?*anyopaque) QtC.QFont {
-        return qtc.QTermWidgetInterface_GetTerminalFont(@ptrCast(self));
+    pub fn GetTerminalFont(self: QTermWidgetInterface) QFont {
+        return .{ .ptr = qtc.QTermWidgetInterface_GetTerminalFont(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetTerminalOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QTermWidgetInterface_SetTerminalOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetTerminalOpacity(self: QTermWidgetInterface, level: f64) void {
+        qtc.QTermWidgetInterface_SetTerminalOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` backgroundImage: []const u8 `
     ///
-    pub fn SetTerminalBackgroundImage(self: ?*anyopaque, backgroundImage: []const u8) void {
+    pub fn SetTerminalBackgroundImage(self: QTermWidgetInterface, backgroundImage: []const u8) void {
         const backgroundImage_str = qtc.libqt_string{
             .len = backgroundImage.len,
             .data = backgroundImage.ptr,
         };
-        qtc.QTermWidgetInterface_SetTerminalBackgroundImage(@ptrCast(self), backgroundImage_str);
+        qtc.QTermWidgetInterface_SetTerminalBackgroundImage(@ptrCast(self.ptr), backgroundImage_str);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` mode: i32 `
     ///
-    pub fn SetTerminalBackgroundMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QTermWidgetInterface_SetTerminalBackgroundMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetTerminalBackgroundMode(self: QTermWidgetInterface, mode: i32) void {
+        qtc.QTermWidgetInterface_SetTerminalBackgroundMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
-    ///
-    /// ` environment: []const []const u8 `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetEnvironment(self: ?*anyopaque, environment: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` environment: []const []const u8 `
+    ///
+    pub fn SetEnvironment(self: QTermWidgetInterface, allocator: std.mem.Allocator, environment: []const []const u8) void {
         const environment_arr = allocator.alloc(qtc.libqt_string, environment.len) catch @panic("qtermwidgetinterface.SetEnvironment: Memory allocation failed");
         defer allocator.free(environment_arr);
-        for (environment, 0..environment.len) |item, i| {
+        for (environment, 0..environment.len) |item, i|
             environment_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const environment_list = qtc.libqt_list{
             .len = environment.len,
             .data = environment_arr.ptr,
         };
-        qtc.QTermWidgetInterface_SetEnvironment(@ptrCast(self), environment_list);
+        qtc.QTermWidgetInterface_SetEnvironment(@ptrCast(self.ptr), environment_list);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` program: []const u8 `
     ///
-    pub fn SetShellProgram(self: ?*anyopaque, program: []const u8) void {
+    pub fn SetShellProgram(self: QTermWidgetInterface, program: []const u8) void {
         const program_str = qtc.libqt_string{
             .len = program.len,
             .data = program.ptr,
         };
-        qtc.QTermWidgetInterface_SetShellProgram(@ptrCast(self), program_str);
+        qtc.QTermWidgetInterface_SetShellProgram(@ptrCast(self.ptr), program_str);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` dir: []const u8 `
     ///
-    pub fn SetWorkingDirectory(self: ?*anyopaque, dir: []const u8) void {
+    pub fn SetWorkingDirectory(self: QTermWidgetInterface, dir: []const u8) void {
         const dir_str = qtc.libqt_string{
             .len = dir.len,
             .data = dir.ptr,
         };
-        qtc.QTermWidgetInterface_SetWorkingDirectory(@ptrCast(self), dir_str);
+        qtc.QTermWidgetInterface_SetWorkingDirectory(@ptrCast(self.ptr), dir_str);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WorkingDirectory(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTermWidgetInterface_WorkingDirectory(@ptrCast(self));
+    pub fn WorkingDirectory(self: QTermWidgetInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTermWidgetInterface_WorkingDirectory(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtermwidgetinterface.WorkingDirectory: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -223,59 +235,57 @@ pub const qtermwidgetinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
-    ///
-    /// ` args: []const []const u8 `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetArgs(self: ?*anyopaque, args: []const []const u8, allocator: std.mem.Allocator) void {
+    /// ` args: []const []const u8 `
+    ///
+    pub fn SetArgs(self: QTermWidgetInterface, allocator: std.mem.Allocator, args: []const []const u8) void {
         const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("qtermwidgetinterface.SetArgs: Memory allocation failed");
         defer allocator.free(args_arr);
-        for (args, 0..args.len) |item, i| {
+        for (args, 0..args.len) |item, i|
             args_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const args_list = qtc.libqt_list{
             .len = args.len,
             .data = args_arr.ptr,
         };
-        qtc.QTermWidgetInterface_SetArgs(@ptrCast(self), args_list);
+        qtc.QTermWidgetInterface_SetArgs(@ptrCast(self.ptr), args_list);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetColorScheme(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetColorScheme(self: QTermWidgetInterface, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QTermWidgetInterface_SetColorScheme(@ptrCast(self), name_str);
+        qtc.QTermWidgetInterface_SetColorScheme(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetAvailableColorSchemes(self: ?*anyopaque, allocator: std.mem.Allocator) []const []const u8 {
-        const _arr: qtc.libqt_list = qtc.QTermWidgetInterface_GetAvailableColorSchemes(@ptrCast(self));
+    pub fn GetAvailableColorSchemes(self: QTermWidgetInterface, allocator: std.mem.Allocator) []const []const u8 {
+        const _arr: qtc.libqt_list = qtc.QTermWidgetInterface_GetAvailableColorSchemes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qtermwidgetinterface.GetAvailableColorSchemes: Memory allocation failed");
@@ -292,118 +302,119 @@ pub const qtermwidgetinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` lines: i32 `
     ///
-    pub fn SetHistorySize(self: ?*anyopaque, lines: i32) void {
-        qtc.QTermWidgetInterface_SetHistorySize(@ptrCast(self), @bitCast(lines));
+    pub fn SetHistorySize(self: QTermWidgetInterface, lines: i32) void {
+        qtc.QTermWidgetInterface_SetHistorySize(@ptrCast(self.ptr), @bitCast(lines));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
-    pub fn HistorySize(self: ?*anyopaque) i32 {
-        return qtc.QTermWidgetInterface_HistorySize(@ptrCast(self));
+    pub fn HistorySize(self: QTermWidgetInterface) i32 {
+        return qtc.QTermWidgetInterface_HistorySize(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` scrollBarPosition: qtermwidget_interface_enums.ScrollBarPosition `
     ///
-    pub fn SetScrollBarPosition(self: ?*anyopaque, scrollBarPosition: i32) void {
-        qtc.QTermWidgetInterface_SetScrollBarPosition(@ptrCast(self), @bitCast(scrollBarPosition));
+    pub fn SetScrollBarPosition(self: QTermWidgetInterface, scrollBarPosition: i32) void {
+        qtc.QTermWidgetInterface_SetScrollBarPosition(@ptrCast(self.ptr), @bitCast(scrollBarPosition));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
-    pub fn ScrollToEnd(self: ?*anyopaque) void {
-        qtc.QTermWidgetInterface_ScrollToEnd(@ptrCast(self));
+    pub fn ScrollToEnd(self: QTermWidgetInterface) void {
+        qtc.QTermWidgetInterface_ScrollToEnd(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SendText(self: ?*anyopaque, text: []const u8) void {
+    pub fn SendText(self: QTermWidgetInterface, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QTermWidgetInterface_SendText(@ptrCast(self), text_str);
+        qtc.QTermWidgetInterface_SendText(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
-    /// ` e: QtC.QKeyEvent `
+    /// ` e: QKeyEvent `
     ///
-    pub fn SendKeyEvent(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QTermWidgetInterface_SendKeyEvent(@ptrCast(self), @ptrCast(e));
+    pub fn SendKeyEvent(self: QTermWidgetInterface, e: anytype) void {
+        comptime _ = @TypeOf(e)._is_QKeyEvent;
+        qtc.QTermWidgetInterface_SendKeyEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetFlowControlEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QTermWidgetInterface_SetFlowControlEnabled(@ptrCast(self), enabled);
+    pub fn SetFlowControlEnabled(self: QTermWidgetInterface, enabled: bool) void {
+        qtc.QTermWidgetInterface_SetFlowControlEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
-    pub fn FlowControlEnabled(self: ?*anyopaque) bool {
-        return qtc.QTermWidgetInterface_FlowControlEnabled(@ptrCast(self));
+    pub fn FlowControlEnabled(self: QTermWidgetInterface) bool {
+        return qtc.QTermWidgetInterface_FlowControlEnabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetFlowControlWarningEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QTermWidgetInterface_SetFlowControlWarningEnabled(@ptrCast(self), enabled);
+    pub fn SetFlowControlWarningEnabled(self: QTermWidgetInterface, enabled: bool) void {
+        qtc.QTermWidgetInterface_SetFlowControlWarningEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn KeyBindings(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTermWidgetInterface_KeyBindings(@ptrCast(self));
+    pub fn KeyBindings(self: QTermWidgetInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTermWidgetInterface_KeyBindings(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtermwidgetinterface.KeyBindings: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -414,112 +425,112 @@ pub const qtermwidgetinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` motionAfterPasting: i32 `
     ///
-    pub fn SetMotionAfterPasting(self: ?*anyopaque, motionAfterPasting: i32) void {
-        qtc.QTermWidgetInterface_SetMotionAfterPasting(@ptrCast(self), @bitCast(motionAfterPasting));
+    pub fn SetMotionAfterPasting(self: QTermWidgetInterface, motionAfterPasting: i32) void {
+        qtc.QTermWidgetInterface_SetMotionAfterPasting(@ptrCast(self.ptr), @bitCast(motionAfterPasting));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
-    pub fn HistoryLinesCount(self: ?*anyopaque) i32 {
-        return qtc.QTermWidgetInterface_HistoryLinesCount(@ptrCast(self));
+    pub fn HistoryLinesCount(self: QTermWidgetInterface) i32 {
+        return qtc.QTermWidgetInterface_HistoryLinesCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
-    pub fn ScreenColumnsCount(self: ?*anyopaque) i32 {
-        return qtc.QTermWidgetInterface_ScreenColumnsCount(@ptrCast(self));
+    pub fn ScreenColumnsCount(self: QTermWidgetInterface) i32 {
+        return qtc.QTermWidgetInterface_ScreenColumnsCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
-    pub fn ScreenLinesCount(self: ?*anyopaque) i32 {
-        return qtc.QTermWidgetInterface_ScreenLinesCount(@ptrCast(self));
+    pub fn ScreenLinesCount(self: QTermWidgetInterface) i32 {
+        return qtc.QTermWidgetInterface_ScreenLinesCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn SetSelectionStart(self: ?*anyopaque, row: i32, column: i32) void {
-        qtc.QTermWidgetInterface_SetSelectionStart(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn SetSelectionStart(self: QTermWidgetInterface, row: i32, column: i32) void {
+        qtc.QTermWidgetInterface_SetSelectionStart(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` row: i32 `
     ///
     /// ` column: i32 `
     ///
-    pub fn SetSelectionEnd(self: ?*anyopaque, row: i32, column: i32) void {
-        qtc.QTermWidgetInterface_SetSelectionEnd(@ptrCast(self), @bitCast(row), @bitCast(column));
+    pub fn SetSelectionEnd(self: QTermWidgetInterface, row: i32, column: i32) void {
+        qtc.QTermWidgetInterface_SetSelectionEnd(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` row: *i32 `
     ///
     /// ` column: *i32 `
     ///
-    pub fn GetSelectionStart(self: ?*anyopaque, row: *i32, column: *i32) void {
-        qtc.QTermWidgetInterface_GetSelectionStart(@ptrCast(self), @ptrCast(row), @ptrCast(column));
+    pub fn GetSelectionStart(self: QTermWidgetInterface, row: *i32, column: *i32) void {
+        qtc.QTermWidgetInterface_GetSelectionStart(@ptrCast(self.ptr), @ptrCast(row), @ptrCast(column));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` row: *i32 `
     ///
     /// ` column: *i32 `
     ///
-    pub fn GetSelectionEnd(self: ?*anyopaque, row: *i32, column: *i32) void {
-        qtc.QTermWidgetInterface_GetSelectionEnd(@ptrCast(self), @ptrCast(row), @ptrCast(column));
+    pub fn GetSelectionEnd(self: QTermWidgetInterface, row: *i32, column: *i32) void {
+        qtc.QTermWidgetInterface_GetSelectionEnd(@ptrCast(self.ptr), @ptrCast(row), @ptrCast(column));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
-    ///
-    /// ` preserveLineBreaks: bool `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedText(self: ?*anyopaque, preserveLineBreaks: bool, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTermWidgetInterface_SelectedText(@ptrCast(self), preserveLineBreaks);
+    /// ` preserveLineBreaks: bool `
+    ///
+    pub fn SelectedText(self: QTermWidgetInterface, allocator: std.mem.Allocator, preserveLineBreaks: bool) []const u8 {
+        var _str = qtc.QTermWidgetInterface_SelectedText(@ptrCast(self.ptr), preserveLineBreaks);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtermwidgetinterface.SelectedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -530,54 +541,56 @@ pub const qtermwidgetinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` monitorActivity: bool `
     ///
-    pub fn SetMonitorActivity(self: ?*anyopaque, monitorActivity: bool) void {
-        qtc.QTermWidgetInterface_SetMonitorActivity(@ptrCast(self), monitorActivity);
+    pub fn SetMonitorActivity(self: QTermWidgetInterface, monitorActivity: bool) void {
+        qtc.QTermWidgetInterface_SetMonitorActivity(@ptrCast(self.ptr), monitorActivity);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` monitorSilence: bool `
     ///
-    pub fn SetMonitorSilence(self: ?*anyopaque, monitorSilence: bool) void {
-        qtc.QTermWidgetInterface_SetMonitorSilence(@ptrCast(self), monitorSilence);
+    pub fn SetMonitorSilence(self: QTermWidgetInterface, monitorSilence: bool) void {
+        qtc.QTermWidgetInterface_SetMonitorSilence(@ptrCast(self.ptr), monitorSilence);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` seconds: i32 `
     ///
-    pub fn SetSilenceTimeout(self: ?*anyopaque, seconds: i32) void {
-        qtc.QTermWidgetInterface_SetSilenceTimeout(@ptrCast(self), @bitCast(seconds));
+    pub fn SetSilenceTimeout(self: QTermWidgetInterface, seconds: i32) void {
+        qtc.QTermWidgetInterface_SetSilenceTimeout(@ptrCast(self.ptr), @bitCast(seconds));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
-    ///
-    /// ` position: QtC.QPoint `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FilterActions(self: ?*anyopaque, position: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QTermWidgetInterface_FilterActions(@ptrCast(self), @ptrCast(position));
+    /// ` position: QPoint `
+    ///
+    pub fn FilterActions(self: QTermWidgetInterface, allocator: std.mem.Allocator, position: anytype) []QAction {
+        comptime _ = @TypeOf(position)._is_QPoint;
+        const _arr: qtc.libqt_list = qtc.QTermWidgetInterface_FilterActions(@ptrCast(self.ptr), @ptrCast(position.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qtermwidgetinterface.FilterActions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qtermwidgetinterface.FilterActions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -585,68 +598,68 @@ pub const qtermwidgetinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
-    pub fn GetPtySlaveFd(self: ?*anyopaque) i32 {
-        return qtc.QTermWidgetInterface_GetPtySlaveFd(@ptrCast(self));
+    pub fn GetPtySlaveFd(self: QTermWidgetInterface) i32 {
+        return qtc.QTermWidgetInterface_GetPtySlaveFd(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` blink: bool `
     ///
-    pub fn SetBlinkingCursor(self: ?*anyopaque, blink: bool) void {
-        qtc.QTermWidgetInterface_SetBlinkingCursor(@ptrCast(self), blink);
+    pub fn SetBlinkingCursor(self: QTermWidgetInterface, blink: bool) void {
+        qtc.QTermWidgetInterface_SetBlinkingCursor(@ptrCast(self.ptr), blink);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetBidiEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QTermWidgetInterface_SetBidiEnabled(@ptrCast(self), enabled);
+    pub fn SetBidiEnabled(self: QTermWidgetInterface, enabled: bool) void {
+        qtc.QTermWidgetInterface_SetBidiEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
-    pub fn IsBidiEnabled(self: ?*anyopaque) bool {
-        return qtc.QTermWidgetInterface_IsBidiEnabled(@ptrCast(self));
+    pub fn IsBidiEnabled(self: QTermWidgetInterface) bool {
+        return qtc.QTermWidgetInterface_IsBidiEnabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` autoClose: bool `
     ///
-    pub fn SetAutoClose(self: ?*anyopaque, autoClose: bool) void {
-        qtc.QTermWidgetInterface_SetAutoClose(@ptrCast(self), autoClose);
+    pub fn SetAutoClose(self: QTermWidgetInterface, autoClose: bool) void {
+        qtc.QTermWidgetInterface_SetAutoClose(@ptrCast(self.ptr), autoClose);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Title(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTermWidgetInterface_Title(@ptrCast(self));
+    pub fn Title(self: QTermWidgetInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTermWidgetInterface_Title(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtermwidgetinterface.Title: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -657,12 +670,12 @@ pub const qtermwidgetinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Icon(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTermWidgetInterface_Icon(@ptrCast(self));
+    pub fn Icon(self: QTermWidgetInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTermWidgetInterface_Icon(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtermwidgetinterface.Icon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -673,130 +686,130 @@ pub const qtermwidgetinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
-    pub fn IsTitleChanged(self: ?*anyopaque) bool {
-        return qtc.QTermWidgetInterface_IsTitleChanged(@ptrCast(self));
+    pub fn IsTitleChanged(self: QTermWidgetInterface) bool {
+        return qtc.QTermWidgetInterface_IsTitleChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn BracketText(self: ?*anyopaque, text: []const u8) void {
+    pub fn BracketText(self: QTermWidgetInterface, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QTermWidgetInterface_BracketText(@ptrCast(self), text_str);
+        qtc.QTermWidgetInterface_BracketText(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` disable: bool `
     ///
-    pub fn DisableBracketedPasteMode(self: ?*anyopaque, disable: bool) void {
-        qtc.QTermWidgetInterface_DisableBracketedPasteMode(@ptrCast(self), disable);
+    pub fn DisableBracketedPasteMode(self: QTermWidgetInterface, disable: bool) void {
+        qtc.QTermWidgetInterface_DisableBracketedPasteMode(@ptrCast(self.ptr), disable);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
-    pub fn BracketedPasteModeIsDisabled(self: ?*anyopaque) bool {
-        return qtc.QTermWidgetInterface_BracketedPasteModeIsDisabled(@ptrCast(self));
+    pub fn BracketedPasteModeIsDisabled(self: QTermWidgetInterface) bool {
+        return qtc.QTermWidgetInterface_BracketedPasteModeIsDisabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` margin: i32 `
     ///
-    pub fn SetMargin(self: ?*anyopaque, margin: i32) void {
-        qtc.QTermWidgetInterface_SetMargin(@ptrCast(self), @bitCast(margin));
+    pub fn SetMargin(self: QTermWidgetInterface, margin: i32) void {
+        qtc.QTermWidgetInterface_SetMargin(@ptrCast(self.ptr), @bitCast(margin));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
-    pub fn GetMargin(self: ?*anyopaque) i32 {
-        return qtc.QTermWidgetInterface_GetMargin(@ptrCast(self));
+    pub fn GetMargin(self: QTermWidgetInterface) i32 {
+        return qtc.QTermWidgetInterface_GetMargin(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` drawLineChars: bool `
     ///
-    pub fn SetDrawLineChars(self: ?*anyopaque, drawLineChars: bool) void {
-        qtc.QTermWidgetInterface_SetDrawLineChars(@ptrCast(self), drawLineChars);
+    pub fn SetDrawLineChars(self: QTermWidgetInterface, drawLineChars: bool) void {
+        qtc.QTermWidgetInterface_SetDrawLineChars(@ptrCast(self.ptr), drawLineChars);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` boldIntense: bool `
     ///
-    pub fn SetBoldIntense(self: ?*anyopaque, boldIntense: bool) void {
-        qtc.QTermWidgetInterface_SetBoldIntense(@ptrCast(self), boldIntense);
+    pub fn SetBoldIntense(self: QTermWidgetInterface, boldIntense: bool) void {
+        qtc.QTermWidgetInterface_SetBoldIntense(@ptrCast(self.ptr), boldIntense);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` confirmMultilinePaste: bool `
     ///
-    pub fn SetConfirmMultilinePaste(self: ?*anyopaque, confirmMultilinePaste: bool) void {
-        qtc.QTermWidgetInterface_SetConfirmMultilinePaste(@ptrCast(self), confirmMultilinePaste);
+    pub fn SetConfirmMultilinePaste(self: QTermWidgetInterface, confirmMultilinePaste: bool) void {
+        qtc.QTermWidgetInterface_SetConfirmMultilinePaste(@ptrCast(self.ptr), confirmMultilinePaste);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` trimPastedTrailingNewlines: bool `
     ///
-    pub fn SetTrimPastedTrailingNewlines(self: ?*anyopaque, trimPastedTrailingNewlines: bool) void {
-        qtc.QTermWidgetInterface_SetTrimPastedTrailingNewlines(@ptrCast(self), trimPastedTrailingNewlines);
+    pub fn SetTrimPastedTrailingNewlines(self: QTermWidgetInterface, trimPastedTrailingNewlines: bool) void {
+        qtc.QTermWidgetInterface_SetTrimPastedTrailingNewlines(@ptrCast(self.ptr), trimPastedTrailingNewlines);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WordCharacters(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QTermWidgetInterface_WordCharacters(@ptrCast(self));
+    pub fn WordCharacters(self: QTermWidgetInterface, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QTermWidgetInterface_WordCharacters(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtermwidgetinterface.WordCharacters: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -807,40 +820,41 @@ pub const qtermwidgetinterface = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` chars: []const u8 `
     ///
-    pub fn SetWordCharacters(self: ?*anyopaque, chars: []const u8) void {
+    pub fn SetWordCharacters(self: QTermWidgetInterface, chars: []const u8) void {
         const chars_str = qtc.libqt_string{
             .len = chars.len,
             .data = chars.ptr,
         };
-        qtc.QTermWidgetInterface_SetWordCharacters(@ptrCast(self), chars_str);
+        qtc.QTermWidgetInterface_SetWordCharacters(@ptrCast(self.ptr), chars_str);
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
     /// ` startnow: i32 `
     ///
-    pub fn CreateWidget(self: ?*anyopaque, startnow: i32) QtC.QTermWidgetInterface {
-        return qtc.QTermWidgetInterface_CreateWidget(@ptrCast(self), @bitCast(startnow));
+    pub fn CreateWidget(self: QTermWidgetInterface, startnow: i32) QTermWidgetInterface {
+        return .{ .ptr = qtc.QTermWidgetInterface_CreateWidget(@ptrCast(self.ptr), @bitCast(startnow)) };
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
-    /// ` param1: QtC.QTermWidgetInterface `
+    /// ` param1: QTermWidgetInterface `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTermWidgetInterface_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    pub fn OperatorAssign(self: QTermWidgetInterface, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QTermWidgetInterface;
+        qtc.QTermWidgetInterface_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -853,10 +867,10 @@ pub const qtermwidgetinterface = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QTermWidgetInterface `
+    /// ` self: QTermWidgetInterface `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QTermWidgetInterface_Delete(@ptrCast(self));
+    pub fn Delete(self: QTermWidgetInterface) void {
+        qtc.QTermWidgetInterface_Delete(@ptrCast(self.ptr));
     }
 };
 

@@ -1,32 +1,44 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QPixmap = @import("libqt6").QPixmap;
+const QSize = @import("libqt6").QSize;
 
 /// ### [Upstream resources](https://api.kde.org/kpixmapsequence.html)
-pub const kpixmapsequence = struct {
+pub const KPixmapSequence = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kpixmapsequence.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KPixmapSequence,
+
+    pub const _is_KPixmapSequence = {};
+
     /// New constructs a new KPixmapSequence object.
     ///
-    pub fn New() QtC.KPixmapSequence {
-        return qtc.KPixmapSequence_new();
+    pub fn New() KPixmapSequence {
+        return .{ .ptr = qtc.KPixmapSequence_new() };
     }
 
     /// New2 constructs a new KPixmapSequence object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.KPixmapSequence `
+    /// ` other: KPixmapSequence `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.KPixmapSequence {
-        return qtc.KPixmapSequence_new2(@ptrCast(other));
+    pub fn New2(other: anytype) KPixmapSequence {
+        comptime _ = @TypeOf(other)._is_KPixmapSequence;
+        return .{ .ptr = qtc.KPixmapSequence_new2(@ptrCast(other.ptr)) };
     }
 
     /// New3 constructs a new KPixmapSequence object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` pixmap: QtC.QPixmap `
+    /// ` pixmap: QPixmap `
     ///
-    pub fn New3(pixmap: ?*anyopaque) QtC.KPixmapSequence {
-        return qtc.KPixmapSequence_new3(@ptrCast(pixmap));
+    pub fn New3(pixmap: anytype) KPixmapSequence {
+        comptime _ = @TypeOf(pixmap)._is_QPixmap;
+        return .{ .ptr = qtc.KPixmapSequence_new3(@ptrCast(pixmap.ptr)) };
     }
 
     /// New4 constructs a new KPixmapSequence object.
@@ -37,89 +49,91 @@ pub const kpixmapsequence = struct {
     ///
     /// ` size: i32 `
     ///
-    pub fn New4(fullPath: []const u8, size: i32) QtC.KPixmapSequence {
+    pub fn New4(fullPath: []const u8, size: i32) KPixmapSequence {
         const fullPath_str = qtc.libqt_string{
             .len = fullPath.len,
             .data = fullPath.ptr,
         };
-
-        return qtc.KPixmapSequence_new4(fullPath_str, @bitCast(size));
+        return .{ .ptr = qtc.KPixmapSequence_new4(fullPath_str, @bitCast(size)) };
     }
 
     /// New5 constructs a new KPixmapSequence object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` pixmap: QtC.QPixmap `
+    /// ` pixmap: QPixmap `
     ///
-    /// ` frameSize: QtC.QSize `
+    /// ` frameSize: QSize `
     ///
-    pub fn New5(pixmap: ?*anyopaque, frameSize: ?*anyopaque) QtC.KPixmapSequence {
-        return qtc.KPixmapSequence_new5(@ptrCast(pixmap), @ptrCast(frameSize));
+    pub fn New5(pixmap: anytype, frameSize: anytype) KPixmapSequence {
+        comptime _ = @TypeOf(pixmap)._is_QPixmap;
+        comptime _ = @TypeOf(frameSize)._is_QSize;
+        return .{ .ptr = qtc.KPixmapSequence_new5(@ptrCast(pixmap.ptr), @ptrCast(frameSize.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequence.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPixmapSequence `
+    /// ` self: KPixmapSequence `
     ///
-    /// ` other: QtC.KPixmapSequence `
+    /// ` other: KPixmapSequence `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.KPixmapSequence_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: KPixmapSequence, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_KPixmapSequence;
+        qtc.KPixmapSequence_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequence.html#isValid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPixmapSequence `
+    /// ` self: KPixmapSequence `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.KPixmapSequence_IsValid(@ptrCast(self));
+    pub fn IsValid(self: KPixmapSequence) bool {
+        return qtc.KPixmapSequence_IsValid(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequence.html#isEmpty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPixmapSequence `
+    /// ` self: KPixmapSequence `
     ///
-    pub fn IsEmpty(self: ?*anyopaque) bool {
-        return qtc.KPixmapSequence_IsEmpty(@ptrCast(self));
+    pub fn IsEmpty(self: KPixmapSequence) bool {
+        return qtc.KPixmapSequence_IsEmpty(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequence.html#frameSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPixmapSequence `
+    /// ` self: KPixmapSequence `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.KPixmapSequence_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: KPixmapSequence) QSize {
+        return .{ .ptr = qtc.KPixmapSequence_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequence.html#frameCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPixmapSequence `
+    /// ` self: KPixmapSequence `
     ///
-    pub fn FrameCount(self: ?*anyopaque) i32 {
-        return qtc.KPixmapSequence_FrameCount(@ptrCast(self));
+    pub fn FrameCount(self: KPixmapSequence) i32 {
+        return qtc.KPixmapSequence_FrameCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequence.html#frameAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KPixmapSequence `
+    /// ` self: KPixmapSequence `
     ///
     /// ` index: i32 `
     ///
-    pub fn FrameAt(self: ?*anyopaque, index: i32) QtC.QPixmap {
-        return qtc.KPixmapSequence_FrameAt(@ptrCast(self), @bitCast(index));
+    pub fn FrameAt(self: KPixmapSequence, index: i32) QPixmap {
+        return .{ .ptr = qtc.KPixmapSequence_FrameAt(@ptrCast(self.ptr), @bitCast(index)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -132,9 +146,9 @@ pub const kpixmapsequence = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KPixmapSequence `
+    /// ` self: KPixmapSequence `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KPixmapSequence_Delete(@ptrCast(self));
+    pub fn Delete(self: KPixmapSequence) void {
+        qtc.KPixmapSequence_Delete(@ptrCast(self.ptr));
     }
 };

@@ -1,36 +1,58 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QDeadlineTimer = @import("libqt6").QDeadlineTimer;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QRunnable = @import("libqt6").QRunnable;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const qthread_enums = @import("libqthread.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadpool.html)
-pub const qthreadpool = struct {
+pub const QThreadPool = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadpool.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QThreadPool,
+
+    pub const _is_QThreadPool = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QThreadPool object.
     ///
-    pub fn New() QtC.QThreadPool {
-        return qtc.QThreadPool_new();
+    pub fn New() QThreadPool {
+        return .{ .ptr = qtc.QThreadPool_new() };
     }
 
     /// New2 constructs a new QThreadPool object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn New2(parent: ?*anyopaque) QtC.QThreadPool {
-        return qtc.QThreadPool_new2(@ptrCast(parent));
+    pub fn New2(parent: anytype) QThreadPool {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.QThreadPool_new2(@ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QThreadPool_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QThreadPool) QMetaObject {
+        return .{ .ptr = qtc.QThreadPool_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -39,12 +61,12 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QThreadPool_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QThreadPool, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QThreadPool_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -57,33 +79,33 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QThreadPool_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QThreadPool) QMetaObject {
+        return .{ .ptr = qtc.QThreadPool_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QThreadPool, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QThreadPool_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QThreadPool_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` callback: *const fn (self: QtC.QThreadPool, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QThreadPool, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QThreadPool_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QThreadPool, callback: *const fn (QThreadPool, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QThreadPool_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -94,18 +116,18 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QThreadPool, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QThreadPool_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QThreadPool_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -113,20 +135,20 @@ pub const qthreadpool = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QThreadPool_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QThreadPool, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QThreadPool_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` callback: *const fn (self: QtC.QThreadPool, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QThreadPool, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QThreadPool_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QThreadPool, callback: *const fn (QThreadPool, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QThreadPool_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -137,7 +159,7 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -145,19 +167,19 @@ pub const qthreadpool = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QThreadPool_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QThreadPool, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QThreadPool_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -168,235 +190,240 @@ pub const qthreadpool = struct {
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadpool.html#globalInstance)
     ///
-    pub fn GlobalInstance() QtC.QThreadPool {
-        return qtc.QThreadPool_GlobalInstance();
+    pub fn GlobalInstance() QThreadPool {
+        return .{ .ptr = qtc.QThreadPool_GlobalInstance() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadpool.html#start)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` runnable: QtC.QRunnable `
+    /// ` runnable: QRunnable `
     ///
-    pub fn Start(self: ?*anyopaque, runnable: ?*anyopaque) void {
-        qtc.QThreadPool_Start(@ptrCast(self), @ptrCast(runnable));
+    pub fn Start(self: QThreadPool, runnable: anytype) void {
+        comptime _ = @TypeOf(runnable)._is_QRunnable;
+        qtc.QThreadPool_Start(@ptrCast(self.ptr), @ptrCast(runnable.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadpool.html#tryStart)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` runnable: QtC.QRunnable `
+    /// ` runnable: QRunnable `
     ///
-    pub fn TryStart(self: ?*anyopaque, runnable: ?*anyopaque) bool {
-        return qtc.QThreadPool_TryStart(@ptrCast(self), @ptrCast(runnable));
+    pub fn TryStart(self: QThreadPool, runnable: anytype) bool {
+        comptime _ = @TypeOf(runnable)._is_QRunnable;
+        return qtc.QThreadPool_TryStart(@ptrCast(self.ptr), @ptrCast(runnable.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadpool.html#startOnReservedThread)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` runnable: QtC.QRunnable `
+    /// ` runnable: QRunnable `
     ///
-    pub fn StartOnReservedThread(self: ?*anyopaque, runnable: ?*anyopaque) void {
-        qtc.QThreadPool_StartOnReservedThread(@ptrCast(self), @ptrCast(runnable));
+    pub fn StartOnReservedThread(self: QThreadPool, runnable: anytype) void {
+        comptime _ = @TypeOf(runnable)._is_QRunnable;
+        qtc.QThreadPool_StartOnReservedThread(@ptrCast(self.ptr), @ptrCast(runnable.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadpool.html#expiryTimeout)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn ExpiryTimeout(self: ?*anyopaque) i32 {
-        return qtc.QThreadPool_ExpiryTimeout(@ptrCast(self));
+    pub fn ExpiryTimeout(self: QThreadPool) i32 {
+        return qtc.QThreadPool_ExpiryTimeout(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadpool.html#setExpiryTimeout)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` expiryTimeout: i32 `
     ///
-    pub fn SetExpiryTimeout(self: ?*anyopaque, expiryTimeout: i32) void {
-        qtc.QThreadPool_SetExpiryTimeout(@ptrCast(self), @bitCast(expiryTimeout));
+    pub fn SetExpiryTimeout(self: QThreadPool, expiryTimeout: i32) void {
+        qtc.QThreadPool_SetExpiryTimeout(@ptrCast(self.ptr), @bitCast(expiryTimeout));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadpool.html#maxThreadCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn MaxThreadCount(self: ?*anyopaque) i32 {
-        return qtc.QThreadPool_MaxThreadCount(@ptrCast(self));
+    pub fn MaxThreadCount(self: QThreadPool) i32 {
+        return qtc.QThreadPool_MaxThreadCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadpool.html#setMaxThreadCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` maxThreadCount: i32 `
     ///
-    pub fn SetMaxThreadCount(self: ?*anyopaque, maxThreadCount: i32) void {
-        qtc.QThreadPool_SetMaxThreadCount(@ptrCast(self), @bitCast(maxThreadCount));
+    pub fn SetMaxThreadCount(self: QThreadPool, maxThreadCount: i32) void {
+        qtc.QThreadPool_SetMaxThreadCount(@ptrCast(self.ptr), @bitCast(maxThreadCount));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadpool.html#activeThreadCount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn ActiveThreadCount(self: ?*anyopaque) i32 {
-        return qtc.QThreadPool_ActiveThreadCount(@ptrCast(self));
+    pub fn ActiveThreadCount(self: QThreadPool) i32 {
+        return qtc.QThreadPool_ActiveThreadCount(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadpool.html#setStackSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` stackSize: u32 `
     ///
-    pub fn SetStackSize(self: ?*anyopaque, stackSize: u32) void {
-        qtc.QThreadPool_SetStackSize(@ptrCast(self), @bitCast(stackSize));
+    pub fn SetStackSize(self: QThreadPool, stackSize: u32) void {
+        qtc.QThreadPool_SetStackSize(@ptrCast(self.ptr), @bitCast(stackSize));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadpool.html#stackSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn StackSize(self: ?*anyopaque) u32 {
-        return qtc.QThreadPool_StackSize(@ptrCast(self));
+    pub fn StackSize(self: QThreadPool) u32 {
+        return qtc.QThreadPool_StackSize(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadpool.html#setThreadPriority)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` priority: qthread_enums.Priority `
     ///
-    pub fn SetThreadPriority(self: ?*anyopaque, priority: i32) void {
-        qtc.QThreadPool_SetThreadPriority(@ptrCast(self), @bitCast(priority));
+    pub fn SetThreadPriority(self: QThreadPool, priority: i32) void {
+        qtc.QThreadPool_SetThreadPriority(@ptrCast(self.ptr), @bitCast(priority));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadpool.html#threadPriority)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ## Returns:
     ///
     /// ` qthread_enums.Priority `
     ///
-    pub fn ThreadPriority(self: ?*anyopaque) i32 {
-        return qtc.QThreadPool_ThreadPriority(@ptrCast(self));
+    pub fn ThreadPriority(self: QThreadPool) i32 {
+        return qtc.QThreadPool_ThreadPriority(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadpool.html#reserveThread)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn ReserveThread(self: ?*anyopaque) void {
-        qtc.QThreadPool_ReserveThread(@ptrCast(self));
+    pub fn ReserveThread(self: QThreadPool) void {
+        qtc.QThreadPool_ReserveThread(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadpool.html#releaseThread)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn ReleaseThread(self: ?*anyopaque) void {
-        qtc.QThreadPool_ReleaseThread(@ptrCast(self));
+    pub fn ReleaseThread(self: QThreadPool) void {
+        qtc.QThreadPool_ReleaseThread(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadpool.html#waitForDone)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForDone(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QThreadPool_WaitForDone(@ptrCast(self), @bitCast(msecs));
+    pub fn WaitForDone(self: QThreadPool, msecs: i32) bool {
+        return qtc.QThreadPool_WaitForDone(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadpool.html#waitForDone)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn WaitForDone2(self: ?*anyopaque) bool {
-        return qtc.QThreadPool_WaitForDone2(@ptrCast(self));
+    pub fn WaitForDone2(self: QThreadPool) bool {
+        return qtc.QThreadPool_WaitForDone2(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadpool.html#clear)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn Clear(self: ?*anyopaque) void {
-        qtc.QThreadPool_Clear(@ptrCast(self));
+    pub fn Clear(self: QThreadPool) void {
+        qtc.QThreadPool_Clear(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadpool.html#contains)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn Contains(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QThreadPool_Contains(@ptrCast(self), @ptrCast(thread));
+    pub fn Contains(self: QThreadPool, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QThreadPool_Contains(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadpool.html#tryTake)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` runnable: QtC.QRunnable `
+    /// ` runnable: QRunnable `
     ///
-    pub fn TryTake(self: ?*anyopaque, runnable: ?*anyopaque) bool {
-        return qtc.QThreadPool_TryTake(@ptrCast(self), @ptrCast(runnable));
+    pub fn TryTake(self: QThreadPool, runnable: anytype) bool {
+        comptime _ = @TypeOf(runnable)._is_QRunnable;
+        return qtc.QThreadPool_TryTake(@ptrCast(self.ptr), @ptrCast(runnable.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -410,15 +437,15 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -432,26 +459,28 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` runnable: QtC.QRunnable `
+    /// ` runnable: QRunnable `
     ///
     /// ` priority: i32 `
     ///
-    pub fn Start2(self: ?*anyopaque, runnable: ?*anyopaque, priority: i32) void {
-        qtc.QThreadPool_Start2(@ptrCast(self), @ptrCast(runnable), @bitCast(priority));
+    pub fn Start2(self: QThreadPool, runnable: anytype, priority: i32) void {
+        comptime _ = @TypeOf(runnable)._is_QRunnable;
+        qtc.QThreadPool_Start2(@ptrCast(self.ptr), @ptrCast(runnable.ptr), @bitCast(priority));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qthreadpool.html#waitForDone)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` deadline: QtC.QDeadlineTimer `
+    /// ` deadline: QDeadlineTimer `
     ///
-    pub fn WaitForDone1(self: ?*anyopaque, deadline: QtC.QDeadlineTimer) bool {
-        return qtc.QThreadPool_WaitForDone1(@ptrCast(self), @ptrCast(deadline));
+    pub fn WaitForDone1(self: QThreadPool, deadline: anytype) bool {
+        comptime _ = @TypeOf(deadline)._is_QDeadlineTimer;
+        return qtc.QThreadPool_WaitForDone1(@ptrCast(self.ptr), @ptrCast(deadline.ptr));
     }
 
     /// Inherited from QObject
@@ -460,12 +489,12 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QThreadPool, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qthreadpool.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -478,12 +507,12 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QThreadPool, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -492,10 +521,10 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QThreadPool) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -504,10 +533,10 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QThreadPool) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -516,10 +545,10 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QThreadPool) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -528,10 +557,10 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QThreadPool) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -540,12 +569,12 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QThreadPool, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -554,10 +583,10 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QThreadPool) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -566,12 +595,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QThreadPool, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -580,12 +610,12 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QThreadPool, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -594,12 +624,12 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QThreadPool, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -608,12 +638,12 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QThreadPool, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -622,12 +652,12 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QThreadPool, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -636,16 +666,17 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QThreadPool, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qthreadpool.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qthreadpool.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -655,12 +686,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QThreadPool, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -669,12 +701,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QThreadPool, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -683,12 +716,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QThreadPool, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -697,18 +731,20 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -717,16 +753,20 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -735,18 +775,19 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QThreadPool, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -755,18 +796,20 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -775,16 +818,20 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -793,10 +840,10 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QThreadPool) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -805,12 +852,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QThreadPool, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -819,10 +867,11 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -831,10 +880,10 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QThreadPool) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -843,10 +892,10 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QThreadPool) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -855,15 +904,16 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QThreadPool, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -872,13 +922,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QThreadPool, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -887,17 +937,16 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QThreadPool, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qthreadpool.DynamicPropertyNames: Memory allocation failed");
@@ -916,10 +965,10 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QThreadPool) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -928,10 +977,10 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QThreadPool) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -940,10 +989,10 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QThreadPool) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -952,12 +1001,12 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` callback: *const fn (self: QtC.QThreadPool) callconv(.c) void `
+    /// ` callback: *const fn (self: QThreadPool) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QThreadPool, callback: *const fn (QThreadPool) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -966,10 +1015,10 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QThreadPool) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -978,13 +1027,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QThreadPool, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -993,10 +1042,10 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QThreadPool) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1005,14 +1054,14 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QThreadPool, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1021,14 +1070,14 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QThreadPool, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1037,20 +1086,22 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1059,18 +1110,22 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1079,9 +1134,9 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1089,10 +1144,11 @@ pub const qthreadpool = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QThreadPool, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1101,13 +1157,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QThreadPool, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1116,15 +1172,16 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QThreadPool, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1133,18 +1190,19 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QThreadPool, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1153,15 +1211,16 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QThreadPool, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1170,12 +1229,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QThreadPool, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1184,12 +1244,12 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` callback: *const fn (self: QtC.QThreadPool, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QThreadPool, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QThreadPool, callback: *const fn (QThreadPool, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1200,12 +1260,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QThreadPool_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QThreadPool, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QThreadPool_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1220,12 +1281,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QThreadPool_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QThreadPool, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QThreadPool_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1236,12 +1298,12 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QThreadPool`
+    /// ` self: QThreadPool`
     ///
-    /// ` callback: *const fn (self: QtC.QThreadPool, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QThreadPool, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QThreadPool_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QThreadPool, callback: *const fn (QThreadPool, QEvent) callconv(.c) bool) void {
+        qtc.QThreadPool_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1252,14 +1314,16 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QThreadPool_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QThreadPool, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QThreadPool_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1274,14 +1338,16 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QThreadPool_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QThreadPool, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QThreadPool_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1292,12 +1358,12 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QThreadPool`
+    /// ` self: QThreadPool`
     ///
-    /// ` callback: *const fn (self: QtC.QThreadPool, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QThreadPool, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QThreadPool_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QThreadPool, callback: *const fn (QThreadPool, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QThreadPool_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1308,12 +1374,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QThreadPool_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QThreadPool, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QThreadPool_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1328,12 +1395,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QThreadPool_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QThreadPool, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QThreadPool_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1344,12 +1412,12 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QThreadPool`
+    /// ` self: QThreadPool`
     ///
-    /// ` callback: *const fn (self: QtC.QThreadPool, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QThreadPool, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QThreadPool_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QThreadPool, callback: *const fn (QThreadPool, QTimerEvent) callconv(.c) void) void {
+        qtc.QThreadPool_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1360,12 +1428,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QThreadPool_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QThreadPool, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QThreadPool_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1380,12 +1449,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QThreadPool_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QThreadPool, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QThreadPool_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1396,12 +1466,12 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QThreadPool`
+    /// ` self: QThreadPool`
     ///
-    /// ` callback: *const fn (self: QtC.QThreadPool, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QThreadPool, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QThreadPool_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QThreadPool, callback: *const fn (QThreadPool, QChildEvent) callconv(.c) void) void {
+        qtc.QThreadPool_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1412,12 +1482,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QThreadPool_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QThreadPool, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QThreadPool_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1432,12 +1503,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QThreadPool_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QThreadPool, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QThreadPool_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1448,12 +1520,12 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QThreadPool`
+    /// ` self: QThreadPool`
     ///
-    /// ` callback: *const fn (self: QtC.QThreadPool, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QThreadPool, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QThreadPool_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QThreadPool, callback: *const fn (QThreadPool, QEvent) callconv(.c) void) void {
+        qtc.QThreadPool_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1464,12 +1536,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QThreadPool_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QThreadPool, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QThreadPool_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1484,12 +1557,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QThreadPool_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QThreadPool, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QThreadPool_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1500,12 +1574,12 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QThreadPool`
+    /// ` self: QThreadPool`
     ///
-    /// ` callback: *const fn (self: QtC.QThreadPool, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QThreadPool, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QThreadPool_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QThreadPool, callback: *const fn (QThreadPool, QMetaMethod) callconv(.c) void) void {
+        qtc.QThreadPool_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1516,12 +1590,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QThreadPool_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QThreadPool, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QThreadPool_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1536,12 +1611,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QThreadPool_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QThreadPool, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QThreadPool_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1552,12 +1628,12 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QThreadPool`
+    /// ` self: QThreadPool`
     ///
-    /// ` callback: *const fn (self: QtC.QThreadPool, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QThreadPool, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QThreadPool_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QThreadPool, callback: *const fn (QThreadPool, QMetaMethod) callconv(.c) void) void {
+        qtc.QThreadPool_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1568,10 +1644,10 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QThreadPool_Sender(@ptrCast(self));
+    pub fn Sender(self: QThreadPool) QObject {
+        return .{ .ptr = qtc.QThreadPool_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -1586,10 +1662,10 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QThreadPool_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QThreadPool) QObject {
+        return .{ .ptr = qtc.QThreadPool_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1600,12 +1676,12 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QThreadPool`
+    /// ` self: QThreadPool`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QThreadPool_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QThreadPool, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QThreadPool_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1616,10 +1692,10 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QThreadPool_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QThreadPool) i32 {
+        return qtc.QThreadPool_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -1634,10 +1710,10 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QThreadPool_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QThreadPool) i32 {
+        return qtc.QThreadPool_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1648,12 +1724,12 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QThreadPool`
+    /// ` self: QThreadPool`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QThreadPool_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QThreadPool, callback: *const fn () callconv(.c) i32) void {
+        qtc.QThreadPool_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1664,13 +1740,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QThreadPool, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QThreadPool_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QThreadPool_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -1685,13 +1761,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QThreadPool, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QThreadPool_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QThreadPool_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1702,12 +1778,12 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QThreadPool`
+    /// ` self: QThreadPool`
     ///
-    /// ` callback: *const fn (self: QtC.QThreadPool, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QThreadPool, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QThreadPool_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QThreadPool, callback: *const fn (QThreadPool, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QThreadPool_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1718,12 +1794,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QThreadPool_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QThreadPool, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QThreadPool_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -1738,12 +1815,13 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QThreadPool_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QThreadPool, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QThreadPool_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1754,12 +1832,12 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QThreadPool`
+    /// ` self: QThreadPool`
     ///
-    /// ` callback: *const fn (self: QtC.QThreadPool, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QThreadPool, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QThreadPool_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QThreadPool, callback: *const fn (QThreadPool, QMetaMethod) callconv(.c) bool) void {
+        qtc.QThreadPool_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1770,12 +1848,12 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    /// ` callback: *const fn (self: QtC.QThreadPool, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QThreadPool, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QThreadPool, callback: *const fn (QThreadPool, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -1788,9 +1866,9 @@ pub const qthreadpool = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QThreadPool `
+    /// ` self: QThreadPool `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QThreadPool_Delete(@ptrCast(self));
+    pub fn Delete(self: QThreadPool) void {
+        qtc.QThreadPool_Delete(@ptrCast(self.ptr));
     }
 };

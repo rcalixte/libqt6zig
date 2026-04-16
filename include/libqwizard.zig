@@ -1,5 +1,64 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QAbstractButton = @import("libqt6").QAbstractButton;
+const QAction = @import("libqt6").QAction;
+const QActionEvent = @import("libqt6").QActionEvent;
+const QBackingStore = @import("libqt6").QBackingStore;
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QBitmap = @import("libqt6").QBitmap;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QCloseEvent = @import("libqt6").QCloseEvent;
+const QContextMenuEvent = @import("libqt6").QContextMenuEvent;
+const QCursor = @import("libqt6").QCursor;
+const QDragEnterEvent = @import("libqt6").QDragEnterEvent;
+const QDragLeaveEvent = @import("libqt6").QDragLeaveEvent;
+const QDragMoveEvent = @import("libqt6").QDragMoveEvent;
+const QDropEvent = @import("libqt6").QDropEvent;
+const QEnterEvent = @import("libqt6").QEnterEvent;
+const QEvent = @import("libqt6").QEvent;
+const QFocusEvent = @import("libqt6").QFocusEvent;
+const QFont = @import("libqt6").QFont;
+const QFontInfo = @import("libqt6").QFontInfo;
+const QFontMetrics = @import("libqt6").QFontMetrics;
+const QGraphicsEffect = @import("libqt6").QGraphicsEffect;
+const QGraphicsProxyWidget = @import("libqt6").QGraphicsProxyWidget;
+const QHideEvent = @import("libqt6").QHideEvent;
+const QIcon = @import("libqt6").QIcon;
+const QInputMethodEvent = @import("libqt6").QInputMethodEvent;
+const QKeyEvent = @import("libqt6").QKeyEvent;
+const QKeySequence = @import("libqt6").QKeySequence;
+const QLayout = @import("libqt6").QLayout;
+const QLocale = @import("libqt6").QLocale;
+const QMargins = @import("libqt6").QMargins;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QMouseEvent = @import("libqt6").QMouseEvent;
+const QMoveEvent = @import("libqt6").QMoveEvent;
+const QObject = @import("libqt6").QObject;
+const QPaintDevice = @import("libqt6").QPaintDevice;
+const QPaintEngine = @import("libqt6").QPaintEngine;
+const QPaintEvent = @import("libqt6").QPaintEvent;
+const QPainter = @import("libqt6").QPainter;
+const QPalette = @import("libqt6").QPalette;
+const QPixmap = @import("libqt6").QPixmap;
+const QPoint = @import("libqt6").QPoint;
+const QPointF = @import("libqt6").QPointF;
+const QRect = @import("libqt6").QRect;
+const QRegion = @import("libqt6").QRegion;
+const QResizeEvent = @import("libqt6").QResizeEvent;
+const QScreen = @import("libqt6").QScreen;
+const QShowEvent = @import("libqt6").QShowEvent;
+const QSize = @import("libqt6").QSize;
+const QSizePolicy = @import("libqt6").QSizePolicy;
+const QStyle = @import("libqt6").QStyle;
+const QTabletEvent = @import("libqt6").QTabletEvent;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
+const QWheelEvent = @import("libqt6").QWheelEvent;
+const QWidget = @import("libqt6").QWidget;
+const QWindow = @import("libqt6").QWindow;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const qpaintdevice_enums = @import("libqpaintdevice.zig").enums;
@@ -10,43 +69,57 @@ const qwizard_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html)
-pub const qwizard = struct {
+pub const QWizard = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QWizard,
+
+    pub const _is_QWizard = {};
+    pub const _is_QDialog = {};
+    pub const _is_QWidget = {};
+    pub const _is_QObject = {};
+    pub const _is_QPaintDevice = {};
+
     /// New constructs a new QWizard object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.QWizard {
-        return qtc.QWizard_new(@ptrCast(parent));
+    pub fn New(parent: anytype) QWizard {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWizard_new(@ptrCast(parent.ptr)) };
     }
 
     /// New2 constructs a new QWizard object.
     ///
-    pub fn New2() QtC.QWizard {
-        return qtc.QWizard_new2();
+    pub fn New2() QWizard {
+        return .{ .ptr = qtc.QWizard_new2() };
     }
 
     /// New3 constructs a new QWizard object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn New3(parent: ?*anyopaque, flags: i32) QtC.QWizard {
-        return qtc.QWizard_new3(@ptrCast(parent), @bitCast(flags));
+    pub fn New3(parent: anytype, flags: i32) QWizard {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWizard_new3(@ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QWizard_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QWizard) QMetaObject {
+        return .{ .ptr = qtc.QWizard_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -55,12 +128,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QWizard_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QWizard, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QWizard_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -73,33 +146,33 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QWizard_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QWizard) QMetaObject {
+        return .{ .ptr = qtc.QWizard_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QWizard, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QWizard_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QWizard_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QWizard, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QWizard_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QWizard, callback: *const fn (QWizard, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QWizard_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -110,18 +183,18 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QWizard, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QWizard_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QWizard_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -129,20 +202,20 @@ pub const qwizard = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QWizard_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QWizard, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QWizard_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QWizard, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QWizard_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QWizard, callback: *const fn (QWizard, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QWizard_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -153,7 +226,7 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -161,19 +234,19 @@ pub const qwizard = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QWizard_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QWizard, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QWizard_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -186,74 +259,76 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` page: QtC.QWizardPage `
+    /// ` page: QWizardPage `
     ///
-    pub fn AddPage(self: ?*anyopaque, page: ?*anyopaque) i32 {
-        return qtc.QWizard_AddPage(@ptrCast(self), @ptrCast(page));
+    pub fn AddPage(self: QWizard, page: anytype) i32 {
+        comptime _ = @TypeOf(page)._is_QWizardPage;
+        return qtc.QWizard_AddPage(@ptrCast(self.ptr), @ptrCast(page.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#setPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` id: i32 `
     ///
-    /// ` page: QtC.QWizardPage `
+    /// ` page: QWizardPage `
     ///
-    pub fn SetPage(self: ?*anyopaque, id: i32, page: ?*anyopaque) void {
-        qtc.QWizard_SetPage(@ptrCast(self), @bitCast(id), @ptrCast(page));
+    pub fn SetPage(self: QWizard, id: i32, page: anytype) void {
+        comptime _ = @TypeOf(page)._is_QWizardPage;
+        qtc.QWizard_SetPage(@ptrCast(self.ptr), @bitCast(id), @ptrCast(page.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#removePage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` id: i32 `
     ///
-    pub fn RemovePage(self: ?*anyopaque, id: i32) void {
-        qtc.QWizard_RemovePage(@ptrCast(self), @bitCast(id));
+    pub fn RemovePage(self: QWizard, id: i32) void {
+        qtc.QWizard_RemovePage(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#page)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` id: i32 `
     ///
-    pub fn Page(self: ?*anyopaque, id: i32) QtC.QWizardPage {
-        return qtc.QWizard_Page(@ptrCast(self), @bitCast(id));
+    pub fn Page(self: QWizard, id: i32) QWizardPage {
+        return .{ .ptr = qtc.QWizard_Page(@ptrCast(self.ptr), @bitCast(id)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#hasVisitedPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` id: i32 `
     ///
-    pub fn HasVisitedPage(self: ?*anyopaque, id: i32) bool {
-        return qtc.QWizard_HasVisitedPage(@ptrCast(self), @bitCast(id));
+    pub fn HasVisitedPage(self: QWizard, id: i32) bool {
+        return qtc.QWizard_HasVisitedPage(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#visitedIds)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn VisitedIds(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.libqt_list = qtc.QWizard_VisitedIds(@ptrCast(self));
+    pub fn VisitedIds(self: QWizard, allocator: std.mem.Allocator) []i32 {
+        const _arr: qtc.libqt_list = qtc.QWizard_VisitedIds(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("qwizard.VisitedIds: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -265,12 +340,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PageIds(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.libqt_list = qtc.QWizard_PageIds(@ptrCast(self));
+    pub fn PageIds(self: QWizard, allocator: std.mem.Allocator) []i32 {
+        const _arr: qtc.libqt_list = qtc.QWizard_PageIds(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("qwizard.PageIds: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -282,52 +357,52 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetStartId(self: ?*anyopaque, id: i32) void {
-        qtc.QWizard_SetStartId(@ptrCast(self), @bitCast(id));
+    pub fn SetStartId(self: QWizard, id: i32) void {
+        qtc.QWizard_SetStartId(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#startId)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn StartId(self: ?*anyopaque) i32 {
-        return qtc.QWizard_StartId(@ptrCast(self));
+    pub fn StartId(self: QWizard) i32 {
+        return qtc.QWizard_StartId(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#currentPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn CurrentPage(self: ?*anyopaque) QtC.QWizardPage {
-        return qtc.QWizard_CurrentPage(@ptrCast(self));
+    pub fn CurrentPage(self: QWizard) QWizardPage {
+        return .{ .ptr = qtc.QWizard_CurrentPage(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#currentId)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn CurrentId(self: ?*anyopaque) i32 {
-        return qtc.QWizard_CurrentId(@ptrCast(self));
+    pub fn CurrentId(self: QWizard) i32 {
+        return qtc.QWizard_CurrentId(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#validateCurrentPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn ValidateCurrentPage(self: ?*anyopaque) bool {
-        return qtc.QWizard_ValidateCurrentPage(@ptrCast(self));
+    pub fn ValidateCurrentPage(self: QWizard) bool {
+        return qtc.QWizard_ValidateCurrentPage(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#validateCurrentPage)
@@ -336,12 +411,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnValidateCurrentPage(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QWizard_OnValidateCurrentPage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnValidateCurrentPage(self: QWizard, callback: *const fn () callconv(.c) bool) void {
+        qtc.QWizard_OnValidateCurrentPage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperValidateCurrentPage` instead
@@ -354,20 +429,20 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SuperValidateCurrentPage(self: ?*anyopaque) bool {
-        return qtc.QWizard_SuperValidateCurrentPage(@ptrCast(self));
+    pub fn SuperValidateCurrentPage(self: QWizard) bool {
+        return qtc.QWizard_SuperValidateCurrentPage(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#nextId)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn NextId(self: ?*anyopaque) i32 {
-        return qtc.QWizard_NextId(@ptrCast(self));
+    pub fn NextId(self: QWizard) i32 {
+        return qtc.QWizard_NextId(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#nextId)
@@ -376,12 +451,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnNextId(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QWizard_OnNextId(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNextId(self: QWizard, callback: *const fn () callconv(.c) i32) void {
+        qtc.QWizard_OnNextId(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperNextId` instead
@@ -394,152 +469,153 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SuperNextId(self: ?*anyopaque) i32 {
-        return qtc.QWizard_SuperNextId(@ptrCast(self));
+    pub fn SuperNextId(self: QWizard) i32 {
+        return qtc.QWizard_SuperNextId(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#setField)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetField(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn SetField(self: QWizard, name: []const u8, value: anytype) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWizard_SetField(@ptrCast(self), name_str, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QWizard_SetField(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#field)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn Field(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn Field(self: QWizard, name: []const u8) QVariant {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QWizard_Field(@ptrCast(self), name_str);
+        return .{ .ptr = qtc.QWizard_Field(@ptrCast(self.ptr), name_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#setWizardStyle)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` style: qwizard_enums.WizardStyle `
     ///
-    pub fn SetWizardStyle(self: ?*anyopaque, style: i32) void {
-        qtc.QWizard_SetWizardStyle(@ptrCast(self), @bitCast(style));
+    pub fn SetWizardStyle(self: QWizard, style: i32) void {
+        qtc.QWizard_SetWizardStyle(@ptrCast(self.ptr), @bitCast(style));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#wizardStyle)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ## Returns:
     ///
     /// ` qwizard_enums.WizardStyle `
     ///
-    pub fn WizardStyle(self: ?*anyopaque) i32 {
-        return qtc.QWizard_WizardStyle(@ptrCast(self));
+    pub fn WizardStyle(self: QWizard) i32 {
+        return qtc.QWizard_WizardStyle(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#setOption)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` option: qwizard_enums.WizardOption `
     ///
-    pub fn SetOption(self: ?*anyopaque, option: i32) void {
-        qtc.QWizard_SetOption(@ptrCast(self), @bitCast(option));
+    pub fn SetOption(self: QWizard, option: i32) void {
+        qtc.QWizard_SetOption(@ptrCast(self.ptr), @bitCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#testOption)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` option: qwizard_enums.WizardOption `
     ///
-    pub fn TestOption(self: ?*anyopaque, option: i32) bool {
-        return qtc.QWizard_TestOption(@ptrCast(self), @bitCast(option));
+    pub fn TestOption(self: QWizard, option: i32) bool {
+        return qtc.QWizard_TestOption(@ptrCast(self.ptr), @bitCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#setOptions)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` options: flag of qwizard_enums.WizardOption `
     ///
-    pub fn SetOptions(self: ?*anyopaque, options: i32) void {
-        qtc.QWizard_SetOptions(@ptrCast(self), @bitCast(options));
+    pub fn SetOptions(self: QWizard, options: i32) void {
+        qtc.QWizard_SetOptions(@ptrCast(self.ptr), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#options)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ## Returns:
     ///
     /// ` flag of qwizard_enums.WizardOption `
     ///
-    pub fn Options(self: ?*anyopaque) i32 {
-        return qtc.QWizard_Options(@ptrCast(self));
+    pub fn Options(self: QWizard) i32 {
+        return qtc.QWizard_Options(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#setButtonText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` which: qwizard_enums.WizardButton `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetButtonText(self: ?*anyopaque, which: i32, text: []const u8) void {
+    pub fn SetButtonText(self: QWizard, which: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QWizard_SetButtonText(@ptrCast(self), @bitCast(which), text_str);
+        qtc.QWizard_SetButtonText(@ptrCast(self.ptr), @bitCast(which), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#buttonText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
-    ///
-    /// ` which: qwizard_enums.WizardButton `
+    /// ` self: QWizard `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ButtonText(self: ?*anyopaque, which: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWizard_ButtonText(@ptrCast(self), @bitCast(which));
+    /// ` which: qwizard_enums.WizardButton `
+    ///
+    pub fn ButtonText(self: QWizard, allocator: std.mem.Allocator, which: i32) []const u8 {
+        var _str = qtc.QWizard_ButtonText(@ptrCast(self.ptr), @bitCast(which));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizard.ButtonText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -550,149 +626,152 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` layout: []qwizard_enums.WizardButton `
     ///
-    pub fn SetButtonLayout(self: ?*anyopaque, layout: []i32) void {
+    pub fn SetButtonLayout(self: QWizard, layout: []i32) void {
         const layout_list = qtc.libqt_list{
             .len = layout.len,
             .data = layout.ptr,
         };
-        qtc.QWizard_SetButtonLayout(@ptrCast(self), layout_list);
+        qtc.QWizard_SetButtonLayout(@ptrCast(self.ptr), layout_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#setButton)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` which: qwizard_enums.WizardButton `
     ///
-    /// ` button: QtC.QAbstractButton `
+    /// ` button: QAbstractButton `
     ///
-    pub fn SetButton(self: ?*anyopaque, which: i32, button: ?*anyopaque) void {
-        qtc.QWizard_SetButton(@ptrCast(self), @bitCast(which), @ptrCast(button));
+    pub fn SetButton(self: QWizard, which: i32, button: anytype) void {
+        comptime _ = @TypeOf(button)._is_QAbstractButton;
+        qtc.QWizard_SetButton(@ptrCast(self.ptr), @bitCast(which), @ptrCast(button.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#button)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` which: qwizard_enums.WizardButton `
     ///
-    pub fn Button(self: ?*anyopaque, which: i32) QtC.QAbstractButton {
-        return qtc.QWizard_Button(@ptrCast(self), @bitCast(which));
+    pub fn Button(self: QWizard, which: i32) QAbstractButton {
+        return .{ .ptr = qtc.QWizard_Button(@ptrCast(self.ptr), @bitCast(which)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#setTitleFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` format: qnamespace_enums.TextFormat `
     ///
-    pub fn SetTitleFormat(self: ?*anyopaque, format: i32) void {
-        qtc.QWizard_SetTitleFormat(@ptrCast(self), @bitCast(format));
+    pub fn SetTitleFormat(self: QWizard, format: i32) void {
+        qtc.QWizard_SetTitleFormat(@ptrCast(self.ptr), @bitCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#titleFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.TextFormat `
     ///
-    pub fn TitleFormat(self: ?*anyopaque) i32 {
-        return qtc.QWizard_TitleFormat(@ptrCast(self));
+    pub fn TitleFormat(self: QWizard) i32 {
+        return qtc.QWizard_TitleFormat(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#setSubTitleFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` format: qnamespace_enums.TextFormat `
     ///
-    pub fn SetSubTitleFormat(self: ?*anyopaque, format: i32) void {
-        qtc.QWizard_SetSubTitleFormat(@ptrCast(self), @bitCast(format));
+    pub fn SetSubTitleFormat(self: QWizard, format: i32) void {
+        qtc.QWizard_SetSubTitleFormat(@ptrCast(self.ptr), @bitCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#subTitleFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.TextFormat `
     ///
-    pub fn SubTitleFormat(self: ?*anyopaque) i32 {
-        return qtc.QWizard_SubTitleFormat(@ptrCast(self));
+    pub fn SubTitleFormat(self: QWizard) i32 {
+        return qtc.QWizard_SubTitleFormat(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#setPixmap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` which: qwizard_enums.WizardPixmap `
     ///
-    /// ` pixmap: QtC.QPixmap `
+    /// ` pixmap: QPixmap `
     ///
-    pub fn SetPixmap(self: ?*anyopaque, which: i32, pixmap: ?*anyopaque) void {
-        qtc.QWizard_SetPixmap(@ptrCast(self), @bitCast(which), @ptrCast(pixmap));
+    pub fn SetPixmap(self: QWizard, which: i32, pixmap: anytype) void {
+        comptime _ = @TypeOf(pixmap)._is_QPixmap;
+        qtc.QWizard_SetPixmap(@ptrCast(self.ptr), @bitCast(which), @ptrCast(pixmap.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#pixmap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` which: qwizard_enums.WizardPixmap `
     ///
-    pub fn Pixmap(self: ?*anyopaque, which: i32) QtC.QPixmap {
-        return qtc.QWizard_Pixmap(@ptrCast(self), @bitCast(which));
+    pub fn Pixmap(self: QWizard, which: i32) QPixmap {
+        return .{ .ptr = qtc.QWizard_Pixmap(@ptrCast(self.ptr), @bitCast(which)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#setSideWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SetSideWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QWizard_SetSideWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn SetSideWidget(self: QWizard, widget: anytype) void {
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QWizard_SetSideWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#sideWidget)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SideWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWizard_SideWidget(@ptrCast(self));
+    pub fn SideWidget(self: QWizard) QWidget {
+        return .{ .ptr = qtc.QWizard_SideWidget(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#setDefaultProperty)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` className: [:0]const u8 `
     ///
@@ -700,23 +779,23 @@ pub const qwizard = struct {
     ///
     /// ` changedSignal: [:0]const u8 `
     ///
-    pub fn SetDefaultProperty(self: ?*anyopaque, className: [:0]const u8, property: [:0]const u8, changedSignal: [:0]const u8) void {
+    pub fn SetDefaultProperty(self: QWizard, className: [:0]const u8, property: [:0]const u8, changedSignal: [:0]const u8) void {
         const className_Cstring = className.ptr;
         const property_Cstring = property.ptr;
         const changedSignal_Cstring = changedSignal.ptr;
-        qtc.QWizard_SetDefaultProperty(@ptrCast(self), className_Cstring, property_Cstring, changedSignal_Cstring);
+        qtc.QWizard_SetDefaultProperty(@ptrCast(self.ptr), className_Cstring, property_Cstring, changedSignal_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#setVisible)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QWizard_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: QWizard, visible: bool) void {
+        qtc.QWizard_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#setVisible)
@@ -725,12 +804,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QWizard_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetVisible(self: QWizard, callback: *const fn (QWizard, bool) callconv(.c) void) void {
+        qtc.QWizard_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetVisible` instead
@@ -743,22 +822,22 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QWizard_SuperSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: QWizard, visible: bool) void {
+        qtc.QWizard_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#sizeHint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWizard_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: QWizard) QSize {
+        return .{ .ptr = qtc.QWizard_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#sizeHint)
@@ -767,12 +846,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QWizard_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHint(self: QWizard, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QWizard_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSizeHint` instead
@@ -785,182 +864,183 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWizard_SuperSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: QWizard) QSize {
+        return .{ .ptr = qtc.QWizard_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#currentIdChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` id: i32 `
     ///
-    pub fn CurrentIdChanged(self: ?*anyopaque, id: i32) void {
-        qtc.QWizard_CurrentIdChanged(@ptrCast(self), @bitCast(id));
+    pub fn CurrentIdChanged(self: QWizard, id: i32) void {
+        qtc.QWizard_CurrentIdChanged(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#currentIdChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, id: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, id: i32) callconv(.c) void `
     ///
-    pub fn OnCurrentIdChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWizard_Connect_CurrentIdChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCurrentIdChanged(self: QWizard, callback: *const fn (QWizard, i32) callconv(.c) void) void {
+        qtc.QWizard_Connect_CurrentIdChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#helpRequested)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn HelpRequested(self: ?*anyopaque) void {
-        qtc.QWizard_HelpRequested(@ptrCast(self));
+    pub fn HelpRequested(self: QWizard) void {
+        qtc.QWizard_HelpRequested(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#helpRequested)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard) callconv(.c) void `
     ///
-    pub fn OnHelpRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_Connect_HelpRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHelpRequested(self: QWizard, callback: *const fn (QWizard) callconv(.c) void) void {
+        qtc.QWizard_Connect_HelpRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#customButtonClicked)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` which: i32 `
     ///
-    pub fn CustomButtonClicked(self: ?*anyopaque, which: i32) void {
-        qtc.QWizard_CustomButtonClicked(@ptrCast(self), @bitCast(which));
+    pub fn CustomButtonClicked(self: QWizard, which: i32) void {
+        qtc.QWizard_CustomButtonClicked(@ptrCast(self.ptr), @bitCast(which));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#customButtonClicked)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, which: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, which: i32) callconv(.c) void `
     ///
-    pub fn OnCustomButtonClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWizard_Connect_CustomButtonClicked(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomButtonClicked(self: QWizard, callback: *const fn (QWizard, i32) callconv(.c) void) void {
+        qtc.QWizard_Connect_CustomButtonClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#pageAdded)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` id: i32 `
     ///
-    pub fn PageAdded(self: ?*anyopaque, id: i32) void {
-        qtc.QWizard_PageAdded(@ptrCast(self), @bitCast(id));
+    pub fn PageAdded(self: QWizard, id: i32) void {
+        qtc.QWizard_PageAdded(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#pageAdded)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, id: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, id: i32) callconv(.c) void `
     ///
-    pub fn OnPageAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWizard_Connect_PageAdded(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPageAdded(self: QWizard, callback: *const fn (QWizard, i32) callconv(.c) void) void {
+        qtc.QWizard_Connect_PageAdded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#pageRemoved)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` id: i32 `
     ///
-    pub fn PageRemoved(self: ?*anyopaque, id: i32) void {
-        qtc.QWizard_PageRemoved(@ptrCast(self), @bitCast(id));
+    pub fn PageRemoved(self: QWizard, id: i32) void {
+        qtc.QWizard_PageRemoved(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#pageRemoved)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, id: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, id: i32) callconv(.c) void `
     ///
-    pub fn OnPageRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWizard_Connect_PageRemoved(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPageRemoved(self: QWizard, callback: *const fn (QWizard, i32) callconv(.c) void) void {
+        qtc.QWizard_Connect_PageRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#back)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Back(self: ?*anyopaque) void {
-        qtc.QWizard_Back(@ptrCast(self));
+    pub fn Back(self: QWizard) void {
+        qtc.QWizard_Back(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#next)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Next(self: ?*anyopaque) void {
-        qtc.QWizard_Next(@ptrCast(self));
+    pub fn Next(self: QWizard) void {
+        qtc.QWizard_Next(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#setCurrentId)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetCurrentId(self: ?*anyopaque, id: i32) void {
-        qtc.QWizard_SetCurrentId(@ptrCast(self), @bitCast(id));
+    pub fn SetCurrentId(self: QWizard, id: i32) void {
+        qtc.QWizard_SetCurrentId(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#restart)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Restart(self: ?*anyopaque) void {
-        qtc.QWizard_Restart(@ptrCast(self));
+    pub fn Restart(self: QWizard) void {
+        qtc.QWizard_Restart(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#event)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QWizard_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QWizard, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QWizard_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#event)
@@ -969,12 +1049,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QWizard, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWizard_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QWizard, callback: *const fn (QWizard, QEvent) callconv(.c) bool) void {
+        qtc.QWizard_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -987,24 +1067,26 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QWizard_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QWizard, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QWizard_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#resizeEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_ResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ResizeEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.QWizard_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#resizeEvent)
@@ -1013,12 +1095,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QResizeEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResizeEvent(self: QWizard, callback: *const fn (QWizard, QResizeEvent) callconv(.c) void) void {
+        qtc.QWizard_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperResizeEvent` instead
@@ -1031,24 +1113,26 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.QWizard_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#paintEvent)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QPaintEvent `
+    /// ` event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_PaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn PaintEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QPaintEvent;
+        qtc.QWizard_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#paintEvent)
@@ -1057,12 +1141,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QPaintEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEvent(self: QWizard, callback: *const fn (QWizard, QPaintEvent) callconv(.c) void) void {
+        qtc.QWizard_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperPaintEvent` instead
@@ -1075,24 +1159,25 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QPaintEvent `
+    /// ` event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_SuperPaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperPaintEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QPaintEvent;
+        qtc.QWizard_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#done)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` result: i32 `
     ///
-    pub fn Done(self: ?*anyopaque, result: i32) void {
-        qtc.QWizard_Done(@ptrCast(self), @bitCast(result));
+    pub fn Done(self: QWizard, result: i32) void {
+        qtc.QWizard_Done(@ptrCast(self.ptr), @bitCast(result));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#done)
@@ -1101,12 +1186,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, result: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, result: i32) callconv(.c) void `
     ///
-    pub fn OnDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWizard_OnDone(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDone(self: QWizard, callback: *const fn (QWizard, i32) callconv(.c) void) void {
+        qtc.QWizard_OnDone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperDone` instead
@@ -1119,24 +1204,24 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` result: i32 `
     ///
-    pub fn SuperDone(self: ?*anyopaque, result: i32) void {
-        qtc.QWizard_SuperDone(@ptrCast(self), @bitCast(result));
+    pub fn SuperDone(self: QWizard, result: i32) void {
+        qtc.QWizard_SuperDone(@ptrCast(self.ptr), @bitCast(result));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#initializePage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` id: i32 `
     ///
-    pub fn InitializePage(self: ?*anyopaque, id: i32) void {
-        qtc.QWizard_InitializePage(@ptrCast(self), @bitCast(id));
+    pub fn InitializePage(self: QWizard, id: i32) void {
+        qtc.QWizard_InitializePage(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#initializePage)
@@ -1145,12 +1230,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, id: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, id: i32) callconv(.c) void `
     ///
-    pub fn OnInitializePage(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWizard_OnInitializePage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitializePage(self: QWizard, callback: *const fn (QWizard, i32) callconv(.c) void) void {
+        qtc.QWizard_OnInitializePage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperInitializePage` instead
@@ -1163,24 +1248,24 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` id: i32 `
     ///
-    pub fn SuperInitializePage(self: ?*anyopaque, id: i32) void {
-        qtc.QWizard_SuperInitializePage(@ptrCast(self), @bitCast(id));
+    pub fn SuperInitializePage(self: QWizard, id: i32) void {
+        qtc.QWizard_SuperInitializePage(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#cleanupPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` id: i32 `
     ///
-    pub fn CleanupPage(self: ?*anyopaque, id: i32) void {
-        qtc.QWizard_CleanupPage(@ptrCast(self), @bitCast(id));
+    pub fn CleanupPage(self: QWizard, id: i32) void {
+        qtc.QWizard_CleanupPage(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizard.html#cleanupPage)
@@ -1189,12 +1274,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, id: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, id: i32) callconv(.c) void `
     ///
-    pub fn OnCleanupPage(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWizard_OnCleanupPage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCleanupPage(self: QWizard, callback: *const fn (QWizard, i32) callconv(.c) void) void {
+        qtc.QWizard_OnCleanupPage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCleanupPage` instead
@@ -1207,25 +1292,25 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` id: i32 `
     ///
-    pub fn SuperCleanupPage(self: ?*anyopaque, id: i32) void {
-        qtc.QWizard_SuperCleanupPage(@ptrCast(self), @bitCast(id));
+    pub fn SuperCleanupPage(self: QWizard, id: i32) void {
+        qtc.QWizard_SuperCleanupPage(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -1239,15 +1324,15 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -1261,14 +1346,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` option: qwizard_enums.WizardOption `
     ///
     /// ` on: bool `
     ///
-    pub fn SetOption2(self: ?*anyopaque, option: i32, on: bool) void {
-        qtc.QWizard_SetOption2(@ptrCast(self), @bitCast(option), on);
+    pub fn SetOption2(self: QWizard, option: i32, on: bool) void {
+        qtc.QWizard_SetOption2(@ptrCast(self.ptr), @bitCast(option), on);
     }
 
     /// Inherited from QDialog
@@ -1277,10 +1362,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Result(self: ?*anyopaque) i32 {
-        return qtc.QDialog_Result(@ptrCast(self));
+    pub fn Result(self: QWizard) i32 {
+        return qtc.QDialog_Result(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -1289,12 +1374,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` sizeGripEnabled: bool `
     ///
-    pub fn SetSizeGripEnabled(self: ?*anyopaque, sizeGripEnabled: bool) void {
-        qtc.QDialog_SetSizeGripEnabled(@ptrCast(self), sizeGripEnabled);
+    pub fn SetSizeGripEnabled(self: QWizard, sizeGripEnabled: bool) void {
+        qtc.QDialog_SetSizeGripEnabled(@ptrCast(self.ptr), sizeGripEnabled);
     }
 
     /// Inherited from QDialog
@@ -1303,10 +1388,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn IsSizeGripEnabled(self: ?*anyopaque) bool {
-        return qtc.QDialog_IsSizeGripEnabled(@ptrCast(self));
+    pub fn IsSizeGripEnabled(self: QWizard) bool {
+        return qtc.QDialog_IsSizeGripEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -1315,12 +1400,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` modal: bool `
     ///
-    pub fn SetModal(self: ?*anyopaque, modal: bool) void {
-        qtc.QDialog_SetModal(@ptrCast(self), modal);
+    pub fn SetModal(self: QWizard, modal: bool) void {
+        qtc.QDialog_SetModal(@ptrCast(self.ptr), modal);
     }
 
     /// Inherited from QDialog
@@ -1329,12 +1414,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` r: i32 `
     ///
-    pub fn SetResult(self: ?*anyopaque, r: i32) void {
-        qtc.QDialog_SetResult(@ptrCast(self), @bitCast(r));
+    pub fn SetResult(self: QWizard, r: i32) void {
+        qtc.QDialog_SetResult(@ptrCast(self.ptr), @bitCast(r));
     }
 
     /// Inherited from QDialog
@@ -1343,12 +1428,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` result: i32 `
     ///
-    pub fn Finished(self: ?*anyopaque, result: i32) void {
-        qtc.QDialog_Finished(@ptrCast(self), @bitCast(result));
+    pub fn Finished(self: QWizard, result: i32) void {
+        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(result));
     }
 
     /// Inherited from QDialog
@@ -1357,12 +1442,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, result: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, result: i32) callconv(.c) void `
     ///
-    pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDialog_Connect_Finished(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFinished(self: QWizard, callback: *const fn (QWizard, i32) callconv(.c) void) void {
+        qtc.QDialog_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -1371,10 +1456,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Accepted(self: ?*anyopaque) void {
-        qtc.QDialog_Accepted(@ptrCast(self));
+    pub fn Accepted(self: QWizard) void {
+        qtc.QDialog_Accepted(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -1383,12 +1468,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard) callconv(.c) void `
     ///
-    pub fn OnAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QDialog_Connect_Accepted(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAccepted(self: QWizard, callback: *const fn (QWizard) callconv(.c) void) void {
+        qtc.QDialog_Connect_Accepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -1397,10 +1482,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Rejected(self: ?*anyopaque) void {
-        qtc.QDialog_Rejected(@ptrCast(self));
+    pub fn Rejected(self: QWizard) void {
+        qtc.QDialog_Rejected(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -1409,12 +1494,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard) callconv(.c) void `
     ///
-    pub fn OnRejected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QDialog_Connect_Rejected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRejected(self: QWizard, callback: *const fn (QWizard) callconv(.c) void) void {
+        qtc.QDialog_Connect_Rejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -1423,10 +1508,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn WinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_WinId(@ptrCast(self));
+    pub fn WinId(self: QWizard) usize {
+        return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1435,10 +1520,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn CreateWinId(self: ?*anyopaque) void {
-        qtc.QWidget_CreateWinId(@ptrCast(self));
+    pub fn CreateWinId(self: QWizard) void {
+        qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1447,10 +1532,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn InternalWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_InternalWinId(@ptrCast(self));
+    pub fn InternalWinId(self: QWizard) usize {
+        return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1459,10 +1544,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
+    pub fn EffectiveWinId(self: QWizard) usize {
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1471,10 +1556,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QWidget_Style(@ptrCast(self));
+    pub fn Style(self: QWizard) QStyle {
+        return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1483,12 +1568,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetStyle(self: QWizard, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// Inherited from QWidget
@@ -1497,10 +1583,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsTopLevel(@ptrCast(self));
+    pub fn IsTopLevel(self: QWizard) bool {
+        return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1509,10 +1595,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn IsWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindow(@ptrCast(self));
+    pub fn IsWindow(self: QWizard) bool {
+        return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1521,10 +1607,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn IsModal(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsModal(@ptrCast(self));
+    pub fn IsModal(self: QWizard) bool {
+        return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1533,14 +1619,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowModality(@ptrCast(self));
+    pub fn WindowModality(self: QWizard) i32 {
+        return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1549,12 +1635,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
+    pub fn SetWindowModality(self: QWizard, windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -1563,10 +1649,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: QWizard) bool {
+        return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1575,12 +1661,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsEnabledTo(self: QWizard, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -1589,12 +1676,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: QWizard, enabled: bool) void {
+        qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -1603,12 +1690,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
+    pub fn SetDisabled(self: QWizard, disabled: bool) void {
+        qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
 
     /// Inherited from QWidget
@@ -1617,12 +1704,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+    pub fn SetWindowModified(self: QWizard, windowModified: bool) void {
+        qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
 
     /// Inherited from QWidget
@@ -1631,10 +1718,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_FrameGeometry(@ptrCast(self));
+    pub fn FrameGeometry(self: QWizard) QRect {
+        return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1643,10 +1730,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Geometry(@ptrCast(self));
+    pub fn Geometry(self: QWizard) QRect {
+        return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1655,10 +1742,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_NormalGeometry(@ptrCast(self));
+    pub fn NormalGeometry(self: QWizard) QRect {
+        return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1667,10 +1754,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn X(self: ?*anyopaque) i32 {
-        return qtc.QWidget_X(@ptrCast(self));
+    pub fn X(self: QWizard) i32 {
+        return qtc.QWidget_X(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1679,10 +1766,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Y(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Y(@ptrCast(self));
+    pub fn Y(self: QWizard) i32 {
+        return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1691,10 +1778,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_Pos(@ptrCast(self));
+    pub fn Pos(self: QWizard) QPoint {
+        return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1703,10 +1790,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: QWizard) QSize {
+        return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1715,10 +1802,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_Size(@ptrCast(self));
+    pub fn Size(self: QWizard) QSize {
+        return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1727,10 +1814,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Width(@ptrCast(self));
+    pub fn Width(self: QWizard) i32 {
+        return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1739,10 +1826,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Height(@ptrCast(self));
+    pub fn Height(self: QWizard) i32 {
+        return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1751,10 +1838,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: QWizard) QRect {
+        return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1763,10 +1850,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ChildrenRect(@ptrCast(self));
+    pub fn ChildrenRect(self: QWizard) QRect {
+        return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1775,10 +1862,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
+    pub fn ChildrenRegion(self: QWizard) QRegion {
+        return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1787,10 +1874,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: QWizard) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1799,10 +1886,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: QWizard) QSize {
+        return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1811,10 +1898,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: QWizard) i32 {
+        return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1823,10 +1910,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: QWizard) i32 {
+        return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1835,10 +1922,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: QWizard) i32 {
+        return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1847,10 +1934,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: QWizard) i32 {
+        return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -1859,12 +1946,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` minimumSize: QtC.QSize `
+    /// ` minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+    pub fn SetMinimumSize(self: QWizard, minimumSize: anytype) void {
+        comptime _ = @TypeOf(minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1873,14 +1961,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` minw: i32 `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
+    pub fn SetMinimumSize2(self: QWizard, minw: i32, minh: i32) void {
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -1889,12 +1977,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` maximumSize: QtC.QSize `
+    /// ` maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+    pub fn SetMaximumSize(self: QWizard, maximumSize: anytype) void {
+        comptime _ = @TypeOf(maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -1903,14 +1992,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` maxw: i32 `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
+    pub fn SetMaximumSize2(self: QWizard, maxw: i32, maxh: i32) void {
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -1919,12 +2008,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
+    pub fn SetMinimumWidth(self: QWizard, minw: i32) void {
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -1933,12 +2022,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
+    pub fn SetMinimumHeight(self: QWizard, minh: i32) void {
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -1947,12 +2036,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
+    pub fn SetMaximumWidth(self: QWizard, maxw: i32) void {
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -1961,12 +2050,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
+    pub fn SetMaximumHeight(self: QWizard, maxh: i32) void {
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -1975,10 +2064,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeIncrement(@ptrCast(self));
+    pub fn SizeIncrement(self: QWizard) QSize {
+        return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -1987,12 +2076,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` sizeIncrement: QtC.QSize `
+    /// ` sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+    pub fn SetSizeIncrement(self: QWizard, sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
     }
 
     /// Inherited from QWidget
@@ -2001,14 +2091,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetSizeIncrement2(self: QWizard, w: i32, h: i32) void {
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2017,10 +2107,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_BaseSize(@ptrCast(self));
+    pub fn BaseSize(self: QWizard) QSize {
+        return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2029,12 +2119,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` baseSize: QtC.QSize `
+    /// ` baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+    pub fn SetBaseSize(self: QWizard, baseSize: anytype) void {
+        comptime _ = @TypeOf(baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -2043,14 +2134,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` basew: i32 `
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
+    pub fn SetBaseSize2(self: QWizard, basew: i32, baseh: i32) void {
+        qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -2059,12 +2150,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` fixedSize: QtC.QSize `
+    /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+    pub fn SetFixedSize(self: QWizard, fixedSize: anytype) void {
+        comptime _ = @TypeOf(fixedSize)._is_QSize;
+        qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -2073,14 +2165,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetFixedSize2(self: QWizard, w: i32, h: i32) void {
+        qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2089,12 +2181,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetFixedWidth(self: QWizard, w: i32) void {
+        qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -2103,12 +2195,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
+    pub fn SetFixedHeight(self: QWizard, h: i32) void {
+        qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -2117,12 +2209,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal(self: QWizard, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2131,12 +2224,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: QWizard, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2145,12 +2239,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal(self: QWizard, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2159,12 +2254,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: QWizard, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2173,12 +2269,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent(self: QWizard, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2187,12 +2284,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: QWizard, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2201,12 +2299,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent(self: QWizard, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2215,12 +2314,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: QWizard, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2229,14 +2329,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo(self: QWizard, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2245,14 +2347,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo2(self: QWizard, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2261,14 +2365,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom(self: QWizard, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2277,14 +2383,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom2(self: QWizard, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2293,10 +2401,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_Window(@ptrCast(self));
+    pub fn Window(self: QWizard) QWidget {
+        return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2305,10 +2413,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
+    pub fn NativeParentWidget(self: QWizard) QWidget {
+        return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2317,10 +2425,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
+    pub fn TopLevelWidget(self: QWizard) QWidget {
+        return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2329,10 +2437,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QWidget_Palette(@ptrCast(self));
+    pub fn Palette(self: QWizard) QPalette {
+        return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2341,12 +2449,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn SetPalette(self: QWizard, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// Inherited from QWidget
@@ -2355,12 +2464,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
+    pub fn SetBackgroundRole(self: QWizard, backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -2369,14 +2478,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_BackgroundRole(@ptrCast(self));
+    pub fn BackgroundRole(self: QWizard) i32 {
+        return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2385,12 +2494,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
+    pub fn SetForegroundRole(self: QWizard, foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -2399,14 +2508,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ForegroundRole(@ptrCast(self));
+    pub fn ForegroundRole(self: QWizard) i32 {
+        return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2415,10 +2524,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QWidget_Font(@ptrCast(self));
+    pub fn Font(self: QWizard) QFont {
+        return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2427,12 +2536,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: QWizard, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QWidget
@@ -2441,10 +2551,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QWidget_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: QWizard) QFontMetrics {
+        return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2453,10 +2563,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QWidget_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: QWizard) QFontInfo {
+        return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2465,10 +2575,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
-        return qtc.QWidget_Cursor(@ptrCast(self));
+    pub fn Cursor(self: QWizard) QCursor {
+        return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2477,12 +2587,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetCursor(self: QWizard, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QWidget
@@ -2491,10 +2602,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn UnsetCursor(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetCursor(@ptrCast(self));
+    pub fn UnsetCursor(self: QWizard) void {
+        qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2503,12 +2614,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
+    pub fn SetMouseTracking(self: QWizard, enable: bool) void {
+        qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -2517,10 +2628,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
+    pub fn HasMouseTracking(self: QWizard) bool {
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2529,10 +2640,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.QWidget_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: QWizard) bool {
+        return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2541,12 +2652,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
+    pub fn SetTabletTracking(self: QWizard, enable: bool) void {
+        qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -2555,10 +2666,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
+    pub fn HasTabletTracking(self: QWizard) bool {
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2567,12 +2678,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` mask: QtC.QBitmap `
+    /// ` mask: QBitmap `
     ///
-    pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask(self: QWizard, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -2581,12 +2693,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` mask: QtC.QRegion `
+    /// ` mask: QRegion `
     ///
-    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: QWizard, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -2595,10 +2708,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_Mask(@ptrCast(self));
+    pub fn Mask(self: QWizard) QRegion {
+        return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2607,10 +2720,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn ClearMask(self: ?*anyopaque) void {
-        qtc.QWidget_ClearMask(@ptrCast(self));
+    pub fn ClearMask(self: QWizard) void {
+        qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2619,12 +2732,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
+    pub fn Render(self: QWizard, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QWidget
@@ -2633,12 +2747,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: QWizard, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -2647,10 +2762,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab(@ptrCast(self));
+    pub fn Grab(self: QWizard) QPixmap {
+        return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2659,10 +2774,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
-        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
+    pub fn GraphicsEffect(self: QWizard) QGraphicsEffect {
+        return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2671,12 +2786,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` effect: QtC.QGraphicsEffect `
+    /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+    pub fn SetGraphicsEffect(self: QWizard, effect: anytype) void {
+        comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
 
     /// Inherited from QWidget
@@ -2685,12 +2801,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn GrabGesture(self: QWizard, typeVal: i32) void {
+        qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -2699,12 +2815,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn UngrabGesture(self: QWizard, typeVal: i32) void {
+        qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -2713,16 +2829,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
+    pub fn SetWindowTitle(self: QWizard, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
-        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
 
     /// Inherited from QWidget
@@ -2731,16 +2847,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
+    pub fn SetStyleSheet(self: QWizard, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
-        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
 
     /// Inherited from QWidget
@@ -2749,12 +2865,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: QWizard, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizard.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2767,12 +2883,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+    pub fn WindowTitle(self: QWizard, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizard.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2785,12 +2901,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetWindowIcon(self: QWizard, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -2799,10 +2916,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QWidget_WindowIcon(@ptrCast(self));
+    pub fn WindowIcon(self: QWizard) QIcon {
+        return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -2811,16 +2928,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
+    pub fn SetWindowIconText(self: QWizard, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
-        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
 
     /// Inherited from QWidget
@@ -2829,12 +2946,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+    pub fn WindowIconText(self: QWizard, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizard.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2847,16 +2964,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
+    pub fn SetWindowRole(self: QWizard, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
-        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
 
     /// Inherited from QWidget
@@ -2865,12 +2982,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
+    pub fn WindowRole(self: QWizard, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizard.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2883,16 +3000,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
+    pub fn SetWindowFilePath(self: QWizard, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
 
     /// Inherited from QWidget
@@ -2901,12 +3018,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+    pub fn WindowFilePath(self: QWizard, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizard.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2919,12 +3036,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetWindowOpacity(self: QWizard, level: f64) void {
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -2933,10 +3050,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return qtc.QWidget_WindowOpacity(@ptrCast(self));
+    pub fn WindowOpacity(self: QWizard) f64 {
+        return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2945,10 +3062,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindowModified(@ptrCast(self));
+    pub fn IsWindowModified(self: QWizard) bool {
+        return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -2957,16 +3074,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: QWizard, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// Inherited from QWidget
@@ -2975,12 +3092,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: QWizard, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizard.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2993,12 +3110,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
+    pub fn SetToolTipDuration(self: QWizard, msec: i32) void {
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -3007,10 +3124,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
+    pub fn ToolTipDuration(self: QWizard) i32 {
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3019,16 +3136,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: QWizard, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QWidget
@@ -3037,12 +3154,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: QWizard, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizard.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3055,16 +3172,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: QWizard, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// Inherited from QWidget
@@ -3073,12 +3190,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: QWizard, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizard.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3091,12 +3208,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+    pub fn AccessibleName(self: QWizard, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizard.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3109,16 +3226,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetAccessibleName(self: QWizard, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QWidget
@@ -3127,12 +3244,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+    pub fn AccessibleDescription(self: QWizard, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizard.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3145,16 +3262,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetAccessibleDescription(self: QWizard, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// Inherited from QWidget
@@ -3163,12 +3280,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: QWizard, direction: i32) void {
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -3177,14 +3294,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QWidget_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: QWizard) i32 {
+        return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3193,10 +3310,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
+    pub fn UnsetLayoutDirection(self: QWizard) void {
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3205,12 +3322,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: QWizard, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// Inherited from QWidget
@@ -3219,10 +3337,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QWidget_Locale(@ptrCast(self));
+    pub fn Locale(self: QWizard) QLocale {
+        return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3231,10 +3349,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn UnsetLocale(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLocale(@ptrCast(self));
+    pub fn UnsetLocale(self: QWizard) void {
+        qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3243,10 +3361,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
+    pub fn IsRightToLeft(self: QWizard) bool {
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3255,10 +3373,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
+    pub fn IsLeftToRight(self: QWizard) bool {
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3267,10 +3385,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SetFocus(self: ?*anyopaque) void {
-        qtc.QWidget_SetFocus(@ptrCast(self));
+    pub fn SetFocus(self: QWizard) void {
+        qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3279,10 +3397,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
+    pub fn IsActiveWindow(self: QWizard) bool {
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3291,10 +3409,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn ActivateWindow(self: ?*anyopaque) void {
-        qtc.QWidget_ActivateWindow(@ptrCast(self));
+    pub fn ActivateWindow(self: QWizard) void {
+        qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3303,10 +3421,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn ClearFocus(self: ?*anyopaque) void {
-        qtc.QWidget_ClearFocus(@ptrCast(self));
+    pub fn ClearFocus(self: QWizard) void {
+        qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3315,12 +3433,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
+    pub fn SetFocus2(self: QWizard, reason: i32) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -3329,14 +3447,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_FocusPolicy(@ptrCast(self));
+    pub fn FocusPolicy(self: QWizard) i32 {
+        return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3345,12 +3463,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetFocusPolicy(self: QWizard, policy: i32) void {
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -3359,10 +3477,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn HasFocus(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasFocus(@ptrCast(self));
+    pub fn HasFocus(self: QWizard) bool {
+        return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3371,12 +3489,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QWidget `
+    /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QWidget;
+        qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidget
@@ -3385,12 +3505,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` focusProxy: QtC.QWidget `
+    /// ` focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+    pub fn SetFocusProxy(self: QWizard, focusProxy: anytype) void {
+        comptime _ = @TypeOf(focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
     }
 
     /// Inherited from QWidget
@@ -3399,10 +3520,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusProxy(@ptrCast(self));
+    pub fn FocusProxy(self: QWizard) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3411,14 +3532,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
+    pub fn ContextMenuPolicy(self: QWizard) i32 {
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3427,12 +3548,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetContextMenuPolicy(self: QWizard, policy: i32) void {
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -3441,10 +3562,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn GrabMouse(self: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse(@ptrCast(self));
+    pub fn GrabMouse(self: QWizard) void {
+        qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3453,12 +3574,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: QWizard, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3467,10 +3589,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn ReleaseMouse(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseMouse(@ptrCast(self));
+    pub fn ReleaseMouse(self: QWizard) void {
+        qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3479,10 +3601,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn GrabKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_GrabKeyboard(@ptrCast(self));
+    pub fn GrabKeyboard(self: QWizard) void {
+        qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3491,10 +3613,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
+    pub fn ReleaseKeyboard(self: QWizard) void {
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3503,12 +3625,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+    pub fn GrabShortcut(self: QWizard, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// Inherited from QWidget
@@ -3517,12 +3640,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
+    pub fn ReleaseShortcut(self: QWizard, id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -3531,12 +3654,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutEnabled(self: QWizard, id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -3545,28 +3668,28 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutAutoRepeat(self: QWizard, id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QtC.QWidget {
-        return qtc.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QtC.QWidget {
-        return qtc.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
 
     /// Inherited from QWidget
@@ -3575,10 +3698,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
+    pub fn UpdatesEnabled(self: QWizard) bool {
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3587,12 +3710,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+    pub fn SetUpdatesEnabled(self: QWizard, enable: bool) void {
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -3601,10 +3724,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    pub fn GraphicsProxyWidget(self: QWizard) QGraphicsProxyWidget {
+        return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -3613,10 +3736,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Update(self: ?*anyopaque) void {
-        qtc.QWidget_Update(@ptrCast(self));
+    pub fn Update(self: QWizard) void {
+        qtc.QWidget_Update(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3625,10 +3748,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Repaint(self: ?*anyopaque) void {
-        qtc.QWidget_Repaint(@ptrCast(self));
+    pub fn Repaint(self: QWizard) void {
+        qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3637,7 +3760,7 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` x: i32 `
     ///
@@ -3647,8 +3770,8 @@ pub const qwizard = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Update2(self: QWizard, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3657,12 +3780,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: QWizard, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3671,12 +3795,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: QWizard, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3685,7 +3810,7 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` x: i32 `
     ///
@@ -3695,8 +3820,8 @@ pub const qwizard = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Repaint2(self: QWizard, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3705,12 +3830,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: QWizard, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3719,12 +3845,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: QWizard, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3733,12 +3860,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
+    pub fn SetHidden(self: QWizard, hidden: bool) void {
+        qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
 
     /// Inherited from QWidget
@@ -3747,10 +3874,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QWidget_Show(@ptrCast(self));
+    pub fn Show(self: QWizard) void {
+        qtc.QWidget_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3759,10 +3886,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QWidget_Hide(@ptrCast(self));
+    pub fn Hide(self: QWizard) void {
+        qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3771,10 +3898,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn ShowMinimized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMinimized(@ptrCast(self));
+    pub fn ShowMinimized(self: QWizard) void {
+        qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3783,10 +3910,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn ShowMaximized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMaximized(@ptrCast(self));
+    pub fn ShowMaximized(self: QWizard) void {
+        qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3795,10 +3922,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn ShowFullScreen(self: ?*anyopaque) void {
-        qtc.QWidget_ShowFullScreen(@ptrCast(self));
+    pub fn ShowFullScreen(self: QWizard) void {
+        qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3807,10 +3934,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn ShowNormal(self: ?*anyopaque) void {
-        qtc.QWidget_ShowNormal(@ptrCast(self));
+    pub fn ShowNormal(self: QWizard) void {
+        qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3819,10 +3946,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Close(self: ?*anyopaque) bool {
-        return qtc.QWidget_Close(@ptrCast(self));
+    pub fn Close(self: QWizard) bool {
+        return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3831,10 +3958,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Raise(self: ?*anyopaque) void {
-        qtc.QWidget_Raise(@ptrCast(self));
+    pub fn Raise(self: QWizard) void {
+        qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3843,10 +3970,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Lower(self: ?*anyopaque) void {
-        qtc.QWidget_Lower(@ptrCast(self));
+    pub fn Lower(self: QWizard) void {
+        qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -3855,12 +3982,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+    pub fn StackUnder(self: QWizard, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3869,14 +3997,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn Move(self: QWizard, x: i32, y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -3885,12 +4013,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: QWizard, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3899,14 +4028,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn Resize(self: QWizard, w: i32, h: i32) void {
+        qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3915,12 +4044,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QSize `
+    /// ` param1: QSize `
     ///
-    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: QWizard, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -3929,7 +4059,7 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` x: i32 `
     ///
@@ -3939,8 +4069,8 @@ pub const qwizard = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetGeometry(self: QWizard, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -3949,12 +4079,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` geometry: QtC.QRect `
+    /// ` geometry: QRect `
     ///
-    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: QWizard, geometry: anytype) void {
+        comptime _ = @TypeOf(geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
     }
 
     /// Inherited from QWidget
@@ -3963,12 +4094,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+    pub fn SaveGeometry(self: QWizard, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qwizard.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3981,16 +4112,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
+    pub fn RestoreGeometry(self: QWizard, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
-        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
 
     /// Inherited from QWidget
@@ -3999,10 +4130,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QWidget_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: QWizard) void {
+        qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4011,10 +4142,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: QWizard) bool {
+        return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4023,12 +4154,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsVisibleTo(self: QWizard, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -4037,10 +4169,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn IsHidden(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsHidden(@ptrCast(self));
+    pub fn IsHidden(self: QWizard) bool {
+        return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4049,10 +4181,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn IsMinimized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMinimized(@ptrCast(self));
+    pub fn IsMinimized(self: QWizard) bool {
+        return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4061,10 +4193,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn IsMaximized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMaximized(@ptrCast(self));
+    pub fn IsMaximized(self: QWizard) bool {
+        return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4073,10 +4205,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsFullScreen(@ptrCast(self));
+    pub fn IsFullScreen(self: QWizard) bool {
+        return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4085,14 +4217,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowState(@ptrCast(self));
+    pub fn WindowState(self: QWizard) i32 {
+        return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4101,12 +4233,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
+    pub fn SetWindowState(self: QWizard, state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -4115,12 +4247,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
+    pub fn OverrideWindowState(self: QWizard, state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -4129,10 +4261,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QWidget_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: QWizard) QSizePolicy {
+        return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4141,12 +4273,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` sizePolicy: QtC.QSizePolicy `
+    /// ` sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
-        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    pub fn SetSizePolicy(self: QWizard, sizePolicy: anytype) void {
+        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
     }
 
     /// Inherited from QWidget
@@ -4155,14 +4288,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` horizontal: qsizepolicy_enums.Policy `
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
+    pub fn SetSizePolicy2(self: QWizard, horizontal: i32, vertical: i32) void {
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -4171,10 +4304,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_VisibleRegion(@ptrCast(self));
+    pub fn VisibleRegion(self: QWizard) QRegion {
+        return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4183,7 +4316,7 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` left: i32 `
     ///
@@ -4193,8 +4326,8 @@ pub const qwizard = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: QWizard, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -4203,12 +4336,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: QWizard, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QWidget
@@ -4217,10 +4351,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QWidget_ContentsMargins(@ptrCast(self));
+    pub fn ContentsMargins(self: QWizard) QMargins {
+        return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4229,10 +4363,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: QWizard) QRect {
+        return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4241,10 +4375,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidget_Layout(@ptrCast(self));
+    pub fn Layout(self: QWizard) QLayout {
+        return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4253,12 +4387,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` layout: QtC.QLayout `
+    /// ` layout: QLayout `
     ///
-    pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetLayout(self: QWizard, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// Inherited from QWidget
@@ -4267,10 +4402,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QWidget_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: QWizard) void {
+        qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4279,12 +4414,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QWizard, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QWidget
@@ -4293,14 +4429,15 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
+    pub fn SetParent2(self: QWizard, parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -4309,14 +4446,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Scroll(self: QWizard, dx: i32, dy: i32) void {
+        qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -4325,16 +4462,17 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    /// ` param3: QtC.QRect `
+    /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
+    pub fn Scroll2(self: QWizard, dx: i32, dy: i32, param3: anytype) void {
+        comptime _ = @TypeOf(param3)._is_QRect;
+        qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QWidget
@@ -4343,10 +4481,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusWidget(@ptrCast(self));
+    pub fn FocusWidget(self: QWizard) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4355,10 +4493,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
+    pub fn NextInFocusChain(self: QWizard) QWidget {
+        return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4367,10 +4505,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
+    pub fn PreviousInFocusChain(self: QWizard) QWidget {
+        return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4379,10 +4517,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return qtc.QWidget_AcceptDrops(@ptrCast(self));
+    pub fn AcceptDrops(self: QWizard) bool {
+        return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4391,12 +4529,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
+    pub fn SetAcceptDrops(self: QWizard, on: bool) void {
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QWidget
@@ -4405,12 +4543,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+    pub fn AddAction(self: QWizard, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -4419,16 +4558,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn AddActions(self: QWizard, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -4437,18 +4576,19 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn InsertActions(self: QWizard, before: anytype, actions: []QAction) void {
+        comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -4457,14 +4597,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn InsertAction(self: QWizard, before: anytype, action: anytype) void {
+        comptime _ = @TypeOf(before)._is_QAction;
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -4473,12 +4615,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn RemoveAction(self: QWizard, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -4487,16 +4630,17 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+    pub fn Actions(self: QWizard, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qwizard.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qwizard.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -4506,16 +4650,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: QWizard, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction2(@ptrCast(self), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -4524,18 +4668,19 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: QWizard, icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -4544,18 +4689,19 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: QWizard, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4564,20 +4710,22 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: QWizard, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4586,10 +4734,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: QWizard) QWidget {
+        return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4598,12 +4746,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetWindowFlags(self: QWizard, typeVal: i32) void {
+        qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -4612,14 +4760,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowFlags(@ptrCast(self));
+    pub fn WindowFlags(self: QWizard) i32 {
+        return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4628,12 +4776,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
+    pub fn SetWindowFlag(self: QWizard, param1: i32) void {
+        qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4642,12 +4790,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn OverrideWindowFlags(self: QWizard, typeVal: i32) void {
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -4656,14 +4804,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowType(@ptrCast(self));
+    pub fn WindowType(self: QWizard) i32 {
+        return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4674,8 +4822,8 @@ pub const qwizard = struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QtC.QWidget {
-        return qtc.QWidget_Find(@bitCast(param1));
+    pub fn Find(param1: usize) QWidget {
+        return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -4684,14 +4832,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: QWizard, x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QWidget
@@ -4700,12 +4848,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: QWizard, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4714,12 +4863,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: QWizard, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4728,12 +4878,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn SetAttribute(self: QWizard, param1: i32) void {
+        qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4742,12 +4892,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn TestAttribute(self: QWizard, param1: i32) bool {
+        return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -4756,10 +4906,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn EnsurePolished(self: ?*anyopaque) void {
-        qtc.QWidget_EnsurePolished(@ptrCast(self));
+    pub fn EnsurePolished(self: QWizard) void {
+        qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4768,12 +4918,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` child: QtC.QWidget `
+    /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+    pub fn IsAncestorOf(self: QWizard, child: anytype) bool {
+        comptime _ = @TypeOf(child)._is_QWidget;
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from QWidget
@@ -4782,10 +4933,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
+    pub fn AutoFillBackground(self: QWizard) bool {
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -4794,12 +4945,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+    pub fn SetAutoFillBackground(self: QWizard, enabled: bool) void {
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -4808,10 +4959,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
-        return qtc.QWidget_BackingStore(@ptrCast(self));
+    pub fn BackingStore(self: QWizard) QBackingStore {
+        return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4820,10 +4971,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QWidget_WindowHandle(@ptrCast(self));
+    pub fn WindowHandle(self: QWizard) QWindow {
+        return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4832,10 +4983,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
-        return qtc.QWidget_Screen(@ptrCast(self));
+    pub fn Screen(self: QWizard) QScreen {
+        return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4844,12 +4995,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+    pub fn SetScreen(self: QWizard, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QWidget
@@ -4858,10 +5010,11 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
+    pub fn CreateWindowContainer(window: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -4870,16 +5023,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn WindowTitleChanged(self: QWizard, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QWidget
@@ -4888,12 +5041,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowTitleChanged(self: QWizard, callback: *const fn (QWizard, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4902,12 +5055,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+    pub fn WindowIconChanged(self: QWizard, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -4916,12 +5070,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, icon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconChanged(self: QWizard, callback: *const fn (QWizard, QIcon) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4930,16 +5084,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
+    pub fn WindowIconTextChanged(self: QWizard, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
-        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
 
     /// Inherited from QWidget
@@ -4948,12 +5102,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, iconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconTextChanged(self: QWizard, callback: *const fn (QWizard, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4962,12 +5116,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+    pub fn CustomContextMenuRequested(self: QWizard, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QWidget
@@ -4976,12 +5131,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomContextMenuRequested(self: QWizard, callback: *const fn (QWizard, QPoint) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4990,14 +5145,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i32 {
-        return qtc.QWidget_InputMethodHints(@ptrCast(self));
+    pub fn InputMethodHints(self: QWizard) i32 {
+        return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -5006,12 +5161,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetInputMethodHints(self: QWizard, hints: i32) void {
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -5020,14 +5175,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: QWizard, target: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -5036,16 +5193,19 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render3(self: QWizard, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -5054,18 +5214,21 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render4(self: QWizard, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -5074,14 +5237,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: QWizard, painter: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -5090,16 +5255,19 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render32(self: QWizard, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -5108,18 +5276,21 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render42(self: QWizard, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -5128,12 +5299,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Grab1(self: QWizard, rectangle: anytype) QPixmap {
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5142,14 +5314,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
+    pub fn GrabGesture2(self: QWizard, typeVal: i32, flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -5158,14 +5330,15 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
+    pub fn GrabShortcut2(self: QWizard, key: anytype, context: i32) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -5174,14 +5347,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutEnabled2(self: QWizard, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -5190,14 +5363,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutAutoRepeat2(self: QWizard, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -5206,14 +5379,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetWindowFlag2(self: QWizard, param1: i32, on: bool) void {
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -5222,14 +5395,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetAttribute2(self: QWizard, param1: i32, on: bool) void {
+        qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -5238,12 +5411,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -5252,14 +5427,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
+    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QObject
@@ -5268,12 +5445,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QWizard, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizard.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -5286,12 +5463,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QWizard, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -5300,10 +5477,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QWizard) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5312,10 +5489,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QWizard) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5324,10 +5501,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QWizard) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5336,10 +5513,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QWizard) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5348,12 +5525,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QWizard, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -5362,10 +5539,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QWizard) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5374,12 +5551,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QWizard, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -5388,12 +5566,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QWizard, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -5402,12 +5580,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QWizard, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -5416,12 +5594,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QWizard, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -5430,12 +5608,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QWizard, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -5444,16 +5622,17 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QWizard, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qwizard.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qwizard.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -5463,12 +5642,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QWizard, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -5477,12 +5657,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QWizard, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -5491,18 +5672,20 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -5511,16 +5694,20 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5529,18 +5716,19 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QWizard, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -5549,18 +5737,20 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5569,16 +5759,20 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -5587,10 +5781,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QWizard) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5599,12 +5793,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QWizard, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -5613,10 +5808,11 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -5625,10 +5821,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QWizard) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5637,10 +5833,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QWizard) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5649,15 +5845,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QWizard, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -5666,13 +5863,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QWizard, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -5681,17 +5878,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QWizard, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qwizard.DynamicPropertyNames: Memory allocation failed");
@@ -5710,10 +5906,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QWizard) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5722,10 +5918,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QWizard) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5734,10 +5930,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QWizard) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5746,12 +5942,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QWizard, callback: *const fn (QWizard) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5760,10 +5956,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QWizard) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -5772,13 +5968,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QWizard, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -5787,10 +5983,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QWizard) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -5799,14 +5995,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QWizard, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -5815,14 +6011,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QWizard, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -5831,20 +6027,22 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -5853,18 +6051,22 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -5873,9 +6075,9 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5883,10 +6085,11 @@ pub const qwizard = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QWizard, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -5895,13 +6098,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QWizard, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -5910,15 +6113,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QWizard, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -5927,18 +6131,19 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QWizard, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5947,15 +6152,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QWizard, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -5964,12 +6170,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QWizard, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -5978,12 +6185,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QWizard, callback: *const fn (QWizard, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -5992,10 +6199,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: QWizard) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6004,10 +6211,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: QWizard) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6016,10 +6223,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: QWizard) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6028,10 +6235,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: QWizard) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6040,10 +6247,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: QWizard) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6052,10 +6259,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: QWizard) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6064,10 +6271,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: QWizard) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6076,10 +6283,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: QWizard) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6088,10 +6295,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: QWizard) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6100,10 +6307,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: QWizard) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6112,10 +6319,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: QWizard) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -6148,10 +6355,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWizard_MinimumSizeHint(@ptrCast(self));
+    pub fn MinimumSizeHint(self: QWizard) QSize {
+        return .{ .ptr = qtc.QWizard_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
@@ -6166,10 +6373,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWizard_SuperMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: QWizard) QSize {
+        return .{ .ptr = qtc.QWizard_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QDialog
@@ -6180,12 +6387,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QWizard_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumSizeHint(self: QWizard, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QWizard_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -6196,10 +6403,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Open(self: ?*anyopaque) void {
-        qtc.QWizard_Open(@ptrCast(self));
+    pub fn Open(self: QWizard) void {
+        qtc.QWizard_Open(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperOpen` instead
@@ -6214,10 +6421,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SuperOpen(self: ?*anyopaque) void {
-        qtc.QWizard_SuperOpen(@ptrCast(self));
+    pub fn SuperOpen(self: QWizard) void {
+        qtc.QWizard_SuperOpen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -6228,12 +6435,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnOpen(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QWizard_OnOpen(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnOpen(self: QWizard, callback: *const fn () callconv(.c) void) void {
+        qtc.QWizard_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -6244,10 +6451,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Exec(self: ?*anyopaque) i32 {
-        return qtc.QWizard_Exec(@ptrCast(self));
+    pub fn Exec(self: QWizard) i32 {
+        return qtc.QWizard_Exec(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperExec` instead
@@ -6262,10 +6469,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SuperExec(self: ?*anyopaque) i32 {
-        return qtc.QWizard_SuperExec(@ptrCast(self));
+    pub fn SuperExec(self: QWizard) i32 {
+        return qtc.QWizard_SuperExec(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -6276,12 +6483,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnExec(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QWizard_OnExec(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnExec(self: QWizard, callback: *const fn () callconv(.c) i32) void {
+        qtc.QWizard_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -6292,10 +6499,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Accept(self: ?*anyopaque) void {
-        qtc.QWizard_Accept(@ptrCast(self));
+    pub fn Accept(self: QWizard) void {
+        qtc.QWizard_Accept(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperAccept` instead
@@ -6310,10 +6517,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SuperAccept(self: ?*anyopaque) void {
-        qtc.QWizard_SuperAccept(@ptrCast(self));
+    pub fn SuperAccept(self: QWizard) void {
+        qtc.QWizard_SuperAccept(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -6324,12 +6531,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAccept(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QWizard_OnAccept(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAccept(self: QWizard, callback: *const fn () callconv(.c) void) void {
+        qtc.QWizard_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -6340,10 +6547,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Reject(self: ?*anyopaque) void {
-        qtc.QWizard_Reject(@ptrCast(self));
+    pub fn Reject(self: QWizard) void {
+        qtc.QWizard_Reject(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperReject` instead
@@ -6358,10 +6565,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SuperReject(self: ?*anyopaque) void {
-        qtc.QWizard_SuperReject(@ptrCast(self));
+    pub fn SuperReject(self: QWizard) void {
+        qtc.QWizard_SuperReject(@ptrCast(self.ptr));
     }
 
     /// Inherited from QDialog
@@ -6372,12 +6579,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReject(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QWizard_OnReject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReject(self: QWizard, callback: *const fn () callconv(.c) void) void {
+        qtc.QWizard_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -6388,12 +6595,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QKeyEvent `
+    /// ` param1: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWizard_KeyPressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn KeyPressEvent(self: QWizard, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QKeyEvent;
+        qtc.QWizard_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
@@ -6408,12 +6616,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QKeyEvent `
+    /// ` param1: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWizard_SuperKeyPressEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperKeyPressEvent(self: QWizard, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QKeyEvent;
+        qtc.QWizard_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -6424,12 +6633,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, param1: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, param1: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyPressEvent(self: QWizard, callback: *const fn (QWizard, QKeyEvent) callconv(.c) void) void {
+        qtc.QWizard_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -6440,12 +6649,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QCloseEvent `
+    /// ` param1: QCloseEvent `
     ///
-    pub fn CloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWizard_CloseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn CloseEvent(self: QWizard, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCloseEvent;
+        qtc.QWizard_CloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEvent` instead
@@ -6460,12 +6670,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QCloseEvent `
+    /// ` param1: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWizard_SuperCloseEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperCloseEvent(self: QWizard, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCloseEvent;
+        qtc.QWizard_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -6476,12 +6687,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, param1: QtC.QCloseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, param1: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEvent(self: QWizard, callback: *const fn (QWizard, QCloseEvent) callconv(.c) void) void {
+        qtc.QWizard_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -6492,12 +6703,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QShowEvent `
+    /// ` param1: QShowEvent `
     ///
-    pub fn ShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWizard_ShowEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ShowEvent(self: QWizard, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QShowEvent;
+        qtc.QWizard_ShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperShowEvent` instead
@@ -6512,12 +6724,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QShowEvent `
+    /// ` param1: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWizard_SuperShowEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperShowEvent(self: QWizard, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QShowEvent;
+        qtc.QWizard_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -6528,12 +6741,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, param1: QtC.QShowEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, param1: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShowEvent(self: QWizard, callback: *const fn (QWizard, QShowEvent) callconv(.c) void) void {
+        qtc.QWizard_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -6544,12 +6757,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QContextMenuEvent `
+    /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWizard_ContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ContextMenuEvent(self: QWizard, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
+        qtc.QWizard_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
@@ -6564,12 +6778,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QContextMenuEvent `
+    /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWizard_SuperContextMenuEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperContextMenuEvent(self: QWizard, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
+        qtc.QWizard_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -6580,12 +6795,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, param1: QtC.QContextMenuEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuEvent(self: QWizard, callback: *const fn (QWizard, QContextMenuEvent) callconv(.c) void) void {
+        qtc.QWizard_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -6596,14 +6811,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    /// ` param2: QtC.QEvent `
+    /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.QWizard_EventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn EventFilter(self: QWizard, param1: anytype, param2: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        comptime _ = @TypeOf(param2)._is_QEvent;
+        return qtc.QWizard_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -6618,14 +6835,16 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    /// ` param2: QtC.QEvent `
+    /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) bool {
-        return qtc.QWizard_SuperEventFilter(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn SuperEventFilter(self: QWizard, param1: anytype, param2: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        comptime _ = @TypeOf(param2)._is_QEvent;
+        return qtc.QWizard_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QDialog
@@ -6636,12 +6855,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, param1: QtC.QObject, param2: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QWizard, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWizard_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QWizard, callback: *const fn (QWizard, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QWizard_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6652,10 +6871,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.QWizard_DevType(@ptrCast(self));
+    pub fn DevType(self: QWizard) i32 {
+        return qtc.QWizard_DevType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDevType` instead
@@ -6670,10 +6889,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SuperDevType(self: ?*anyopaque) i32 {
-        return qtc.QWizard_SuperDevType(@ptrCast(self));
+    pub fn SuperDevType(self: QWizard) i32 {
+        return qtc.QWizard_SuperDevType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6684,12 +6903,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QWizard_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDevType(self: QWizard, callback: *const fn () callconv(.c) i32) void {
+        qtc.QWizard_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6700,12 +6919,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QWizard_HeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn HeightForWidth(self: QWizard, param1: i32) i32 {
+        return qtc.QWizard_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperHeightForWidth` instead
@@ -6720,12 +6939,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QWizard_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: QWizard, param1: i32) i32 {
+        return qtc.QWizard_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -6736,12 +6955,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, param1: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QWizard, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QWizard_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeightForWidth(self: QWizard, callback: *const fn (QWizard, i32) callconv(.c) i32) void {
+        qtc.QWizard_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6752,10 +6971,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QWizard_HasHeightForWidth(@ptrCast(self));
+    pub fn HasHeightForWidth(self: QWizard) bool {
+        return qtc.QWizard_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
@@ -6770,10 +6989,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QWizard_SuperHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: QWizard) bool {
+        return qtc.QWizard_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -6784,12 +7003,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QWizard_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasHeightForWidth(self: QWizard, callback: *const fn () callconv(.c) bool) void {
+        qtc.QWizard_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6800,10 +7019,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QWizard_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: QWizard) QPaintEngine {
+        return .{ .ptr = qtc.QWizard_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperPaintEngine` instead
@@ -6818,10 +7037,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QWizard_SuperPaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: QWizard) QPaintEngine {
+        return .{ .ptr = qtc.QWizard_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -6832,12 +7051,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QWizard_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEngine(self: QWizard, callback: *const fn () callconv(.c) QPaintEngine) void {
+        qtc.QWizard_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6848,12 +7067,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_MousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MousePressEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QWizard_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMousePressEvent` instead
@@ -6868,12 +7088,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QWizard_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6884,12 +7105,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMousePressEvent(self: QWizard, callback: *const fn (QWizard, QMouseEvent) callconv(.c) void) void {
+        qtc.QWizard_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6900,12 +7121,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseReleaseEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QWizard_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
@@ -6920,12 +7142,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QWizard_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6936,12 +7159,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseReleaseEvent(self: QWizard, callback: *const fn (QWizard, QMouseEvent) callconv(.c) void) void {
+        qtc.QWizard_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6952,12 +7175,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseDoubleClickEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QWizard_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
@@ -6972,12 +7196,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QWizard_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -6988,12 +7213,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseDoubleClickEvent(self: QWizard, callback: *const fn (QWizard, QMouseEvent) callconv(.c) void) void {
+        qtc.QWizard_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7004,12 +7229,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseMoveEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QWizard_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
@@ -7024,12 +7250,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QWizard_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7040,12 +7267,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseMoveEvent(self: QWizard, callback: *const fn (QWizard, QMouseEvent) callconv(.c) void) void {
+        qtc.QWizard_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7056,12 +7283,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_WheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn WheelEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.QWizard_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperWheelEvent` instead
@@ -7076,12 +7304,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.QWizard_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7092,12 +7321,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QWheelEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWheelEvent(self: QWizard, callback: *const fn (QWizard, QWheelEvent) callconv(.c) void) void {
+        qtc.QWizard_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7108,12 +7337,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyReleaseEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QWizard_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
@@ -7128,12 +7358,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QWizard_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7144,12 +7375,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyReleaseEvent(self: QWizard, callback: *const fn (QWizard, QKeyEvent) callconv(.c) void) void {
+        qtc.QWizard_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7160,12 +7391,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_FocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusInEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QWizard_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusInEvent` instead
@@ -7180,12 +7412,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QWizard_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7196,12 +7429,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusInEvent(self: QWizard, callback: *const fn (QWizard, QFocusEvent) callconv(.c) void) void {
+        qtc.QWizard_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7212,12 +7445,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_FocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusOutEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QWizard_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
@@ -7232,12 +7466,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QWizard_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7248,12 +7483,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusOutEvent(self: QWizard, callback: *const fn (QWizard, QFocusEvent) callconv(.c) void) void {
+        qtc.QWizard_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7264,12 +7499,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_EnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn EnterEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QWizard_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEnterEvent` instead
@@ -7284,12 +7520,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QWizard_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7300,12 +7537,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnterEvent(self: QWizard, callback: *const fn (QWizard, QEnterEvent) callconv(.c) void) void {
+        qtc.QWizard_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7316,12 +7553,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_LeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn LeaveEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QWizard_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLeaveEvent` instead
@@ -7336,12 +7574,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QWizard_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7352,12 +7591,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeaveEvent(self: QWizard, callback: *const fn (QWizard, QEvent) callconv(.c) void) void {
+        qtc.QWizard_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7368,12 +7607,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_MoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MoveEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QWizard_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMoveEvent` instead
@@ -7388,12 +7628,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QWizard_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7404,12 +7645,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveEvent(self: QWizard, callback: *const fn (QWizard, QMoveEvent) callconv(.c) void) void {
+        qtc.QWizard_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7420,12 +7661,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_TabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TabletEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QWizard_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTabletEvent` instead
@@ -7440,12 +7682,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QWizard_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7456,12 +7699,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QTabletEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabletEvent(self: QWizard, callback: *const fn (QWizard, QTabletEvent) callconv(.c) void) void {
+        qtc.QWizard_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7472,12 +7715,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_ActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ActionEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QWizard_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperActionEvent` instead
@@ -7492,12 +7736,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_SuperActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QWizard_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7508,12 +7753,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QActionEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionEvent(self: QWizard, callback: *const fn (QWizard, QActionEvent) callconv(.c) void) void {
+        qtc.QWizard_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7524,12 +7769,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_DragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragEnterEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QWizard_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
@@ -7544,12 +7790,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QWizard_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7560,12 +7807,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QDragEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragEnterEvent(self: QWizard, callback: *const fn (QWizard, QDragEnterEvent) callconv(.c) void) void {
+        qtc.QWizard_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7576,12 +7823,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_DragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragMoveEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QWizard_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
@@ -7596,12 +7844,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QWizard_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7612,12 +7861,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QDragMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragMoveEvent(self: QWizard, callback: *const fn (QWizard, QDragMoveEvent) callconv(.c) void) void {
+        qtc.QWizard_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7628,12 +7877,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragLeaveEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QWizard_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
@@ -7648,12 +7898,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QWizard_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7664,12 +7915,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QDragLeaveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragLeaveEvent(self: QWizard, callback: *const fn (QWizard, QDragLeaveEvent) callconv(.c) void) void {
+        qtc.QWizard_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7680,12 +7931,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_DropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DropEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QWizard_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropEvent` instead
@@ -7700,12 +7952,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_SuperDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QWizard_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7716,12 +7969,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QDropEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropEvent(self: QWizard, callback: *const fn (QWizard, QDropEvent) callconv(.c) void) void {
+        qtc.QWizard_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7732,12 +7985,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_HideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn HideEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QWizard_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHideEvent` instead
@@ -7752,12 +8006,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_SuperHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QWizard_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -7768,12 +8023,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QHideEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHideEvent(self: QWizard, callback: *const fn (QWizard, QHideEvent) callconv(.c) void) void {
+        qtc.QWizard_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7784,7 +8039,7 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` eventType: []u8 `
     ///
@@ -7792,12 +8047,12 @@ pub const qwizard = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn NativeEvent(self: QWizard, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QWizard_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QWizard_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### DEPRECATED: Use `SuperNativeEvent` instead
@@ -7812,7 +8067,7 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` eventType: []u8 `
     ///
@@ -7820,12 +8075,12 @@ pub const qwizard = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: QWizard, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QWizard_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QWizard_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -7836,12 +8091,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QWizard, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QWizard_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNativeEvent(self: QWizard, callback: *const fn (QWizard, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.QWizard_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7852,12 +8107,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWizard_ChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ChangeEvent(self: QWizard, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.QWizard_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChangeEvent` instead
@@ -7872,12 +8128,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWizard_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: QWizard, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.QWizard_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -7888,12 +8145,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, param1: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangeEvent(self: QWizard, callback: *const fn (QWizard, QEvent) callconv(.c) void) void {
+        qtc.QWizard_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7904,12 +8161,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QWizard_Metric(@ptrCast(self), @bitCast(param1));
+    pub fn Metric(self: QWizard, param1: i32) i32 {
+        return qtc.QWizard_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperMetric` instead
@@ -7924,12 +8181,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QWizard_SuperMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: QWizard, param1: i32) i32 {
+        return qtc.QWizard_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -7940,12 +8197,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QWizard, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QWizard_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetric(self: QWizard, callback: *const fn (QWizard, i32) callconv(.c) i32) void {
+        qtc.QWizard_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7956,12 +8213,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWizard_InitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn InitPainter(self: QWizard, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWizard_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitPainter` instead
@@ -7976,12 +8234,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWizard_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: QWizard, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWizard_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -7992,12 +8251,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, painter: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitPainter(self: QWizard, callback: *const fn (QWizard, QPainter) callconv(.c) void) void {
+        qtc.QWizard_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8008,12 +8267,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QWizard_Redirected(@ptrCast(self), @ptrCast(offset));
+    pub fn Redirected(self: QWizard, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QWizard_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperRedirected` instead
@@ -8028,12 +8288,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QWizard_SuperRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: QWizard, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QWizard_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8044,12 +8305,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    /// ` callback: *const fn (self: QWizard, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QWizard_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: QWizard, callback: *const fn (QWizard, QPoint) callconv(.c) QPaintDevice) void {
+        qtc.QWizard_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8060,10 +8321,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QWizard_SharedPainter(@ptrCast(self));
+    pub fn SharedPainter(self: QWizard) QPainter {
+        return .{ .ptr = qtc.QWizard_SharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSharedPainter` instead
@@ -8078,10 +8339,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QWizard_SuperSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: QWizard) QPainter {
+        return .{ .ptr = qtc.QWizard_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -8092,12 +8353,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QWizard_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSharedPainter(self: QWizard, callback: *const fn () callconv(.c) QPainter) void {
+        qtc.QWizard_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8108,12 +8369,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWizard_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn InputMethodEvent(self: QWizard, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QWizard_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
@@ -8128,12 +8390,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWizard_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: QWizard, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QWizard_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -8144,12 +8407,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, param1: QtC.QInputMethodEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodEvent(self: QWizard, callback: *const fn (QWizard, QInputMethodEvent) callconv(.c) void) void {
+        qtc.QWizard_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8160,12 +8423,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QWizard_InputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn InputMethodQuery(self: QWizard, param1: i32) QVariant {
+        return .{ .ptr = qtc.QWizard_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
@@ -8180,12 +8443,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QWizard_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: QWizard, param1: i32) QVariant {
+        return .{ .ptr = qtc.QWizard_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -8196,12 +8459,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QWizard, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QWizard_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodQuery(self: QWizard, callback: *const fn (QWizard, i32) callconv(.c) QVariant) void {
+        qtc.QWizard_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8212,12 +8475,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QWizard_FocusNextPrevChild(@ptrCast(self), next);
+    pub fn FocusNextPrevChild(self: QWizard, next: bool) bool {
+        return qtc.QWizard_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
@@ -8232,12 +8495,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QWizard_SuperFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: QWizard, next: bool) bool {
+        return qtc.QWizard_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// Inherited from QWidget
@@ -8248,12 +8511,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, next: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: QWizard, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QWizard_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextPrevChild(self: QWizard, callback: *const fn (QWizard, bool) callconv(.c) bool) void {
+        qtc.QWizard_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8264,12 +8527,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QWizard_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -8284,12 +8548,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QWizard_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -8300,12 +8565,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QWizard, callback: *const fn (QWizard, QTimerEvent) callconv(.c) void) void {
+        qtc.QWizard_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8316,12 +8581,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QWizard_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -8336,12 +8602,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QWizard_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -8352,12 +8619,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QWizard, callback: *const fn (QWizard, QChildEvent) callconv(.c) void) void {
+        qtc.QWizard_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8368,12 +8635,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QWizard_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -8388,12 +8656,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizard_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QWizard, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QWizard_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -8404,12 +8673,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QWizard, callback: *const fn (QWizard, QEvent) callconv(.c) void) void {
+        qtc.QWizard_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8420,12 +8689,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWizard_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QWizard, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QWizard_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -8440,12 +8710,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWizard_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QWizard, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QWizard_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -8456,12 +8727,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QWizard, callback: *const fn (QWizard, QMetaMethod) callconv(.c) void) void {
+        qtc.QWizard_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8472,12 +8743,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWizard_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QWizard, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QWizard_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -8492,12 +8764,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWizard_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QWizard, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QWizard_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -8508,12 +8781,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QWizard, callback: *const fn (QWizard, QMetaMethod) callconv(.c) void) void {
+        qtc.QWizard_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -8524,12 +8797,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn AdjustPosition(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWizard_AdjustPosition(@ptrCast(self), @ptrCast(param1));
+    pub fn AdjustPosition(self: QWizard, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWizard_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperAdjustPosition` instead
@@ -8544,12 +8818,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn SuperAdjustPosition(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWizard_SuperAdjustPosition(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperAdjustPosition(self: QWizard, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWizard_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QDialog
@@ -8560,12 +8835,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, param1: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, param1: QWidget) callconv(.c) void `
     ///
-    pub fn OnAdjustPosition(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizard_OnAdjustPosition(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnAdjustPosition(self: QWizard, callback: *const fn (QWizard, QWidget) callconv(.c) void) void {
+        qtc.QWizard_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8576,10 +8851,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QWizard_UpdateMicroFocus(@ptrCast(self));
+    pub fn UpdateMicroFocus(self: QWizard) void {
+        qtc.QWizard_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
@@ -8594,10 +8869,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QWizard_SuperUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: QWizard) void {
+        qtc.QWizard_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8608,12 +8883,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QWizard_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateMicroFocus(self: QWizard, callback: *const fn () callconv(.c) void) void {
+        qtc.QWizard_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8624,10 +8899,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Create(self: ?*anyopaque) void {
-        qtc.QWizard_Create(@ptrCast(self));
+    pub fn Create(self: QWizard) void {
+        qtc.QWizard_Create(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -8642,10 +8917,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SuperCreate(self: ?*anyopaque) void {
-        qtc.QWizard_SuperCreate(@ptrCast(self));
+    pub fn SuperCreate(self: QWizard) void {
+        qtc.QWizard_SuperCreate(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8656,12 +8931,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QWizard_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: QWizard, callback: *const fn () callconv(.c) void) void {
+        qtc.QWizard_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8672,10 +8947,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Destroy(self: ?*anyopaque) void {
-        qtc.QWizard_Destroy(@ptrCast(self));
+    pub fn Destroy(self: QWizard) void {
+        qtc.QWizard_Destroy(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDestroy` instead
@@ -8690,10 +8965,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SuperDestroy(self: ?*anyopaque) void {
-        qtc.QWizard_SuperDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: QWizard) void {
+        qtc.QWizard_SuperDestroy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8704,12 +8979,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QWizard_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroy(self: QWizard, callback: *const fn () callconv(.c) void) void {
+        qtc.QWizard_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8720,10 +8995,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QWizard_FocusNextChild(@ptrCast(self));
+    pub fn FocusNextChild(self: QWizard) bool {
+        return qtc.QWizard_FocusNextChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextChild` instead
@@ -8738,10 +9013,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QWizard_SuperFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: QWizard) bool {
+        return qtc.QWizard_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8752,12 +9027,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QWizard_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextChild(self: QWizard, callback: *const fn () callconv(.c) bool) void {
+        qtc.QWizard_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8768,10 +9043,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QWizard_FocusPreviousChild(@ptrCast(self));
+    pub fn FocusPreviousChild(self: QWizard) bool {
+        return qtc.QWizard_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
@@ -8786,10 +9061,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QWizard_SuperFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: QWizard) bool {
+        return qtc.QWizard_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -8800,12 +9075,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QWizard_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusPreviousChild(self: QWizard, callback: *const fn () callconv(.c) bool) void {
+        qtc.QWizard_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8816,10 +9091,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QWizard_Sender(@ptrCast(self));
+    pub fn Sender(self: QWizard) QObject {
+        return .{ .ptr = qtc.QWizard_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -8834,10 +9109,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QWizard_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QWizard) QObject {
+        return .{ .ptr = qtc.QWizard_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -8848,12 +9123,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QWizard_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QWizard, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QWizard_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8864,10 +9139,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QWizard_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QWizard) i32 {
+        return qtc.QWizard_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -8882,10 +9157,10 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QWizard_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QWizard) i32 {
+        return qtc.QWizard_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -8896,12 +9171,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QWizard_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QWizard, callback: *const fn () callconv(.c) i32) void {
+        qtc.QWizard_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8912,13 +9187,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QWizard, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QWizard_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QWizard_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -8933,13 +9208,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QWizard, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QWizard_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QWizard_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -8950,12 +9225,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QWizard, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QWizard_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QWizard, callback: *const fn (QWizard, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QWizard_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -8966,12 +9241,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QWizard_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QWizard, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QWizard_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -8986,12 +9262,13 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QWizard_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QWizard, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QWizard_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -9002,12 +9279,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QWizard, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWizard_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QWizard, callback: *const fn (QWizard, QMetaMethod) callconv(.c) bool) void {
+        qtc.QWizard_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -9018,14 +9295,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QWizard_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn GetDecodedMetricF(self: QWizard, metricA: i32, metricB: i32) f64 {
+        return qtc.QWizard_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
@@ -9040,14 +9317,14 @@ pub const qwizard = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QWizard_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: QWizard, metricA: i32, metricB: i32) f64 {
+        return qtc.QWizard_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -9058,12 +9335,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard`
+    /// ` self: QWizard`
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    /// ` callback: *const fn (self: QWizard, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QWizard_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetDecodedMetricF(self: QWizard, callback: *const fn (QWizard, i32, i32) callconv(.c) f64) void {
+        qtc.QWizard_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9074,12 +9351,12 @@ pub const qwizard = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    /// ` callback: *const fn (self: QtC.QWizard, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizard, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QWizard, callback: *const fn (QWizard, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -9092,39 +9369,51 @@ pub const qwizard = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QWizard `
+    /// ` self: QWizard `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QWizard_Delete(@ptrCast(self));
+    pub fn Delete(self: QWizard) void {
+        qtc.QWizard_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html)
-pub const qwizardpage = struct {
+pub const QWizardPage = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QWizardPage,
+
+    pub const _is_QWizardPage = {};
+    pub const _is_QWidget = {};
+    pub const _is_QObject = {};
+    pub const _is_QPaintDevice = {};
+
     /// New constructs a new QWizardPage object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn New(parent: ?*anyopaque) QtC.QWizardPage {
-        return qtc.QWizardPage_new(@ptrCast(parent));
+    pub fn New(parent: anytype) QWizardPage {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWizardPage_new(@ptrCast(parent.ptr)) };
     }
 
     /// New2 constructs a new QWizardPage object.
     ///
-    pub fn New2() QtC.QWizardPage {
-        return qtc.QWizardPage_new2();
+    pub fn New2() QWizardPage {
+        return .{ .ptr = qtc.QWizardPage_new2() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QWizardPage_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QWizardPage) QMetaObject {
+        return .{ .ptr = qtc.QWizardPage_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -9133,12 +9422,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QWizardPage_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QWizardPage, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QWizardPage_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -9151,33 +9440,33 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QWizardPage_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QWizardPage) QMetaObject {
+        return .{ .ptr = qtc.QWizardPage_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QWizardPage, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QWizardPage_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QWizardPage_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QWizardPage, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QWizardPage_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QWizardPage, callback: *const fn (QWizardPage, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QWizardPage_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -9188,18 +9477,18 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QWizardPage, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QWizardPage_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QWizardPage_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -9207,20 +9496,20 @@ pub const qwizardpage = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QWizardPage_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QWizardPage, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QWizardPage_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QWizardPage, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QWizardPage_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QWizardPage, callback: *const fn (QWizardPage, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QWizardPage_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -9231,7 +9520,7 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -9239,19 +9528,19 @@ pub const qwizardpage = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QWizardPage_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QWizardPage, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QWizardPage_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -9264,28 +9553,28 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn SetTitle(self: ?*anyopaque, title: []const u8) void {
+    pub fn SetTitle(self: QWizardPage, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWizardPage_SetTitle(@ptrCast(self), title_str);
+        qtc.QWizardPage_SetTitle(@ptrCast(self.ptr), title_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#title)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Title(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWizardPage_Title(@ptrCast(self));
+    pub fn Title(self: QWizardPage, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWizardPage_Title(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizardpage.Title: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -9296,28 +9585,28 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` subTitle: []const u8 `
     ///
-    pub fn SetSubTitle(self: ?*anyopaque, subTitle: []const u8) void {
+    pub fn SetSubTitle(self: QWizardPage, subTitle: []const u8) void {
         const subTitle_str = qtc.libqt_string{
             .len = subTitle.len,
             .data = subTitle.ptr,
         };
-        qtc.QWizardPage_SetSubTitle(@ptrCast(self), subTitle_str);
+        qtc.QWizardPage_SetSubTitle(@ptrCast(self.ptr), subTitle_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#subTitle)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SubTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWizardPage_SubTitle(@ptrCast(self));
+    pub fn SubTitle(self: QWizardPage, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWizardPage_SubTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizardpage.SubTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -9328,102 +9617,103 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` which: qwizard_enums.WizardPixmap `
     ///
-    /// ` pixmap: QtC.QPixmap `
+    /// ` pixmap: QPixmap `
     ///
-    pub fn SetPixmap(self: ?*anyopaque, which: i32, pixmap: ?*anyopaque) void {
-        qtc.QWizardPage_SetPixmap(@ptrCast(self), @bitCast(which), @ptrCast(pixmap));
+    pub fn SetPixmap(self: QWizardPage, which: i32, pixmap: anytype) void {
+        comptime _ = @TypeOf(pixmap)._is_QPixmap;
+        qtc.QWizardPage_SetPixmap(@ptrCast(self.ptr), @bitCast(which), @ptrCast(pixmap.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#pixmap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` which: qwizard_enums.WizardPixmap `
     ///
-    pub fn Pixmap(self: ?*anyopaque, which: i32) QtC.QPixmap {
-        return qtc.QWizardPage_Pixmap(@ptrCast(self), @bitCast(which));
+    pub fn Pixmap(self: QWizardPage, which: i32) QPixmap {
+        return .{ .ptr = qtc.QWizardPage_Pixmap(@ptrCast(self.ptr), @bitCast(which)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#setFinalPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` finalPage: bool `
     ///
-    pub fn SetFinalPage(self: ?*anyopaque, finalPage: bool) void {
-        qtc.QWizardPage_SetFinalPage(@ptrCast(self), finalPage);
+    pub fn SetFinalPage(self: QWizardPage, finalPage: bool) void {
+        qtc.QWizardPage_SetFinalPage(@ptrCast(self.ptr), finalPage);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#isFinalPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn IsFinalPage(self: ?*anyopaque) bool {
-        return qtc.QWizardPage_IsFinalPage(@ptrCast(self));
+    pub fn IsFinalPage(self: QWizardPage) bool {
+        return qtc.QWizardPage_IsFinalPage(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#setCommitPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` commitPage: bool `
     ///
-    pub fn SetCommitPage(self: ?*anyopaque, commitPage: bool) void {
-        qtc.QWizardPage_SetCommitPage(@ptrCast(self), commitPage);
+    pub fn SetCommitPage(self: QWizardPage, commitPage: bool) void {
+        qtc.QWizardPage_SetCommitPage(@ptrCast(self.ptr), commitPage);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#isCommitPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn IsCommitPage(self: ?*anyopaque) bool {
-        return qtc.QWizardPage_IsCommitPage(@ptrCast(self));
+    pub fn IsCommitPage(self: QWizardPage) bool {
+        return qtc.QWizardPage_IsCommitPage(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#setButtonText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` which: qwizard_enums.WizardButton `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetButtonText(self: ?*anyopaque, which: i32, text: []const u8) void {
+    pub fn SetButtonText(self: QWizardPage, which: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QWizardPage_SetButtonText(@ptrCast(self), @bitCast(which), text_str);
+        qtc.QWizardPage_SetButtonText(@ptrCast(self.ptr), @bitCast(which), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#buttonText)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
-    ///
-    /// ` which: qwizard_enums.WizardButton `
+    /// ` self: QWizardPage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ButtonText(self: ?*anyopaque, which: i32, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWizardPage_ButtonText(@ptrCast(self), @bitCast(which));
+    /// ` which: qwizard_enums.WizardButton `
+    ///
+    pub fn ButtonText(self: QWizardPage, allocator: std.mem.Allocator, which: i32) []const u8 {
+        var _str = qtc.QWizardPage_ButtonText(@ptrCast(self.ptr), @bitCast(which));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizardpage.ButtonText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -9434,10 +9724,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn InitializePage(self: ?*anyopaque) void {
-        qtc.QWizardPage_InitializePage(@ptrCast(self));
+    pub fn InitializePage(self: QWizardPage) void {
+        qtc.QWizardPage_InitializePage(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#initializePage)
@@ -9446,12 +9736,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnInitializePage(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QWizardPage_OnInitializePage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitializePage(self: QWizardPage, callback: *const fn () callconv(.c) void) void {
+        qtc.QWizardPage_OnInitializePage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperInitializePage` instead
@@ -9464,20 +9754,20 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SuperInitializePage(self: ?*anyopaque) void {
-        qtc.QWizardPage_SuperInitializePage(@ptrCast(self));
+    pub fn SuperInitializePage(self: QWizardPage) void {
+        qtc.QWizardPage_SuperInitializePage(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#cleanupPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn CleanupPage(self: ?*anyopaque) void {
-        qtc.QWizardPage_CleanupPage(@ptrCast(self));
+    pub fn CleanupPage(self: QWizardPage) void {
+        qtc.QWizardPage_CleanupPage(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#cleanupPage)
@@ -9486,12 +9776,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCleanupPage(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QWizardPage_OnCleanupPage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCleanupPage(self: QWizardPage, callback: *const fn () callconv(.c) void) void {
+        qtc.QWizardPage_OnCleanupPage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperCleanupPage` instead
@@ -9504,20 +9794,20 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SuperCleanupPage(self: ?*anyopaque) void {
-        qtc.QWizardPage_SuperCleanupPage(@ptrCast(self));
+    pub fn SuperCleanupPage(self: QWizardPage) void {
+        qtc.QWizardPage_SuperCleanupPage(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#validatePage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn ValidatePage(self: ?*anyopaque) bool {
-        return qtc.QWizardPage_ValidatePage(@ptrCast(self));
+    pub fn ValidatePage(self: QWizardPage) bool {
+        return qtc.QWizardPage_ValidatePage(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#validatePage)
@@ -9526,12 +9816,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnValidatePage(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QWizardPage_OnValidatePage(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnValidatePage(self: QWizardPage, callback: *const fn () callconv(.c) bool) void {
+        qtc.QWizardPage_OnValidatePage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperValidatePage` instead
@@ -9544,20 +9834,20 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SuperValidatePage(self: ?*anyopaque) bool {
-        return qtc.QWizardPage_SuperValidatePage(@ptrCast(self));
+    pub fn SuperValidatePage(self: QWizardPage) bool {
+        return qtc.QWizardPage_SuperValidatePage(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#isComplete)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn IsComplete(self: ?*anyopaque) bool {
-        return qtc.QWizardPage_IsComplete(@ptrCast(self));
+    pub fn IsComplete(self: QWizardPage) bool {
+        return qtc.QWizardPage_IsComplete(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#isComplete)
@@ -9566,12 +9856,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsComplete(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QWizardPage_OnIsComplete(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsComplete(self: QWizardPage, callback: *const fn () callconv(.c) bool) void {
+        qtc.QWizardPage_OnIsComplete(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperIsComplete` instead
@@ -9584,20 +9874,20 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SuperIsComplete(self: ?*anyopaque) bool {
-        return qtc.QWizardPage_SuperIsComplete(@ptrCast(self));
+    pub fn SuperIsComplete(self: QWizardPage) bool {
+        return qtc.QWizardPage_SuperIsComplete(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#nextId)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn NextId(self: ?*anyopaque) i32 {
-        return qtc.QWizardPage_NextId(@ptrCast(self));
+    pub fn NextId(self: QWizardPage) i32 {
+        return qtc.QWizardPage_NextId(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#nextId)
@@ -9606,12 +9896,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnNextId(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QWizardPage_OnNextId(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNextId(self: QWizardPage, callback: *const fn () callconv(.c) i32) void {
+        qtc.QWizardPage_OnNextId(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperNextId` instead
@@ -9624,50 +9914,51 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SuperNextId(self: ?*anyopaque) i32 {
-        return qtc.QWizardPage_SuperNextId(@ptrCast(self));
+    pub fn SuperNextId(self: QWizardPage) i32 {
+        return qtc.QWizardPage_SuperNextId(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#completeChanged)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn CompleteChanged(self: ?*anyopaque) void {
-        qtc.QWizardPage_CompleteChanged(@ptrCast(self));
+    pub fn CompleteChanged(self: QWizardPage) void {
+        qtc.QWizardPage_CompleteChanged(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#completeChanged)
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage) callconv(.c) void `
     ///
-    pub fn OnCompleteChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_Connect_CompleteChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCompleteChanged(self: QWizardPage, callback: *const fn (QWizardPage) callconv(.c) void) void {
+        qtc.QWizardPage_Connect_CompleteChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#setField)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetField(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn SetField(self: QWizardPage, name: []const u8, value: anytype) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWizardPage_SetField(@ptrCast(self), name_str, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QWizardPage_SetField(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#setField)
@@ -9676,12 +9967,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, name: [*:0]const u8, value: QtC.QVariant) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, name: [*:0]const u8, value: QVariant) callconv(.c) void `
     ///
-    pub fn OnSetField(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnSetField(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetField(self: QWizardPage, callback: *const fn (QWizardPage, [*:0]const u8, QVariant) callconv(.c) void) void {
+        qtc.QWizardPage_OnSetField(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperSetField` instead
@@ -9694,34 +9985,35 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SuperSetField(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) void {
+    pub fn SuperSetField(self: QWizardPage, name: []const u8, value: anytype) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWizardPage_SuperSetField(@ptrCast(self), name_str, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QWizardPage_SuperSetField(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#field)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn Field(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn Field(self: QWizardPage, name: []const u8) QVariant {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QWizardPage_Field(@ptrCast(self), name_str);
+        return .{ .ptr = qtc.QWizardPage_Field(@ptrCast(self.ptr), name_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#field)
@@ -9730,12 +10022,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, name: [*:0]const u8) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QWizardPage, name: [*:0]const u8) callconv(.c) QVariant `
     ///
-    pub fn OnField(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QVariant) void {
-        qtc.QWizardPage_OnField(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnField(self: QWizardPage, callback: *const fn (QWizardPage, [*:0]const u8) callconv(.c) QVariant) void {
+        qtc.QWizardPage_OnField(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperField` instead
@@ -9748,34 +10040,35 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SuperField(self: ?*anyopaque, name: []const u8) QtC.QVariant {
+    pub fn SuperField(self: QWizardPage, name: []const u8) QVariant {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QWizardPage_SuperField(@ptrCast(self), name_str);
+        return .{ .ptr = qtc.QWizardPage_SuperField(@ptrCast(self.ptr), name_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#registerField)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn RegisterField(self: ?*anyopaque, name: []const u8, widget: ?*anyopaque) void {
+    pub fn RegisterField(self: QWizardPage, name: []const u8, widget: anytype) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWizardPage_RegisterField(@ptrCast(self), name_str, @ptrCast(widget));
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QWizardPage_RegisterField(@ptrCast(self.ptr), name_str, @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#registerField)
@@ -9784,12 +10077,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, name: [*:0]const u8, widget: QtC.QWidget) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, name: [*:0]const u8, widget: QWidget) callconv(.c) void `
     ///
-    pub fn OnRegisterField(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnRegisterField(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRegisterField(self: QWizardPage, callback: *const fn (QWizardPage, [*:0]const u8, QWidget) callconv(.c) void) void {
+        qtc.QWizardPage_OnRegisterField(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRegisterField` instead
@@ -9802,28 +10095,29 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn SuperRegisterField(self: ?*anyopaque, name: []const u8, widget: ?*anyopaque) void {
+    pub fn SuperRegisterField(self: QWizardPage, name: []const u8, widget: anytype) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWizardPage_SuperRegisterField(@ptrCast(self), name_str, @ptrCast(widget));
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.QWizardPage_SuperRegisterField(@ptrCast(self.ptr), name_str, @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#wizard)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Wizard(self: ?*anyopaque) QtC.QWizard {
-        return qtc.QWizardPage_Wizard(@ptrCast(self));
+    pub fn Wizard(self: QWizardPage) QWizard {
+        return .{ .ptr = qtc.QWizardPage_Wizard(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#wizard)
@@ -9832,12 +10126,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QWizard `
+    /// ` callback: *const fn () callconv(.c) QWizard `
     ///
-    pub fn OnWizard(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWizard) void {
-        qtc.QWizardPage_OnWizard(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWizard(self: QWizardPage, callback: *const fn () callconv(.c) QWizard) void {
+        qtc.QWizardPage_OnWizard(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperWizard` instead
@@ -9850,23 +10144,23 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SuperWizard(self: ?*anyopaque) QtC.QWizard {
-        return qtc.QWizardPage_SuperWizard(@ptrCast(self));
+    pub fn SuperWizard(self: QWizardPage) QWizard {
+        return .{ .ptr = qtc.QWizardPage_SuperWizard(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -9880,15 +10174,15 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -9902,21 +10196,22 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
     /// ` property: [:0]const u8 `
     ///
-    pub fn RegisterField3(self: ?*anyopaque, name: []const u8, widget: ?*anyopaque, property: [:0]const u8) void {
+    pub fn RegisterField3(self: QWizardPage, name: []const u8, widget: anytype, property: [:0]const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
+        comptime _ = @TypeOf(widget)._is_QWidget;
         const property_Cstring = property.ptr;
-        qtc.QWizardPage_RegisterField3(@ptrCast(self), name_str, @ptrCast(widget), property_Cstring);
+        qtc.QWizardPage_RegisterField3(@ptrCast(self.ptr), name_str, @ptrCast(widget.ptr), property_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#registerField)
@@ -9925,12 +10220,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, name: [*:0]const u8, widget: QtC.QWidget, property: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, name: [*:0]const u8, widget: QWidget, property: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnRegisterField3(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWizardPage_OnRegisterField3(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRegisterField3(self: QWizardPage, callback: *const fn (QWizardPage, [*:0]const u8, QWidget, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWizardPage_OnRegisterField3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRegisterField3` instead
@@ -9943,45 +10238,47 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
     /// ` property: [:0]const u8 `
     ///
-    pub fn SuperRegisterField3(self: ?*anyopaque, name: []const u8, widget: ?*anyopaque, property: [:0]const u8) void {
+    pub fn SuperRegisterField3(self: QWizardPage, name: []const u8, widget: anytype, property: [:0]const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
+        comptime _ = @TypeOf(widget)._is_QWidget;
         const property_Cstring = property.ptr;
-        qtc.QWizardPage_SuperRegisterField3(@ptrCast(self), name_str, @ptrCast(widget), property_Cstring);
+        qtc.QWizardPage_SuperRegisterField3(@ptrCast(self.ptr), name_str, @ptrCast(widget.ptr), property_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#registerField)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
     /// ` property: [:0]const u8 `
     ///
     /// ` changedSignal: [:0]const u8 `
     ///
-    pub fn RegisterField4(self: ?*anyopaque, name: []const u8, widget: ?*anyopaque, property: [:0]const u8, changedSignal: [:0]const u8) void {
+    pub fn RegisterField4(self: QWizardPage, name: []const u8, widget: anytype, property: [:0]const u8, changedSignal: [:0]const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
+        comptime _ = @TypeOf(widget)._is_QWidget;
         const property_Cstring = property.ptr;
         const changedSignal_Cstring = changedSignal.ptr;
-        qtc.QWizardPage_RegisterField4(@ptrCast(self), name_str, @ptrCast(widget), property_Cstring, changedSignal_Cstring);
+        qtc.QWizardPage_RegisterField4(@ptrCast(self.ptr), name_str, @ptrCast(widget.ptr), property_Cstring, changedSignal_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwizardpage.html#registerField)
@@ -9990,12 +10287,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, name: [*:0]const u8, widget: QtC.QWidget, property: [*:0]const u8, changedSignal: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, name: [*:0]const u8, widget: QWidget, property: [*:0]const u8, changedSignal: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnRegisterField4(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWizardPage_OnRegisterField4(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRegisterField4(self: QWizardPage, callback: *const fn (QWizardPage, [*:0]const u8, QWidget, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWizardPage_OnRegisterField4(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperRegisterField4` instead
@@ -10008,24 +10305,25 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` name: []const u8 `
     ///
-    /// ` widget: QtC.QWidget `
+    /// ` widget: QWidget `
     ///
     /// ` property: [:0]const u8 `
     ///
     /// ` changedSignal: [:0]const u8 `
     ///
-    pub fn SuperRegisterField4(self: ?*anyopaque, name: []const u8, widget: ?*anyopaque, property: [:0]const u8, changedSignal: [:0]const u8) void {
+    pub fn SuperRegisterField4(self: QWizardPage, name: []const u8, widget: anytype, property: [:0]const u8, changedSignal: [:0]const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
+        comptime _ = @TypeOf(widget)._is_QWidget;
         const property_Cstring = property.ptr;
         const changedSignal_Cstring = changedSignal.ptr;
-        qtc.QWizardPage_SuperRegisterField4(@ptrCast(self), name_str, @ptrCast(widget), property_Cstring, changedSignal_Cstring);
+        qtc.QWizardPage_SuperRegisterField4(@ptrCast(self.ptr), name_str, @ptrCast(widget.ptr), property_Cstring, changedSignal_Cstring);
     }
 
     /// Inherited from QWidget
@@ -10034,10 +10332,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn WinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_WinId(@ptrCast(self));
+    pub fn WinId(self: QWizardPage) usize {
+        return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10046,10 +10344,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn CreateWinId(self: ?*anyopaque) void {
-        qtc.QWidget_CreateWinId(@ptrCast(self));
+    pub fn CreateWinId(self: QWizardPage) void {
+        qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10058,10 +10356,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn InternalWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_InternalWinId(@ptrCast(self));
+    pub fn InternalWinId(self: QWizardPage) usize {
+        return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10070,10 +10368,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn EffectiveWinId(self: ?*anyopaque) usize {
-        return qtc.QWidget_EffectiveWinId(@ptrCast(self));
+    pub fn EffectiveWinId(self: QWizardPage) usize {
+        return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10082,10 +10380,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Style(self: ?*anyopaque) QtC.QStyle {
-        return qtc.QWidget_Style(@ptrCast(self));
+    pub fn Style(self: QWizardPage) QStyle {
+        return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10094,12 +10392,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` style: QtC.QStyle `
+    /// ` style: QStyle `
     ///
-    pub fn SetStyle(self: ?*anyopaque, style: ?*anyopaque) void {
-        qtc.QWidget_SetStyle(@ptrCast(self), @ptrCast(style));
+    pub fn SetStyle(self: QWizardPage, style: anytype) void {
+        comptime _ = @TypeOf(style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
     }
 
     /// Inherited from QWidget
@@ -10108,10 +10407,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn IsTopLevel(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsTopLevel(@ptrCast(self));
+    pub fn IsTopLevel(self: QWizardPage) bool {
+        return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10120,10 +10419,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn IsWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindow(@ptrCast(self));
+    pub fn IsWindow(self: QWizardPage) bool {
+        return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10132,10 +10431,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn IsModal(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsModal(@ptrCast(self));
+    pub fn IsModal(self: QWizardPage) bool {
+        return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10144,14 +10443,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowModality(@ptrCast(self));
+    pub fn WindowModality(self: QWizardPage) i32 {
+        return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10160,12 +10459,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self), @bitCast(windowModality));
+    pub fn SetWindowModality(self: QWizardPage, windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
     }
 
     /// Inherited from QWidget
@@ -10174,10 +10473,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn IsEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabled(@ptrCast(self));
+    pub fn IsEnabled(self: QWizardPage) bool {
+        return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10186,12 +10485,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsEnabledTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsEnabledTo(self: QWizardPage, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -10200,12 +10500,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetEnabled(@ptrCast(self), enabled);
+    pub fn SetEnabled(self: QWizardPage, enabled: bool) void {
+        qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -10214,12 +10514,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: ?*anyopaque, disabled: bool) void {
-        qtc.QWidget_SetDisabled(@ptrCast(self), disabled);
+    pub fn SetDisabled(self: QWizardPage, disabled: bool) void {
+        qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
 
     /// Inherited from QWidget
@@ -10228,12 +10528,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: ?*anyopaque, windowModified: bool) void {
-        qtc.QWidget_SetWindowModified(@ptrCast(self), windowModified);
+    pub fn SetWindowModified(self: QWizardPage, windowModified: bool) void {
+        qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
 
     /// Inherited from QWidget
@@ -10242,10 +10542,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn FrameGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_FrameGeometry(@ptrCast(self));
+    pub fn FrameGeometry(self: QWizardPage) QRect {
+        return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10254,10 +10554,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Geometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Geometry(@ptrCast(self));
+    pub fn Geometry(self: QWizardPage) QRect {
+        return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10266,10 +10566,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn NormalGeometry(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_NormalGeometry(@ptrCast(self));
+    pub fn NormalGeometry(self: QWizardPage) QRect {
+        return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10278,10 +10578,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn X(self: ?*anyopaque) i32 {
-        return qtc.QWidget_X(@ptrCast(self));
+    pub fn X(self: QWizardPage) i32 {
+        return qtc.QWidget_X(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10290,10 +10590,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Y(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Y(@ptrCast(self));
+    pub fn Y(self: QWizardPage) i32 {
+        return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10302,10 +10602,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Pos(self: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_Pos(@ptrCast(self));
+    pub fn Pos(self: QWizardPage) QPoint {
+        return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10314,10 +10614,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn FrameSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_FrameSize(@ptrCast(self));
+    pub fn FrameSize(self: QWizardPage) QSize {
+        return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10326,10 +10626,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Size(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_Size(@ptrCast(self));
+    pub fn Size(self: QWizardPage) QSize {
+        return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10338,10 +10638,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Width(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Width(@ptrCast(self));
+    pub fn Width(self: QWizardPage) i32 {
+        return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10350,10 +10650,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Height(self: ?*anyopaque) i32 {
-        return qtc.QWidget_Height(@ptrCast(self));
+    pub fn Height(self: QWizardPage) i32 {
+        return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10362,10 +10662,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Rect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_Rect(@ptrCast(self));
+    pub fn Rect(self: QWizardPage) QRect {
+        return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10374,10 +10674,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn ChildrenRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ChildrenRect(@ptrCast(self));
+    pub fn ChildrenRect(self: QWizardPage) QRect {
+        return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10386,10 +10686,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn ChildrenRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_ChildrenRegion(@ptrCast(self));
+    pub fn ChildrenRegion(self: QWizardPage) QRegion {
+        return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10398,10 +10698,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn MinimumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MinimumSize(@ptrCast(self));
+    pub fn MinimumSize(self: QWizardPage) QSize {
+        return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10410,10 +10710,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn MaximumSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_MaximumSize(@ptrCast(self));
+    pub fn MaximumSize(self: QWizardPage) QSize {
+        return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10422,10 +10722,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn MinimumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumWidth(@ptrCast(self));
+    pub fn MinimumWidth(self: QWizardPage) i32 {
+        return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10434,10 +10734,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn MinimumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MinimumHeight(@ptrCast(self));
+    pub fn MinimumHeight(self: QWizardPage) i32 {
+        return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10446,10 +10746,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn MaximumWidth(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumWidth(@ptrCast(self));
+    pub fn MaximumWidth(self: QWizardPage) i32 {
+        return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10458,10 +10758,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn MaximumHeight(self: ?*anyopaque) i32 {
-        return qtc.QWidget_MaximumHeight(@ptrCast(self));
+    pub fn MaximumHeight(self: QWizardPage) i32 {
+        return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10470,12 +10770,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` minimumSize: QtC.QSize `
+    /// ` minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: ?*anyopaque, minimumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMinimumSize(@ptrCast(self), @ptrCast(minimumSize));
+    pub fn SetMinimumSize(self: QWizardPage, minimumSize: anytype) void {
+        comptime _ = @TypeOf(minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -10484,14 +10785,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` minw: i32 `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: ?*anyopaque, minw: i32, minh: i32) void {
-        qtc.QWidget_SetMinimumSize2(@ptrCast(self), @bitCast(minw), @bitCast(minh));
+    pub fn SetMinimumSize2(self: QWizardPage, minw: i32, minh: i32) void {
+        qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -10500,12 +10801,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` maximumSize: QtC.QSize `
+    /// ` maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: ?*anyopaque, maximumSize: ?*anyopaque) void {
-        qtc.QWidget_SetMaximumSize(@ptrCast(self), @ptrCast(maximumSize));
+    pub fn SetMaximumSize(self: QWizardPage, maximumSize: anytype) void {
+        comptime _ = @TypeOf(maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -10514,14 +10816,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` maxw: i32 `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: ?*anyopaque, maxw: i32, maxh: i32) void {
-        qtc.QWidget_SetMaximumSize2(@ptrCast(self), @bitCast(maxw), @bitCast(maxh));
+    pub fn SetMaximumSize2(self: QWizardPage, maxw: i32, maxh: i32) void {
+        qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -10530,12 +10832,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: ?*anyopaque, minw: i32) void {
-        qtc.QWidget_SetMinimumWidth(@ptrCast(self), @bitCast(minw));
+    pub fn SetMinimumWidth(self: QWizardPage, minw: i32) void {
+        qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
 
     /// Inherited from QWidget
@@ -10544,12 +10846,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: ?*anyopaque, minh: i32) void {
-        qtc.QWidget_SetMinimumHeight(@ptrCast(self), @bitCast(minh));
+    pub fn SetMinimumHeight(self: QWizardPage, minh: i32) void {
+        qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
 
     /// Inherited from QWidget
@@ -10558,12 +10860,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: ?*anyopaque, maxw: i32) void {
-        qtc.QWidget_SetMaximumWidth(@ptrCast(self), @bitCast(maxw));
+    pub fn SetMaximumWidth(self: QWizardPage, maxw: i32) void {
+        qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
 
     /// Inherited from QWidget
@@ -10572,12 +10874,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: ?*anyopaque, maxh: i32) void {
-        qtc.QWidget_SetMaximumHeight(@ptrCast(self), @bitCast(maxh));
+    pub fn SetMaximumHeight(self: QWizardPage, maxh: i32) void {
+        qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
 
     /// Inherited from QWidget
@@ -10586,10 +10888,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SizeIncrement(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_SizeIncrement(@ptrCast(self));
+    pub fn SizeIncrement(self: QWizardPage) QSize {
+        return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10598,12 +10900,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` sizeIncrement: QtC.QSize `
+    /// ` sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: ?*anyopaque, sizeIncrement: ?*anyopaque) void {
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self), @ptrCast(sizeIncrement));
+    pub fn SetSizeIncrement(self: QWizardPage, sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
     }
 
     /// Inherited from QWidget
@@ -10612,14 +10915,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetSizeIncrement2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetSizeIncrement2(self: QWizardPage, w: i32, h: i32) void {
+        qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -10628,10 +10931,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn BaseSize(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWidget_BaseSize(@ptrCast(self));
+    pub fn BaseSize(self: QWizardPage) QSize {
+        return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10640,12 +10943,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` baseSize: QtC.QSize `
+    /// ` baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: ?*anyopaque, baseSize: ?*anyopaque) void {
-        qtc.QWidget_SetBaseSize(@ptrCast(self), @ptrCast(baseSize));
+    pub fn SetBaseSize(self: QWizardPage, baseSize: anytype) void {
+        comptime _ = @TypeOf(baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -10654,14 +10958,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` basew: i32 `
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: ?*anyopaque, basew: i32, baseh: i32) void {
-        qtc.QWidget_SetBaseSize2(@ptrCast(self), @bitCast(basew), @bitCast(baseh));
+    pub fn SetBaseSize2(self: QWizardPage, basew: i32, baseh: i32) void {
+        qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
 
     /// Inherited from QWidget
@@ -10670,12 +10974,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` fixedSize: QtC.QSize `
+    /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: ?*anyopaque, fixedSize: ?*anyopaque) void {
-        qtc.QWidget_SetFixedSize(@ptrCast(self), @ptrCast(fixedSize));
+    pub fn SetFixedSize(self: QWizardPage, fixedSize: anytype) void {
+        comptime _ = @TypeOf(fixedSize)._is_QSize;
+        qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
 
     /// Inherited from QWidget
@@ -10684,14 +10989,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_SetFixedSize2(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn SetFixedSize2(self: QWizardPage, w: i32, h: i32) void {
+        qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -10700,12 +11005,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: ?*anyopaque, w: i32) void {
-        qtc.QWidget_SetFixedWidth(@ptrCast(self), @bitCast(w));
+    pub fn SetFixedWidth(self: QWizardPage, w: i32) void {
+        qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
 
     /// Inherited from QWidget
@@ -10714,12 +11019,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: ?*anyopaque, h: i32) void {
-        qtc.QWidget_SetFixedHeight(@ptrCast(self), @bitCast(h));
+    pub fn SetFixedHeight(self: QWizardPage, h: i32) void {
+        qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -10728,12 +11033,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal(self: QWizardPage, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10742,12 +11048,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: QWizardPage, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10756,12 +11063,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromGlobal(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal(self: QWizardPage, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10770,12 +11078,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: QWizardPage, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10784,12 +11093,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapToParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent(self: QWizardPage, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10798,12 +11108,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: QWizardPage, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10812,12 +11123,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QPointF `
+    /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFromParent(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent(self: QWizardPage, param1: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10826,12 +11138,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: QWizardPage, param1: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10840,14 +11153,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapTo(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo(self: QWizardPage, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10856,14 +11171,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapTo2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapTo2(self: QWizardPage, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10872,14 +11189,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPointF `
+    /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPointF {
-        return qtc.QWidget_MapFrom(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom(self: QWizardPage, param1: anytype, param2: anytype) QPointF {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10888,14 +11207,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QPoint `
+    /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: ?*anyopaque, param1: ?*anyopaque, param2: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFrom2(@ptrCast(self), @ptrCast(param1), @ptrCast(param2));
+    pub fn MapFrom2(self: QWizardPage, param1: anytype, param2: anytype) QPoint {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10904,10 +11225,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Window(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_Window(@ptrCast(self));
+    pub fn Window(self: QWizardPage) QWidget {
+        return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10916,10 +11237,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn NativeParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NativeParentWidget(@ptrCast(self));
+    pub fn NativeParentWidget(self: QWizardPage) QWidget {
+        return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10928,10 +11249,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn TopLevelWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_TopLevelWidget(@ptrCast(self));
+    pub fn TopLevelWidget(self: QWizardPage) QWidget {
+        return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10940,10 +11261,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
-        return qtc.QWidget_Palette(@ptrCast(self));
+    pub fn Palette(self: QWizardPage) QPalette {
+        return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -10952,12 +11273,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` palette: QtC.QPalette `
+    /// ` palette: QPalette `
     ///
-    pub fn SetPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QWidget_SetPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn SetPalette(self: QWizardPage, palette: anytype) void {
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
     }
 
     /// Inherited from QWidget
@@ -10966,12 +11288,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self), @bitCast(backgroundRole));
+    pub fn SetBackgroundRole(self: QWizardPage, backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
     }
 
     /// Inherited from QWidget
@@ -10980,14 +11302,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_BackgroundRole(@ptrCast(self));
+    pub fn BackgroundRole(self: QWizardPage) i32 {
+        return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -10996,12 +11318,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self), @bitCast(foregroundRole));
+    pub fn SetForegroundRole(self: QWizardPage, foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
     }
 
     /// Inherited from QWidget
@@ -11010,14 +11332,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ## Returns:
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ForegroundRole(@ptrCast(self));
+    pub fn ForegroundRole(self: QWizardPage) i32 {
+        return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11026,10 +11348,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Font(self: ?*anyopaque) QtC.QFont {
-        return qtc.QWidget_Font(@ptrCast(self));
+    pub fn Font(self: QWizardPage) QFont {
+        return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11038,12 +11360,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` font: QtC.QFont `
+    /// ` font: QFont `
     ///
-    pub fn SetFont(self: ?*anyopaque, font: ?*anyopaque) void {
-        qtc.QWidget_SetFont(@ptrCast(self), @ptrCast(font));
+    pub fn SetFont(self: QWizardPage, font: anytype) void {
+        comptime _ = @TypeOf(font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
 
     /// Inherited from QWidget
@@ -11052,10 +11375,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn FontMetrics(self: ?*anyopaque) QtC.QFontMetrics {
-        return qtc.QWidget_FontMetrics(@ptrCast(self));
+    pub fn FontMetrics(self: QWizardPage) QFontMetrics {
+        return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11064,10 +11387,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn FontInfo(self: ?*anyopaque) QtC.QFontInfo {
-        return qtc.QWidget_FontInfo(@ptrCast(self));
+    pub fn FontInfo(self: QWizardPage) QFontInfo {
+        return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11076,10 +11399,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Cursor(self: ?*anyopaque) QtC.QCursor {
-        return qtc.QWidget_Cursor(@ptrCast(self));
+    pub fn Cursor(self: QWizardPage) QCursor {
+        return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11088,12 +11411,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` cursor: QtC.QCursor `
+    /// ` cursor: QCursor `
     ///
-    pub fn SetCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QWidget_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn SetCursor(self: QWizardPage, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// Inherited from QWidget
@@ -11102,10 +11426,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn UnsetCursor(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetCursor(@ptrCast(self));
+    pub fn UnsetCursor(self: QWizardPage) void {
+        qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11114,12 +11438,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetMouseTracking(@ptrCast(self), enable);
+    pub fn SetMouseTracking(self: QWizardPage, enable: bool) void {
+        qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -11128,10 +11452,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn HasMouseTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasMouseTracking(@ptrCast(self));
+    pub fn HasMouseTracking(self: QWizardPage) bool {
+        return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11140,10 +11464,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn UnderMouse(self: ?*anyopaque) bool {
-        return qtc.QWidget_UnderMouse(@ptrCast(self));
+    pub fn UnderMouse(self: QWizardPage) bool {
+        return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11152,12 +11476,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetTabletTracking(@ptrCast(self), enable);
+    pub fn SetTabletTracking(self: QWizardPage, enable: bool) void {
+        qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -11166,10 +11490,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn HasTabletTracking(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasTabletTracking(@ptrCast(self));
+    pub fn HasTabletTracking(self: QWizardPage) bool {
+        return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11178,12 +11502,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` mask: QtC.QBitmap `
+    /// ` mask: QBitmap `
     ///
-    pub fn SetMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask(self: QWizardPage, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -11192,12 +11517,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` mask: QtC.QRegion `
+    /// ` mask: QRegion `
     ///
-    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: QWizardPage, mask: anytype) void {
+        comptime _ = @TypeOf(mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
     }
 
     /// Inherited from QWidget
@@ -11206,10 +11532,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Mask(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_Mask(@ptrCast(self));
+    pub fn Mask(self: QWizardPage) QRegion {
+        return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11218,10 +11544,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn ClearMask(self: ?*anyopaque) void {
-        qtc.QWidget_ClearMask(@ptrCast(self));
+    pub fn ClearMask(self: QWizardPage) void {
+        qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11230,12 +11556,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: ?*anyopaque, target: ?*anyopaque) void {
-        qtc.QWidget_Render(@ptrCast(self), @ptrCast(target));
+    pub fn Render(self: QWizardPage, target: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
 
     /// Inherited from QWidget
@@ -11244,12 +11571,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: QWizardPage, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -11258,10 +11586,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Grab(self: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab(@ptrCast(self));
+    pub fn Grab(self: QWizardPage) QPixmap {
+        return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11270,10 +11598,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn GraphicsEffect(self: ?*anyopaque) QtC.QGraphicsEffect {
-        return qtc.QWidget_GraphicsEffect(@ptrCast(self));
+    pub fn GraphicsEffect(self: QWizardPage) QGraphicsEffect {
+        return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11282,12 +11610,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` effect: QtC.QGraphicsEffect `
+    /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: ?*anyopaque, effect: ?*anyopaque) void {
-        qtc.QWidget_SetGraphicsEffect(@ptrCast(self), @ptrCast(effect));
+    pub fn SetGraphicsEffect(self: QWizardPage, effect: anytype) void {
+        comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
+        qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
 
     /// Inherited from QWidget
@@ -11296,12 +11625,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_GrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn GrabGesture(self: QWizardPage, typeVal: i32) void {
+        qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -11310,12 +11639,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_UngrabGesture(@ptrCast(self), @bitCast(typeVal));
+    pub fn UngrabGesture(self: QWizardPage, typeVal: i32) void {
+        qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -11324,16 +11653,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
+    pub fn SetWindowTitle(self: QWizardPage, windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
-        qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
+        qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
 
     /// Inherited from QWidget
@@ -11342,16 +11671,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
+    pub fn SetStyleSheet(self: QWizardPage, styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
-        qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
+        qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
 
     /// Inherited from QWidget
@@ -11360,12 +11689,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StyleSheet(@ptrCast(self));
+    pub fn StyleSheet(self: QWizardPage, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizardpage.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11378,12 +11707,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowTitle(@ptrCast(self));
+    pub fn WindowTitle(self: QWizardPage, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizardpage.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11396,12 +11725,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_SetWindowIcon(@ptrCast(self), @ptrCast(icon));
+    pub fn SetWindowIcon(self: QWizardPage, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -11410,10 +11740,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn WindowIcon(self: ?*anyopaque) QtC.QIcon {
-        return qtc.QWidget_WindowIcon(@ptrCast(self));
+    pub fn WindowIcon(self: QWizardPage) QIcon {
+        return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11422,16 +11752,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
+    pub fn SetWindowIconText(self: QWizardPage, windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
-        qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
+        qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
 
     /// Inherited from QWidget
@@ -11440,12 +11770,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowIconText(@ptrCast(self));
+    pub fn WindowIconText(self: QWizardPage, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizardpage.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11458,16 +11788,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
+    pub fn SetWindowRole(self: QWizardPage, windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
-        qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
+        qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
 
     /// Inherited from QWidget
@@ -11476,12 +11806,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowRole(@ptrCast(self));
+    pub fn WindowRole(self: QWizardPage, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizardpage.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11494,16 +11824,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
+    pub fn SetWindowFilePath(self: QWizardPage, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
+        qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
 
     /// Inherited from QWidget
@@ -11512,12 +11842,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
+    pub fn WindowFilePath(self: QWizardPage, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizardpage.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11530,12 +11860,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: ?*anyopaque, level: f64) void {
-        qtc.QWidget_SetWindowOpacity(@ptrCast(self), @bitCast(level));
+    pub fn SetWindowOpacity(self: QWizardPage, level: f64) void {
+        qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
 
     /// Inherited from QWidget
@@ -11544,10 +11874,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn WindowOpacity(self: ?*anyopaque) f64 {
-        return qtc.QWidget_WindowOpacity(@ptrCast(self));
+    pub fn WindowOpacity(self: QWizardPage) f64 {
+        return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11556,10 +11886,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn IsWindowModified(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsWindowModified(@ptrCast(self));
+    pub fn IsWindowModified(self: QWizardPage) bool {
+        return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11568,16 +11898,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
+    pub fn SetToolTip(self: QWizardPage, toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
-        qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
+        qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
 
     /// Inherited from QWidget
@@ -11586,12 +11916,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_ToolTip(@ptrCast(self));
+    pub fn ToolTip(self: QWizardPage, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizardpage.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11604,12 +11934,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: ?*anyopaque, msec: i32) void {
-        qtc.QWidget_SetToolTipDuration(@ptrCast(self), @bitCast(msec));
+    pub fn SetToolTipDuration(self: QWizardPage, msec: i32) void {
+        qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
 
     /// Inherited from QWidget
@@ -11618,10 +11948,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn ToolTipDuration(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ToolTipDuration(@ptrCast(self));
+    pub fn ToolTipDuration(self: QWizardPage) i32 {
+        return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11630,16 +11960,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
+    pub fn SetStatusTip(self: QWizardPage, statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
-        qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
+        qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
 
     /// Inherited from QWidget
@@ -11648,12 +11978,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_StatusTip(@ptrCast(self));
+    pub fn StatusTip(self: QWizardPage, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizardpage.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11666,16 +11996,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
+    pub fn SetWhatsThis(self: QWizardPage, whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
-        qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
+        qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
 
     /// Inherited from QWidget
@@ -11684,12 +12014,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_WhatsThis(@ptrCast(self));
+    pub fn WhatsThis(self: QWizardPage, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizardpage.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11702,12 +12032,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleName(@ptrCast(self));
+    pub fn AccessibleName(self: QWizardPage, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizardpage.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11720,16 +12050,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetAccessibleName(self: QWizardPage, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
+        qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QWidget
@@ -11738,12 +12068,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
+    pub fn AccessibleDescription(self: QWizardPage, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizardpage.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -11756,16 +12086,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
+    pub fn SetAccessibleDescription(self: QWizardPage, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
+        qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
 
     /// Inherited from QWidget
@@ -11774,12 +12104,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
-        qtc.QWidget_SetLayoutDirection(@ptrCast(self), @bitCast(direction));
+    pub fn SetLayoutDirection(self: QWizardPage, direction: i32) void {
+        qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
 
     /// Inherited from QWidget
@@ -11788,14 +12118,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: ?*anyopaque) i32 {
-        return qtc.QWidget_LayoutDirection(@ptrCast(self));
+    pub fn LayoutDirection(self: QWizardPage) i32 {
+        return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11804,10 +12134,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn UnsetLayoutDirection(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self));
+    pub fn UnsetLayoutDirection(self: QWizardPage) void {
+        qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11816,12 +12146,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` locale: QtC.QLocale `
+    /// ` locale: QLocale `
     ///
-    pub fn SetLocale(self: ?*anyopaque, locale: ?*anyopaque) void {
-        qtc.QWidget_SetLocale(@ptrCast(self), @ptrCast(locale));
+    pub fn SetLocale(self: QWizardPage, locale: anytype) void {
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
     }
 
     /// Inherited from QWidget
@@ -11830,10 +12161,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Locale(self: ?*anyopaque) QtC.QLocale {
-        return qtc.QWidget_Locale(@ptrCast(self));
+    pub fn Locale(self: QWizardPage) QLocale {
+        return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -11842,10 +12173,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn UnsetLocale(self: ?*anyopaque) void {
-        qtc.QWidget_UnsetLocale(@ptrCast(self));
+    pub fn UnsetLocale(self: QWizardPage) void {
+        qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11854,10 +12185,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn IsRightToLeft(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsRightToLeft(@ptrCast(self));
+    pub fn IsRightToLeft(self: QWizardPage) bool {
+        return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11866,10 +12197,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn IsLeftToRight(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsLeftToRight(@ptrCast(self));
+    pub fn IsLeftToRight(self: QWizardPage) bool {
+        return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11878,10 +12209,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SetFocus(self: ?*anyopaque) void {
-        qtc.QWidget_SetFocus(@ptrCast(self));
+    pub fn SetFocus(self: QWizardPage) void {
+        qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11890,10 +12221,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn IsActiveWindow(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsActiveWindow(@ptrCast(self));
+    pub fn IsActiveWindow(self: QWizardPage) bool {
+        return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11902,10 +12233,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn ActivateWindow(self: ?*anyopaque) void {
-        qtc.QWidget_ActivateWindow(@ptrCast(self));
+    pub fn ActivateWindow(self: QWizardPage) void {
+        qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11914,10 +12245,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn ClearFocus(self: ?*anyopaque) void {
-        qtc.QWidget_ClearFocus(@ptrCast(self));
+    pub fn ClearFocus(self: QWizardPage) void {
+        qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11926,12 +12257,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
-        qtc.QWidget_SetFocus2(@ptrCast(self), @bitCast(reason));
+    pub fn SetFocus2(self: QWizardPage, reason: i32) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
 
     /// Inherited from QWidget
@@ -11940,14 +12271,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_FocusPolicy(@ptrCast(self));
+    pub fn FocusPolicy(self: QWizardPage) i32 {
+        return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11956,12 +12287,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetFocusPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetFocusPolicy(self: QWizardPage, policy: i32) void {
+        qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -11970,10 +12301,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn HasFocus(self: ?*anyopaque) bool {
-        return qtc.QWidget_HasFocus(@ptrCast(self));
+    pub fn HasFocus(self: QWizardPage) bool {
+        return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -11982,12 +12313,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    /// ` param2: QtC.QWidget `
+    /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: ?*anyopaque, param2: ?*anyopaque) void {
-        qtc.QWidget_SetTabOrder(@ptrCast(param1), @ptrCast(param2));
+    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        comptime _ = @TypeOf(param2)._is_QWidget;
+        qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
     /// Inherited from QWidget
@@ -11996,12 +12329,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` focusProxy: QtC.QWidget `
+    /// ` focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: ?*anyopaque, focusProxy: ?*anyopaque) void {
-        qtc.QWidget_SetFocusProxy(@ptrCast(self), @ptrCast(focusProxy));
+    pub fn SetFocusProxy(self: QWizardPage, focusProxy: anytype) void {
+        comptime _ = @TypeOf(focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
     }
 
     /// Inherited from QWidget
@@ -12010,10 +12344,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn FocusProxy(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusProxy(@ptrCast(self));
+    pub fn FocusProxy(self: QWizardPage) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12022,14 +12356,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
-        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
+    pub fn ContextMenuPolicy(self: QWizardPage) i32 {
+        return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12038,12 +12372,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
-        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @bitCast(policy));
+    pub fn SetContextMenuPolicy(self: QWizardPage, policy: i32) void {
+        qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
 
     /// Inherited from QWidget
@@ -12052,10 +12386,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn GrabMouse(self: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse(@ptrCast(self));
+    pub fn GrabMouse(self: QWizardPage) void {
+        qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12064,12 +12398,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QCursor `
+    /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: QWizardPage, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QCursor;
+        qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -12078,10 +12413,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn ReleaseMouse(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseMouse(@ptrCast(self));
+    pub fn ReleaseMouse(self: QWizardPage) void {
+        qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12090,10 +12425,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn GrabKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_GrabKeyboard(@ptrCast(self));
+    pub fn GrabKeyboard(self: QWizardPage) void {
+        qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12102,10 +12437,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn ReleaseKeyboard(self: ?*anyopaque) void {
-        qtc.QWidget_ReleaseKeyboard(@ptrCast(self));
+    pub fn ReleaseKeyboard(self: QWizardPage) void {
+        qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12114,12 +12449,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: ?*anyopaque, key: ?*anyopaque) i32 {
-        return qtc.QWidget_GrabShortcut(@ptrCast(self), @ptrCast(key));
+    pub fn GrabShortcut(self: QWizardPage, key: anytype) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// Inherited from QWidget
@@ -12128,12 +12464,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self), @bitCast(id));
+    pub fn ReleaseShortcut(self: QWizardPage, id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -12142,12 +12478,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutEnabled(self: QWizardPage, id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
@@ -12156,28 +12492,28 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: ?*anyopaque, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self), @bitCast(id));
+    pub fn SetShortcutAutoRepeat(self: QWizardPage, id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QtC.QWidget {
-        return qtc.QWidget_MouseGrabber();
+    pub fn MouseGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QtC.QWidget {
-        return qtc.QWidget_KeyboardGrabber();
+    pub fn KeyboardGrabber() QWidget {
+        return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
 
     /// Inherited from QWidget
@@ -12186,10 +12522,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn UpdatesEnabled(self: ?*anyopaque) bool {
-        return qtc.QWidget_UpdatesEnabled(@ptrCast(self));
+    pub fn UpdatesEnabled(self: QWizardPage) bool {
+        return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12198,12 +12534,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self), enable);
+    pub fn SetUpdatesEnabled(self: QWizardPage, enable: bool) void {
+        qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// Inherited from QWidget
@@ -12212,10 +12548,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn GraphicsProxyWidget(self: ?*anyopaque) QtC.QGraphicsProxyWidget {
-        return qtc.QWidget_GraphicsProxyWidget(@ptrCast(self));
+    pub fn GraphicsProxyWidget(self: QWizardPage) QGraphicsProxyWidget {
+        return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12224,10 +12560,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Update(self: ?*anyopaque) void {
-        qtc.QWidget_Update(@ptrCast(self));
+    pub fn Update(self: QWizardPage) void {
+        qtc.QWidget_Update(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12236,10 +12572,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Repaint(self: ?*anyopaque) void {
-        qtc.QWidget_Repaint(@ptrCast(self));
+    pub fn Repaint(self: QWizardPage) void {
+        qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12248,7 +12584,7 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` x: i32 `
     ///
@@ -12258,8 +12594,8 @@ pub const qwizardpage = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Update2(self: QWizardPage, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -12268,12 +12604,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: QWizardPage, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -12282,12 +12619,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: QWizardPage, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -12296,7 +12634,7 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` x: i32 `
     ///
@@ -12306,8 +12644,8 @@ pub const qwizardpage = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn Repaint2(self: QWizardPage, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -12316,12 +12654,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QRect `
+    /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: QWizardPage, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRect;
+        qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -12330,12 +12669,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QRegion `
+    /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: QWizardPage, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QRegion;
+        qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -12344,12 +12684,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: ?*anyopaque, hidden: bool) void {
-        qtc.QWidget_SetHidden(@ptrCast(self), hidden);
+    pub fn SetHidden(self: QWizardPage, hidden: bool) void {
+        qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
 
     /// Inherited from QWidget
@@ -12358,10 +12698,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Show(self: ?*anyopaque) void {
-        qtc.QWidget_Show(@ptrCast(self));
+    pub fn Show(self: QWizardPage) void {
+        qtc.QWidget_Show(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12370,10 +12710,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Hide(self: ?*anyopaque) void {
-        qtc.QWidget_Hide(@ptrCast(self));
+    pub fn Hide(self: QWizardPage) void {
+        qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12382,10 +12722,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn ShowMinimized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMinimized(@ptrCast(self));
+    pub fn ShowMinimized(self: QWizardPage) void {
+        qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12394,10 +12734,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn ShowMaximized(self: ?*anyopaque) void {
-        qtc.QWidget_ShowMaximized(@ptrCast(self));
+    pub fn ShowMaximized(self: QWizardPage) void {
+        qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12406,10 +12746,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn ShowFullScreen(self: ?*anyopaque) void {
-        qtc.QWidget_ShowFullScreen(@ptrCast(self));
+    pub fn ShowFullScreen(self: QWizardPage) void {
+        qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12418,10 +12758,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn ShowNormal(self: ?*anyopaque) void {
-        qtc.QWidget_ShowNormal(@ptrCast(self));
+    pub fn ShowNormal(self: QWizardPage) void {
+        qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12430,10 +12770,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Close(self: ?*anyopaque) bool {
-        return qtc.QWidget_Close(@ptrCast(self));
+    pub fn Close(self: QWizardPage) bool {
+        return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12442,10 +12782,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Raise(self: ?*anyopaque) void {
-        qtc.QWidget_Raise(@ptrCast(self));
+    pub fn Raise(self: QWizardPage) void {
+        qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12454,10 +12794,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Lower(self: ?*anyopaque) void {
-        qtc.QWidget_Lower(@ptrCast(self));
+    pub fn Lower(self: QWizardPage) void {
+        qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12466,12 +12806,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_StackUnder(@ptrCast(self), @ptrCast(param1));
+    pub fn StackUnder(self: QWizardPage, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -12480,14 +12821,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn Move(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn Move(self: QWizardPage, x: i32, y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
     /// Inherited from QWidget
@@ -12496,12 +12837,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QPoint `
+    /// ` param1: QPoint `
     ///
-    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: QWizardPage, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPoint;
+        qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -12510,14 +12852,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, w: i32, h: i32) void {
-        qtc.QWidget_Resize(@ptrCast(self), @bitCast(w), @bitCast(h));
+    pub fn Resize(self: QWizardPage, w: i32, h: i32) void {
+        qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -12526,12 +12868,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QSize `
+    /// ` param1: QSize `
     ///
-    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: QWizardPage, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QSize;
+        qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -12540,7 +12883,7 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` x: i32 `
     ///
@@ -12550,8 +12893,8 @@ pub const qwizardpage = struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn SetGeometry(self: QWizardPage, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
 
     /// Inherited from QWidget
@@ -12560,12 +12903,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` geometry: QtC.QRect `
+    /// ` geometry: QRect `
     ///
-    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: QWizardPage, geometry: anytype) void {
+        comptime _ = @TypeOf(geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
     }
 
     /// Inherited from QWidget
@@ -12574,12 +12918,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+    pub fn SaveGeometry(self: QWizardPage, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qwizardpage.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -12592,16 +12936,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
+    pub fn RestoreGeometry(self: QWizardPage, geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
-        return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
+        return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
 
     /// Inherited from QWidget
@@ -12610,10 +12954,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn AdjustSize(self: ?*anyopaque) void {
-        qtc.QWidget_AdjustSize(@ptrCast(self));
+    pub fn AdjustSize(self: QWizardPage) void {
+        qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12622,10 +12966,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn IsVisible(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisible(@ptrCast(self));
+    pub fn IsVisible(self: QWizardPage) bool {
+        return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12634,12 +12978,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QWidget `
+    /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: ?*anyopaque, param1: ?*anyopaque) bool {
-        return qtc.QWidget_IsVisibleTo(@ptrCast(self), @ptrCast(param1));
+    pub fn IsVisibleTo(self: QWizardPage, param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QWidget;
+        return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -12648,10 +12993,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn IsHidden(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsHidden(@ptrCast(self));
+    pub fn IsHidden(self: QWizardPage) bool {
+        return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12660,10 +13005,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn IsMinimized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMinimized(@ptrCast(self));
+    pub fn IsMinimized(self: QWizardPage) bool {
+        return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12672,10 +13017,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn IsMaximized(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsMaximized(@ptrCast(self));
+    pub fn IsMaximized(self: QWizardPage) bool {
+        return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12684,10 +13029,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn IsFullScreen(self: ?*anyopaque) bool {
-        return qtc.QWidget_IsFullScreen(@ptrCast(self));
+    pub fn IsFullScreen(self: QWizardPage) bool {
+        return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12696,14 +13041,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowState(@ptrCast(self));
+    pub fn WindowState(self: QWizardPage) i32 {
+        return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12712,12 +13057,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self), @bitCast(state));
+    pub fn SetWindowState(self: QWizardPage, state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -12726,12 +13071,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: ?*anyopaque, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self), @bitCast(state));
+    pub fn OverrideWindowState(self: QWizardPage, state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
 
     /// Inherited from QWidget
@@ -12740,10 +13085,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SizePolicy(self: ?*anyopaque) QtC.QSizePolicy {
-        return qtc.QWidget_SizePolicy(@ptrCast(self));
+    pub fn SizePolicy(self: QWizardPage) QSizePolicy {
+        return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12752,12 +13097,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` sizePolicy: QtC.QSizePolicy `
+    /// ` sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: ?*anyopaque, sizePolicy: QtC.QSizePolicy) void {
-        qtc.QWidget_SetSizePolicy(@ptrCast(self), @ptrCast(sizePolicy));
+    pub fn SetSizePolicy(self: QWizardPage, sizePolicy: anytype) void {
+        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
     }
 
     /// Inherited from QWidget
@@ -12766,14 +13112,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` horizontal: qsizepolicy_enums.Policy `
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
-        qtc.QWidget_SetSizePolicy2(@ptrCast(self), @bitCast(horizontal), @bitCast(vertical));
+    pub fn SetSizePolicy2(self: QWizardPage, horizontal: i32, vertical: i32) void {
+        qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
 
     /// Inherited from QWidget
@@ -12782,10 +13128,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn VisibleRegion(self: ?*anyopaque) QtC.QRegion {
-        return qtc.QWidget_VisibleRegion(@ptrCast(self));
+    pub fn VisibleRegion(self: QWizardPage) QRegion {
+        return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12794,7 +13140,7 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` left: i32 `
     ///
@@ -12804,8 +13150,8 @@ pub const qwizardpage = struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: ?*anyopaque, left: i32, top: i32, right: i32, bottom: i32) void {
-        qtc.QWidget_SetContentsMargins(@ptrCast(self), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
+    pub fn SetContentsMargins(self: QWizardPage, left: i32, top: i32, right: i32, bottom: i32) void {
+        qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
     /// Inherited from QWidget
@@ -12814,12 +13160,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` margins: QtC.QMargins `
+    /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: QWizardPage, margins: anytype) void {
+        comptime _ = @TypeOf(margins)._is_QMargins;
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
 
     /// Inherited from QWidget
@@ -12828,10 +13175,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn ContentsMargins(self: ?*anyopaque) QtC.QMargins {
-        return qtc.QWidget_ContentsMargins(@ptrCast(self));
+    pub fn ContentsMargins(self: QWizardPage) QMargins {
+        return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12840,10 +13187,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn ContentsRect(self: ?*anyopaque) QtC.QRect {
-        return qtc.QWidget_ContentsRect(@ptrCast(self));
+    pub fn ContentsRect(self: QWizardPage) QRect {
+        return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12852,10 +13199,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Layout(self: ?*anyopaque) QtC.QLayout {
-        return qtc.QWidget_Layout(@ptrCast(self));
+    pub fn Layout(self: QWizardPage) QLayout {
+        return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12864,12 +13211,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` layout: QtC.QLayout `
+    /// ` layout: QLayout `
     ///
-    pub fn SetLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QWidget_SetLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn SetLayout(self: QWizardPage, layout: anytype) void {
+        comptime _ = @TypeOf(layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
     }
 
     /// Inherited from QWidget
@@ -12878,10 +13226,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn UpdateGeometry(self: ?*anyopaque) void {
-        qtc.QWidget_UpdateGeometry(@ptrCast(self));
+    pub fn UpdateGeometry(self: QWizardPage) void {
+        qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -12890,12 +13238,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QWidget_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QWizardPage, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QWidget
@@ -12904,14 +13253,15 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i32) void {
-        qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @bitCast(f));
+    pub fn SetParent2(self: QWizardPage, parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
     }
 
     /// Inherited from QWidget
@@ -12920,14 +13270,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: ?*anyopaque, dx: i32, dy: i32) void {
-        qtc.QWidget_Scroll(@ptrCast(self), @bitCast(dx), @bitCast(dy));
+    pub fn Scroll(self: QWizardPage, dx: i32, dy: i32) void {
+        qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
     /// Inherited from QWidget
@@ -12936,16 +13286,17 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` dx: i32 `
     ///
     /// ` dy: i32 `
     ///
-    /// ` param3: QtC.QRect `
+    /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: ?*anyopaque, dx: i32, dy: i32, param3: ?*anyopaque) void {
-        qtc.QWidget_Scroll2(@ptrCast(self), @bitCast(dx), @bitCast(dy), @ptrCast(param3));
+    pub fn Scroll2(self: QWizardPage, dx: i32, dy: i32, param3: anytype) void {
+        comptime _ = @TypeOf(param3)._is_QRect;
+        qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
 
     /// Inherited from QWidget
@@ -12954,10 +13305,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn FocusWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_FocusWidget(@ptrCast(self));
+    pub fn FocusWidget(self: QWizardPage) QWidget {
+        return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12966,10 +13317,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn NextInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_NextInFocusChain(@ptrCast(self));
+    pub fn NextInFocusChain(self: QWizardPage) QWidget {
+        return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12978,10 +13329,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn PreviousInFocusChain(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_PreviousInFocusChain(@ptrCast(self));
+    pub fn PreviousInFocusChain(self: QWizardPage) QWidget {
+        return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -12990,10 +13341,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn AcceptDrops(self: ?*anyopaque) bool {
-        return qtc.QWidget_AcceptDrops(@ptrCast(self));
+    pub fn AcceptDrops(self: QWizardPage) bool {
+        return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -13002,12 +13353,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: ?*anyopaque, on: bool) void {
-        qtc.QWidget_SetAcceptDrops(@ptrCast(self), on);
+    pub fn SetAcceptDrops(self: QWizardPage, on: bool) void {
+        qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
 
     /// Inherited from QWidget
@@ -13016,12 +13367,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn AddAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_AddAction(@ptrCast(self), @ptrCast(action));
+    pub fn AddAction(self: QWizardPage, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -13030,16 +13382,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn AddActions(self: QWizardPage, actions: []QAction) void {
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_AddActions(@ptrCast(self), actions_list);
+        qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -13048,18 +13400,19 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` actions: []QtC.QAction `
+    /// ` actions: []QAction `
     ///
-    pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
+    pub fn InsertActions(self: QWizardPage, before: anytype, actions: []QAction) void {
+        comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
-        qtc.QWidget_InsertActions(@ptrCast(self), @ptrCast(before), actions_list);
+        qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
 
     /// Inherited from QWidget
@@ -13068,14 +13421,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` before: QtC.QAction `
+    /// ` before: QAction `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn InsertAction(self: ?*anyopaque, before: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_InsertAction(@ptrCast(self), @ptrCast(before), @ptrCast(action));
+    pub fn InsertAction(self: QWizardPage, before: anytype, action: anytype) void {
+        comptime _ = @TypeOf(before)._is_QAction;
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -13084,12 +13439,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` action: QtC.QAction `
+    /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: ?*anyopaque, action: ?*anyopaque) void {
-        qtc.QWidget_RemoveAction(@ptrCast(self), @ptrCast(action));
+    pub fn RemoveAction(self: QWizardPage, action: anytype) void {
+        comptime _ = @TypeOf(action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
 
     /// Inherited from QWidget
@@ -13098,16 +13454,17 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+    pub fn Actions(self: QWizardPage, allocator: std.mem.Allocator) []QAction {
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qwizardpage.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qwizardpage.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -13117,16 +13474,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: QWizardPage, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction2(@ptrCast(self), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -13135,18 +13492,19 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: QWizardPage, icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
     /// Inherited from QWidget
@@ -13155,18 +13513,19 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: QWizardPage, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -13175,20 +13534,22 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    /// ` shortcut: QtC.QKeySequence `
+    /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: QWizardPage, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -13197,10 +13558,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn ParentWidget(self: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ParentWidget(@ptrCast(self));
+    pub fn ParentWidget(self: QWizardPage) QWidget {
+        return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -13209,12 +13570,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_SetWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn SetWindowFlags(self: QWizardPage, typeVal: i32) void {
+        qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -13223,14 +13584,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowFlags(@ptrCast(self));
+    pub fn WindowFlags(self: QWizardPage) i32 {
+        return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -13239,12 +13600,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetWindowFlag(@ptrCast(self), @bitCast(param1));
+    pub fn SetWindowFlag(self: QWizardPage, param1: i32) void {
+        qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -13253,12 +13614,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i32) void {
-        qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @bitCast(typeVal));
+    pub fn OverrideWindowFlags(self: QWizardPage, typeVal: i32) void {
+        qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
 
     /// Inherited from QWidget
@@ -13267,14 +13628,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: ?*anyopaque) i32 {
-        return qtc.QWidget_WindowType(@ptrCast(self));
+    pub fn WindowType(self: QWizardPage) i32 {
+        return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -13285,8 +13646,8 @@ pub const qwizardpage = struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QtC.QWidget {
-        return qtc.QWidget_Find(@bitCast(param1));
+    pub fn Find(param1: usize) QWidget {
+        return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -13295,14 +13656,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `
     ///
-    pub fn ChildAt(self: ?*anyopaque, x: i32, y: i32) QtC.QWidget {
-        return qtc.QWidget_ChildAt(@ptrCast(self), @bitCast(x), @bitCast(y));
+    pub fn ChildAt(self: QWizardPage, x: i32, y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
     }
 
     /// Inherited from QWidget
@@ -13311,12 +13672,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` p: QtC.QPoint `
+    /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: QWizardPage, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPoint;
+        return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -13325,12 +13687,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` p: QtC.QPointF `
+    /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: QWizardPage, p: anytype) QWidget {
+        comptime _ = @TypeOf(p)._is_QPointF;
+        return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -13339,12 +13702,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
-        qtc.QWidget_SetAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn SetAttribute(self: QWizardPage, param1: i32) void {
+        qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -13353,12 +13716,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
-        return qtc.QWidget_TestAttribute(@ptrCast(self), @bitCast(param1));
+    pub fn TestAttribute(self: QWizardPage, param1: i32) bool {
+        return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -13367,10 +13730,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn EnsurePolished(self: ?*anyopaque) void {
-        qtc.QWidget_EnsurePolished(@ptrCast(self));
+    pub fn EnsurePolished(self: QWizardPage) void {
+        qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -13379,12 +13742,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` child: QtC.QWidget `
+    /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: ?*anyopaque, child: ?*anyopaque) bool {
-        return qtc.QWidget_IsAncestorOf(@ptrCast(self), @ptrCast(child));
+    pub fn IsAncestorOf(self: QWizardPage, child: anytype) bool {
+        comptime _ = @TypeOf(child)._is_QWidget;
+        return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
 
     /// Inherited from QWidget
@@ -13393,10 +13757,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn AutoFillBackground(self: ?*anyopaque) bool {
-        return qtc.QWidget_AutoFillBackground(@ptrCast(self));
+    pub fn AutoFillBackground(self: QWizardPage) bool {
+        return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -13405,12 +13769,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: ?*anyopaque, enabled: bool) void {
-        qtc.QWidget_SetAutoFillBackground(@ptrCast(self), enabled);
+    pub fn SetAutoFillBackground(self: QWizardPage, enabled: bool) void {
+        qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QWidget
@@ -13419,10 +13783,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn BackingStore(self: ?*anyopaque) QtC.QBackingStore {
-        return qtc.QWidget_BackingStore(@ptrCast(self));
+    pub fn BackingStore(self: QWizardPage) QBackingStore {
+        return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -13431,10 +13795,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn WindowHandle(self: ?*anyopaque) QtC.QWindow {
-        return qtc.QWidget_WindowHandle(@ptrCast(self));
+    pub fn WindowHandle(self: QWizardPage) QWindow {
+        return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -13443,10 +13807,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Screen(self: ?*anyopaque) QtC.QScreen {
-        return qtc.QWidget_Screen(@ptrCast(self));
+    pub fn Screen(self: QWizardPage) QScreen {
+        return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -13455,12 +13819,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` screen: QtC.QScreen `
+    /// ` screen: QScreen `
     ///
-    pub fn SetScreen(self: ?*anyopaque, screen: ?*anyopaque) void {
-        qtc.QWidget_SetScreen(@ptrCast(self), @ptrCast(screen));
+    pub fn SetScreen(self: QWizardPage, screen: anytype) void {
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
     }
 
     /// Inherited from QWidget
@@ -13469,10 +13834,11 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer(@ptrCast(window));
+    pub fn CreateWindowContainer(window: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -13481,16 +13847,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
+    pub fn WindowTitleChanged(self: QWizardPage, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
+        qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
 
     /// Inherited from QWidget
@@ -13499,12 +13865,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, title: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowTitleChanged(self: QWizardPage, callback: *const fn (QWizardPage, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -13513,12 +13879,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` icon: QtC.QIcon `
+    /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: ?*anyopaque, icon: ?*anyopaque) void {
-        qtc.QWidget_WindowIconChanged(@ptrCast(self), @ptrCast(icon));
+    pub fn WindowIconChanged(self: QWizardPage, icon: anytype) void {
+        comptime _ = @TypeOf(icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
 
     /// Inherited from QWidget
@@ -13527,12 +13894,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, icon: QtC.QIcon) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconChanged(self: QWizardPage, callback: *const fn (QWizardPage, QIcon) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -13541,16 +13908,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
+    pub fn WindowIconTextChanged(self: QWizardPage, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
-        qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
+        qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
 
     /// Inherited from QWidget
@@ -13559,12 +13926,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, iconText: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWindowIconTextChanged(self: QWizardPage, callback: *const fn (QWizardPage, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -13573,12 +13940,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` pos: QtC.QPoint `
+    /// ` pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: ?*anyopaque, pos: ?*anyopaque) void {
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self), @ptrCast(pos));
+    pub fn CustomContextMenuRequested(self: QWizardPage, pos: anytype) void {
+        comptime _ = @TypeOf(pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
 
     /// Inherited from QWidget
@@ -13587,12 +13955,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, pos: QtC.QPoint) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomContextMenuRequested(self: QWizardPage, callback: *const fn (QWizardPage, QPoint) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -13601,14 +13969,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: ?*anyopaque) i32 {
-        return qtc.QWidget_InputMethodHints(@ptrCast(self));
+    pub fn InputMethodHints(self: QWizardPage) i32 {
+        return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -13617,12 +13985,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: ?*anyopaque, hints: i32) void {
-        qtc.QWidget_SetInputMethodHints(@ptrCast(self), @bitCast(hints));
+    pub fn SetInputMethodHints(self: QWizardPage, hints: i32) void {
+        qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
 
     /// Inherited from QWidget
@@ -13631,14 +13999,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: QWizardPage, target: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -13647,16 +14017,19 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render3(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render3(self: QWizardPage, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -13665,18 +14038,21 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` target: QtC.QPaintDevice `
+    /// ` target: QPaintDevice `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render4(self: QWizardPage, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(target)._is_QPaintDevice;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -13685,14 +14061,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: QWizardPage, painter: anytype, targetOffset: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
 
     /// Inherited from QWidget
@@ -13701,16 +14079,19 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque) void {
-        qtc.QWidget_Render32(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion));
+    pub fn Render32(self: QWizardPage, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
     /// Inherited from QWidget
@@ -13719,18 +14100,21 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` targetOffset: QtC.QPoint `
+    /// ` targetOffset: QPoint `
     ///
-    /// ` sourceRegion: QtC.QRegion `
+    /// ` sourceRegion: QRegion `
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i32) void {
-        qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @bitCast(renderFlags));
+    pub fn Render42(self: QWizardPage, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        comptime _ = @TypeOf(targetOffset)._is_QPoint;
+        comptime _ = @TypeOf(sourceRegion)._is_QRegion;
+        qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
 
     /// Inherited from QWidget
@@ -13739,12 +14123,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` rectangle: QtC.QRect `
+    /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: ?*anyopaque, rectangle: ?*anyopaque) QtC.QPixmap {
-        return qtc.QWidget_Grab1(@ptrCast(self), @ptrCast(rectangle));
+    pub fn Grab1(self: QWizardPage, rectangle: anytype) QPixmap {
+        comptime _ = @TypeOf(rectangle)._is_QRect;
+        return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -13753,14 +14138,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: ?*anyopaque, typeVal: i32, flags: i32) void {
-        qtc.QWidget_GrabGesture2(@ptrCast(self), @bitCast(typeVal), @bitCast(flags));
+    pub fn GrabGesture2(self: QWizardPage, typeVal: i32, flags: i32) void {
+        qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
 
     /// Inherited from QWidget
@@ -13769,14 +14154,15 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` key: QtC.QKeySequence `
+    /// ` key: QKeySequence `
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
-        return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @bitCast(context));
+    pub fn GrabShortcut2(self: QWizardPage, key: anytype, context: i32) i32 {
+        comptime _ = @TypeOf(key)._is_QKeySequence;
+        return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
 
     /// Inherited from QWidget
@@ -13785,14 +14171,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutEnabled2(self: QWizardPage, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -13801,14 +14187,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: ?*anyopaque, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self), @bitCast(id), enable);
+    pub fn SetShortcutAutoRepeat2(self: QWizardPage, id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
 
     /// Inherited from QWidget
@@ -13817,14 +14203,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetWindowFlag2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetWindowFlag2(self: QWizardPage, param1: i32, on: bool) void {
+        qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -13833,14 +14219,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
-        qtc.QWidget_SetAttribute2(@ptrCast(self), @bitCast(param1), on);
+    pub fn SetAttribute2(self: QWizardPage, param1: i32, on: bool) void {
+        qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
     /// Inherited from QWidget
@@ -13849,12 +14235,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
-    pub fn CreateWindowContainer2(window: ?*anyopaque, parent: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer2(@ptrCast(window), @ptrCast(parent));
+    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -13863,14 +14251,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QtC.QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` parent: QtC.QWidget `
+    /// ` parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i32) QtC.QWidget {
-        return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @bitCast(flags));
+    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QObject
@@ -13879,12 +14269,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QWizardPage, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizardpage.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -13897,12 +14287,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QWizardPage, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -13911,10 +14301,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QWizardPage) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -13923,10 +14313,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QWizardPage) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -13935,10 +14325,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QWizardPage) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -13947,10 +14337,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QWizardPage) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -13959,12 +14349,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QWizardPage, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -13973,10 +14363,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QWizardPage) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -13985,12 +14375,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QWizardPage, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -13999,12 +14390,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QWizardPage, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -14013,12 +14404,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QWizardPage, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -14027,12 +14418,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QWizardPage, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -14041,12 +14432,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QWizardPage, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -14055,16 +14446,17 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QWizardPage, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qwizardpage.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qwizardpage.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -14074,12 +14466,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QWizardPage, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -14088,12 +14481,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QWizardPage, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -14102,18 +14496,20 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -14122,16 +14518,20 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -14140,18 +14540,19 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QWizardPage, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -14160,18 +14561,20 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -14180,16 +14583,20 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -14198,10 +14605,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QWizardPage) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -14210,12 +14617,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QWizardPage, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -14224,10 +14632,11 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -14236,10 +14645,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QWizardPage) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -14248,10 +14657,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QWizardPage) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -14260,15 +14669,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QWizardPage, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -14277,13 +14687,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QWizardPage, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -14292,17 +14702,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QWizardPage, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qwizardpage.DynamicPropertyNames: Memory allocation failed");
@@ -14321,10 +14730,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QWizardPage) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -14333,10 +14742,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QWizardPage) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -14345,10 +14754,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QWizardPage) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -14357,12 +14766,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QWizardPage, callback: *const fn (QWizardPage) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -14371,10 +14780,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QWizardPage) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -14383,13 +14792,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QWizardPage, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -14398,10 +14807,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QWizardPage) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -14410,14 +14819,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QWizardPage, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -14426,14 +14835,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QWizardPage, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -14442,20 +14851,22 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -14464,18 +14875,22 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -14484,9 +14899,9 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -14494,10 +14909,11 @@ pub const qwizardpage = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QWizardPage, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -14506,13 +14922,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QWizardPage, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -14521,15 +14937,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QWizardPage, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -14538,18 +14955,19 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QWizardPage, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -14558,15 +14976,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QWizardPage, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -14575,12 +14994,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QWizardPage, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -14589,12 +15009,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QWizardPage, callback: *const fn (QWizardPage, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -14603,10 +15023,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn PaintingActive(self: ?*anyopaque) bool {
-        return qtc.QPaintDevice_PaintingActive(@ptrCast(self));
+    pub fn PaintingActive(self: QWizardPage) bool {
+        return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -14615,10 +15035,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn WidthMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_WidthMM(@ptrCast(self));
+    pub fn WidthMM(self: QWizardPage) i32 {
+        return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -14627,10 +15047,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn HeightMM(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_HeightMM(@ptrCast(self));
+    pub fn HeightMM(self: QWizardPage) i32 {
+        return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -14639,10 +15059,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn LogicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self));
+    pub fn LogicalDpiX(self: QWizardPage) i32 {
+        return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -14651,10 +15071,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn LogicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self));
+    pub fn LogicalDpiY(self: QWizardPage) i32 {
+        return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -14663,10 +15083,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn PhysicalDpiX(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self));
+    pub fn PhysicalDpiX(self: QWizardPage) i32 {
+        return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -14675,10 +15095,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn PhysicalDpiY(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self));
+    pub fn PhysicalDpiY(self: QWizardPage) i32 {
+        return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -14687,10 +15107,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn DevicePixelRatio(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self));
+    pub fn DevicePixelRatio(self: QWizardPage) f64 {
+        return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -14699,10 +15119,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn DevicePixelRatioF(self: ?*anyopaque) f64 {
-        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self));
+    pub fn DevicePixelRatioF(self: QWizardPage) f64 {
+        return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -14711,10 +15131,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn ColorCount(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_ColorCount(@ptrCast(self));
+    pub fn ColorCount(self: QWizardPage) i32 {
+        return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -14723,10 +15143,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Depth(self: ?*anyopaque) i32 {
-        return qtc.QPaintDevice_Depth(@ptrCast(self));
+    pub fn Depth(self: QWizardPage) i32 {
+        return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QPaintDevice
@@ -14759,10 +15179,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn DevType(self: ?*anyopaque) i32 {
-        return qtc.QWizardPage_DevType(@ptrCast(self));
+    pub fn DevType(self: QWizardPage) i32 {
+        return qtc.QWizardPage_DevType(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDevType` instead
@@ -14777,10 +15197,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SuperDevType(self: ?*anyopaque) i32 {
-        return qtc.QWizardPage_SuperDevType(@ptrCast(self));
+    pub fn SuperDevType(self: QWizardPage) i32 {
+        return qtc.QWizardPage_SuperDevType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -14791,12 +15211,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QWizardPage_OnDevType(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDevType(self: QWizardPage, callback: *const fn () callconv(.c) i32) void {
+        qtc.QWizardPage_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14807,12 +15227,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QWizardPage_SetVisible(@ptrCast(self), visible);
+    pub fn SetVisible(self: QWizardPage, visible: bool) void {
+        qtc.QWizardPage_SetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// ### DEPRECATED: Use `SuperSetVisible` instead
@@ -14827,12 +15247,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: ?*anyopaque, visible: bool) void {
-        qtc.QWizardPage_SuperSetVisible(@ptrCast(self), visible);
+    pub fn SuperSetVisible(self: QWizardPage, visible: bool) void {
+        qtc.QWizardPage_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
 
     /// Inherited from QWidget
@@ -14843,12 +15263,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, visible: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QWizardPage_OnSetVisible(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSetVisible(self: QWizardPage, callback: *const fn (QWizardPage, bool) callconv(.c) void) void {
+        qtc.QWizardPage_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14859,10 +15279,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWizardPage_SizeHint(@ptrCast(self));
+    pub fn SizeHint(self: QWizardPage) QSize {
+        return .{ .ptr = qtc.QWizardPage_SizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSizeHint` instead
@@ -14877,10 +15297,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SuperSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWizardPage_SuperSizeHint(@ptrCast(self));
+    pub fn SuperSizeHint(self: QWizardPage) QSize {
+        return .{ .ptr = qtc.QWizardPage_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -14891,12 +15311,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QWizardPage_OnSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSizeHint(self: QWizardPage, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QWizardPage_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14907,10 +15327,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn MinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWizardPage_MinimumSizeHint(@ptrCast(self));
+    pub fn MinimumSizeHint(self: QWizardPage) QSize {
+        return .{ .ptr = qtc.QWizardPage_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
@@ -14925,10 +15345,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SuperMinimumSizeHint(self: ?*anyopaque) QtC.QSize {
-        return qtc.QWizardPage_SuperMinimumSizeHint(@ptrCast(self));
+    pub fn SuperMinimumSizeHint(self: QWizardPage) QSize {
+        return .{ .ptr = qtc.QWizardPage_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -14939,12 +15359,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QSize `
+    /// ` callback: *const fn () callconv(.c) QSize `
     ///
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
-        qtc.QWizardPage_OnMinimumSizeHint(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMinimumSizeHint(self: QWizardPage, callback: *const fn () callconv(.c) QSize) void {
+        qtc.QWizardPage_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -14955,12 +15375,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QWizardPage_HeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn HeightForWidth(self: QWizardPage, param1: i32) i32 {
+        return qtc.QWizardPage_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperHeightForWidth` instead
@@ -14975,12 +15395,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QWizardPage_SuperHeightForWidth(@ptrCast(self), @bitCast(param1));
+    pub fn SuperHeightForWidth(self: QWizardPage, param1: i32) i32 {
+        return qtc.QWizardPage_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -14991,12 +15411,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, param1: i32) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QWizardPage, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QWizardPage_OnHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHeightForWidth(self: QWizardPage, callback: *const fn (QWizardPage, i32) callconv(.c) i32) void {
+        qtc.QWizardPage_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15007,10 +15427,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn HasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QWizardPage_HasHeightForWidth(@ptrCast(self));
+    pub fn HasHeightForWidth(self: QWizardPage) bool {
+        return qtc.QWizardPage_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
@@ -15025,10 +15445,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SuperHasHeightForWidth(self: ?*anyopaque) bool {
-        return qtc.QWizardPage_SuperHasHeightForWidth(@ptrCast(self));
+    pub fn SuperHasHeightForWidth(self: QWizardPage) bool {
+        return qtc.QWizardPage_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -15039,12 +15459,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QWizardPage_OnHasHeightForWidth(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHasHeightForWidth(self: QWizardPage, callback: *const fn () callconv(.c) bool) void {
+        qtc.QWizardPage_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15055,10 +15475,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn PaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QWizardPage_PaintEngine(@ptrCast(self));
+    pub fn PaintEngine(self: QWizardPage) QPaintEngine {
+        return .{ .ptr = qtc.QWizardPage_PaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperPaintEngine` instead
@@ -15073,10 +15493,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SuperPaintEngine(self: ?*anyopaque) QtC.QPaintEngine {
-        return qtc.QWizardPage_SuperPaintEngine(@ptrCast(self));
+    pub fn SuperPaintEngine(self: QWizardPage) QPaintEngine {
+        return .{ .ptr = qtc.QWizardPage_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -15087,12 +15507,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPaintEngine `
+    /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QWizardPage_OnPaintEngine(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEngine(self: QWizardPage, callback: *const fn () callconv(.c) QPaintEngine) void {
+        qtc.QWizardPage_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15103,12 +15523,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QWizardPage_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QWizardPage, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QWizardPage_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -15123,12 +15544,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QWizardPage_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QWizardPage, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QWizardPage_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15139,12 +15561,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QWizardPage, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWizardPage_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QWizardPage, callback: *const fn (QWizardPage, QEvent) callconv(.c) bool) void {
+        qtc.QWizardPage_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15155,12 +15577,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_MousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MousePressEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QWizardPage_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMousePressEvent` instead
@@ -15175,12 +15598,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperMousePressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMousePressEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QWizardPage_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15191,12 +15615,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnMousePressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMousePressEvent(self: QWizardPage, callback: *const fn (QWizardPage, QMouseEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15207,12 +15631,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseReleaseEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QWizardPage_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
@@ -15227,12 +15652,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseReleaseEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QWizardPage_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15243,12 +15669,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnMouseReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseReleaseEvent(self: QWizardPage, callback: *const fn (QWizardPage, QMouseEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15259,12 +15685,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseDoubleClickEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QWizardPage_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
@@ -15279,12 +15706,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperMouseDoubleClickEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseDoubleClickEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QWizardPage_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15295,12 +15723,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnMouseDoubleClickEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseDoubleClickEvent(self: QWizardPage, callback: *const fn (QWizardPage, QMouseEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15311,12 +15739,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MouseMoveEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QWizardPage_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
@@ -15331,12 +15760,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QMouseEvent `
+    /// ` event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMouseMoveEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMouseEvent;
+        qtc.QWizardPage_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15347,12 +15777,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QMouseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnMouseMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMouseMoveEvent(self: QWizardPage, callback: *const fn (QWizardPage, QMouseEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15363,12 +15793,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_WheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn WheelEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.QWizardPage_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperWheelEvent` instead
@@ -15383,12 +15814,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QWheelEvent `
+    /// ` event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperWheelEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperWheelEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QWheelEvent;
+        qtc.QWizardPage_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15399,12 +15831,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QWheelEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnWheelEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnWheelEvent(self: QWizardPage, callback: *const fn (QWizardPage, QWheelEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15415,12 +15847,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_KeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyPressEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QWizardPage_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
@@ -15435,12 +15868,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperKeyPressEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyPressEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QWizardPage_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15451,12 +15885,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnKeyPressEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyPressEvent(self: QWizardPage, callback: *const fn (QWizardPage, QKeyEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15467,12 +15901,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_KeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn KeyReleaseEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QWizardPage_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
@@ -15487,12 +15922,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QKeyEvent `
+    /// ` event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperKeyReleaseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperKeyReleaseEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QKeyEvent;
+        qtc.QWizardPage_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15503,12 +15939,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QKeyEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnKeyReleaseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnKeyReleaseEvent(self: QWizardPage, callback: *const fn (QWizardPage, QKeyEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15519,12 +15955,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_FocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusInEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QWizardPage_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusInEvent` instead
@@ -15539,12 +15976,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperFocusInEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusInEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QWizardPage_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15555,12 +15993,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnFocusInEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusInEvent(self: QWizardPage, callback: *const fn (QWizardPage, QFocusEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15571,12 +16009,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_FocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn FocusOutEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QWizardPage_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
@@ -15591,12 +16030,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QFocusEvent `
+    /// ` event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperFocusOutEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperFocusOutEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QFocusEvent;
+        qtc.QWizardPage_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15607,12 +16047,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QFocusEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnFocusOutEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusOutEvent(self: QWizardPage, callback: *const fn (QWizardPage, QFocusEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15623,12 +16063,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_EnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn EnterEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QWizardPage_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEnterEvent` instead
@@ -15643,12 +16084,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QEnterEvent `
+    /// ` event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEnterEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEnterEvent;
+        qtc.QWizardPage_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15659,12 +16101,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEnterEvent(self: QWizardPage, callback: *const fn (QWizardPage, QEnterEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15675,12 +16117,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn LeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_LeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn LeaveEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QWizardPage_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperLeaveEvent` instead
@@ -15695,12 +16138,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperLeaveEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QWizardPage_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15711,12 +16155,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnLeaveEvent(self: QWizardPage, callback: *const fn (QWizardPage, QEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15727,12 +16171,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QPaintEvent `
+    /// ` event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_PaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn PaintEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QPaintEvent;
+        qtc.QWizardPage_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperPaintEvent` instead
@@ -15747,12 +16192,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QPaintEvent `
+    /// ` event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperPaintEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperPaintEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QPaintEvent;
+        qtc.QWizardPage_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15763,12 +16209,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QPaintEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnPaintEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnPaintEvent(self: QWizardPage, callback: *const fn (QWizardPage, QPaintEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15779,12 +16225,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_MoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn MoveEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QWizardPage_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperMoveEvent` instead
@@ -15799,12 +16246,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QMoveEvent `
+    /// ` event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperMoveEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QMoveEvent;
+        qtc.QWizardPage_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15815,12 +16263,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMoveEvent(self: QWizardPage, callback: *const fn (QWizardPage, QMoveEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15831,12 +16279,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_ResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ResizeEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.QWizardPage_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperResizeEvent` instead
@@ -15851,12 +16300,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QResizeEvent `
+    /// ` event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperResizeEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperResizeEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QResizeEvent;
+        qtc.QWizardPage_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15867,12 +16317,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QResizeEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnResizeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnResizeEvent(self: QWizardPage, callback: *const fn (QWizardPage, QResizeEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15883,12 +16333,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_CloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CloseEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QWizardPage_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCloseEvent` instead
@@ -15903,12 +16354,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QCloseEvent `
+    /// ` event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperCloseEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCloseEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QCloseEvent;
+        qtc.QWizardPage_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15919,12 +16371,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QCloseEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnCloseEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCloseEvent(self: QWizardPage, callback: *const fn (QWizardPage, QCloseEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15935,12 +16387,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QContextMenuEvent `
+    /// ` event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_ContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ContextMenuEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
+        qtc.QWizardPage_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
@@ -15955,12 +16408,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QContextMenuEvent `
+    /// ` event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperContextMenuEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperContextMenuEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
+        qtc.QWizardPage_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -15971,12 +16425,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QContextMenuEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnContextMenuEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnContextMenuEvent(self: QWizardPage, callback: *const fn (QWizardPage, QContextMenuEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15987,12 +16441,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_TabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TabletEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QWizardPage_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTabletEvent` instead
@@ -16007,12 +16462,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QTabletEvent `
+    /// ` event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperTabletEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTabletEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTabletEvent;
+        qtc.QWizardPage_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -16023,12 +16479,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QTabletEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnTabletEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTabletEvent(self: QWizardPage, callback: *const fn (QWizardPage, QTabletEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16039,12 +16495,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn ActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_ActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ActionEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QWizardPage_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperActionEvent` instead
@@ -16059,12 +16516,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QActionEvent `
+    /// ` event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperActionEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperActionEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QActionEvent;
+        qtc.QWizardPage_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -16075,12 +16533,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QActionEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnActionEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnActionEvent(self: QWizardPage, callback: *const fn (QWizardPage, QActionEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16091,12 +16549,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_DragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragEnterEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QWizardPage_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
@@ -16111,12 +16570,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QDragEnterEvent `
+    /// ` event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperDragEnterEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragEnterEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
+        qtc.QWizardPage_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -16127,12 +16587,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QDragEnterEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnDragEnterEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragEnterEvent(self: QWizardPage, callback: *const fn (QWizardPage, QDragEnterEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16143,12 +16603,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_DragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragMoveEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QWizardPage_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
@@ -16163,12 +16624,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QDragMoveEvent `
+    /// ` event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperDragMoveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragMoveEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
+        qtc.QWizardPage_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -16179,12 +16641,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QDragMoveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnDragMoveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragMoveEvent(self: QWizardPage, callback: *const fn (QWizardPage, QDragMoveEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16195,12 +16657,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_DragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DragLeaveEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QWizardPage_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
@@ -16215,12 +16678,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QDragLeaveEvent `
+    /// ` event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperDragLeaveEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDragLeaveEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
+        qtc.QWizardPage_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -16231,12 +16695,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QDragLeaveEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnDragLeaveEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDragLeaveEvent(self: QWizardPage, callback: *const fn (QWizardPage, QDragLeaveEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16247,12 +16711,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_DropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn DropEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QWizardPage_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDropEvent` instead
@@ -16267,12 +16732,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QDropEvent `
+    /// ` event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperDropEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperDropEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QDropEvent;
+        qtc.QWizardPage_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -16283,12 +16749,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QDropEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnDropEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDropEvent(self: QWizardPage, callback: *const fn (QWizardPage, QDropEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16299,12 +16765,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn ShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_ShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ShowEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.QWizardPage_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperShowEvent` instead
@@ -16319,12 +16786,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QShowEvent `
+    /// ` event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperShowEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperShowEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QShowEvent;
+        qtc.QWizardPage_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -16335,12 +16803,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QShowEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnShowEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnShowEvent(self: QWizardPage, callback: *const fn (QWizardPage, QShowEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16351,12 +16819,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn HideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_HideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn HideEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QWizardPage_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperHideEvent` instead
@@ -16371,12 +16840,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QHideEvent `
+    /// ` event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperHideEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperHideEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QHideEvent;
+        qtc.QWizardPage_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QWidget
@@ -16387,12 +16857,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QHideEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnHideEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnHideEvent(self: QWizardPage, callback: *const fn (QWizardPage, QHideEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16403,7 +16873,7 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` eventType: []u8 `
     ///
@@ -16411,12 +16881,12 @@ pub const qwizardpage = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn NativeEvent(self: QWizardPage, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QWizardPage_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QWizardPage_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// ### DEPRECATED: Use `SuperNativeEvent` instead
@@ -16431,7 +16901,7 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` eventType: []u8 `
     ///
@@ -16439,12 +16909,12 @@ pub const qwizardpage = struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn SuperNativeEvent(self: QWizardPage, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QWizardPage_SuperNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QWizardPage_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -16455,12 +16925,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
+    /// ` callback: *const fn (self: QWizardPage, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QWizardPage_OnNativeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnNativeEvent(self: QWizardPage, callback: *const fn (QWizardPage, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.QWizardPage_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16471,12 +16941,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWizardPage_ChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn ChangeEvent(self: QWizardPage, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.QWizardPage_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChangeEvent` instead
@@ -16491,12 +16962,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QEvent `
+    /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWizardPage_SuperChangeEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperChangeEvent(self: QWizardPage, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QEvent;
+        qtc.QWizardPage_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -16507,12 +16979,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, param1: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnChangeEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChangeEvent(self: QWizardPage, callback: *const fn (QWizardPage, QEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16523,12 +16995,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QWizardPage_Metric(@ptrCast(self), @bitCast(param1));
+    pub fn Metric(self: QWizardPage, param1: i32) i32 {
+        return qtc.QWizardPage_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// ### DEPRECATED: Use `SuperMetric` instead
@@ -16543,12 +17015,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: ?*anyopaque, param1: i32) i32 {
-        return qtc.QWizardPage_SuperMetric(@ptrCast(self), @bitCast(param1));
+    pub fn SuperMetric(self: QWizardPage, param1: i32) i32 {
+        return qtc.QWizardPage_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
     /// Inherited from QWidget
@@ -16559,12 +17031,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QWizardPage, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QWizardPage_OnMetric(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetric(self: QWizardPage, callback: *const fn (QWizardPage, i32) callconv(.c) i32) void {
+        qtc.QWizardPage_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16575,12 +17047,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWizardPage_InitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn InitPainter(self: QWizardPage, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWizardPage_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInitPainter` instead
@@ -16595,12 +17068,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` painter: QtC.QPainter `
+    /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWizardPage_SuperInitPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn SuperInitPainter(self: QWizardPage, painter: anytype) void {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        qtc.QWizardPage_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
     /// Inherited from QWidget
@@ -16611,12 +17085,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, painter: QtC.QPainter) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnInitPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInitPainter(self: QWizardPage, callback: *const fn (QWizardPage, QPainter) callconv(.c) void) void {
+        qtc.QWizardPage_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16627,12 +17101,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QWizardPage_Redirected(@ptrCast(self), @ptrCast(offset));
+    pub fn Redirected(self: QWizardPage, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QWizardPage_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperRedirected` instead
@@ -16647,12 +17122,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` offset: QtC.QPoint `
+    /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPaintDevice {
-        return qtc.QWizardPage_SuperRedirected(@ptrCast(self), @ptrCast(offset));
+    pub fn SuperRedirected(self: QWizardPage, offset: anytype) QPaintDevice {
+        comptime _ = @TypeOf(offset)._is_QPoint;
+        return .{ .ptr = qtc.QWizardPage_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -16663,12 +17139,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice `
+    /// ` callback: *const fn (self: QWizardPage, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QWizardPage_OnRedirected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnRedirected(self: QWizardPage, callback: *const fn (QWizardPage, QPoint) callconv(.c) QPaintDevice) void {
+        qtc.QWizardPage_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16679,10 +17155,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QWizardPage_SharedPainter(@ptrCast(self));
+    pub fn SharedPainter(self: QWizardPage) QPainter {
+        return .{ .ptr = qtc.QWizardPage_SharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSharedPainter` instead
@@ -16697,10 +17173,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SuperSharedPainter(self: ?*anyopaque) QtC.QPainter {
-        return qtc.QWizardPage_SuperSharedPainter(@ptrCast(self));
+    pub fn SuperSharedPainter(self: QWizardPage) QPainter {
+        return .{ .ptr = qtc.QWizardPage_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QWidget
@@ -16711,12 +17187,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QPainter `
+    /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
-        qtc.QWizardPage_OnSharedPainter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSharedPainter(self: QWizardPage, callback: *const fn () callconv(.c) QPainter) void {
+        qtc.QWizardPage_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16727,12 +17203,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWizardPage_InputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn InputMethodEvent(self: QWizardPage, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QWizardPage_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
@@ -16747,12 +17224,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` param1: QtC.QInputMethodEvent `
+    /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWizardPage_SuperInputMethodEvent(@ptrCast(self), @ptrCast(param1));
+    pub fn SuperInputMethodEvent(self: QWizardPage, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
+        qtc.QWizardPage_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QWidget
@@ -16763,12 +17241,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, param1: QtC.QInputMethodEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnInputMethodEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodEvent(self: QWizardPage, callback: *const fn (QWizardPage, QInputMethodEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16779,12 +17257,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QWizardPage_InputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn InputMethodQuery(self: QWizardPage, param1: i32) QVariant {
+        return .{ .ptr = qtc.QWizardPage_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
@@ -16799,12 +17277,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: ?*anyopaque, param1: i32) QtC.QVariant {
-        return qtc.QWizardPage_SuperInputMethodQuery(@ptrCast(self), @bitCast(param1));
+    pub fn SuperInputMethodQuery(self: QWizardPage, param1: i32) QVariant {
+        return .{ .ptr = qtc.QWizardPage_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// Inherited from QWidget
@@ -16815,12 +17293,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant `
+    /// ` callback: *const fn (self: QWizardPage, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QWizardPage_OnInputMethodQuery(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnInputMethodQuery(self: QWizardPage, callback: *const fn (QWizardPage, i32) callconv(.c) QVariant) void {
+        qtc.QWizardPage_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16831,12 +17309,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QWizardPage_FocusNextPrevChild(@ptrCast(self), next);
+    pub fn FocusNextPrevChild(self: QWizardPage, next: bool) bool {
+        return qtc.QWizardPage_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
@@ -16851,12 +17329,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: ?*anyopaque, next: bool) bool {
-        return qtc.QWizardPage_SuperFocusNextPrevChild(@ptrCast(self), next);
+    pub fn SuperFocusNextPrevChild(self: QWizardPage, next: bool) bool {
+        return qtc.QWizardPage_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
     /// Inherited from QWidget
@@ -16867,12 +17345,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, next: bool) callconv(.c) bool `
+    /// ` callback: *const fn (self: QWizardPage, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QWizardPage_OnFocusNextPrevChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextPrevChild(self: QWizardPage, callback: *const fn (QWizardPage, bool) callconv(.c) bool) void {
+        qtc.QWizardPage_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -16883,14 +17361,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QWizardPage_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QWizardPage, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QWizardPage_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -16905,14 +17385,16 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QWizardPage_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QWizardPage, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QWizardPage_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -16923,12 +17405,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QWizardPage, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWizardPage_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QWizardPage, callback: *const fn (QWizardPage, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QWizardPage_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -16939,12 +17421,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QWizardPage_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -16959,12 +17442,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QWizardPage_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -16975,12 +17459,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QWizardPage, callback: *const fn (QWizardPage, QTimerEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -16991,12 +17475,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QWizardPage_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -17011,12 +17496,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QWizardPage_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -17027,12 +17513,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QWizardPage, callback: *const fn (QWizardPage, QChildEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -17043,12 +17529,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QWizardPage_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -17063,12 +17550,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QWizardPage_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QWizardPage, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QWizardPage_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -17079,12 +17567,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QWizardPage, callback: *const fn (QWizardPage, QEvent) callconv(.c) void) void {
+        qtc.QWizardPage_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -17095,12 +17583,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWizardPage_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QWizardPage, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QWizardPage_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -17115,12 +17604,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWizardPage_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QWizardPage, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QWizardPage_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -17131,12 +17621,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QWizardPage, callback: *const fn (QWizardPage, QMetaMethod) callconv(.c) void) void {
+        qtc.QWizardPage_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -17147,12 +17637,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWizardPage_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QWizardPage, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QWizardPage_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -17167,12 +17658,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QWizardPage_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QWizardPage, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QWizardPage_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -17183,12 +17675,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWizardPage_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QWizardPage, callback: *const fn (QWizardPage, QMetaMethod) callconv(.c) void) void {
+        qtc.QWizardPage_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17199,10 +17691,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn UpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QWizardPage_UpdateMicroFocus(@ptrCast(self));
+    pub fn UpdateMicroFocus(self: QWizardPage) void {
+        qtc.QWizardPage_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
@@ -17217,10 +17709,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SuperUpdateMicroFocus(self: ?*anyopaque) void {
-        qtc.QWizardPage_SuperUpdateMicroFocus(@ptrCast(self));
+    pub fn SuperUpdateMicroFocus(self: QWizardPage) void {
+        qtc.QWizardPage_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -17231,12 +17723,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QWizardPage_OnUpdateMicroFocus(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnUpdateMicroFocus(self: QWizardPage, callback: *const fn () callconv(.c) void) void {
+        qtc.QWizardPage_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17247,10 +17739,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Create(self: ?*anyopaque) void {
-        qtc.QWizardPage_Create(@ptrCast(self));
+    pub fn Create(self: QWizardPage) void {
+        qtc.QWizardPage_Create(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCreate` instead
@@ -17265,10 +17757,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SuperCreate(self: ?*anyopaque) void {
-        qtc.QWizardPage_SuperCreate(@ptrCast(self));
+    pub fn SuperCreate(self: QWizardPage) void {
+        qtc.QWizardPage_SuperCreate(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -17279,12 +17771,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QWizardPage_OnCreate(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCreate(self: QWizardPage, callback: *const fn () callconv(.c) void) void {
+        qtc.QWizardPage_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17295,10 +17787,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Destroy(self: ?*anyopaque) void {
-        qtc.QWizardPage_Destroy(@ptrCast(self));
+    pub fn Destroy(self: QWizardPage) void {
+        qtc.QWizardPage_Destroy(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDestroy` instead
@@ -17313,10 +17805,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SuperDestroy(self: ?*anyopaque) void {
-        qtc.QWizardPage_SuperDestroy(@ptrCast(self));
+    pub fn SuperDestroy(self: QWizardPage) void {
+        qtc.QWizardPage_SuperDestroy(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -17327,12 +17819,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.QWizardPage_OnDestroy(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroy(self: QWizardPage, callback: *const fn () callconv(.c) void) void {
+        qtc.QWizardPage_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17343,10 +17835,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn FocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QWizardPage_FocusNextChild(@ptrCast(self));
+    pub fn FocusNextChild(self: QWizardPage) bool {
+        return qtc.QWizardPage_FocusNextChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusNextChild` instead
@@ -17361,10 +17853,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SuperFocusNextChild(self: ?*anyopaque) bool {
-        return qtc.QWizardPage_SuperFocusNextChild(@ptrCast(self));
+    pub fn SuperFocusNextChild(self: QWizardPage) bool {
+        return qtc.QWizardPage_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -17375,12 +17867,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QWizardPage_OnFocusNextChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusNextChild(self: QWizardPage, callback: *const fn () callconv(.c) bool) void {
+        qtc.QWizardPage_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17391,10 +17883,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn FocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QWizardPage_FocusPreviousChild(@ptrCast(self));
+    pub fn FocusPreviousChild(self: QWizardPage) bool {
+        return qtc.QWizardPage_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
@@ -17409,10 +17901,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SuperFocusPreviousChild(self: ?*anyopaque) bool {
-        return qtc.QWizardPage_SuperFocusPreviousChild(@ptrCast(self));
+    pub fn SuperFocusPreviousChild(self: QWizardPage) bool {
+        return qtc.QWizardPage_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
 
     /// Inherited from QWidget
@@ -17423,12 +17915,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
-        qtc.QWizardPage_OnFocusPreviousChild(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnFocusPreviousChild(self: QWizardPage, callback: *const fn () callconv(.c) bool) void {
+        qtc.QWizardPage_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -17439,10 +17931,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QWizardPage_Sender(@ptrCast(self));
+    pub fn Sender(self: QWizardPage) QObject {
+        return .{ .ptr = qtc.QWizardPage_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -17457,10 +17949,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QWizardPage_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QWizardPage) QObject {
+        return .{ .ptr = qtc.QWizardPage_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -17471,12 +17963,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QWizardPage_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QWizardPage, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QWizardPage_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -17487,10 +17979,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QWizardPage_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QWizardPage) i32 {
+        return qtc.QWizardPage_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -17505,10 +17997,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QWizardPage_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QWizardPage) i32 {
+        return qtc.QWizardPage_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -17519,12 +18011,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QWizardPage_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QWizardPage, callback: *const fn () callconv(.c) i32) void {
+        qtc.QWizardPage_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -17535,13 +18027,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QWizardPage, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QWizardPage_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QWizardPage_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -17556,13 +18048,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QWizardPage, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QWizardPage_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QWizardPage_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -17573,12 +18065,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QWizardPage, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QWizardPage_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QWizardPage, callback: *const fn (QWizardPage, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QWizardPage_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -17589,12 +18081,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QWizardPage_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QWizardPage, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QWizardPage_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -17609,12 +18102,13 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QWizardPage_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QWizardPage, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QWizardPage_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -17625,12 +18119,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QWizardPage, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWizardPage_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QWizardPage, callback: *const fn (QWizardPage, QMetaMethod) callconv(.c) bool) void {
+        qtc.QWizardPage_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -17641,14 +18135,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QWizardPage_GetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn GetDecodedMetricF(self: QWizardPage, metricA: i32, metricB: i32) f64 {
+        return qtc.QWizardPage_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
@@ -17663,14 +18157,14 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
     /// ` metricA: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
-        return qtc.QWizardPage_SuperGetDecodedMetricF(@ptrCast(self), @bitCast(metricA), @bitCast(metricB));
+    pub fn SuperGetDecodedMetricF(self: QWizardPage, metricA: i32, metricB: i32) f64 {
+        return qtc.QWizardPage_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
     /// Inherited from QPaintDevice
@@ -17681,12 +18175,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage`
+    /// ` self: QWizardPage`
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
+    /// ` callback: *const fn (self: QWizardPage, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QWizardPage_OnGetDecodedMetricF(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnGetDecodedMetricF(self: QWizardPage, callback: *const fn (QWizardPage, i32, i32) callconv(.c) f64) void {
+        qtc.QWizardPage_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -17697,12 +18191,12 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    /// ` callback: *const fn (self: QtC.QWizardPage, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QWizardPage, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QWizardPage, callback: *const fn (QWizardPage, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -17715,10 +18209,10 @@ pub const qwizardpage = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QWizardPage `
+    /// ` self: QWizardPage `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QWizardPage_Delete(@ptrCast(self));
+    pub fn Delete(self: QWizardPage) void {
+        qtc.QWizardPage_Delete(@ptrCast(self.ptr));
     }
 };
 

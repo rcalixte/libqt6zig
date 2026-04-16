@@ -1,176 +1,196 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QSslCertificate = @import("libqt6").QSslCertificate;
+const QSslCipher = @import("libqt6").QSslCipher;
+const QSslDiffieHellmanParameters = @import("libqt6").QSslDiffieHellmanParameters;
+const QSslEllipticCurve = @import("libqt6").QSslEllipticCurve;
+const QSslKey = @import("libqt6").QSslKey;
+const QVariant = @import("libqt6").QVariant;
 const qssl_enums = @import("libqssl.zig").enums;
 const qsslcertificate_enums = @import("libqsslcertificate.zig").enums;
 const qsslconfiguration_enums = enums;
 const qsslsocket_enums = @import("libqsslsocket.zig").enums;
 const std = @import("std");
-const arraymap_u8_qtcqvariant = std.array_hash_map.String(QtC.QVariant);
+const ArrayMap_u8_QVariant = std.array_hash_map.String(QVariant);
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html)
-pub const qsslconfiguration = struct {
+pub const QSslConfiguration = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QSslConfiguration,
+
+    pub const _is_QSslConfiguration = {};
+
     /// New constructs a new QSslConfiguration object.
     ///
-    pub fn New() QtC.QSslConfiguration {
-        return qtc.QSslConfiguration_new();
+    pub fn New() QSslConfiguration {
+        return .{ .ptr = qtc.QSslConfiguration_new() };
     }
 
     /// New2 constructs a new QSslConfiguration object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QSslConfiguration `
+    /// ` other: QSslConfiguration `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QSslConfiguration {
-        return qtc.QSslConfiguration_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QSslConfiguration {
+        comptime _ = @TypeOf(other)._is_QSslConfiguration;
+        return .{ .ptr = qtc.QSslConfiguration_new2(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    /// ` other: QtC.QSslConfiguration `
+    /// ` other: QSslConfiguration `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QSslConfiguration_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QSslConfiguration, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QSslConfiguration;
+        qtc.QSslConfiguration_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    /// ` other: QtC.QSslConfiguration `
+    /// ` other: QSslConfiguration `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QSslConfiguration_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QSslConfiguration, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QSslConfiguration;
+        qtc.QSslConfiguration_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#operator-eq-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    /// ` other: QtC.QSslConfiguration `
+    /// ` other: QSslConfiguration `
     ///
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QSslConfiguration_OperatorEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorEqual(self: QSslConfiguration, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QSslConfiguration;
+        return qtc.QSslConfiguration_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#operator-not-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    /// ` other: QtC.QSslConfiguration `
+    /// ` other: QSslConfiguration `
     ///
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QSslConfiguration_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorNotEqual(self: QSslConfiguration, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QSslConfiguration;
+        return qtc.QSslConfiguration_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#isNull)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    pub fn IsNull(self: ?*anyopaque) bool {
-        return qtc.QSslConfiguration_IsNull(@ptrCast(self));
+    pub fn IsNull(self: QSslConfiguration) bool {
+        return qtc.QSslConfiguration_IsNull(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#protocol)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ## Returns:
     ///
     /// ` qssl_enums.SslProtocol `
     ///
-    pub fn Protocol(self: ?*anyopaque) i32 {
-        return qtc.QSslConfiguration_Protocol(@ptrCast(self));
+    pub fn Protocol(self: QSslConfiguration) i32 {
+        return qtc.QSslConfiguration_Protocol(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#setProtocol)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` protocol: qssl_enums.SslProtocol `
     ///
-    pub fn SetProtocol(self: ?*anyopaque, protocol: i32) void {
-        qtc.QSslConfiguration_SetProtocol(@ptrCast(self), @bitCast(protocol));
+    pub fn SetProtocol(self: QSslConfiguration, protocol: i32) void {
+        qtc.QSslConfiguration_SetProtocol(@ptrCast(self.ptr), @bitCast(protocol));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#peerVerifyMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ## Returns:
     ///
     /// ` qsslsocket_enums.PeerVerifyMode `
     ///
-    pub fn PeerVerifyMode(self: ?*anyopaque) i32 {
-        return qtc.QSslConfiguration_PeerVerifyMode(@ptrCast(self));
+    pub fn PeerVerifyMode(self: QSslConfiguration) i32 {
+        return qtc.QSslConfiguration_PeerVerifyMode(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#setPeerVerifyMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` mode: qsslsocket_enums.PeerVerifyMode `
     ///
-    pub fn SetPeerVerifyMode(self: ?*anyopaque, mode: i32) void {
-        qtc.QSslConfiguration_SetPeerVerifyMode(@ptrCast(self), @bitCast(mode));
+    pub fn SetPeerVerifyMode(self: QSslConfiguration, mode: i32) void {
+        qtc.QSslConfiguration_SetPeerVerifyMode(@ptrCast(self.ptr), @bitCast(mode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#peerVerifyDepth)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    pub fn PeerVerifyDepth(self: ?*anyopaque) i32 {
-        return qtc.QSslConfiguration_PeerVerifyDepth(@ptrCast(self));
+    pub fn PeerVerifyDepth(self: QSslConfiguration) i32 {
+        return qtc.QSslConfiguration_PeerVerifyDepth(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#setPeerVerifyDepth)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` depth: i32 `
     ///
-    pub fn SetPeerVerifyDepth(self: ?*anyopaque, depth: i32) void {
-        qtc.QSslConfiguration_SetPeerVerifyDepth(@ptrCast(self), @bitCast(depth));
+    pub fn SetPeerVerifyDepth(self: QSslConfiguration, depth: i32) void {
+        qtc.QSslConfiguration_SetPeerVerifyDepth(@ptrCast(self.ptr), @bitCast(depth));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#localCertificateChain)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalCertificateChain(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslCertificate {
-        const _arr: qtc.libqt_list = qtc.QSslConfiguration_LocalCertificateChain(@ptrCast(self));
+    pub fn LocalCertificateChain(self: QSslConfiguration, allocator: std.mem.Allocator) []QSslCertificate {
+        const _arr: qtc.libqt_list = qtc.QSslConfiguration_LocalCertificateChain(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QSslCertificate, _arr.len) catch @panic("qsslconfiguration.LocalCertificateChain: Memory allocation failed");
+        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("qsslconfiguration.LocalCertificateChain: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -178,64 +198,66 @@ pub const qsslconfiguration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    /// ` localChain: []QtC.QSslCertificate `
+    /// ` localChain: []QSslCertificate `
     ///
-    pub fn SetLocalCertificateChain(self: ?*anyopaque, localChain: []QtC.QSslCertificate) void {
+    pub fn SetLocalCertificateChain(self: QSslConfiguration, localChain: []QSslCertificate) void {
         const localChain_list = qtc.libqt_list{
             .len = localChain.len,
             .data = @ptrCast(localChain.ptr),
         };
-        qtc.QSslConfiguration_SetLocalCertificateChain(@ptrCast(self), localChain_list);
+        qtc.QSslConfiguration_SetLocalCertificateChain(@ptrCast(self.ptr), localChain_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#localCertificate)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    pub fn LocalCertificate(self: ?*anyopaque) QtC.QSslCertificate {
-        return qtc.QSslConfiguration_LocalCertificate(@ptrCast(self));
+    pub fn LocalCertificate(self: QSslConfiguration) QSslCertificate {
+        return .{ .ptr = qtc.QSslConfiguration_LocalCertificate(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#setLocalCertificate)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    /// ` certificate: QtC.QSslCertificate `
+    /// ` certificate: QSslCertificate `
     ///
-    pub fn SetLocalCertificate(self: ?*anyopaque, certificate: ?*anyopaque) void {
-        qtc.QSslConfiguration_SetLocalCertificate(@ptrCast(self), @ptrCast(certificate));
+    pub fn SetLocalCertificate(self: QSslConfiguration, certificate: anytype) void {
+        comptime _ = @TypeOf(certificate)._is_QSslCertificate;
+        qtc.QSslConfiguration_SetLocalCertificate(@ptrCast(self.ptr), @ptrCast(certificate.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#peerCertificate)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    pub fn PeerCertificate(self: ?*anyopaque) QtC.QSslCertificate {
-        return qtc.QSslConfiguration_PeerCertificate(@ptrCast(self));
+    pub fn PeerCertificate(self: QSslConfiguration) QSslCertificate {
+        return .{ .ptr = qtc.QSslConfiguration_PeerCertificate(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#peerCertificateChain)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PeerCertificateChain(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslCertificate {
-        const _arr: qtc.libqt_list = qtc.QSslConfiguration_PeerCertificateChain(@ptrCast(self));
+    pub fn PeerCertificateChain(self: QSslConfiguration, allocator: std.mem.Allocator) []QSslCertificate {
+        const _arr: qtc.libqt_list = qtc.QSslConfiguration_PeerCertificateChain(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QSslCertificate, _arr.len) catch @panic("qsslconfiguration.PeerCertificateChain: Memory allocation failed");
+        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("qsslconfiguration.PeerCertificateChain: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -243,62 +265,64 @@ pub const qsslconfiguration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    pub fn SessionCipher(self: ?*anyopaque) QtC.QSslCipher {
-        return qtc.QSslConfiguration_SessionCipher(@ptrCast(self));
+    pub fn SessionCipher(self: QSslConfiguration) QSslCipher {
+        return .{ .ptr = qtc.QSslConfiguration_SessionCipher(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#sessionProtocol)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ## Returns:
     ///
     /// ` qssl_enums.SslProtocol `
     ///
-    pub fn SessionProtocol(self: ?*anyopaque) i32 {
-        return qtc.QSslConfiguration_SessionProtocol(@ptrCast(self));
+    pub fn SessionProtocol(self: QSslConfiguration) i32 {
+        return qtc.QSslConfiguration_SessionProtocol(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#privateKey)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    pub fn PrivateKey(self: ?*anyopaque) QtC.QSslKey {
-        return qtc.QSslConfiguration_PrivateKey(@ptrCast(self));
+    pub fn PrivateKey(self: QSslConfiguration) QSslKey {
+        return .{ .ptr = qtc.QSslConfiguration_PrivateKey(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#setPrivateKey)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    /// ` key: QtC.QSslKey `
+    /// ` key: QSslKey `
     ///
-    pub fn SetPrivateKey(self: ?*anyopaque, key: ?*anyopaque) void {
-        qtc.QSslConfiguration_SetPrivateKey(@ptrCast(self), @ptrCast(key));
+    pub fn SetPrivateKey(self: QSslConfiguration, key: anytype) void {
+        comptime _ = @TypeOf(key)._is_QSslKey;
+        qtc.QSslConfiguration_SetPrivateKey(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#ciphers)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Ciphers(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslCipher {
-        const _arr: qtc.libqt_list = qtc.QSslConfiguration_Ciphers(@ptrCast(self));
+    pub fn Ciphers(self: QSslConfiguration, allocator: std.mem.Allocator) []QSslCipher {
+        const _arr: qtc.libqt_list = qtc.QSslConfiguration_Ciphers(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QSslCipher, _arr.len) catch @panic("qsslconfiguration.Ciphers: Memory allocation failed");
+        const _ret = allocator.alloc(QSslCipher, _arr.len) catch @panic("qsslconfiguration.Ciphers: Memory allocation failed");
         const _data: [*]QtC.QSslCipher = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -306,32 +330,32 @@ pub const qsslconfiguration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    /// ` ciphers: []QtC.QSslCipher `
+    /// ` ciphers: []QSslCipher `
     ///
-    pub fn SetCiphers(self: ?*anyopaque, ciphers: []QtC.QSslCipher) void {
+    pub fn SetCiphers(self: QSslConfiguration, ciphers: []QSslCipher) void {
         const ciphers_list = qtc.libqt_list{
             .len = ciphers.len,
             .data = @ptrCast(ciphers.ptr),
         };
-        qtc.QSslConfiguration_SetCiphers(@ptrCast(self), ciphers_list);
+        qtc.QSslConfiguration_SetCiphers(@ptrCast(self.ptr), ciphers_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#setCiphers)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` ciphers: []const u8 `
     ///
-    pub fn SetCiphers2(self: ?*anyopaque, ciphers: []const u8) void {
+    pub fn SetCiphers2(self: QSslConfiguration, ciphers: []const u8) void {
         const ciphers_str = qtc.libqt_string{
             .len = ciphers.len,
             .data = ciphers.ptr,
         };
-        qtc.QSslConfiguration_SetCiphers2(@ptrCast(self), ciphers_str);
+        qtc.QSslConfiguration_SetCiphers2(@ptrCast(self.ptr), ciphers_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#supportedCiphers)
@@ -340,12 +364,13 @@ pub const qsslconfiguration = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SupportedCiphers(allocator: std.mem.Allocator) []QtC.QSslCipher {
+    pub fn SupportedCiphers(allocator: std.mem.Allocator) []QSslCipher {
         const _arr: qtc.libqt_list = qtc.QSslConfiguration_SupportedCiphers();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QSslCipher, _arr.len) catch @panic("qsslconfiguration.SupportedCiphers: Memory allocation failed");
+        const _ret = allocator.alloc(QSslCipher, _arr.len) catch @panic("qsslconfiguration.SupportedCiphers: Memory allocation failed");
         const _data: [*]QtC.QSslCipher = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -353,16 +378,17 @@ pub const qsslconfiguration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CaCertificates(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslCertificate {
-        const _arr: qtc.libqt_list = qtc.QSslConfiguration_CaCertificates(@ptrCast(self));
+    pub fn CaCertificates(self: QSslConfiguration, allocator: std.mem.Allocator) []QSslCertificate {
+        const _arr: qtc.libqt_list = qtc.QSslConfiguration_CaCertificates(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QSslCertificate, _arr.len) catch @panic("qsslconfiguration.CaCertificates: Memory allocation failed");
+        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("qsslconfiguration.CaCertificates: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -370,60 +396,61 @@ pub const qsslconfiguration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    /// ` certificates: []QtC.QSslCertificate `
+    /// ` certificates: []QSslCertificate `
     ///
-    pub fn SetCaCertificates(self: ?*anyopaque, certificates: []QtC.QSslCertificate) void {
+    pub fn SetCaCertificates(self: QSslConfiguration, certificates: []QSslCertificate) void {
         const certificates_list = qtc.libqt_list{
             .len = certificates.len,
             .data = @ptrCast(certificates.ptr),
         };
-        qtc.QSslConfiguration_SetCaCertificates(@ptrCast(self), certificates_list);
+        qtc.QSslConfiguration_SetCaCertificates(@ptrCast(self.ptr), certificates_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#addCaCertificates)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` path: []const u8 `
     ///
-    pub fn AddCaCertificates(self: ?*anyopaque, path: []const u8) bool {
+    pub fn AddCaCertificates(self: QSslConfiguration, path: []const u8) bool {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        return qtc.QSslConfiguration_AddCaCertificates(@ptrCast(self), path_str);
+        return qtc.QSslConfiguration_AddCaCertificates(@ptrCast(self.ptr), path_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#addCaCertificate)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    /// ` certificate: QtC.QSslCertificate `
+    /// ` certificate: QSslCertificate `
     ///
-    pub fn AddCaCertificate(self: ?*anyopaque, certificate: ?*anyopaque) void {
-        qtc.QSslConfiguration_AddCaCertificate(@ptrCast(self), @ptrCast(certificate));
+    pub fn AddCaCertificate(self: QSslConfiguration, certificate: anytype) void {
+        comptime _ = @TypeOf(certificate)._is_QSslCertificate;
+        qtc.QSslConfiguration_AddCaCertificate(@ptrCast(self.ptr), @ptrCast(certificate.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#addCaCertificates)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    /// ` certificates: []QtC.QSslCertificate `
+    /// ` certificates: []QSslCertificate `
     ///
-    pub fn AddCaCertificates2(self: ?*anyopaque, certificates: []QtC.QSslCertificate) void {
+    pub fn AddCaCertificates2(self: QSslConfiguration, certificates: []QSslCertificate) void {
         const certificates_list = qtc.libqt_list{
             .len = certificates.len,
             .data = @ptrCast(certificates.ptr),
         };
-        qtc.QSslConfiguration_AddCaCertificates2(@ptrCast(self), certificates_list);
+        qtc.QSslConfiguration_AddCaCertificates2(@ptrCast(self.ptr), certificates_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#systemCaCertificates)
@@ -432,12 +459,13 @@ pub const qsslconfiguration = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SystemCaCertificates(allocator: std.mem.Allocator) []QtC.QSslCertificate {
+    pub fn SystemCaCertificates(allocator: std.mem.Allocator) []QSslCertificate {
         const _arr: qtc.libqt_list = qtc.QSslConfiguration_SystemCaCertificates();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QSslCertificate, _arr.len) catch @panic("qsslconfiguration.SystemCaCertificates: Memory allocation failed");
+        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("qsslconfiguration.SystemCaCertificates: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -445,38 +473,38 @@ pub const qsslconfiguration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` option: qssl_enums.SslOption `
     ///
     /// ` on: bool `
     ///
-    pub fn SetSslOption(self: ?*anyopaque, option: i32, on: bool) void {
-        qtc.QSslConfiguration_SetSslOption(@ptrCast(self), @bitCast(option), on);
+    pub fn SetSslOption(self: QSslConfiguration, option: i32, on: bool) void {
+        qtc.QSslConfiguration_SetSslOption(@ptrCast(self.ptr), @bitCast(option), on);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#testSslOption)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` option: qssl_enums.SslOption `
     ///
-    pub fn TestSslOption(self: ?*anyopaque, option: i32) bool {
-        return qtc.QSslConfiguration_TestSslOption(@ptrCast(self), @bitCast(option));
+    pub fn TestSslOption(self: QSslConfiguration, option: i32) bool {
+        return qtc.QSslConfiguration_TestSslOption(@ptrCast(self.ptr), @bitCast(option));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#sessionTicket)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SessionTicket(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QSslConfiguration_SessionTicket(@ptrCast(self));
+    pub fn SessionTicket(self: QSslConfiguration, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QSslConfiguration_SessionTicket(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslconfiguration.SessionTicket: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -487,52 +515,53 @@ pub const qsslconfiguration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` sessionTicket: []u8 `
     ///
-    pub fn SetSessionTicket(self: ?*anyopaque, sessionTicket: []u8) void {
+    pub fn SetSessionTicket(self: QSslConfiguration, sessionTicket: []u8) void {
         const sessionTicket_str = qtc.libqt_string{
             .len = sessionTicket.len,
             .data = sessionTicket.ptr,
         };
-        qtc.QSslConfiguration_SetSessionTicket(@ptrCast(self), sessionTicket_str);
+        qtc.QSslConfiguration_SetSessionTicket(@ptrCast(self.ptr), sessionTicket_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#sessionTicketLifeTimeHint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    pub fn SessionTicketLifeTimeHint(self: ?*anyopaque) i32 {
-        return qtc.QSslConfiguration_SessionTicketLifeTimeHint(@ptrCast(self));
+    pub fn SessionTicketLifeTimeHint(self: QSslConfiguration) i32 {
+        return qtc.QSslConfiguration_SessionTicketLifeTimeHint(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#ephemeralServerKey)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    pub fn EphemeralServerKey(self: ?*anyopaque) QtC.QSslKey {
-        return qtc.QSslConfiguration_EphemeralServerKey(@ptrCast(self));
+    pub fn EphemeralServerKey(self: QSslConfiguration) QSslKey {
+        return .{ .ptr = qtc.QSslConfiguration_EphemeralServerKey(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#ellipticCurves)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EllipticCurves(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslEllipticCurve {
-        const _arr: qtc.libqt_list = qtc.QSslConfiguration_EllipticCurves(@ptrCast(self));
+    pub fn EllipticCurves(self: QSslConfiguration, allocator: std.mem.Allocator) []QSslEllipticCurve {
+        const _arr: qtc.libqt_list = qtc.QSslConfiguration_EllipticCurves(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QSslEllipticCurve, _arr.len) catch @panic("qsslconfiguration.EllipticCurves: Memory allocation failed");
+        const _ret = allocator.alloc(QSslEllipticCurve, _arr.len) catch @panic("qsslconfiguration.EllipticCurves: Memory allocation failed");
         const _data: [*]QtC.QSslEllipticCurve = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -540,16 +569,16 @@ pub const qsslconfiguration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    /// ` curves: []QtC.QSslEllipticCurve `
+    /// ` curves: []QSslEllipticCurve `
     ///
-    pub fn SetEllipticCurves(self: ?*anyopaque, curves: []QtC.QSslEllipticCurve) void {
+    pub fn SetEllipticCurves(self: QSslConfiguration, curves: []QSslEllipticCurve) void {
         const curves_list = qtc.libqt_list{
             .len = curves.len,
             .data = @ptrCast(curves.ptr),
         };
-        qtc.QSslConfiguration_SetEllipticCurves(@ptrCast(self), curves_list);
+        qtc.QSslConfiguration_SetEllipticCurves(@ptrCast(self.ptr), curves_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#supportedEllipticCurves)
@@ -558,12 +587,13 @@ pub const qsslconfiguration = struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SupportedEllipticCurves(allocator: std.mem.Allocator) []QtC.QSslEllipticCurve {
+    pub fn SupportedEllipticCurves(allocator: std.mem.Allocator) []QSslEllipticCurve {
         const _arr: qtc.libqt_list = qtc.QSslConfiguration_SupportedEllipticCurves();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QSslEllipticCurve, _arr.len) catch @panic("qsslconfiguration.SupportedEllipticCurves: Memory allocation failed");
+        const _ret = allocator.alloc(QSslEllipticCurve, _arr.len) catch @panic("qsslconfiguration.SupportedEllipticCurves: Memory allocation failed");
         const _data: [*]QtC.QSslEllipticCurve = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -571,12 +601,12 @@ pub const qsslconfiguration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PreSharedKeyIdentityHint(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QSslConfiguration_PreSharedKeyIdentityHint(@ptrCast(self));
+    pub fn PreSharedKeyIdentityHint(self: QSslConfiguration, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QSslConfiguration_PreSharedKeyIdentityHint(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslconfiguration.PreSharedKeyIdentityHint: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -587,51 +617,52 @@ pub const qsslconfiguration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` hint: []u8 `
     ///
-    pub fn SetPreSharedKeyIdentityHint(self: ?*anyopaque, hint: []u8) void {
+    pub fn SetPreSharedKeyIdentityHint(self: QSslConfiguration, hint: []u8) void {
         const hint_str = qtc.libqt_string{
             .len = hint.len,
             .data = hint.ptr,
         };
-        qtc.QSslConfiguration_SetPreSharedKeyIdentityHint(@ptrCast(self), hint_str);
+        qtc.QSslConfiguration_SetPreSharedKeyIdentityHint(@ptrCast(self.ptr), hint_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#diffieHellmanParameters)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    pub fn DiffieHellmanParameters(self: ?*anyopaque) QtC.QSslDiffieHellmanParameters {
-        return qtc.QSslConfiguration_DiffieHellmanParameters(@ptrCast(self));
+    pub fn DiffieHellmanParameters(self: QSslConfiguration) QSslDiffieHellmanParameters {
+        return .{ .ptr = qtc.QSslConfiguration_DiffieHellmanParameters(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#setDiffieHellmanParameters)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    /// ` dhparams: QtC.QSslDiffieHellmanParameters `
+    /// ` dhparams: QSslDiffieHellmanParameters `
     ///
-    pub fn SetDiffieHellmanParameters(self: ?*anyopaque, dhparams: ?*anyopaque) void {
-        qtc.QSslConfiguration_SetDiffieHellmanParameters(@ptrCast(self), @ptrCast(dhparams));
+    pub fn SetDiffieHellmanParameters(self: QSslConfiguration, dhparams: anytype) void {
+        comptime _ = @TypeOf(dhparams)._is_QSslDiffieHellmanParameters;
+        qtc.QSslConfiguration_SetDiffieHellmanParameters(@ptrCast(self.ptr), @ptrCast(dhparams.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#backendConfiguration)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn BackendConfiguration(self: ?*anyopaque, allocator: std.mem.Allocator) arraymap_u8_qtcqvariant {
-        const _map: qtc.libqt_map = qtc.QSslConfiguration_BackendConfiguration(@ptrCast(self));
-        var _ret: arraymap_u8_qtcqvariant = .empty;
+    pub fn BackendConfiguration(self: QSslConfiguration, allocator: std.mem.Allocator) ArrayMap_u8_QVariant {
+        const _map: qtc.libqt_map = qtc.QSslConfiguration_BackendConfiguration(@ptrCast(self.ptr));
+        var _ret: ArrayMap_u8_QVariant = .empty;
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -648,7 +679,7 @@ pub const qsslconfiguration = struct {
             const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qsslconfiguration.BackendConfiguration: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            _ret.put(allocator, _entry_slice, @ptrCast(_value)) catch @panic("qsslconfiguration.BackendConfiguration: Memory allocation failed");
+            _ret.put(allocator, _entry_slice, .{ .ptr = @ptrCast(_value) }) catch @panic("qsslconfiguration.BackendConfiguration: Memory allocation failed");
         }
         return _ret;
     }
@@ -657,191 +688,192 @@ pub const qsslconfiguration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` name: []u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetBackendConfigurationOption(self: ?*anyopaque, name: []u8, value: ?*anyopaque) void {
+    pub fn SetBackendConfigurationOption(self: QSslConfiguration, name: []u8, value: anytype) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QSslConfiguration_SetBackendConfigurationOption(@ptrCast(self), name_str, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        qtc.QSslConfiguration_SetBackendConfigurationOption(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#setBackendConfiguration)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    pub fn SetBackendConfiguration(self: ?*anyopaque) void {
-        qtc.QSslConfiguration_SetBackendConfiguration(@ptrCast(self));
+    pub fn SetBackendConfiguration(self: QSslConfiguration) void {
+        qtc.QSslConfiguration_SetBackendConfiguration(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#defaultConfiguration)
     ///
-    pub fn DefaultConfiguration() QtC.QSslConfiguration {
-        return qtc.QSslConfiguration_DefaultConfiguration();
+    pub fn DefaultConfiguration() QSslConfiguration {
+        return .{ .ptr = qtc.QSslConfiguration_DefaultConfiguration() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#setDefaultConfiguration)
     ///
     /// ## Parameter(s):
     ///
-    /// ` configuration: QtC.QSslConfiguration `
+    /// ` configuration: QSslConfiguration `
     ///
-    pub fn SetDefaultConfiguration(configuration: ?*anyopaque) void {
-        qtc.QSslConfiguration_SetDefaultConfiguration(@ptrCast(configuration));
+    pub fn SetDefaultConfiguration(configuration: anytype) void {
+        comptime _ = @TypeOf(configuration)._is_QSslConfiguration;
+        qtc.QSslConfiguration_SetDefaultConfiguration(@ptrCast(configuration.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#dtlsCookieVerificationEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    pub fn DtlsCookieVerificationEnabled(self: ?*anyopaque) bool {
-        return qtc.QSslConfiguration_DtlsCookieVerificationEnabled(@ptrCast(self));
+    pub fn DtlsCookieVerificationEnabled(self: QSslConfiguration) bool {
+        return qtc.QSslConfiguration_DtlsCookieVerificationEnabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#setDtlsCookieVerificationEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDtlsCookieVerificationEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QSslConfiguration_SetDtlsCookieVerificationEnabled(@ptrCast(self), enable);
+    pub fn SetDtlsCookieVerificationEnabled(self: QSslConfiguration, enable: bool) void {
+        qtc.QSslConfiguration_SetDtlsCookieVerificationEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#defaultDtlsConfiguration)
     ///
-    pub fn DefaultDtlsConfiguration() QtC.QSslConfiguration {
-        return qtc.QSslConfiguration_DefaultDtlsConfiguration();
+    pub fn DefaultDtlsConfiguration() QSslConfiguration {
+        return .{ .ptr = qtc.QSslConfiguration_DefaultDtlsConfiguration() };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#setDefaultDtlsConfiguration)
     ///
     /// ## Parameter(s):
     ///
-    /// ` configuration: QtC.QSslConfiguration `
+    /// ` configuration: QSslConfiguration `
     ///
-    pub fn SetDefaultDtlsConfiguration(configuration: ?*anyopaque) void {
-        qtc.QSslConfiguration_SetDefaultDtlsConfiguration(@ptrCast(configuration));
+    pub fn SetDefaultDtlsConfiguration(configuration: anytype) void {
+        comptime _ = @TypeOf(configuration)._is_QSslConfiguration;
+        qtc.QSslConfiguration_SetDefaultDtlsConfiguration(@ptrCast(configuration.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#handshakeMustInterruptOnError)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    pub fn HandshakeMustInterruptOnError(self: ?*anyopaque) bool {
-        return qtc.QSslConfiguration_HandshakeMustInterruptOnError(@ptrCast(self));
+    pub fn HandshakeMustInterruptOnError(self: QSslConfiguration) bool {
+        return qtc.QSslConfiguration_HandshakeMustInterruptOnError(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#setHandshakeMustInterruptOnError)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` interrupt: bool `
     ///
-    pub fn SetHandshakeMustInterruptOnError(self: ?*anyopaque, interrupt: bool) void {
-        qtc.QSslConfiguration_SetHandshakeMustInterruptOnError(@ptrCast(self), interrupt);
+    pub fn SetHandshakeMustInterruptOnError(self: QSslConfiguration, interrupt: bool) void {
+        qtc.QSslConfiguration_SetHandshakeMustInterruptOnError(@ptrCast(self.ptr), interrupt);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#missingCertificateIsFatal)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    pub fn MissingCertificateIsFatal(self: ?*anyopaque) bool {
-        return qtc.QSslConfiguration_MissingCertificateIsFatal(@ptrCast(self));
+    pub fn MissingCertificateIsFatal(self: QSslConfiguration) bool {
+        return qtc.QSslConfiguration_MissingCertificateIsFatal(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#setMissingCertificateIsFatal)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` cannotRecover: bool `
     ///
-    pub fn SetMissingCertificateIsFatal(self: ?*anyopaque, cannotRecover: bool) void {
-        qtc.QSslConfiguration_SetMissingCertificateIsFatal(@ptrCast(self), cannotRecover);
+    pub fn SetMissingCertificateIsFatal(self: QSslConfiguration, cannotRecover: bool) void {
+        qtc.QSslConfiguration_SetMissingCertificateIsFatal(@ptrCast(self.ptr), cannotRecover);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#setOcspStaplingEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetOcspStaplingEnabled(self: ?*anyopaque, enable: bool) void {
-        qtc.QSslConfiguration_SetOcspStaplingEnabled(@ptrCast(self), enable);
+    pub fn SetOcspStaplingEnabled(self: QSslConfiguration, enable: bool) void {
+        qtc.QSslConfiguration_SetOcspStaplingEnabled(@ptrCast(self.ptr), enable);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#ocspStaplingEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    pub fn OcspStaplingEnabled(self: ?*anyopaque) bool {
-        return qtc.QSslConfiguration_OcspStaplingEnabled(@ptrCast(self));
+    pub fn OcspStaplingEnabled(self: QSslConfiguration) bool {
+        return qtc.QSslConfiguration_OcspStaplingEnabled(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#setAllowedNextProtocols)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
-    ///
-    /// ` protocols: [][]u8 `
+    /// ` self: QSslConfiguration `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetAllowedNextProtocols(self: ?*anyopaque, protocols: [][]u8, allocator: std.mem.Allocator) void {
+    /// ` protocols: [][]u8 `
+    ///
+    pub fn SetAllowedNextProtocols(self: QSslConfiguration, allocator: std.mem.Allocator, protocols: [][]u8) void {
         const protocols_arr = allocator.alloc(qtc.libqt_string, protocols.len) catch @panic("qsslconfiguration.SetAllowedNextProtocols: Memory allocation failed");
         defer allocator.free(protocols_arr);
-        for (protocols, 0..protocols.len) |item, i| {
+        for (protocols, 0..protocols.len) |item, i|
             protocols_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        }
         const protocols_list = qtc.libqt_list{
             .len = protocols.len,
             .data = protocols_arr.ptr,
         };
-        qtc.QSslConfiguration_SetAllowedNextProtocols(@ptrCast(self), protocols_list);
+        qtc.QSslConfiguration_SetAllowedNextProtocols(@ptrCast(self.ptr), protocols_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#allowedNextProtocols)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllowedNextProtocols(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QSslConfiguration_AllowedNextProtocols(@ptrCast(self));
+    pub fn AllowedNextProtocols(self: QSslConfiguration, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QSslConfiguration_AllowedNextProtocols(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qsslconfiguration.AllowedNextProtocols: Memory allocation failed");
@@ -858,12 +890,12 @@ pub const qsslconfiguration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NextNegotiatedProtocol(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QSslConfiguration_NextNegotiatedProtocol(@ptrCast(self));
+    pub fn NextNegotiatedProtocol(self: QSslConfiguration, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QSslConfiguration_NextNegotiatedProtocol(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslconfiguration.NextNegotiatedProtocol: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -874,39 +906,39 @@ pub const qsslconfiguration = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ## Returns:
     ///
     /// ` qsslconfiguration_enums.NextProtocolNegotiationStatus `
     ///
-    pub fn NextProtocolNegotiationStatus(self: ?*anyopaque) i32 {
-        return qtc.QSslConfiguration_NextProtocolNegotiationStatus(@ptrCast(self));
+    pub fn NextProtocolNegotiationStatus(self: QSslConfiguration) i32 {
+        return qtc.QSslConfiguration_NextProtocolNegotiationStatus(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#addCaCertificates)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` path: []const u8 `
     ///
     /// ` format: qssl_enums.EncodingFormat `
     ///
-    pub fn AddCaCertificates22(self: ?*anyopaque, path: []const u8, format: i32) bool {
+    pub fn AddCaCertificates22(self: QSslConfiguration, path: []const u8, format: i32) bool {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        return qtc.QSslConfiguration_AddCaCertificates22(@ptrCast(self), path_str, @bitCast(format));
+        return qtc.QSslConfiguration_AddCaCertificates22(@ptrCast(self.ptr), path_str, @bitCast(format));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#addCaCertificates)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
     /// ` path: []const u8 `
     ///
@@ -914,25 +946,25 @@ pub const qsslconfiguration = struct {
     ///
     /// ` syntax: qsslcertificate_enums.PatternSyntax `
     ///
-    pub fn AddCaCertificates3(self: ?*anyopaque, path: []const u8, format: i32, syntax: i32) bool {
+    pub fn AddCaCertificates3(self: QSslConfiguration, path: []const u8, format: i32, syntax: i32) bool {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        return qtc.QSslConfiguration_AddCaCertificates3(@ptrCast(self), path_str, @bitCast(format), @bitCast(syntax));
+        return qtc.QSslConfiguration_AddCaCertificates3(@ptrCast(self.ptr), path_str, @bitCast(format), @bitCast(syntax));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsslconfiguration.html#setBackendConfiguration)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QSslConfiguration `
-    ///
-    /// ` backendConfiguration: arraymap_u8_qtcqvariant `
+    /// ` self: QSslConfiguration `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SetBackendConfiguration1(self: ?*anyopaque, backendConfiguration: arraymap_u8_qtcqvariant, allocator: std.mem.Allocator) void {
+    /// ` backendConfiguration: ArrayMap_u8_QVariant `
+    ///
+    pub fn SetBackendConfiguration1(self: QSslConfiguration, allocator: std.mem.Allocator, backendConfiguration: ArrayMap_u8_QVariant) void {
         const backendConfiguration_count = backendConfiguration.count();
         const backendConfiguration_keys = allocator.alloc(qtc.libqt_string, backendConfiguration_count) catch @panic("qsslconfiguration.SetBackendConfiguration1: Memory allocation failed");
         defer allocator.free(backendConfiguration_keys);
@@ -946,14 +978,14 @@ pub const qsslconfiguration = struct {
                 .len = backendConfiguration_key.len,
                 .data = backendConfiguration_key.ptr,
             };
-            backendConfiguration_values[i] = @ptrCast(it_entry.value_ptr.*);
+            backendConfiguration_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
         const backendConfiguration_map = qtc.libqt_map{
             .len = backendConfiguration_count,
             .keys = @ptrCast(backendConfiguration_keys.ptr),
             .values = @ptrCast(backendConfiguration_values.ptr),
         };
-        qtc.QSslConfiguration_SetBackendConfiguration1(@ptrCast(self), backendConfiguration_map);
+        qtc.QSslConfiguration_SetBackendConfiguration1(@ptrCast(self.ptr), backendConfiguration_map);
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -966,10 +998,10 @@ pub const qsslconfiguration = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QSslConfiguration `
+    /// ` self: QSslConfiguration `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QSslConfiguration_Delete(@ptrCast(self));
+    pub fn Delete(self: QSslConfiguration) void {
+        qtc.QSslConfiguration_Delete(@ptrCast(self.ptr));
     }
 };
 

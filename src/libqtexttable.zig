@@ -1,203 +1,233 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
+const QEvent = @import("libqt6").QEvent;
+const QMetaMethod = @import("libqt6").QMetaMethod;
+const QMetaObject = @import("libqt6").QMetaObject;
+const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
+const QObject = @import("libqt6").QObject;
+const QTextCharFormat = @import("libqt6").QTextCharFormat;
+const QTextCursor = @import("libqt6").QTextCursor;
+const QTextDocument = @import("libqt6").QTextDocument;
+const QTextFrame = @import("libqt6").QTextFrame;
+const QTextFrameFormat = @import("libqt6").QTextFrameFormat;
+const QTextFrame__iterator = @import("libqt6").QTextFrame__iterator;
+const QTextTableFormat = @import("libqt6").QTextTableFormat;
+const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
+const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecell.html)
-pub const qtexttablecell = struct {
+pub const QTextTableCell = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecell.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QTextTableCell,
+
+    pub const _is_QTextTableCell = {};
+
     /// New constructs a new QTextTableCell object.
     ///
-    pub fn New() QtC.QTextTableCell {
-        return qtc.QTextTableCell_new();
+    pub fn New() QTextTableCell {
+        return .{ .ptr = qtc.QTextTableCell_new() };
     }
 
     /// New2 constructs a new QTextTableCell object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` o: QtC.QTextTableCell `
+    /// ` o: QTextTableCell `
     ///
-    pub fn New2(o: ?*anyopaque) QtC.QTextTableCell {
-        return qtc.QTextTableCell_new2(@ptrCast(o));
+    pub fn New2(o: anytype) QTextTableCell {
+        comptime _ = @TypeOf(o)._is_QTextTableCell;
+        return .{ .ptr = qtc.QTextTableCell_new2(@ptrCast(o.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecell.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTableCell `
+    /// ` self: QTextTableCell `
     ///
-    /// ` o: QtC.QTextTableCell `
+    /// ` o: QTextTableCell `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, o: ?*anyopaque) void {
-        qtc.QTextTableCell_OperatorAssign(@ptrCast(self), @ptrCast(o));
+    pub fn OperatorAssign(self: QTextTableCell, o: anytype) void {
+        comptime _ = @TypeOf(o)._is_QTextTableCell;
+        qtc.QTextTableCell_OperatorAssign(@ptrCast(self.ptr), @ptrCast(o.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecell.html#setFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTableCell `
+    /// ` self: QTextTableCell `
     ///
-    /// ` format: QtC.QTextCharFormat `
+    /// ` format: QTextCharFormat `
     ///
-    pub fn SetFormat(self: ?*anyopaque, format: ?*anyopaque) void {
-        qtc.QTextTableCell_SetFormat(@ptrCast(self), @ptrCast(format));
+    pub fn SetFormat(self: QTextTableCell, format: anytype) void {
+        comptime _ = @TypeOf(format)._is_QTextCharFormat;
+        qtc.QTextTableCell_SetFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecell.html#format)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTableCell `
+    /// ` self: QTextTableCell `
     ///
-    pub fn Format(self: ?*anyopaque) QtC.QTextCharFormat {
-        return qtc.QTextTableCell_Format(@ptrCast(self));
+    pub fn Format(self: QTextTableCell) QTextCharFormat {
+        return .{ .ptr = qtc.QTextTableCell_Format(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecell.html#row)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTableCell `
+    /// ` self: QTextTableCell `
     ///
-    pub fn Row(self: ?*anyopaque) i32 {
-        return qtc.QTextTableCell_Row(@ptrCast(self));
+    pub fn Row(self: QTextTableCell) i32 {
+        return qtc.QTextTableCell_Row(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecell.html#column)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTableCell `
+    /// ` self: QTextTableCell `
     ///
-    pub fn Column(self: ?*anyopaque) i32 {
-        return qtc.QTextTableCell_Column(@ptrCast(self));
+    pub fn Column(self: QTextTableCell) i32 {
+        return qtc.QTextTableCell_Column(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecell.html#rowSpan)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTableCell `
+    /// ` self: QTextTableCell `
     ///
-    pub fn RowSpan(self: ?*anyopaque) i32 {
-        return qtc.QTextTableCell_RowSpan(@ptrCast(self));
+    pub fn RowSpan(self: QTextTableCell) i32 {
+        return qtc.QTextTableCell_RowSpan(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecell.html#columnSpan)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTableCell `
+    /// ` self: QTextTableCell `
     ///
-    pub fn ColumnSpan(self: ?*anyopaque) i32 {
-        return qtc.QTextTableCell_ColumnSpan(@ptrCast(self));
+    pub fn ColumnSpan(self: QTextTableCell) i32 {
+        return qtc.QTextTableCell_ColumnSpan(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecell.html#isValid)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTableCell `
+    /// ` self: QTextTableCell `
     ///
-    pub fn IsValid(self: ?*anyopaque) bool {
-        return qtc.QTextTableCell_IsValid(@ptrCast(self));
+    pub fn IsValid(self: QTextTableCell) bool {
+        return qtc.QTextTableCell_IsValid(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecell.html#firstCursorPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTableCell `
+    /// ` self: QTextTableCell `
     ///
-    pub fn FirstCursorPosition(self: ?*anyopaque) QtC.QTextCursor {
-        return qtc.QTextTableCell_FirstCursorPosition(@ptrCast(self));
+    pub fn FirstCursorPosition(self: QTextTableCell) QTextCursor {
+        return .{ .ptr = qtc.QTextTableCell_FirstCursorPosition(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecell.html#lastCursorPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTableCell `
+    /// ` self: QTextTableCell `
     ///
-    pub fn LastCursorPosition(self: ?*anyopaque) QtC.QTextCursor {
-        return qtc.QTextTableCell_LastCursorPosition(@ptrCast(self));
+    pub fn LastCursorPosition(self: QTextTableCell) QTextCursor {
+        return .{ .ptr = qtc.QTextTableCell_LastCursorPosition(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecell.html#firstPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTableCell `
+    /// ` self: QTextTableCell `
     ///
-    pub fn FirstPosition(self: ?*anyopaque) i32 {
-        return qtc.QTextTableCell_FirstPosition(@ptrCast(self));
+    pub fn FirstPosition(self: QTextTableCell) i32 {
+        return qtc.QTextTableCell_FirstPosition(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecell.html#lastPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTableCell `
+    /// ` self: QTextTableCell `
     ///
-    pub fn LastPosition(self: ?*anyopaque) i32 {
-        return qtc.QTextTableCell_LastPosition(@ptrCast(self));
+    pub fn LastPosition(self: QTextTableCell) i32 {
+        return qtc.QTextTableCell_LastPosition(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecell.html#operator-eq-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTableCell `
+    /// ` self: QTextTableCell `
     ///
-    /// ` other: QtC.QTextTableCell `
+    /// ` other: QTextTableCell `
     ///
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QTextTableCell_OperatorEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorEqual(self: QTextTableCell, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QTextTableCell;
+        return qtc.QTextTableCell_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecell.html#operator-not-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTableCell `
+    /// ` self: QTextTableCell `
     ///
-    /// ` other: QtC.QTextTableCell `
+    /// ` other: QTextTableCell `
     ///
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QTextTableCell_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorNotEqual(self: QTextTableCell, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_QTextTableCell;
+        return qtc.QTextTableCell_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecell.html#begin)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTableCell `
+    /// ` self: QTextTableCell `
     ///
-    pub fn Begin(self: ?*anyopaque) QtC.QTextFrame__iterator {
-        return qtc.QTextTableCell_Begin(@ptrCast(self));
+    pub fn Begin(self: QTextTableCell) QTextFrame__iterator {
+        return .{ .ptr = qtc.QTextTableCell_Begin(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecell.html#end)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTableCell `
+    /// ` self: QTextTableCell `
     ///
-    pub fn End(self: ?*anyopaque) QtC.QTextFrame__iterator {
-        return qtc.QTextTableCell_End(@ptrCast(self));
+    pub fn End(self: QTextTableCell) QTextFrame__iterator {
+        return .{ .ptr = qtc.QTextTableCell_End(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttablecell.html#tableCellFormatIndex)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTableCell `
+    /// ` self: QTextTableCell `
     ///
-    pub fn TableCellFormatIndex(self: ?*anyopaque) i32 {
-        return qtc.QTextTableCell_TableCellFormatIndex(@ptrCast(self));
+    pub fn TableCellFormatIndex(self: QTextTableCell) i32 {
+        return qtc.QTextTableCell_TableCellFormatIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -210,33 +240,45 @@ pub const qtexttablecell = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QTextTableCell `
+    /// ` self: QTextTableCell `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QTextTableCell_Delete(@ptrCast(self));
+    pub fn Delete(self: QTextTableCell) void {
+        qtc.QTextTableCell_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttable.html)
-pub const qtexttable = struct {
+pub const QTextTable = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttable.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QTextTable,
+
+    pub const _is_QTextTable = {};
+    pub const _is_QTextFrame = {};
+    pub const _is_QTextObject = {};
+    pub const _is_QObject = {};
+
     /// New constructs a new QTextTable object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` doc: QtC.QTextDocument `
+    /// ` doc: QTextDocument `
     ///
-    pub fn New(doc: ?*anyopaque) QtC.QTextTable {
-        return qtc.QTextTable_new(@ptrCast(doc));
+    pub fn New(doc: anytype) QTextTable {
+        comptime _ = @TypeOf(doc)._is_QTextDocument;
+        return .{ .ptr = qtc.QTextTable_new(@ptrCast(doc.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn MetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QTextTable_MetaObject(@ptrCast(self));
+    pub fn MetaObject(self: QTextTable) QMetaObject {
+        return .{ .ptr = qtc.QTextTable_MetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -245,12 +287,12 @@ pub const qtexttable = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QMetaObject `
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMetaObject) void {
-        qtc.QTextTable_OnMetaObject(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetaObject(self: QTextTable, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.QTextTable_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetaObject` instead
@@ -263,33 +305,33 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn SuperMetaObject(self: ?*anyopaque) QtC.QMetaObject {
-        return qtc.QTextTable_SuperMetaObject(@ptrCast(self));
+    pub fn SuperMetaObject(self: QTextTable) QMetaObject {
+        return .{ .ptr = qtc.QTextTable_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn Metacast(self: QTextTable, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QTextTable_Metacast(@ptrCast(self), param1_Cstring);
+        return qtc.QTextTable_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` callback: *const fn (self: QtC.QTextTable, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    /// ` callback: *const fn (self: QTextTable, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) ?*anyopaque) void {
-        qtc.QTextTable_OnMetacast(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacast(self: QTextTable, callback: *const fn (QTextTable, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.QTextTable_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacast` instead
@@ -300,18 +342,18 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: ?*anyopaque, param1: [:0]const u8) ?*anyopaque {
+    pub fn SuperMetacast(self: QTextTable, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
-        return qtc.QTextTable_SuperMetacast(@ptrCast(self), param1_Cstring);
+        return qtc.QTextTable_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -319,20 +361,20 @@ pub const qtexttable = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTextTable_Metacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn Metacall(self: QTextTable, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QTextTable_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// Allows for overriding the related default method
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` callback: *const fn (self: QtC.QTextTable, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTextTable, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, *?*anyopaque) callconv(.c) i32) void {
-        qtc.QTextTable_OnMetacall(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnMetacall(self: QTextTable, callback: *const fn (QTextTable, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.QTextTable_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `SuperMetacall` instead
@@ -343,7 +385,7 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` param1: qobjectdefs_enums.Call `
     ///
@@ -351,19 +393,19 @@ pub const qtexttable = struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
-        return qtc.QTextTable_SuperMetacall(@ptrCast(self), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SuperMetacall(self: QTextTable, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.QTextTable_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Tr(s: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` s: [:0]const u8 `
+    ///
+    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
@@ -376,101 +418,101 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` rows: i32 `
     ///
     /// ` cols: i32 `
     ///
-    pub fn Resize(self: ?*anyopaque, rows: i32, cols: i32) void {
-        qtc.QTextTable_Resize(@ptrCast(self), @bitCast(rows), @bitCast(cols));
+    pub fn Resize(self: QTextTable, rows: i32, cols: i32) void {
+        qtc.QTextTable_Resize(@ptrCast(self.ptr), @bitCast(rows), @bitCast(cols));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttable.html#insertRows)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` pos: i32 `
     ///
     /// ` num: i32 `
     ///
-    pub fn InsertRows(self: ?*anyopaque, pos: i32, num: i32) void {
-        qtc.QTextTable_InsertRows(@ptrCast(self), @bitCast(pos), @bitCast(num));
+    pub fn InsertRows(self: QTextTable, pos: i32, num: i32) void {
+        qtc.QTextTable_InsertRows(@ptrCast(self.ptr), @bitCast(pos), @bitCast(num));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttable.html#insertColumns)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` pos: i32 `
     ///
     /// ` num: i32 `
     ///
-    pub fn InsertColumns(self: ?*anyopaque, pos: i32, num: i32) void {
-        qtc.QTextTable_InsertColumns(@ptrCast(self), @bitCast(pos), @bitCast(num));
+    pub fn InsertColumns(self: QTextTable, pos: i32, num: i32) void {
+        qtc.QTextTable_InsertColumns(@ptrCast(self.ptr), @bitCast(pos), @bitCast(num));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttable.html#appendRows)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` count: i32 `
     ///
-    pub fn AppendRows(self: ?*anyopaque, count: i32) void {
-        qtc.QTextTable_AppendRows(@ptrCast(self), @bitCast(count));
+    pub fn AppendRows(self: QTextTable, count: i32) void {
+        qtc.QTextTable_AppendRows(@ptrCast(self.ptr), @bitCast(count));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttable.html#appendColumns)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` count: i32 `
     ///
-    pub fn AppendColumns(self: ?*anyopaque, count: i32) void {
-        qtc.QTextTable_AppendColumns(@ptrCast(self), @bitCast(count));
+    pub fn AppendColumns(self: QTextTable, count: i32) void {
+        qtc.QTextTable_AppendColumns(@ptrCast(self.ptr), @bitCast(count));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttable.html#removeRows)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` pos: i32 `
     ///
     /// ` num: i32 `
     ///
-    pub fn RemoveRows(self: ?*anyopaque, pos: i32, num: i32) void {
-        qtc.QTextTable_RemoveRows(@ptrCast(self), @bitCast(pos), @bitCast(num));
+    pub fn RemoveRows(self: QTextTable, pos: i32, num: i32) void {
+        qtc.QTextTable_RemoveRows(@ptrCast(self.ptr), @bitCast(pos), @bitCast(num));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttable.html#removeColumns)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` pos: i32 `
     ///
     /// ` num: i32 `
     ///
-    pub fn RemoveColumns(self: ?*anyopaque, pos: i32, num: i32) void {
-        qtc.QTextTable_RemoveColumns(@ptrCast(self), @bitCast(pos), @bitCast(num));
+    pub fn RemoveColumns(self: QTextTable, pos: i32, num: i32) void {
+        qtc.QTextTable_RemoveColumns(@ptrCast(self.ptr), @bitCast(pos), @bitCast(num));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttable.html#mergeCells)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` row: i32 `
     ///
@@ -480,27 +522,28 @@ pub const qtexttable = struct {
     ///
     /// ` numCols: i32 `
     ///
-    pub fn MergeCells(self: ?*anyopaque, row: i32, col: i32, numRows: i32, numCols: i32) void {
-        qtc.QTextTable_MergeCells(@ptrCast(self), @bitCast(row), @bitCast(col), @bitCast(numRows), @bitCast(numCols));
+    pub fn MergeCells(self: QTextTable, row: i32, col: i32, numRows: i32, numCols: i32) void {
+        qtc.QTextTable_MergeCells(@ptrCast(self.ptr), @bitCast(row), @bitCast(col), @bitCast(numRows), @bitCast(numCols));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttable.html#mergeCells)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` cursor: QtC.QTextCursor `
+    /// ` cursor: QTextCursor `
     ///
-    pub fn MergeCells2(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QTextTable_MergeCells2(@ptrCast(self), @ptrCast(cursor));
+    pub fn MergeCells2(self: QTextTable, cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QTextCursor;
+        qtc.QTextTable_MergeCells2(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttable.html#splitCell)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` row: i32 `
     ///
@@ -510,125 +553,129 @@ pub const qtexttable = struct {
     ///
     /// ` numCols: i32 `
     ///
-    pub fn SplitCell(self: ?*anyopaque, row: i32, col: i32, numRows: i32, numCols: i32) void {
-        qtc.QTextTable_SplitCell(@ptrCast(self), @bitCast(row), @bitCast(col), @bitCast(numRows), @bitCast(numCols));
+    pub fn SplitCell(self: QTextTable, row: i32, col: i32, numRows: i32, numCols: i32) void {
+        qtc.QTextTable_SplitCell(@ptrCast(self.ptr), @bitCast(row), @bitCast(col), @bitCast(numRows), @bitCast(numCols));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttable.html#rows)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn Rows(self: ?*anyopaque) i32 {
-        return qtc.QTextTable_Rows(@ptrCast(self));
+    pub fn Rows(self: QTextTable) i32 {
+        return qtc.QTextTable_Rows(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttable.html#columns)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn Columns(self: ?*anyopaque) i32 {
-        return qtc.QTextTable_Columns(@ptrCast(self));
+    pub fn Columns(self: QTextTable) i32 {
+        return qtc.QTextTable_Columns(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttable.html#cellAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` row: i32 `
     ///
     /// ` col: i32 `
     ///
-    pub fn CellAt(self: ?*anyopaque, row: i32, col: i32) QtC.QTextTableCell {
-        return qtc.QTextTable_CellAt(@ptrCast(self), @bitCast(row), @bitCast(col));
+    pub fn CellAt(self: QTextTable, row: i32, col: i32) QTextTableCell {
+        return .{ .ptr = qtc.QTextTable_CellAt(@ptrCast(self.ptr), @bitCast(row), @bitCast(col)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttable.html#cellAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` position: i32 `
     ///
-    pub fn CellAt2(self: ?*anyopaque, position: i32) QtC.QTextTableCell {
-        return qtc.QTextTable_CellAt2(@ptrCast(self), @bitCast(position));
+    pub fn CellAt2(self: QTextTable, position: i32) QTextTableCell {
+        return .{ .ptr = qtc.QTextTable_CellAt2(@ptrCast(self.ptr), @bitCast(position)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttable.html#cellAt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` c: QtC.QTextCursor `
+    /// ` c: QTextCursor `
     ///
-    pub fn CellAt3(self: ?*anyopaque, c: ?*anyopaque) QtC.QTextTableCell {
-        return qtc.QTextTable_CellAt3(@ptrCast(self), @ptrCast(c));
+    pub fn CellAt3(self: QTextTable, c: anytype) QTextTableCell {
+        comptime _ = @TypeOf(c)._is_QTextCursor;
+        return .{ .ptr = qtc.QTextTable_CellAt3(@ptrCast(self.ptr), @ptrCast(c.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttable.html#rowStart)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` c: QtC.QTextCursor `
+    /// ` c: QTextCursor `
     ///
-    pub fn RowStart(self: ?*anyopaque, c: ?*anyopaque) QtC.QTextCursor {
-        return qtc.QTextTable_RowStart(@ptrCast(self), @ptrCast(c));
+    pub fn RowStart(self: QTextTable, c: anytype) QTextCursor {
+        comptime _ = @TypeOf(c)._is_QTextCursor;
+        return .{ .ptr = qtc.QTextTable_RowStart(@ptrCast(self.ptr), @ptrCast(c.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttable.html#rowEnd)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` c: QtC.QTextCursor `
+    /// ` c: QTextCursor `
     ///
-    pub fn RowEnd(self: ?*anyopaque, c: ?*anyopaque) QtC.QTextCursor {
-        return qtc.QTextTable_RowEnd(@ptrCast(self), @ptrCast(c));
+    pub fn RowEnd(self: QTextTable, c: anytype) QTextCursor {
+        comptime _ = @TypeOf(c)._is_QTextCursor;
+        return .{ .ptr = qtc.QTextTable_RowEnd(@ptrCast(self.ptr), @ptrCast(c.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttable.html#setFormat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` format: QtC.QTextTableFormat `
+    /// ` format: QTextTableFormat `
     ///
-    pub fn SetFormat(self: ?*anyopaque, format: ?*anyopaque) void {
-        qtc.QTextTable_SetFormat(@ptrCast(self), @ptrCast(format));
+    pub fn SetFormat(self: QTextTable, format: anytype) void {
+        comptime _ = @TypeOf(format)._is_QTextTableFormat;
+        qtc.QTextTable_SetFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttable.html#format)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn Format(self: ?*anyopaque) QtC.QTextTableFormat {
-        return qtc.QTextTable_Format(@ptrCast(self));
+    pub fn Format(self: QTextTable) QTextTableFormat {
+        return .{ .ptr = qtc.QTextTable_Format(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr2(s: [:0]const u8, c: [:0]const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
@@ -642,15 +689,15 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
     /// ` s: [:0]const u8 `
     ///
     /// ` c: [:0]const u8 `
     ///
     /// ` n: i32 `
     ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Tr3(s: [:0]const u8, c: [:0]const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
@@ -666,12 +713,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` format: QtC.QTextFrameFormat `
+    /// ` format: QTextFrameFormat `
     ///
-    pub fn SetFrameFormat(self: ?*anyopaque, format: ?*anyopaque) void {
-        qtc.QTextFrame_SetFrameFormat(@ptrCast(self), @ptrCast(format));
+    pub fn SetFrameFormat(self: QTextTable, format: anytype) void {
+        comptime _ = @TypeOf(format)._is_QTextFrameFormat;
+        qtc.QTextFrame_SetFrameFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
 
     /// Inherited from QTextFrame
@@ -680,10 +728,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn FrameFormat(self: ?*anyopaque) QtC.QTextFrameFormat {
-        return qtc.QTextFrame_FrameFormat(@ptrCast(self));
+    pub fn FrameFormat(self: QTextTable) QTextFrameFormat {
+        return .{ .ptr = qtc.QTextFrame_FrameFormat(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QTextFrame
@@ -692,10 +740,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn FirstCursorPosition(self: ?*anyopaque) QtC.QTextCursor {
-        return qtc.QTextFrame_FirstCursorPosition(@ptrCast(self));
+    pub fn FirstCursorPosition(self: QTextTable) QTextCursor {
+        return .{ .ptr = qtc.QTextFrame_FirstCursorPosition(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QTextFrame
@@ -704,10 +752,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn LastCursorPosition(self: ?*anyopaque) QtC.QTextCursor {
-        return qtc.QTextFrame_LastCursorPosition(@ptrCast(self));
+    pub fn LastCursorPosition(self: QTextTable) QTextCursor {
+        return .{ .ptr = qtc.QTextFrame_LastCursorPosition(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QTextFrame
@@ -716,10 +764,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn FirstPosition(self: ?*anyopaque) i32 {
-        return qtc.QTextFrame_FirstPosition(@ptrCast(self));
+    pub fn FirstPosition(self: QTextTable) i32 {
+        return qtc.QTextFrame_FirstPosition(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextFrame
@@ -728,10 +776,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn LastPosition(self: ?*anyopaque) i32 {
-        return qtc.QTextFrame_LastPosition(@ptrCast(self));
+    pub fn LastPosition(self: QTextTable) i32 {
+        return qtc.QTextFrame_LastPosition(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextFrame
@@ -740,16 +788,17 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ChildFrames(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTextFrame {
-        const _arr: qtc.libqt_list = qtc.QTextFrame_ChildFrames(@ptrCast(self));
+    pub fn ChildFrames(self: QTextTable, allocator: std.mem.Allocator) []QTextFrame {
+        const _arr: qtc.libqt_list = qtc.QTextFrame_ChildFrames(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QTextFrame, _arr.len) catch @panic("qtexttable.ChildFrames: Memory allocation failed");
+        const _ret = allocator.alloc(QTextFrame, _arr.len) catch @panic("qtexttable.ChildFrames: Memory allocation failed");
         const _data: [*]QtC.QTextFrame = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -759,10 +808,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn ParentFrame(self: ?*anyopaque) QtC.QTextFrame {
-        return qtc.QTextFrame_ParentFrame(@ptrCast(self));
+    pub fn ParentFrame(self: QTextTable) QTextFrame {
+        return .{ .ptr = qtc.QTextFrame_ParentFrame(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QTextFrame
@@ -771,10 +820,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn Begin(self: ?*anyopaque) QtC.QTextFrame__iterator {
-        return qtc.QTextFrame_Begin(@ptrCast(self));
+    pub fn Begin(self: QTextTable) QTextFrame__iterator {
+        return .{ .ptr = qtc.QTextFrame_Begin(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QTextFrame
@@ -783,10 +832,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn End(self: ?*anyopaque) QtC.QTextFrame__iterator {
-        return qtc.QTextFrame_End(@ptrCast(self));
+    pub fn End(self: QTextTable) QTextFrame__iterator {
+        return .{ .ptr = qtc.QTextFrame_End(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QTextObject
@@ -795,10 +844,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn FormatIndex(self: ?*anyopaque) i32 {
-        return qtc.QTextObject_FormatIndex(@ptrCast(self));
+    pub fn FormatIndex(self: QTextTable) i32 {
+        return qtc.QTextObject_FormatIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QTextObject
@@ -807,10 +856,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn Document(self: ?*anyopaque) QtC.QTextDocument {
-        return qtc.QTextObject_Document(@ptrCast(self));
+    pub fn Document(self: QTextTable) QTextDocument {
+        return .{ .ptr = qtc.QTextObject_Document(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QTextObject
@@ -819,10 +868,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn ObjectIndex(self: ?*anyopaque) i32 {
-        return qtc.QTextObject_ObjectIndex(@ptrCast(self));
+    pub fn ObjectIndex(self: QTextTable) i32 {
+        return qtc.QTextObject_ObjectIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -831,12 +880,12 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QObject_ObjectName(@ptrCast(self));
+    pub fn ObjectName(self: QTextTable, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtexttable.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -849,12 +898,12 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), name.ptr);
+    pub fn SetObjectName(self: QTextTable, name: []const u8) void {
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
     }
 
     /// Inherited from QObject
@@ -863,10 +912,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn IsWidgetType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWidgetType(@ptrCast(self));
+    pub fn IsWidgetType(self: QTextTable) bool {
+        return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -875,10 +924,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn IsWindowType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsWindowType(@ptrCast(self));
+    pub fn IsWindowType(self: QTextTable) bool {
+        return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -887,10 +936,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn IsQuickItemType(self: ?*anyopaque) bool {
-        return qtc.QObject_IsQuickItemType(@ptrCast(self));
+    pub fn IsQuickItemType(self: QTextTable) bool {
+        return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -899,10 +948,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn SignalsBlocked(self: ?*anyopaque) bool {
-        return qtc.QObject_SignalsBlocked(@ptrCast(self));
+    pub fn SignalsBlocked(self: QTextTable) bool {
+        return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -911,12 +960,12 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: ?*anyopaque, b: bool) bool {
-        return qtc.QObject_BlockSignals(@ptrCast(self), b);
+    pub fn BlockSignals(self: QTextTable, b: bool) bool {
+        return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
 
     /// Inherited from QObject
@@ -925,10 +974,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn Thread(self: ?*anyopaque) QtC.QThread {
-        return qtc.QObject_Thread(@ptrCast(self));
+    pub fn Thread(self: QTextTable) QThread {
+        return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -937,12 +986,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` thread: QtC.QThread `
+    /// ` thread: QThread `
     ///
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
-        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: QTextTable, thread: anytype) bool {
+        comptime _ = @TypeOf(thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
     }
 
     /// Inherited from QObject
@@ -951,12 +1001,12 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: ?*anyopaque, interval: i32) i32 {
-        return qtc.QObject_StartTimer(@ptrCast(self), @bitCast(interval));
+    pub fn StartTimer(self: QTextTable, interval: i32) i32 {
+        return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
 
     /// Inherited from QObject
@@ -965,12 +1015,12 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: ?*anyopaque, time: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @bitCast(time));
+    pub fn StartTimer2(self: QTextTable, time: i64) i32 {
+        return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
     /// Inherited from QObject
@@ -979,12 +1029,12 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer(self: QTextTable, id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -993,12 +1043,12 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self), @bitCast(id));
+    pub fn KillTimer2(self: QTextTable, id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
 
     /// Inherited from QObject
@@ -1007,16 +1057,17 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
+    pub fn Children(self: QTextTable, allocator: std.mem.Allocator) []QObject {
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qtexttable.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qtexttable.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -1026,12 +1077,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` parent: QtC.QObject `
+    /// ` parent: QObject `
     ///
-    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
-        qtc.QObject_SetParent(@ptrCast(self), @ptrCast(parent));
+    pub fn SetParent(self: QTextTable, parent: anytype) void {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
     }
 
     /// Inherited from QObject
@@ -1040,12 +1092,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` filterObj: QtC.QObject `
+    /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: ?*anyopaque, filterObj: ?*anyopaque) void {
-        qtc.QObject_InstallEventFilter(@ptrCast(self), @ptrCast(filterObj));
+    pub fn InstallEventFilter(self: QTextTable, filterObj: anytype) void {
+        comptime _ = @TypeOf(filterObj)._is_QObject;
+        qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
 
     /// Inherited from QObject
@@ -1054,12 +1107,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` obj: QtC.QObject `
+    /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: ?*anyopaque, obj: ?*anyopaque) void {
-        qtc.QObject_RemoveEventFilter(@ptrCast(self), @ptrCast(obj));
+    pub fn RemoveEventFilter(self: QTextTable, obj: anytype) void {
+        comptime _ = @TypeOf(obj)._is_QObject;
+        qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
 
     /// Inherited from QObject
@@ -1068,18 +1122,20 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1088,16 +1144,20 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method));
+    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1106,18 +1166,19 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8) QtC.QMetaObject__Connection {
+    pub fn Connect3(self: QTextTable, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect3(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1126,18 +1187,20 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1146,16 +1209,20 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` member: QtC.QMetaMethod `
+    /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, member: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect2(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(member));
+    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(member)._is_QMetaMethod;
+        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
 
     /// Inherited from QObject
@@ -1164,10 +1231,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn Disconnect3(self: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect3(@ptrCast(self));
+    pub fn Disconnect3(self: QTextTable) bool {
+        return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1176,12 +1243,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: ?*anyopaque, receiver: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect4(@ptrCast(self), @ptrCast(receiver));
+    pub fn Disconnect4(self: QTextTable, receiver: anytype) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1190,10 +1258,11 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QMetaObject__Connection `
+    /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: ?*anyopaque) bool {
-        return qtc.QObject_Disconnect5(@ptrCast(param1));
+    pub fn Disconnect5(param1: anytype) bool {
+        comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
+        return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1202,10 +1271,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn DumpObjectTree(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectTree(@ptrCast(self));
+    pub fn DumpObjectTree(self: QTextTable) void {
+        qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1214,10 +1283,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn DumpObjectInfo(self: ?*anyopaque) void {
-        qtc.QObject_DumpObjectInfo(@ptrCast(self));
+    pub fn DumpObjectInfo(self: QTextTable) void {
+        qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1226,15 +1295,16 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QtC.QVariant `
+    /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: ?*anyopaque, name: [:0]const u8, value: ?*anyopaque) bool {
+    pub fn SetProperty(self: QTextTable, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
-        return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
+        comptime _ = @TypeOf(value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
     /// Inherited from QObject
@@ -1243,13 +1313,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: ?*anyopaque, name: [:0]const u8) QtC.QVariant {
+    pub fn Property(self: QTextTable, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
-        return qtc.QObject_Property(@ptrCast(self), name_Cstring);
+        return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
 
     /// Inherited from QObject
@@ -1258,17 +1328,16 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+    pub fn DynamicPropertyNames(self: QTextTable, allocator: std.mem.Allocator) [][]u8 {
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qtexttable.DynamicPropertyNames: Memory allocation failed");
@@ -1287,10 +1356,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage(@ptrCast(self));
+    pub fn BindingStorage(self: QTextTable) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1299,10 +1368,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn BindingStorage2(self: ?*anyopaque) QtC.QBindingStorage {
-        return qtc.QObject_BindingStorage2(@ptrCast(self));
+    pub fn BindingStorage2(self: QTextTable) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1311,10 +1380,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn Destroyed(self: ?*anyopaque) void {
-        qtc.QObject_Destroyed(@ptrCast(self));
+    pub fn Destroyed(self: QTextTable) void {
+        qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1323,12 +1392,12 @@ pub const qtexttable = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` callback: *const fn (self: QtC.QTextTable) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextTable) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed(self: QTextTable, callback: *const fn (QTextTable) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1337,10 +1406,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn Parent(self: ?*anyopaque) QtC.QObject {
-        return qtc.QObject_Parent(@ptrCast(self));
+    pub fn Parent(self: QTextTable) QObject {
+        return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1349,13 +1418,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: ?*anyopaque, classname: [:0]const u8) bool {
+    pub fn Inherits(self: QTextTable, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
-        return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
+        return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
 
     /// Inherited from QObject
@@ -1364,10 +1433,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn DeleteLater(self: ?*anyopaque) void {
-        qtc.QObject_DeleteLater(@ptrCast(self));
+    pub fn DeleteLater(self: QTextTable) void {
+        qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -1376,14 +1445,14 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` interval: i32 `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
-        return qtc.QObject_StartTimer22(@ptrCast(self), @bitCast(interval), @bitCast(timerType));
+    pub fn StartTimer22(self: QTextTable, interval: i32, timerType: i32) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1392,14 +1461,14 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` time: i64 of nanoseconds `
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: ?*anyopaque, time: i64, timerType: i32) i32 {
-        return qtc.QObject_StartTimer23(@ptrCast(self), @bitCast(time), @bitCast(timerType));
+    pub fn StartTimer23(self: QTextTable, time: i64, timerType: i32) i32 {
+        return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1408,20 +1477,22 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8, param5: i32) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect5(@ptrCast(sender), signal_Cstring, @ptrCast(receiver), member_Cstring, @bitCast(param5));
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
 
     /// Inherited from QObject
@@ -1430,18 +1501,22 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    /// ` method: QtC.QMetaMethod `
+    /// ` method: QMetaMethod `
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
-        return qtc.QObject_Connect52(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @bitCast(typeVal));
+    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        comptime _ = @TypeOf(method)._is_QMetaMethod;
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1450,9 +1525,9 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` sender: QtC.QObject `
+    /// ` sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1460,10 +1535,11 @@ pub const qtexttable = struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: QTextTable, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @bitCast(typeVal));
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
 
     /// Inherited from QObject
@@ -1472,13 +1548,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: ?*anyopaque, signal: [:0]const u8) bool {
+    pub fn Disconnect1(self: QTextTable, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect1(@ptrCast(self), signal_Cstring);
+        return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -1487,15 +1563,16 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque) bool {
+    pub fn Disconnect22(self: QTextTable, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
-        return qtc.QObject_Disconnect22(@ptrCast(self), signal_Cstring, @ptrCast(receiver));
+        comptime _ = @TypeOf(receiver)._is_QObject;
+        return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
 
     /// Inherited from QObject
@@ -1504,18 +1581,19 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: ?*anyopaque, signal: [:0]const u8, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect32(self: QTextTable, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect32(@ptrCast(self), signal_Cstring, @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1524,15 +1602,16 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` receiver: QtC.QObject `
+    /// ` receiver: QObject `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: ?*anyopaque, receiver: ?*anyopaque, member: [:0]const u8) bool {
+    pub fn Disconnect23(self: QTextTable, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect23(@ptrCast(self), @ptrCast(receiver), member_Cstring);
+        return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
 
     /// Inherited from QObject
@@ -1541,12 +1620,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` param1: QtC.QObject `
+    /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QObject_Destroyed1(@ptrCast(self), @ptrCast(param1));
+    pub fn Destroyed1(self: QTextTable, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QObject;
+        qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// Inherited from QObject
@@ -1555,12 +1635,12 @@ pub const qtexttable = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` callback: *const fn (self: QtC.QTextTable, param1: QtC.QObject) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextTable, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDestroyed1(self: QTextTable, callback: *const fn (QTextTable, QObject) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1571,12 +1651,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTextTable_Event(@ptrCast(self), @ptrCast(event));
+    pub fn Event(self: QTextTable, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTextTable_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEvent` instead
@@ -1591,12 +1672,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTextTable_SuperEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperEvent(self: QTextTable, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTextTable_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1607,12 +1689,12 @@ pub const qtexttable = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextTable`
+    /// ` self: QTextTable`
     ///
-    /// ` callback: *const fn (self: QtC.QTextTable, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTextTable, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTextTable_OnEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEvent(self: QTextTable, callback: *const fn (QTextTable, QEvent) callconv(.c) bool) void {
+        qtc.QTextTable_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1623,14 +1705,16 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTextTable_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn EventFilter(self: QTextTable, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTextTable_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperEventFilter` instead
@@ -1645,14 +1729,16 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` watched: QtC.QObject `
+    /// ` watched: QObject `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QTextTable_SuperEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    pub fn SuperEventFilter(self: QTextTable, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.QTextTable_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1663,12 +1749,12 @@ pub const qtexttable = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextTable`
+    /// ` self: QTextTable`
     ///
-    /// ` callback: *const fn (self: QtC.QTextTable, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTextTable, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTextTable_OnEventFilter(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnEventFilter(self: QTextTable, callback: *const fn (QTextTable, QObject, QEvent) callconv(.c) bool) void {
+        qtc.QTextTable_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1679,12 +1765,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextTable_TimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn TimerEvent(self: QTextTable, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QTextTable_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperTimerEvent` instead
@@ -1699,12 +1786,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` event: QtC.QTimerEvent `
+    /// ` event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextTable_SuperTimerEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperTimerEvent(self: QTextTable, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.QTextTable_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1715,12 +1803,12 @@ pub const qtexttable = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextTable`
+    /// ` self: QTextTable`
     ///
-    /// ` callback: *const fn (self: QtC.QTextTable, event: QtC.QTimerEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextTable, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextTable_OnTimerEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnTimerEvent(self: QTextTable, callback: *const fn (QTextTable, QTimerEvent) callconv(.c) void) void {
+        qtc.QTextTable_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1731,12 +1819,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextTable_ChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn ChildEvent(self: QTextTable, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QTextTable_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperChildEvent` instead
@@ -1751,12 +1840,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` event: QtC.QChildEvent `
+    /// ` event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextTable_SuperChildEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperChildEvent(self: QTextTable, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.QTextTable_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1767,12 +1857,12 @@ pub const qtexttable = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextTable`
+    /// ` self: QTextTable`
     ///
-    /// ` callback: *const fn (self: QtC.QTextTable, event: QtC.QChildEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextTable, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextTable_OnChildEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnChildEvent(self: QTextTable, callback: *const fn (QTextTable, QChildEvent) callconv(.c) void) void {
+        qtc.QTextTable_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1783,12 +1873,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextTable_CustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn CustomEvent(self: QTextTable, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QTextTable_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperCustomEvent` instead
@@ -1803,12 +1894,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` event: QtC.QEvent `
+    /// ` event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTextTable_SuperCustomEvent(@ptrCast(self), @ptrCast(event));
+    pub fn SuperCustomEvent(self: QTextTable, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.QTextTable_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -1819,12 +1911,12 @@ pub const qtexttable = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextTable`
+    /// ` self: QTextTable`
     ///
-    /// ` callback: *const fn (self: QtC.QTextTable, event: QtC.QEvent) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextTable, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextTable_OnCustomEvent(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnCustomEvent(self: QTextTable, callback: *const fn (QTextTable, QEvent) callconv(.c) void) void {
+        qtc.QTextTable_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1835,12 +1927,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTextTable_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn ConnectNotify(self: QTextTable, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QTextTable_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperConnectNotify` instead
@@ -1855,12 +1948,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTextTable_SuperConnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperConnectNotify(self: QTextTable, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QTextTable_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1871,12 +1965,12 @@ pub const qtexttable = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextTable`
+    /// ` self: QTextTable`
     ///
-    /// ` callback: *const fn (self: QtC.QTextTable, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextTable, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextTable_OnConnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnConnectNotify(self: QTextTable, callback: *const fn (QTextTable, QMetaMethod) callconv(.c) void) void {
+        qtc.QTextTable_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1887,12 +1981,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTextTable_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn DisconnectNotify(self: QTextTable, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QTextTable_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
@@ -1907,12 +2002,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QTextTable_SuperDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperDisconnectNotify(self: QTextTable, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.QTextTable_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -1923,12 +2019,12 @@ pub const qtexttable = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextTable`
+    /// ` self: QTextTable`
     ///
-    /// ` callback: *const fn (self: QtC.QTextTable, signal: QtC.QMetaMethod) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextTable, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextTable_OnDisconnectNotify(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnDisconnectNotify(self: QTextTable, callback: *const fn (QTextTable, QMetaMethod) callconv(.c) void) void {
+        qtc.QTextTable_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1939,10 +2035,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QTextTable_Sender(@ptrCast(self));
+    pub fn Sender(self: QTextTable) QObject {
+        return .{ .ptr = qtc.QTextTable_Sender(@ptrCast(self.ptr)) };
     }
 
     /// ### DEPRECATED: Use `SuperSender` instead
@@ -1957,10 +2053,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn SuperSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.QTextTable_SuperSender(@ptrCast(self));
+    pub fn SuperSender(self: QTextTable) QObject {
+        return .{ .ptr = qtc.QTextTable_SuperSender(@ptrCast(self.ptr)) };
     }
 
     /// Inherited from QObject
@@ -1971,12 +2067,12 @@ pub const qtexttable = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextTable`
+    /// ` self: QTextTable`
     ///
-    /// ` callback: *const fn () callconv(.c) QtC.QObject `
+    /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.QTextTable_OnSender(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSender(self: QTextTable, callback: *const fn () callconv(.c) QObject) void {
+        qtc.QTextTable_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1987,10 +2083,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QTextTable_SenderSignalIndex(@ptrCast(self));
+    pub fn SenderSignalIndex(self: QTextTable) i32 {
+        return qtc.QTextTable_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
@@ -2005,10 +2101,10 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn SuperSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.QTextTable_SuperSenderSignalIndex(@ptrCast(self));
+    pub fn SuperSenderSignalIndex(self: QTextTable) i32 {
+        return qtc.QTextTable_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
 
     /// Inherited from QObject
@@ -2019,12 +2115,12 @@ pub const qtexttable = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextTable`
+    /// ` self: QTextTable`
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.QTextTable_OnSenderSignalIndex(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnSenderSignalIndex(self: QTextTable, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTextTable_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2035,13 +2131,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn Receivers(self: QTextTable, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QTextTable_Receivers(@ptrCast(self), signal_Cstring);
+        return qtc.QTextTable_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// ### DEPRECATED: Use `SuperReceivers` instead
@@ -2056,13 +2152,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: ?*anyopaque, signal: [:0]const u8) i32 {
+    pub fn SuperReceivers(self: QTextTable, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
-        return qtc.QTextTable_SuperReceivers(@ptrCast(self), signal_Cstring);
+        return qtc.QTextTable_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
     /// Inherited from QObject
@@ -2073,12 +2169,12 @@ pub const qtexttable = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextTable`
+    /// ` self: QTextTable`
     ///
-    /// ` callback: *const fn (self: QtC.QTextTable, signal: [*:0]const u8) callconv(.c) i32 `
+    /// ` callback: *const fn (self: QTextTable, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QTextTable_OnReceivers(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnReceivers(self: QTextTable, callback: *const fn (QTextTable, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QTextTable_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2089,12 +2185,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QTextTable_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn IsSignalConnected(self: QTextTable, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QTextTable_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
@@ -2109,12 +2206,13 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` signal: QtC.QMetaMethod `
+    /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.QTextTable_SuperIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    pub fn SuperIsSignalConnected(self: QTextTable, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.QTextTable_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
     /// Inherited from QObject
@@ -2125,12 +2223,12 @@ pub const qtexttable = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextTable`
+    /// ` self: QTextTable`
     ///
-    /// ` callback: *const fn (self: QtC.QTextTable, signal: QtC.QMetaMethod) callconv(.c) bool `
+    /// ` callback: *const fn (self: QTextTable, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTextTable_OnIsSignalConnected(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnIsSignalConnected(self: QTextTable, callback: *const fn (QTextTable, QMetaMethod) callconv(.c) bool) void {
+        qtc.QTextTable_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2141,12 +2239,12 @@ pub const qtexttable = struct {
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    /// ` callback: *const fn (self: QtC.QTextTable, objectName: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QTextTable, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @bitCast(@intFromPtr(callback)));
+    pub fn OnObjectNameChanged(self: QTextTable, callback: *const fn (QTextTable, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -2159,9 +2257,9 @@ pub const qtexttable = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QTextTable `
+    /// ` self: QTextTable `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QTextTable_Delete(@ptrCast(self));
+    pub fn Delete(self: QTextTable) void {
+        qtc.QTextTable_Delete(@ptrCast(self.ptr));
     }
 };

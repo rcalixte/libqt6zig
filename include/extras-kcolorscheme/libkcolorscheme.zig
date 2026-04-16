@@ -1,24 +1,36 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QBrush = @import("libqt6").QBrush;
+const QColor = @import("libqt6").QColor;
+const QPalette = @import("libqt6").QPalette;
 const kcolorscheme_enums = enums;
 const qpalette_enums = @import("../libqpalette.zig").enums;
 
 /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html)
-pub const kcolorscheme = struct {
+pub const KColorScheme = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KColorScheme,
+
+    pub const _is_KColorScheme = {};
+
     /// New constructs a new KColorScheme object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.KColorScheme `
+    /// ` param1: KColorScheme `
     ///
-    pub fn New(param1: ?*anyopaque) QtC.KColorScheme {
-        return qtc.KColorScheme_new(@ptrCast(param1));
+    pub fn New(param1: anytype) KColorScheme {
+        comptime _ = @TypeOf(param1)._is_KColorScheme;
+        return .{ .ptr = qtc.KColorScheme_new(@ptrCast(param1.ptr)) };
     }
 
     /// New2 constructs a new KColorScheme object.
     ///
-    pub fn New2() QtC.KColorScheme {
-        return qtc.KColorScheme_new2();
+    pub fn New2() KColorScheme {
+        return .{ .ptr = qtc.KColorScheme_new2() };
     }
 
     /// New3 constructs a new KColorScheme object.
@@ -27,8 +39,8 @@ pub const kcolorscheme = struct {
     ///
     /// ` param1: qpalette_enums.ColorGroup `
     ///
-    pub fn New3(param1: i32) QtC.KColorScheme {
-        return qtc.KColorScheme_new3(@bitCast(param1));
+    pub fn New3(param1: i32) KColorScheme {
+        return .{ .ptr = qtc.KColorScheme_new3(@bitCast(param1)) };
     }
 
     /// New4 constructs a new KColorScheme object.
@@ -39,64 +51,65 @@ pub const kcolorscheme = struct {
     ///
     /// ` param2: kcolorscheme_enums.ColorSet `
     ///
-    pub fn New4(param1: i32, param2: i32) QtC.KColorScheme {
-        return qtc.KColorScheme_new4(@bitCast(param1), @bitCast(param2));
+    pub fn New4(param1: i32, param2: i32) KColorScheme {
+        return .{ .ptr = qtc.KColorScheme_new4(@bitCast(param1), @bitCast(param2)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColorScheme `
+    /// ` self: KColorScheme `
     ///
-    /// ` param1: QtC.KColorScheme `
+    /// ` param1: KColorScheme `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KColorScheme_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    pub fn OperatorAssign(self: KColorScheme, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_KColorScheme;
+        qtc.KColorScheme_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#background)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColorScheme `
+    /// ` self: KColorScheme `
     ///
-    pub fn Background(self: ?*anyopaque) QtC.QBrush {
-        return qtc.KColorScheme_Background(@ptrCast(self));
+    pub fn Background(self: KColorScheme) QBrush {
+        return .{ .ptr = qtc.KColorScheme_Background(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#foreground)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColorScheme `
+    /// ` self: KColorScheme `
     ///
-    pub fn Foreground(self: ?*anyopaque) QtC.QBrush {
-        return qtc.KColorScheme_Foreground(@ptrCast(self));
+    pub fn Foreground(self: KColorScheme) QBrush {
+        return .{ .ptr = qtc.KColorScheme_Foreground(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#decoration)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColorScheme `
+    /// ` self: KColorScheme `
     ///
     /// ` param1: kcolorscheme_enums.DecorationRole `
     ///
-    pub fn Decoration(self: ?*anyopaque, param1: i32) QtC.QBrush {
-        return qtc.KColorScheme_Decoration(@ptrCast(self), @bitCast(param1));
+    pub fn Decoration(self: KColorScheme, param1: i32) QBrush {
+        return .{ .ptr = qtc.KColorScheme_Decoration(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#shade)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColorScheme `
+    /// ` self: KColorScheme `
     ///
     /// ` param1: kcolorscheme_enums.ShadeRole `
     ///
-    pub fn Shade(self: ?*anyopaque, param1: i32) QtC.QColor {
-        return qtc.KColorScheme_Shade(@ptrCast(self), @bitCast(param1));
+    pub fn Shade(self: KColorScheme, param1: i32) QColor {
+        return .{ .ptr = qtc.KColorScheme_Shade(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#contrastF)
@@ -109,89 +122,94 @@ pub const kcolorscheme = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QColor `
+    /// ` param1: QColor `
     ///
     /// ` param2: kcolorscheme_enums.ShadeRole `
     ///
-    pub fn Shade2(param1: ?*anyopaque, param2: i32) QtC.QColor {
-        return qtc.KColorScheme_Shade2(@ptrCast(param1), @bitCast(param2));
+    pub fn Shade2(param1: anytype, param2: i32) QColor {
+        comptime _ = @TypeOf(param1)._is_QColor;
+        return .{ .ptr = qtc.KColorScheme_Shade2(@ptrCast(param1.ptr), @bitCast(param2)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#shade)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QColor `
+    /// ` param1: QColor `
     ///
     /// ` param2: kcolorscheme_enums.ShadeRole `
     ///
     /// ` contrast: f64 `
     ///
-    pub fn Shade3(param1: ?*anyopaque, param2: i32, contrast: f64) QtC.QColor {
-        return qtc.KColorScheme_Shade3(@ptrCast(param1), @bitCast(param2), @bitCast(contrast));
+    pub fn Shade3(param1: anytype, param2: i32, contrast: f64) QColor {
+        comptime _ = @TypeOf(param1)._is_QColor;
+        return .{ .ptr = qtc.KColorScheme_Shade3(@ptrCast(param1.ptr), @bitCast(param2), @bitCast(contrast)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#adjustBackground)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QPalette `
+    /// ` param1: QPalette `
     ///
-    pub fn AdjustBackground(param1: ?*anyopaque) void {
-        qtc.KColorScheme_AdjustBackground(@ptrCast(param1));
+    pub fn AdjustBackground(param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPalette;
+        qtc.KColorScheme_AdjustBackground(@ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#adjustForeground)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QPalette `
+    /// ` param1: QPalette `
     ///
-    pub fn AdjustForeground(param1: ?*anyopaque) void {
-        qtc.KColorScheme_AdjustForeground(@ptrCast(param1));
+    pub fn AdjustForeground(param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_QPalette;
+        qtc.KColorScheme_AdjustForeground(@ptrCast(param1.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#operator-eq-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColorScheme `
+    /// ` self: KColorScheme `
     ///
-    /// ` other: QtC.KColorScheme `
+    /// ` other: KColorScheme `
     ///
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.KColorScheme_OperatorEqual(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorEqual(self: KColorScheme, other: anytype) bool {
+        comptime _ = @TypeOf(other)._is_KColorScheme;
+        return qtc.KColorScheme_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#background)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColorScheme `
+    /// ` self: KColorScheme `
     ///
     /// ` param1: kcolorscheme_enums.BackgroundRole `
     ///
-    pub fn Background1(self: ?*anyopaque, param1: i32) QtC.QBrush {
-        return qtc.KColorScheme_Background1(@ptrCast(self), @bitCast(param1));
+    pub fn Background1(self: KColorScheme, param1: i32) QBrush {
+        return .{ .ptr = qtc.KColorScheme_Background1(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#foreground)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KColorScheme `
+    /// ` self: KColorScheme `
     ///
     /// ` param1: kcolorscheme_enums.ForegroundRole `
     ///
-    pub fn Foreground1(self: ?*anyopaque, param1: i32) QtC.QBrush {
-        return qtc.KColorScheme_Foreground1(@ptrCast(self), @bitCast(param1));
+    pub fn Foreground1(self: KColorScheme, param1: i32) QBrush {
+        return .{ .ptr = qtc.KColorScheme_Foreground1(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#shade)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QColor `
+    /// ` param1: QColor `
     ///
     /// ` param2: kcolorscheme_enums.ShadeRole `
     ///
@@ -199,41 +217,44 @@ pub const kcolorscheme = struct {
     ///
     /// ` chromaAdjust: f64 `
     ///
-    pub fn Shade4(param1: ?*anyopaque, param2: i32, contrast: f64, chromaAdjust: f64) QtC.QColor {
-        return qtc.KColorScheme_Shade4(@ptrCast(param1), @bitCast(param2), @bitCast(contrast), @bitCast(chromaAdjust));
+    pub fn Shade4(param1: anytype, param2: i32, contrast: f64, chromaAdjust: f64) QColor {
+        comptime _ = @TypeOf(param1)._is_QColor;
+        return .{ .ptr = qtc.KColorScheme_Shade4(@ptrCast(param1.ptr), @bitCast(param2), @bitCast(contrast), @bitCast(chromaAdjust)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#adjustBackground)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QPalette `
+    /// ` param1: QPalette `
     ///
     /// ` newRole: kcolorscheme_enums.BackgroundRole `
     ///
-    pub fn AdjustBackground2(param1: ?*anyopaque, newRole: i32) void {
-        qtc.KColorScheme_AdjustBackground2(@ptrCast(param1), @bitCast(newRole));
+    pub fn AdjustBackground2(param1: anytype, newRole: i32) void {
+        comptime _ = @TypeOf(param1)._is_QPalette;
+        qtc.KColorScheme_AdjustBackground2(@ptrCast(param1.ptr), @bitCast(newRole));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#adjustBackground)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QPalette `
+    /// ` param1: QPalette `
     ///
     /// ` newRole: kcolorscheme_enums.BackgroundRole `
     ///
     /// ` color: qpalette_enums.ColorRole `
     ///
-    pub fn AdjustBackground3(param1: ?*anyopaque, newRole: i32, color: i32) void {
-        qtc.KColorScheme_AdjustBackground3(@ptrCast(param1), @bitCast(newRole), @bitCast(color));
+    pub fn AdjustBackground3(param1: anytype, newRole: i32, color: i32) void {
+        comptime _ = @TypeOf(param1)._is_QPalette;
+        qtc.KColorScheme_AdjustBackground3(@ptrCast(param1.ptr), @bitCast(newRole), @bitCast(color));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#adjustBackground)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QPalette `
+    /// ` param1: QPalette `
     ///
     /// ` newRole: kcolorscheme_enums.BackgroundRole `
     ///
@@ -241,41 +262,44 @@ pub const kcolorscheme = struct {
     ///
     /// ` set: kcolorscheme_enums.ColorSet `
     ///
-    pub fn AdjustBackground4(param1: ?*anyopaque, newRole: i32, color: i32, set: i32) void {
-        qtc.KColorScheme_AdjustBackground4(@ptrCast(param1), @bitCast(newRole), @bitCast(color), @bitCast(set));
+    pub fn AdjustBackground4(param1: anytype, newRole: i32, color: i32, set: i32) void {
+        comptime _ = @TypeOf(param1)._is_QPalette;
+        qtc.KColorScheme_AdjustBackground4(@ptrCast(param1.ptr), @bitCast(newRole), @bitCast(color), @bitCast(set));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#adjustForeground)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QPalette `
+    /// ` param1: QPalette `
     ///
     /// ` newRole: kcolorscheme_enums.ForegroundRole `
     ///
-    pub fn AdjustForeground2(param1: ?*anyopaque, newRole: i32) void {
-        qtc.KColorScheme_AdjustForeground2(@ptrCast(param1), @bitCast(newRole));
+    pub fn AdjustForeground2(param1: anytype, newRole: i32) void {
+        comptime _ = @TypeOf(param1)._is_QPalette;
+        qtc.KColorScheme_AdjustForeground2(@ptrCast(param1.ptr), @bitCast(newRole));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#adjustForeground)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QPalette `
+    /// ` param1: QPalette `
     ///
     /// ` newRole: kcolorscheme_enums.ForegroundRole `
     ///
     /// ` color: qpalette_enums.ColorRole `
     ///
-    pub fn AdjustForeground3(param1: ?*anyopaque, newRole: i32, color: i32) void {
-        qtc.KColorScheme_AdjustForeground3(@ptrCast(param1), @bitCast(newRole), @bitCast(color));
+    pub fn AdjustForeground3(param1: anytype, newRole: i32, color: i32) void {
+        comptime _ = @TypeOf(param1)._is_QPalette;
+        qtc.KColorScheme_AdjustForeground3(@ptrCast(param1.ptr), @bitCast(newRole), @bitCast(color));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorscheme.html#adjustForeground)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QPalette `
+    /// ` param1: QPalette `
     ///
     /// ` newRole: kcolorscheme_enums.ForegroundRole `
     ///
@@ -283,8 +307,9 @@ pub const kcolorscheme = struct {
     ///
     /// ` set: kcolorscheme_enums.ColorSet `
     ///
-    pub fn AdjustForeground4(param1: ?*anyopaque, newRole: i32, color: i32, set: i32) void {
-        qtc.KColorScheme_AdjustForeground4(@ptrCast(param1), @bitCast(newRole), @bitCast(color), @bitCast(set));
+    pub fn AdjustForeground4(param1: anytype, newRole: i32, color: i32, set: i32) void {
+        comptime _ = @TypeOf(param1)._is_QPalette;
+        qtc.KColorScheme_AdjustForeground4(@ptrCast(param1.ptr), @bitCast(newRole), @bitCast(color), @bitCast(set));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -297,10 +322,10 @@ pub const kcolorscheme = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KColorScheme `
+    /// ` self: KColorScheme `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KColorScheme_Delete(@ptrCast(self));
+    pub fn Delete(self: KColorScheme) void {
+        qtc.KColorScheme_Delete(@ptrCast(self.ptr));
     }
 };
 

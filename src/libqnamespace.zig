@@ -3,31 +3,41 @@ const qtc = @import("qt6c");
 const qnamespace_enums = enums;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html)
-pub const qkeycombination = struct {
+pub const QKeyCombination = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QKeyCombination,
+
+    pub const _is_QKeyCombination = {};
+
     /// New constructs a new QKeyCombination object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QKeyCombination `
+    /// ` other: QKeyCombination `
     ///
-    pub fn New(other: ?*anyopaque) QtC.QKeyCombination {
-        return qtc.QKeyCombination_new(@ptrCast(other));
+    pub fn New(other: anytype) QKeyCombination {
+        comptime _ = @TypeOf(other)._is_QKeyCombination;
+        return .{ .ptr = qtc.QKeyCombination_new(@ptrCast(other.ptr)) };
     }
 
     /// New2 constructs a new QKeyCombination object and invalidates the source QKeyCombination object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QKeyCombination `
+    /// ` other: QKeyCombination `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QKeyCombination {
-        return qtc.QKeyCombination_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QKeyCombination {
+        comptime _ = @TypeOf(other)._is_QKeyCombination;
+        return .{ .ptr = qtc.QKeyCombination_new2(@ptrCast(other.ptr)) };
     }
 
     /// New3 constructs a new QKeyCombination object.
     ///
-    pub fn New3() QtC.QKeyCombination {
-        return qtc.QKeyCombination_new3();
+    pub fn New3() QKeyCombination {
+        return .{ .ptr = qtc.QKeyCombination_new3() };
     }
 
     /// New4 constructs a new QKeyCombination object.
@@ -36,8 +46,8 @@ pub const qkeycombination = struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.Modifier `
     ///
-    pub fn New4(modifiers: i32) QtC.QKeyCombination {
-        return qtc.QKeyCombination_new4(@bitCast(modifiers));
+    pub fn New4(modifiers: i32) QKeyCombination {
+        return .{ .ptr = qtc.QKeyCombination_new4(@bitCast(modifiers)) };
     }
 
     /// New5 constructs a new QKeyCombination object.
@@ -46,18 +56,19 @@ pub const qkeycombination = struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn New5(modifiers: i32) QtC.QKeyCombination {
-        return qtc.QKeyCombination_new5(@bitCast(modifiers));
+    pub fn New5(modifiers: i32) QKeyCombination {
+        return .{ .ptr = qtc.QKeyCombination_new5(@bitCast(modifiers)) };
     }
 
     /// New6 constructs a new QKeyCombination object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.QKeyCombination `
+    /// ` param1: QKeyCombination `
     ///
-    pub fn New6(param1: ?*anyopaque) QtC.QKeyCombination {
-        return qtc.QKeyCombination_new6(@ptrCast(param1));
+    pub fn New6(param1: anytype) QKeyCombination {
+        comptime _ = @TypeOf(param1)._is_QKeyCombination;
+        return .{ .ptr = qtc.QKeyCombination_new6(@ptrCast(param1.ptr)) };
     }
 
     /// New7 constructs a new QKeyCombination object.
@@ -66,8 +77,8 @@ pub const qkeycombination = struct {
     ///
     /// ` key: qnamespace_enums.Key `
     ///
-    pub fn New7(key: i32) QtC.QKeyCombination {
-        return qtc.QKeyCombination_new7(@bitCast(key));
+    pub fn New7(key: i32) QKeyCombination {
+        return .{ .ptr = qtc.QKeyCombination_new7(@bitCast(key)) };
     }
 
     /// New8 constructs a new QKeyCombination object.
@@ -78,8 +89,8 @@ pub const qkeycombination = struct {
     ///
     /// ` key: qnamespace_enums.Key `
     ///
-    pub fn New8(modifiers: i32, key: i32) QtC.QKeyCombination {
-        return qtc.QKeyCombination_new8(@bitCast(modifiers), @bitCast(key));
+    pub fn New8(modifiers: i32, key: i32) QKeyCombination {
+        return .{ .ptr = qtc.QKeyCombination_new8(@bitCast(modifiers), @bitCast(key)) };
     }
 
     /// New9 constructs a new QKeyCombination object.
@@ -90,60 +101,60 @@ pub const qkeycombination = struct {
     ///
     /// ` key: qnamespace_enums.Key `
     ///
-    pub fn New9(modifiers: i32, key: i32) QtC.QKeyCombination {
-        return qtc.QKeyCombination_new9(@bitCast(modifiers), @bitCast(key));
+    pub fn New9(modifiers: i32, key: i32) QKeyCombination {
+        return .{ .ptr = qtc.QKeyCombination_new9(@bitCast(modifiers), @bitCast(key)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QKeyCombination `
+    /// ` self: QKeyCombination `
     ///
-    /// ` other: QtC.QKeyCombination `
+    /// ` other: QKeyCombination `
     ///
-    pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QKeyCombination_CopyAssign(@ptrCast(self), @ptrCast(other));
+    pub fn CopyAssign(self: QKeyCombination, other: QKeyCombination) void {
+        qtc.QKeyCombination_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.
     ///
     /// ## Parameters:
     ///
-    /// ` self: QtC.QKeyCombination `
+    /// ` self: QKeyCombination `
     ///
-    /// ` other: QtC.QKeyCombination `
+    /// ` other: QKeyCombination `
     ///
-    pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QKeyCombination_MoveAssign(@ptrCast(self), @ptrCast(other));
+    pub fn MoveAssign(self: QKeyCombination, other: QKeyCombination) void {
+        qtc.QKeyCombination_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#keyboardModifiers)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QKeyCombination `
+    /// ` self: QKeyCombination `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn KeyboardModifiers(self: ?*anyopaque) i32 {
-        return qtc.QKeyCombination_KeyboardModifiers(@ptrCast(self));
+    pub fn KeyboardModifiers(self: QKeyCombination) i32 {
+        return qtc.QKeyCombination_KeyboardModifiers(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#key)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QKeyCombination `
+    /// ` self: QKeyCombination `
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.Key `
     ///
-    pub fn Key(self: ?*anyopaque) i32 {
-        return qtc.QKeyCombination_Key(@ptrCast(self));
+    pub fn Key(self: QKeyCombination) i32 {
+        return qtc.QKeyCombination_Key(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#fromCombined)
@@ -152,28 +163,28 @@ pub const qkeycombination = struct {
     ///
     /// ` combined: i32 `
     ///
-    pub fn FromCombined(combined: i32) QtC.QKeyCombination {
-        return qtc.QKeyCombination_FromCombined(@bitCast(combined));
+    pub fn FromCombined(combined: i32) QKeyCombination {
+        return .{ .ptr = qtc.QKeyCombination_FromCombined(@bitCast(combined)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#toCombined)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QKeyCombination `
+    /// ` self: QKeyCombination `
     ///
-    pub fn ToCombined(self: ?*anyopaque) i32 {
-        return qtc.QKeyCombination_ToCombined(@ptrCast(self));
+    pub fn ToCombined(self: QKeyCombination) i32 {
+        return qtc.QKeyCombination_ToCombined(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qkeycombination.html#operator)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QKeyCombination `
+    /// ` self: QKeyCombination `
     ///
-    pub fn ToInt(self: ?*anyopaque) i32 {
-        return qtc.QKeyCombination_ToInt(@ptrCast(self));
+    pub fn ToInt(self: QKeyCombination) i32 {
+        return qtc.QKeyCombination_ToInt(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -186,10 +197,10 @@ pub const qkeycombination = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QKeyCombination `
+    /// ` self: QKeyCombination `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QKeyCombination_Delete(@ptrCast(self));
+    pub fn Delete(self: QKeyCombination) void {
+        qtc.QKeyCombination_Delete(@ptrCast(self.ptr));
     }
 };
 

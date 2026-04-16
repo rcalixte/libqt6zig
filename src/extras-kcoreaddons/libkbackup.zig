@@ -2,7 +2,15 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
 /// ### [Upstream resources](https://api.kde.org/kbackup.html)
-pub const kbackup = struct {
+pub const KBackup = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kbackup.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KBackup,
+
+    pub const _is_KBackup = {};
+
     /// ### [Upstream resources](https://api.kde.org/kbackup.html#simpleBackupFile)
     ///
     /// ## Parameter(s):

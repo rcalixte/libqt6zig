@@ -1,10 +1,19 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QUrl = @import("libqt6").QUrl;
 const kprotocolinfo_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html)
-pub const kprotocolinfo = struct {
+pub const KProtocolInfo = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KProtocolInfo,
+
+    pub const _is_KProtocolInfo = {};
+
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#protocols)
     ///
     /// ## Parameter(s):
@@ -15,9 +24,8 @@ pub const kprotocolinfo = struct {
         const _arr: qtc.libqt_list = qtc.KProtocolInfo_Protocols();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kprotocolinfo.Protocols: Memory allocation failed");
@@ -34,10 +42,11 @@ pub const kprotocolinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` url: QtC.QUrl `
+    /// ` url: QUrl `
     ///
-    pub fn IsKnownProtocol(url: ?*anyopaque) bool {
-        return qtc.KProtocolInfo_IsKnownProtocol(@ptrCast(url));
+    pub fn IsKnownProtocol(url: anytype) bool {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return qtc.KProtocolInfo_IsKnownProtocol(@ptrCast(url.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#isKnownProtocol)
@@ -58,11 +67,11 @@ pub const kprotocolinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` protocol: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Exec(protocol: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` protocol: []const u8 `
+    ///
+    pub fn Exec(allocator: std.mem.Allocator, protocol: []const u8) []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
@@ -78,16 +87,18 @@ pub const kprotocolinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` url: QtC.QUrl `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExtraFields(url: ?*anyopaque, allocator: std.mem.Allocator) []QtC.KProtocolInfo__ExtraField {
-        const _arr: qtc.libqt_list = qtc.KProtocolInfo_ExtraFields(@ptrCast(url));
+    /// ` url: QUrl `
+    ///
+    pub fn ExtraFields(allocator: std.mem.Allocator, url: anytype) []KProtocolInfo__ExtraField {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        const _arr: qtc.libqt_list = qtc.KProtocolInfo_ExtraFields(@ptrCast(url.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.KProtocolInfo__ExtraField, _arr.len) catch @panic("kprotocolinfo.ExtraFields: Memory allocation failed");
+        const _ret = allocator.alloc(KProtocolInfo__ExtraField, _arr.len) catch @panic("kprotocolinfo.ExtraFields: Memory allocation failed");
         const _data: [*]QtC.KProtocolInfo__ExtraField = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -95,10 +106,11 @@ pub const kprotocolinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` url: QtC.QUrl `
+    /// ` url: QUrl `
     ///
-    pub fn IsHelperProtocol(url: ?*anyopaque) bool {
-        return qtc.KProtocolInfo_IsHelperProtocol(@ptrCast(url));
+    pub fn IsHelperProtocol(url: anytype) bool {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return qtc.KProtocolInfo_IsHelperProtocol(@ptrCast(url.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#isHelperProtocol)
@@ -119,10 +131,11 @@ pub const kprotocolinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` url: QtC.QUrl `
+    /// ` url: QUrl `
     ///
-    pub fn IsFilterProtocol(url: ?*anyopaque) bool {
-        return qtc.KProtocolInfo_IsFilterProtocol(@ptrCast(url));
+    pub fn IsFilterProtocol(url: anytype) bool {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return qtc.KProtocolInfo_IsFilterProtocol(@ptrCast(url.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#isFilterProtocol)
@@ -143,11 +156,11 @@ pub const kprotocolinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` protocol: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Icon(protocol: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` protocol: []const u8 `
+    ///
+    pub fn Icon(allocator: std.mem.Allocator, protocol: []const u8) []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
@@ -163,11 +176,11 @@ pub const kprotocolinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` protocol: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Config(protocol: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` protocol: []const u8 `
+    ///
+    pub fn Config(allocator: std.mem.Allocator, protocol: []const u8) []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
@@ -225,11 +238,11 @@ pub const kprotocolinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` protocol: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultMimetype(protocol: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` protocol: []const u8 `
+    ///
+    pub fn DefaultMimetype(allocator: std.mem.Allocator, protocol: []const u8) []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
@@ -245,11 +258,11 @@ pub const kprotocolinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` protocol: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DocPath(protocol: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` protocol: []const u8 `
+    ///
+    pub fn DocPath(allocator: std.mem.Allocator, protocol: []const u8) []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
@@ -265,11 +278,11 @@ pub const kprotocolinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` protocol: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ProtocolClass(protocol: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` protocol: []const u8 `
+    ///
+    pub fn ProtocolClass(allocator: std.mem.Allocator, protocol: []const u8) []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
@@ -299,11 +312,11 @@ pub const kprotocolinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` protocol: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Capabilities(protocol: []const u8, allocator: std.mem.Allocator) []const []const u8 {
+    /// ` protocol: []const u8 `
+    ///
+    pub fn Capabilities(allocator: std.mem.Allocator, protocol: []const u8) []const []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
@@ -311,9 +324,8 @@ pub const kprotocolinfo = struct {
         const _arr: qtc.libqt_list = qtc.KProtocolInfo_Capabilities(protocol_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kprotocolinfo.Capabilities: Memory allocation failed");
@@ -330,11 +342,11 @@ pub const kprotocolinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` protocol: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ArchiveMimetypes(protocol: []const u8, allocator: std.mem.Allocator) []const []const u8 {
+    /// ` protocol: []const u8 `
+    ///
+    pub fn ArchiveMimetypes(allocator: std.mem.Allocator, protocol: []const u8) []const []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
@@ -342,9 +354,8 @@ pub const kprotocolinfo = struct {
         const _arr: qtc.libqt_list = qtc.KProtocolInfo_ArchiveMimetypes(protocol_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |i| {
+            for (0.._arr.len) |i|
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
-            }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kprotocolinfo.ArchiveMimetypes: Memory allocation failed");
@@ -361,11 +372,11 @@ pub const kprotocolinfo = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` protocol: []const u8 `
-    ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ProxiedBy(protocol: []const u8, allocator: std.mem.Allocator) []const u8 {
+    /// ` protocol: []const u8 `
+    ///
+    pub fn ProxiedBy(allocator: std.mem.Allocator, protocol: []const u8) []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
@@ -403,19 +414,27 @@ pub const kprotocolinfo = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KProtocolInfo `
+    /// ` self: KProtocolInfo `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KProtocolInfo_Delete(@ptrCast(self));
+    pub fn Delete(self: KProtocolInfo) void {
+        qtc.KProtocolInfo_Delete(@ptrCast(self.ptr));
     }
 };
 
 /// ### [Upstream resources](https://api.kde.org/kprotocolinfo-extrafield.html)
-pub const kprotocolinfo__extrafield = struct {
+pub const KProtocolInfo__ExtraField = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kprotocolinfo-extrafield.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KProtocolInfo__ExtraField,
+
+    pub const _is_KProtocolInfo__ExtraField = {};
+
     /// New constructs a new KProtocolInfo::ExtraField object.
     ///
-    pub fn New() QtC.KProtocolInfo__ExtraField {
-        return qtc.KProtocolInfo__ExtraField_new();
+    pub fn New() KProtocolInfo__ExtraField {
+        return .{ .ptr = qtc.KProtocolInfo__ExtraField_new() };
     }
 
     /// New2 constructs a new KProtocolInfo::ExtraField object.
@@ -426,35 +445,35 @@ pub const kprotocolinfo__extrafield = struct {
     ///
     /// ` _type: kprotocolinfo_enums.Type `
     ///
-    pub fn New2(_name: []const u8, _type: i32) QtC.KProtocolInfo__ExtraField {
+    pub fn New2(_name: []const u8, _type: i32) KProtocolInfo__ExtraField {
         const _name_str = qtc.libqt_string{
             .len = _name.len,
             .data = _name.ptr,
         };
-
-        return qtc.KProtocolInfo__ExtraField_new2(_name_str, @bitCast(_type));
+        return .{ .ptr = qtc.KProtocolInfo__ExtraField_new2(_name_str, @bitCast(_type)) };
     }
 
     /// New3 constructs a new KProtocolInfo::ExtraField object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QtC.KProtocolInfo__ExtraField `
+    /// ` param1: KProtocolInfo__ExtraField `
     ///
-    pub fn New3(param1: ?*anyopaque) QtC.KProtocolInfo__ExtraField {
-        return qtc.KProtocolInfo__ExtraField_new3(@ptrCast(param1));
+    pub fn New3(param1: anytype) KProtocolInfo__ExtraField {
+        comptime _ = @TypeOf(param1)._is_KProtocolInfo__ExtraField;
+        return .{ .ptr = qtc.KProtocolInfo__ExtraField_new3(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo-extrafield.html#name-var)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KProtocolInfo__ExtraField `
+    /// ` self: KProtocolInfo__ExtraField `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var name_str = qtc.KProtocolInfo__ExtraField_Name(@ptrCast(self));
+    pub fn Name(self: KProtocolInfo__ExtraField, allocator: std.mem.Allocator) []const u8 {
+        var name_str = qtc.KProtocolInfo__ExtraField_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&name_str);
         const name_ret = allocator.alloc(u8, name_str.len) catch @panic("kprotocolinfo__extrafield.Name: Memory allocation failed");
         @memcpy(name_ret, name_str.data[0..name_str.len]);
@@ -465,54 +484,55 @@ pub const kprotocolinfo__extrafield = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KProtocolInfo__ExtraField `
+    /// ` self: KProtocolInfo__ExtraField `
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetName(self: ?*anyopaque, name: []const u8) void {
+    pub fn SetName(self: KProtocolInfo__ExtraField, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.KProtocolInfo__ExtraField_SetName(@ptrCast(self), name_str);
+        qtc.KProtocolInfo__ExtraField_SetName(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo-extrafield.html#type-var)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KProtocolInfo__ExtraField `
+    /// ` self: KProtocolInfo__ExtraField `
     ///
     /// ## Returns:
     ///
     /// ` kprotocolinfo_enums.Type `
     ///
-    pub fn Type(self: ?*anyopaque) i32 {
-        return qtc.KProtocolInfo__ExtraField_Type(@ptrCast(self));
+    pub fn Type(self: KProtocolInfo__ExtraField) i32 {
+        return qtc.KProtocolInfo__ExtraField_Type(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo-extrafield.html#type-var)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KProtocolInfo__ExtraField `
+    /// ` self: KProtocolInfo__ExtraField `
     ///
     /// ` type: kprotocolinfo_enums.Type `
     ///
-    pub fn SetType(self: ?*anyopaque, _type: i32) void {
-        qtc.KProtocolInfo__ExtraField_SetType(@ptrCast(self), @bitCast(_type));
+    pub fn SetType(self: KProtocolInfo__ExtraField, _type: i32) void {
+        qtc.KProtocolInfo__ExtraField_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo-extrafield.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.KProtocolInfo__ExtraField `
+    /// ` self: KProtocolInfo__ExtraField `
     ///
-    /// ` param1: QtC.KProtocolInfo__ExtraField `
+    /// ` param1: KProtocolInfo__ExtraField `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.KProtocolInfo__ExtraField_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    pub fn OperatorAssign(self: KProtocolInfo__ExtraField, param1: anytype) void {
+        comptime _ = @TypeOf(param1)._is_KProtocolInfo__ExtraField;
+        qtc.KProtocolInfo__ExtraField_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -523,10 +543,10 @@ pub const kprotocolinfo__extrafield = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.KProtocolInfo__ExtraField `
+    /// ` self: KProtocolInfo__ExtraField `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.KProtocolInfo__ExtraField_Delete(@ptrCast(self));
+    pub fn Delete(self: KProtocolInfo__ExtraField) void {
+        qtc.KProtocolInfo__ExtraField_Delete(@ptrCast(self.ptr));
     }
 };
 

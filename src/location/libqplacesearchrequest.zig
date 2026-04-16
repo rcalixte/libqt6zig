@@ -1,61 +1,75 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QGeoShape = @import("libqt6").QGeoShape;
+const QPlaceCategory = @import("libqt6").QPlaceCategory;
+const QVariant = @import("libqt6").QVariant;
 const qlocation_enums = @import("libqlocation.zig").enums;
 const qplacesearchrequest_enums = enums;
 const std = @import("std");
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html)
-pub const qplacesearchrequest = struct {
+pub const QPlaceSearchRequest = extern struct {
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.QPlaceSearchRequest,
+
+    pub const _is_QPlaceSearchRequest = {};
+
     /// New constructs a new QPlaceSearchRequest object.
     ///
-    pub fn New() QtC.QPlaceSearchRequest {
-        return qtc.QPlaceSearchRequest_new();
+    pub fn New() QPlaceSearchRequest {
+        return .{ .ptr = qtc.QPlaceSearchRequest_new() };
     }
 
     /// New2 constructs a new QPlaceSearchRequest object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QtC.QPlaceSearchRequest `
+    /// ` other: QPlaceSearchRequest `
     ///
-    pub fn New2(other: ?*anyopaque) QtC.QPlaceSearchRequest {
-        return qtc.QPlaceSearchRequest_new2(@ptrCast(other));
+    pub fn New2(other: anytype) QPlaceSearchRequest {
+        comptime _ = @TypeOf(other)._is_QPlaceSearchRequest;
+        return .{ .ptr = qtc.QPlaceSearchRequest_new2(@ptrCast(other.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html#operator-eq)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchRequest `
+    /// ` self: QPlaceSearchRequest `
     ///
-    /// ` other: QtC.QPlaceSearchRequest `
+    /// ` other: QPlaceSearchRequest `
     ///
-    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QPlaceSearchRequest_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    pub fn OperatorAssign(self: QPlaceSearchRequest, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QPlaceSearchRequest;
+        qtc.QPlaceSearchRequest_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html#swap)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchRequest `
+    /// ` self: QPlaceSearchRequest `
     ///
-    /// ` other: QtC.QPlaceSearchRequest `
+    /// ` other: QPlaceSearchRequest `
     ///
-    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QPlaceSearchRequest_Swap(@ptrCast(self), @ptrCast(other));
+    pub fn Swap(self: QPlaceSearchRequest, other: anytype) void {
+        comptime _ = @TypeOf(other)._is_QPlaceSearchRequest;
+        qtc.QPlaceSearchRequest_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html#searchTerm)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchRequest `
+    /// ` self: QPlaceSearchRequest `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SearchTerm(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QPlaceSearchRequest_SearchTerm(@ptrCast(self));
+    pub fn SearchTerm(self: QPlaceSearchRequest, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QPlaceSearchRequest_SearchTerm(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qplacesearchrequest.SearchTerm: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -66,32 +80,33 @@ pub const qplacesearchrequest = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchRequest `
+    /// ` self: QPlaceSearchRequest `
     ///
     /// ` term: []const u8 `
     ///
-    pub fn SetSearchTerm(self: ?*anyopaque, term: []const u8) void {
+    pub fn SetSearchTerm(self: QPlaceSearchRequest, term: []const u8) void {
         const term_str = qtc.libqt_string{
             .len = term.len,
             .data = term.ptr,
         };
-        qtc.QPlaceSearchRequest_SetSearchTerm(@ptrCast(self), term_str);
+        qtc.QPlaceSearchRequest_SetSearchTerm(@ptrCast(self.ptr), term_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html#categories)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchRequest `
+    /// ` self: QPlaceSearchRequest `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Categories(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QPlaceCategory {
-        const _arr: qtc.libqt_list = qtc.QPlaceSearchRequest_Categories(@ptrCast(self));
+    pub fn Categories(self: QPlaceSearchRequest, allocator: std.mem.Allocator) []QPlaceCategory {
+        const _arr: qtc.libqt_list = qtc.QPlaceSearchRequest_Categories(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QPlaceCategory, _arr.len) catch @panic("qplacesearchrequest.Categories: Memory allocation failed");
+        const _ret = allocator.alloc(QPlaceCategory, _arr.len) catch @panic("qplacesearchrequest.Categories: Memory allocation failed");
         const _data: [*]QtC.QPlaceCategory = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
         return _ret;
     }
 
@@ -99,62 +114,64 @@ pub const qplacesearchrequest = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchRequest `
+    /// ` self: QPlaceSearchRequest `
     ///
-    /// ` category: QtC.QPlaceCategory `
+    /// ` category: QPlaceCategory `
     ///
-    pub fn SetCategory(self: ?*anyopaque, category: ?*anyopaque) void {
-        qtc.QPlaceSearchRequest_SetCategory(@ptrCast(self), @ptrCast(category));
+    pub fn SetCategory(self: QPlaceSearchRequest, category: anytype) void {
+        comptime _ = @TypeOf(category)._is_QPlaceCategory;
+        qtc.QPlaceSearchRequest_SetCategory(@ptrCast(self.ptr), @ptrCast(category.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html#setCategories)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchRequest `
+    /// ` self: QPlaceSearchRequest `
     ///
-    /// ` categories: []QtC.QPlaceCategory `
+    /// ` categories: []QPlaceCategory `
     ///
-    pub fn SetCategories(self: ?*anyopaque, categories: []QtC.QPlaceCategory) void {
+    pub fn SetCategories(self: QPlaceSearchRequest, categories: []QPlaceCategory) void {
         const categories_list = qtc.libqt_list{
             .len = categories.len,
             .data = @ptrCast(categories.ptr),
         };
-        qtc.QPlaceSearchRequest_SetCategories(@ptrCast(self), categories_list);
+        qtc.QPlaceSearchRequest_SetCategories(@ptrCast(self.ptr), categories_list);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html#searchArea)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchRequest `
+    /// ` self: QPlaceSearchRequest `
     ///
-    pub fn SearchArea(self: ?*anyopaque) QtC.QGeoShape {
-        return qtc.QPlaceSearchRequest_SearchArea(@ptrCast(self));
+    pub fn SearchArea(self: QPlaceSearchRequest) QGeoShape {
+        return .{ .ptr = qtc.QPlaceSearchRequest_SearchArea(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html#setSearchArea)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchRequest `
+    /// ` self: QPlaceSearchRequest `
     ///
-    /// ` area: QtC.QGeoShape `
+    /// ` area: QGeoShape `
     ///
-    pub fn SetSearchArea(self: ?*anyopaque, area: ?*anyopaque) void {
-        qtc.QPlaceSearchRequest_SetSearchArea(@ptrCast(self), @ptrCast(area));
+    pub fn SetSearchArea(self: QPlaceSearchRequest, area: anytype) void {
+        comptime _ = @TypeOf(area)._is_QGeoShape;
+        qtc.QPlaceSearchRequest_SetSearchArea(@ptrCast(self.ptr), @ptrCast(area.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html#recommendationId)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchRequest `
+    /// ` self: QPlaceSearchRequest `
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RecommendationId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.QPlaceSearchRequest_RecommendationId(@ptrCast(self));
+    pub fn RecommendationId(self: QPlaceSearchRequest, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QPlaceSearchRequest_RecommendationId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qplacesearchrequest.RecommendationId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -165,122 +182,123 @@ pub const qplacesearchrequest = struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchRequest `
+    /// ` self: QPlaceSearchRequest `
     ///
     /// ` recommendationId: []const u8 `
     ///
-    pub fn SetRecommendationId(self: ?*anyopaque, recommendationId: []const u8) void {
+    pub fn SetRecommendationId(self: QPlaceSearchRequest, recommendationId: []const u8) void {
         const recommendationId_str = qtc.libqt_string{
             .len = recommendationId.len,
             .data = recommendationId.ptr,
         };
-        qtc.QPlaceSearchRequest_SetRecommendationId(@ptrCast(self), recommendationId_str);
+        qtc.QPlaceSearchRequest_SetRecommendationId(@ptrCast(self.ptr), recommendationId_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html#searchContext)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchRequest `
+    /// ` self: QPlaceSearchRequest `
     ///
-    pub fn SearchContext(self: ?*anyopaque) QtC.QVariant {
-        return qtc.QPlaceSearchRequest_SearchContext(@ptrCast(self));
+    pub fn SearchContext(self: QPlaceSearchRequest) QVariant {
+        return .{ .ptr = qtc.QPlaceSearchRequest_SearchContext(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html#setSearchContext)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchRequest `
+    /// ` self: QPlaceSearchRequest `
     ///
-    /// ` context: QtC.QVariant `
+    /// ` context: QVariant `
     ///
-    pub fn SetSearchContext(self: ?*anyopaque, context: ?*anyopaque) void {
-        qtc.QPlaceSearchRequest_SetSearchContext(@ptrCast(self), @ptrCast(context));
+    pub fn SetSearchContext(self: QPlaceSearchRequest, context: anytype) void {
+        comptime _ = @TypeOf(context)._is_QVariant;
+        qtc.QPlaceSearchRequest_SetSearchContext(@ptrCast(self.ptr), @ptrCast(context.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html#visibilityScope)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchRequest `
+    /// ` self: QPlaceSearchRequest `
     ///
     /// ## Returns:
     ///
     /// ` flag of qlocation_enums.Visibility `
     ///
-    pub fn VisibilityScope(self: ?*anyopaque) i32 {
-        return qtc.QPlaceSearchRequest_VisibilityScope(@ptrCast(self));
+    pub fn VisibilityScope(self: QPlaceSearchRequest) i32 {
+        return qtc.QPlaceSearchRequest_VisibilityScope(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html#setVisibilityScope)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchRequest `
+    /// ` self: QPlaceSearchRequest `
     ///
     /// ` visibilityScopes: flag of qlocation_enums.Visibility `
     ///
-    pub fn SetVisibilityScope(self: ?*anyopaque, visibilityScopes: i32) void {
-        qtc.QPlaceSearchRequest_SetVisibilityScope(@ptrCast(self), @bitCast(visibilityScopes));
+    pub fn SetVisibilityScope(self: QPlaceSearchRequest, visibilityScopes: i32) void {
+        qtc.QPlaceSearchRequest_SetVisibilityScope(@ptrCast(self.ptr), @bitCast(visibilityScopes));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html#relevanceHint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchRequest `
+    /// ` self: QPlaceSearchRequest `
     ///
     /// ## Returns:
     ///
     /// ` qplacesearchrequest_enums.RelevanceHint `
     ///
-    pub fn RelevanceHint(self: ?*anyopaque) i32 {
-        return qtc.QPlaceSearchRequest_RelevanceHint(@ptrCast(self));
+    pub fn RelevanceHint(self: QPlaceSearchRequest) i32 {
+        return qtc.QPlaceSearchRequest_RelevanceHint(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html#setRelevanceHint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchRequest `
+    /// ` self: QPlaceSearchRequest `
     ///
     /// ` hint: qplacesearchrequest_enums.RelevanceHint `
     ///
-    pub fn SetRelevanceHint(self: ?*anyopaque, hint: i32) void {
-        qtc.QPlaceSearchRequest_SetRelevanceHint(@ptrCast(self), @bitCast(hint));
+    pub fn SetRelevanceHint(self: QPlaceSearchRequest, hint: i32) void {
+        qtc.QPlaceSearchRequest_SetRelevanceHint(@ptrCast(self.ptr), @bitCast(hint));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html#limit)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchRequest `
+    /// ` self: QPlaceSearchRequest `
     ///
-    pub fn Limit(self: ?*anyopaque) i32 {
-        return qtc.QPlaceSearchRequest_Limit(@ptrCast(self));
+    pub fn Limit(self: QPlaceSearchRequest) i32 {
+        return qtc.QPlaceSearchRequest_Limit(@ptrCast(self.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html#setLimit)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchRequest `
+    /// ` self: QPlaceSearchRequest `
     ///
     /// ` limit: i32 `
     ///
-    pub fn SetLimit(self: ?*anyopaque, limit: i32) void {
-        qtc.QPlaceSearchRequest_SetLimit(@ptrCast(self), @bitCast(limit));
+    pub fn SetLimit(self: QPlaceSearchRequest, limit: i32) void {
+        qtc.QPlaceSearchRequest_SetLimit(@ptrCast(self.ptr), @bitCast(limit));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacesearchrequest.html#clear)
     ///
     /// ## Parameter(s):
     ///
-    /// ` self: QtC.QPlaceSearchRequest `
+    /// ` self: QPlaceSearchRequest `
     ///
-    pub fn Clear(self: ?*anyopaque) void {
-        qtc.QPlaceSearchRequest_Clear(@ptrCast(self));
+    pub fn Clear(self: QPlaceSearchRequest) void {
+        qtc.QPlaceSearchRequest_Clear(@ptrCast(self.ptr));
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -293,10 +311,10 @@ pub const qplacesearchrequest = struct {
     ///
     /// ## Parameter:
     ///
-    /// ` self: QtC.QPlaceSearchRequest `
+    /// ` self: QPlaceSearchRequest `
     ///
-    pub fn Delete(self: ?*anyopaque) void {
-        qtc.QPlaceSearchRequest_Delete(@ptrCast(self));
+    pub fn Delete(self: QPlaceSearchRequest) void {
+        qtc.QPlaceSearchRequest_Delete(@ptrCast(self.ptr));
     }
 };
 
